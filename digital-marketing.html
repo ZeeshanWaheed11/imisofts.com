@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Marketing Services | Performance Marketing & Growth | imisofts</title>
+  <meta name="description" content="Data-driven digital marketing that delivers measurable ROI. Paid media, SEO, email marketing, and cold outreach. From $2,999/month.">
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #F45407;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .nav-logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a1a;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+    
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      padding: 8px;
+      min-width: 320px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .dropdown-item-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dropdown-item-icon svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .dropdown-item-content {
+      flex: 1;
+    }
+    
+    .dropdown-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    
+    .dropdown-item-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    .current-page {
+      background: rgba(244, 84, 7, 0.1);
+    }
+    
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .mobile-services {
+      margin: 16px 0;
+    }
+    
+    .mobile-services-title {
+      padding: 12px 16px;
+      font-weight: 600;
+      color: #999;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .mobile-service-link {
+      display: block;
+      padding: 12px 16px 12px 32px;
+      color: #666;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+    
+    .mobile-service-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+      color: #F45407;
+    }
+    
+    .mobile-service-link.current {
+      background: rgba(244, 84, 7, 0.1);
+      color: #F45407;
+      font-weight: 600;
+    }
+    
+    .mobile-cta {
+      display: block;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    
+    /* ============= MAIN CONTENT STYLES ============= */
+    
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Responsive Grid Classes */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .grid-5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    
+    /* Card Styles */
+    .service-card {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #e5e5e5;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+    
+    .metric-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e5e5e5;
+    }
+    
+    .tool-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #666;
+      margin: 4px;
+    }
+    
+    /* ============= FOOTER STYLES ============= */
+    .footer {
+      background: #0a0a0a;
+      color: #ccc;
+      padding: 80px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-brand h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    
+    .footer-brand p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #999;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+      background: #F45407;
+      transform: translateY(-3px);
+    }
+    
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: #F45407;
+      transform: translateX(3px);
+    }
+    
+    .footer-bottom {
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .footer-copyright {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .footer-bottom-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-bottom-links a:hover {
+      color: #F45407;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .grid-5 {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+        line-height: 1.2 !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .section-padding {
+        padding: 48px 0 !important;
+      }
+      
+      .hide-mobile {
+        display: none !important;
+      }
+      
+      .metrics-visual {
+        display: none !important;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ============= NAVBAR ============= -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo-wrapper">
+          <div class="nav-logo-icon">im</div>
+          <div class="nav-logo">imisofts</div>
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <a href="/ai-automation" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Automation</div>
+                  <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                </div>
+              </a>
+              
+              <a href="/digital-marketing" class="dropdown-item current-page">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Digital Marketing</div>
+                  <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                </div>
+              </a>
+              
+              <a href="/ecommerce" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">E-commerce</div>
+                  <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                </div>
+              </a>
+              
+              <a href="/web-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Web Development</div>
+                  <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                </div>
+              </a>
+              
+              <a href="/crm-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">CRM Development</div>
+                  <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                </div>
+              </a>
+              
+              <a href="/shopify-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Shopify Apps</div>
+                  <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                </div>
+              </a>
+              
+              <a href="/ai-mobile-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Mobile Apps</div>
+                  <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          
+          <!-- CTA Button -->
+          <a href="/contact" class="nav-cta">Get Growth Audit</a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="mobile-nav-link">Home</a>
+      
+      <div class="mobile-services">
+        <div class="mobile-services-title">Services</div>
+        <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+        <a href="/digital-marketing" class="mobile-service-link current">Digital Marketing</a>
+        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+        <a href="/web-development" class="mobile-service-link">Web Development</a>
+        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+        <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+        <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+      </div>
+      
+      <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/pricing" class="mobile-nav-link">Pricing</a>
+      <a href="/blog" class="mobile-nav-link">Blog</a>
+      
+      <a href="/contact" class="mobile-cta">Get Growth Audit</a>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="section-padding" style="padding: 80px 0; background: linear-gradient(to bottom, #ffffff, #f9fafb);">
+    <div class="container">
+      <div class="hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+        <div>
+          <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: #fff5f3; border-radius: 50px; margin-bottom: 24px;">
+            <span style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;"></span>
+            <span style="color: #F45407; font-size: 14px; font-weight: 500;">Performance Marketing That Scales</span>
+          </div>
+          
+          <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 24px; color: #1a1a1a;">
+            Marketing That Drives 
+            <span style="color: #F45407;">Predictable Revenue Growth</span>
+          </h1>
+          
+          <p style="font-size: 20px; color: #333; line-height: 1.6; margin-bottom: 16px; font-weight: 600;">
+            Data-driven campaigns across paid media, SEO, email, and cold outreach that deliver measurable ROI.
+          </p>
+          
+          <p style="font-size: 18px; color: #666; line-height: 1.6; margin-bottom: 32px;">
+            We manage your entire marketing funnel—from first touch to customer retention. 
+            Google Ads, Meta, SEO, email marketing, cold outreach, and lifecycle campaigns. 
+            Weekly reporting, monthly strategy reviews, and transparent performance metrics.
+          </p>
+          
+          <div style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
+            <a href="#audit" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px; transition: all 0.3s ease;">
+              Get Free Growth Audit →
+            </a>
+            <a href="#services" style="padding: 14px 28px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
+              View Services & Pricing
+            </a>
+          </div>
+          
+          <div class="stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">$50M+</div>
+              <div style="font-size: 14px; color: #666;">Revenue Generated</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">3.8x</div>
+              <div style="font-size: 14px; color: #666;">Average ROAS</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">45%</div>
+              <div style="font-size: 14px; color: #666;">Lower CAC</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">200+</div>
+              <div style="font-size: 14px; color: #666;">Accounts Managed</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="metrics-visual" style="position: relative;">
+          <div style="background: white; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <div style="font-size: 14px; color: #F45407; font-weight: 600; margin-bottom: 8px;">REAL-TIME PERFORMANCE</div>
+              <div style="font-size: 36px; font-weight: 700; color: #1a1a1a;">Today's Metrics</div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #f9fafb; border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 12px; color: #666;">Ad Spend</div>
+                  <div style="font-size: 18px; color: #1a1a1a; font-weight: 600;">$12,847</div>
+                </div>
+                <div style="font-size: 12px; color: #10b981;">↑ 12%</div>
+              </div>
+              
+              <div style="background: #f9fafb; border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 12px; color: #666;">Revenue</div>
+                  <div style="font-size: 18px; color: #1a1a1a; font-weight: 600;">$48,923</div>
+                </div>
+                <div style="font-size: 12px; color: #10b981;">↑ 23%</div>
+              </div>
+              
+              <div style="background: #f9fafb; border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 12px; color: #666;">ROAS</div>
+                  <div style="font-size: 18px; color: #1a1a1a; font-weight: 600;">3.81x</div>
+                </div>
+                <div style="font-size: 12px; color: #10b981;">↑ 8%</div>
+              </div>
+              
+              <div style="background: #f9fafb; border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 12px; color: #666;">Conversions</div>
+                  <div style="font-size: 18px; color: #1a1a1a; font-weight: 600;">247</div>
+                </div>
+                <div style="font-size: 12px; color: #10b981;">↑ 15%</div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #e5e5e5; text-align: center;">
+              <div style="font-size: 12px; color: #999;">Updated every 30 minutes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Services Section -->
+  <section id="services" class="section-padding" style="padding: 80px 0; background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Full-Funnel Marketing Services</h2>
+        <p style="font-size: 18px; color: #666;">
+          From awareness to retention, we manage every touchpoint that drives growth.
+        </p>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 32px;">
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-9h-.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Paid Media</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Strategic campaigns across Google, Meta, TikTok, and LinkedIn that maximize ROAS and minimize CAC.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Search, Shopping & Display campaigns</li>
+            <li style="margin-bottom: 8px;">✓ Social media advertising</li>
+            <li style="margin-bottom: 8px;">✓ Retargeting & lookalike audiences</li>
+            <li style="margin-bottom: 8px;">✓ Creative testing & optimization</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">SEO</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Organic growth strategies that drive qualified traffic and improve conversion rates.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Technical SEO audits</li>
+            <li style="margin-bottom: 8px;">✓ Content strategy & creation</li>
+            <li style="margin-bottom: 8px;">✓ Link building campaigns</li>
+            <li style="margin-bottom: 8px;">✓ Local SEO optimization</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Cold Email Marketing</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            B2B outbound campaigns that generate qualified meetings and pipeline.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ List building & verification</li>
+            <li style="margin-bottom: 8px;">✓ Email warming & deliverability</li>
+            <li style="margin-bottom: 8px;">✓ Personalization at scale</li>
+            <li style="margin-bottom: 8px;">✓ A/B testing & optimization</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Social Media Management</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Content strategy and community management that builds brand and drives engagement.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Content calendar & creation</li>
+            <li style="margin-bottom: 8px;">✓ Community management</li>
+            <li style="margin-bottom: 8px;">✓ Influencer partnerships</li>
+            <li style="margin-bottom: 8px;">✓ Social listening & insights</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Lifecycle Marketing</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Email, SMS, and WhatsApp campaigns that nurture leads and retain customers.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Welcome & onboarding flows</li>
+            <li style="margin-bottom: 8px;">✓ Cart abandonment recovery</li>
+            <li style="margin-bottom: 8px;">✓ Win-back campaigns</li>
+            <li style="margin-bottom: 8px;">✓ Loyalty programs</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Analytics & Reporting</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Real-time dashboards and insights that drive data-informed decisions.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Custom dashboard setup</li>
+            <li style="margin-bottom: 8px;">✓ Weekly performance reports</li>
+            <li style="margin-bottom: 8px;">✓ Monthly strategy reviews</li>
+            <li style="margin-bottom: 8px;">✓ Attribution modeling</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Metrics Section -->
+  <section class="section-padding" style="padding: 80px 0; background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Metrics We Track & Optimize</h2>
+        <p style="font-size: 18px; color: #666;">
+          Full-funnel visibility with weekly reports and monthly strategy reviews.
+        </p>
+      </div>
+      
+      <div class="grid grid-5" style="gap: 24px;">
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #F45407;">Acquisition</h4>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">• Cost Per Click (CPC)</li>
+            <li style="margin-bottom: 8px;">• Click-Through Rate</li>
+            <li style="margin-bottom: 8px;">• Conversion Rate</li>
+            <li style="margin-bottom: 8px;">• Customer Acquisition Cost</li>
+            <li style="margin-bottom: 8px;">• Return on Ad Spend</li>
+            <li style="margin-bottom: 8px;">• Marketing Efficiency Ratio</li>
+          </ul>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #F45407;">Funnel</h4>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">• Lead → MQL Rate</li>
+            <li style="margin-bottom: 8px;">• MQL → SQL Rate</li>
+            <li style="margin-bottom: 8px;">• Show Rate</li>
+            <li style="margin-bottom: 8px;">• Close Rate</li>
+            <li style="margin-bottom: 8px;">• Pipeline Velocity</li>
+            <li style="margin-bottom: 8px;">• Deal Size</li>
+          </ul>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #F45407;">Retention</h4>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">• Repeat Purchase Rate</li>
+            <li style="margin-bottom: 8px;">• Customer Lifetime Value</li>
+            <li style="margin-bottom: 8px;">• Churn Rate</li>
+            <li style="margin-bottom: 8px;">• Payback Period</li>
+            <li style="margin-bottom: 8px;">• Net Revenue Retention</li>
+            <li style="margin-bottom: 8px;">• Customer Health Score</li>
+          </ul>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #F45407;">Site Performance</h4>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">• Conversion Rate</li>
+            <li style="margin-bottom: 8px;">• Average Order Value</li>
+            <li style="margin-bottom: 8px;">• Bounce Rate</li>
+            <li style="margin-bottom: 8px;">• Scroll Depth</li>
+            <li style="margin-bottom: 8px;">• Page Load Speed</li>
+            <li style="margin-bottom: 8px;">• Cart Abandonment</li>
+          </ul>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #F45407;">Creative</h4>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">• Thumb-Stop Rate</li>
+            <li style="margin-bottom: 8px;">• Hold Rate</li>
+            <li style="margin-bottom: 8px;">• Hook Effectiveness</li>
+            <li style="margin-bottom: 8px;">• Engagement Rate</li>
+            <li style="margin-bottom: 8px;">• Share Rate</li>
+            <li style="margin-bottom: 8px;">• Creative Fatigue</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Tech Stack Section -->
+  <section class="section-padding" style="padding: 80px 0; background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Enterprise-Grade Marketing Stack</h2>
+        <p style="font-size: 18px; color: #666;">
+          We work with the tools you trust and integrate everything for seamless operations.
+        </p>
+      </div>
+      
+      <div style="max-width: 1000px; margin: 0 auto;">
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">ADVERTISING PLATFORMS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tool-badge">Google Ads</span>
+            <span class="tool-badge">Meta Ads Manager</span>
+            <span class="tool-badge">TikTok Ads</span>
+            <span class="tool-badge">LinkedIn Campaign Manager</span>
+            <span class="tool-badge">Snapchat Ads</span>
+            <span class="tool-badge">Microsoft Ads</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">SEO & CONTENT</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tool-badge">Ahrefs</span>
+            <span class="tool-badge">Semrush</span>
+            <span class="tool-badge">Screaming Frog</span>
+            <span class="tool-badge">Surfer SEO</span>
+            <span class="tool-badge">Clearscope</span>
+            <span class="tool-badge">Google Search Console</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">EMAIL & LIFECYCLE</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tool-badge">Klaviyo</span>
+            <span class="tool-badge">HubSpot</span>
+            <span class="tool-badge">Mailchimp</span>
+            <span class="tool-badge">ActiveCampaign</span>
+            <span class="tool-badge">Twilio</span>
+            <span class="tool-badge">WhatsApp Business API</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">COLD OUTREACH</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tool-badge">Instantly</span>
+            <span class="tool-badge">Smartlead</span>
+            <span class="tool-badge">Apollo.io</span>
+            <span class="tool-badge">Clay</span>
+            <span class="tool-badge">Hunter.io</span>
+            <span class="tool-badge">ZoomInfo</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">ANALYTICS & TRACKING</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tool-badge">Google Analytics 4</span>
+            <span class="tool-badge">Google Tag Manager</span>
+            <span class="tool-badge">Looker Studio</span>
+            <span class="tool-badge">Server-side GTM</span>
+            <span class="tool-badge">BigQuery</span>
+            <span class="tool-badge">Segment</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">CRO & TESTING</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tool-badge">Hotjar</span>
+            <span class="tool-badge">Microsoft Clarity</span>
+            <span class="tool-badge">Optimizely</span>
+            <span class="tool-badge">VWO</span>
+            <span class="tool-badge">Unbounce</span>
+            <span class="tool-badge">Google Optimize</span>
+          </div>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">CRM PLATFORMS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tool-badge">HubSpot</span>
+            <span class="tool-badge">Salesforce</span>
+            <span class="tool-badge">Pipedrive</span>
+            <span class="tool-badge">Zoho CRM</span>
+            <span class="tool-badge">Monday.com</span>
+            <span class="tool-badge">Close</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Implementation Phases Section -->
+  <section class="section-padding" style="padding: 80px 0; background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">How We Drive Growth: 30-Day Launch Process</h2>
+        <p style="font-size: 18px; color: #666;">
+          From audit to optimization, a proven process that delivers results fast.
+        </p>
+      </div>
+      
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; margin-bottom: 20px; transition: all 0.3s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 1: Audit & Strategy</h3>
+              <span style="font-size: 14px; color: #666;">Days 1-7</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Deep dive into your current performance, competitors, and opportunities.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Account audit & competitor analysis</li>
+            <li style="margin-bottom: 6px;">✓ Customer research & persona development</li>
+            <li style="margin-bottom: 6px;">✓ Channel strategy & budget allocation</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: Growth roadmap with projected ROI
+          </p>
+        </div>
+        
+        <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; margin-bottom: 20px; transition: all 0.3s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 2: Setup & Integration</h3>
+              <span style="font-size: 14px; color: #666;">Days 8-14</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Configure tracking, build campaigns, and set up automations.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Tracking & analytics setup</li>
+            <li style="margin-bottom: 6px;">✓ Campaign structure & ad creation</li>
+            <li style="margin-bottom: 6px;">✓ Landing page optimization</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: Live campaigns with proper tracking
+          </p>
+        </div>
+        
+        <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; margin-bottom: 20px; transition: all 0.3s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 3: Launch & Test</h3>
+              <span style="font-size: 14px; color: #666;">Days 15-21</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Launch campaigns, monitor performance, and gather initial data.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Campaign launch across channels</li>
+            <li style="margin-bottom: 6px;">✓ A/B testing framework</li>
+            <li style="margin-bottom: 6px;">✓ Daily monitoring & adjustments</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: First performance data & insights
+          </p>
+        </div>
+        
+        <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; margin-bottom: 20px; transition: all 0.3s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 4: Optimize & Scale</h3>
+              <span style="font-size: 14px; color: #666;">Days 22-30</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">4</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Analyze results, optimize for performance, and scale winners.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Performance analysis & optimization</li>
+            <li style="margin-bottom: 6px;">✓ Scale winning campaigns</li>
+            <li style="margin-bottom: 6px;">✓ Expand to new audiences</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: Optimized campaigns with positive ROI
+          </p>
+        </div>
+        
+        <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; transition: all 0.3s ease;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 5: Continuous Growth</strong></h3>
+              <span style="font-size: 14px; color: #666;">Ongoing</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">5</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Weekly optimizations, monthly strategy reviews, and quarterly planning.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Weekly performance optimization</li>
+            <li style="margin-bottom: 6px;">✓ Monthly strategy reviews</li>
+            <li style="margin-bottom: 6px;">✓ New channel testing</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: Sustained growth and improved ROAS month-over-month
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pricing Section -->
+  <section id="pricing" class="section-padding" style="padding: 80px 0; background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Transparent, Performance-Based Pricing</h2>
+        <p style="font-size: 18px; color: #666;">
+          Monthly retainers with no long-term contracts. Cancel anytime with 30 days notice.
+        </p>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 24px;">
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Growth</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$2,999</span>
+            <span style="color: #999; font-size: 16px;">/month</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">For businesses spending up to $10k/month on ads</p>
+          
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What's included:</p>
+            <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>2 advertising platforms (Google + Meta)</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Campaign setup & optimization</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Landing page optimization</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Weekly performance reports</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Monthly strategy calls</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Best for:</strong> Startups and small businesses beginning to scale
+          </p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 12px; border-radius: 50px; font-size: 12px;">
+            MOST POPULAR
+          </div>
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Scale</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$5,999</span>
+            <span style="color: #999; font-size: 16px;">/month</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">For businesses spending $10k-50k/month on ads</p>
+          
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What's included:</p>
+            <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>All advertising platforms</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>SEO & content marketing</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Email marketing automation</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Creative production (4 assets/month)</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>CRO & A/B testing</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Dedicated account manager</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Best for:</strong> Growing businesses ready to accelerate
+          </p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 12px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started Today
+          </a>
+        </div>
+        
+        <div style="background: #1a1a1a; color: white; padding: 32px; border-radius: 16px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Enterprise</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">Custom</span>
+          </div>
+          <p style="font-size: 14px; color: #ccc; margin-bottom: 24px; font-weight: 600;">For businesses spending $50k+/month on ads</p>
+          
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: white;">What's included:</p>
+            <ul style="font-size: 14px; color: #ccc; list-style: none; padding: 0;">
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Full marketing team</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Omnichannel campaigns</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Custom reporting & analytics</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Unlimited creative production</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Weekly optimization</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Quarterly business reviews</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #333;">
+            <strong>Best for:</strong> Established brands with aggressive growth targets
+          </p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 12px; background: white; color: #1a1a1a; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Schedule Strategy Call
+          </a>
+        </div>
+      </div>
+      
+      <div style="margin-top: 48px; padding: 24px; background: white; border-radius: 12px; border: 1px solid #e5e5e5;">
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 32px; align-items: center;">
+          <div style="text-align: center;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">No setup fees</div>
+            <div style="font-size: 16px; font-weight: 600; color: #1a1a1a;">Start immediately</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Month-to-month</div>
+            <div style="font-size: 16px; font-weight: 600; color: #1a1a1a;">No contracts</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Performance guarantee</div>
+            <div style="font-size: 16px; font-weight: 600; color: #1a1a1a;">Or your money back</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section id="audit" class="section-padding" style="padding: 80px 0; background: linear-gradient(135deg, #F45407, #e14a06);">
+    <div class="container" style="max-width: 800px;">
+      <div style="text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 700; color: white; margin-bottom: 16px;">Get Your Free Growth Audit</h2>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 48px;">
+          We'll analyze your current marketing, identify growth opportunities, 
+          and show you exactly how to improve your ROAS. No fluff, just data-driven insights.
+        </p>
+      </div>
+      
+      <form style="max-width: 600px; margin: 0 auto;">
+        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="text" placeholder="Name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+          <input type="text" placeholder="Company" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+        </div>
+        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+          <input type="tel" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;">
+        </div>
+        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 16px; background: white;">
+          <option>Monthly ad spend</option>
+          <option>Under $5,000</option>
+          <option>$5,000 - $10,000</option>
+          <option>$10,000 - $50,000</option>
+          <option>$50,000 - $100,000</option>
+          <option>Over $100,000</option>
+        </select>
+        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px; background: white;">
+          <option>Primary marketing goal</option>
+          <option>Generate more leads</option>
+          <option>Increase sales/revenue</option>
+          <option>Improve ROAS</option>
+          <option>Build brand awareness</option>
+          <option>Launch new product/service</option>
+        </select>
+        
+        <button type="submit" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%;">
+          Get Your Free Audit →
+        </button>
+      </form>
+      
+      <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
+        <p style="font-size: 16px;">Or call us directly: <a href="tel:+1234567890" style="color: white; font-weight: 600;">+1 (234) 567-890</a></p>
+        <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Free 30-minute audit includes competitor analysis and growth roadmap</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ============= FOOTER ============= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <h3>imisofts</h3>
+          <p>Performance marketing and growth automation that delivers measurable results.</p>
+          <div class="footer-social">
+            <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/imisofts" aria-label="Twitter">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/imisofts" aria-label="Instagram">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/imisofts" aria-label="GitHub">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Services Column -->
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/ai-automation">AI Automation</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/crm-development">CRM Systems</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+          </ul>
+        </div>
+        
+        <!-- Company Column -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Column -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/free-audit">Free Growth Audit</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/api-docs">API Docs</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Column -->
+        <div class="footer-column">
+          <h4>Get In Touch</h4>
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Ready to scale?</p>
+            <p style="font-size: 15px; color: white;">growth@imisofts.com</p>
+            <p style="font-size: 15px; color: white;">+1 (234) 567-890</p>
+          </div>
+          <a href="#audit" style="display: inline-block; padding: 10px 20px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 14px;">
+            Get Free Audit →
+          </a>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2025 imisofts. All rights reserved.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/cookies">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Services dropdown toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById('servicesDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('servicesDropdown');
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+  </script>
+  
+</body>
+</html>
