@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Client Dashboard - imisofts</title>
   
-  <!-- Supabase Client Library -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  
   <style>
     * {
       margin: 0;
@@ -296,6 +293,31 @@
       color: #16a34a;
     }
     
+    .status-badge.done {
+      background: #d4f4dd;
+      color: #16a34a;
+    }
+    
+    .status-badge.todo {
+      background: #f3f4f6;
+      color: #6b7280;
+    }
+    
+    .status-badge.high {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+    
+    .status-badge.medium {
+      background: #fef3c7;
+      color: #d97706;
+    }
+    
+    .status-badge.low {
+      background: #f3f4f6;
+      color: #6b7280;
+    }
+    
     .project-description {
       font-size: 14px;
       color: #6b7280;
@@ -334,22 +356,6 @@
       background: #3b82f6;
       border-radius: 3px;
       transition: width 0.3s ease;
-    }
-    
-    .view-btn {
-      padding: 6px 16px;
-      background: #3b82f6;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .view-btn:hover {
-      background: #2563eb;
     }
     
     /* Updates Timeline */
@@ -429,6 +435,33 @@
       margin-top: 8px;
     }
     
+    /* Task List */
+    .task-list {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #e5e7eb;
+      margin-bottom: 20px;
+    }
+    
+    .task-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    
+    .task-item:last-child {
+      border-bottom: none;
+    }
+    
+    .task-title {
+      font-size: 14px;
+      color: #1f2937;
+      flex: 1;
+    }
+    
     /* Empty State */
     .empty-state {
       text-align: center;
@@ -452,27 +485,6 @@
     .empty-text {
       font-size: 14px;
       color: #6b7280;
-    }
-    
-    /* Loading State */
-    .loading {
-      text-align: center;
-      padding: 40px;
-      color: #6b7280;
-    }
-    
-    .spinner {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      border: 3px solid #f3f4f6;
-      border-top-color: #3b82f6;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
     }
   </style>
 </head>
@@ -545,178 +557,88 @@
       
       <div class="updates-container">
         <h2 class="section-title">Recent Activity</h2>
-        <div id="recentActivity" class="loading">
-          <div class="spinner"></div>
-          <p>Loading recent activity...</p>
-        </div>
+        <div id="recentActivity"></div>
       </div>
     </div>
     
     <!-- Projects Section -->
     <div id="projects" class="content-section">
       <h2 class="section-title">Your Projects</h2>
-      <div id="projectsList" class="loading">
-        <div class="spinner"></div>
-        <p>Loading projects...</p>
-      </div>
+      <div id="projectsList"></div>
     </div>
     
     <!-- Updates Section -->
     <div id="updates" class="content-section">
       <h2 class="section-title">Project Updates</h2>
-      <div id="updatesList" class="loading">
-        <div class="spinner"></div>
-        <p>Loading updates...</p>
-      </div>
+      <div id="updatesList"></div>
     </div>
     
     <!-- Tasks Section -->
     <div id="tasks" class="content-section">
       <h2 class="section-title">Task Progress</h2>
-      <div id="tasksList" class="loading">
-        <div class="spinner"></div>
-        <p>Loading tasks...</p>
-      </div>
+      <div id="tasksList"></div>
     </div>
   </div>
   
   <script>
-    // Initialize Supabase
-    let supabaseClient = null;
-    let currentUser = null;
-    let userCompany = null;
-    
-    // Initialize on page load
-    window.addEventListener('load', async () => {
-      // Get saved credentials
-      const savedUrl = localStorage.getItem('SUPABASE_URL');
-      const savedKey = localStorage.getItem('SUPABASE_ANON_KEY');
-      
-      if (!savedUrl || !savedKey) {
-        alert('Please login first');
-        window.location.href = 'client-login.html';
-        return;
-      }
-      
-      // Initialize Supabase
-      const { createClient } = supabase;
-      supabaseClient = createClient(savedUrl, savedKey);
-      
-      // Check authentication
-      await checkAuth();
-      
-      // Load initial data
-      await loadDashboardData();
-    });
-    
     // Check authentication
-    async function checkAuth() {
-      try {
-        const { data: { user }, error } = await supabaseClient.auth.getUser();
-        
-        if (error || !user) {
-          window.location.href = 'client-login.html';
-          return;
-        }
-        
-        // Get user profile with company info
-        const { data: profile } = await supabaseClient
-          .from('users')
-          .select('*, companies(*)')
-          .eq('id', user.id)
-          .single();
-        
-        if (!profile || profile.role !== 'client') {
-          alert('Client access required');
-          await supabaseClient.auth.signOut();
-          window.location.href = 'client-login.html';
-          return;
-        }
-        
-        currentUser = profile;
-        userCompany = profile.companies;
-        
-        // Update UI with user info
-        document.getElementById('userName').textContent = profile.full_name || 'Client User';
-        document.getElementById('userAvatar').textContent = (profile.full_name || 'Client').charAt(0).toUpperCase();
-        document.getElementById('userCompany').textContent = userCompany?.name || 'Your Company';
-        document.getElementById('welcomeTitle').textContent = `Welcome back, ${profile.full_name || 'Client'}!`;
-        
-      } catch (error) {
-        console.error('Auth check failed:', error);
-        window.location.href = 'client-login.html';
-      }
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
+    if (!currentUser || currentUser.role !== 'client') {
+      window.location.href = 'client-login.html';
     }
     
+    // Get company info
+    const companies = JSON.parse(localStorage.getItem('companies') || '[]');
+    const userCompany = companies.find(c => c.id === currentUser.companyId);
+    
+    // Update user info in header
+    document.getElementById('userName').textContent = currentUser.fullName;
+    document.getElementById('userAvatar').textContent = currentUser.fullName.charAt(0).toUpperCase();
+    document.getElementById('userCompany').textContent = userCompany ? userCompany.name : 'Your Company';
+    document.getElementById('welcomeTitle').textContent = `Welcome back, ${currentUser.fullName}!`;
+    
     // Load dashboard data
-    async function loadDashboardData() {
-      if (!userCompany) return;
+    function loadDashboardData() {
+      const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+      const updates = JSON.parse(localStorage.getItem('updates') || '[]');
       
-      try {
-        // Load projects for this company
-        const { data: projects } = await supabaseClient
-          .from('projects')
-          .select('*')
-          .eq('company_id', userCompany.id);
-        
-        // Load tasks from sprints related to these projects
-        let allTasks = [];
-        if (projects && projects.length > 0) {
-          const projectIds = projects.map(p => p.id);
-          const { data: sprints } = await supabaseClient
-            .from('sprints')
-            .select('*, tasks(*)')
-            .in('project_id', projectIds);
-          
-          if (sprints) {
-            sprints.forEach(sprint => {
-              if (sprint.tasks) {
-                allTasks = [...allTasks, ...sprint.tasks];
-              }
-            });
-          }
-        }
-        
-        // Load recent updates
-        const { data: updates } = await supabaseClient
-          .from('project_updates')
-          .select('*, projects(name)')
-          .eq('is_client_visible', true)
-          .in('project_id', projects?.map(p => p.id) || [])
-          .order('created_at', { ascending: false })
-          .limit(5);
-        
-        // Update statistics
-        document.getElementById('activeProjects').textContent = 
-          projects?.filter(p => p.status === 'in_progress').length || 0;
-        document.getElementById('completedTasks').textContent = 
-          allTasks.filter(t => t.status === 'done').length;
-        document.getElementById('inProgressTasks').textContent = 
-          allTasks.filter(t => t.status === 'in_progress').length;
-        document.getElementById('recentUpdates').textContent = updates?.length || 0;
-        
-        // Display recent activity
-        if (updates && updates.length > 0) {
-          const activityHtml = `
-            <div class="timeline">
-              ${updates.map(update => `
+      // Filter for client's company
+      const companyProjects = projects.filter(p => p.companyId === currentUser.companyId);
+      const projectIds = companyProjects.map(p => p.id);
+      const companyTasks = tasks.filter(t => projectIds.includes(t.projectId));
+      const companyUpdates = updates.filter(u => projectIds.includes(u.projectId) && u.isClientVisible);
+      
+      // Update stats
+      document.getElementById('activeProjects').textContent = 
+        companyProjects.filter(p => p.status === 'in_progress').length;
+      document.getElementById('completedTasks').textContent = 
+        companyTasks.filter(t => t.status === 'done').length;
+      document.getElementById('inProgressTasks').textContent = 
+        companyTasks.filter(t => t.status === 'in_progress').length;
+      document.getElementById('recentUpdates').textContent = companyUpdates.length;
+      
+      // Display recent activity
+      if (companyUpdates.length > 0) {
+        const activityHtml = `
+          <div class="timeline">
+            ${companyUpdates.slice(0, 5).map(update => {
+              const project = companyProjects.find(p => p.id === update.projectId);
+              return `
                 <div class="timeline-item">
-                  <div class="update-date">${new Date(update.created_at).toLocaleDateString()}</div>
+                  <div class="update-date">${new Date(update.createdAt).toLocaleDateString()}</div>
                   <div class="update-title">${update.title}</div>
                   <div class="update-content">${update.content}</div>
-                  <span class="update-project">${update.projects?.name || 'Project'}</span>
+                  <span class="update-project">${project ? project.name : 'Project'}</span>
                 </div>
-              `).join('')}
-            </div>
-          `;
-          document.getElementById('recentActivity').innerHTML = activityHtml;
-        } else {
-          document.getElementById('recentActivity').innerHTML = 
-            '<div class="empty-state"><div class="empty-text">No recent updates</div></div>';
-        }
-        
-      } catch (error) {
-        console.error('Error loading dashboard data:', error);
+              `;
+            }).join('')}
+          </div>
+        `;
+        document.getElementById('recentActivity').innerHTML = activityHtml;
+      } else {
+        document.getElementById('recentActivity').innerHTML = 
+          '<div class="empty-state"><div class="empty-text">No recent updates</div></div>';
       }
     }
     
@@ -743,222 +665,156 @@
     }
     
     // Load projects
-    async function loadProjects() {
-      if (!userCompany) return;
+    function loadProjects() {
+      const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+      const companyProjects = projects.filter(p => p.companyId === currentUser.companyId);
       
-      try {
-        const { data: projects } = await supabaseClient
-          .from('projects')
-          .select('*')
-          .eq('company_id', userCompany.id)
-          .order('created_at', { ascending: false });
-        
-        if (projects && projects.length > 0) {
-          const projectsHtml = `
-            <div class="projects-grid">
-              ${projects.map(project => {
-                const progress = Math.floor(Math.random() * 100); // Mock progress
-                return `
-                  <div class="project-card">
-                    <div class="project-header">
-                      <div>
-                        <div class="project-title">${project.name}</div>
-                        <div class="project-date">Started ${new Date(project.created_at).toLocaleDateString()}</div>
-                      </div>
-                      <span class="status-badge ${project.status}">${project.status.replace('_', ' ')}</span>
+      if (companyProjects.length > 0) {
+        const projectsHtml = `
+          <div class="projects-grid">
+            ${companyProjects.map(project => {
+              const projectTasks = tasks.filter(t => t.projectId === project.id);
+              const completedTasks = projectTasks.filter(t => t.status === 'done').length;
+              const progress = projectTasks.length > 0 
+                ? Math.round((completedTasks / projectTasks.length) * 100) 
+                : 0;
+              
+              return `
+                <div class="project-card">
+                  <div class="project-header">
+                    <div>
+                      <div class="project-title">${project.name}</div>
+                      <div class="project-date">Started ${new Date(project.createdAt).toLocaleDateString()}</div>
                     </div>
-                    <div class="project-description">
-                      ${project.description || 'Project in progress. Updates will be posted regularly.'}
-                    </div>
-                    <div class="project-footer">
-                      <div class="project-progress">
-                        <div class="progress-label">Progress: ${progress}%</div>
-                        <div class="progress-bar">
-                          <div class="progress-fill" style="width: ${progress}%"></div>
-                        </div>
+                    <span class="status-badge ${project.status}">${project.status.replace('_', ' ')}</span>
+                  </div>
+                  <div class="project-description">
+                    ${project.description || 'Project in progress. Updates will be posted regularly.'}
+                  </div>
+                  <div class="project-footer">
+                    <div class="project-progress">
+                      <div class="progress-label">Progress: ${progress}%</div>
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: ${progress}%"></div>
                       </div>
-                      <button class="view-btn" onclick="viewProject('${project.id}')">View Details</button>
                     </div>
                   </div>
-                `;
-              }).join('')}
-            </div>
-          `;
-          document.getElementById('projectsList').innerHTML = projectsHtml;
-        } else {
-          document.getElementById('projectsList').innerHTML = `
-            <div class="empty-state">
-              <div class="empty-icon">📁</div>
-              <div class="empty-title">No Projects Yet</div>
-              <div class="empty-text">Your projects will appear here once they are created</div>
-            </div>
-          `;
-        }
-        
-      } catch (error) {
-        console.error('Error loading projects:', error);
-        document.getElementById('projectsList').innerHTML = 
-          '<div class="empty-state"><div class="empty-text">Error loading projects</div></div>';
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+        document.getElementById('projectsList').innerHTML = projectsHtml;
+      } else {
+        document.getElementById('projectsList').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">📁</div>
+            <div class="empty-title">No Projects Yet</div>
+            <div class="empty-text">Your projects will appear here once they are created</div>
+          </div>
+        `;
       }
     }
     
     // Load updates
-    async function loadUpdates() {
-      if (!userCompany) return;
+    function loadUpdates() {
+      const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+      const updates = JSON.parse(localStorage.getItem('updates') || '[]');
+      const companyProjects = projects.filter(p => p.companyId === currentUser.companyId);
+      const projectIds = companyProjects.map(p => p.id);
+      const companyUpdates = updates.filter(u => projectIds.includes(u.projectId) && u.isClientVisible);
       
-      try {
-        // Get all projects for this company
-        const { data: projects } = await supabaseClient
-          .from('projects')
-          .select('id')
-          .eq('company_id', userCompany.id);
-        
-        if (projects && projects.length > 0) {
-          const projectIds = projects.map(p => p.id);
-          
-          const { data: updates } = await supabaseClient
-            .from('project_updates')
-            .select('*, projects(name)')
-            .eq('is_client_visible', true)
-            .in('project_id', projectIds)
-            .order('created_at', { ascending: false });
-          
-          if (updates && updates.length > 0) {
-            const updatesHtml = `
-              <div class="timeline">
-                ${updates.map(update => `
-                  <div class="timeline-item">
-                    <div class="update-date">${new Date(update.created_at).toLocaleString()}</div>
-                    <div class="update-title">${update.title}</div>
-                    <div class="update-content">${update.content}</div>
-                    <span class="update-project">${update.projects?.name || 'Project'}</span>
-                  </div>
-                `).join('')}
-              </div>
-            `;
-            document.getElementById('updatesList').innerHTML = updatesHtml;
-          } else {
-            document.getElementById('updatesList').innerHTML = `
-              <div class="empty-state">
-                <div class="empty-icon">📢</div>
-                <div class="empty-title">No Updates Yet</div>
-                <div class="empty-text">Project updates will appear here</div>
-              </div>
-            `;
-          }
-        } else {
-          document.getElementById('updatesList').innerHTML = `
-            <div class="empty-state">
-              <div class="empty-icon">📢</div>
-              <div class="empty-title">No Updates</div>
-              <div class="empty-text">Updates will appear here once projects are created</div>
-            </div>
-          `;
-        }
-        
-      } catch (error) {
-        console.error('Error loading updates:', error);
-        document.getElementById('updatesList').innerHTML = 
-          '<div class="empty-state"><div class="empty-text">Error loading updates</div></div>';
+      if (companyUpdates.length > 0) {
+        const updatesHtml = `
+          <div class="timeline">
+            ${companyUpdates.map(update => {
+              const project = companyProjects.find(p => p.id === update.projectId);
+              return `
+                <div class="timeline-item">
+                  <div class="update-date">${new Date(update.createdAt).toLocaleString()}</div>
+                  <div class="update-title">${update.title}</div>
+                  <div class="update-content">${update.content}</div>
+                  <span class="update-project">${project ? project.name : 'Project'}</span>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+        document.getElementById('updatesList').innerHTML = updatesHtml;
+      } else {
+        document.getElementById('updatesList').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">📢</div>
+            <div class="empty-title">No Updates Yet</div>
+            <div class="empty-text">Project updates will appear here</div>
+          </div>
+        `;
       }
     }
     
     // Load tasks
-    async function loadTasks() {
-      if (!userCompany) return;
+    function loadTasks() {
+      const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+      const companyProjects = projects.filter(p => p.companyId === currentUser.companyId);
       
-      try {
-        // Get all projects for this company
-        const { data: projects } = await supabaseClient
-          .from('projects')
-          .select('id, name')
-          .eq('company_id', userCompany.id);
+      if (companyProjects.length > 0) {
+        let tasksHtml = '<div style="display: grid; gap: 20px;">';
         
-        if (projects && projects.length > 0) {
-          const projectIds = projects.map(p => p.id);
+        companyProjects.forEach(project => {
+          const projectTasks = tasks.filter(t => t.projectId === project.id);
           
-          // Get sprints and tasks
-          const { data: sprints } = await supabaseClient
-            .from('sprints')
-            .select('*, tasks(*), projects(name)')
-            .in('project_id', projectIds)
-            .order('created_at', { ascending: false });
-          
-          if (sprints && sprints.length > 0) {
-            let tasksHtml = '<div style="display: grid; gap: 20px;">';
+          if (projectTasks.length > 0) {
+            const completedTasks = projectTasks.filter(t => t.status === 'done').length;
+            const progressPercent = Math.round((completedTasks / projectTasks.length) * 100);
             
-            sprints.forEach(sprint => {
-              if (sprint.tasks && sprint.tasks.length > 0) {
-                const totalTasks = sprint.tasks.length;
-                const completedTasks = sprint.tasks.filter(t => t.status === 'done').length;
-                const progressPercent = Math.round((completedTasks / totalTasks) * 100);
-                
-                tasksHtml += `
-                  <div class="stat-card">
-                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">
-                      ${sprint.name} - ${sprint.projects?.name || 'Project'}
-                    </h3>
-                    <div style="margin-bottom: 12px;">
-                      <div class="progress-label">Sprint Progress: ${progressPercent}% (${completedTasks}/${totalTasks} tasks)</div>
-                      <div class="progress-bar" style="margin-top: 8px;">
-                        <div class="progress-fill" style="width: ${progressPercent}%"></div>
-                      </div>
-                    </div>
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                      ${sprint.tasks.map(task => `
-                        <span class="status-badge ${task.status}" style="font-size: 11px;">
-                          ${task.title.substring(0, 20)}${task.title.length > 20 ? '...' : ''}
-                        </span>
-                      `).join('')}
+            tasksHtml += `
+              <div class="task-list">
+                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px;">
+                  ${project.name}
+                </h3>
+                <div style="margin-bottom: 16px;">
+                  <div class="progress-label">Progress: ${progressPercent}% (${completedTasks}/${projectTasks.length} tasks)</div>
+                  <div class="progress-bar" style="margin-top: 8px;">
+                    <div class="progress-fill" style="width: ${progressPercent}%"></div>
+                  </div>
+                </div>
+                ${projectTasks.map(task => `
+                  <div class="task-item">
+                    <span class="task-title">${task.title}</span>
+                    <div style="display: flex; gap: 8px;">
+                      <span class="status-badge ${task.priority}">${task.priority}</span>
+                      <span class="status-badge ${task.status}">${task.status.replace('_', ' ')}</span>
                     </div>
                   </div>
-                `;
-              }
-            });
-            
-            tasksHtml += '</div>';
-            document.getElementById('tasksList').innerHTML = tasksHtml;
-          } else {
-            document.getElementById('tasksList').innerHTML = `
-              <div class="empty-state">
-                <div class="empty-icon">✅</div>
-                <div class="empty-title">No Tasks Yet</div>
-                <div class="empty-text">Task progress will appear here</div>
+                `).join('')}
               </div>
             `;
           }
-        } else {
-          document.getElementById('tasksList').innerHTML = `
-            <div class="empty-state">
-              <div class="empty-icon">✅</div>
-              <div class="empty-title">No Tasks</div>
-              <div class="empty-text">Tasks will appear here once projects are created</div>
-            </div>
-          `;
-        }
+        });
         
-      } catch (error) {
-        console.error('Error loading tasks:', error);
-        document.getElementById('tasksList').innerHTML = 
-          '<div class="empty-state"><div class="empty-text">Error loading tasks</div></div>';
+        tasksHtml += '</div>';
+        document.getElementById('tasksList').innerHTML = tasksHtml;
+      } else {
+        document.getElementById('tasksList').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">✅</div>
+            <div class="empty-title">No Tasks Yet</div>
+            <div class="empty-text">Task progress will appear here</div>
+          </div>
+        `;
       }
-    }
-    
-    // View project details
-    function viewProject(projectId) {
-      alert(`View project details: ${projectId}\nThis feature will be implemented soon!`);
     }
     
     // Logout function
-    async function logout() {
-      try {
-        await supabaseClient.auth.signOut();
-        localStorage.removeItem('clientAuth');
-        window.location.href = 'client-login.html';
-      } catch (error) {
-        console.error('Logout error:', error);
-      }
+    function logout() {
+      sessionStorage.removeItem('currentUser');
+      window.location.href = 'client-login.html';
     }
+    
+    // Initialize
+    loadDashboardData();
   </script>
   
 </body>
