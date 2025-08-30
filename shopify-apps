@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopify App Development Dubai | Built for Shopify Certified | imisofts</title>
+  <meta name="description" content="Built for Shopify certified app development. From conversion boosters to inventory management. Ship in 4-6 weeks with guaranteed App Store approval.">
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #F45407;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .nav-logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a1a;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+    
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      padding: 8px;
+      min-width: 320px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .dropdown-item-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dropdown-item-icon svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .dropdown-item-content {
+      flex: 1;
+    }
+    
+    .dropdown-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    
+    .dropdown-item-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    .current-page {
+      background: rgba(244, 84, 7, 0.1);
+    }
+    
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .mobile-services {
+      margin: 16px 0;
+    }
+    
+    .mobile-services-title {
+      padding: 12px 16px;
+      font-weight: 600;
+      color: #999;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .mobile-service-link {
+      display: block;
+      padding: 12px 16px 12px 32px;
+      color: #666;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+    
+    .mobile-service-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+      color: #F45407;
+    }
+    
+    .mobile-service-link.current {
+      background: rgba(244, 84, 7, 0.1);
+      color: #F45407;
+      font-weight: 600;
+    }
+    
+    .mobile-cta {
+      display: block;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    
+    /* Section Padding */
+    .section-padding {
+      padding: 80px 0;
+    }
+    
+    /* Grid Classes */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Cards */
+    .app-type-card {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #e5e5e5;
+      transition: all 0.3s ease;
+    }
+    
+    .app-type-card:hover {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+      border-color: #F45407;
+    }
+    
+    .phase-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e5e5e5;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .phase-card:hover {
+      border-color: #F45407;
+      box-shadow: 0 8px 24px rgba(244, 84, 7, 0.1);
+    }
+    
+    .metric-card {
+      background: linear-gradient(135deg, #fff, #f9fafb);
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #e5e5e5;
+      transition: all 0.3s ease;
+    }
+    
+    .metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #666;
+      margin: 4px;
+      transition: all 0.2s ease;
+    }
+    
+    .tech-badge:hover {
+      background: rgba(244, 84, 7, 0.1);
+      color: #F45407;
+    }
+    
+    /* Animation */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+      
+      .section-padding {
+        padding: 48px 0 !important;
+      }
+      
+      .hide-mobile {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ============= NAVBAR ============= -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo-wrapper">
+          <div class="nav-logo-icon">im</div>
+          <div class="nav-logo">imisofts</div>
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <a href="/ai-automation" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Automation</div>
+                  <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                </div>
+              </a>
+              
+              <a href="/digital-marketing" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Digital Marketing</div>
+                  <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                </div>
+              </a>
+              
+              <a href="/ecommerce" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">E-commerce</div>
+                  <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                </div>
+              </a>
+              
+              <a href="/web-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Web Development</div>
+                  <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                </div>
+              </a>
+              
+              <a href="/crm-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">CRM Development</div>
+                  <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                </div>
+              </a>
+              
+              <a href="/shopify-apps" class="dropdown-item current-page">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Shopify Apps</div>
+                  <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                </div>
+              </a>
+              
+              <a href="/ai-mobile-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Mobile Apps</div>
+                  <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          
+          <!-- CTA Button -->
+          <a href="/contact" class="nav-cta">Get App Estimate</a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="mobile-nav-link">Home</a>
+      
+      <div class="mobile-services">
+        <div class="mobile-services-title">Services</div>
+        <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+        <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+        <a href="/web-development" class="mobile-service-link">Web Development</a>
+        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+        <a href="/shopify-apps" class="mobile-service-link current">Shopify Apps</a>
+        <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+      </div>
+      
+      <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/pricing" class="mobile-nav-link">Pricing</a>
+      <a href="/blog" class="mobile-nav-link">Blog</a>
+      
+      <a href="/contact" class="mobile-cta">Get App Estimate</a>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="section-padding" style="background: linear-gradient(to bottom, #ffffff, #f9fafb);">
+    <div class="container">
+      <div class="grid grid-2" style="gap: 48px; align-items: center;">
+        <div>
+          <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: #fff5f3; border-radius: 50px; margin-bottom: 24px;">
+            <span style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;"></span>
+            <span style="color: #F45407; font-size: 14px; font-weight: 500;">Built for Shopify Certified</span>
+          </div>
+          
+          <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 24px;">
+            Ship Shopify Apps That
+            <span style="color: #F45407;">Merchants Actually Install</span>
+          </h1>
+          
+          <p style="font-size: 20px; color: #333; margin-bottom: 16px; font-weight: 600;">
+            From conversion boosters to inventory management. Built for Shopify certified development that passes review on first submission.
+          </p>
+          
+          <p style="font-size: 18px; color: #666; margin-bottom: 32px;">
+            We build revenue-generating Shopify apps that solve real merchant problems. Ship to App Store in 4-6 weeks with guaranteed approval.
+          </p>
+          
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px;">
+            <a href="#contact" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
+              Get App Estimate →
+            </a>
+            <a href="#packages" style="padding: 14px 28px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
+              View Packages
+            </a>
+          </div>
+          
+          <div class="grid grid-4" style="gap: 24px;">
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">500+</div>
+              <div style="font-size: 14px; color: #666;">Apps Built</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">87%</div>
+              <div style="font-size: 14px; color: #666;">Install Rate</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">4.2x</div>
+              <div style="font-size: 14px; color: #666;">Avg ROAS</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">4 Weeks</div>
+              <div style="font-size: 14px; color: #666;">To Launch</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hide-mobile">
+          <div style="background: white; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <div style="font-size: 14px; color: #F45407; font-weight: 600; margin-bottom: 8px;">SHOPIFY APP METRICS</div>
+              <div style="font-size: 28px; font-weight: 700;">Live Performance</div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 12px; color: #666;">Monthly Installs</div>
+                    <div style="font-size: 20px; font-weight: 600;">1,247</div>
+                  </div>
+                  <div style="color: #10b981;">↑ 23%</div>
+                </div>
+              </div>
+              
+              <div style="background: #fff5f3; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 12px; color: #666;">Active Merchants</div>
+                    <div style="font-size: 20px; font-weight: 600;">8,942</div>
+                  </div>
+                  <div style="color: #F45407;">Growing</div>
+                </div>
+              </div>
+              
+              <div style="background: #f0f9ff; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 12px; color: #666;">MRR</div>
+                    <div style="font-size: 20px; font-weight: 600;">$124K</div>
+                  </div>
+                  <div style="color: #3b82f6;">↑ 31%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- App Types Section -->
+  <section class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Shopify Apps That Drive Revenue</h2>
+        <p style="font-size: 18px; color: #666;">
+          From conversion optimization to operations automation. Every app built to scale.
+        </p>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 32px;">
+        <div class="app-type-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Conversion Boosters</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Apps that increase AOV and conversion rates through smart upsells and cross-sells.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Post-purchase upsells</li>
+            <li style="margin-bottom: 8px;">✓ Bundle builders</li>
+            <li style="margin-bottom: 8px;">✓ Cart drawer optimization</li>
+            <li style="margin-bottom: 8px;">✓ Urgency & social proof</li>
+          </ul>
+        </div>
+        
+        <div class="app-type-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M4 4.5A2.5 2.5 0 016.5 2H20a2 2 0 012 2v16a2 2 0 01-2 2H6.5A2.5 2.5 0 014 19.5v-15zM8 6h8m-8 4h8m-8 4h6"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Subscription Management</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Complete subscription solutions for recurring revenue businesses.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Flexible billing cycles</li>
+            <li style="margin-bottom: 8px;">✓ Customer portals</li>
+            <li style="margin-bottom: 8px;">✓ Dunning management</li>
+            <li style="margin-bottom: 8px;">✓ Analytics & retention</li>
+          </ul>
+        </div>
+        
+        <div class="app-type-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M20 7h-9l-1 1H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Inventory & Operations</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Sync inventory across channels and automate fulfillment workflows.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Multi-channel sync</li>
+            <li style="margin-bottom: 8px;">✓ Warehouse management</li>
+            <li style="margin-bottom: 8px;">✓ Purchase orders</li>
+            <li style="margin-bottom: 8px;">✓ Low stock alerts</li>
+          </ul>
+        </div>
+        
+        <div class="app-type-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Reviews & UGC</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Collect and display social proof to build trust and drive conversions.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Review collection</li>
+            <li style="margin-bottom: 8px;">✓ Photo & video reviews</li>
+            <li style="margin-bottom: 8px;">✓ Widget customization</li>
+            <li style="margin-bottom: 8px;">✓ Google Shopping integration</li>
+          </ul>
+        </div>
+        
+        <div class="app-type-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Search & Merchandising</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            AI-powered search and product discovery to help customers find what they need.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Instant search</li>
+            <li style="margin-bottom: 8px;">✓ AI recommendations</li>
+            <li style="margin-bottom: 8px;">✓ Visual merchandising</li>
+            <li style="margin-bottom: 8px;">✓ Collection sorting</li>
+          </ul>
+        </div>
+        
+        <div class="app-type-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Analytics & Reporting</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Deep insights into store performance with actionable recommendations.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Profit dashboards</li>
+            <li style="margin-bottom: 8px;">✓ Customer LTV tracking</li>
+            <li style="margin-bottom: 8px;">✓ Attribution modeling</li>
+            <li style="margin-bottom: 8px;">✓ Automated reports</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Development Process -->
+  <section class="section-padding" style="background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">From Idea to App Store in 5 Phases</h2>
+        <p style="font-size: 18px; color: #666;">
+          Proven development process with guaranteed App Store approval.
+        </p>
+      </div>
+      
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 1: Strategy & Planning</h3>
+              <span style="font-size: 14px; color: #666;">Week 1</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Identify merchant problems, define target categories, and plan monetization.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Competitive scan & pricing model</li>
+            <li style="margin-bottom: 6px;">✓ Technical feasibility assessment</li>
+            <li style="margin-bottom: 6px;">✓ Milestone roadmap creation</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 2: UX & Design</h3>
+              <span style="font-size: 14px; color: #666;">Week 1-2</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Design merchant-friendly interfaces using Polaris design system.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Zero-config defaults</li>
+            <li style="margin-bottom: 6px;">✓ 5-minute onboarding flow</li>
+            <li style="margin-bottom: 6px;">✓ Accessibility compliance</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 3: Development Sprint</h3>
+              <span style="font-size: 14px; color: #666;">Weeks 2-4</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Build app with Remix template, Shopify APIs, and modern infrastructure.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Admin extensions & UI components</li>
+            <li style="margin-bottom: 6px;">✓ Webhook reliability & rate limiting</li>
+            <li style="margin-bottom: 6px;">✓ Performance optimization</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 4: QA & Security</h3>
+              <span style="font-size: 14px; color: #666;">Week 5</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">4</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Comprehensive testing and security hardening before submission.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ End-to-end testing</li>
+            <li style="margin-bottom: 6px;">✓ Security & compliance check</li>
+            <li style="margin-bottom: 6px;">✓ Load testing & optimization</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 5: Launch & Growth</h3>
+              <span style="font-size: 14px; color: #666;">Week 6+</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">5</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            App Store submission, launch strategy, and ongoing optimization.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ App listing optimization</li>
+            <li style="margin-bottom: 6px;">✓ Launch campaign execution</li>
+            <li style="margin-bottom: 6px;">✓ Growth & retention tracking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Tech Stack -->
+  <section class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Built for Scale & Reliability</h2>
+        <p style="font-size: 18px; color: #666;">
+          Modern tech stack optimized for Shopify's ecosystem.
+        </p>
+      </div>
+      
+      <div style="max-width: 900px; margin: 0 auto;">
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">BACKEND & FRAMEWORK</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">Remix App Template</span>
+            <span class="tech-badge">NestJS</span>
+            <span class="tech-badge">Express</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">SHOPIFY APIS & SDKS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Admin GraphQL</span>
+            <span class="tech-badge">Admin REST</span>
+            <span class="tech-badge">App Bridge</span>
+            <span class="tech-badge">OAuth</span>
+            <span class="tech-badge">Webhooks</span>
+            <span class="tech-badge">App Proxy</span>
+            <span class="tech-badge">Shopify Functions</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">UI EXTENSIONS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Admin UI Extensions</span>
+            <span class="tech-badge">Checkout UI</span>
+            <span class="tech-badge">POS Extensions</span>
+            <span class="tech-badge">Theme App Embeds</span>
+            <span class="tech-badge">Polaris Components</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">DATA & INFRASTRUCTURE</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">Redis</span>
+            <span class="tech-badge">BullMQ</span>
+            <span class="tech-badge">Vercel</span>
+            <span class="tech-badge">Fly.io</span>
+            <span class="tech-badge">Cloudflare Queues</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Built for Shopify Section -->
+  <section class="section-padding" style="background: linear-gradient(135deg, #f9fafb, #ffffff);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Built for Shopify Certified Development</h2>
+        <p style="font-size: 18px; color: #666;">
+          We follow Shopify's strict guidelines to ensure your app qualifies for the Built for Shopify badge.
+        </p>
+      </div>
+      
+      <div class="grid grid-2" style="gap: 48px; align-items: center;">
+        <div>
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px;">What Shopify Expects</h3>
+          <ul style="font-size: 15px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              Merchant-centric UX following Polaris guidelines
+            </li>
+            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              Performance targets for admin and storefront
+            </li>
+            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              Secure OAuth and reliable webhooks
+            </li>
+            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
+              High-quality listing and merchant support
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 24px;">Our Approach</h3>
+          <ul style="font-size: 15px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+              <span style="position: absolute; left: 0; color: #F45407;">→</span>
+              Design review against Polaris patterns
+            </li>
+            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+              <span style="position: absolute; left: 0; color: #F45407;">→</span>
+              Load testing and performance profiling
+            </li>
+            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+              <span style="position: absolute; left: 0; color: #F45407;">→</span>
+              Security checklist and compliance
+            </li>
+            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
+              <span style="position: absolute; left: 0; color: #F45407;">→</span>
+              Support readiness with SLAs
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Success Metrics -->
+  <section class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Success Metrics We Track</h2>
+        <p style="font-size: 18px; color: #666;">
+          Every metric optimized for growth and profitability.
+        </p>
+      </div>
+      
+      <div class="grid grid-4" style="gap: 24px;">
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Listing Conversion</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">31%</div>
+          <p style="font-size: 14px; color: #999;">Install rate</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Trial to Paid</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">67%</div>
+          <p style="font-size: 14px; color: #999;">Conversion rate</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Avg Revenue</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">$89</div>
+          <p style="font-size: 14px; color: #999;">Per merchant/month</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Uninstall Rate</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;"><3%</div>
+          <p style="font-size: 14px; color: #999;">After trial</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Support Response</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;"><2hr</div>
+          <p style="font-size: 14px; color: #999;">Response time</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Crash-Free</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">99.9%</div>
+          <p style="font-size: 14px; color: #999;">Sessions</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Webhook Success</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">99.7%</div>
+          <p style="font-size: 14px; color: #999;">Delivery rate</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Cloud Cost</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">$0.47</div>
+          <p style="font-size: 14px; color: #999;">Per active merchant</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pricing Section -->
+  <section id="packages" class="section-padding" style="background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Shopify App Development Packages</h2>
+        <p style="font-size: 18px; color: #666;">
+          From MVP to enterprise apps. Fixed prices, guaranteed delivery.
+        </p>
+      </div>
+      
+      <div class="grid grid-4" style="gap: 24px;">
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">App MVP</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$14,999</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">4-6 weeks</p>
+          
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0; margin-bottom: 24px;">
+            <li style="margin-bottom: 10px;">✓ Core feature set</li>
+            <li style="margin-bottom: 10px;">✓ Admin & UI Extensions</li>
+            <li style="margin-bottom: 10px;">✓ OAuth & webhooks</li>
+            <li style="margin-bottom: 10px;">✓ Basic billing</li>
+            <li style="margin-bottom: 10px;">✓ App listing & launch</li>
+          </ul>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Perfect for:</strong> Testing app ideas
+          </p>
+          
+          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 12px; border-radius: 50px; font-size: 12px;">
+            MOST POPULAR
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Built for Shopify</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$29,999</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">6-8 weeks</p>
+          
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0; margin-bottom: 24px;">
+            <li style="margin-bottom: 10px;">✓ Performance optimization</li>
+            <li style="margin-bottom: 10px;">✓ Security hardening</li>
+            <li style="margin-bottom: 10px;">✓ Accessibility compliance</li>
+            <li style="margin-bottom: 10px;">✓ Advanced billing</li>
+            <li style="margin-bottom: 10px;">✓ Built for Shopify ready</li>
+          </ul>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Perfect for:</strong> Serious app businesses
+          </p>
+          
+          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started Today
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Growth Sprint</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$9,999</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">2-3 weeks</p>
+          
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0; margin-bottom: 24px;">
+            <li style="margin-bottom: 10px;">✓ ASO & listing optimization</li>
+            <li style="margin-bottom: 10px;">✓ Conversion testing</li>
+            <li style="margin-bottom: 10px;">✓ Onboarding improvements</li>
+            <li style="margin-bottom: 10px;">✓ Review collection</li>
+            <li style="margin-bottom: 10px;">✓ Partner outreach</li>
+          </ul>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Perfect for:</strong> Existing apps
+          </p>
+          
+          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+        
+        <div style="background: #1a1a1a; color: white; padding: 32px; border-radius: 16px;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Scale & Support</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$4,999</span>
+            <span style="color: #999;">/mo</span>
+          </div>
+          <p style="font-size: 14px; color: #ccc; margin-bottom: 24px; font-weight: 600;">Ongoing</p>
+          
+          <ul style="font-size: 14px; color: #ccc; list-style: none; padding: 0; margin-bottom: 24px;">
+            <li style="margin-bottom: 10px;">✓ Observability & SLOs</li>
+            <li style="margin-bottom: 10px;">✓ Infrastructure tuning</li>
+            <li style="margin-bottom: 10px;">✓ Feature development</li>
+            <li style="margin-bottom: 10px;">✓ Cost optimization</li>
+            <li style="margin-bottom: 10px;">✓ Priority support</li>
+          </ul>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #333;">
+            <strong>Perfect for:</strong> Growing apps
+          </p>
+          
+          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: white; color: #1a1a1a; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Schedule Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section id="contact" class="section-padding" style="background: linear-gradient(135deg, #F45407, #e14a06);">
+    <div class="container" style="max-width: 800px;">
+      <div style="text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 700; color: white; margin-bottom: 16px;">Ready to Build Your Shopify App?</h2>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 48px;">
+          Get a detailed estimate and roadmap for your app idea. 
+          We'll show you exactly how to reach 10,000+ merchants.
+        </p>
+      </div>
+      
+      <form style="max-width: 600px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="text" placeholder="Name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+          <input type="text" placeholder="Company" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+          <input type="tel" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+        </div>
+        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 16px; background: white;">
+          <option>App type</option>
+          <option>Conversion optimization</option>
+          <option>Subscription management</option>
+          <option>Inventory & operations</option>
+          <option>Reviews & UGC</option>
+          <option>Analytics & reporting</option>
+          <option>Other</option>
+        </select>
+        <textarea placeholder="Describe your app idea" rows="4" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px;"></textarea>
+        
+        <button type="submit" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%;">
+          Get Your App Estimate →
+        </button>
+      </form>
+      
+      <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
+        <p style="font-size: 16px;">Questions? WhatsApp us: <a href="https://wa.me/971508851645" style="color: white; font-weight: 600;">+971 50 885 1645</a></p>
+        <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Free consultation includes competitive analysis and monetization strategy</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer style="background: #0a0a0a; color: #ccc; padding: 80px 0 40px;">
+    <div class="container">
+      <div class="grid grid-4" style="gap: 48px; margin-bottom: 60px;">
+        <div>
+          <h3 style="font-size: 28px; font-weight: 800; color: white; margin-bottom: 16px;">imisofts</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #999;">
+            Built for Shopify certified app development. Ship revenue-generating apps in 4-6 weeks.
+          </p>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 20px; text-transform: uppercase;">Services</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 12px;"><a href="#" style="color: #999; text-decoration: none;">AI Automation</a></li>
+            <li style="margin-bottom: 12px;"><a href="#" style="color: #999; text-decoration: none;">Digital Marketing</a></li>
+            <li style="margin-bottom: 12px;"><a href="#" style="color: #999; text-decoration: none;">E-commerce</a></li>
+            <li style="margin-bottom: 12px;"><a href="#" style="color: #999; text-decoration: none;">Web Development</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 20px; text-transform: uppercase;">Company</h4>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 12px;"><a href="#" style="color: #999; text-decoration: none;">About Us</a></li>
+            <li style="margin-bottom: 12px;"><a href="#" style="color: #999; text-decoration: none;">Case Studies</a></li>
+            <li style="margin-bottom: 12px;"><a href="#" style="color: #999; text-decoration: none;">Blog</a></li>
+            <li style="margin-bottom: 12px;"><a href="#" style="color: #999; text-decoration: none;">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 style="font-size: 14px; font-weight: 600; color: white; margin-bottom: 20px; text-transform: uppercase;">Get In Touch</h4>
+          <p style="font-size: 15px; color: white;">apps@imisofts.com</p>
+          <p style="font-size: 15px; color: white;">+971 50 885 1645</p>
+          <p style="font-size: 15px; color: white;">Dubai, UAE</p>
+        </div>
+      </div>
+      
+      <div style="padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <p style="font-size: 14px; color: #666;">© 2025 imisofts. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Services dropdown toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById('servicesDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('servicesDropdown');
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+  </script>
+  
+</body>
+</html>
