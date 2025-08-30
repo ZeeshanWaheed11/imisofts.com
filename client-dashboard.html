@@ -3,1102 +3,962 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Client Dashboard - imisofts Project Portal</title>
+  <title>Client Dashboard - imisofts</title>
+  
+  <!-- Supabase Client Library -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
     
     body {
-      background: #f8f9fa;
-      color: #2c3e50;
+      background: #f7f8fa;
+      min-height: 100vh;
     }
     
-    /* Top Navigation */
-    .top-nav {
+    /* Header */
+    .header {
       background: white;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-bottom: 1px solid #e5e7eb;
+      padding: 16px 24px;
       position: sticky;
       top: 0;
       z-index: 100;
     }
     
-    .nav-container {
-      max-width: 1400px;
+    .header-content {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     
-    .nav-brand {
+    .logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
     
-    .brand-icon {
+    .logo-icon {
       width: 40px;
       height: 40px;
-      background: #F45407;
+      background: #3b82f6;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
       font-weight: 700;
-      font-size: 18px;
+      font-size: 16px;
     }
     
-    .brand-text {
-      font-size: 22px;
-      font-weight: 800;
-      color: #1a1a1a;
-    }
-    
-    .nav-menu {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-    }
-    
-    .nav-link {
-      color: #666;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 15px;
-      transition: color 0.3s ease;
-    }
-    
-    .nav-link:hover {
-      color: #F45407;
-    }
-    
-    .nav-link.active {
-      color: #F45407;
-      font-weight: 600;
-    }
-    
-    .user-menu {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .notification-btn {
-      position: relative;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid #e5e5e5;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .notification-btn:hover {
-      border-color: #F45407;
-    }
-    
-    .notification-dot {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      width: 8px;
-      height: 8px;
-      background: #ef4444;
-      border-radius: 50%;
-    }
-    
-    .user-profile {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 16px;
-      border: 1px solid #e5e5e5;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .user-profile:hover {
-      border-color: #F45407;
-    }
-    
-    .user-avatar {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #667eea;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    
-    /* Main Container */
-    .main-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 32px 24px;
-    }
-    
-    /* Welcome Header */
-    .welcome-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 16px;
-      padding: 48px;
-      color: white;
-      margin-bottom: 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .welcome-header::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    
-    .welcome-content {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .welcome-title {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    
-    .welcome-subtitle {
-      font-size: 18px;
-      opacity: 0.95;
-      margin-bottom: 32px;
-    }
-    
-    .project-quick-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    
-    .quick-stat {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      padding: 20px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    
-    .quick-stat-label {
-      font-size: 13px;
-      opacity: 0.9;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .quick-stat-value {
-      font-size: 28px;
-      font-weight: 700;
-    }
-    
-    /* Content Grid */
-    .content-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-    
-    /* Card Styles */
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    
-    .card-title {
+    .logo-text {
       font-size: 20px;
       font-weight: 700;
       color: #1a1a1a;
     }
     
-    .card-action {
-      color: #F45407;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: opacity 0.3s ease;
-    }
-    
-    .card-action:hover {
-      opacity: 0.8;
-    }
-    
-    /* Sprint Progress */
-    .sprint-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px;
-      background: #f8f9fa;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    
-    .sprint-info {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    
-    .sprint-name {
-      font-size: 16px;
-      font-weight: 600;
-      color: #1a1a1a;
-    }
-    
-    .sprint-dates {
-      font-size: 13px;
-      color: #999;
-    }
-    
-    .sprint-progress {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .progress-ring {
-      width: 60px;
-      height: 60px;
-      position: relative;
-    }
-    
-    .progress-ring svg {
-      transform: rotate(-90deg);
-    }
-    
-    .progress-ring-bg {
-      stroke: #e5e5e5;
-      fill: none;
-      stroke-width: 4;
-    }
-    
-    .progress-ring-fill {
-      stroke: #F45407;
-      fill: none;
-      stroke-width: 4;
-      stroke-linecap: round;
-      stroke-dasharray: 157;
-      stroke-dashoffset: 50;
-      transition: stroke-dashoffset 0.5s ease;
-    }
-    
-    .progress-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 16px;
-      font-weight: 700;
-      color: #1a1a1a;
-    }
-    
-    /* Task List */
-    .task-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .task-item {
+    .header-right {
       display: flex;
       align-items: center;
       gap: 16px;
-      padding: 16px;
-      border: 1px solid #e5e5e5;
+    }
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 16px;
+      background: #f3f4f6;
       border-radius: 8px;
-      transition: all 0.3s ease;
     }
     
-    .task-item:hover {
-      border-color: #F45407;
-      background: #fff5f3;
-    }
-    
-    .task-checkbox {
-      width: 20px;
-      height: 20px;
-      border: 2px solid #e5e5e5;
-      border-radius: 4px;
+    .user-avatar {
+      width: 32px;
+      height: 32px;
+      background: #3b82f6;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    
-    .task-checkbox.completed {
-      background: #F45407;
-      border-color: #F45407;
-    }
-    
-    .task-checkbox.completed svg {
-      display: block;
-    }
-    
-    .task-checkbox svg {
-      display: none;
-      width: 12px;
-      height: 12px;
       color: white;
-    }
-    
-    .task-content {
-      flex: 1;
-    }
-    
-    .task-title {
-      font-size: 15px;
-      font-weight: 500;
-      color: #1a1a1a;
-      margin-bottom: 4px;
-    }
-    
-    .task-meta {
-      display: flex;
-      gap: 16px;
-      font-size: 13px;
-      color: #999;
-    }
-    
-    .task-status {
-      padding: 2px 8px;
-      border-radius: 50px;
-      font-size: 11px;
       font-weight: 600;
+      font-size: 14px;
     }
     
-    .status-todo {
-      background: #f3f4f6;
+    .user-details {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .user-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    
+    .user-company {
+      font-size: 12px;
       color: #6b7280;
     }
     
-    .status-in-progress {
-      background: #fef3c7;
-      color: #f59e0b;
+    .logout-btn {
+      padding: 8px 16px;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      color: #6b7280;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
     }
     
-    .status-review {
-      background: #dbeafe;
-      color: #3b82f6;
+    .logout-btn:hover {
+      background: #f3f4f6;
+      color: #1f2937;
     }
     
-    .status-done {
-      background: #d4f4dd;
-      color: #22c55e;
+    /* Main Content */
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
     }
     
-    /* Updates Timeline */
-    .updates-timeline {
-      position: relative;
-      padding-left: 32px;
-    }
-    
-    .updates-timeline::before {
-      content: '';
-      position: absolute;
-      left: 8px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: #e5e5e5;
-    }
-    
-    .update-item {
-      position: relative;
+    .welcome-section {
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      color: white;
+      border-radius: 16px;
+      padding: 32px;
       margin-bottom: 24px;
     }
     
-    .update-item::before {
-      content: '';
-      position: absolute;
-      left: -28px;
-      top: 8px;
-      width: 12px;
-      height: 12px;
-      background: white;
-      border: 2px solid #F45407;
-      border-radius: 50%;
-    }
-    
-    .update-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+    .welcome-title {
+      font-size: 32px;
+      font-weight: 700;
       margin-bottom: 8px;
     }
     
-    .update-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1a1a1a;
+    .welcome-subtitle {
+      font-size: 16px;
+      opacity: 0.9;
     }
     
-    .update-time {
-      font-size: 12px;
-      color: #999;
-    }
-    
-    .update-content {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.6;
-      padding: 12px;
-      background: #f8f9fa;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-    
-    .update-attachments {
+    /* Navigation Tabs */
+    .nav-tabs {
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
-    }
-    
-    .attachment-badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
+      margin-bottom: 24px;
       background: white;
-      border: 1px solid #e5e5e5;
-      border-radius: 6px;
-      font-size: 13px;
-      color: #666;
-      text-decoration: none;
-      transition: all 0.3s ease;
+      padding: 8px;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
     }
     
-    .attachment-badge:hover {
-      border-color: #F45407;
-      color: #F45407;
-    }
-    
-    /* Deliverables */
-    .deliverables-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    
-    .deliverable-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px;
-      border: 1px solid #e5e5e5;
+    .nav-tab {
+      padding: 10px 20px;
       border-radius: 8px;
-      transition: all 0.3s ease;
+      background: transparent;
+      border: none;
+      color: #6b7280;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
     }
     
-    .deliverable-item:hover {
-      border-color: #F45407;
+    .nav-tab:hover {
+      background: #f3f4f6;
+      color: #1f2937;
     }
     
-    .deliverable-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+    .nav-tab.active {
+      background: #3b82f6;
+      color: white;
     }
     
-    .deliverable-icon {
-      width: 40px;
-      height: 40px;
-      background: #f8f9fa;
-      border-radius: 8px;
+    /* Content Sections */
+    .content-section {
+      display: none;
+    }
+    
+    .content-section.active {
+      display: block;
+    }
+    
+    /* Stats Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      background: #eff6ff;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #666;
+      margin-bottom: 12px;
+      font-size: 24px;
     }
     
-    .deliverable-details {
+    .stat-label {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .stat-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1f2937;
+    }
+    
+    /* Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #e5e7eb;
+      transition: all 0.2s;
+    }
+    
+    .project-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    
+    .project-header {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
+      justify-content: space-between;
+      align-items: start;
+      margin-bottom: 16px;
     }
     
-    .deliverable-name {
-      font-size: 14px;
+    .project-title {
+      font-size: 18px;
       font-weight: 600;
-      color: #1a1a1a;
+      color: #1f2937;
+      margin-bottom: 4px;
     }
     
-    .deliverable-date {
+    .project-date {
       font-size: 12px;
-      color: #999;
+      color: #6b7280;
     }
     
-    .deliverable-status {
+    .status-badge {
+      display: inline-block;
       padding: 4px 12px;
       border-radius: 50px;
       font-size: 12px;
       font-weight: 600;
     }
     
-    .status-pending {
-      background: #f3f4f6;
-      color: #6b7280;
+    .status-badge.planning {
+      background: #fef3c7;
+      color: #d97706;
     }
     
-    .status-delivered {
+    .status-badge.in_progress {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+    
+    .status-badge.completed {
       background: #d4f4dd;
-      color: #22c55e;
+      color: #16a34a;
     }
     
-    /* Timeline */
-    .timeline-container {
-      padding: 24px;
-      background: #f8f9fa;
-      border-radius: 8px;
+    .project-description {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+      margin-bottom: 16px;
     }
     
-    .timeline-item {
+    .project-footer {
       display: flex;
-      gap: 24px;
-      margin-bottom: 24px;
-      position: relative;
-    }
-    
-    .timeline-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 44px;
-      bottom: -24px;
-      width: 2px;
-      background: #e5e5e5;
-    }
-    
-    .timeline-marker {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: white;
-      border: 2px solid #e5e5e5;
-      display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-      z-index: 1;
+      padding-top: 16px;
+      border-top: 1px solid #f3f4f6;
     }
     
-    .timeline-marker.completed {
-      background: #F45407;
-      border-color: #F45407;
-      color: white;
-    }
-    
-    .timeline-marker.current {
-      border-color: #F45407;
-      background: white;
-    }
-    
-    .timeline-content {
+    .project-progress {
       flex: 1;
-      padding-top: 8px;
+      margin-right: 16px;
     }
     
-    .timeline-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #1a1a1a;
+    .progress-label {
+      font-size: 12px;
+      color: #6b7280;
       margin-bottom: 4px;
     }
     
-    .timeline-description {
-      font-size: 14px;
-      color: #666;
+    .progress-bar {
+      height: 6px;
+      background: #e5e7eb;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: #3b82f6;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    
+    .view-btn {
+      padding: 6px 16px;
+      background: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .view-btn:hover {
+      background: #2563eb;
+    }
+    
+    /* Updates Timeline */
+    .updates-container {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #e5e7eb;
+    }
+    
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 20px;
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e7eb;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-bottom: 24px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      background: #3b82f6;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 0 0 4px #eff6ff;
+    }
+    
+    .update-date {
+      font-size: 12px;
+      color: #6b7280;
       margin-bottom: 8px;
     }
     
-    .timeline-date {
-      font-size: 13px;
-      color: #999;
-    }
-    
-    /* Message Box */
-    .message-box {
-      display: flex;
-      gap: 12px;
-      padding: 16px;
-      background: #f8f9fa;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-    
-    .message-input {
-      flex: 1;
-      padding: 10px 16px;
-      border: 1px solid #e5e5e5;
-      border-radius: 8px;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-    
-    .message-input:focus {
-      outline: none;
-      border-color: #F45407;
-    }
-    
-    .send-btn {
-      padding: 10px 20px;
-      background: #F45407;
-      color: white;
-      border: none;
-      border-radius: 8px;
+    .update-title {
+      font-size: 16px;
       font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      color: #1f2937;
+      margin-bottom: 8px;
     }
     
-    .send-btn:hover {
-      background: #e54307;
-      transform: translateY(-2px);
+    .update-content {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
     }
     
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .nav-menu {
-        display: none;
-      }
-      
-      .project-quick-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .content-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .welcome-header {
-        padding: 32px 24px;
-      }
-      
-      .welcome-title {
-        font-size: 24px;
-      }
+    .update-project {
+      display: inline-block;
+      font-size: 12px;
+      color: #3b82f6;
+      background: #eff6ff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+    
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #6b7280;
+    }
+    
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+    
+    .empty-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+    
+    .empty-text {
+      font-size: 14px;
+      color: #6b7280;
+    }
+    
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: #6b7280;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      border: 3px solid #f3f4f6;
+      border-top-color: #3b82f6;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
   </style>
 </head>
 <body>
   
-  <!-- Top Navigation -->
-  <nav class="top-nav">
-    <div class="nav-container">
-      <div class="nav-brand">
-        <div class="brand-icon">im</div>
-        <div class="brand-text">imisofts</div>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">im</div>
+        <div class="logo-text">imisofts</div>
       </div>
       
-      <div class="nav-menu">
-        <a href="#" class="nav-link active">Dashboard</a>
-        <a href="#" class="nav-link">Project Details</a>
-        <a href="#" class="nav-link">Deliverables</a>
-        <a href="#" class="nav-link">Invoices</a>
-        <a href="#" class="nav-link">Support</a>
-      </div>
-      
-      <div class="user-menu">
-        <button class="notification-btn">
-          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-          </svg>
-          <span class="notification-dot"></span>
-        </button>
-        
-        <div class="user-profile">
-          <div class="user-avatar">JD</div>
-          <div>
-            <div style="font-size: 14px; font-weight: 600;">John Doe</div>
-            <div style="font-size: 12px; color: #999;">TechCorp Dubai</div>
+      <div class="header-right">
+        <div class="user-info">
+          <div class="user-avatar" id="userAvatar">C</div>
+          <div class="user-details">
+            <div class="user-name" id="userName">Client User</div>
+            <div class="user-company" id="userCompany">TechCorp</div>
           </div>
         </div>
+        <button class="logout-btn" onclick="logout()">Sign Out</button>
       </div>
     </div>
-  </nav>
+  </header>
   
-  <!-- Main Container -->
+  <!-- Main Content -->
   <div class="main-container">
-    <!-- Welcome Header -->
-    <div class="welcome-header">
-      <div class="welcome-content">
-        <h1 class="welcome-title">Welcome back, John! 👋</h1>
-        <p class="welcome-subtitle">Your E-commerce Platform project is progressing smoothly. Here's your latest update.</p>
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+      <h1 class="welcome-title" id="welcomeTitle">Welcome back!</h1>
+      <p class="welcome-subtitle">Track your projects, view updates, and monitor progress</p>
+    </div>
+    
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+      <button class="nav-tab" onclick="showSection('projects')">My Projects</button>
+      <button class="nav-tab" onclick="showSection('updates')">Updates</button>
+      <button class="nav-tab" onclick="showSection('tasks')">Task Progress</button>
+    </div>
+    
+    <!-- Overview Section -->
+    <div id="overview" class="content-section active">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📊</div>
+          <div class="stat-label">Active Projects</div>
+          <div class="stat-value" id="activeProjects">0</div>
+        </div>
         
-        <div class="project-quick-stats">
-          <div class="quick-stat">
-            <div class="quick-stat-label">Overall Progress</div>
-            <div class="quick-stat-value">65%</div>
-          </div>
-          <div class="quick-stat">
-            <div class="quick-stat-label">Current Sprint</div>
-            <div class="quick-stat-value">Sprint 3</div>
-          </div>
-          <div class="quick-stat">
-            <div class="quick-stat-label">Days to Launch</div>
-            <div class="quick-stat-value">16</div>
-          </div>
-          <div class="quick-stat">
-            <div class="quick-stat-label">Team Members</div>
-            <div class="quick-stat-value">5</div>
-          </div>
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-label">Completed Tasks</div>
+          <div class="stat-value" id="completedTasks">0</div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">⏳</div>
+          <div class="stat-label">In Progress</div>
+          <div class="stat-value" id="inProgressTasks">0</div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">📝</div>
+          <div class="stat-label">Recent Updates</div>
+          <div class="stat-value" id="recentUpdates">0</div>
+        </div>
+      </div>
+      
+      <div class="updates-container">
+        <h2 class="section-title">Recent Activity</h2>
+        <div id="recentActivity" class="loading">
+          <div class="spinner"></div>
+          <p>Loading recent activity...</p>
         </div>
       </div>
     </div>
     
-    <!-- Content Grid -->
-    <div class="content-grid">
-      <!-- Left Column -->
-      <div>
-        <!-- Current Sprint -->
-        <div class="card" style="margin-bottom: 24px;">
-          <div class="card-header">
-            <h2 class="card-title">Current Sprint Progress</h2>
-            <a href="#" class="card-action">View All Tasks →</a>
-          </div>
-          
-          <div class="sprint-header">
-            <div class="sprint-info">
-              <div class="sprint-name">Sprint 3: Payment Integration & Testing</div>
-              <div class="sprint-dates">Dec 18, 2024 - Jan 1, 2025</div>
-            </div>
-            <div class="sprint-progress">
-              <div class="progress-ring">
-                <svg width="60" height="60">
-                  <circle class="progress-ring-bg" cx="30" cy="30" r="25"></circle>
-                  <circle class="progress-ring-fill" cx="30" cy="30" r="25"></circle>
-                </svg>
-                <div class="progress-text">68%</div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="task-list">
-            <div class="task-item">
-              <div class="task-checkbox completed">
-                <svg fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div class="task-content">
-                <div class="task-title">Setup CI/CD pipeline</div>
-                <div class="task-meta">
-                  <span>Assigned to: Tom Chen</span>
-                  <span>Due: Dec 20</span>
-                </div>
-              </div>
-              <span class="task-status status-done">Done</span>
-            </div>
-            
-            <div class="task-item">
-              <div class="task-checkbox completed">
-                <svg fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div class="task-content">
-                <div class="task-title">User authentication module</div>
-                <div class="task-meta">
-                  <span>Assigned to: Michael Ross</span>
-                  <span>Due: Dec 22</span>
-                </div>
-              </div>
-              <span class="task-status status-done">Done</span>
-            </div>
-            
-            <div class="task-item">
-              <div class="task-checkbox">
-                <svg fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div class="task-content">
-                <div class="task-title">Payment gateway integration (Stripe & PayPal)</div>
-                <div class="task-meta">
-                  <span>Assigned to: Ahmed Hassan</span>
-                  <span>Due: Dec 28</span>
-                </div>
-              </div>
-              <span class="task-status status-in-progress">In Progress</span>
-            </div>
-            
-            <div class="task-item">
-              <div class="task-checkbox">
-                <svg fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div class="task-content">
-                <div class="task-title">Optimize database queries for performance</div>
-                <div class="task-meta">
-                  <span>Assigned to: John Davis</span>
-                  <span>Due: Dec 30</span>
-                </div>
-              </div>
-              <span class="task-status status-review">In Review</span>
-            </div>
-            
-            <div class="task-item">
-              <div class="task-checkbox">
-                <svg fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <div class="task-content">
-                <div class="task-title">Complete security audit</div>
-                <div class="task-meta">
-                  <span>Assigned to: Zeeshan Khan</span>
-                  <span>Due: Jan 1</span>
-                </div>
-              </div>
-              <span class="task-status status-todo">To Do</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Recent Updates -->
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">Recent Updates from Team</h2>
-            <a href="#" class="card-action">View All →</a>
-          </div>
-          
-          <div class="updates-timeline">
-            <div class="update-item">
-              <div class="update-header">
-                <div class="update-title">Sprint 3 Progress Update</div>
-                <div class="update-time">2 hours ago</div>
-              </div>
-              <div class="update-content">
-                Great news! We've completed the user authentication module and it's now in testing. The payment gateway integration is 70% complete and on track for the deadline. Our team is working on optimizing the checkout flow for better conversion rates.
-              </div>
-              <div class="update-attachments">
-                <a href="#" class="attachment-badge">
-                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                  </svg>
-                  Sprint Report.pdf
-                </a>
-                <a href="#" class="attachment-badge">
-                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                  </svg>
-                  UI Screenshots
-                </a>
-              </div>
-            </div>
-            
-            <div class="update-item">
-              <div class="update-header">
-                <div class="update-title">Database Optimization Complete</div>
-                <div class="update-time">Yesterday</div>
-              </div>
-              <div class="update-content">
-                We've successfully optimized the database queries. Page load times have improved by 40%, and the product search is now 3x faster. The changes have been deployed to the staging environment for your review.
-              </div>
-            </div>
-            
-            <div class="update-item">
-              <div class="update-header">
-                <div class="update-title">Design Review Meeting Notes</div>
-                <div class="update-time">Dec 18, 2024</div>
-              </div>
-              <div class="update-content">
-                Thank you for the valuable feedback during our design review. We've incorporated your suggestions for the checkout flow and mobile responsive design. The updated designs are ready for your approval.
-              </div>
-              <div class="update-attachments">
-                <a href="#" class="attachment-badge">
-                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                  </svg>
-                  Meeting Recording
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="message-box">
-            <input type="text" class="message-input" placeholder="Have a question? Send us a message...">
-            <button class="send-btn">Send</button>
-          </div>
-        </div>
+    <!-- Projects Section -->
+    <div id="projects" class="content-section">
+      <h2 class="section-title">Your Projects</h2>
+      <div id="projectsList" class="loading">
+        <div class="spinner"></div>
+        <p>Loading projects...</p>
       </div>
-      
-      <!-- Right Column -->
-      <div>
-        <!-- Upcoming Deliverables -->
-        <div class="card" style="margin-bottom: 24px;">
-          <div class="card-header">
-            <h2 class="card-title">Upcoming Deliverables</h2>
-          </div>
-          
-          <div class="deliverables-list">
-            <div class="deliverable-item">
-              <div class="deliverable-info">
-                <div class="deliverable-icon">
-                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                  </svg>
-                </div>
-                <div class="deliverable-details">
-                  <div class="deliverable-name">Payment Module</div>
-                  <div class="deliverable-date">Due: Dec 28, 2024</div>
-                </div>
-              </div>
-              <span class="deliverable-status status-pending">Pending</span>
-            </div>
-            
-            <div class="deliverable-item">
-              <div class="deliverable-info">
-                <div class="deliverable-icon">
-                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                  </svg>
-                </div>
-                <div class="deliverable-details">
-                  <div class="deliverable-name">Admin Dashboard</div>
-                  <div class="deliverable-date">Due: Jan 5, 2025</div>
-                </div>
-              </div>
-              <span class="deliverable-status status-pending">Pending</span>
-            </div>
-            
-            <div class="deliverable-item">
-              <div class="deliverable-info">
-                <div class="deliverable-icon">
-                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <div class="deliverable-details">
-                  <div class="deliverable-name">User Auth System</div>
-                  <div class="deliverable-date">Delivered: Dec 22, 2024</div>
-                </div>
-              </div>
-              <span class="deliverable-status status-delivered">Delivered</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Project Timeline -->
-        <div class="card">
-          <div class="card-header">
-            <h2 class="card-title">Project Roadmap</h2>
-          </div>
-          
-          <div class="timeline-container">
-            <div class="timeline-item">
-              <div class="timeline-marker completed">✓</div>
-              <div class="timeline-content">
-                <div class="timeline-title">Project Kickoff</div>
-                <div class="timeline-description">Requirements gathering & planning</div>
-                <div class="timeline-date">Nov 15, 2024</div>
-              </div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-marker completed">✓</div>
-              <div class="timeline-content">
-                <div class="timeline-title">Design Phase</div>
-                <div class="timeline-description">UI/UX design & prototyping</div>
-                <div class="timeline-date">Dec 1, 2024</div>
-              </div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-marker current">→</div>
-              <div class="timeline-content">
-                <div class="timeline-title">Development Sprint 3</div>
-                <div class="timeline-description">Core features & integrations</div>
-                <div class="timeline-date">In Progress</div>
-              </div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-marker">4</div>
-              <div class="timeline-content">
-                <div class="timeline-title">Testing & QA</div>
-                <div class="timeline-description">Complete testing suite</div>
-                <div class="timeline-date">Jan 5, 2025</div>
-              </div>
-            </div>
-            
-            <div class="timeline-item">
-              <div class="timeline-marker">5</div>
-              <div class="timeline-content">
-                <div class="timeline-title">Launch</div>
-                <div class="timeline-description">Go live & deployment</div>
-                <div class="timeline-date">Jan 15, 2025</div>
-              </div>
-            </div>
-          </div>
-        </div>
+    </div>
+    
+    <!-- Updates Section -->
+    <div id="updates" class="content-section">
+      <h2 class="section-title">Project Updates</h2>
+      <div id="updatesList" class="loading">
+        <div class="spinner"></div>
+        <p>Loading updates...</p>
+      </div>
+    </div>
+    
+    <!-- Tasks Section -->
+    <div id="tasks" class="content-section">
+      <h2 class="section-title">Task Progress</h2>
+      <div id="tasksList" class="loading">
+        <div class="spinner"></div>
+        <p>Loading tasks...</p>
       </div>
     </div>
   </div>
   
   <script>
-    // Add interactivity for task checkboxes
-    document.querySelectorAll('.task-checkbox').forEach(checkbox => {
-      checkbox.addEventListener('click', function() {
-        this.classList.toggle('completed');
-        // In a real app, this would update the task status in the backend
-      });
-    });
+    // Initialize Supabase
+    let supabaseClient = null;
+    let currentUser = null;
+    let userCompany = null;
     
-    // Message send functionality
-    document.querySelector('.send-btn').addEventListener('click', function() {
-      const input = document.querySelector('.message-input');
-      if (input.value.trim()) {
-        // In a real app, this would send the message to the backend
-        alert('Message sent to the imisofts team!');
-        input.value = '';
+    // Initialize on page load
+    window.addEventListener('load', async () => {
+      // Get saved credentials
+      const savedUrl = localStorage.getItem('SUPABASE_URL');
+      const savedKey = localStorage.getItem('SUPABASE_ANON_KEY');
+      
+      if (!savedUrl || !savedKey) {
+        alert('Please login first');
+        window.location.href = 'client-login.html';
+        return;
       }
+      
+      // Initialize Supabase
+      const { createClient } = supabase;
+      supabaseClient = createClient(savedUrl, savedKey);
+      
+      // Check authentication
+      await checkAuth();
+      
+      // Load initial data
+      await loadDashboardData();
     });
     
-    // Animate progress ring on load
-    setTimeout(() => {
-      document.querySelector('.progress-ring-fill').style.strokeDashoffset = '50';
-    }, 500);
+    // Check authentication
+    async function checkAuth() {
+      try {
+        const { data: { user }, error } = await supabaseClient.auth.getUser();
+        
+        if (error || !user) {
+          window.location.href = 'client-login.html';
+          return;
+        }
+        
+        // Get user profile with company info
+        const { data: profile } = await supabaseClient
+          .from('users')
+          .select('*, companies(*)')
+          .eq('id', user.id)
+          .single();
+        
+        if (!profile || profile.role !== 'client') {
+          alert('Client access required');
+          await supabaseClient.auth.signOut();
+          window.location.href = 'client-login.html';
+          return;
+        }
+        
+        currentUser = profile;
+        userCompany = profile.companies;
+        
+        // Update UI with user info
+        document.getElementById('userName').textContent = profile.full_name || 'Client User';
+        document.getElementById('userAvatar').textContent = (profile.full_name || 'Client').charAt(0).toUpperCase();
+        document.getElementById('userCompany').textContent = userCompany?.name || 'Your Company';
+        document.getElementById('welcomeTitle').textContent = `Welcome back, ${profile.full_name || 'Client'}!`;
+        
+      } catch (error) {
+        console.error('Auth check failed:', error);
+        window.location.href = 'client-login.html';
+      }
+    }
+    
+    // Load dashboard data
+    async function loadDashboardData() {
+      if (!userCompany) return;
+      
+      try {
+        // Load projects for this company
+        const { data: projects } = await supabaseClient
+          .from('projects')
+          .select('*')
+          .eq('company_id', userCompany.id);
+        
+        // Load tasks from sprints related to these projects
+        let allTasks = [];
+        if (projects && projects.length > 0) {
+          const projectIds = projects.map(p => p.id);
+          const { data: sprints } = await supabaseClient
+            .from('sprints')
+            .select('*, tasks(*)')
+            .in('project_id', projectIds);
+          
+          if (sprints) {
+            sprints.forEach(sprint => {
+              if (sprint.tasks) {
+                allTasks = [...allTasks, ...sprint.tasks];
+              }
+            });
+          }
+        }
+        
+        // Load recent updates
+        const { data: updates } = await supabaseClient
+          .from('project_updates')
+          .select('*, projects(name)')
+          .eq('is_client_visible', true)
+          .in('project_id', projects?.map(p => p.id) || [])
+          .order('created_at', { ascending: false })
+          .limit(5);
+        
+        // Update statistics
+        document.getElementById('activeProjects').textContent = 
+          projects?.filter(p => p.status === 'in_progress').length || 0;
+        document.getElementById('completedTasks').textContent = 
+          allTasks.filter(t => t.status === 'done').length;
+        document.getElementById('inProgressTasks').textContent = 
+          allTasks.filter(t => t.status === 'in_progress').length;
+        document.getElementById('recentUpdates').textContent = updates?.length || 0;
+        
+        // Display recent activity
+        if (updates && updates.length > 0) {
+          const activityHtml = `
+            <div class="timeline">
+              ${updates.map(update => `
+                <div class="timeline-item">
+                  <div class="update-date">${new Date(update.created_at).toLocaleDateString()}</div>
+                  <div class="update-title">${update.title}</div>
+                  <div class="update-content">${update.content}</div>
+                  <span class="update-project">${update.projects?.name || 'Project'}</span>
+                </div>
+              `).join('')}
+            </div>
+          `;
+          document.getElementById('recentActivity').innerHTML = activityHtml;
+        } else {
+          document.getElementById('recentActivity').innerHTML = 
+            '<div class="empty-state"><div class="empty-text">No recent updates</div></div>';
+        }
+        
+      } catch (error) {
+        console.error('Error loading dashboard data:', error);
+      }
+    }
+    
+    // Show different sections
+    function showSection(section) {
+      // Update navigation
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      event.target.classList.add('active');
+      
+      // Hide all sections
+      document.querySelectorAll('.content-section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      
+      // Show selected section
+      document.getElementById(section).classList.add('active');
+      
+      // Load section data
+      if (section === 'projects') loadProjects();
+      if (section === 'updates') loadUpdates();
+      if (section === 'tasks') loadTasks();
+    }
+    
+    // Load projects
+    async function loadProjects() {
+      if (!userCompany) return;
+      
+      try {
+        const { data: projects } = await supabaseClient
+          .from('projects')
+          .select('*')
+          .eq('company_id', userCompany.id)
+          .order('created_at', { ascending: false });
+        
+        if (projects && projects.length > 0) {
+          const projectsHtml = `
+            <div class="projects-grid">
+              ${projects.map(project => {
+                const progress = Math.floor(Math.random() * 100); // Mock progress
+                return `
+                  <div class="project-card">
+                    <div class="project-header">
+                      <div>
+                        <div class="project-title">${project.name}</div>
+                        <div class="project-date">Started ${new Date(project.created_at).toLocaleDateString()}</div>
+                      </div>
+                      <span class="status-badge ${project.status}">${project.status.replace('_', ' ')}</span>
+                    </div>
+                    <div class="project-description">
+                      ${project.description || 'Project in progress. Updates will be posted regularly.'}
+                    </div>
+                    <div class="project-footer">
+                      <div class="project-progress">
+                        <div class="progress-label">Progress: ${progress}%</div>
+                        <div class="progress-bar">
+                          <div class="progress-fill" style="width: ${progress}%"></div>
+                        </div>
+                      </div>
+                      <button class="view-btn" onclick="viewProject('${project.id}')">View Details</button>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          `;
+          document.getElementById('projectsList').innerHTML = projectsHtml;
+        } else {
+          document.getElementById('projectsList').innerHTML = `
+            <div class="empty-state">
+              <div class="empty-icon">📁</div>
+              <div class="empty-title">No Projects Yet</div>
+              <div class="empty-text">Your projects will appear here once they are created</div>
+            </div>
+          `;
+        }
+        
+      } catch (error) {
+        console.error('Error loading projects:', error);
+        document.getElementById('projectsList').innerHTML = 
+          '<div class="empty-state"><div class="empty-text">Error loading projects</div></div>';
+      }
+    }
+    
+    // Load updates
+    async function loadUpdates() {
+      if (!userCompany) return;
+      
+      try {
+        // Get all projects for this company
+        const { data: projects } = await supabaseClient
+          .from('projects')
+          .select('id')
+          .eq('company_id', userCompany.id);
+        
+        if (projects && projects.length > 0) {
+          const projectIds = projects.map(p => p.id);
+          
+          const { data: updates } = await supabaseClient
+            .from('project_updates')
+            .select('*, projects(name)')
+            .eq('is_client_visible', true)
+            .in('project_id', projectIds)
+            .order('created_at', { ascending: false });
+          
+          if (updates && updates.length > 0) {
+            const updatesHtml = `
+              <div class="timeline">
+                ${updates.map(update => `
+                  <div class="timeline-item">
+                    <div class="update-date">${new Date(update.created_at).toLocaleString()}</div>
+                    <div class="update-title">${update.title}</div>
+                    <div class="update-content">${update.content}</div>
+                    <span class="update-project">${update.projects?.name || 'Project'}</span>
+                  </div>
+                `).join('')}
+              </div>
+            `;
+            document.getElementById('updatesList').innerHTML = updatesHtml;
+          } else {
+            document.getElementById('updatesList').innerHTML = `
+              <div class="empty-state">
+                <div class="empty-icon">📢</div>
+                <div class="empty-title">No Updates Yet</div>
+                <div class="empty-text">Project updates will appear here</div>
+              </div>
+            `;
+          }
+        } else {
+          document.getElementById('updatesList').innerHTML = `
+            <div class="empty-state">
+              <div class="empty-icon">📢</div>
+              <div class="empty-title">No Updates</div>
+              <div class="empty-text">Updates will appear here once projects are created</div>
+            </div>
+          `;
+        }
+        
+      } catch (error) {
+        console.error('Error loading updates:', error);
+        document.getElementById('updatesList').innerHTML = 
+          '<div class="empty-state"><div class="empty-text">Error loading updates</div></div>';
+      }
+    }
+    
+    // Load tasks
+    async function loadTasks() {
+      if (!userCompany) return;
+      
+      try {
+        // Get all projects for this company
+        const { data: projects } = await supabaseClient
+          .from('projects')
+          .select('id, name')
+          .eq('company_id', userCompany.id);
+        
+        if (projects && projects.length > 0) {
+          const projectIds = projects.map(p => p.id);
+          
+          // Get sprints and tasks
+          const { data: sprints } = await supabaseClient
+            .from('sprints')
+            .select('*, tasks(*), projects(name)')
+            .in('project_id', projectIds)
+            .order('created_at', { ascending: false });
+          
+          if (sprints && sprints.length > 0) {
+            let tasksHtml = '<div style="display: grid; gap: 20px;">';
+            
+            sprints.forEach(sprint => {
+              if (sprint.tasks && sprint.tasks.length > 0) {
+                const totalTasks = sprint.tasks.length;
+                const completedTasks = sprint.tasks.filter(t => t.status === 'done').length;
+                const progressPercent = Math.round((completedTasks / totalTasks) * 100);
+                
+                tasksHtml += `
+                  <div class="stat-card">
+                    <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">
+                      ${sprint.name} - ${sprint.projects?.name || 'Project'}
+                    </h3>
+                    <div style="margin-bottom: 12px;">
+                      <div class="progress-label">Sprint Progress: ${progressPercent}% (${completedTasks}/${totalTasks} tasks)</div>
+                      <div class="progress-bar" style="margin-top: 8px;">
+                        <div class="progress-fill" style="width: ${progressPercent}%"></div>
+                      </div>
+                    </div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                      ${sprint.tasks.map(task => `
+                        <span class="status-badge ${task.status}" style="font-size: 11px;">
+                          ${task.title.substring(0, 20)}${task.title.length > 20 ? '...' : ''}
+                        </span>
+                      `).join('')}
+                    </div>
+                  </div>
+                `;
+              }
+            });
+            
+            tasksHtml += '</div>';
+            document.getElementById('tasksList').innerHTML = tasksHtml;
+          } else {
+            document.getElementById('tasksList').innerHTML = `
+              <div class="empty-state">
+                <div class="empty-icon">✅</div>
+                <div class="empty-title">No Tasks Yet</div>
+                <div class="empty-text">Task progress will appear here</div>
+              </div>
+            `;
+          }
+        } else {
+          document.getElementById('tasksList').innerHTML = `
+            <div class="empty-state">
+              <div class="empty-icon">✅</div>
+              <div class="empty-title">No Tasks</div>
+              <div class="empty-text">Tasks will appear here once projects are created</div>
+            </div>
+          `;
+        }
+        
+      } catch (error) {
+        console.error('Error loading tasks:', error);
+        document.getElementById('tasksList').innerHTML = 
+          '<div class="empty-state"><div class="empty-text">Error loading tasks</div></div>';
+      }
+    }
+    
+    // View project details
+    function viewProject(projectId) {
+      alert(`View project details: ${projectId}\nThis feature will be implemented soon!`);
+    }
+    
+    // Logout function
+    async function logout() {
+      try {
+        await supabaseClient.auth.signOut();
+        localStorage.removeItem('clientAuth');
+        window.location.href = 'client-login.html';
+      } catch (error) {
+        console.error('Logout error:', error);
+      }
+    }
   </script>
   
 </body>
