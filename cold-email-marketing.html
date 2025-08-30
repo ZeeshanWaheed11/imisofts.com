@@ -1,0 +1,2272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cold Email Marketing & Infrastructure | imisofts</title>
+  <meta name="description" content="Professional cold email marketing and infrastructure setup for ambitious businesses. Private email servers, campaign automation, 95%+ inbox rates. Launch in 48 hours.">
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #F45407;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .nav-logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a1a;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+    
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      padding: 8px;
+      min-width: 320px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .dropdown-item-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dropdown-item-icon svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .dropdown-item-content {
+      flex: 1;
+    }
+    
+    .dropdown-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    
+    .dropdown-item-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    .current-page {
+      background: rgba(244, 84, 7, 0.1);
+    }
+    
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .mobile-services {
+      margin: 16px 0;
+    }
+    
+    .mobile-services-title {
+      padding: 12px 16px;
+      font-weight: 600;
+      color: #999;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .mobile-service-link {
+      display: block;
+      padding: 12px 16px 12px 32px;
+      color: #666;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+    
+    .mobile-service-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+      color: #F45407;
+    }
+    
+    .mobile-service-link.current {
+      background: rgba(244, 84, 7, 0.1);
+      color: #F45407;
+      font-weight: 600;
+    }
+    
+    .mobile-cta {
+      display: block;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    
+    /* ============= FOOTER STYLES ============= */
+    .footer {
+      background: #0a0a0a;
+      color: #ccc;
+      padding: 80px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-brand h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    
+    .footer-brand p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #999;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+      background: #F45407;
+      transform: translateY(-3px);
+    }
+    
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: #F45407;
+      transform: translateX(3px);
+    }
+    
+    .footer-bottom {
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .footer-copyright {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .footer-bottom-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-bottom-links a:hover {
+      color: #F45407;
+    }
+    
+    /* ============= MAIN CONTENT STYLES ============= */
+    
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Section Padding */
+    .section-padding {
+      padding: 80px 0;
+    }
+    
+    /* Grid Classes */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Card Styles */
+    .service-card {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #e5e5e5;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+    
+    .feature-card {
+      background: #f9fafb;
+      padding: 32px;
+      border-radius: 16px;
+      border-left: 4px solid #F45407;
+      transition: all 0.3s ease;
+    }
+    
+    .phase-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e5e5e5;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .phase-card:hover {
+      border-color: #F45407;
+      box-shadow: 0 8px 24px rgba(244, 84, 7, 0.1);
+    }
+    
+    /* Service Toggle */
+    .service-toggle-container {
+      display: inline-flex;
+      background: rgba(241, 245, 249, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 0.25rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .service-toggle-btn {
+      padding: 0.9rem 2.5rem;
+      background: transparent;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .service-toggle-btn:hover:not(.active) {
+      color: #333;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    
+    .service-toggle-btn.active {
+      background: white;
+      color: #F45407;
+      box-shadow: 0 3px 12px rgba(244, 84, 7, 0.15);
+      font-weight: 700;
+    }
+    
+    /* Calculator Styles */
+    .calculator-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    
+    .calculator-input-section,
+    .calculator-results-section {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .calc-form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .calc-form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    
+    .calc-form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      transition: border-color 0.3s;
+    }
+    
+    .calc-form-group input:focus {
+      outline: none;
+      border-color: #F45407;
+    }
+    
+    .slider-container {
+      margin-top: 1rem;
+    }
+    
+    .slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #e2e8f0;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #F45407;
+      cursor: pointer;
+    }
+    
+    .slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #F45407;
+      cursor: pointer;
+    }
+    
+    .email-count-display {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #F45407;
+      margin-top: 1rem;
+    }
+    
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .result-item:last-child {
+      border-bottom: none;
+    }
+    
+    .result-label {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    
+    .result-value {
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 1.1rem;
+    }
+    
+    .recommendation-box {
+      background: linear-gradient(135deg, #fff5f3 0%, #ffe8e3 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .recommendation-badge {
+      display: inline-block;
+      background: #F45407;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    
+    .recommendation-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+    }
+    
+    .recommendation-price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #F45407;
+      margin-bottom: 0.5rem;
+    }
+    
+    .recommendation-details {
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    
+    .cta-button-calc {
+      display: block;
+      text-align: center;
+      padding: 1rem;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1.5rem;
+      transition: all 0.3s;
+    }
+    
+    .cta-button-calc:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Table Styles */
+    .comparison-table {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+    }
+    
+    .comparison-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    .comparison-table th {
+      background: #f9fafb;
+      padding: 1.5rem;
+      text-align: left;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    
+    .comparison-table th:not(:first-child) {
+      text-align: center;
+    }
+    
+    .comparison-table td {
+      padding: 1.25rem;
+      border-bottom: 1px solid #f1f5f9;
+      color: #333;
+    }
+    
+    .comparison-table td:not(:first-child) {
+      text-align: center;
+    }
+    
+    .comparison-table tbody tr:hover {
+      background: #fafbfc;
+    }
+    
+    .check-mark {
+      color: #22c55e;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .x-mark {
+      color: #ef4444;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+        line-height: 1.2 !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .section-padding {
+        padding: 48px 0 !important;
+      }
+      
+      .calculator-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .service-toggle-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      .comparison-table {
+        overflow-x: auto;
+      }
+      
+      .comparison-table table {
+        min-width: 600px;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ============= NAVBAR ============= -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo-wrapper">
+          <div class="nav-logo-icon">im</div>
+          <div class="nav-logo">imisofts</div>
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <a href="/ai-automation" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Automation</div>
+                  <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                </div>
+              </a>
+              
+              <a href="/digital-marketing" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Digital Marketing</div>
+                  <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                </div>
+              </a>
+              
+              <a href="/cold-email-marketing" class="dropdown-item current-page">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Cold Email Marketing</div>
+                  <div class="dropdown-item-desc">Professional cold email systems that generate leads</div>
+                </div>
+              </a>
+              
+              <a href="/ecommerce" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">E-commerce</div>
+                  <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                </div>
+              </a>
+              
+              <a href="/web-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Web Development</div>
+                  <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                </div>
+              </a>
+              
+              <a href="/crm-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">CRM Development</div>
+                  <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                </div>
+              </a>
+              
+              <a href="/shopify-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Shopify Apps</div>
+                  <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                </div>
+              </a>
+              
+              <a href="/ai-mobile-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Mobile Apps</div>
+                  <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          
+          <!-- CTA Button -->
+          <a href="/contact" class="nav-cta">Get Started</a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="mobile-nav-link">Home</a>
+      
+      <div class="mobile-services">
+        <div class="mobile-services-title">Services</div>
+        <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+        <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+        <a href="/cold-email-marketing" class="mobile-service-link current">Cold Email Marketing</a>
+        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+        <a href="/web-development" class="mobile-service-link">Web Development</a>
+        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+        <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+        <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+      </div>
+      
+      <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/pricing" class="mobile-nav-link">Pricing</a>
+      <a href="/blog" class="mobile-nav-link">Blog</a>
+      
+      <a href="/contact" class="mobile-cta">Get Started</a>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="section-padding" style="background: linear-gradient(to bottom, #ffffff, #f9fafb);">
+    <div class="container">
+      <div class="grid grid-2" style="gap: 48px; align-items: center;">
+        <div>
+          <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: #fff5f3; border-radius: 50px; margin-bottom: 24px;">
+            <span style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;"></span>
+            <span style="color: #F45407; font-size: 14px; font-weight: 500;">Only 3 spots left for January</span>
+          </div>
+          
+          <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 24px; color: #1a1a1a;">
+            Turn Cold Emails Into Your
+            <span style="color: #F45407; display: block;">#1 Revenue Channel</span>
+            in 48 Hours
+          </h1>
+          
+          <p style="font-size: 20px; color: #333; line-height: 1.6; margin-bottom: 16px; font-weight: 600;">
+            Complete cold email infrastructure and campaign setup for ambitious businesses. Private servers, 95%+ inbox rates, guaranteed results.
+          </p>
+          
+          <p style="font-size: 18px; color: #666; line-height: 1.6; margin-bottom: 32px;">
+            Stop sharing servers with spammers. Get your own private email infrastructure with 7 professional inboxes per domain, complete authentication, and expert campaign management. From setup to scale in 48 hours.
+          </p>
+          
+          <div style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
+            <a href="#packages" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px; transition: all 0.3s ease;">
+              View Packages
+            </a>
+            <a href="#audit" style="padding: 14px 28px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
+              Get Free Audit
+            </a>
+          </div>
+          
+          <div class="stats-grid">
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">500+</div>
+              <div style="font-size: 14px; color: #666;">Systems Built</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">95%+</div>
+              <div style="font-size: 14px; color: #666;">Inbox Rate</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">2M+</div>
+              <div style="font-size: 14px; color: #666;">Emails Delivered</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">48hrs</div>
+              <div style="font-size: 14px; color: #666;">To Launch</div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="position: relative;">
+          <div style="background: white; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <div style="font-size: 14px; color: #F45407; font-weight: 600; margin-bottom: 8px;">LIVE PERFORMANCE</div>
+              <div style="font-size: 36px; font-weight: 700; color: #1a1a1a;">Email Metrics</div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 14px; font-weight: 600; color: #333;">Open Rate</span>
+                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">52%</span>
+                </div>
+                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 52%; height: 100%; background: #10b981; border-radius: 4px;"></div>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">Industry avg: 21.5%</div>
+              </div>
+              
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 14px; font-weight: 600; color: #333;">Reply Rate</span>
+                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">8.5%</span>
+                </div>
+                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 85%; height: 100%; background: #10b981; border-radius: 4px;"></div>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">Industry avg: 1-2%</div>
+              </div>
+              
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 14px; font-weight: 600; color: #333;">Inbox Placement</span>
+                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">97%</span>
+                </div>
+                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 97%; height: 100%; background: #10b981; border-radius: 4px;"></div>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">Industry avg: 85%</div>
+              </div>
+              
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 14px; font-weight: 600; color: #333;">Bounce Rate</span>
+                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">0.8%</span>
+                </div>
+                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 99%; height: 100%; background: #10b981; border-radius: 4px;"></div>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">Target: <2%</div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #e5e5e5; text-align: center;">
+              <div style="font-size: 12px; color: #999;">Average across 500+ campaigns</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Problem Section -->
+  <section class="section-padding" style="background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Your Competitors Are Eating Your Lunch While You're Stuck With...</h2>
+      </div>
+      
+      <div class="grid grid-2" style="gap: 16px; max-width: 800px; margin: 0 auto 32px;">
+        <div style="display: flex; align-items: flex-start; gap: 12px; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e5e5e5;">
+          <svg width="24" height="24" fill="none" stroke="#ef4444" stroke-width="2" style="flex-shrink: 0;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Emails landing in spam</h3>
+            <p style="font-size: 14px; color: #666;">Killing your domain reputation</p>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: flex-start; gap: 12px; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e5e5e5;">
+          <svg width="24" height="24" fill="none" stroke="#ef4444" stroke-width="2" style="flex-shrink: 0;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Manual outreach</h3>
+            <p style="font-size: 14px; color: #666;">5 hours/day with zero results</p>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: flex-start; gap: 12px; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e5e5e5;">
+          <svg width="24" height="24" fill="none" stroke="#ef4444" stroke-width="2" style="flex-shrink: 0;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">"Spray and pray" campaigns</h3>
+            <p style="font-size: 14px; color: #666;">2% open rates burning money</p>
+          </div>
+        </div>
+        
+        <div style="display: flex; align-items: flex-start; gap: 12px; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e5e5e5;">
+          <svg width="24" height="24" fill="none" stroke="#ef4444" stroke-width="2" style="flex-shrink: 0;">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Expensive agencies</h3>
+            <p style="font-size: 14px; color: #666;">$5,000/month for mediocre results</p>
+          </div>
+        </div>
+      </div>
+      
+      <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 24px; text-align: center; max-width: 800px; margin: 0 auto;">
+        <h3 style="color: #991b1b; font-size: 18px; margin-bottom: 8px; font-weight: bold;">Every day without a proper cold email system costs you 10-50 qualified leads</h3>
+        <p style="color: #b91c1c;">That's $50,000+ in potential revenue lost every month</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Complete Solution Section -->
+  <section class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Your Complete Cold Email System</h2>
+        <p style="font-size: 18px; color: #666;">Everything you need to generate leads on autopilot</p>
+      </div>
+      
+      <div class="grid grid-4" style="gap: 24px;">
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M22 12h-6l-2 3h-4l-2-3H2"/>
+              <path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Private Email Servers</h3>
+          <p style="font-size: 14px; color: #666;">Your own dedicated infrastructure. No reputation risk from other senders.</p>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">7 Inboxes per Domain</h3>
+          <p style="font-size: 14px; color: #666;">Maximum sending capacity with proper rotation and warming.</p>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Complete Authentication</h3>
+          <p style="font-size: 14px; color: #666;">SPF, DKIM, DMARC perfectly aligned for maximum deliverability.</p>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Campaign Automation</h3>
+          <p style="font-size: 14px; color: #666;">Multi-step sequences with AI personalization and smart timing.</p>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Lead Generation</h3>
+          <p style="font-size: 14px; color: #666;">B2B database access with verified emails and enrichment.</p>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">IP Warming</h3>
+          <p style="font-size: 14px; color: #666;">14-day warming protocol for optimal reputation building.</p>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Copywriting</h3>
+          <p style="font-size: 14px; color: #666;">High-converting email templates that get responses.</p>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Analytics</h3>
+          <p style="font-size: 14px; color: #666;">Real-time tracking of opens, clicks, and conversions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Email Calculator Section -->
+  <section class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Email Infrastructure Calculator</h2>
+        <p style="font-size: 18px; color: #666;">Find out how many domains and email accounts you need</p>
+      </div>
+      
+      <div class="calculator-container">
+        <!-- Input Section -->
+        <div class="calculator-input-section">
+          <h3 style="margin-bottom: 24px;">How many emails do you want to send?</h3>
+          
+          <div class="calc-form-group">
+            <label for="emailVolume">Daily Email Volume</label>
+            <input type="number" id="emailVolumeInput" min="100" max="50000" value="1000" step="100">
+            <div class="slider-container">
+              <input type="range" id="emailVolumeSlider" class="slider" min="100" max="50000" value="1000" step="100">
+            </div>
+          </div>
+          
+          <div class="email-count-display" id="emailCountDisplay">1,000</div>
+          <p style="text-align: center; color: #666; font-size: 14px;">emails per day</p>
+          
+          <div style="background: #fef3c7; border: 1px solid #fbbf24; border-radius: 12px; padding: 16px; margin-top: 24px;">
+            <p style="font-size: 14px; color: #92400e; font-weight: 600; margin-bottom: 8px;">Pro Tip</p>
+            <p style="font-size: 13px; color: #78350f;">Each domain can safely send up to 100 emails per day. We use 7 email accounts per domain for optimal deliverability.</p>
+          </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="calculator-results-section">
+          <h3 style="margin-bottom: 24px;">Your Infrastructure Requirements</h3>
+          
+          <div class="result-item">
+            <span class="result-label">Domains Needed</span>
+            <span class="result-value" id="domainsNeeded">10</span>
+          </div>
+          
+          <div class="result-item">
+            <span class="result-label">Email Accounts Total</span>
+            <span class="result-value" id="emailAccounts">70</span>
+          </div>
+          
+          <div class="result-item">
+            <span class="result-label">Monthly Email Capacity</span>
+            <span class="result-value" id="monthlyCapacity">30,000</span>
+          </div>
+          
+          <div class="recommendation-box">
+            <span class="recommendation-badge">RECOMMENDED PACKAGE</span>
+            <div class="recommendation-title" id="recommendedPackage">Starter Package</div>
+            <div class="recommendation-price" id="recommendedPrice">$489/year</div>
+            <div class="recommendation-details" id="recommendedDetails">
+              Perfect for your needs! Includes 10 domains, 70 professional inboxes, complete DNS setup, and monthly health reports.
+            </div>
+          </div>
+          
+          <a href="#audit" class="cta-button-calc" id="packageCTA">Get Started With Starter Package</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Packages Section -->
+  <section id="packages" class="section-padding" style="background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Choose Your Service Package</h2>
+        <p style="font-size: 18px; color: #666;">Fixed prices, clear deliverables, guaranteed results</p>
+      </div>
+      
+      <!-- Service Toggle -->
+      <div style="text-align: center; margin-bottom: 48px;">
+        <div class="service-toggle-container">
+          <button class="service-toggle-btn active" onclick="toggleService('campaign')">Campaign Setup</button>
+          <button class="service-toggle-btn" onclick="toggleService('infrastructure')">Email Infrastructure</button>
+        </div>
+      </div>
+      
+      <!-- Campaign Setup Packages -->
+      <div id="campaign-packages" class="grid grid-3" style="gap: 32px;">
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Foundation</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Perfect for testing the waters</p>
+          <div style="margin: 24px 0;">
+            <span style="font-size: 36px; font-weight: 700;">$299</span>
+            <span style="font-size: 16px; color: #666;">/setup</span>
+          </div>
+          
+          <div style="margin-bottom: 32px;">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>5 email accounts configuration</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Basic platform setup (Instantly/Smartlead)</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Email warming activation</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>1 campaign template</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Basic authentication setup</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>3-day email support</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Live in 48 hours</p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600;">
+            MOST POPULAR
+          </div>
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Accelerator</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">For serious businesses ready to scale</p>
+          <div style="margin: 24px 0;">
+            <span style="font-size: 36px; font-weight: 700; color: #F45407;">$599</span>
+            <span style="font-size: 16px; color: #666;">/setup</span>
+          </div>
+          
+          <div style="margin-bottom: 32px;">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Everything in Foundation PLUS:</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>15 email accounts configuration</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Advanced warming strategy</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>3 complete campaign sequences</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Custom email templates (10)</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Full DMARC implementation</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Lead list cleaning (5,000)</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>30-day optimization support</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Zoom training session</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Typical: 10+ leads in first week</p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 14px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none;">
+            Get Started Today
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Enterprise</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Dominate your entire market</p>
+          <div style="margin: 24px 0;">
+            <span style="font-size: 36px; font-weight: 700;">$1,499</span>
+            <span style="font-size: 16px; color: #666;">/setup</span>
+          </div>
+          
+          <div style="margin-bottom: 32px;">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Unlimited email accounts</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Multiple domain setup</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>10 campaign sequences</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>AI personalization setup</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Lead database integration</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>CRM synchronization</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Weekly optimization calls</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>90-day partnership support</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Team training included</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Target: 50+ leads/week</p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+      </div>
+      
+      <!-- Infrastructure Packages (Hidden by default) -->
+      <div id="infrastructure-packages" class="grid grid-3" style="gap: 32px; display: none;">
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Starter</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Test the waters professionally</p>
+          <div style="margin: 24px 0;">
+            <span style="font-size: 36px; font-weight: 700;">$489</span>
+            <span style="font-size: 16px; color: #666;">/year</span>
+          </div>
+          <p style="font-size: 12px; color: #666; margin-top: -16px; margin-bottom: 24px;">(10 domains included)</p>
+          
+          <div style="margin-bottom: 32px;">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>10 domains minimum</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>70 professional inboxes total</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Complete DMARC/SPF/DKIM</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>IP rotation included</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>14-day warming protocol</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Platform integration</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Email support</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Perfect for testing campaigns</p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600;">
+            BEST VALUE
+          </div>
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Professional</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Scale your outreach properly</p>
+          <div style="margin: 24px 0;">
+            <span style="font-size: 36px; font-weight: 700; color: #F45407;">$1,225</span>
+            <span style="font-size: 16px; color: #666;">/year</span>
+          </div>
+          <p style="font-size: 12px; color: #666; margin-top: -16px; margin-bottom: 24px;">(25 domains included)</p>
+          
+          <div style="margin-bottom: 32px;">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Everything in Starter PLUS:</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>25 domains included</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>175 professional inboxes total</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Priority server allocation</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Advanced IP management</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Reputation monitoring dashboard</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Slack support channel</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Weekly optimization calls</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Best for growing agencies</p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 14px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none;">
+            Get Started Today
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Enterprise</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Unlimited scaling potential</p>
+          <div style="margin: 24px 0;">
+            <span style="font-size: 36px; font-weight: 700;">$2,450+</span>
+            <span style="font-size: 16px; color: #666;">/year</span>
+          </div>
+          <p style="font-size: 12px; color: #666; margin-top: -16px; margin-bottom: 24px;">(50+ domains included)</p>
+          
+          <div style="margin-bottom: 32px;">
+            <ul style="list-style: none; padding: 0;">
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>50+ domains scalable</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>350+ professional inboxes</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Dedicated server cluster</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Custom warming schedules</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>White-label options available</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>24/7 priority support</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Dedicated account manager</span>
+              </li>
+              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
+                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                <span>Custom integrations</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">For serious operations</p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;">
+            Contact Sales
+          </a>
+        </div>
+      </div>
+      
+      <div style="margin-top: 48px; text-align: center; color: #666; font-size: 14px;">
+        <p>Note: Domain purchases and tool subscriptions (Instantly/Smartlead) are separate costs. We guide you through the most cost-effective options.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Comparison Table Section -->
+  <section class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Compare Our Service Packages</h2>
+      </div>
+      
+      <!-- Campaign Setup Comparison Table -->
+      <div id="campaignComparison" class="comparison-table" style="display: block;">
+        <table>
+          <thead>
+            <tr>
+              <th>Service Features</th>
+              <th>Foundation</th>
+              <th>Accelerator</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Setup & Configuration Services</td>
+            </tr>
+            <tr>
+              <td>Email Account Setup</td>
+              <td>5 accounts</td>
+              <td>15 accounts</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td>Platform Configuration</td>
+              <td><span class="check-mark">✔</span></td>
+              <td><span class="check-mark">✔</span></td>
+              <td><span class="check-mark">✔</span></td>
+            </tr>
+            <tr>
+              <td>DNS Configuration</td>
+              <td>Basic</td>
+              <td>Advanced</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <td>Email Warming</td>
+              <td>Standard</td>
+              <td>Advanced</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Campaign Management</td>
+            </tr>
+            <tr>
+              <td>Campaign Template Creation</td>
+              <td>1 template</td>
+              <td>3 sequences</td>
+              <td>10 sequences</td>
+            </tr>
+            <tr>
+              <td>Email Copywriting</td>
+              <td>Basic</td>
+              <td>10 Custom</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td>A/B Testing</td>
+              <td><span class="x-mark">✗</span></td>
+              <td><span class="check-mark">✔</span></td>
+              <td><span class="check-mark">✔</span></td>
+            </tr>
+            <tr>
+              <td>AI Personalization</td>
+              <td><span class="x-mark">✗</span></td>
+              <td><span class="x-mark">✗</span></td>
+              <td><span class="check-mark">✔</span></td>
+            </tr>
+            <tr>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Support & Training</td>
+            </tr>
+            <tr>
+              <td>Support Channel</td>
+              <td>Email</td>
+              <td>Email + Slack</td>
+              <td>Priority 24/7</td>
+            </tr>
+            <tr>
+              <td>Response Time</td>
+              <td>48 hours</td>
+              <td>12 hours</td>
+              <td>2 hours</td>
+            </tr>
+            <tr>
+              <td>Training Service</td>
+              <td>Guide</td>
+              <td>Zoom Session</td>
+              <td>Team Training</td>
+            </tr>
+            <tr>
+              <td>Support Duration</td>
+              <td>3 days</td>
+              <td>30 days</td>
+              <td>90 days</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Infrastructure Comparison Table -->
+      <div id="infrastructureComparison" class="comparison-table" style="display: none;">
+        <table>
+          <thead>
+            <tr>
+              <th>Infrastructure Features</th>
+              <th>Starter</th>
+              <th>Professional</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Domain & Email Infrastructure</td>
+            </tr>
+            <tr>
+              <td>Number of Domains</td>
+              <td>10 domains</td>
+              <td>25 domains</td>
+              <td>50+ domains</td>
+            </tr>
+            <tr>
+              <td>Professional Inboxes</td>
+              <td>70 total</td>
+              <td>175 total</td>
+              <td>350+ total</td>
+            </tr>
+            <tr>
+              <td>DNS Authentication</td>
+              <td><span class="check-mark">✔</span></td>
+              <td><span class="check-mark">✔</span></td>
+              <td><span class="check-mark">✔</span></td>
+            </tr>
+            <tr>
+              <td>DMARC/SPF/DKIM Setup</td>
+              <td><span class="check-mark">✔</span></td>
+              <td><span class="check-mark">✔</span></td>
+              <td><span class="check-mark">✔</span></td>
+            </tr>
+            <tr>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Server & IP Management</td>
+            </tr>
+            <tr>
+              <td>IP Rotation</td>
+              <td>Standard</td>
+              <td>Advanced</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <td>Server Allocation</td>
+              <td>Shared</td>
+              <td>Priority</td>
+              <td>Dedicated Cluster</td>
+            </tr>
+            <tr>
+              <td>Warming Protocol</td>
+              <td>14-day</td>
+              <td>Custom</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <td>IP Management</td>
+              <td>Basic</td>
+              <td>Advanced</td>
+              <td>Enterprise</td>
+            </tr>
+            <tr>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Monitoring & Support</td>
+            </tr>
+            <tr>
+              <td>Health Reports</td>
+              <td>Monthly</td>
+              <td>Weekly</td>
+              <td>Real-time</td>
+            </tr>
+            <tr>
+              <td>Reputation Monitoring</td>
+              <td><span class="x-mark">✗</span></td>
+              <td>Dashboard</td>
+              <td>Advanced Analytics</td>
+            </tr>
+            <tr>
+              <td>Support Channel</td>
+              <td>Email</td>
+              <td>Slack</td>
+              <td>24/7 Priority</td>
+            </tr>
+            <tr>
+              <td>Account Management</td>
+              <td><span class="x-mark">✗</span></td>
+              <td>Weekly Calls</td>
+              <td>Dedicated Manager</td>
+            </tr>
+            <tr>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Additional Features</td>
+            </tr>
+            <tr>
+              <td>Platform Integration</td>
+              <td><span class="check-mark">✔</span></td>
+              <td><span class="check-mark">✔</span></td>
+              <td><span class="check-mark">✔</span></td>
+            </tr>
+            <tr>
+              <td>White-Label Options</td>
+              <td><span class="x-mark">✗</span></td>
+              <td><span class="x-mark">✗</span></td>
+              <td><span class="check-mark">✔</span></td>
+            </tr>
+            <tr>
+              <td>Custom Integrations</td>
+              <td><span class="x-mark">✗</span></td>
+              <td><span class="x-mark">✗</span></td>
+              <td><span class="check-mark">✔</span></td>
+            </tr>
+            <tr>
+              <td>SLA Guarantees</td>
+              <td><span class="x-mark">✗</span></td>
+              <td><span class="x-mark">✗</span></td>
+              <td><span class="check-mark">✔</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section id="audit" class="section-padding" style="background: linear-gradient(135deg, #F45407, #e14a06);">
+    <div class="container" style="max-width: 800px;">
+      <div style="text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 700; color: white; margin-bottom: 16px;">Get Your Free Cold Email Audit</h2>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 48px;">
+          We'll analyze your current email setup, deliverability, and campaign performance. 
+          Get a custom report with actionable improvements and a roadmap to 95%+ inbox rates.
+        </p>
+      </div>
+      
+      <form style="max-width: 600px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="text" placeholder="Name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;" required>
+          <input type="text" placeholder="Company" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;" required>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;" required>
+          <input type="tel" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+        </div>
+        <input type="number" placeholder="How many emails do you send per day?" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 16px;">
+        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px; background: white;">
+          <option>What's your main goal?</option>
+          <option>Generate more leads</option>
+          <option>Fix deliverability issues</option>
+          <option>Scale existing campaigns</option>
+          <option>Start from scratch</option>
+          <option>Not sure yet</option>
+        </select>
+        
+        <button type="submit" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%;">
+          Get Your Free Audit
+        </button>
+      </form>
+      
+      <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
+        <p style="font-size: 16px;">Or call us directly: <a href="tel:+18001234567" style="color: white; font-weight: 600;">+1 (800) 123-4567</a></p>
+        <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Free audit includes deliverability analysis, campaign review, and improvement roadmap</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ============= FOOTER ============= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <h3>imisofts</h3>
+          <p>Professional cold email marketing and infrastructure for ambitious businesses worldwide. We ship results, not excuses.</p>
+          <div class="footer-social">
+            <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/imisofts" aria-label="Twitter">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/imisofts" aria-label="Instagram">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/imisofts" aria-label="GitHub">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Services Column -->
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/ai-automation">AI Automation</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/crm-development">CRM Development</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+          </ul>
+        </div>
+        
+        <!-- Company Column -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Column -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/free-audit">Free Email Audit</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/api-docs">API Docs</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Column -->
+        <div class="footer-column">
+          <h4>Get In Touch</h4>
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Ready to scale?</p>
+            <p style="font-size: 15px; color: white;">cold@imisofts.com</p>
+            <p style="font-size: 15px; color: white;">+971 50 885 1645</p>
+            <p style="font-size: 15px; color: white;">Dubai, UAE</p>
+          </div>
+          <a href="#audit" style="display: inline-block; padding: 10px 20px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 14px;">
+            Get Free Audit →
+          </a>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2025 imisofts. All rights reserved.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/cookies">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Services dropdown toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById('servicesDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('servicesDropdown');
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+    
+    // Service toggle functionality
+    function toggleService(service) {
+      const campaignPackages = document.getElementById('campaign-packages');
+      const infrastructurePackages = document.getElementById('infrastructure-packages');
+      const campaignComparison = document.getElementById('campaignComparison');
+      const infrastructureComparison = document.getElementById('infrastructureComparison');
+      const buttons = document.querySelectorAll('.service-toggle-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      if (service === 'campaign') {
+        campaignPackages.style.display = 'grid';
+        infrastructurePackages.style.display = 'none';
+        campaignComparison.style.display = 'block';
+        infrastructureComparison.style.display = 'none';
+        buttons[0].classList.add('active');
+      } else {
+        campaignPackages.style.display = 'none';
+        infrastructurePackages.style.display = 'grid';
+        campaignComparison.style.display = 'none';
+        infrastructureComparison.style.display = 'block';
+        buttons[1].classList.add('active');
+      }
+    }
+    
+    // Calculator functionality
+    const emailVolumeInput = document.getElementById('emailVolumeInput');
+    const emailVolumeSlider = document.getElementById('emailVolumeSlider');
+    const emailCountDisplay = document.getElementById('emailCountDisplay');
+    const domainsNeeded = document.getElementById('domainsNeeded');
+    const emailAccounts = document.getElementById('emailAccounts');
+    const monthlyCapacity = document.getElementById('monthlyCapacity');
+    const recommendedPackage = document.getElementById('recommendedPackage');
+    const recommendedPrice = document.getElementById('recommendedPrice');
+    const recommendedDetails = document.getElementById('recommendedDetails');
+    const packageCTA = document.getElementById('packageCTA');
+    
+    function updateCalculator() {
+      const volume = parseInt(emailVolumeInput.value);
+      
+      // Sync slider and input
+      emailVolumeSlider.value = volume;
+      emailCountDisplay.textContent = volume.toLocaleString();
+      
+      // Calculate requirements (1 domain = 100 emails/day)
+      const domains = Math.ceil(volume / 100);
+      const accounts = domains * 7; // 7 accounts per domain
+      const monthly = volume * 30;
+      
+      // Update display
+      domainsNeeded.textContent = domains;
+      emailAccounts.textContent = accounts;
+      monthlyCapacity.textContent = monthly.toLocaleString();
+      
+      // Recommend package
+      if (domains <= 10) {
+        recommendedPackage.textContent = 'Starter Package';
+        recommendedPrice.textContent = '$489/year';
+        recommendedDetails.textContent = 'Perfect for your needs! Includes 10 domains, 70 professional inboxes, complete DNS setup, and monthly health reports.';
+        packageCTA.textContent = 'Get Started With Starter Package';
+      } else if (domains <= 25) {
+        recommendedPackage.textContent = 'Professional Package';
+        recommendedPrice.textContent = '$1,225/year';
+        recommendedDetails.textContent = 'Scale your outreach with 25 domains, 175 professional inboxes, priority support, and advanced monitoring.';
+        packageCTA.textContent = 'Get Started With Professional Package';
+      } else {
+        recommendedPackage.textContent = 'Enterprise Package';
+        recommendedPrice.textContent = '$2,450+/year';
+        recommendedDetails.textContent = 'Unlimited scaling with 50+ domains, dedicated servers, white-label options, and 24/7 priority support.';
+        packageCTA.textContent = 'Contact Sales for Enterprise Package';
+      }
+    }
+    
+    // Event listeners for calculator
+    emailVolumeInput.addEventListener('input', function() {
+      emailVolumeSlider.value = this.value;
+      updateCalculator();
+    });
+    
+    emailVolumeSlider.addEventListener('input', function() {
+      emailVolumeInput.value = this.value;
+      updateCalculator();
+    });
+    
+    // Initialize calculator
+    updateCalculator();
+  </script>
+  
+</body>
+</html>
