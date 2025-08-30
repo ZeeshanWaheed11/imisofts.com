@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard - imisofts</title>
   
-  <!-- Supabase Client Library -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  
   <style>
     * {
       margin: 0;
@@ -300,19 +297,44 @@
       font-weight: 600;
     }
     
-    .status-badge.active {
-      background: #d4f4dd;
-      color: #16a34a;
+    .status-badge.in_progress {
+      background: #dbeafe;
+      color: #2563eb;
     }
     
-    .status-badge.pending {
+    .status-badge.planning {
       background: #fef3c7;
       color: #d97706;
     }
     
     .status-badge.completed {
-      background: #dbeafe;
-      color: #2563eb;
+      background: #d4f4dd;
+      color: #16a34a;
+    }
+    
+    .status-badge.todo {
+      background: #f3f4f6;
+      color: #6b7280;
+    }
+    
+    .status-badge.done {
+      background: #d4f4dd;
+      color: #16a34a;
+    }
+    
+    .status-badge.high {
+      background: #fee2e2;
+      color: #dc2626;
+    }
+    
+    .status-badge.medium {
+      background: #fef3c7;
+      color: #d97706;
+    }
+    
+    .status-badge.low {
+      background: #f3f4f6;
+      color: #6b7280;
     }
     
     .action-btn {
@@ -329,27 +351,6 @@
     .action-btn:hover {
       background: #e5e7eb;
       color: #1f2937;
-    }
-    
-    /* Loading State */
-    .loading {
-      text-align: center;
-      padding: 40px;
-      color: #6b7280;
-    }
-    
-    .spinner {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      border: 3px solid #f3f4f6;
-      border-top-color: #F45407;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-    }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
     }
     
     /* Empty State */
@@ -413,10 +414,6 @@
       font-size: 20px;
       font-weight: 700;
       color: #1f2937;
-    }
-    
-    .modal-body {
-      margin-bottom: 24px;
     }
     
     .form-group {
@@ -506,13 +503,6 @@
         </svg>
         <span>Tasks</span>
       </a>
-      
-      <a class="nav-item" onclick="showSection('reports')">
-        <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-        </svg>
-        <span>Reports</span>
-      </a>
     </nav>
     
     <div class="user-section">
@@ -558,7 +548,7 @@
         </div>
         
         <div class="stat-card">
-          <div class="stat-label">Completed This Month</div>
+          <div class="stat-label">Completed Tasks</div>
           <div class="stat-value" id="completedTasks">0</div>
           <div class="stat-change">+25% from last month</div>
         </div>
@@ -568,10 +558,7 @@
         <div class="section-header">
           <h2 class="section-title">Recent Activity</h2>
         </div>
-        <div id="recentActivity" class="loading">
-          <div class="spinner"></div>
-          <p>Loading recent activity...</p>
-        </div>
+        <div id="recentActivity"></div>
       </div>
     </div>
     
@@ -581,10 +568,7 @@
         <h2 class="section-title">All Projects</h2>
         <button class="btn-primary" onclick="showAddModal()">+ New Project</button>
       </div>
-      <div id="projectsTable" class="loading">
-        <div class="spinner"></div>
-        <p>Loading projects...</p>
-      </div>
+      <div id="projectsTable"></div>
     </div>
     
     <!-- Clients Section -->
@@ -593,10 +577,7 @@
         <h2 class="section-title">All Clients</h2>
         <button class="btn-primary" onclick="showAddClientModal()">+ New Client</button>
       </div>
-      <div id="clientsTable" class="loading">
-        <div class="spinner"></div>
-        <p>Loading clients...</p>
-      </div>
+      <div id="clientsTable"></div>
     </div>
     
     <!-- Tasks Section -->
@@ -605,22 +586,7 @@
         <h2 class="section-title">All Tasks</h2>
         <button class="btn-primary" onclick="showAddTaskModal()">+ New Task</button>
       </div>
-      <div id="tasksTable" class="loading">
-        <div class="spinner"></div>
-        <p>Loading tasks...</p>
-      </div>
-    </div>
-    
-    <!-- Reports Section -->
-    <div id="reports" class="content-section">
-      <div class="section-header">
-        <h2 class="section-title">Reports & Analytics</h2>
-      </div>
-      <div class="empty-state">
-        <div class="empty-icon">📊</div>
-        <div class="empty-title">Reports Coming Soon</div>
-        <div class="empty-text">Analytics and reporting features will be available in the next update</div>
-      </div>
+      <div id="tasksTable"></div>
     </div>
   </div>
   
@@ -636,10 +602,8 @@
           <input type="text" class="form-input" id="projectName" placeholder="Enter project name">
         </div>
         <div class="form-group">
-          <label class="form-label">Client</label>
-          <select class="form-input" id="projectClient">
-            <option value="">Select a client</option>
-          </select>
+          <label class="form-label">Description</label>
+          <input type="text" class="form-input" id="projectDesc" placeholder="Enter project description">
         </div>
         <div class="form-group">
           <label class="form-label">Status</label>
@@ -658,118 +622,55 @@
   </div>
   
   <script>
-    // Initialize Supabase
-    let supabaseClient = null;
-    let currentUser = null;
-    
-    // Initialize on page load
-    window.addEventListener('load', async () => {
-      // Get saved credentials
-      const savedUrl = localStorage.getItem('SUPABASE_URL');
-      const savedKey = localStorage.getItem('SUPABASE_ANON_KEY');
-      
-      if (!savedUrl || !savedKey) {
-        alert('Please login first');
-        window.location.href = 'admin-login.html';
-        return;
-      }
-      
-      // Initialize Supabase
-      const { createClient } = supabase;
-      supabaseClient = createClient(savedUrl, savedKey);
-      
-      // Check authentication
-      await checkAuth();
-      
-      // Load initial data
-      await loadDashboardData();
-    });
-    
     // Check authentication
-    async function checkAuth() {
-      try {
-        const { data: { user }, error } = await supabaseClient.auth.getUser();
-        
-        if (error || !user) {
-          window.location.href = 'admin-login.html';
-          return;
-        }
-        
-        // Get user profile
-        const { data: profile } = await supabaseClient
-          .from('users')
-          .select('*')
-          .eq('id', user.id)
-          .single();
-        
-        if (!profile || profile.role !== 'admin') {
-          alert('Admin access required');
-          await supabaseClient.auth.signOut();
-          window.location.href = 'admin-login.html';
-          return;
-        }
-        
-        currentUser = profile;
-        
-        // Update UI with user info
-        document.getElementById('userName').textContent = profile.full_name || 'Admin User';
-        document.getElementById('userAvatar').textContent = (profile.full_name || 'Admin').charAt(0).toUpperCase();
-        
-      } catch (error) {
-        console.error('Auth check failed:', error);
-        window.location.href = 'admin-login.html';
-      }
+    const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
+    if (!currentUser || currentUser.role !== 'admin') {
+      window.location.href = 'admin-login.html';
     }
     
+    // Load user info
+    document.getElementById('userName').textContent = currentUser.fullName;
+    document.getElementById('userAvatar').textContent = currentUser.fullName.charAt(0).toUpperCase();
+    
     // Load dashboard data
-    async function loadDashboardData() {
-      try {
-        // Load statistics
-        const { data: projects } = await supabaseClient.from('projects').select('*');
-        const { data: companies } = await supabaseClient.from('companies').select('*');
-        const { data: tasks } = await supabaseClient.from('tasks').select('*');
-        
-        // Update stats
-        document.getElementById('totalProjects').textContent = projects?.length || 0;
-        document.getElementById('totalClients').textContent = companies?.length || 0;
-        document.getElementById('pendingTasks').textContent = 
-          tasks?.filter(t => t.status === 'in_progress').length || 0;
-        document.getElementById('completedTasks').textContent = 
-          tasks?.filter(t => t.status === 'done').length || 0;
-        
-        // Load recent activity
-        const { data: updates } = await supabaseClient
-          .from('project_updates')
-          .select('*, projects(name)')
-          .order('created_at', { ascending: false })
-          .limit(5);
-        
-        const activityHtml = updates && updates.length > 0 ? `
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Activity</th>
-                <th>Project</th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${updates.map(update => `
+    function loadDashboardData() {
+      const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+      const companies = JSON.parse(localStorage.getItem('companies') || '[]');
+      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+      const updates = JSON.parse(localStorage.getItem('updates') || '[]');
+      
+      // Update stats
+      document.getElementById('totalProjects').textContent = projects.length;
+      document.getElementById('totalClients').textContent = companies.length;
+      document.getElementById('pendingTasks').textContent = tasks.filter(t => t.status === 'in_progress').length;
+      document.getElementById('completedTasks').textContent = tasks.filter(t => t.status === 'done').length;
+      
+      // Load recent activity
+      const activityHtml = updates.length > 0 ? `
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Activity</th>
+              <th>Project</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${updates.slice(0, 5).map(update => {
+              const project = projects.find(p => p.id === update.projectId);
+              return `
                 <tr>
                   <td>${update.title}</td>
-                  <td>${update.projects?.name || 'N/A'}</td>
-                  <td>${new Date(update.created_at).toLocaleDateString()}</td>
+                  <td>${project ? project.name : 'N/A'}</td>
+                  <td>${new Date(update.createdAt).toLocaleDateString()}</td>
                 </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        ` : '<div class="empty-state"><div class="empty-text">No recent activity</div></div>';
-        
-        document.getElementById('recentActivity').innerHTML = activityHtml;
-        
-      } catch (error) {
-        console.error('Error loading dashboard data:', error);
-      }
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      ` : '<div class="empty-state"><div class="empty-text">No recent activity</div></div>';
+      
+      document.getElementById('recentActivity').innerHTML = activityHtml;
     }
     
     // Show different sections
@@ -793,8 +694,7 @@
         overview: 'Dashboard Overview',
         projects: 'Projects Management',
         clients: 'Clients Management',
-        tasks: 'Tasks Management',
-        reports: 'Reports & Analytics'
+        tasks: 'Tasks Management'
       };
       document.getElementById('pageTitle').textContent = titles[section];
       
@@ -805,119 +705,100 @@
     }
     
     // Load projects
-    async function loadProjects() {
-      try {
-        const { data: projects } = await supabaseClient
-          .from('projects')
-          .select('*, companies(name)')
-          .order('created_at', { ascending: false });
-        
-        const projectsHtml = projects && projects.length > 0 ? `
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Project Name</th>
-                <th>Client</th>
-                <th>Status</th>
-                <th>Created</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${projects.map(project => `
+    function loadProjects() {
+      const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+      const companies = JSON.parse(localStorage.getItem('companies') || '[]');
+      
+      const projectsHtml = projects.length > 0 ? `
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Project Name</th>
+              <th>Client</th>
+              <th>Status</th>
+              <th>Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${projects.map(project => {
+              const company = companies.find(c => c.id === project.companyId);
+              return `
                 <tr>
                   <td><strong>${project.name}</strong></td>
-                  <td>${project.companies?.name || 'N/A'}</td>
+                  <td>${company ? company.name : 'N/A'}</td>
                   <td><span class="status-badge ${project.status}">${project.status.replace('_', ' ')}</span></td>
-                  <td>${new Date(project.created_at).toLocaleDateString()}</td>
+                  <td>${new Date(project.createdAt).toLocaleDateString()}</td>
                   <td>
                     <button class="action-btn" onclick="editProject('${project.id}')">Edit</button>
                     <button class="action-btn" onclick="deleteProject('${project.id}')">Delete</button>
                   </td>
                 </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        ` : '<div class="empty-state"><div class="empty-text">No projects found</div></div>';
-        
-        document.getElementById('projectsTable').innerHTML = projectsHtml;
-        
-      } catch (error) {
-        console.error('Error loading projects:', error);
-        document.getElementById('projectsTable').innerHTML = 
-          '<div class="empty-state"><div class="empty-text">Error loading projects</div></div>';
-      }
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      ` : '<div class="empty-state"><div class="empty-text">No projects found</div></div>';
+      
+      document.getElementById('projectsTable').innerHTML = projectsHtml;
     }
     
     // Load clients
-    async function loadClients() {
-      try {
-        const { data: companies } = await supabaseClient
-          .from('companies')
-          .select('*')
-          .order('created_at', { ascending: false });
-        
-        const clientsHtml = companies && companies.length > 0 ? `
-          <table class="data-table">
-            <thead>
+    function loadClients() {
+      const companies = JSON.parse(localStorage.getItem('companies') || '[]');
+      
+      const clientsHtml = companies.length > 0 ? `
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Company Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${companies.map(company => `
               <tr>
-                <th>Company Name</th>
-                <th>Email</th>
-                <th>Projects</th>
-                <th>Created</th>
-                <th>Actions</th>
+                <td><strong>${company.name}</strong></td>
+                <td>${company.email || 'N/A'}</td>
+                <td>${company.phone || 'N/A'}</td>
+                <td>
+                  <button class="action-btn" onclick="editClient('${company.id}')">Edit</button>
+                  <button class="action-btn" onclick="deleteClient('${company.id}')">Delete</button>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              ${companies.map(company => `
-                <tr>
-                  <td><strong>${company.name}</strong></td>
-                  <td>${company.email || 'N/A'}</td>
-                  <td>-</td>
-                  <td>${new Date(company.created_at).toLocaleDateString()}</td>
-                  <td>
-                    <button class="action-btn" onclick="editClient('${company.id}')">Edit</button>
-                    <button class="action-btn" onclick="deleteClient('${company.id}')">Delete</button>
-                  </td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        ` : '<div class="empty-state"><div class="empty-text">No clients found</div></div>';
-        
-        document.getElementById('clientsTable').innerHTML = clientsHtml;
-        
-      } catch (error) {
-        console.error('Error loading clients:', error);
-        document.getElementById('clientsTable').innerHTML = 
-          '<div class="empty-state"><div class="empty-text">Error loading clients</div></div>';
-      }
+            `).join('')}
+          </tbody>
+        </table>
+      ` : '<div class="empty-state"><div class="empty-text">No clients found</div></div>';
+      
+      document.getElementById('clientsTable').innerHTML = clientsHtml;
     }
     
     // Load tasks
-    async function loadTasks() {
-      try {
-        const { data: tasks } = await supabaseClient
-          .from('tasks')
-          .select('*, sprints(name)')
-          .order('created_at', { ascending: false });
-        
-        const tasksHtml = tasks && tasks.length > 0 ? `
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Task Title</th>
-                <th>Sprint</th>
-                <th>Priority</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${tasks.map(task => `
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+      const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+      
+      const tasksHtml = tasks.length > 0 ? `
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Task Title</th>
+              <th>Project</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${tasks.map(task => {
+              const project = projects.find(p => p.id === task.projectId);
+              return `
                 <tr>
                   <td><strong>${task.title}</strong></td>
-                  <td>${task.sprints?.name || 'N/A'}</td>
+                  <td>${project ? project.name : 'N/A'}</td>
                   <td><span class="status-badge ${task.priority}">${task.priority}</span></td>
                   <td><span class="status-badge ${task.status}">${task.status.replace('_', ' ')}</span></td>
                   <td>
@@ -925,18 +806,13 @@
                     <button class="action-btn" onclick="deleteTask('${task.id}')">Delete</button>
                   </td>
                 </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        ` : '<div class="empty-state"><div class="empty-text">No tasks found</div></div>';
-        
-        document.getElementById('tasksTable').innerHTML = tasksHtml;
-        
-      } catch (error) {
-        console.error('Error loading tasks:', error);
-        document.getElementById('tasksTable').innerHTML = 
-          '<div class="empty-state"><div class="empty-text">Error loading tasks</div></div>';
-      }
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      ` : '<div class="empty-state"><div class="empty-text">No tasks found</div></div>';
+      
+      document.getElementById('tasksTable').innerHTML = tasksHtml;
     }
     
     // Modal functions
@@ -948,60 +824,89 @@
       document.getElementById('addModal').classList.remove('show');
     }
     
-    // Logout function
-    async function logout() {
-      try {
-        await supabaseClient.auth.signOut();
-        localStorage.removeItem('adminAuth');
-        window.location.href = 'admin-login.html';
-      } catch (error) {
-        console.error('Logout error:', error);
+    function saveProject() {
+      const name = document.getElementById('projectName').value;
+      const description = document.getElementById('projectDesc').value;
+      const status = document.getElementById('projectStatus').value;
+      
+      if (!name) {
+        alert('Please enter a project name');
+        return;
       }
+      
+      const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+      const newProject = {
+        id: Date.now().toString(),
+        name,
+        description,
+        status,
+        companyId: '1',
+        createdAt: new Date().toISOString()
+      };
+      
+      projects.push(newProject);
+      localStorage.setItem('projects', JSON.stringify(projects));
+      
+      closeModal();
+      loadProjects();
+      loadDashboardData();
+      alert('Project added successfully!');
     }
     
-    // Placeholder functions for actions
-    function editProject(id) {
-      alert('Edit project: ' + id);
-    }
-    
+    // Delete functions
     function deleteProject(id) {
       if (confirm('Are you sure you want to delete this project?')) {
-        alert('Delete project: ' + id);
+        let projects = JSON.parse(localStorage.getItem('projects') || '[]');
+        projects = projects.filter(p => p.id !== id);
+        localStorage.setItem('projects', JSON.stringify(projects));
+        loadProjects();
+        loadDashboardData();
       }
+    }
+    
+    // Placeholder functions
+    function editProject(id) {
+      alert('Edit functionality coming soon!');
     }
     
     function editClient(id) {
-      alert('Edit client: ' + id);
+      alert('Edit functionality coming soon!');
     }
     
     function deleteClient(id) {
-      if (confirm('Are you sure you want to delete this client?')) {
-        alert('Delete client: ' + id);
-      }
+      alert('Delete functionality coming soon!');
     }
     
     function editTask(id) {
-      alert('Edit task: ' + id);
+      alert('Edit functionality coming soon!');
     }
     
     function deleteTask(id) {
       if (confirm('Are you sure you want to delete this task?')) {
-        alert('Delete task: ' + id);
+        let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
+        tasks = tasks.filter(t => t.id !== id);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        loadTasks();
+        loadDashboardData();
       }
     }
     
     function showAddClientModal() {
-      alert('Add client modal - to be implemented');
+      alert('Add client functionality coming soon!');
     }
     
     function showAddTaskModal() {
-      alert('Add task modal - to be implemented');
+      alert('Add task functionality coming soon!');
     }
     
-    function saveProject() {
-      alert('Save project - to be implemented');
-      closeModal();
+    // Logout function
+    function logout() {
+      sessionStorage.removeItem('currentUser');
+      window.location.href = 'admin-login.html';
     }
+    
+    // Initialize
+    loadDashboardData();
   </script>
   
 </body>
