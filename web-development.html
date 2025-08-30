@@ -1,0 +1,1670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Development Dubai | Next.js & Modern Stack | imisofts</title>
+  <meta name="description" content="Fast, modern web development for ambitious Dubai businesses. Next.js, TypeScript, headless CMS. Core Web Vitals optimized. Ship in 2-6 weeks.">
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #F45407;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .nav-logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a1a;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+    
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      padding: 8px;
+      min-width: 320px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .dropdown-item-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dropdown-item-icon svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .dropdown-item-content {
+      flex: 1;
+    }
+    
+    .dropdown-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    
+    .dropdown-item-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    .current-page {
+      background: rgba(244, 84, 7, 0.1);
+    }
+    
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .mobile-services {
+      margin: 16px 0;
+    }
+    
+    .mobile-services-title {
+      padding: 12px 16px;
+      font-weight: 600;
+      color: #999;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .mobile-service-link {
+      display: block;
+      padding: 12px 16px 12px 32px;
+      color: #666;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+    
+    .mobile-service-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+      color: #F45407;
+    }
+    
+    .mobile-service-link.current {
+      background: rgba(244, 84, 7, 0.1);
+      color: #F45407;
+      font-weight: 600;
+    }
+    
+    .mobile-cta {
+      display: block;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    
+    /* ============= MAIN CONTENT STYLES ============= */
+    
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Responsive Grid Classes */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Card Styles */
+    .service-card {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #e5e5e5;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #666;
+      margin: 4px;
+      transition: all 0.2s ease;
+    }
+    
+    .tech-badge:hover {
+      background: rgba(244, 84, 7, 0.1);
+      color: #F45407;
+    }
+    
+    .phase-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e5e5e5;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .phase-card:hover {
+      border-color: #F45407;
+      box-shadow: 0 8px 24px rgba(244, 84, 7, 0.1);
+    }
+    
+    /* ============= FOOTER STYLES ============= */
+    .footer {
+      background: #0a0a0a;
+      color: #ccc;
+      padding: 80px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-brand h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    
+    .footer-brand p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #999;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+      background: #F45407;
+      transform: translateY(-3px);
+    }
+    
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: #F45407;
+      transform: translateX(3px);
+    }
+    
+    .footer-bottom {
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .footer-copyright {
+      font-size: 14px;
+      color: #666;
+    }
+    
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .footer-bottom-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-bottom-links a:hover {
+      color: #F45407;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+        line-height: 1.2 !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .section-padding {
+        padding: 48px 0 !important;
+      }
+      
+      .hide-mobile {
+        display: none !important;
+      }
+      
+      .performance-visual {
+        display: none !important;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ============= NAVBAR ============= -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo-wrapper">
+          <div class="nav-logo-icon">im</div>
+          <div class="nav-logo">imisofts</div>
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <a href="/ai-automation" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Automation</div>
+                  <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                </div>
+              </a>
+              
+              <a href="/digital-marketing" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Digital Marketing</div>
+                  <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                </div>
+              </a>
+              
+              <a href="/ecommerce" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">E-commerce</div>
+                  <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                </div>
+              </a>
+              
+              <a href="/web-development" class="dropdown-item current-page">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Web Development</div>
+                  <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                </div>
+              </a>
+              
+              <a href="/crm-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">CRM Development</div>
+                  <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                </div>
+              </a>
+              
+              <a href="/shopify-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Shopify Apps</div>
+                  <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                </div>
+              </a>
+              
+              <a href="/ai-mobile-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Mobile Apps</div>
+                  <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          
+          <!-- CTA Button -->
+          <a href="/contact" class="nav-cta">Get Site Audit</a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="mobile-nav-link">Home</a>
+      
+      <div class="mobile-services">
+        <div class="mobile-services-title">Services</div>
+        <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+        <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+        <a href="/web-development" class="mobile-service-link current">Web Development</a>
+        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+        <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+        <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+      </div>
+      
+      <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/pricing" class="mobile-nav-link">Pricing</a>
+      <a href="/blog" class="mobile-nav-link">Blog</a>
+      
+      <a href="/contact" class="mobile-cta">Get Site Audit</a>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="section-padding" style="padding: 80px 0; background: linear-gradient(to bottom, #ffffff, #f9fafb);">
+    <div class="container">
+      <div class="hero-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+        <div>
+          <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: #fff5f3; border-radius: 50px; margin-bottom: 24px;">
+            <span style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;"></span>
+            <span style="color: #F45407; font-size: 14px; font-weight: 500;">Modern Web Development</span>
+          </div>
+          
+          <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 24px; color: #1a1a1a;">
+            Build Websites That Load in
+            <span style="color: #F45407;">Under 1 Second</span>
+          </h1>
+          
+          <p style="font-size: 20px; color: #333; line-height: 1.6; margin-bottom: 16px; font-weight: 600;">
+            Fast, modern web development using Next.js, TypeScript, and the latest tech stack. Perfect Core Web Vitals scores guaranteed.
+          </p>
+          
+          <p style="font-size: 18px; color: #666; line-height: 1.6; margin-bottom: 32px;">
+            We build enterprise-grade web applications that scale. From marketing sites that convert 
+            to complex web apps with real-time features. Headless CMS, server-side rendering, 
+            edge optimization, and progressive enhancement. Ship in 2-6 weeks, not months.
+          </p>
+          
+          <div style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
+            <a href="#audit" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px; transition: all 0.3s ease;">
+              Get Free Site Audit →
+            </a>
+            <a href="#packages" style="padding: 14px 28px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
+              View Packages
+            </a>
+          </div>
+          
+          <div class="stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">100</div>
+              <div style="font-size: 14px; color: #666;">Lighthouse Score</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;"><1s</div>
+              <div style="font-size: 14px; color: #666;">Load Time</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">200+</div>
+              <div style="font-size: 14px; color: #666;">Sites Shipped</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">2 Weeks</div>
+              <div style="font-size: 14px; color: #666;">To Launch</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="performance-visual" style="position: relative;">
+          <div style="background: white; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <div style="font-size: 14px; color: #F45407; font-weight: 600; margin-bottom: 8px;">LIVE PERFORMANCE</div>
+              <div style="font-size: 36px; font-weight: 700; color: #1a1a1a;">Core Web Vitals</div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 14px; font-weight: 600; color: #333;">LCP (Largest Contentful Paint)</span>
+                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">0.8s</span>
+                </div>
+                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 95%; height: 100%; background: #10b981; border-radius: 4px;"></div>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">Good: < 2.5s</div>
+              </div>
+              
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 14px; font-weight: 600; color: #333;">FID (First Input Delay)</span>
+                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">45ms</span>
+                </div>
+                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 98%; height: 100%; background: #10b981; border-radius: 4px;"></div>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">Good: < 100ms</div>
+              </div>
+              
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 14px; font-weight: 600; color: #333;">CLS (Cumulative Layout Shift)</span>
+                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">0.02</span>
+                </div>
+                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 100%; height: 100%; background: #10b981; border-radius: 4px;"></div>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">Good: < 0.1</div>
+              </div>
+              
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 14px; font-weight: 600; color: #333;">Lighthouse Score</span>
+                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">100</span>
+                </div>
+                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 100%; height: 100%; background: #10b981; border-radius: 4px;"></div>
+                </div>
+                <div style="font-size: 12px; color: #666; margin-top: 4px;">Perfect score</div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #e5e5e5; text-align: center;">
+              <div style="font-size: 12px; color: #999;">Measured on actual production sites</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- What We Build Section -->
+  <section id="services" class="section-padding" style="padding: 80px 0; background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Modern Web Development Solutions</h2>
+        <p style="font-size: 18px; color: #666;">
+          From marketing sites to complex web applications. Built with the latest technology stack.
+        </p>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 32px;">
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Marketing Websites</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            High-converting marketing sites built for performance and SEO. Perfect Core Web Vitals guaranteed.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Landing pages that convert at 5%+</li>
+            <li style="margin-bottom: 8px;">✓ SEO optimized from day one</li>
+            <li style="margin-bottom: 8px;">✓ Headless CMS integration</li>
+            <li style="margin-bottom: 8px;">✓ A/B testing ready</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Web Applications</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Complex web apps with real-time features, dashboards, and enterprise functionality.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ SaaS platforms & portals</li>
+            <li style="margin-bottom: 8px;">✓ Real-time collaboration tools</li>
+            <li style="margin-bottom: 8px;">✓ Admin dashboards</li>
+            <li style="margin-bottom: 8px;">✓ API-first architecture</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Progressive Web Apps</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Mobile-first PWAs that work offline and feel like native apps.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Offline functionality</li>
+            <li style="margin-bottom: 8px;">✓ Push notifications</li>
+            <li style="margin-bottom: 8px;">✓ App-like experience</li>
+            <li style="margin-bottom: 8px;">✓ Install on home screen</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Documentation Sites</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Beautiful documentation and knowledge bases with powerful search and versioning.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ MDX powered content</li>
+            <li style="margin-bottom: 8px;">✓ API documentation</li>
+            <li style="margin-bottom: 8px;">✓ Algolia search integration</li>
+            <li style="margin-bottom: 8px;">✓ Version control</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Headless Commerce</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Lightning-fast commerce experiences decoupled from backend systems.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Shopify Hydrogen</li>
+            <li style="margin-bottom: 8px;">✓ Commerce.js integration</li>
+            <li style="margin-bottom: 8px;">✓ Custom checkout flows</li>
+            <li style="margin-bottom: 8px;">✓ Multi-channel selling</li>
+          </ul>
+        </div>
+        
+        <div class="service-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Content Platforms</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Publishing platforms, blogs, and content-heavy sites with powerful CMS integration.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Multi-author blogs</li>
+            <li style="margin-bottom: 8px;">✓ Content scheduling</li>
+            <li style="margin-bottom: 8px;">✓ Newsletter integration</li>
+            <li style="margin-bottom: 8px;">✓ Membership systems</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Tech Stack Section -->
+  <section class="section-padding" style="padding: 80px 0; background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Enterprise-Grade Technology Stack</h2>
+        <p style="font-size: 18px; color: #666;">
+          We use the latest, battle-tested technologies to build fast, scalable, and maintainable web applications.
+        </p>
+      </div>
+      
+      <div style="max-width: 1000px; margin: 0 auto;">
+        <!-- Frontend -->
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">FRONTEND</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Next.js 14</span>
+            <span class="tech-badge">Astro</span>
+            <span class="tech-badge">SvelteKit</span>
+            <span class="tech-badge">Nuxt 3</span>
+            <span class="tech-badge">TypeScript</span>
+            <span class="tech-badge">Tailwind CSS</span>
+            <span class="tech-badge">shadcn/ui</span>
+            <span class="tech-badge">Radix UI</span>
+            <span class="tech-badge">TanStack Query</span>
+            <span class="tech-badge">Zustand</span>
+            <span class="tech-badge">React Hook Form</span>
+            <span class="tech-badge">Zod</span>
+          </div>
+        </div>
+        
+        <!-- Animations -->
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">ANIMATIONS & VISUALS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">GSAP</span>
+            <span class="tech-badge">Framer Motion</span>
+            <span class="tech-badge">Three.js</span>
+            <span class="tech-badge">Matter.js</span>
+            <span class="tech-badge">Lottie</span>
+            <span class="tech-badge">Flickity</span>
+            <span class="tech-badge">Alpine.js</span>
+          </div>
+        </div>
+        
+        <!-- Backend -->
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">BACKEND & APIs</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">Edge Functions</span>
+            <span class="tech-badge">REST APIs</span>
+            <span class="tech-badge">tRPC</span>
+            <span class="tech-badge">GraphQL</span>
+            <span class="tech-badge">Auth.js</span>
+            <span class="tech-badge">Clerk</span>
+            <span class="tech-badge">JWT</span>
+            <span class="tech-badge">Webhooks</span>
+            <span class="tech-badge">BullMQ</span>
+          </div>
+        </div>
+        
+        <!-- Data -->
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">DATA & SEARCH</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">PostgreSQL</span>
+            <span class="tech-badge">MySQL</span>
+            <span class="tech-badge">PlanetScale</span>
+            <span class="tech-badge">Prisma</span>
+            <span class="tech-badge">Drizzle ORM</span>
+            <span class="tech-badge">Redis</span>
+            <span class="tech-badge">Upstash</span>
+            <span class="tech-badge">Algolia</span>
+            <span class="tech-badge">Meilisearch</span>
+            <span class="tech-badge">S3</span>
+            <span class="tech-badge">Cloudinary</span>
+          </div>
+        </div>
+        
+        <!-- CMS -->
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">CONTENT MANAGEMENT</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Sanity</span>
+            <span class="tech-badge">Contentful</span>
+            <span class="tech-badge">Strapi</span>
+            <span class="tech-badge">Payload CMS</span>
+            <span class="tech-badge">MDX</span>
+            <span class="tech-badge">Content Collections</span>
+            <span class="tech-badge">next-intl</span>
+          </div>
+        </div>
+        
+        <!-- Analytics & Monitoring -->
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">ANALYTICS & MONITORING</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Google Analytics 4</span>
+            <span class="tech-badge">Server-side GTM</span>
+            <span class="tech-badge">Plausible</span>
+            <span class="tech-badge">Sentry</span>
+            <span class="tech-badge">LogRocket</span>
+            <span class="tech-badge">Playwright</span>
+            <span class="tech-badge">Vitest</span>
+            <span class="tech-badge">Cypress</span>
+          </div>
+        </div>
+        
+        <!-- DevOps -->
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">DEVOPS & HOSTING</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Vercel</span>
+            <span class="tech-badge">Cloudflare Pages</span>
+            <span class="tech-badge">Cloudflare Workers</span>
+            <span class="tech-badge">GitHub Actions</span>
+            <span class="tech-badge">Docker</span>
+            <span class="tech-badge">CI/CD Pipelines</span>
+            <span class="tech-badge">Edge Functions</span>
+            <span class="tech-badge">CDN</span>
+          </div>
+        </div>
+        
+        <!-- Payments & Integrations -->
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">PAYMENTS & INTEGRATIONS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Stripe</span>
+            <span class="tech-badge">Checkout.com</span>
+            <span class="tech-badge">Telr</span>
+            <span class="tech-badge">Tap</span>
+            <span class="tech-badge">PayPal</span>
+            <span class="tech-badge">HubSpot</span>
+            <span class="tech-badge">Zoho</span>
+            <span class="tech-badge">WhatsApp API</span>
+            <span class="tech-badge">Slack</span>
+            <span class="tech-badge">Shopify APIs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Dubai Features Section -->
+  <section class="section-padding" style="padding: 80px 0; background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Built for Dubai & MENA Markets</h2>
+        <p style="font-size: 18px; color: #666;">
+          Local expertise with global standards. Every site optimized for the region.
+        </p>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 32px;">
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Arabic & RTL Support</h3>
+          <p style="font-size: 14px; color: #666;">
+            True bidirectional support with proper RTL layouts, Arabic typography, and seamless language switching. Every component works perfectly in both directions.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Edge Hosting Near MENA</h3>
+          <p style="font-size: 14px; color: #666;">
+            Deployed on edge locations closest to Dubai and the GCC for sub-100ms response times. Your site loads instantly for regional visitors.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Local Payment Gateways</h3>
+          <p style="font-size: 14px; color: #666;">
+            Integration with regional payment providers like Telr, Tap, and local banks. Support for COD, bank transfers, and UAE cards with 3D secure.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">WhatsApp Integration</h3>
+          <p style="font-size: 14px; color: #666;">
+            WhatsApp Business API integration for instant customer communication. Click-to-chat buttons, order updates, and support automation.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Seasonal Optimization</h3>
+          <p style="font-size: 14px; color: #666;">
+            Ready for Ramadan traffic spikes, DSF campaigns, and White Friday sales. Auto-scaling infrastructure handles 10x traffic without breaking.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">VAT & Compliance Ready</h3>
+          <p style="font-size: 14px; color: #666;">
+            Built-in VAT calculation, proper invoicing with 5% tax display, and compliance with UAE data protection laws and cookie regulations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Development Process Section -->
+  <section class="section-padding" style="padding: 80px 0; background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">From Design to Deployment in 5 Phases</h2>
+        <p style="font-size: 18px; color: #666;">
+          Agile development with weekly demos. You see progress every Friday.
+        </p>
+      </div>
+      
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 1: Discovery & Architecture</h3>
+              <span style="font-size: 14px; color: #666;">Week 1</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Requirements gathering, tech stack selection, and information architecture.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ User flows and sitemap</li>
+            <li style="margin-bottom: 6px;">✓ Component library planning</li>
+            <li style="margin-bottom: 6px;">✓ Performance budgets</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: Technical specification & timeline
+          </p>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 2: Design & Prototyping</h3>
+              <span style="font-size: 14px; color: #666;">Week 1-2</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            UI design, design system creation, and interactive prototypes.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ High-fidelity designs</li>
+            <li style="margin-bottom: 6px;">✓ Design tokens & style guide</li>
+            <li style="margin-bottom: 6px;">✓ Interactive prototype</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: Complete design system
+          </p>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 3: Development Sprint</h3>
+              <span style="font-size: 14px; color: #666;">Weeks 2-5</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Frontend development, backend APIs, and CMS integration.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Component development</li>
+            <li style="margin-bottom: 6px;">✓ API integration</li>
+            <li style="margin-bottom: 6px;">✓ CMS setup</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: Working staging site
+          </p>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 4: Testing & Optimization</h3>
+              <span style="font-size: 14px; color: #666;">Week 5-6</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">4</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Performance optimization, browser testing, and SEO implementation.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Core Web Vitals optimization</li>
+            <li style="margin-bottom: 6px;">✓ Cross-browser testing</li>
+            <li style="margin-bottom: 6px;">✓ Security audit</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: Production-ready site
+          </p>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Phase 5: Launch & Handover</h3>
+              <span style="font-size: 14px; color: #666;">Final week</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">5</div>
+          </div>
+          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
+            Deployment, monitoring setup, and team training.
+          </p>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Production deployment</li>
+            <li style="margin-bottom: 6px;">✓ Analytics setup</li>
+            <li style="margin-bottom: 6px;">✓ Documentation & training</li>
+          </ul>
+          <p style="font-size: 14px; color: #1a1a1a; font-weight: 600; margin-top: 12px;">
+            Deliverable: Live site with 30-day support
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pricing Section -->
+  <section id="packages" class="section-padding" style="padding: 80px 0; background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Ready-to-Ship Web Development Packages</h2>
+        <p style="font-size: 18px; color: #666;">
+          Fixed prices, clear deliverables, guaranteed timelines.
+        </p>
+      </div>
+      
+      <div class="grid grid-4" style="gap: 24px;">
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Landing Sprint</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$2,999</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">Launch in 7 days</p>
+          
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What's included:</p>
+            <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>High-converting landing page</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Lead capture forms</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Mobile responsive</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Core Web Vitals optimized</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Basic SEO setup</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Perfect for:</strong> Campaign launches
+          </p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Startup Site</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$7,999</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">Launch in 2-3 weeks</p>
+          
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What's included:</p>
+            <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>5-8 page marketing site</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>CMS for blog/resources</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Contact forms & integrations</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Basic animations</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Analytics setup</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Perfect for:</strong> New businesses
+          </p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 12px; border-radius: 50px; font-size: 12px;">
+            MOST POPULAR
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Professional</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$19,999</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">Launch in 4-6 weeks</p>
+          
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What's included:</p>
+            <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Custom web application</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Headless CMS integration</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>User authentication</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>API development</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Advanced animations</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Multi-language support</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Perfect for:</strong> Growing companies
+          </p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 12px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started Today
+          </a>
+        </div>
+        
+        <div style="background: #1a1a1a; color: white; padding: 32px; border-radius: 16px;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Enterprise</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">Custom</span>
+          </div>
+          <p style="font-size: 14px; color: #ccc; margin-bottom: 24px; font-weight: 600;">6-12 weeks</p>
+          
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: white;">What's included:</p>
+            <ul style="font-size: 14px; color: #ccc; list-style: none; padding: 0;">
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Complex web platform</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Custom infrastructure</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Enterprise integrations</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Advanced security</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>SLA support</span>
+              </li>
+              <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                <span style="color: #10b981; margin-right: 8px;">✓</span>
+                <span>Dedicated team</span>
+              </li>
+            </ul>
+          </div>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #333;">
+            <strong>Perfect for:</strong> Large organizations
+          </p>
+          
+          <a href="#audit" style="display: block; text-align: center; padding: 12px; background: white; color: #1a1a1a; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Schedule Strategy Call
+          </a>
+        </div>
+      </div>
+      
+      <div style="margin-top: 48px; padding: 24px; background: #f9fafb; border-radius: 12px; border: 1px solid #e5e5e5;">
+        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 32px; align-items: center;">
+          <div style="text-align: center;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">You own everything</div>
+            <div style="font-size: 16px; font-weight: 600; color: #1a1a1a;">Full source code access</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">No vendor lock-in</div>
+            <div style="font-size: 16px; font-weight: 600; color: #1a1a1a;">Host anywhere</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-size: 14px; color: #666; margin-bottom: 4px;">Launch guarantee</div>
+            <div style="font-size: 16px; font-weight: 600; color: #1a1a1a;">Or money back</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section id="audit" class="section-padding" style="padding: 80px 0; background: linear-gradient(135deg, #F45407, #e14a06);">
+    <div class="container" style="max-width: 800px;">
+      <div style="text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 700; color: white; margin-bottom: 16px;">Get Your Free Website Audit</h2>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 48px;">
+          We'll analyze your current site's performance, SEO, and user experience. 
+          Get a custom report with actionable improvements and a roadmap to 100/100 Lighthouse score.
+        </p>
+      </div>
+      
+      <form style="max-width: 600px; margin: 0 auto;">
+        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="text" placeholder="Name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+          <input type="text" placeholder="Company" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+        </div>
+        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+          <input type="tel" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;">
+        </div>
+        <input type="url" placeholder="Current website URL (if any)" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 16px;">
+        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px; background: white;">
+          <option>Project type</option>
+          <option>New website from scratch</option>
+          <option>Redesign existing site</option>
+          <option>Web application</option>
+          <option>E-commerce platform</option>
+          <option>Not sure yet</option>
+        </select>
+        
+        <button type="submit" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%;">
+          Get Your Free Audit →
+        </button>
+      </form>
+      
+      <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
+        <p style="font-size: 16px;">Or call us directly: <a href="tel:+971508851645" style="color: white; font-weight: 600;">+971 50 885 1645</a></p>
+        <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Free audit includes performance analysis, SEO review, and improvement roadmap</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- ============= FOOTER ============= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <h3>imisofts</h3>
+          <p>Fast, modern web development for ambitious Dubai businesses. We ship in weeks, not months.</p>
+          <div class="footer-social">
+            <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/imisofts" aria-label="Twitter">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/imisofts" aria-label="Instagram">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/imisofts" aria-label="GitHub">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Services Column -->
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/ai-automation">AI Automation</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/crm-development">CRM Systems</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+          </ul>
+        </div>
+        
+        <!-- Company Column -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Column -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/free-audit">Free Site Audit</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/api-docs">API Docs</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Column -->
+        <div class="footer-column">
+          <h4>Get In Touch</h4>
+          <div style="margin-bottom: 24px;">
+            <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Ready to build?</p>
+            <p style="font-size: 15px; color: white;">dev@imisofts.com</p>
+            <p style="font-size: 15px; color: white;">+971 50 885 1645</p>
+            <p style="font-size: 15px; color: white;">Dubai, UAE</p>
+          </div>
+          <a href="#audit" style="display: inline-block; padding: 10px 20px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 14px;">
+            Get Free Audit →
+          </a>
+        </div>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2025 imisofts. All rights reserved.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/cookies">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Services dropdown toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById('servicesDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('servicesDropdown');
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+  </script>
+  
+</body>
+</html>
