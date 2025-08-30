@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mobile App Development Dubai | iOS & Android AI Apps | imisofts</title>
+  <meta name="description" content="Build intelligent mobile apps with on-device AI and cloud inference. Voice, vision, and personalization features. React Native & Flutter expertise. Ship in 3-10 weeks.">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #F45407;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .nav-logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a1a;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+    
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      padding: 8px;
+      min-width: 320px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .dropdown-item-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dropdown-item-icon svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .dropdown-item-content {
+      flex: 1;
+    }
+    
+    .dropdown-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    
+    .dropdown-item-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    .current-page {
+      background: rgba(244, 84, 7, 0.1);
+    }
+    
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .mobile-services {
+      margin: 16px 0;
+    }
+    
+    .mobile-services-title {
+      padding: 12px 16px;
+      font-weight: 600;
+      color: #999;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .mobile-service-link {
+      display: block;
+      padding: 12px 16px 12px 32px;
+      color: #666;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+    
+    .mobile-service-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+      color: #F45407;
+    }
+    
+    .mobile-service-link.current {
+      background: rgba(244, 84, 7, 0.1);
+      color: #F45407;
+      font-weight: 600;
+    }
+    
+    .mobile-cta {
+      display: block;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    
+    /* ============= MAIN CONTENT STYLES ============= */
+    
+    /* Section Padding */
+    .section-padding {
+      padding: 80px 0;
+    }
+    
+    /* Grid Classes */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Card Styles */
+    .feature-card {
+      background: white;
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid #e5e5e5;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+      border-color: #F45407;
+    }
+    
+    .tech-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: #f5f5f5;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #666;
+      margin: 4px;
+      transition: all 0.2s ease;
+    }
+    
+    .tech-badge:hover {
+      background: rgba(244, 84, 7, 0.1);
+      color: #F45407;
+    }
+    
+    .phase-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e5e5e5;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .phase-card:hover {
+      border-color: #F45407;
+      box-shadow: 0 8px 24px rgba(244, 84, 7, 0.1);
+    }
+    
+    .metric-card {
+      background: linear-gradient(135deg, #fff, #f9fafb);
+      padding: 24px;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #e5e5e5;
+      transition: all 0.3s ease;
+    }
+    
+    .metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+    
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    /* Footer */
+    .footer {
+      background: #0a0a0a;
+      color: #ccc;
+      padding: 80px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-brand h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    
+    .footer-brand p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #999;
+    }
+    
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: #F45407;
+      transform: translateX(3px);
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+      
+      .section-padding {
+        padding: 48px 0 !important;
+      }
+      
+      .hide-mobile {
+        display: none !important;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ============= NAVBAR ============= -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo-wrapper">
+          <div class="nav-logo-icon">im</div>
+          <div class="nav-logo">imisofts</div>
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <a href="/ai-automation" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Automation</div>
+                  <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                </div>
+              </a>
+              
+              <a href="/digital-marketing" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Digital Marketing</div>
+                  <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                </div>
+              </a>
+              
+              <a href="/ecommerce" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">E-commerce</div>
+                  <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                </div>
+              </a>
+              
+              <a href="/web-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Web Development</div>
+                  <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                </div>
+              </a>
+              
+              <a href="/crm-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">CRM Development</div>
+                  <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                </div>
+              </a>
+              
+              <a href="/shopify-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Shopify Apps</div>
+                  <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                </div>
+              </a>
+              
+              <a href="/ai-mobile-apps" class="dropdown-item current-page">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Mobile Apps</div>
+                  <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          
+          <!-- CTA Button -->
+          <a href="/contact" class="nav-cta">Get App Estimate</a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="mobile-nav-link">Home</a>
+      
+      <div class="mobile-services">
+        <div class="mobile-services-title">Services</div>
+        <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+        <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+        <a href="/web-development" class="mobile-service-link">Web Development</a>
+        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+        <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+        <a href="/ai-mobile-apps" class="mobile-service-link current">AI Mobile Apps</a>
+      </div>
+      
+      <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/pricing" class="mobile-nav-link">Pricing</a>
+      <a href="/blog" class="mobile-nav-link">Blog</a>
+      
+      <a href="/contact" class="mobile-cta">Get App Estimate</a>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="section-padding" style="background: linear-gradient(to bottom, #ffffff, #f9fafb);">
+    <div class="container">
+      <div class="grid grid-2" style="gap: 48px; align-items: center;">
+        <div>
+          <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: #fff5f3; border-radius: 50px; margin-bottom: 24px;">
+            <span style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;"></span>
+            <span style="color: #F45407; font-size: 14px; font-weight: 500;">AI-Powered Mobile Apps</span>
+          </div>
+          
+          <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 24px;">
+            Ship AI Mobile Apps in
+            <span style="color: #F45407;">3-10 Weeks</span>
+          </h1>
+          
+          <p style="font-size: 20px; color: #333; margin-bottom: 16px; font-weight: 600;">
+            Build intelligent iOS and Android apps with voice, vision, and personalization powered by on-device AI and cloud inference.
+          </p>
+          
+          <p style="font-size: 18px; color: #666; margin-bottom: 32px;">
+            From chat assistants to computer vision, we build mobile apps that think. React Native, Flutter, or native development. Core ML, TensorFlow Lite, and cloud AI APIs. WhatsApp-first for Dubai markets.
+          </p>
+          
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px;">
+            <a href="#contact" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
+              Get App Estimate →
+            </a>
+            <a href="#packages" style="padding: 14px 28px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
+              View Packages
+            </a>
+          </div>
+          
+          <div class="grid grid-4" style="gap: 24px;">
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">100ms</div>
+              <div style="font-size: 14px; color: #666;">AI Response</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">99.9%</div>
+              <div style="font-size: 14px; color: #666;">Crash-Free</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">$0.47</div>
+              <div style="font-size: 14px; color: #666;">Per User/mo</div>
+            </div>
+            <div>
+              <div style="font-size: 24px; font-weight: 700; color: #F45407;">4.8★</div>
+              <div style="font-size: 14px; color: #666;">App Rating</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="hide-mobile">
+          <div style="background: white; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <div style="font-size: 14px; color: #F45407; font-weight: 600; margin-bottom: 8px;">AI APP FEATURES</div>
+              <div style="font-size: 28px; font-weight: 700;">Live Demo</div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 12px; color: #666;">Voice Assistant</div>
+                    <div style="font-size: 20px; font-weight: 600;">Speech Recognition</div>
+                  </div>
+                  <div style="color: #10b981;">Active</div>
+                </div>
+              </div>
+              
+              <div style="background: #fff5f3; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 12px; color: #666;">Computer Vision</div>
+                    <div style="font-size: 20px; font-weight: 600;">Object Detection</div>
+                  </div>
+                  <div style="color: #F45407;">Processing</div>
+                </div>
+              </div>
+              
+              <div style="background: #f0f9ff; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 12px; color: #666;">Personalization</div>
+                    <div style="font-size: 20px; font-weight: 600;">Recommendations</div>
+                  </div>
+                  <div style="color: #3b82f6;">Learning</div>
+                </div>
+              </div>
+              
+              <div style="background: #fdf4ff; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <div>
+                    <div style="font-size: 12px; color: #666;">RAG Pipeline</div>
+                    <div style="font-size: 20px; font-weight: 600;">Knowledge Base</div>
+                  </div>
+                  <div style="color: #a855f7;">Synced</div>
+                </div>
+              </div>
+            </div>
+            
+            <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #e5e5e5;">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                  <div style="font-size: 12px; color: #666;">Inference Mode</div>
+                  <div style="font-size: 14px; font-weight: 600;">On-Device + Cloud</div>
+                </div>
+                <div style="font-size: 24px;">⚡</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- AI Features Section -->
+  <section class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">AI Features We Build</h2>
+        <p style="font-size: 18px; color: #666;">
+          From chat assistants to computer vision. Every AI feature optimized for mobile.
+        </p>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 32px;">
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Chat Assistants with RAG</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Build intelligent chat experiences with retrieval-augmented generation on your private knowledge base.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ OpenAI, Claude, Gemini APIs</li>
+            <li style="margin-bottom: 8px;">✓ Vector search with embeddings</li>
+            <li style="margin-bottom: 8px;">✓ Context-aware conversations</li>
+            <li style="margin-bottom: 8px;">✓ Streaming responses</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
+              <path d="M19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Voice Features</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Add voice commands, transcription, and natural text-to-speech to your app.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Speech-to-text transcription</li>
+            <li style="margin-bottom: 8px;">✓ Natural text-to-speech</li>
+            <li style="margin-bottom: 8px;">✓ Wake word detection</li>
+            <li style="margin-bottom: 8px;">✓ Multi-language support</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Vision Features</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Computer vision capabilities from OCR to object detection and AR experiences.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ OCR & document scanning</li>
+            <li style="margin-bottom: 8px;">✓ Barcode & QR scanning</li>
+            <li style="margin-bottom: 8px;">✓ Object detection</li>
+            <li style="margin-bottom: 8px;">✓ Image generation</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="3"/>
+              <line x1="12" y1="3" x2="12" y2="9"/>
+              <line x1="12" y1="15" x2="12" y2="21"/>
+              <line x1="3" y1="12" x2="9" y2="12"/>
+              <line x1="15" y1="12" x2="21" y2="12"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Personalization</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            AI-powered recommendations and content personalization that learns from user behavior.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Recommendation engines</li>
+            <li style="margin-bottom: 8px;">✓ Content personalization</li>
+            <li style="margin-bottom: 8px;">✓ Behavioral analytics</li>
+            <li style="margin-bottom: 8px;">✓ A/B testing frameworks</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">On-Device Inference</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Run AI models directly on device for instant response and privacy.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ Core ML for iOS</li>
+            <li style="margin-bottom: 8px;">✓ TensorFlow Lite</li>
+            <li style="margin-bottom: 8px;">✓ ONNX Runtime Mobile</li>
+            <li style="margin-bottom: 8px;">✓ MediaPipe integration</li>
+          </ul>
+        </div>
+        
+        <div class="feature-card">
+          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Cloud AI Integration</h3>
+          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
+            Connect to powerful cloud AI models with optimized caching and cost controls.
+          </p>
+          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 8px;">✓ OpenAI, Anthropic, Google AI</li>
+            <li style="margin-bottom: 8px;">✓ Azure OpenAI Service</li>
+            <li style="margin-bottom: 8px;">✓ AWS Bedrock</li>
+            <li style="margin-bottom: 8px;">✓ Usage controls & guardrails</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Tech Stack Section -->
+  <section class="section-padding" style="background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Typical Stack</h2>
+        <p style="font-size: 18px; color: #666;">
+          Battle-tested technologies for building AI-powered mobile apps.
+        </p>
+      </div>
+      
+      <div style="max-width: 900px; margin: 0 auto;">
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">MOBILE FRAMEWORKS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">React Native with Expo</span>
+            <span class="tech-badge">Flutter</span>
+            <span class="tech-badge">Swift & SwiftUI</span>
+            <span class="tech-badge">Kotlin & Jetpack Compose</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">AI RUNTIME</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Core ML</span>
+            <span class="tech-badge">TensorFlow Lite</span>
+            <span class="tech-badge">ONNX Runtime Mobile</span>
+            <span class="tech-badge">MediaPipe</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">CLOUD MODELS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">OpenAI</span>
+            <span class="tech-badge">Anthropic Claude</span>
+            <span class="tech-badge">Google Gemini</span>
+            <span class="tech-badge">Azure OpenAI</span>
+            <span class="tech-badge">AWS Bedrock</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">RAG & EMBEDDINGS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">LangChain</span>
+            <span class="tech-badge">LlamaIndex</span>
+            <span class="tech-badge">Pinecone</span>
+            <span class="tech-badge">Weaviate</span>
+            <span class="tech-badge">pgvector</span>
+            <span class="tech-badge">Qdrant</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">BACKEND</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Node.js</span>
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Firebase</span>
+            <span class="tech-badge">Supabase</span>
+            <span class="tech-badge">Cloudflare Workers</span>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 32px;">
+          <h4 style="font-size: 16px; font-weight: 600; color: #999; margin-bottom: 12px;">ANALYTICS & OPS</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="tech-badge">Firebase Analytics</span>
+            <span class="tech-badge">Mixpanel</span>
+            <span class="tech-badge">Amplitude</span>
+            <span class="tech-badge">Sentry</span>
+            <span class="tech-badge">Crashlytics</span>
+            <span class="tech-badge">OneSignal</span>
+            <span class="tech-badge">RevenueCat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Regional Features Section -->
+  <section class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Built for Global Markets</h2>
+        <p style="font-size: 18px; color: #666;">
+          Local expertise with global standards. Apps optimized for every region.
+        </p>
+      </div>
+      
+      <div class="grid grid-3" style="gap: 32px;">
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Multi-Language Support</h3>
+          <p style="font-size: 14px; color: #666;">
+            Full RTL support for Arabic, proper locale routing, and AI models that understand multiple languages. Every UI component works perfectly in both directions.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Regional Communication</h3>
+          <p style="font-size: 14px; color: #666;">
+            WhatsApp Business API integration, local messaging platforms, and region-specific sharing patterns. Built for how people actually communicate.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Local Payment Methods</h3>
+          <p style="font-size: 14px; color: #666;">
+            Integration with regional payment gateways like Telr, Tap, Checkout.com. Support for local cards, digital wallets, and preferred payment methods.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Edge Deployment</h3>
+          <p style="font-size: 14px; color: #666;">
+            Deployed on edge locations closest to your users for sub-100ms response times. Your app loads instantly regardless of geography.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Seasonal Scaling</h3>
+          <p style="font-size: 14px; color: #666;">
+            Built to handle regional traffic patterns, seasonal campaigns, and holiday spikes. Auto-scaling infrastructure that handles 10x traffic without breaking.
+          </p>
+        </div>
+        
+        <div style="background: #f9fafb; padding: 32px; border-radius: 16px; border-left: 4px solid #F45407;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">Privacy & Compliance</h3>
+          <p style="font-size: 14px; color: #666;">
+            GDPR-compliant data handling, region-specific privacy laws, and proper consent flows. App privacy labels and data safety forms included.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Development Process -->
+  <section class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">From Idea to App Store</h2>
+        <p style="font-size: 18px; color: #666;">
+          Proven process for shipping AI mobile apps that users love.
+        </p>
+      </div>
+      
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Strategy and Product Discovery</h3>
+              <span style="font-size: 14px; color: #666;">Week 1</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</div>
+          </div>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Business goals, ICP, and north star metric</li>
+            <li style="margin-bottom: 6px;">✓ Jobs to be done and user stories</li>
+            <li style="margin-bottom: 6px;">✓ Technical feasibility and model selection</li>
+            <li style="margin-bottom: 6px;">✓ Privacy impact assessment</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">UX and Conversational Design</h3>
+              <span style="font-size: 14px; color: #666;">Week 2</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</div>
+          </div>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Wireframes and high fidelity UI</li>
+            <li style="margin-bottom: 6px;">✓ Conversational UX and intents</li>
+            <li style="margin-bottom: 6px;">✓ Voice UX prompts</li>
+            <li style="margin-bottom: 6px;">✓ Design system and dark theme</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Mobile Engineering</h3>
+              <span style="font-size: 14px; color: #666;">Weeks 3-6</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</div>
+          </div>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Cross-platform or native development</li>
+            <li style="margin-bottom: 6px;">✓ Offline-first storage and sync</li>
+            <li style="margin-bottom: 6px;">✓ Push notifications and widgets</li>
+            <li style="margin-bottom: 6px;">✓ AI feature integration</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">Backend and Integrations</h3>
+              <span style="font-size: 14px; color: #666;">Weeks 4-7</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">4</div>
+          </div>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Serverless APIs and webhooks</li>
+            <li style="margin-bottom: 6px;">✓ Realtime data sync</li>
+            <li style="margin-bottom: 6px;">✓ Vector databases for RAG</li>
+            <li style="margin-bottom: 6px;">✓ Payment and subscription setup</li>
+          </ul>
+        </div>
+        
+        <div class="phase-card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <div>
+              <h3 style="font-size: 20px; font-weight: 700; color: #F45407;">QA, Release, and DevOps</h3>
+              <span style="font-size: 14px; color: #666;">Weeks 8-10</span>
+            </div>
+            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">5</div>
+          </div>
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+            <li style="margin-bottom: 6px;">✓ Device lab testing</li>
+            <li style="margin-bottom: 6px;">✓ Accessibility audits</li>
+            <li style="margin-bottom: 6px;">✓ CI/CD setup</li>
+            <li style="margin-bottom: 6px;">✓ Store submission and release</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Metrics Section -->
+  <section class="section-padding" style="background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Metrics We Own</h2>
+        <p style="font-size: 18px; color: #666;">
+          Every metric optimized for user retention and revenue growth.
+        </p>
+      </div>
+      
+      <div class="grid grid-4" style="gap: 24px;">
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Activation Rate</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">47%</div>
+          <p style="font-size: 14px; color: #999;">Day 1 retention</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Response Time</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;"><100ms</div>
+          <p style="font-size: 14px; color: #999;">Average AI response</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Crash-Free</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">99.9%</div>
+          <p style="font-size: 14px; color: #999;">Sessions</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Cost Per User</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">$0.47</div>
+          <p style="font-size: 14px; color: #999;">Monthly AI costs</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Subscription</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">12%</div>
+          <p style="font-size: 14px; color: #999;">Conversion rate</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">App Store Rating</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">4.8★</div>
+          <p style="font-size: 14px; color: #999;">Average rating</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Offline Success</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;">89%</div>
+          <p style="font-size: 14px; color: #999;">Features work offline</p>
+        </div>
+        
+        <div class="metric-card">
+          <h4 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px;">Support Volume</h4>
+          <div style="font-size: 28px; font-weight: 700; color: #F45407; margin-bottom: 8px;"><2%</div>
+          <p style="font-size: 14px; color: #999;">Users need help</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Packages Section -->
+  <section id="packages" class="section-padding" style="background: white;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Ready to Ship Packages</h2>
+        <p style="font-size: 18px; color: #666;">
+          From MVP to enterprise apps. Fixed prices, guaranteed delivery.
+        </p>
+      </div>
+      
+      <div class="grid grid-4" style="gap: 24px;">
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">AI MVP</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$14,999</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">3-4 weeks</p>
+          
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0; margin-bottom: 24px;">
+            <li style="margin-bottom: 10px;">✓ Core flows and UI</li>
+            <li style="margin-bottom: 10px;">✓ Chat or voice feature</li>
+            <li style="margin-bottom: 10px;">✓ One AI model integration</li>
+            <li style="margin-bottom: 10px;">✓ Basic RAG pipeline</li>
+            <li style="margin-bottom: 10px;">✓ Offline storage</li>
+            <li style="margin-bottom: 10px;">✓ Analytics setup</li>
+          </ul>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Perfect for:</strong> Testing AI concepts
+          </p>
+          
+          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 12px; border-radius: 50px; font-size: 12px;">
+            MOST POPULAR
+          </div>
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Product-Market Fit</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$29,999</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">4-6 weeks</p>
+          
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0; margin-bottom: 24px;">
+            <li style="margin-bottom: 10px;">✓ Complete AI features</li>
+            <li style="margin-bottom: 10px;">✓ Multiple AI modalities</li>
+            <li style="margin-bottom: 10px;">✓ Onboarding experiments</li>
+            <li style="margin-bottom: 10px;">✓ Subscription & payments</li>
+            <li style="margin-bottom: 10px;">✓ Data pipeline</li>
+            <li style="margin-bottom: 10px;">✓ A/B testing</li>
+          </ul>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Perfect for:</strong> Serious AI apps
+          </p>
+          
+          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started Today
+          </a>
+        </div>
+        
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Scale & Reliability</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$49,999</span>
+          </div>
+          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">6-10 weeks</p>
+          
+          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0; margin-bottom: 24px;">
+            <li style="margin-bottom: 10px;">✓ On-device inference</li>
+            <li style="margin-bottom: 10px;">✓ MLOps pipeline</li>
+            <li style="margin-bottom: 10px;">✓ Advanced telemetry</li>
+            <li style="margin-bottom: 10px;">✓ Performance hardening</li>
+            <li style="margin-bottom: 10px;">✓ Cost optimization</li>
+            <li style="margin-bottom: 10px;">✓ Staged rollouts</li>
+          </ul>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+            <strong>Perfect for:</strong> Scale-ups
+          </p>
+          
+          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Get Started
+          </a>
+        </div>
+        
+        <div style="background: #1a1a1a; color: white; padding: 32px; border-radius: 16px;">
+          <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Scale & Support</h3>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 32px; font-weight: 700;">$4,999</span>
+            <span style="color: #999;">/mo</span>
+          </div>
+          <p style="font-size: 14px; color: #ccc; margin-bottom: 24px; font-weight: 600;">Ongoing</p>
+          
+          <ul style="font-size: 14px; color: #ccc; list-style: none; padding: 0; margin-bottom: 24px;">
+            <li style="margin-bottom: 10px;">✓ Observability & SLOs</li>
+            <li style="margin-bottom: 10px;">✓ Infrastructure tuning</li>
+            <li style="margin-bottom: 10px;">✓ Feature development</li>
+            <li style="margin-bottom: 10px;">✓ Model updates</li>
+            <li style="margin-bottom: 10px;">✓ Cost monitoring</li>
+            <li style="margin-bottom: 10px;">✓ Priority support</li>
+          </ul>
+          
+          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #333;">
+            <strong>Perfect for:</strong> Growing apps
+          </p>
+          
+          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: white; color: #1a1a1a; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Schedule Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section id="contact" class="section-padding" style="background: linear-gradient(135deg, #F45407, #e14a06);">
+    <div class="container" style="max-width: 800px;">
+      <div style="text-align: center;">
+        <h2 style="font-size: 36px; font-weight: 700; color: white; margin-bottom: 16px;">Ready to Build Your AI App?</h2>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 48px;">
+          Get a detailed technical specification and cost breakdown for your AI mobile app. 
+          We'll show you exactly how to ship in 3-10 weeks.
+        </p>
+      </div>
+      
+      <form style="max-width: 600px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="text" placeholder="Name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+          <input type="text" placeholder="Company" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <input type="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+          <input type="tel" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
+        </div>
+        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 16px; background: white;">
+          <option>App type</option>
+          <option>Chat assistant</option>
+          <option>Voice AI app</option>
+          <option>Computer vision</option>
+          <option>Recommendation engine</option>
+          <option>Other AI features</option>
+        </select>
+        <textarea placeholder="Describe your app idea and AI features needed" rows="4" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px;"></textarea>
+        
+        <button type="submit" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%;">
+          Get Your App Estimate →
+        </button>
+      </form>
+      
+      <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
+        <p style="font-size: 16px;">Questions? WhatsApp us: <a href="https://wa.me/971508851645" style="color: white; font-weight: 600;">+971 50 885 1645</a></p>
+        <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Free consultation includes feasibility analysis, tech stack recommendation, and timeline</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>imisofts</h3>
+          <p>Build intelligent iOS and Android apps with voice, vision, and personalization powered by AI.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/ai-automation">AI Automation</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/crm-development">CRM Development</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/free-consultation">Free Consultation</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/api-docs">API Docs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Get In Touch</h4>
+          <p style="font-size: 15px; color: white;">apps@imisofts.com</p>
+          <p style="font-size: 15px; color: white;">+971 50 885 1645</p>
+          <p style="font-size: 15px; color: white;">Dubai, UAE</p>
+        </div>
+      </div>
+      
+      <div style="padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <p style="font-size: 14px; color: #666;">© 2025 imisofts. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Services dropdown toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById('servicesDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('servicesDropdown');
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+  </script>
+  
+</body>
+</html>
