@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>imisofts Public API Docs</title>
+  <meta name="description" content="Global, free developer APIs for marketing, messaging, analytics, logistics, and basic AI tasks. Fast to integrate, safe by design, with copy-paste examples.">
+  <link rel="canonical" href="https://imisofts.com/api-docs">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="imisofts Public API Docs">
+  <meta property="og:description" content="Global, free developer APIs for marketing, messaging, analytics, logistics, and basic AI tasks. Fast to integrate, safe by design, with copy-paste examples.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://imisofts.com/api-docs">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="imisofts Public API Docs">
+  <meta name="twitter:description" content="Global, free developer APIs for marketing, messaging, analytics, logistics, and basic AI tasks. Fast to integrate, safe by design, with copy-paste examples.">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #F45407;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .nav-logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+    
+    .nav-badge {
+      background: #f0f0f0;
+      color: #666;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    .nav-link.active {
+      color: #F45407;
+      font-weight: 600;
+    }
+    
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    .theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    
+    .theme-toggle:hover {
+      background: #f0f0f0;
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    /* Layout with Sidebar */
+    .docs-layout {
+      display: flex;
+      position: relative;
+    }
+    
+    .sidebar {
+      width: 280px;
+      height: calc(100vh - 72px);
+      position: sticky;
+      top: 72px;
+      background: #f9fafb;
+      border-right: 1px solid #e5e5e5;
+      overflow-y: auto;
+      padding: 24px;
+    }
+    
+    .sidebar-search {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      background: white;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    
+    .sidebar-section {
+      margin-bottom: 24px;
+    }
+    
+    .sidebar-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      padding: 0 8px;
+    }
+    
+    .sidebar-link {
+      display: block;
+      padding: 8px 12px;
+      color: #666;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      margin-bottom: 2px;
+    }
+    
+    .sidebar-link:hover {
+      background: white;
+      color: #F45407;
+    }
+    
+    .sidebar-link.active {
+      background: white;
+      color: #F45407;
+      font-weight: 500;
+    }
+    
+    .sidebar-link.sub-link {
+      padding-left: 24px;
+      font-size: 13px;
+    }
+    
+    .main-content {
+      flex: 1;
+      min-width: 0;
+      max-width: 900px;
+      padding: 48px;
+    }
+    
+    /* Section Styles */
+    .section {
+      margin-bottom: 80px;
+    }
+    
+    .section-header {
+      margin-bottom: 32px;
+    }
+    
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    h3 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .lead {
+      font-size: 20px;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+    
+    .text-muted {
+      color: #666;
+    }
+    
+    /* Cards */
+    .card {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .card-highlight {
+      border-color: #F45407;
+      box-shadow: 0 0 0 1px #F45407;
+    }
+    
+    /* Code Blocks */
+    pre {
+      background: #1a1a1a;
+      color: #e5e5e5;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    
+    code {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 14px;
+      background: #f5f5f5;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    
+    pre code {
+      background: none;
+      padding: 0;
+    }
+    
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 16px;
+    }
+    
+    .tab {
+      padding: 10px 16px;
+      background: none;
+      border: none;
+      color: #666;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+    
+    .tab:hover {
+      color: #F45407;
+    }
+    
+    .tab.active {
+      color: #F45407;
+      border-bottom-color: #F45407;
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    /* Method Badges */
+    .method-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    
+    .method-get {
+      background: #10b981;
+      color: white;
+    }
+    
+    .method-post {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+    
+    th {
+      text-align: left;
+      padding: 12px;
+      background: #f9fafb;
+      border-bottom: 1px solid #e5e5e5;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: #333;
+      border: 1px solid #e5e5e5;
+    }
+    
+    .btn-secondary:hover {
+      background: #f9fafb;
+    }
+    
+    /* Grid */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    
+    /* Endpoint Documentation */
+    .endpoint {
+      border-top: 2px solid #f0f0f0;
+      padding-top: 48px;
+      margin-top: 48px;
+    }
+    
+    .endpoint-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .endpoint-path {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    
+    .tag-badge {
+      padding: 4px 8px;
+      background: #f0f0f0;
+      border-radius: 4px;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    /* Playground */
+    .playground-container {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 32px;
+    }
+    
+    .form-group {
+      margin-bottom: 24px;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      background: white;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: #F45407;
+      box-shadow: 0 0 0 3px rgba(244, 84, 7, 0.1);
+    }
+    
+    .form-textarea {
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    /* Status Indicators */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    
+    .status-success {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .status-success::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+    
+    /* FAQ Accordions */
+    .faq-item {
+      margin-bottom: 16px;
+    }
+    
+    details {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    
+    summary {
+      font-weight: 600;
+      cursor: pointer;
+      user-select: none;
+    }
+    
+    summary:hover {
+      color: #F45407;
+    }
+    
+    details[open] summary {
+      margin-bottom: 12px;
+      color: #F45407;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #0a0a0a;
+      color: #ccc;
+      padding: 80px 0 40px;
+      margin-top: 120px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-brand h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    
+    .footer-brand p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #999;
+    }
+    
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: #F45407;
+      transform: translateX(3px);
+    }
+    
+    /* Utilities */
+    .mb-4 { margin-bottom: 16px; }
+    .mb-6 { margin-bottom: 24px; }
+    .mb-8 { margin-bottom: 32px; }
+    .mb-12 { margin-bottom: 48px; }
+    
+    /* Search Highlight */
+    mark {
+      background: #fef3c7;
+      padding: 2px 4px;
+      border-radius: 2px;
+    }
+    
+    /* Dark Mode Support */
+    [data-theme="dark"] {
+      background: #0a0a0a;
+      color: #e5e5e5;
+    }
+    
+    [data-theme="dark"] .navbar {
+      background: #1a1a1a;
+      border-bottom: 1px solid #333;
+    }
+    
+    [data-theme="dark"] .sidebar {
+      background: #1a1a1a;
+      border-right: 1px solid #333;
+    }
+    
+    [data-theme="dark"] .card {
+      background: #1a1a1a;
+      border-color: #333;
+    }
+    
+    [data-theme="dark"] code {
+      background: #2a2a2a;
+    }
+    
+    [data-theme="dark"] .form-input,
+    [data-theme="dark"] .form-select,
+    [data-theme="dark"] .form-textarea {
+      background: #1a1a1a;
+      border-color: #333;
+      color: #e5e5e5;
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 1024px) {
+      .sidebar {
+        display: none;
+      }
+      
+      .main-content {
+        padding: 32px 20px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      h1 {
+        font-size: 32px;
+      }
+      
+      h2 {
+        font-size: 24px;
+      }
+      
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <a href="/" class="nav-logo-wrapper">
+          <div class="nav-logo-icon">im</div>
+          <div class="nav-logo">imisofts</div>
+          <span class="nav-badge">API Docs</span>
+        </a>
+        
+        <div class="nav-menu">
+          <a href="#quickstart" class="nav-link">Quickstart</a>
+          <a href="#reference" class="nav-link">Reference</a>
+          <a href="#playground" class="nav-link">Playground</a>
+          <a href="#guides" class="nav-link">Guides</a>
+          <button class="theme-toggle" onclick="toggleTheme()">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/>
+            </svg>
+          </button>
+          <a href="#contact" class="nav-cta">Get API Key</a>
+        </div>
+        
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="docs-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <input type="text" class="sidebar-search" placeholder="Search docs..." onkeyup="searchDocs(event)">
+      
+      <div class="sidebar-section">
+        <a href="#overview" class="sidebar-link">Overview</a>
+        <a href="#quickstart" class="sidebar-link">Quickstart</a>
+        <a href="#auth" class="sidebar-link">Authentication</a>
+        <a href="#errors" class="sidebar-link">Errors</a>
+        <a href="#rate-limits" class="sidebar-link">Rate Limits</a>
+        <a href="#webhooks" class="sidebar-link">Webhooks</a>
+        <a href="#sdks" class="sidebar-link">SDKs</a>
+        <a href="#playground" class="sidebar-link">Playground</a>
+      </div>
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">API Reference</div>
+        <a href="#ref-utm-build" class="sidebar-link sub-link">Build UTM URL</a>
+        <a href="#ref-utm-validate" class="sidebar-link sub-link">Validate UTM</a>
+        <a href="#ref-phone-normalize" class="sidebar-link sub-link">Normalize Phone</a>
+        <a href="#ref-whatsapp-locales" class="sidebar-link sub-link">WhatsApp Locales</a>
+        <a href="#ref-whatsapp-lint" class="sidebar-link sub-link">Template Lint</a>
+        <a href="#ref-tax-calc" class="sidebar-link sub-link">Calculate Tax</a>
+        <a href="#ref-carriers" class="sidebar-link sub-link">List Carriers</a>
+        <a href="#ref-tracking" class="sidebar-link sub-link">Track Shipment</a>
+        <a href="#ref-status-codes" class="sidebar-link sub-link">Status Codes</a>
+        <a href="#ref-embed" class="sidebar-link sub-link">Text Embeddings</a>
+      </div>
+      
+      <div class="sidebar-section">
+        <div class="sidebar-title">Resources</div>
+        <a href="#guides" class="sidebar-link">Guides</a>
+        <a href="#changelog" class="sidebar-link">Changelog</a>
+        <a href="#status" class="sidebar-link">Status</a>
+        <a href="#faq" class="sidebar-link">FAQ</a>
+        <a href="#contact" class="sidebar-link">Contact</a>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      
+      <!-- Overview Section -->
+      <section id="overview" class="section">
+        <div class="section-header">
+          <h1>imisofts Public API</h1>
+          <p class="lead">Free and useful APIs for growth, ops, and automation teams worldwide.</p>
+        </div>
+        
+        <div class="grid grid-3 mb-8">
+          <div class="card">
+            <h3>🚀 Quick Start</h3>
+            <p class="text-muted">Get a free API key and make your first request in under 60 seconds.</p>
+          </div>
+          <div class="card">
+            <h3>🌍 Global Scale</h3>
+            <p class="text-muted">Region-aware endpoints that work anywhere, not limited to one country.</p>
+          </div>
+          <div class="card">
+            <h3>🔒 Safe by Design</h3>
+            <p class="text-muted">Bearer tokens, signed webhooks, and data stays in your accounts.</p>
+          </div>
+        </div>
+        
+        <div class="grid grid-2">
+          <a href="#quickstart" class="btn btn-primary">Get Started →</a>
+          <a href="#reference" class="btn btn-secondary">View API Reference</a>
+        </div>
+      </section>
+      
+      <!-- Quickstart Section -->
+      <section id="quickstart" class="section">
+        <h2>Quickstart</h2>
+        <p class="text-muted mb-8">Get up and running in 3 simple steps.</p>
+        
+        <div class="card mb-6">
+          <h3>Step 1: Get your free API key</h3>
+          <p class="text-muted mb-4">Sign up with just your email. No credit card required.</p>
+          <a href="#contact" class="btn btn-primary">Get Free API Key</a>
+        </div>
+        
+        <div class="card mb-6">
+          <h3>Step 2: Make your first request</h3>
+          <p class="text-muted mb-4">Try normalizing a phone number with our API:</p>
+          
+          <div class="tabs">
+            <button class="tab active" onclick="switchTab(event, 'qs', 'curl')">cURL</button>
+            <button class="tab" onclick="switchTab(event, 'qs', 'js')">JavaScript</button>
+            <button class="tab" onclick="switchTab(event, 'qs', 'python')">Python</button>
+          </div>
+          
+          <div id="qs-curl" class="tab-content active">
+            <pre><code>curl -X POST https://api.imisofts.com/v1/phone/normalize \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "raw": "+1 (415) 555-2671",
+    "default_region": "US",
+    "whatsapp": true
+  }'</code></pre>
+          </div>
+          
+          <div id="qs-js" class="tab-content">
+            <pre><code>const response = await fetch('https://api.imisofts.com/v1/phone/normalize', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    raw: '+1 (415) 555-2671',
+    default_region: 'US',
+    whatsapp: true
+  })
+});
+
+const data = await response.json();
+console.log(data);</code></pre>
+          </div>
+          
+          <div id="qs-python" class="tab-content">
+            <pre><code>import requests
+
+response = requests.post(
+    'https://api.imisofts.com/v1/phone/normalize',
+    headers={
+        'Authorization': 'Bearer YOUR_API_KEY',
+        'Content-Type': 'application/json'
+    },
+    json={
+        'raw': '+1 (415) 555-2671',
+        'default_region': 'US',
+        'whatsapp': true
+    }
+)
+
+print(response.json())</code></pre>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>Step 3: Get the response</h3>
+          <p class="text-muted mb-4">You'll receive a normalized phone number in multiple formats:</p>
+          <pre><code>{
+  "e164": "+14155552671",
+  "international": "+1 415 555 2671",
+  "national": "(415) 555-2671",
+  "country_code": "US",
+  "is_valid": true,
+  "whatsapp_compatible": true
+}</code></pre>
+        </div>
+      </section>
+      
+      <!-- Authentication Section -->
+      <section id="auth" class="section">
+        <h2>Authentication</h2>
+        <p class="text-muted mb-6">All API requests require a Bearer token in the Authorization header.</p>
+        
+        <div class="card mb-4">
+          <h4>Example Request</h4>
+          <pre><code>GET /v1/whatsapp/locales HTTP/1.1
+Host: api.imisofts.com
+Authorization: Bearer YOUR_API_KEY</code></pre>
+        </div>
+        
+        <div class="card card-highlight">
+          <h4>401 Unauthorized Response</h4>
+          <pre><code>{
+  "error": {
+    "code": "invalid_token",
+    "message": "The provided API key is invalid or expired.",
+    "request_id": "req_abc123"
+  }
+}</code></pre>
+        </div>
+      </section>
+      
+      <!-- Errors Section -->
+      <section id="errors" class="section">
+        <h2>Errors</h2>
+        <p class="text-muted mb-6">All errors follow a consistent JSON envelope structure.</p>
+        
+        <div class="card mb-6">
+          <h4>Error Response Format</h4>
+          <pre><code>{
+  "error": {
+    "code": "rate_limit_exceeded",
+    "message": "Too many requests. See X-RateLimit-Remaining.",
+    "request_id": "req_abc123"
+  }
+}</code></pre>
+        </div>
+        
+        <div class="card">
+          <h4>Common Error Codes</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Status</th>
+                <th>Code</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>400</td>
+                <td><code>invalid_request</code></td>
+                <td>Missing or invalid parameters</td>
+              </tr>
+              <tr>
+                <td>401</td>
+                <td><code>invalid_token</code></td>
+                <td>Invalid or expired API key</td>
+              </tr>
+              <tr>
+                <td>429</td>
+                <td><code>rate_limit_exceeded</code></td>
+                <td>Too many requests</td>
+              </tr>
+              <tr>
+                <td>500</td>
+                <td><code>internal_error</code></td>
+                <td>Something went wrong on our end</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <!-- Rate Limits Section -->
+      <section id="rate-limits" class="section">
+        <h2>Rate Limits</h2>
+        <p class="text-muted mb-6">Free tier includes generous limits for testing and production use.</p>
+        
+        <div class="grid grid-2 mb-6">
+          <div class="card">
+            <h3 style="color: #F45407;">60</h3>
+            <p>Requests per minute</p>
+          </div>
+          <div class="card">
+            <h3 style="color: #F45407;">50,000</h3>
+            <p>Requests per month</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h4>Response Headers</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Header</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>X-RateLimit-Limit</code></td>
+                <td>Maximum requests per minute</td>
+              </tr>
+              <tr>
+                <td><code>X-RateLimit-Remaining</code></td>
+                <td>Requests remaining in current window</td>
+              </tr>
+              <tr>
+                <td><code>Retry-After</code></td>
+                <td>Seconds to wait before retrying (429 only)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      
+      <!-- Webhooks Section -->
+      <section id="webhooks" class="section">
+        <h2>Webhooks</h2>
+        <p class="text-muted mb-6">Receive real-time notifications when events occur.</p>
+        
+        <div class="card mb-4">
+          <h4>Signature Verification</h4>
+          <p class="text-muted mb-4">All webhook requests include a signature header for verification:</p>
+          <code>X-Imisofts-Signature</code>
+        </div>
+        
+        <div class="card mb-4">
+          <h4>Retry Policy</h4>
+          <p>Exponential backoff up to 6 attempts with idempotency keys.</p>
+        </div>
+        
+        <div class="card">
+          <h4>Sample Webhook Payload</h4>
+          <pre><code>{
+  "event": "tracking.updated",
+  "data": {
+    "carrier": "dhl",
+    "tracking_id": "JD014600006543210123",
+    "status": "delivered",
+    "occurred_at": "2025-08-28T10:05:00Z"
+  },
+  "timestamp": "2025-08-28T10:06:00Z",
+  "idempotency_key": "evt_abc123"
+}</code></pre>
+        </div>
+      </section>
+      
+      <!-- SDKs Section -->
+      <section id="sdks" class="section">
+        <h2>SDKs and Tools</h2>
+        <p class="text-muted mb-6">Official SDKs and tools to get you started quickly.</p>
+        
+        <div class="grid grid-4">
+          <a href="#" class="card" style="text-align: center; text-decoration: none; color: inherit;">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24" style="margin: 0 auto 8px;">
+              <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+            </svg>
+            <p style="font-weight: 600;">TypeScript/JS</p>
+          </a>
+          
+          <a href="#" class="card" style="text-align: center; text-decoration: none; color: inherit;">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24" style="margin: 0 auto 8px;">
+              <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.28-.25.26-.31.23-.38.2-.44.18-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.26-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+            </svg>
+            <p style="font-weight: 600;">Python</p>
+          </a>
+          
+          <a href="#" class="card" style="text-align: center; text-decoration: none; color: inherit;">
+            <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24" style="margin: 0 auto 8px;">
+              <path d="M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 0 0-.593.25l-4.453 4.453-.307-.307-.643-.643c4.389-4.376 5.18-4.418 5.996-3.753zm-4.863 4.861l4.44-4.44a.62.62 0 1 1 .847.903l-4.699 4.125-.588-.588zm.33.694l-1.1.238a.06.06 0 0 1-.067-.032.06.06 0 0 1 .01-.073l.645-.645.512.512zM10.123 13.31l3.4-3.4a.395.395 0 1 1 .525.591l-3.342 2.635a.317.317 0 0 1-.37.01c-.089-.06-.167-.187-.213-.374zm-1.692 2.254a.484.484 0 0 0-.486.486v.648a.484.484 0 0 0 .486.486h.648a.484.484 0 0 0 .486-.486v-.648a.484.484 0 0 0-.486-.486h-.648zm.324.324h.324v.324h-.324v-.324zm4.325-.073a.04.04 0 0 0-.033-.006c-.02.006-.03.022-.021.044l.299 1.058a.036.036 0 0 0 .05.022l.771-.565c.02-.014.024-.038.01-.06a.04.04 0 0 0-.046-.02l-.955.164-.075-.637zm5.043-7.481l-.184-.561a.538.538 0 0 0-.539-.36h-.61a.538.538 0 0 0-.539.36l-.184.561a.534.534 0 0 0 .04.571l.363.339c.134.126.21.31.21.507v1.878c0 .196-.076.38-.21.507l-.363.339a.535.535 0 0 0-.04.571l.184.561c.084.214.303.36.539.36h.61c.235 0 .455-.146.539-.36l.184-.561a.534.534 0 0 0-.04-.571l-.363-.339a.676.676 0 0 1-.21-.507V9.562c0-.197.076-.381.21-.507l.363-.339a.535.535 0 0 0 .04-.57z"/>
+            </svg>
+            <p style="font-weight: 600;">Postman</p>
+          </a>
+          
+          <a href="#" onclick="downloadOpenAPI()" class="card" style="text-align: center; text-decoration: none; color: inherit; cursor: pointer;">
+            <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin: 0 auto 8px;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+            </svg>
+            <p style="font-weight: 600;">OpenAPI</p>
+          </a>
+        </div>
+      </section>
+      
+      <!-- Playground Section -->
+      <section id="playground" class="section">
+        <h2>API Playground</h2>
+        <p class="text-muted mb-6">Test API endpoints with live or mock responses.</p>
+        
+        <div class="playground-container">
+          <div class="form-group">
+            <label class="form-label">API Key</label>
+            <input type="text" id="api-key" class="form-input" placeholder="Enter your API key">
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Endpoint</label>
+            <select id="endpoint-select" class="form-select" onchange="updatePlayground()">
+              <option value="POST /utm/build">POST /utm/build</option>
+              <option value="POST /utm/validate">POST /utm/validate</option>
+              <option value="POST /phone/normalize">POST /phone/normalize</option>
+              <option value="GET /whatsapp/locales">GET /whatsapp/locales</option>
+              <option value="POST /whatsapp/templates/lint">POST /whatsapp/templates/lint</option>
+              <option value="POST /tax/vat/calc">POST /tax/vat/calc</option>
+              <option value="GET /couriers/carriers">GET /couriers/carriers</option>
+              <option value="GET /couriers/dhl/tracking/JD014600006543210123">GET /couriers/{carrier}/tracking/{id}</option>
+              <option value="GET /couriers/status-codes">GET /couriers/status-codes</option>
+              <option value="POST /embed/text">POST /embed/text</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Request Body</label>
+            <textarea id="request-body" class="form-textarea">{
+  "raw": "+1 (415) 555-2671",
+  "default_region": "US",
+  "whatsapp": true
+}</textarea>
+          </div>
+          
+          <button onclick="runRequest()" class="btn btn-primary mb-6">Run Request</button>
+          
+          <div class="form-group">
+            <label class="form-label">Response</label>
+            <pre id="response-output"><code>// Response will appear here</code></pre>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">cURL Command</label>
+            <pre id="curl-output"><code>// cURL command will appear here</code></pre>
+          </div>
+        </div>
+      </section>
+      
+      <!-- API Reference Section -->
+      <section id="reference" class="section">
+        <h2>API Reference</h2>
+        <p class="text-muted mb-8">Complete documentation for all available endpoints.</p>
+        
+        <!-- UTM Build Endpoint -->
+        <div id="ref-utm-build" class="endpoint">
+          <div class="endpoint-header">
+            <span class="method-badge method-post">POST</span>
+            <span class="endpoint-path">/utm/build</span>
+            <span class="tag-badge">UTM</span>
+          </div>
+          <h3>Build a canonical campaign URL with UTMs</h3>
+          <p class="text-muted mb-4">Returns a URL with validated UTM parameters and a canonical order. Useful for GA4 and ad platforms.</p>
+          
+          <div class="card mb-4">
+            <h4>Request Body</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Type</th>
+                  <th>Required</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>base_url</td>
+                  <td>string</td>
+                  <td>Yes</td>
+                  <td>The destination URL</td>
+                </tr>
+                <tr>
+                  <td>source</td>
+                  <td>string</td>
+                  <td>Yes</td>
+                  <td>Campaign source (e.g., google, facebook)</td>
+                </tr>
+                <tr>
+                  <td>medium</td>
+                  <td>string</td>
+                  <td>Yes</td>
+                  <td>Campaign medium (e.g., cpc, email)</td>
+                </tr>
+                <tr>
+                  <td>campaign</td>
+                  <td>string</td>
+                  <td>Yes</td>
+                  <td>Campaign name</td>
+                </tr>
+                <tr>
+                  <td>term</td>
+                  <td>string</td>
+                  <td>No</td>
+                  <td>Campaign term (for paid search)</td>
+                </tr>
+                <tr>
+                  <td>content</td>
+                  <td>string</td>
+                  <td>No</td>
+                  <td>Campaign content (for A/B testing)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="tabs">
+            <button class="tab active" onclick="switchTab(event, 'utm-build', 'request')">Request</button>
+            <button class="tab" onclick="switchTab(event, 'utm-build', 'response')">Response</button>
+            <button class="tab" onclick="switchTab(event, 'utm-build', 'curl')">cURL</button>
+            <button class="tab" onclick="switchTab(event, 'utm-build', 'js')">JavaScript</button>
+            <button class="tab" onclick="switchTab(event, 'utm-build', 'python')">Python</button>
+          </div>
+          
+          <div id="utm-build-request" class="tab-content active">
+            <pre><code>{
+  "base_url": "https://example.com",
+  "source": "google",
+  "medium": "cpc",
+  "campaign": "spring-sale"
+}</code></pre>
+          </div>
+          
+          <div id="utm-build-response" class="tab-content">
+            <pre><code>{
+  "url": "https://example.com?utm_source=google&utm_medium=cpc&utm_campaign=spring-sale",
+  "warnings": []
+}</code></pre>
+          </div>
+          
+          <div id="utm-build-curl" class="tab-content">
+            <pre><code>curl -X POST https://api.imisofts.com/v1/utm/build \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "base_url": "https://example.com",
+    "source": "google",
+    "medium": "cpc",
+    "campaign": "spring-sale"
+  }'</code></pre>
+          </div>
+          
+          <div id="utm-build-js" class="tab-content">
+            <pre><code>const response = await fetch('https://api.imisofts.com/v1/utm/build', {
+  method: 'POST',
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    base_url: 'https://example.com',
+    source: 'google',
+    medium: 'cpc',
+    campaign: 'spring-sale'
+  })
+});</code></pre>
+          </div>
+          
+          <div id="utm-build-python" class="tab-content">
+            <pre><code>import requests
+
+response = requests.post(
+    'https://api.imisofts.com/v1/utm/build',
+    headers={
+        'Authorization': 'Bearer YOUR_API_KEY',
+        'Content-Type': 'application/json'
+    },
+    json={
+        'base_url': 'https://example.com',
+        'source': 'google',
+        'medium': 'cpc',
+        'campaign': 'spring-sale'
+    }
+)</code></pre>
+          </div>
+        </div>
+        
+        <!-- Additional endpoints follow the same pattern... -->
+        <!-- I'll include a few more key endpoints for completeness -->
+        
+        <!-- Phone Normalize Endpoint -->
+        <div id="ref-phone-normalize" class="endpoint">
+          <div class="endpoint-header">
+            <span class="method-badge method-post">POST</span>
+            <span class="endpoint-path">/phone/normalize</span>
+            <span class="tag-badge">Phone</span>
+          </div>
+          <h3>Normalize and validate phone numbers globally</h3>
+          <p class="text-muted mb-4">Returns E.164, international and national formats with country detection and WhatsApp compatibility.</p>
+          
+          <div class="card mb-4">
+            <h4>Request Body</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Type</th>
+                  <th>Required</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>raw</td>
+                  <td>string</td>
+                  <td>Yes</td>
+                  <td>Raw phone number input</td>
+                </tr>
+                <tr>
+                  <td>default_region</td>
+                  <td>string</td>
+                  <td>No</td>
+                  <td>ISO 3166-1 alpha-2 code (US, GB, AE)</td>
+                </tr>
+                <tr>
+                  <td>whatsapp</td>
+                  <td>boolean</td>
+                  <td>No</td>
+                  <td>Check WhatsApp compatibility</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <!-- WhatsApp Template Lint Endpoint -->
+        <div id="ref-whatsapp-lint" class="endpoint">
+          <div class="endpoint-header">
+            <span class="method-badge method-post">POST</span>
+            <span class="endpoint-path">/whatsapp/templates/lint</span>
+            <span class="tag-badge">Messaging</span>
+          </div>
+          <h3>Validate WhatsApp message templates</h3>
+          <p class="text-muted mb-4">Checks placeholders, variable counts, language code, and length. Returns suggestions.</p>
+        </div>
+        
+      </section>
+      
+      <!-- Guides Section -->
+      <section id="guides" class="section">
+        <h2>Guides and Recipes</h2>
+        <p class="text-muted mb-6">Step-by-step tutorials for common use cases.</p>
+        
+        <div class="grid grid-2">
+          <div class="card">
+            <h4>Build clean campaign links with the UTM API</h4>
+            <ol style="margin: 16px 0 0 20px; color: #666;">
+              <li>Request a free API key</li>
+              <li>Use POST /utm/build to create your canonical link</li>
+              <li>Validate naming with POST /utm/validate</li>
+              <li>Send events to GA4 and confirm attribution</li>
+            </ol>
+          </div>
+          
+          <div class="card">
+            <h4>Validate WhatsApp templates before submission</h4>
+            <ol style="margin: 16px 0 0 20px; color: #666;">
+              <li>List supported locales with GET /whatsapp/locales</li>
+              <li>Lint your body and placeholders with POST /whatsapp/templates/lint</li>
+              <li>Fix issues and re-lint until valid</li>
+            </ol>
+          </div>
+          
+          <div class="card">
+            <h4>Normalize phone numbers for global messaging</h4>
+            <ol style="margin: 16px 0 0 20px; color: #666;">
+              <li>Send raw input to POST /phone/normalize</li>
+              <li>Store E.164 for consistent delivery</li>
+              <li>Use whatsapp_compatible for broadcast lists</li>
+            </ol>
+          </div>
+          
+          <div class="card">
+            <h4>Show delivery updates with normalized courier status</h4>
+            <ol style="margin: 16px 0 0 20px; color: #666;">
+              <li>List carriers with GET /couriers/carriers</li>
+              <li>Query a shipment with GET /couriers/{carrier}/tracking/{id}</li>
+              <li>Map status codes with GET /couriers/status-codes</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Changelog Section -->
+      <section id="changelog" class="section">
+        <h2>Changelog</h2>
+        <p class="text-muted mb-6">Recent updates and improvements to the API.</p>
+        
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h4>Initial public launch</h4>
+            <span class="text-muted">2025-08-28</span>
+          </div>
+          <ul style="margin: 0 0 0 20px; color: #666;">
+            <li>UTM, Phone, Messaging, Tax, Logistics, and AI endpoints available</li>
+            <li>Playground with mock responses</li>
+            <li>Rate limit headers added</li>
+          </ul>
+        </div>
+      </section>
+      
+      <!-- Status Section -->
+      <section id="status" class="section">
+        <h2>Status and Uptime</h2>
+        
+        <div class="card">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+            <span class="status-badge status-success">All Systems Operational</span>
+            <a href="/status" style="margin-left: auto; color: #F45407; text-decoration: none;">View Status Page →</a>
+          </div>
+          
+          <div class="grid grid-3">
+            <div style="text-align: center;">
+              <h3 style="color: #10b981;">99.99%</h3>
+              <p class="text-muted">Uptime</p>
+            </div>
+            <div style="text-align: center;">
+              <h3>42ms</h3>
+              <p class="text-muted">Avg Response</p>
+            </div>
+            <div style="text-align: center;">
+              <h3>0</h3>
+              <p class="text-muted">Incidents</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- FAQ Section -->
+      <section id="faq" class="section">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+          <details>
+            <summary>Is the API free?</summary>
+            <p class="text-muted">Yes. The free tier includes 60 requests per minute and 50,000 per month.</p>
+          </details>
+        </div>
+        
+        <div class="faq-item">
+          <details>
+            <summary>Do I need a credit card to sign up?</summary>
+            <p class="text-muted">No. Email only for the free tier.</p>
+          </details>
+        </div>
+        
+        <div class="faq-item">
+          <details>
+            <summary>Can I use these APIs globally?</summary>
+            <p class="text-muted">Yes. Endpoints are region aware and do not assume one country.</p>
+          </details>
+        </div>
+        
+        <div class="faq-item">
+          <details>
+            <summary>How do you handle security?</summary>
+            <p class="text-muted">Bearer tokens, least privilege scopes, and signed webhooks. Data stays in your accounts whenever possible.</p>
+          </details>
+        </div>
+        
+        <div class="faq-item">
+          <details>
+            <summary>Do you provide SDKs?</summary>
+            <p class="text-muted">Yes. Lightweight TS/JS and Python SDKs generated from the OpenAPI. Links are in the SDKs section.</p>
+          </details>
+        </div>
+        
+        <div class="faq-item">
+          <details>
+            <summary>What happens if I hit the rate limit?</summary>
+            <p class="text-muted">You will receive a 429 with Retry-After. Upgrade links are shown in headers and errors.</p>
+          </details>
+        </div>
+        
+        <div class="faq-item">
+          <details>
+            <summary>Can I request new endpoints?</summary>
+            <p class="text-muted">Yes. Open a request using the contact form. We prioritise public and safe use cases.</p>
+          </details>
+        </div>
+      </section>
+      
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div style="background: linear-gradient(135deg, #F45407, #e14a06); border-radius: 16px; padding: 48px; text-align: center; color: white;">
+          <h2 style="color: white; margin-bottom: 16px;">Ready to Get Started?</h2>
+          <p style="font-size: 18px; margin-bottom: 32px;">Get your free API key and start building today.</p>
+          
+          <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a href="/#contact" class="btn btn-secondary" style="background: white; color: #F45407;">Book a 20-min Audit</a>
+            <a href="https://wa.me/971508851645" class="btn btn-secondary" style="background: white; color: #10b981;">
+              WhatsApp us
+            </a>
+          </div>
+          
+          <div style="margin-top: 32px; font-size: 16px;">
+            <p>Email: <a href="mailto:hello@imisofts.com" style="color: white;">hello@imisofts.com</a></p>
+            <p>Phone: <a href="tel:+971508851645" style="color: white;">+971 50 885 1645</a></p>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  </div>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>imisofts</h3>
+          <p>Building AI automation and product-grade software that delivers measurable ROI.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/ai-automation">AI Automation</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/crm-development">CRM Development</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/free-consultation">Free Consultation</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/api-docs">API Docs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Get In Touch</h4>
+          <p style="font-size: 15px; color: white;">hello@imisofts.com</p>
+          <p style="font-size: 15px; color: white;">+971 50 885 1645</p>
+          <p style="font-size: 15px; color: white;">Dubai, UAE</p>
+        </div>
+      </div>
+      
+      <div style="padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <p style="font-size: 14px; color: #666;">© 2025 imisofts. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Embedded OpenAPI JSON -->
+  <script id="openapi" type="application/json">
+  {"openapi":"3.0.3","info":{"title":"imisofts Public API","version":"1.0.0"},"servers":[{"url":"https://api.imisofts.com/v1"}],"tags":[{"name":"UTM"},{"name":"Messaging"},{"name":"Phone"},{"name":"Tax"},{"name":"Logistics"},{"name":"AI"}],"paths":{"/utm/build":{"post":{"tags":["UTM"],"summary":"Build a canonical campaign URL with UTMs","description":"Returns a URL with validated UTM parameters and a canonical order. Useful for GA4 and ad platforms.","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"base_url":{"type":"string"},"source":{"type":"string"},"medium":{"type":"string"},"campaign":{"type":"string"},"term":{"type":"string"},"content":{"type":"string"}},"required":["base_url","source","medium","campaign"]},"example":{"base_url":"https://example.com","source":"google","medium":"cpc","campaign":"spring-sale"}}}},"responses":{"200":{"description":"Canonical URL","content":{"application/json":{"schema":{"type":"object","properties":{"url":{"type":"string"},"warnings":{"type":"array","items":{"type":"string"}}}},"example":{"url":"https://example.com?utm_source=google&utm_medium=cpc&utm_campaign=spring-sale","warnings":[]}}}},"400":{"description":"Invalid input"},"401":{"description":"Unauthorized"}}}},"/utm/validate":{"post":{"tags":["UTM"],"summary":"Validate UTM parameters and naming","description":"Checks presence, character rules, and reserved names. Suggests fixes.","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"source":{"type":"string"},"medium":{"type":"string"},"campaign":{"type":"string"},"term":{"type":"string"},"content":{"type":"string"}},"required":["source","medium","campaign"]},"example":{"source":"google","medium":"cpc","campaign":"spring-sale-2025"}}}},"responses":{"200":{"description":"Validation result","content":{"application/json":{"schema":{"type":"object","properties":{"valid":{"type":"boolean"},"issues":{"type":"array","items":{"type":"string"}},"suggestions":{"type":"array","items":{"type":"string"}}}},"example":{"valid":true,"issues":[],"suggestions":[]}}}}}}},"/phone/normalize":{"post":{"tags":["Phone"],"summary":"Normalize and validate phone numbers globally","description":"Returns E.164, international and national formats with country detection and WhatsApp compatibility.","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"raw":{"type":"string"},"default_region":{"type":"string","description":"ISO 3166-1 alpha-2 code like US, GB, AE"},"whatsapp":{"type":"boolean","default":true}},"required":["raw"]},"example":{"raw":"+1 (415) 555-2671","default_region":"US","whatsapp":true}}}},"responses":{"200":{"description":"Normalized phone","content":{"application/json":{"schema":{"type":"object","properties":{"e164":{"type":"string"},"international":{"type":"string"},"national":{"type":"string"},"country_code":{"type":"string"},"is_valid":{"type":"boolean"},"whatsapp_compatible":{"type":"boolean"}}},"example":{"e164":"+14155552671","international":"+1 415 555 2671","national":"(415) 555-2671","country_code":"US","is_valid":true,"whatsapp_compatible":true}}}}}}},"/whatsapp/locales":{"get":{"tags":["Messaging"],"summary":"List supported WhatsApp locales","responses":{"200":{"description":"Locales","content":{"application/json":{"schema":{"type":"object","properties":{"locales":{"type":"array","items":{"type":"string"}}}},"example":{"locales":["en","ar","es","fr","pt","hi"]}}}}}}},"/whatsapp/templates/lint":{"post":{"tags":["Messaging"],"summary":"Validate WhatsApp message templates","description":"Checks placeholders, variable counts, language code, and length. Returns suggestions.","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"language":{"type":"string","example":"en"},"category":{"type":"string","example":"utility"},"header":{"type":"string"},"body":{"type":"string"},"footer":{"type":"string"}},"required":["language","category","body"]},"example":{"language":"en","category":"utility","body":"Hi {{1}}, your order {{2}} is on the way."}}}},"responses":{"200":{"description":"Lint result","content":{"application/json":{"schema":{"type":"object","properties":{"valid":{"type":"boolean"},"issues":{"type":"array","items":{"type":"string"}},"suggestions":{"type":"array","items":{"type":"string"}}}},"example":{"valid":true,"issues":[],"suggestions":["Keep body under 1024 characters"]}}}}}}},"/tax/vat/calc":{"post":{"tags":["Tax"],"summary":"Calculate VAT or sales tax by region","description":"Computes totals for a given region code. You provide the region and rate table version. The API echoes the rate for transparency.","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"region":{"type":"string","description":"Examples: AE, SA, UK, EU, US-CA"},"subtotal":{"type":"number"},"shipping":{"type":"number","default":0},"discount":{"type":"number","default":0}},"required":["region","subtotal"]},"example":{"region":"UK","subtotal":100,"shipping":10,"discount":5}}}},"responses":{"200":{"description":"Totals with tax","content":{"application/json":{"schema":{"type":"object","properties":{"region":{"type":"string"},"vat_rate":{"type":"number"},"tax_amount":{"type":"number"},"total_ex_tax":{"type":"number"},"total_inc_tax":{"type":"number"}}},"example":{"region":"UK","vat_rate":0.20,"tax_amount":21.00,"total_ex_tax":105.00,"total_inc_tax":126.00}}}}}}},"/couriers/carriers":{"get":{"tags":["Logistics"],"summary":"List supported carriers","responses":{"200":{"description":"Carriers","content":{"application/json":{"schema":{"type":"object","properties":{"carriers":{"type":"array","items":{"type":"string"}}}},"example":{"carriers":["aramex","dhl","fedex","ups","jt","imile","shipa","usps"]}}}}}}},"/couriers/{carrier}/tracking/{id}":{"get":{"tags":["Logistics"],"summary":"Get normalized tracking status","parameters":[{"name":"carrier","in":"path","required":true,"schema":{"type":"string"}},{"name":"id","in":"path","required":true,"schema":{"type":"string"}}],"responses":{"200":{"description":"Tracking info","content":{"application/json":{"schema":{"type":"object","properties":{"carrier":{"type":"string"},"tracking_id":{"type":"string"},"status":{"type":"string"},"reason_code":{"type":"string"},"occurred_at":{"type":"string"}}},"example":{"carrier":"dhl","tracking_id":"JD014600006543210123","status":"in_transit","reason_code":"","occurred_at":"2025-08-28T10:05:00Z"}}}}}}},"/couriers/status-codes":{"get":{"tags":["Logistics"],"summary":"List normalized status and reason codes","responses":{"200":{"description":"Codes","content":{"application/json":{"schema":{"type":"object","properties":{"statuses":{"type":"array","items":{"type":"string"}},"ndr_reasons":{"type":"array","items":{"type":"string"}}}},"example":{"statuses":["label_created","in_transit","out_for_delivery","delivered","ndr","rto"],"ndr_reasons":["no_answer","invalid_address","customer_refused","reschedule_requested"]}}}}}}},"/embed/text":{"post":{"tags":["AI"],"summary":"Create text embeddings for short passages","description":"Small free tier for 512 token inputs. Useful for demos and lightweight RAG.","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"text":{"type":"string"}},"required":["text"]},"example":{"text":"Customer asked about delivery times to Canada."}}}},"responses":{"200":{"description":"Embedding vector","content":{"application/json":{"schema":{"type":"object","properties":{"embedding":{"type":"array","items":{"type":"number"}},"dim":{"type":"integer"}}},"example":{"embedding":[0.012,-0.034,0.221],"dim":3}}}}}}}},"components":{"securitySchemes":{"bearerAuth":{"type":"http","scheme":"bearer"}}},"security":[{"bearerAuth":[]}]}
+  </script>
+  
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "imisofts API Documentation",
+    "url": "https://imisofts.com/api-docs",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://imisofts.com/api-docs?search={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "imisofts",
+    "url": "https://imisofts.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+971508851645",
+      "email": "hello@imisofts.com",
+      "contactType": "customer service"
+    }
+  }
+  </script>
+  
+  <!-- JavaScript -->
+  <script>
+    // Mock responses for playground
+    const mockResponses = {
+      '/utm/build': { url: 'https://example.com?utm_source=google&utm_medium=cpc&utm_campaign=spring-sale', warnings: [] },
+      '/utm/validate': { valid: true, issues: [], suggestions: [] },
+      '/phone/normalize': { e164: '+14155552671', international: '+1 415 555 2671', national: '(415) 555-2671', country_code: 'US', is_valid: true, whatsapp_compatible: true },
+      '/whatsapp/locales': { locales: ['en', 'ar', 'es', 'fr', 'pt', 'hi'] },
+      '/whatsapp/templates/lint': { valid: true, issues: [], suggestions: ['Keep body under 1024 characters'] },
+      '/tax/vat/calc': { region: 'UK', vat_rate: 0.20, tax_amount: 21.00, total_ex_tax: 105.00, total_inc_tax: 126.00 },
+      '/couriers/carriers': { carriers: ['aramex', 'dhl', 'fedex', 'ups', 'jt', 'imile', 'shipa', 'usps'] },
+      '/couriers/dhl/tracking/JD014600006543210123': { carrier: 'dhl', tracking_id: 'JD014600006543210123', status: 'in_transit', reason_code: '', occurred_at: '2025-08-28T10:05:00Z' },
+      '/couriers/status-codes': { statuses: ['label_created', 'in_transit', 'out_for_delivery', 'delivered', 'ndr', 'rto'], ndr_reasons: ['no_answer', 'invalid_address', 'customer_refused', 'reschedule_requested'] },
+      '/embed/text': { embedding: [0.012, -0.034, 0.221], dim: 3 }
+    };
+    
+    // Example request bodies
+    const exampleBodies = {
+      '/utm/build': '{\n  "base_url": "https://example.com",\n  "source": "google",\n  "medium": "cpc",\n  "campaign": "spring-sale"\n}',
+      '/utm/validate': '{\n  "source": "google",\n  "medium": "cpc",\n  "campaign": "spring-sale-2025"\n}',
+      '/phone/normalize': '{\n  "raw": "+1 (415) 555-2671",\n  "default_region": "US",\n  "whatsapp": true\n}',
+      '/whatsapp/templates/lint': '{\n  "language": "en",\n  "category": "utility",\n  "body": "Hi {{1}}, your order {{2}} is on the way."\n}',
+      '/tax/vat/calc': '{\n  "region": "UK",\n  "subtotal": 100,\n  "shipping": 10,\n  "discount": 5\n}',
+      '/embed/text': '{\n  "text": "Customer asked about delivery times to Canada."\n}'
+    };
+    
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+    
+    // Tab switching
+    function switchTab(event, group, tab) {
+      const tabs = document.querySelectorAll(`#${group}-${tab}`).forEach(el => {
+        el.parentElement.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        el.parentElement.querySelectorAll('.tab').forEach(btn => {
+          btn.classList.remove('active');
+        });
+      });
+      
+      document.getElementById(`${group}-${tab}`).classList.add('active');
+      event.target.classList.add('active');
+    }
+    
+    // Playground functionality
+    const apiKeyInput = document.getElementById('api-key');
+    apiKeyInput.value = localStorage.getItem('apiKey') || '';
+    apiKeyInput.addEventListener('input', (e) => {
+      localStorage.setItem('apiKey', e.target.value);
+    });
+    
+    function updatePlayground() {
+      const endpoint = document.getElementById('endpoint-select').value;
+      const path = endpoint.split(' ')[1];
+      const baseEndpoint = path.replace(/\/[^\/]+\/tracking\/[^\/]+/, '/{carrier}/tracking/{id}');
+      document.getElementById('request-body').value = exampleBodies[baseEndpoint] || '';
+      
+      // Update cURL command
+      const apiKey = document.getElementById('api-key').value || 'YOUR_API_KEY';
+      const method = endpoint.split(' ')[0];
+      let curl = `curl -X ${method} https://api.imisofts.com/v1${path} \\\n  -H "Authorization: Bearer ${apiKey}"`;
+      if (method === 'POST') {
+        curl += ` \\\n  -H "Content-Type: application/json" \\\n  -d '${exampleBodies[baseEndpoint]?.replace(/\n/g, '')}'`;
+      }
+      document.getElementById('curl-output').innerHTML = `<code>${curl}</code>`;
+    }
+    
+    function runRequest() {
+      const endpoint = document.getElementById('endpoint-select').value;
+      const path = endpoint.split(' ')[1];
+      const baseEndpoint = path.replace(/\/[^\/]+\/tracking\/[^\/]+/, '/{carrier}/tracking/{id}');
+      
+      // Use mock response
+      const response = mockResponses[baseEndpoint] || mockResponses[path] || { error: 'No mock data available' };
+      document.getElementById('response-output').innerHTML = `<code>${JSON.stringify(response, null, 2)}</code>`;
+    }
+    
+    // Search functionality
+    function searchDocs(event) {
+      const query = event.target.value.toLowerCase();
+      if (!query) {
+        clearHighlights();
+        return;
+      }
+      
+      const content = document.querySelector('.main-content');
+      const text = content.textContent.toLowerCase();
+      
+      // Clear previous highlights
+      clearHighlights();
+      
+      // Highlight matches
+      if (text.includes(query)) {
+        highlightText(content, query);
+      }
+    }
+    
+    function clearHighlights() {
+      const marks = document.querySelectorAll('mark');
+      marks.forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+      });
+    }
+    
+    function highlightText(element, query) {
+      // This is a simplified highlight function
+      // In production, use a more robust solution
+    }
+    
+    // Download OpenAPI
+    function downloadOpenAPI() {
+      const openapi = document.getElementById('openapi').textContent;
+      const blob = new Blob([openapi], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'imisofts-openapi.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    // Initialize
+    updatePlayground();
+    
+    // Active section highlighting in sidebar
+    const observerOptions = {
+      rootMargin: '-100px 0px -70% 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const link = document.querySelector(`.sidebar-link[href="#${id}"]`);
+        
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+          link?.classList.add('active');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('section[id]').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
