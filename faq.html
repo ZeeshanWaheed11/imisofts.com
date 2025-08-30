@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Frequently Asked Questions | imisofts</title>
+  <meta name="description" content="Find answers about our AI automation, Shopify development, and digital services. Pricing, timelines, security, and support covered.">
+  <link rel="canonical" href="https://imisofts.com/faq">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="FAQ - Frequently Asked Questions | imisofts">
+  <meta property="og:description" content="Find answers about our AI automation, Shopify development, and digital services. Pricing, timelines, security, and support covered.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://imisofts.com/faq">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', system-ui, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #F45407;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .nav-logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a1a;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    .nav-link.active {
+      color: #F45407;
+      font-weight: 600;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+    
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      padding: 8px;
+      min-width: 320px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .dropdown-item-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dropdown-item-icon svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .dropdown-item-content {
+      flex: 1;
+    }
+    
+    .dropdown-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    
+    .dropdown-item-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .mobile-nav-link.active {
+      color: #F45407;
+      font-weight: 600;
+    }
+    
+    .mobile-cta {
+      display: block;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      background: linear-gradient(to bottom, #ffffff, #f9fafb);
+      padding: 80px 0 60px;
+    }
+    
+    .search-container {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 16px 56px 16px 20px;
+      font-size: 16px;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .search-input:focus {
+      outline: none;
+      border-color: #F45407;
+      box-shadow: 0 4px 16px rgba(244, 84, 7, 0.15);
+    }
+    
+    .search-button {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 10px 16px;
+      background: #F45407;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .search-button:hover {
+      background: #e14a06;
+    }
+    
+    /* Featured FAQs */
+    .featured-faqs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .featured-card {
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e5e5e5;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .featured-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      border-color: #F45407;
+    }
+    
+    .featured-question {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    
+    .featured-answer {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+    }
+    
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    
+    .category-tab {
+      padding: 10px 20px;
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    
+    .category-tab:hover {
+      background: #f9fafb;
+      color: #F45407;
+    }
+    
+    .category-tab.active {
+      background: #F45407;
+      color: white;
+      border-color: #F45407;
+    }
+    
+    /* FAQ Items */
+    .faq-category {
+      display: none;
+    }
+    
+    .faq-category.active {
+      display: block;
+    }
+    
+    .faq-item {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    }
+    
+    .faq-question {
+      padding: 20px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      transition: all 0.2s ease;
+    }
+    
+    .faq-question:hover {
+      background: #f9fafb;
+    }
+    
+    .faq-toggle {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item.expanded .faq-toggle {
+      background: #F45407;
+      color: white;
+      transform: rotate(180deg);
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 24px;
+    }
+    
+    .faq-item.expanded .faq-answer {
+      max-height: 500px;
+      padding: 0 24px 20px;
+    }
+    
+    .faq-answer p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    
+    .faq-answer ul {
+      font-size: 14px;
+      color: #666;
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    
+    .faq-answer li {
+      margin-bottom: 6px;
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      background: linear-gradient(135deg, #F45407, #e14a06);
+      padding: 60px 0;
+      margin-top: 80px;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .contact-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 32px;
+      border-radius: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-4px);
+    }
+    
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: white;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    
+    .contact-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+    }
+    
+    .contact-link {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.2s ease;
+    }
+    
+    .contact-link:hover {
+      color: white;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #0a0a0a;
+      color: #ccc;
+      padding: 80px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-brand h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    
+    .footer-brand p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #999;
+    }
+    
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: #F45407;
+      transform: translateX(3px);
+    }
+    
+    /* Section Padding */
+    .section-padding {
+      padding: 80px 0;
+    }
+    
+    /* Grid Classes */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .featured-faqs,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .category-tabs {
+        flex-wrap: wrap;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+      
+      .section-padding {
+        padding: 48px 0 !important;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+      
+      .hide-mobile {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo-wrapper">
+          <div class="nav-logo-icon">im</div>
+          <div class="nav-logo">imisofts</div>
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <a href="/ai-automation" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Automation</div>
+                  <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                </div>
+              </a>
+              
+              <a href="/digital-marketing" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Digital Marketing</div>
+                  <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                </div>
+              </a>
+              
+              <a href="/ecommerce" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">E-commerce</div>
+                  <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                </div>
+              </a>
+              
+              <a href="/web-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Web Development</div>
+                  <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                </div>
+              </a>
+              
+              <a href="/crm-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">CRM Development</div>
+                  <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                </div>
+              </a>
+              
+              <a href="/shopify-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Shopify Apps</div>
+                  <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                </div>
+              </a>
+              
+              <a href="/ai-mobile-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Mobile Apps</div>
+                  <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          <a href="/faq" class="nav-link active">FAQ</a>
+          
+          <!-- CTA Button -->
+          <a href="#contact" class="nav-cta">Book a 20-min Audit</a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="mobile-nav-link">Home</a>
+      <a href="/services" class="mobile-nav-link">Services</a>
+      <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/pricing" class="mobile-nav-link">Pricing</a>
+      <a href="/blog" class="mobile-nav-link">Blog</a>
+      <a href="/faq" class="mobile-nav-link active">FAQ</a>
+      
+      <a href="#contact" class="mobile-cta">Book a 20-min Audit</a>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 16px;">
+          Frequently Asked Questions
+        </h1>
+        <p style="font-size: 20px; color: #333;">
+          Quick answers to common questions about our services and processes
+        </p>
+      </div>
+      
+      <!-- Search Bar -->
+      <div class="search-container">
+        <input type="text" 
+               class="search-input" 
+               placeholder="Search for answers..." 
+               id="faqSearch"
+               onkeyup="searchFAQs()">
+        <button class="search-button">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="9" r="7"/>
+            <path d="M14 14l4 4"/>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Featured FAQs -->
+      <div class="featured-faqs">
+        <div class="featured-card" onclick="scrollToFAQ('general-1')">
+          <div class="featured-question">What does imisofts do in one sentence?</div>
+          <div class="featured-answer">We build AI automation, Shopify stores, and product-grade software that delivers measurable ROI in weeks, not months.</div>
+        </div>
+        
+        <div class="featured-card" onclick="scrollToFAQ('pricing-1')">
+          <div class="featured-question">How do you price projects?</div>
+          <div class="featured-answer">Fixed-fee packages based on complexity: Starter $4,999-$14,999, Growth $15,000-$29,999, Scale $30,000+. Clear scope, no surprises.</div>
+        </div>
+        
+        <div class="featured-card" onclick="scrollToFAQ('delivery-1')">
+          <div class="featured-question">What are typical timelines?</div>
+          <div class="featured-answer">Starter 2 weeks, Growth 4-6 weeks, Scale 6-10 weeks. We ship an MVP first, then iterate based on data.</div>
+        </div>
+        
+        <div class="featured-card" onclick="scrollToFAQ('security-1')">
+          <div class="featured-question">How do you handle data security?</div>
+          <div class="featured-answer">Least privilege access, audit logs, and secrets in managed vaults. Data remains in your accounts unless agreed otherwise.</div>
+        </div>
+        
+        <div class="featured-card" onclick="scrollToFAQ('support-1')">
+          <div class="featured-question">What support is included?</div>
+          <div class="featured-answer">30 days of post-launch support included. Response within 4 hours during business hours. Retainers available for ongoing work.</div>
+        </div>
+        
+        <div class="featured-card" onclick="scrollToFAQ('dubai-1')">
+          <div class="featured-question">Do you support Arabic and English?</div>
+          <div class="featured-answer">Yes. Full bilingual support with proper RTL, translated UI, and WhatsApp templates in both languages.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Categories -->
+  <section class="section-padding">
+    <div class="container">
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button class="category-tab active" onclick="showCategory('general')">General</button>
+        <button class="category-tab" onclick="showCategory('pricing')">Pricing & Billing</button>
+        <button class="category-tab" onclick="showCategory('security')">Security & Data</button>
+        <button class="category-tab" onclick="showCategory('delivery')">Delivery & Timelines</button>
+        <button class="category-tab" onclick="showCategory('support')">Support & SLAs</button>
+        <button class="category-tab" onclick="showCategory('legal')">Legal & Compliance</button>
+        <button class="category-tab" onclick="showCategory('ai')">AI Automation</button>
+        <button class="category-tab" onclick="showCategory('shopify')">Shopify & E-commerce</button>
+        <button class="category-tab" onclick="showCategory('dubai')">Dubai & Regional</button>
+      </div>
+      
+      <!-- General Category -->
+      <div class="faq-category active" id="general">
+        <div class="faq-item" id="general-1">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            What does imisofts do in one sentence?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We build AI automation, Shopify stores, and product-grade software that delivers measurable ROI in weeks, not months.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Who is a good fit and who is not?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p><strong>Good fit:</strong> Companies with $1M+ revenue looking to automate operations, scale e-commerce, or build AI products. Teams ready to invest in systems that reduce manual work.</p>
+            <p><strong>Not a good fit:</strong> Early-stage startups without product-market fit. Companies expecting miracles without clear goals. Teams unwilling to share data or iterate.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How do we start a project?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Book a 20-minute audit call. We'll discuss your goals, review your current systems, and propose a solution. If we're a fit, you'll get a fixed-price proposal with clear deliverables and timeline.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you work outside Dubai and GCC?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. We serve clients globally with teams in Dubai, US, UK, and EU. We adapt to your timezone and preferred communication channels.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you offer pilots or proof of value sprints?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. We offer 2-week sprints starting at $4,999 to prove ROI on a specific use case before scaling. Perfect for testing AI automation or new channels.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            What tools do you prefer to work in?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We prefer n8n, Next.js, Shopify, HubSpot, and Postgres. We adapt when there's a clear reason. Communication via Slack or WhatsApp, project tracking in Linear or Notion.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Pricing Category -->
+      <div class="faq-category" id="pricing">
+        <div class="faq-item" id="pricing-1">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How do you price projects?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Fixed-fee packages based on complexity: Starter $4,999-$14,999, Growth $15,000-$29,999, Scale $30,000+. Clear scope, no surprises.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            What is included and excluded in your fixed fees?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p><strong>Included:</strong> All development, testing, deployment, documentation, and 30 days of support.</p>
+            <p><strong>Excluded:</strong> Third-party licenses, API costs, hosting fees, and scope changes after approval.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you charge for third-party tools and subscriptions?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Third-party costs are passed through at cost with no markup. We'll estimate these upfront and can manage subscriptions on your behalf or transfer ownership.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Payment schedule and accepted methods?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>50% upfront, 50% on delivery for projects under $20,000. Larger projects: 40% upfront, 30% at midpoint, 30% on delivery.</p>
+            <p>We accept wire transfers, credit cards via Stripe, and regional payment methods.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Refunds, change requests, and scope control?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>No refunds after work begins. Change requests quoted separately. Scope documented in SOW with approval required for changes. We track all requests in writing.</ופת/p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you offer monthly retainers for support?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. Retainers from $2,999/month for 20 hours. Unused hours don't roll over. Priority support with 4-hour response time.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Security Category -->
+      <div class="faq-category" id="security">
+        <div class="faq-item" id="security-1">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How do you handle access to client systems?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Access is least privilege with audit logs. Secrets are stored in a managed vault. We work inside your tenants whenever possible.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Where is data stored and who owns it?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>You own your data, your code, and your accounts. Data remains in your cloud accounts unless agreed otherwise. We never retain client data after project completion.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you sign NDAs and DPAs?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. We sign mutual NDAs before discussing sensitive information and DPAs for GDPR compliance. Standard templates available or we can review yours.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How do you treat PII and secrets?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>PII is encrypted at rest and in transit. Secrets stored in HashiCorp Vault or cloud KMS. No hardcoded credentials. Regular security audits.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            On-premise or hybrid deployment options?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. We can deploy on-premise, private cloud, or hybrid architectures. Additional setup fees apply for complex deployment requirements.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Audit logs and access reviews?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>All access logged with timestamps and actions. Monthly access reviews with reports. Immediate revocation upon project completion or team changes.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Delivery Category -->
+      <div class="faq-category" id="delivery">
+        <div class="faq-item" id="delivery-1">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Typical timelines for Starter, Growth, and Scale packages?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Starter: 2 weeks for MVPs and quick wins.</p>
+            <p>Growth: 4-6 weeks for production-ready systems.</p>
+            <p>Scale: 6-10 weeks for enterprise features and integrations.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How you plan sprints and demos?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Weekly sprints with Friday demos. Sprint planning on Monday, daily async updates, demo and feedback on Friday. Everything tracked in Linear or Jira.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            What you need from the client to stay on schedule?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Timely feedback within 24 hours. Access to systems and stakeholders. Clear decision-maker for approvals. Sample data and business rules documentation.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How you handle delays or dependencies?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We communicate blockers immediately with mitigation options. Client-side delays may adjust timeline. We work on parallel tracks to minimize idle time.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Handover materials at the end of a project?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Complete documentation, source code, deployment guides, admin credentials, architecture diagrams, and recorded training sessions. Everything in a shared drive.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Training format and who attends?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>2-hour recorded sessions for admins and end users. Live Q&A for stakeholders. Documentation site with videos. Follow-up sessions available.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Support Category -->
+      <div class="faq-category" id="support">
+        <div class="faq-item" id="support-1">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            What is included in 30-day post-launch support?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Bug fixes, minor adjustments, performance tuning, and user questions. Response within 4 hours during business hours. Does not include new features or major changes.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Response and resolution targets?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Critical: 2-hour response, same-day resolution. High: 4-hour response, 48-hour resolution. Normal: 24-hour response, 5-day resolution.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How to report an issue and priority levels?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Email support@imisofts.com or WhatsApp for urgent issues. Include screenshots, steps to reproduce, and impact. We'll assign priority based on business impact.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            After-hours or high-season coverage?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Available with premium support plans. 24/7 coverage during critical periods like Black Friday. Surge pricing applies for emergency after-hours work.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Ongoing maintenance options and pricing?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Basic: $2,999/month for 20 hours. Standard: $4,999/month for 40 hours. Premium: $9,999/month for 80 hours with priority support.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Versioning and change management?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Git-based version control with tagged releases. Staging environment for testing. Blue-green deployments with instant rollback. Change logs for every release.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Legal Category -->
+      <div class="faq-category" id="legal">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Contracts, MSAs, and SOWs?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Standard MSA covers general terms. SOW details specific project scope, timeline, and costs. Both required before work begins. Templates available for review.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            VAT on invoices for UAE clients?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>5% VAT applied to UAE invoices. VAT registration number included. Export services may qualify for zero-rating with proper documentation.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            IP ownership and license terms?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>You own all custom code and content upon final payment. We retain rights to our frameworks and tools with perpetual license granted to you.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            GDPR-capable processes and data export?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>GDPR-compliant data handling with export and deletion workflows. User consent management built-in. Data portability in standard formats.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Record retention and deletion policies?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Project records retained for 7 years for tax compliance. Client data deleted immediately after project unless retention agreed. Secure deletion with certificates.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- AI Automation Category -->
+      <div class="faq-category" id="ai">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Which workflows do you automate first?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Lead capture and instant WhatsApp reply, ticket triage, VAT receipt OCR, COD confirmation. We target high-volume, repetitive tasks with clear ROI.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you build with n8n, Make, or custom code?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Pick the lightest tool that meets reliability and cost goals, mix with custom code where needed. n8n for complex workflows, Make for simple, custom for scale.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How do you measure ROI?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Baseline manual time and error rate, then report saved hours, response times, and revenue lift. Dashboard with real-time metrics and monthly reports.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Can you work with legacy portals that have no API?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Use RPA with guardrails and fallbacks, recommend API alternatives when possible. Browser automation as last resort with monitoring and alerts.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Shopify Category -->
+      <div class="faq-category" id="shopify">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you only work on Shopify?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, Shopify only for e-commerce. We're experts in one platform rather than mediocre at many. This includes Shopify Plus and headless commerce.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you build dropshipping stores and do product research?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, with supplier vetting, margin math, and delivery time controls. We validate products with data before building. Includes competitor analysis.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How do you reduce COD failures and RTO?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>WhatsApp order confirmation, address validation, fraud scoring, and courier reputation tracking. COD to prepaid conversion campaigns.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How do you sync with Noon and Amazon?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Real-time inventory sync, order routing, and unified reporting. Central inventory management prevents overselling. API integration where available.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you help with App Store SEO and ranking?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. Keyword research, listing optimization, review management, and backlink strategy. Monthly ranking reports and optimization recommendations.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Can you guide us to the Built for Shopify badge?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. We know the requirements and review process. Code quality, performance benchmarks, and security standards. 90% of our apps achieve certification.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Dubai Specific Category -->
+      <div class="faq-category" id="dubai">
+        <div class="faq-item" id="dubai-1">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Do you support Arabic and English in bots and sites?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Full bilingual support with proper RTL, translated UI, and WhatsApp templates in both languages. Locale detection and seamless switching.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            How do you handle 5% VAT and FTA export files?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Automated VAT calculations, invoice generation with TRN, and FTA-compliant export files. Zero-rating for exports with proper documentation.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Can you ingest Property Finder and Bayut leads into CRM?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. API integration for real-time lead capture, deduplication, and routing. WhatsApp automation for instant response. Analytics on lead quality.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Which couriers do you integrate for COD and NDR?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Aramex, Fetchr, Smsa Express, and regional providers. NDR management with automated retry workflows. Real-time tracking and proof of delivery.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Which payment gateways have the best approval rates in UAE?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Checkout.com, Telr, and PayTabs for cards. Network tokens for 10% higher approval. Apple Pay and Samsung Pay for conversion. COD still 60% of orders.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            Can you host close to GCC for lower latency?
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. AWS Bahrain, Azure UAE, or local hosting. CDN with regional edge locations. Sub-100ms response times for GCC users.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 700; color: white; margin-bottom: 16px;">
+          Still Need Help?
+        </h2>
+        <p style="font-size: 18px; color: rgba(255, 255, 255, 0.9);">
+          Message us on WhatsApp or book a 20-minute audit
+        </p>
+      </div>
+      
+      <div class="contact-grid">
+        <a href="https://wa.me/971508851645" class="contact-card" style="text-decoration: none;">
+          <div class="contact-icon">
+            <svg width="24" height="24" fill="#F45407" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+          </div>
+          <div class="contact-title">WhatsApp</div>
+          <div class="contact-link">+971 50 885 1645</div>
+        </a>
+        
+        <a href="mailto:hello@imisofts.com" class="contact-card" style="text-decoration: none;">
+          <div class="contact-icon">
+            <svg width="24" height="24" fill="#F45407" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </div>
+          <div class="contact-title">Email</div>
+          <div class="contact-link">hello@imisofts.com</div>
+        </a>
+        
+        <a href="/contact" class="contact-card" style="text-decoration: none;">
+          <div class="contact-icon">
+            <svg width="24" height="24" fill="#F45407" viewBox="0 0 24 24">
+              <path d="M8 2v2H6v2h2v2H6v2h2v2H6v2h2v2H6v2h2v2H6v2h2v2h8v-2h2v-2h-2v-2h2v-2h-2v-2h2v-2h-2V8h2V6h-2V4h2V2H8zm4 4a4 4 0 014 4v4a4 4 0 01-4 4 4 4 0 01-4-4v-4a4 4 0 014-4z"/>
+            </svg>
+          </div>
+          <div class="contact-title">Book Audit</div>
+          <div class="contact-link">20-min call</div>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>imisofts</h3>
+          <p>Building AI automation and product-grade software that delivers measurable ROI.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/ai-automation">AI Automation</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/crm-development">CRM Development</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/free-consultation">Free Consultation</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/api-docs">API Docs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Get In Touch</h4>
+          <p style="font-size: 15px; color: white;">hello@imisofts.com</p>
+          <p style="font-size: 15px; color: white;">+971 50 885 1645</p>
+          <p style="font-size: 15px; color: white;">Dubai, UAE</p>
+        </div>
+      </div>
+      
+      <div style="padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <p style="font-size: 14px; color: #666;">© 2025 imisofts. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does imisofts do in one sentence?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We build AI automation, Shopify stores, and product-grade software that delivers measurable ROI in weeks, not months."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you price projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fixed-fee packages based on complexity: Starter $4,999-$14,999, Growth $15,000-$29,999, Scale $30,000+. Clear scope, no surprises."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are typical timelines?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Starter 2 weeks, Growth 4-6 weeks, Scale 6-10 weeks. We ship an MVP first, then iterate based on data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you handle data security?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Least privilege access, audit logs, and secrets in managed vaults. Data remains in your accounts unless agreed otherwise."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What support is included?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "30 days of post-launch support included. Response within 4 hours during business hours. Retainers available for ongoing work."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you support Arabic and English?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Full bilingual support with proper RTL, translated UI, and WhatsApp templates in both languages."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you only work on Shopify?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We are Shopify only for e-commerce. We also build dropshipping stores and run product research with supplier vetting and margin analysis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which workflows do you automate first?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lead capture and instant WhatsApp reply, ticket triage, VAT receipt OCR, COD confirmation. We target high-volume, repetitive tasks with clear ROI."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you work outside Dubai and GCC?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We serve clients globally with teams in Dubai, US, UK, and EU. We adapt to your timezone and preferred communication channels."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Payment schedule and accepted methods?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "50% upfront, 50% on delivery for projects under $20,000. Larger projects: 40% upfront, 30% at midpoint, 30% on delivery. We accept wire transfers, credit cards via Stripe, and regional payment methods."
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Services dropdown toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById('servicesDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('servicesDropdown');
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+    
+    // FAQ Category switching
+    function showCategory(categoryId) {
+      // Hide all categories
+      const categories = document.querySelectorAll('.faq-category');
+      categories.forEach(cat => cat.classList.remove('active'));
+      
+      // Remove active from all tabs
+      const tabs = document.querySelectorAll('.category-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      
+      // Show selected category
+      document.getElementById(categoryId).classList.add('active');
+      
+      // Mark tab as active
+      event.target.classList.add('active');
+    }
+    
+    // FAQ Toggle
+    function toggleFAQ(element) {
+      const faqItem = element.closest('.faq-item');
+      faqItem.classList.toggle('expanded');
+    }
+    
+    // Search FAQs
+    function searchFAQs() {
+      const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
+      const allFaqItems = document.querySelectorAll('.faq-item');
+      const allCategories = document.querySelectorAll('.faq-category');
+      const tabs = document.querySelectorAll('.category-tab');
+      
+      if (searchTerm === '') {
+        // Reset to default view
+        allCategories.forEach(cat => cat.classList.remove('active'));
+        document.getElementById('general').classList.add('active');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        tabs[0].classList.add('active');
+        allFaqItems.forEach(item => {
+          item.style.display = 'block';
+        });
+        return;
+      }
+      
+      // Show all categories when searching
+      allCategories.forEach(cat => cat.classList.add('active'));
+      tabs.forEach(tab => tab.classList.remove('active'));
+      
+      // Filter FAQs
+      allFaqItems.forEach(item => {
+        const question = item.querySelector('.faq-question').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+          // Optionally expand matching items
+          if (searchTerm.length > 2) {
+            item.classList.add('expanded');
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+    
+    // Scroll to specific FAQ
+    function scrollToFAQ(faqId) {
+      const element = document.getElementById(faqId);
+      if (element) {
+        // Show the category containing this FAQ
+        const category = element.closest('.faq-category');
+        const categoryId = category.id;
+        
+        // Hide all categories and show the right one
+        document.querySelectorAll('.faq-category').forEach(cat => cat.classList.remove('active'));
+        category.classList.add('active');
+        
+        // Update tabs
+        document.querySelectorAll('.category-tab').forEach(tab => {
+          tab.classList.remove('active');
+          if (tab.onclick.toString().includes(categoryId)) {
+            tab.classList.add('active');
+          }
+        });
+        
+        // Scroll to the element
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Expand the FAQ
+        setTimeout(() => {
+          element.classList.add('expanded');
+        }, 500);
+      }
+    }
+  </script>
+  
+</body>
+</html>
