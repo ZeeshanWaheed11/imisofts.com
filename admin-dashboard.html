@@ -262,6 +262,21 @@
       background: var(--light-gray);
     }
     
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+    
+    .btn-danger {
+      background: var(--danger);
+      color: white;
+    }
+    
+    .btn-warning {
+      background: var(--warning);
+      color: white;
+    }
+    
     /* Content Area */
     .content {
       padding: 24px;
@@ -317,158 +332,19 @@
       color: var(--danger);
     }
     
-    /* Pipeline Tiles */
-    .pipeline-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-    
-    .pipeline-tile {
-      background: white;
-      border: 1px solid var(--border);
+    /* Data Storage Info */
+    .storage-info {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
       border-radius: 8px;
-      padding: 16px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .pipeline-tile:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
-    }
-    
-    .pipeline-stage {
-      font-size: 12px;
-      color: var(--gray);
-      margin-bottom: 8px;
-    }
-    
-    .pipeline-count {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--dark);
-    }
-    
-    .pipeline-value {
-      font-size: 14px;
-      color: var(--gray);
-      margin-top: 4px;
-    }
-    
-    /* Project Health */
-    .health-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    
-    .health-card {
-      background: white;
-      border-radius: 8px;
-      padding: 16px;
-      text-align: center;
-    }
-    
-    .health-card.green {
-      background: #d4f4dd;
-      border: 1px solid #bbf7d0;
-    }
-    
-    .health-card.amber {
-      background: #fef3c7;
-      border: 1px solid #fde68a;
-    }
-    
-    .health-card.red {
-      background: #fee2e2;
-      border: 1px solid #fecaca;
-    }
-    
-    .health-status {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-    
-    .health-count {
-      font-size: 32px;
-      font-weight: 700;
-    }
-    
-    .health-label {
-      font-size: 12px;
-      margin-top: 4px;
-    }
-    
-    /* Alerts Section */
-    .alerts-container {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 24px;
-    }
-    
-    .alerts-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-    
-    .section-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--dark);
-    }
-    
-    .alert-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
       padding: 12px;
-      border-radius: 8px;
-      margin-bottom: 8px;
-    }
-    
-    .alert-item.critical {
-      background: #fee2e2;
-      border: 1px solid #fecaca;
-    }
-    
-    .alert-item.warning {
-      background: #fef3c7;
-      border: 1px solid #fde68a;
-    }
-    
-    .alert-icon {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-    
-    .alert-content {
-      flex: 1;
-    }
-    
-    .alert-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--dark);
-      margin-bottom: 2px;
-    }
-    
-    .alert-desc {
+      margin-bottom: 20px;
       font-size: 13px;
-      color: var(--gray);
+      color: #1e40af;
     }
     
-    .alert-time {
-      font-size: 12px;
-      color: var(--gray);
+    .storage-info strong {
+      color: #1e3a8a;
     }
     
     /* Data Tables */
@@ -476,6 +352,7 @@
       background: white;
       border-radius: 12px;
       overflow: hidden;
+      margin-bottom: 24px;
     }
     
     .data-header {
@@ -573,24 +450,44 @@
       color: var(--gray);
     }
     
-    /* Quick Actions */
-    .quick-actions {
+    /* Action Buttons */
+    .action-buttons {
       display: flex;
       gap: 8px;
     }
     
     .action-btn {
-      padding: 4px 8px;
-      background: transparent;
-      border: none;
+      padding: 6px 12px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
       color: var(--gray);
+      font-size: 12px;
       cursor: pointer;
-      border-radius: 4px;
+      transition: all 0.2s;
     }
     
     .action-btn:hover {
       background: var(--light-gray);
       color: var(--dark);
+    }
+    
+    .action-btn.edit {
+      color: var(--info);
+      border-color: var(--info);
+    }
+    
+    .action-btn.edit:hover {
+      background: #dbeafe;
+    }
+    
+    .action-btn.delete {
+      color: var(--danger);
+      border-color: var(--danger);
+    }
+    
+    .action-btn.delete:hover {
+      background: #fee2e2;
     }
     
     /* Modal */
@@ -684,6 +581,89 @@
       justify-content: flex-end;
     }
     
+    /* Delete Confirmation */
+    .delete-confirm {
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .delete-confirm p {
+      color: var(--danger);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      padding: 16px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: none;
+      align-items: center;
+      gap: 12px;
+      z-index: 2000;
+      animation: slideIn 0.3s ease;
+    }
+    
+    .toast.show {
+      display: flex;
+    }
+    
+    .toast.success {
+      border-left: 4px solid var(--success);
+    }
+    
+    .toast.error {
+      border-left: 4px solid var(--danger);
+    }
+    
+    .toast.warning {
+      border-left: 4px solid var(--warning);
+    }
+    
+    @keyframes slideIn {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray);
+    }
+    
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      opacity: 0.3;
+    }
+    
+    .empty-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    
+    .empty-text {
+      font-size: 14px;
+      color: var(--gray);
+    }
+    
     /* Responsive */
     @media (max-width: 768px) {
       .sidebar {
@@ -698,8 +678,12 @@
         grid-template-columns: 1fr;
       }
       
-      .pipeline-container {
-        grid-template-columns: repeat(2, 1fr);
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-group.full {
+        grid-column: span 1;
       }
     }
   </style>
@@ -726,12 +710,11 @@
           <span>Overview</span>
         </a>
         
-        <a class="nav-item" onclick="showSection('workqueue')">
+        <a class="nav-item" onclick="showSection('data-management')">
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
           </svg>
-          <span>Work Queue</span>
-          <span class="nav-badge">5</span>
+          <span>Data Management</span>
         </a>
       </div>
       
@@ -757,13 +740,8 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
           </svg>
           <span>Tickets</span>
-          <span class="nav-badge">12</span>
         </a>
-      </div>
-      
-      <!-- Management -->
-      <div class="nav-section">
-        <div class="nav-section-title">Management</div>
+        
         <a class="nav-item" onclick="showSection('clients')">
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -771,30 +749,11 @@
           <span>Clients</span>
         </a>
         
-        <a class="nav-item" onclick="showSection('billing')">
+        <a class="nav-item" onclick="showSection('invoices')">
           <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
           </svg>
-          <span>Billing</span>
-        </a>
-        
-        <a class="nav-item" onclick="showSection('automations')">
-          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-          </svg>
-          <span>Automations</span>
-        </a>
-      </div>
-      
-      <!-- System -->
-      <div class="nav-section">
-        <div class="nav-section-title">System</div>
-        <a class="nav-item" onclick="showSection('admin')">
-          <svg class="nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-          </svg>
-          <span>Admin</span>
+          <span>Invoices</span>
         </a>
       </div>
     </nav>
@@ -821,12 +780,12 @@
           <svg class="search-icon" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
-          <input type="text" class="search-input" placeholder="Search...">
+          <input type="text" class="search-input" placeholder="Search..." id="globalSearch" onkeyup="performSearch()">
         </div>
       </div>
       <div class="header-actions">
-        <button class="btn btn-secondary">Export</button>
-        <button class="btn btn-primary" onclick="showAddModal()">+ Add New</button>
+        <button class="btn btn-secondary" onclick="exportData()">📥 Export</button>
+        <button class="btn btn-primary" onclick="backupData()">💾 Backup</button>
       </div>
     </div>
     
@@ -834,312 +793,126 @@
     <div class="content">
       <!-- Overview Section -->
       <div id="overview" class="content-section active">
-        <!-- Today & Week at a Glance -->
+        <!-- Storage Info -->
+        <div class="storage-info">
+          <strong>📁 Data Storage:</strong> All data is stored locally in your browser's localStorage. 
+          Data persists between sessions but is specific to this browser. 
+          <a href="#" onclick="showSection('data-management')" style="color: #2563eb;">Manage Data →</a>
+        </div>
+        
+        <!-- KPI Cards -->
         <div class="command-grid">
           <div class="command-card">
-            <div class="command-label">New Orders Today</div>
-            <div class="command-value">12</div>
+            <div class="command-label">Total Orders</div>
+            <div class="command-value" id="totalOrders">0</div>
             <div class="command-change">
-              <span>↑ 20% from yesterday</span>
+              <span>All time</span>
             </div>
           </div>
           
           <div class="command-card">
-            <div class="command-label">MRR</div>
-            <div class="command-value">$45,280</div>
+            <div class="command-label">Active Projects</div>
+            <div class="command-value" id="activeProjects">0</div>
             <div class="command-change">
-              <span>↑ 8% from last month</span>
+              <span>In progress</span>
             </div>
           </div>
           
           <div class="command-card">
-            <div class="command-label">Cash Collected</div>
-            <div class="command-value">$128,500</div>
+            <div class="command-label">Total Clients</div>
+            <div class="command-value" id="totalClients">0</div>
             <div class="command-change">
-              <span>↑ 15% from last week</span>
+              <span>Registered</span>
             </div>
           </div>
           
           <div class="command-card">
             <div class="command-label">Open Tickets</div>
-            <div class="command-value">23</div>
+            <div class="command-value" id="openTickets">0</div>
             <div class="command-change negative">
-              <span>↑ 5 critical</span>
+              <span>Needs attention</span>
             </div>
           </div>
           
           <div class="command-card">
-            <div class="command-label">Tasks Due Today</div>
-            <div class="command-value">8</div>
+            <div class="command-label">Pending Invoices</div>
+            <div class="command-value" id="pendingInvoices">0</div>
             <div class="command-change">
-              <span>3 high priority</span>
+              <span>Awaiting payment</span>
             </div>
           </div>
           
           <div class="command-card">
-            <div class="command-label">SLA Breaches</div>
-            <div class="command-value">2</div>
-            <div class="command-change negative">
-              <span>↑ Needs attention</span>
+            <div class="command-label">Total Revenue</div>
+            <div class="command-value" id="totalRevenue">$0</div>
+            <div class="command-change">
+              <span>All time</span>
             </div>
           </div>
         </div>
         
-        <!-- Pipeline Tiles -->
-        <h2 class="section-title" style="margin: 24px 0 16px;">Sales Pipeline</h2>
-        <div class="pipeline-container">
-          <div class="pipeline-tile">
-            <div class="pipeline-stage">LEADS</div>
-            <div class="pipeline-count">45</div>
-            <div class="pipeline-value">$125K</div>
+        <!-- Recent Activity -->
+        <div class="data-container">
+          <div class="data-header">
+            <h2 style="font-size: 16px; font-weight: 600;">Recent Activity</h2>
           </div>
-          
-          <div class="pipeline-tile">
-            <div class="pipeline-stage">QUALIFIED</div>
-            <div class="pipeline-count">28</div>
-            <div class="pipeline-value">$280K</div>
-          </div>
-          
-          <div class="pipeline-tile">
-            <div class="pipeline-stage">WON</div>
-            <div class="pipeline-count">12</div>
-            <div class="pipeline-value">$95K</div>
-          </div>
-          
-          <div class="pipeline-tile">
-            <div class="pipeline-stage">IN DELIVERY</div>
-            <div class="pipeline-count">18</div>
-            <div class="pipeline-value">$150K</div>
-          </div>
-          
-          <div class="pipeline-tile">
-            <div class="pipeline-stage">AT RISK</div>
-            <div class="pipeline-count">3</div>
-            <div class="pipeline-value">$35K</div>
-          </div>
-          
-          <div class="pipeline-tile">
-            <div class="pipeline-stage">COMPLETED</div>
-            <div class="pipeline-count">84</div>
-            <div class="pipeline-value">$820K</div>
-          </div>
-        </div>
-        
-        <!-- Project Health -->
-        <h2 class="section-title" style="margin: 24px 0 16px;">Project Health</h2>
-        <div class="health-grid">
-          <div class="health-card green">
-            <div class="health-status" style="color: var(--success);">ON TRACK</div>
-            <div class="health-count" style="color: var(--success);">15</div>
-            <div class="health-label" style="color: var(--success);">Projects</div>
-          </div>
-          
-          <div class="health-card amber">
-            <div class="health-status" style="color: var(--warning);">AT RISK</div>
-            <div class="health-count" style="color: var(--warning);">5</div>
-            <div class="health-label" style="color: var(--warning);">Projects</div>
-          </div>
-          
-          <div class="health-card red">
-            <div class="health-status" style="color: var(--danger);">CRITICAL</div>
-            <div class="health-count" style="color: var(--danger);">2</div>
-            <div class="health-label" style="color: var(--danger);">Projects</div>
-          </div>
-        </div>
-        
-        <!-- Alerts -->
-        <div class="alerts-container">
-          <div class="alerts-header">
-            <h2 class="section-title">System Alerts</h2>
-            <button class="btn btn-secondary" style="font-size: 12px; padding: 6px 12px;">View All</button>
-          </div>
-          
-          <div class="alert-item critical">
-            <svg class="alert-icon" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-            </svg>
-            <div class="alert-content">
-              <div class="alert-title">Payment Gateway Error</div>
-              <div class="alert-desc">Stripe webhook failing for subscription renewals</div>
+          <div id="recentActivity" style="padding: 20px;">
+            <div class="empty-state">
+              <div class="empty-icon">📊</div>
+              <div class="empty-title">No Recent Activity</div>
+              <div class="empty-text">Start by adding some data to see activity here</div>
             </div>
-            <div class="alert-time">5 min ago</div>
-          </div>
-          
-          <div class="alert-item warning">
-            <svg class="alert-icon" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-            </svg>
-            <div class="alert-content">
-              <div class="alert-title">Automation Failed</div>
-              <div class="alert-desc">Welcome email sequence not triggering for new signups</div>
-            </div>
-            <div class="alert-time">1 hour ago</div>
           </div>
         </div>
       </div>
       
-      <!-- Work Queue Section -->
-      <div id="workqueue" class="content-section">
-        <div class="data-container">
-          <div class="data-header">
-            <h2 class="section-title">Work Queue</h2>
-            <div class="data-filters">
-              <button class="filter-btn active">All Tasks</button>
-              <button class="filter-btn">My Tasks</button>
-              <button class="filter-btn">Team Tasks</button>
-              <button class="filter-btn">Overdue</button>
-            </div>
+      <!-- Data Management Section -->
+      <div id="data-management" class="content-section">
+        <div class="storage-info">
+          <strong>📊 Data Management Center:</strong> View, export, import, and manage all your data. 
+          Current storage used: <span id="storageUsed">0 KB</span> of ~5MB available.
+        </div>
+        
+        <div class="command-grid">
+          <div class="command-card">
+            <div class="command-label">Export All Data</div>
+            <button class="btn btn-primary" onclick="exportAllData()">Download JSON</button>
           </div>
           
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Task</th>
-                <th>Project</th>
-                <th>Owner</th>
-                <th>Due Date</th>
-                <th>Priority</th>
-                <th>Age</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="workQueueTable">
-              <tr>
-                <td><strong>Complete UI Mockups</strong></td>
-                <td>Website Redesign</td>
-                <td>Sarah Chen</td>
-                <td>Today</td>
-                <td><span class="status-badge high">High</span></td>
-                <td>2 days</td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">✓</button>
-                    <button class="action-btn">→</button>
-                    <button class="action-btn">...</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Review API Documentation</strong></td>
-                <td>ERP Integration</td>
-                <td>Mike Johnson</td>
-                <td>Tomorrow</td>
-                <td><span class="status-badge medium">Medium</span></td>
-                <td>5 days</td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">✓</button>
-                    <button class="action-btn">→</button>
-                    <button class="action-btn">...</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Client Approval - Phase 2</strong></td>
-                <td>Mobile App</td>
-                <td>Pending</td>
-                <td>3 days ago</td>
-                <td><span class="status-badge high">High</span></td>
-                <td>8 days</td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">✓</button>
-                    <button class="action-btn">→</button>
-                    <button class="action-btn">...</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="command-card">
+            <div class="command-label">Import Data</div>
+            <input type="file" accept=".json" id="importFile" style="display: none;" onchange="importData(event)">
+            <button class="btn btn-success" onclick="document.getElementById('importFile').click()">Upload JSON</button>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-label">Clear All Data</div>
+            <button class="btn btn-danger" onclick="clearAllData()">⚠️ Reset Database</button>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-label">Backup to Clipboard</div>
+            <button class="btn btn-warning" onclick="copyDataToClipboard()">📋 Copy Data</button>
+          </div>
         </div>
         
-        <!-- Escalations Board -->
-        <h2 class="section-title" style="margin: 24px 0 16px;">Escalations Board</h2>
+        <h2 style="font-size: 18px; font-weight: 600; margin: 24px 0 16px;">Data Statistics</h2>
         <div class="data-container">
           <table class="data-table">
             <thead>
               <tr>
-                <th>Incident</th>
-                <th>Priority</th>
-                <th>Client</th>
-                <th>SLA</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th>Data Type</th>
+                <th>Count</th>
+                <th>Last Modified</th>
+                <th>Size</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="dataStats">
               <tr>
-                <td><strong>Production API Down</strong></td>
-                <td><span class="status-badge high">P1</span></td>
-                <td>TechCorp UAE</td>
-                <td style="color: var(--danger);">-2h (Breached)</td>
-                <td><span class="status-badge pending">In Progress</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Escalate</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Data Sync Issues</strong></td>
-                <td><span class="status-badge medium">P2</span></td>
-                <td>GlobalTech</td>
-                <td>1h remaining</td>
-                <td><span class="status-badge pending">Investigating</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Assign</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <!-- Approvals -->
-        <h2 class="section-title" style="margin: 24px 0 16px;">Pending Approvals</h2>
-        <div class="data-container">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Request</th>
-                <th>Type</th>
-                <th>Requester</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Quote #Q-2024-089</strong></td>
-                <td>Quote Approval</td>
-                <td>Sarah Chen</td>
-                <td>$45,000</td>
-                <td>2 hours ago</td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn" style="color: var(--success);">Approve</button>
-                    <button class="action-btn" style="color: var(--danger);">Reject</button>
-                    <button class="action-btn">View</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>15% Discount Request</strong></td>
-                <td>Discount</td>
-                <td>Mike Johnson</td>
-                <td>$8,500</td>
-                <td>1 day ago</td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn" style="color: var(--success);">Approve</button>
-                    <button class="action-btn" style="color: var(--danger);">Reject</button>
-                    <button class="action-btn">View</button>
-                  </div>
-                </td>
+                <td>Loading...</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
               </tr>
             </tbody>
           </table>
@@ -1150,13 +923,8 @@
       <div id="orders" class="content-section">
         <div class="data-container">
           <div class="data-header">
-            <h2 class="section-title">Orders & Deals</h2>
-            <div class="data-filters">
-              <button class="filter-btn active">All Orders</button>
-              <button class="filter-btn">New</button>
-              <button class="filter-btn">In Progress</button>
-              <button class="filter-btn">Completed</button>
-            </div>
+            <h2 style="font-size: 16px; font-weight: 600;">Orders & Deals</h2>
+            <button class="btn btn-primary" onclick="showAddOrderModal()">+ Add Order</button>
           </div>
           
           <table class="data-table">
@@ -1166,55 +934,18 @@
                 <th>Client</th>
                 <th>Package</th>
                 <th>Amount</th>
-                <th>Source</th>
-                <th>Payment</th>
                 <th>Status</th>
+                <th>Date</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody id="ordersTable">
               <tr>
-                <td><strong>#ORD-2024-001</strong></td>
-                <td>TechCorp UAE</td>
-                <td>Enterprise Website</td>
-                <td>$45,000</td>
-                <td>Direct Sales</td>
-                <td><span class="status-badge active">Paid</span></td>
-                <td><span class="status-badge pending">In Delivery</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Convert to Project</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>#ORD-2024-002</strong></td>
-                <td>GlobalTech</td>
-                <td>Mobile App Pro</td>
-                <td>$68,000</td>
-                <td>Partner Referral</td>
-                <td><span class="status-badge pending">Pending</span></td>
-                <td><span class="status-badge">New</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Generate Invoice</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>#ORD-2024-003</strong></td>
-                <td>StartupHub</td>
-                <td>MVP Package</td>
-                <td>$12,500</td>
-                <td>Website</td>
-                <td><span class="status-badge active">Paid</span></td>
-                <td><span class="status-badge active">Completed</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Download Report</button>
+                <td colspan="7">
+                  <div class="empty-state">
+                    <div class="empty-icon">📦</div>
+                    <div class="empty-title">No Orders Yet</div>
+                    <div class="empty-text">Click "Add Order" to create your first order</div>
                   </div>
                 </td>
               </tr>
@@ -1227,17 +958,16 @@
       <div id="projects" class="content-section">
         <div class="data-container">
           <div class="data-header">
-            <h2 class="section-title">Projects Delivery</h2>
-            <button class="btn btn-primary">+ New Project</button>
+            <h2 style="font-size: 16px; font-weight: 600;">Projects</h2>
+            <button class="btn btn-primary" onclick="showAddProjectModal()">+ Add Project</button>
           </div>
           
           <table class="data-table">
             <thead>
               <tr>
-                <th>Project</th>
+                <th>Project Name</th>
                 <th>Client</th>
-                <th>PM</th>
-                <th>Health</th>
+                <th>Status</th>
                 <th>Progress</th>
                 <th>Due Date</th>
                 <th>Actions</th>
@@ -1245,121 +975,13 @@
             </thead>
             <tbody id="projectsTable">
               <tr>
-                <td>
-                  <div>
-                    <strong>Website Redesign</strong>
-                    <div style="font-size: 12px; color: var(--gray);">Phase 2: Development</div>
+                <td colspan="6">
+                  <div class="empty-state">
+                    <div class="empty-icon">📁</div>
+                    <div class="empty-title">No Projects Yet</div>
+                    <div class="empty-text">Click "Add Project" to create your first project</div>
                   </div>
                 </td>
-                <td>TechCorp UAE</td>
-                <td>Sarah Chen</td>
-                <td><span class="status-badge active">Green</span></td>
-                <td>
-                  <div style="display: flex; align-items: center; gap: 8px;">
-                    <div style="flex: 1; height: 6px; background: var(--border); border-radius: 3px;">
-                      <div style="width: 65%; height: 100%; background: var(--success); border-radius: 3px;"></div>
-                    </div>
-                    <span style="font-size: 12px;">65%</span>
-                  </div>
-                </td>
-                <td>Mar 15, 2025</td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Timeline</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <strong>Mobile App Development</strong>
-                    <div style="font-size: 12px; color: var(--gray);">Phase 1: Planning</div>
-                  </div>
-                </td>
-                <td>GlobalTech</td>
-                <td>Mike Johnson</td>
-                <td><span class="status-badge pending">Amber</span></td>
-                <td>
-                  <div style="display: flex; align-items: center; gap: 8px;">
-                    <div style="flex: 1; height: 6px; background: var(--border); border-radius: 3px;">
-                      <div style="width: 25%; height: 100%; background: var(--warning); border-radius: 3px;"></div>
-                    </div>
-                    <span style="font-size: 12px;">25%</span>
-                  </div>
-                </td>
-                <td>Apr 30, 2025</td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Risks</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <strong>ERP Integration</strong>
-                    <div style="font-size: 12px; color: var(--gray);">Phase 3: Testing</div>
-                  </div>
-                </td>
-                <td>Enterprise Co</td>
-                <td>Lisa Wong</td>
-                <td><span class="status-badge high">Red</span></td>
-                <td>
-                  <div style="display: flex; align-items: center; gap: 8px;">
-                    <div style="flex: 1; height: 6px; background: var(--border); border-radius: 3px;">
-                      <div style="width: 85%; height: 100%; background: var(--danger); border-radius: 3px;"></div>
-                    </div>
-                    <span style="font-size: 12px;">85%</span>
-                  </div>
-                </td>
-                <td style="color: var(--danger);">Feb 28, 2025 (Overdue)</td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Escalate</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <!-- Milestones & Sprint View -->
-        <h2 class="section-title" style="margin: 24px 0 16px;">Active Sprints</h2>
-        <div class="data-container">
-          <div class="data-header">
-            <h3 style="font-size: 16px; font-weight: 600;">Sprint 23 - Website Redesign</h3>
-            <span style="font-size: 14px; color: var(--gray);">Ends in 3 days</span>
-          </div>
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Task</th>
-                <th>Assignee</th>
-                <th>Story Points</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Implement responsive navigation</td>
-                <td>Dev Team</td>
-                <td>5</td>
-                <td><span class="status-badge active">Done</span></td>
-              </tr>
-              <tr>
-                <td>Product catalog integration</td>
-                <td>Backend Team</td>
-                <td>8</td>
-                <td><span class="status-badge pending">In Progress</span></td>
-              </tr>
-              <tr>
-                <td>Payment gateway setup</td>
-                <td>Senior Dev</td>
-                <td>13</td>
-                <td><span class="status-badge">To Do</span></td>
               </tr>
             </tbody>
           </table>
@@ -1370,13 +992,8 @@
       <div id="tickets" class="content-section">
         <div class="data-container">
           <div class="data-header">
-            <h2 class="section-title">Support Tickets</h2>
-            <div class="data-filters">
-              <button class="filter-btn active">All Tickets</button>
-              <button class="filter-btn">Open</button>
-              <button class="filter-btn">High Priority</button>
-              <button class="filter-btn">SLA Risk</button>
-            </div>
+            <h2 style="font-size: 16px; font-weight: 600;">Support Tickets</h2>
+            <button class="btn btn-primary" onclick="showAddTicketModal()">+ Add Ticket</button>
           </div>
           
           <table class="data-table">
@@ -1385,97 +1002,24 @@
                 <th>Ticket ID</th>
                 <th>Subject</th>
                 <th>Client</th>
-                <th>Channel</th>
                 <th>Priority</th>
-                <th>SLA</th>
                 <th>Status</th>
+                <th>Created</th>
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="ticketsTable">
               <tr>
-                <td><strong>#TKT-2024-089</strong></td>
-                <td>API Response Time Issues</td>
-                <td>TechCorp UAE</td>
-                <td>Email</td>
-                <td><span class="status-badge high">High</span></td>
-                <td style="color: var(--danger);">30 min (At Risk)</td>
-                <td><span class="status-badge pending">Open</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Assign</button>
-                    <button class="action-btn">Reply</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>#TKT-2024-090</strong></td>
-                <td>Login Authentication Error</td>
-                <td>GlobalTech</td>
-                <td>WhatsApp</td>
-                <td><span class="status-badge medium">Medium</span></td>
-                <td>2h remaining</td>
-                <td><span class="status-badge pending">In Progress</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Update</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>#TKT-2024-091</strong></td>
-                <td>Feature Request: Export to PDF</td>
-                <td>StartupHub</td>
-                <td>Portal</td>
-                <td><span class="status-badge low">Low</span></td>
-                <td>24h remaining</td>
-                <td><span class="status-badge">New</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Assign</button>
-                    <button class="action-btn">Convert</button>
+                <td colspan="7">
+                  <div class="empty-state">
+                    <div class="empty-icon">🎫</div>
+                    <div class="empty-title">No Tickets Yet</div>
+                    <div class="empty-text">Click "Add Ticket" to create your first ticket</div>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
-        </div>
-        
-        <!-- CSAT & NPS -->
-        <h2 class="section-title" style="margin: 24px 0 16px;">Customer Satisfaction</h2>
-        <div class="command-grid">
-          <div class="command-card">
-            <div class="command-label">CSAT Score</div>
-            <div class="command-value">4.6/5.0</div>
-            <div class="command-change">
-              <span>↑ 0.2 from last month</span>
-            </div>
-          </div>
-          
-          <div class="command-card">
-            <div class="command-label">NPS Score</div>
-            <div class="command-value">72</div>
-            <div class="command-change">
-              <span>↑ 8 points</span>
-            </div>
-          </div>
-          
-          <div class="command-card">
-            <div class="command-label">Response Time</div>
-            <div class="command-value">1.2h</div>
-            <div class="command-change">
-              <span>↓ 30 min improvement</span>
-            </div>
-          </div>
-          
-          <div class="command-card">
-            <div class="command-label">Resolution Rate</div>
-            <div class="command-value">94%</div>
-            <div class="command-change">
-              <span>↑ 2% improvement</span>
-            </div>
-          </div>
         </div>
       </div>
       
@@ -1483,7 +1027,7 @@
       <div id="clients" class="content-section">
         <div class="data-container">
           <div class="data-header">
-            <h2 class="section-title">Client Management</h2>
+            <h2 style="font-size: 16px; font-weight: 600;">Clients</h2>
             <button class="btn btn-primary" onclick="showAddClientModal()">+ Add Client</button>
           </div>
           
@@ -1491,57 +1035,20 @@
             <thead>
               <tr>
                 <th>Company</th>
-                <th>Contacts</th>
-                <th>Projects</th>
-                <th>Total Value</th>
-                <th>Status</th>
+                <th>Contact Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Country</th>
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="clientsTable">
               <tr>
-                <td>
-                  <div>
-                    <strong>TechCorp UAE</strong>
-                    <div style="font-size: 12px; color: var(--gray);">Dubai, UAE</div>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <div>John Doe (Primary)</div>
-                    <div style="font-size: 12px; color: var(--gray);">+2 more contacts</div>
-                  </div>
-                </td>
-                <td>3 Active</td>
-                <td>$285,000</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Portal Access</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <strong>GlobalTech</strong>
-                    <div style="font-size: 12px; color: var(--gray);">New York, USA</div>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <div>Sarah Smith (Primary)</div>
-                    <div style="font-size: 12px; color: var(--gray);">+4 more contacts</div>
-                  </div>
-                </td>
-                <td>2 Active</td>
-                <td>$156,000</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">View</button>
-                    <button class="action-btn">Documents</button>
+                <td colspan="6">
+                  <div class="empty-state">
+                    <div class="empty-icon">👥</div>
+                    <div class="empty-title">No Clients Yet</div>
+                    <div class="empty-text">Click "Add Client" to create your first client</div>
                   </div>
                 </td>
               </tr>
@@ -1550,17 +1057,12 @@
         </div>
       </div>
       
-      <!-- Billing Section -->
-      <div id="billing" class="content-section">
+      <!-- Invoices Section -->
+      <div id="invoices" class="content-section">
         <div class="data-container">
           <div class="data-header">
-            <h2 class="section-title">Billing & Finance</h2>
-            <div class="data-filters">
-              <button class="filter-btn active">All</button>
-              <button class="filter-btn">Pending</button>
-              <button class="filter-btn">Overdue</button>
-              <button class="filter-btn">Paid</button>
-            </div>
+            <h2 style="font-size: 16px; font-weight: 600;">Invoices</h2>
+            <button class="btn btn-primary" onclick="showAddInvoiceModal()">+ Add Invoice</button>
           </div>
           
           <table class="data-table">
@@ -1569,299 +1071,20 @@
                 <th>Invoice #</th>
                 <th>Client</th>
                 <th>Amount</th>
-                <th>VAT</th>
-                <th>Total</th>
+                <th>Status</th>
                 <th>Due Date</th>
-                <th>Status</th>
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="invoicesTable">
               <tr>
-                <td><strong>INV-2024-001</strong></td>
-                <td>TechCorp UAE</td>
-                <td>$10,000</td>
-                <td>$500</td>
-                <td>$10,500</td>
-                <td>Mar 15, 2025</td>
-                <td><span class="status-badge pending">Pending</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Send</button>
-                    <button class="action-btn">Download</button>
+                <td colspan="6">
+                  <div class="empty-state">
+                    <div class="empty-icon">💰</div>
+                    <div class="empty-title">No Invoices Yet</div>
+                    <div class="empty-text">Click "Add Invoice" to create your first invoice</div>
                   </div>
                 </td>
-              </tr>
-              <tr>
-                <td><strong>INV-2024-002</strong></td>
-                <td>GlobalTech</td>
-                <td>$25,000</td>
-                <td>$1,250</td>
-                <td>$26,250</td>
-                <td style="color: var(--danger);">Feb 28, 2025 (Overdue)</td>
-                <td><span class="status-badge high">Overdue</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Remind</button>
-                    <button class="action-btn">View</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>INV-2024-003</strong></td>
-                <td>StartupHub</td>
-                <td>$5,000</td>
-                <td>$250</td>
-                <td>$5,250</td>
-                <td>Feb 20, 2025</td>
-                <td><span class="status-badge active">Paid</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Receipt</button>
-                    <button class="action-btn">View</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <!-- Cash Flow Dashboard -->
-        <h2 class="section-title" style="margin: 24px 0 16px;">Cash Flow Overview</h2>
-        <div class="command-grid">
-          <div class="command-card">
-            <div class="command-label">Total Outstanding</div>
-            <div class="command-value">$68,500</div>
-            <div class="command-change negative">
-              <span>5 overdue invoices</span>
-            </div>
-          </div>
-          
-          <div class="command-card">
-            <div class="command-label">Collected MTD</div>
-            <div class="command-value">$125,000</div>
-            <div class="command-change">
-              <span>↑ 15% from last month</span>
-            </div>
-          </div>
-          
-          <div class="command-card">
-            <div class="command-label">Expected This Week</div>
-            <div class="command-value">$45,000</div>
-            <div class="command-change">
-              <span>3 invoices due</span>
-            </div>
-          </div>
-          
-          <div class="command-card">
-            <div class="command-label">Average Days to Pay</div>
-            <div class="command-value">28 days</div>
-            <div class="command-change">
-              <span>↓ 3 days improvement</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Automations Section -->
-      <div id="automations" class="content-section">
-        <div class="data-container">
-          <div class="data-header">
-            <h2 class="section-title">Automation & AI</h2>
-            <button class="btn btn-primary">+ New Automation</button>
-          </div>
-          
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Automation</th>
-                <th>Type</th>
-                <th>Last Run</th>
-                <th>Success Rate</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div>
-                    <strong>Welcome Email Sequence</strong>
-                    <div style="font-size: 12px; color: var(--gray);">Triggers on new signup</div>
-                  </div>
-                </td>
-                <td>Email</td>
-                <td>2 min ago</td>
-                <td>98%</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Edit</button>
-                    <button class="action-btn">Logs</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <strong>Invoice Generation</strong>
-                    <div style="font-size: 12px; color: var(--gray);">Monthly recurring</div>
-                  </div>
-                </td>
-                <td>Billing</td>
-                <td>1 day ago</td>
-                <td>100%</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Edit</button>
-                    <button class="action-btn">Run Now</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <strong>Support Ticket Triage</strong>
-                    <div style="font-size: 12px; color: var(--gray);">AI-powered categorization</div>
-                  </div>
-                </td>
-                <td>AI</td>
-                <td>5 min ago</td>
-                <td>92%</td>
-                <td><span class="status-badge pending">Warning</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Review</button>
-                    <button class="action-btn">Retrain</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <!-- AI Usage Stats -->
-        <h2 class="section-title" style="margin: 24px 0 16px;">AI Usage & Costs</h2>
-        <div class="command-grid">
-          <div class="command-card">
-            <div class="command-label">API Calls Today</div>
-            <div class="command-value">2,847</div>
-            <div class="command-change">
-              <span>Within limits</span>
-            </div>
-          </div>
-          
-          <div class="command-card">
-            <div class="command-label">Tokens Used</div>
-            <div class="command-value">458K</div>
-            <div class="command-change">
-              <span>$12.50 cost</span>
-            </div>
-          </div>
-          
-          <div class="command-card">
-            <div class="command-label">RAG Documents</div>
-            <div class="command-value">1,250</div>
-            <div class="command-change">
-              <span>↑ 50 new today</span>
-            </div>
-          </div>
-          
-          <div class="command-card">
-            <div class="command-label">Accuracy Score</div>
-            <div class="command-value">94.5%</div>
-            <div class="command-change">
-              <span>↑ 2% improvement</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Admin Section -->
-      <div id="admin" class="content-section">
-        <div class="data-container">
-          <div class="data-header">
-            <h2 class="section-title">User Management</h2>
-            <button class="btn btn-primary">+ Add User</button>
-          </div>
-          
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>User</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Last Active</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Sarah Chen</strong></td>
-                <td>sarah@imisofts.com</td>
-                <td>Project Manager</td>
-                <td>Now</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Edit</button>
-                    <button class="action-btn">Permissions</button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>Mike Johnson</strong></td>
-                <td>mike@imisofts.com</td>
-                <td>Developer</td>
-                <td>2 hours ago</td>
-                <td><span class="status-badge active">Active</span></td>
-                <td>
-                  <div class="quick-actions">
-                    <button class="action-btn">Edit</button>
-                    <button class="action-btn">Permissions</button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        
-        <!-- Audit Log -->
-        <h2 class="section-title" style="margin: 24px 0 16px;">Recent Audit Log</h2>
-        <div class="data-container">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Action</th>
-                <th>User</th>
-                <th>Object</th>
-                <th>Time</th>
-                <th>IP Address</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Updated Invoice #INV-2024-001</td>
-                <td>Sarah Chen</td>
-                <td>Invoice</td>
-                <td>5 min ago</td>
-                <td>192.168.1.1</td>
-              </tr>
-              <tr>
-                <td>Exported Client Data</td>
-                <td>Admin User</td>
-                <td>Report</td>
-                <td>1 hour ago</td>
-                <td>192.168.1.2</td>
-              </tr>
-              <tr>
-                <td>Changed User Permissions</td>
-                <td>Admin User</td>
-                <td>User: Mike Johnson</td>
-                <td>3 hours ago</td>
-                <td>192.168.1.1</td>
               </tr>
             </tbody>
           </table>
@@ -1870,62 +1093,193 @@
     </div>
   </div>
   
-  <!-- Add Modal -->
-  <div id="addModal" class="modal">
+  <!-- Universal Modal -->
+  <div id="universalModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="modalTitle">Add New</h2>
+        <h2 class="modal-title" id="modalTitle">Add New Item</h2>
       </div>
-      <div class="modal-body">
-        <div class="form-grid">
-          <div class="form-group">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-input" id="itemName" placeholder="Enter name">
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label">Type</label>
-            <select class="form-select" id="itemType">
-              <option value="">Select type</option>
-              <option value="project">Project</option>
-              <option value="order">Order</option>
-              <option value="task">Task</option>
-            </select>
-          </div>
-          
-          <div class="form-group full">
-            <label class="form-label">Description</label>
-            <textarea class="form-textarea" id="itemDescription" placeholder="Enter description"></textarea>
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label">Client</label>
-            <select class="form-select" id="itemClient">
-              <option value="">Select client</option>
-              <option value="1">TechCorp UAE</option>
-              <option value="2">GlobalTech</option>
-              <option value="3">StartupHub</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label class="form-label">Priority</label>
-            <select class="form-select" id="itemPriority">
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
-        </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Dynamic content will be inserted here -->
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-        <button class="btn btn-primary" onclick="saveItem()">Save</button>
+        <button class="btn btn-primary" id="modalSaveBtn" onclick="saveModalData()">Save</button>
       </div>
     </div>
   </div>
   
+  <!-- Delete Confirmation Modal -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content" style="max-width: 400px;">
+      <div class="modal-header">
+        <h2 class="modal-title">Confirm Delete</h2>
+      </div>
+      <div class="modal-body">
+        <div class="delete-confirm">
+          <p><strong>⚠️ Warning:</strong> This action cannot be undone!</p>
+          <p id="deleteMessage">Are you sure you want to delete this item?</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeDeleteModal()">Cancel</button>
+        <button class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toastMessage">Operation completed successfully!</span>
+  </div>
+  
   <script>
+    // Data Management System
+    class DataManager {
+      constructor() {
+        this.initializeData();
+      }
+      
+      initializeData() {
+        // Initialize default data structure if not exists
+        const dataTypes = ['orders', 'projects', 'tickets', 'clients', 'invoices'];
+        dataTypes.forEach(type => {
+          if (!localStorage.getItem(type)) {
+            localStorage.setItem(type, JSON.stringify([]));
+          }
+        });
+        
+        // Initialize sample data if empty
+        if (this.getAll('clients').length === 0) {
+          this.initializeSampleData();
+        }
+      }
+      
+      initializeSampleData() {
+        // Add sample client
+        const sampleClient = {
+          id: this.generateId(),
+          company: 'TechCorp UAE',
+          contactName: 'John Doe',
+          email: 'john@techcorp.ae',
+          phone: '+971-4-123-4567',
+          country: 'UAE',
+          createdAt: new Date().toISOString()
+        };
+        this.create('clients', sampleClient);
+      }
+      
+      generateId() {
+        return Date.now().toString(36) + Math.random().toString(36).substr(2);
+      }
+      
+      getAll(type) {
+        return JSON.parse(localStorage.getItem(type) || '[]');
+      }
+      
+      getById(type, id) {
+        const items = this.getAll(type);
+        return items.find(item => item.id === id);
+      }
+      
+      create(type, data) {
+        const items = this.getAll(type);
+        data.id = data.id || this.generateId();
+        data.createdAt = data.createdAt || new Date().toISOString();
+        data.updatedAt = new Date().toISOString();
+        items.push(data);
+        localStorage.setItem(type, JSON.stringify(items));
+        this.logActivity('create', type, data.id);
+        return data;
+      }
+      
+      update(type, id, data) {
+        const items = this.getAll(type);
+        const index = items.findIndex(item => item.id === id);
+        if (index !== -1) {
+          items[index] = { ...items[index], ...data, updatedAt: new Date().toISOString() };
+          localStorage.setItem(type, JSON.stringify(items));
+          this.logActivity('update', type, id);
+          return items[index];
+        }
+        return null;
+      }
+      
+      delete(type, id) {
+        const items = this.getAll(type);
+        const filtered = items.filter(item => item.id !== id);
+        localStorage.setItem(type, JSON.stringify(filtered));
+        this.logActivity('delete', type, id);
+        return true;
+      }
+      
+      search(type, query) {
+        const items = this.getAll(type);
+        const lowercaseQuery = query.toLowerCase();
+        return items.filter(item => {
+          return Object.values(item).some(value => 
+            String(value).toLowerCase().includes(lowercaseQuery)
+          );
+        });
+      }
+      
+      logActivity(action, type, id) {
+        const activities = JSON.parse(localStorage.getItem('activities') || '[]');
+        activities.unshift({
+          action,
+          type,
+          id,
+          timestamp: new Date().toISOString(),
+          user: currentUser?.fullName || 'System'
+        });
+        // Keep only last 50 activities
+        if (activities.length > 50) activities.pop();
+        localStorage.setItem('activities', JSON.stringify(activities));
+      }
+      
+      getStorageSize() {
+        let total = 0;
+        for (let key in localStorage) {
+          if (localStorage.hasOwnProperty(key)) {
+            total += localStorage[key].length + key.length;
+          }
+        }
+        return (total / 1024).toFixed(2); // KB
+      }
+      
+      exportData() {
+        const data = {};
+        for (let key in localStorage) {
+          if (localStorage.hasOwnProperty(key)) {
+            try {
+              data[key] = JSON.parse(localStorage[key]);
+            } catch {
+              data[key] = localStorage[key];
+            }
+          }
+        }
+        return data;
+      }
+      
+      importData(data) {
+        for (let key in data) {
+          localStorage.setItem(key, JSON.stringify(data[key]));
+        }
+      }
+      
+      clearAll() {
+        const currentUserData = sessionStorage.getItem('currentUser');
+        localStorage.clear();
+        this.initializeData();
+        if (currentUserData) {
+          sessionStorage.setItem('currentUser', currentUserData);
+        }
+      }
+    }
+    
+    // Initialize Data Manager
+    const dataManager = new DataManager();
+    
     // Check authentication
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
     if (!currentUser || currentUser.role !== 'admin') {
@@ -1938,67 +1292,10 @@
       document.getElementById('userAvatar').textContent = currentUser.fullName.charAt(0).toUpperCase();
     }
     
-    // Initialize data structure
-    function initializeData() {
-      // Check if advanced data exists
-      if (!localStorage.getItem('advancedData')) {
-        const advancedData = {
-          orders: [
-            {
-              id: 'ORD-2024-001',
-              client: 'TechCorp UAE',
-              package: 'Enterprise Website',
-              amount: 45000,
-              source: 'Direct Sales',
-              payment: 'Paid',
-              status: 'In Delivery',
-              date: new Date().toISOString()
-            },
-            {
-              id: 'ORD-2024-002',
-              client: 'GlobalTech',
-              package: 'Mobile App Pro',
-              amount: 68000,
-              source: 'Partner Referral',
-              payment: 'Pending',
-              status: 'New',
-              date: new Date().toISOString()
-            }
-          ],
-          tickets: [
-            {
-              id: 'TKT-2024-089',
-              subject: 'API Response Time Issues',
-              client: 'TechCorp UAE',
-              channel: 'Email',
-              priority: 'High',
-              sla: '30 min',
-              status: 'Open',
-              date: new Date().toISOString()
-            }
-          ],
-          automations: [
-            {
-              id: 'AUTO-001',
-              name: 'Welcome Email Sequence',
-              type: 'Email',
-              lastRun: new Date().toISOString(),
-              successRate: 98,
-              status: 'Active'
-            }
-          ],
-          metrics: {
-            mrr: 45280,
-            cashCollected: 128500,
-            openTickets: 23,
-            tasksDue: 8,
-            slaBreaches: 2
-          }
-        };
-        
-        localStorage.setItem('advancedData', JSON.stringify(advancedData));
-      }
-    }
+    // Current modal context
+    let currentModalType = '';
+    let currentEditId = null;
+    let deleteContext = { type: '', id: '' };
     
     // Show section
     function showSection(section) {
@@ -2019,40 +1316,802 @@
       // Update page title
       const titles = {
         overview: 'Command Overview',
-        workqueue: 'Work Queue',
+        'data-management': 'Data Management',
         orders: 'Orders & Deals',
-        projects: 'Projects Delivery',
+        projects: 'Projects',
         tickets: 'Support Tickets',
-        clients: 'Client Management',
-        billing: 'Billing & Finance',
-        automations: 'Automation & AI',
-        admin: 'System Administration'
+        clients: 'Clients',
+        invoices: 'Invoices'
       };
       
       document.getElementById('pageTitle').textContent = titles[section] || 'Dashboard';
-    }
-    
-    // Modal functions
-    function showAddModal() {
-      document.getElementById('addModal').classList.add('show');
-    }
-    
-    function closeModal() {
-      document.getElementById('addModal').classList.remove('show');
-    }
-    
-    function saveItem() {
-      const name = document.getElementById('itemName').value;
-      const type = document.getElementById('itemType').value;
       
-      if (!name || !type) {
-        alert('Please fill in all required fields');
+      // Load section data
+      if (section === 'overview') loadOverview();
+      if (section === 'data-management') loadDataStats();
+      if (section === 'orders') loadOrders();
+      if (section === 'projects') loadProjects();
+      if (section === 'tickets') loadTickets();
+      if (section === 'clients') loadClients();
+      if (section === 'invoices') loadInvoices();
+    }
+    
+    // Load Overview
+    function loadOverview() {
+      const orders = dataManager.getAll('orders');
+      const projects = dataManager.getAll('projects');
+      const clients = dataManager.getAll('clients');
+      const tickets = dataManager.getAll('tickets');
+      const invoices = dataManager.getAll('invoices');
+      
+      document.getElementById('totalOrders').textContent = orders.length;
+      document.getElementById('activeProjects').textContent = projects.filter(p => p.status === 'active').length;
+      document.getElementById('totalClients').textContent = clients.length;
+      document.getElementById('openTickets').textContent = tickets.filter(t => t.status === 'open').length;
+      document.getElementById('pendingInvoices').textContent = invoices.filter(i => i.status === 'pending').length;
+      
+      const totalRevenue = orders.reduce((sum, order) => sum + (parseFloat(order.amount) || 0), 0);
+      document.getElementById('totalRevenue').textContent = '$' + totalRevenue.toFixed(2);
+      
+      // Load recent activity
+      const activities = JSON.parse(localStorage.getItem('activities') || '[]');
+      const activityHtml = activities.slice(0, 5).map(activity => `
+        <div style="padding: 12px 20px; border-bottom: 1px solid var(--border);">
+          <div style="font-size: 14px; color: var(--dark);">
+            ${activity.action.charAt(0).toUpperCase() + activity.action.slice(1)} ${activity.type}
+          </div>
+          <div style="font-size: 12px; color: var(--gray); margin-top: 4px;">
+            by ${activity.user} • ${new Date(activity.timestamp).toLocaleString()}
+          </div>
+        </div>
+      `).join('');
+      
+      document.getElementById('recentActivity').innerHTML = activityHtml || `
+        <div class="empty-state">
+          <div class="empty-icon">📊</div>
+          <div class="empty-title">No Recent Activity</div>
+          <div class="empty-text">Start by adding some data to see activity here</div>
+        </div>
+      `;
+    }
+    
+    // Load Data Stats
+    function loadDataStats() {
+      const types = ['orders', 'projects', 'tickets', 'clients', 'invoices'];
+      const stats = types.map(type => {
+        const items = dataManager.getAll(type);
+        const size = JSON.stringify(items).length / 1024;
+        const lastModified = items.length > 0 
+          ? new Date(Math.max(...items.map(i => new Date(i.updatedAt || i.createdAt)))).toLocaleString()
+          : 'Never';
+        
+        return `
+          <tr>
+            <td>${type.charAt(0).toUpperCase() + type.slice(1)}</td>
+            <td>${items.length}</td>
+            <td>${lastModified}</td>
+            <td>${size.toFixed(2)} KB</td>
+          </tr>
+        `;
+      }).join('');
+      
+      document.getElementById('dataStats').innerHTML = stats;
+      document.getElementById('storageUsed').textContent = dataManager.getStorageSize() + ' KB';
+    }
+    
+    // Load Orders
+    function loadOrders() {
+      const orders = dataManager.getAll('orders');
+      const clients = dataManager.getAll('clients');
+      
+      if (orders.length === 0) {
+        document.getElementById('ordersTable').innerHTML = `
+          <tr>
+            <td colspan="7">
+              <div class="empty-state">
+                <div class="empty-icon">📦</div>
+                <div class="empty-title">No Orders Yet</div>
+                <div class="empty-text">Click "Add Order" to create your first order</div>
+              </div>
+            </td>
+          </tr>
+        `;
         return;
       }
       
-      // Save logic here
-      alert('Item saved successfully!');
+      const ordersHtml = orders.map(order => {
+        const client = clients.find(c => c.id === order.clientId);
+        return `
+          <tr>
+            <td><strong>#${order.orderNumber || order.id.substr(0, 8).toUpperCase()}</strong></td>
+            <td>${client ? client.company : 'Unknown'}</td>
+            <td>${order.package}</td>
+            <td>$${parseFloat(order.amount).toFixed(2)}</td>
+            <td><span class="status-badge ${order.status}">${order.status}</span></td>
+            <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn edit" onclick="editOrder('${order.id}')">Edit</button>
+                <button class="action-btn delete" onclick="deleteItem('orders', '${order.id}')">Delete</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+      
+      document.getElementById('ordersTable').innerHTML = ordersHtml;
+    }
+    
+    // Load Projects
+    function loadProjects() {
+      const projects = dataManager.getAll('projects');
+      const clients = dataManager.getAll('clients');
+      
+      if (projects.length === 0) {
+        document.getElementById('projectsTable').innerHTML = `
+          <tr>
+            <td colspan="6">
+              <div class="empty-state">
+                <div class="empty-icon">📁</div>
+                <div class="empty-title">No Projects Yet</div>
+                <div class="empty-text">Click "Add Project" to create your first project</div>
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+      
+      const projectsHtml = projects.map(project => {
+        const client = clients.find(c => c.id === project.clientId);
+        const progress = project.progress || 0;
+        return `
+          <tr>
+            <td><strong>${project.name}</strong></td>
+            <td>${client ? client.company : 'Unknown'}</td>
+            <td><span class="status-badge ${project.status}">${project.status}</span></td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="flex: 1; height: 6px; background: var(--border); border-radius: 3px;">
+                  <div style="width: ${progress}%; height: 100%; background: var(--success); border-radius: 3px;"></div>
+                </div>
+                <span style="font-size: 12px;">${progress}%</span>
+              </div>
+            </td>
+            <td>${project.dueDate || 'Not set'}</td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn edit" onclick="editProject('${project.id}')">Edit</button>
+                <button class="action-btn delete" onclick="deleteItem('projects', '${project.id}')">Delete</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+      
+      document.getElementById('projectsTable').innerHTML = projectsHtml;
+    }
+    
+    // Load Tickets
+    function loadTickets() {
+      const tickets = dataManager.getAll('tickets');
+      const clients = dataManager.getAll('clients');
+      
+      if (tickets.length === 0) {
+        document.getElementById('ticketsTable').innerHTML = `
+          <tr>
+            <td colspan="7">
+              <div class="empty-state">
+                <div class="empty-icon">🎫</div>
+                <div class="empty-title">No Tickets Yet</div>
+                <div class="empty-text">Click "Add Ticket" to create your first ticket</div>
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+      
+      const ticketsHtml = tickets.map(ticket => {
+        const client = clients.find(c => c.id === ticket.clientId);
+        return `
+          <tr>
+            <td><strong>#${ticket.ticketNumber || ticket.id.substr(0, 8).toUpperCase()}</strong></td>
+            <td>${ticket.subject}</td>
+            <td>${client ? client.company : 'Unknown'}</td>
+            <td><span class="status-badge ${ticket.priority}">${ticket.priority}</span></td>
+            <td><span class="status-badge ${ticket.status}">${ticket.status}</span></td>
+            <td>${new Date(ticket.createdAt).toLocaleDateString()}</td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn edit" onclick="editTicket('${ticket.id}')">Edit</button>
+                <button class="action-btn delete" onclick="deleteItem('tickets', '${ticket.id}')">Delete</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+      
+      document.getElementById('ticketsTable').innerHTML = ticketsHtml;
+    }
+    
+    // Load Clients
+    function loadClients() {
+      const clients = dataManager.getAll('clients');
+      
+      if (clients.length === 0) {
+        document.getElementById('clientsTable').innerHTML = `
+          <tr>
+            <td colspan="6">
+              <div class="empty-state">
+                <div class="empty-icon">👥</div>
+                <div class="empty-title">No Clients Yet</div>
+                <div class="empty-text">Click "Add Client" to create your first client</div>
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+      
+      const clientsHtml = clients.map(client => `
+        <tr>
+          <td><strong>${client.company}</strong></td>
+          <td>${client.contactName}</td>
+          <td>${client.email}</td>
+          <td>${client.phone}</td>
+          <td>${client.country}</td>
+          <td>
+            <div class="action-buttons">
+              <button class="action-btn edit" onclick="editClient('${client.id}')">Edit</button>
+              <button class="action-btn delete" onclick="deleteItem('clients', '${client.id}')">Delete</button>
+            </div>
+          </td>
+        </tr>
+      `).join('');
+      
+      document.getElementById('clientsTable').innerHTML = clientsHtml;
+    }
+    
+    // Load Invoices
+    function loadInvoices() {
+      const invoices = dataManager.getAll('invoices');
+      const clients = dataManager.getAll('clients');
+      
+      if (invoices.length === 0) {
+        document.getElementById('invoicesTable').innerHTML = `
+          <tr>
+            <td colspan="6">
+              <div class="empty-state">
+                <div class="empty-icon">💰</div>
+                <div class="empty-title">No Invoices Yet</div>
+                <div class="empty-text">Click "Add Invoice" to create your first invoice</div>
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+      
+      const invoicesHtml = invoices.map(invoice => {
+        const client = clients.find(c => c.id === invoice.clientId);
+        return `
+          <tr>
+            <td><strong>#${invoice.invoiceNumber || invoice.id.substr(0, 8).toUpperCase()}</strong></td>
+            <td>${client ? client.company : 'Unknown'}</td>
+            <td>$${parseFloat(invoice.amount).toFixed(2)}</td>
+            <td><span class="status-badge ${invoice.status}">${invoice.status}</span></td>
+            <td>${invoice.dueDate || 'Not set'}</td>
+            <td>
+              <div class="action-buttons">
+                <button class="action-btn edit" onclick="editInvoice('${invoice.id}')">Edit</button>
+                <button class="action-btn delete" onclick="deleteItem('invoices', '${invoice.id}')">Delete</button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+      
+      document.getElementById('invoicesTable').innerHTML = invoicesHtml;
+    }
+    
+    // Modal Functions
+    function showAddOrderModal() {
+      currentModalType = 'order';
+      currentEditId = null;
+      document.getElementById('modalTitle').textContent = 'Add New Order';
+      
+      const clients = dataManager.getAll('clients');
+      const clientOptions = clients.map(c => 
+        `<option value="${c.id}">${c.company}</option>`
+      ).join('');
+      
+      document.getElementById('modalBody').innerHTML = `
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Order Number</label>
+            <input type="text" class="form-input" id="orderNumber" placeholder="ORD-2024-001">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Client</label>
+            <select class="form-select" id="clientId">
+              <option value="">Select Client</option>
+              ${clientOptions}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Package</label>
+            <input type="text" class="form-input" id="package" placeholder="e.g., Enterprise Website">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Amount</label>
+            <input type="number" class="form-input" id="amount" placeholder="0.00" step="0.01">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Status</label>
+            <select class="form-select" id="status">
+              <option value="pending">Pending</option>
+              <option value="active">Active</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Source</label>
+            <input type="text" class="form-input" id="source" placeholder="e.g., Website, Referral">
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('universalModal').classList.add('show');
+    }
+    
+    function showAddProjectModal() {
+      currentModalType = 'project';
+      currentEditId = null;
+      document.getElementById('modalTitle').textContent = 'Add New Project';
+      
+      const clients = dataManager.getAll('clients');
+      const clientOptions = clients.map(c => 
+        `<option value="${c.id}">${c.company}</option>`
+      ).join('');
+      
+      document.getElementById('modalBody').innerHTML = `
+        <div class="form-grid">
+          <div class="form-group full">
+            <label class="form-label">Project Name</label>
+            <input type="text" class="form-input" id="name" placeholder="Enter project name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Client</label>
+            <select class="form-select" id="clientId">
+              <option value="">Select Client</option>
+              ${clientOptions}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Status</label>
+            <select class="form-select" id="status">
+              <option value="planning">Planning</option>
+              <option value="active">Active</option>
+              <option value="on-hold">On Hold</option>
+              <option value="completed">Completed</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Progress (%)</label>
+            <input type="number" class="form-input" id="progress" placeholder="0" min="0" max="100">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Due Date</label>
+            <input type="date" class="form-input" id="dueDate">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Description</label>
+            <textarea class="form-textarea" id="description" placeholder="Project description..."></textarea>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('universalModal').classList.add('show');
+    }
+    
+    function showAddTicketModal() {
+      currentModalType = 'ticket';
+      currentEditId = null;
+      document.getElementById('modalTitle').textContent = 'Add New Ticket';
+      
+      const clients = dataManager.getAll('clients');
+      const clientOptions = clients.map(c => 
+        `<option value="${c.id}">${c.company}</option>`
+      ).join('');
+      
+      document.getElementById('modalBody').innerHTML = `
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Ticket Number</label>
+            <input type="text" class="form-input" id="ticketNumber" placeholder="TKT-2024-001">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Client</label>
+            <select class="form-select" id="clientId">
+              <option value="">Select Client</option>
+              ${clientOptions}
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Subject</label>
+            <input type="text" class="form-input" id="subject" placeholder="Ticket subject">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Priority</label>
+            <select class="form-select" id="priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Status</label>
+            <select class="form-select" id="status">
+              <option value="open">Open</option>
+              <option value="in-progress">In Progress</option>
+              <option value="resolved">Resolved</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Description</label>
+            <textarea class="form-textarea" id="description" placeholder="Ticket description..."></textarea>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('universalModal').classList.add('show');
+    }
+    
+    function showAddClientModal() {
+      currentModalType = 'client';
+      currentEditId = null;
+      document.getElementById('modalTitle').textContent = 'Add New Client';
+      
+      document.getElementById('modalBody').innerHTML = `
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Company Name</label>
+            <input type="text" class="form-input" id="company" placeholder="Company name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Contact Name</label>
+            <input type="text" class="form-input" id="contactName" placeholder="Contact person">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" id="email" placeholder="email@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-input" id="phone" placeholder="+1234567890">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Country</label>
+            <input type="text" class="form-input" id="country" placeholder="Country">
+          </div>
+          <div class="form-group">
+            <label class="form-label">VAT ID</label>
+            <input type="text" class="form-input" id="vatId" placeholder="VAT number">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Address</label>
+            <textarea class="form-textarea" id="address" placeholder="Full address..."></textarea>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('universalModal').classList.add('show');
+    }
+    
+    function showAddInvoiceModal() {
+      currentModalType = 'invoice';
+      currentEditId = null;
+      document.getElementById('modalTitle').textContent = 'Add New Invoice';
+      
+      const clients = dataManager.getAll('clients');
+      const clientOptions = clients.map(c => 
+        `<option value="${c.id}">${c.company}</option>`
+      ).join('');
+      
+      document.getElementById('modalBody').innerHTML = `
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Invoice Number</label>
+            <input type="text" class="form-input" id="invoiceNumber" placeholder="INV-2024-001">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Client</label>
+            <select class="form-select" id="clientId">
+              <option value="">Select Client</option>
+              ${clientOptions}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Amount</label>
+            <input type="number" class="form-input" id="amount" placeholder="0.00" step="0.01">
+          </div>
+          <div class="form-group">
+            <label class="form-label">VAT (%)</label>
+            <input type="number" class="form-input" id="vat" placeholder="5" min="0" max="100">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Status</label>
+            <select class="form-select" id="status">
+              <option value="pending">Pending</option>
+              <option value="paid">Paid</option>
+              <option value="overdue">Overdue</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Due Date</label>
+            <input type="date" class="form-input" id="dueDate">
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Description</label>
+            <textarea class="form-textarea" id="description" placeholder="Invoice items or description..."></textarea>
+          </div>
+        </div>
+      `;
+      
+      document.getElementById('universalModal').classList.add('show');
+    }
+    
+    // Edit Functions
+    function editOrder(id) {
+      const order = dataManager.getById('orders', id);
+      if (!order) return;
+      
+      currentModalType = 'order';
+      currentEditId = id;
+      showAddOrderModal();
+      document.getElementById('modalTitle').textContent = 'Edit Order';
+      
+      // Populate fields
+      document.getElementById('orderNumber').value = order.orderNumber || '';
+      document.getElementById('clientId').value = order.clientId || '';
+      document.getElementById('package').value = order.package || '';
+      document.getElementById('amount').value = order.amount || '';
+      document.getElementById('status').value = order.status || '';
+      document.getElementById('source').value = order.source || '';
+    }
+    
+    function editProject(id) {
+      const project = dataManager.getById('projects', id);
+      if (!project) return;
+      
+      currentModalType = 'project';
+      currentEditId = id;
+      showAddProjectModal();
+      document.getElementById('modalTitle').textContent = 'Edit Project';
+      
+      // Populate fields
+      document.getElementById('name').value = project.name || '';
+      document.getElementById('clientId').value = project.clientId || '';
+      document.getElementById('status').value = project.status || '';
+      document.getElementById('progress').value = project.progress || '';
+      document.getElementById('dueDate').value = project.dueDate || '';
+      document.getElementById('description').value = project.description || '';
+    }
+    
+    function editTicket(id) {
+      const ticket = dataManager.getById('tickets', id);
+      if (!ticket) return;
+      
+      currentModalType = 'ticket';
+      currentEditId = id;
+      showAddTicketModal();
+      document.getElementById('modalTitle').textContent = 'Edit Ticket';
+      
+      // Populate fields
+      document.getElementById('ticketNumber').value = ticket.ticketNumber || '';
+      document.getElementById('clientId').value = ticket.clientId || '';
+      document.getElementById('subject').value = ticket.subject || '';
+      document.getElementById('priority').value = ticket.priority || '';
+      document.getElementById('status').value = ticket.status || '';
+      document.getElementById('description').value = ticket.description || '';
+    }
+    
+    function editClient(id) {
+      const client = dataManager.getById('clients', id);
+      if (!client) return;
+      
+      currentModalType = 'client';
+      currentEditId = id;
+      showAddClientModal();
+      document.getElementById('modalTitle').textContent = 'Edit Client';
+      
+      // Populate fields
+      document.getElementById('company').value = client.company || '';
+      document.getElementById('contactName').value = client.contactName || '';
+      document.getElementById('email').value = client.email || '';
+      document.getElementById('phone').value = client.phone || '';
+      document.getElementById('country').value = client.country || '';
+      document.getElementById('vatId').value = client.vatId || '';
+      document.getElementById('address').value = client.address || '';
+    }
+    
+    function editInvoice(id) {
+      const invoice = dataManager.getById('invoices', id);
+      if (!invoice) return;
+      
+      currentModalType = 'invoice';
+      currentEditId = id;
+      showAddInvoiceModal();
+      document.getElementById('modalTitle').textContent = 'Edit Invoice';
+      
+      // Populate fields
+      document.getElementById('invoiceNumber').value = invoice.invoiceNumber || '';
+      document.getElementById('clientId').value = invoice.clientId || '';
+      document.getElementById('amount').value = invoice.amount || '';
+      document.getElementById('vat').value = invoice.vat || '';
+      document.getElementById('status').value = invoice.status || '';
+      document.getElementById('dueDate').value = invoice.dueDate || '';
+      document.getElementById('description').value = invoice.description || '';
+    }
+    
+    // Save Modal Data
+    function saveModalData() {
+      const data = {};
+      const inputs = document.querySelectorAll('#modalBody input, #modalBody select, #modalBody textarea');
+      
+      inputs.forEach(input => {
+        data[input.id] = input.value;
+      });
+      
+      // Map type to plural form for storage
+      const typeMap = {
+        order: 'orders',
+        project: 'projects',
+        ticket: 'tickets',
+        client: 'clients',
+        invoice: 'invoices'
+      };
+      
+      const storageType = typeMap[currentModalType];
+      
+      if (currentEditId) {
+        dataManager.update(storageType, currentEditId, data);
+        showToast('success', `${currentModalType} updated successfully!`);
+      } else {
+        dataManager.create(storageType, data);
+        showToast('success', `${currentModalType} created successfully!`);
+      }
+      
       closeModal();
+      
+      // Reload current section
+      const currentSection = document.querySelector('.content-section.active').id;
+      showSection(currentSection);
+      loadOverview(); // Update overview stats
+    }
+    
+    // Delete Functions
+    function deleteItem(type, id) {
+      deleteContext = { type, id };
+      const item = dataManager.getById(type, id);
+      const itemName = item?.name || item?.company || item?.subject || item?.orderNumber || 'this item';
+      document.getElementById('deleteMessage').textContent = `Are you sure you want to delete "${itemName}"?`;
+      document.getElementById('deleteModal').classList.add('show');
+    }
+    
+    function confirmDelete() {
+      dataManager.delete(deleteContext.type, deleteContext.id);
+      showToast('success', 'Item deleted successfully!');
+      closeDeleteModal();
+      
+      // Reload current section
+      const currentSection = document.querySelector('.content-section.active').id;
+      showSection(currentSection);
+      loadOverview(); // Update overview stats
+    }
+    
+    function closeModal() {
+      document.getElementById('universalModal').classList.remove('show');
+      currentEditId = null;
+    }
+    
+    function closeDeleteModal() {
+      document.getElementById('deleteModal').classList.remove('show');
+      deleteContext = { type: '', id: '' };
+    }
+    
+    // Toast Notification
+    function showToast(type, message) {
+      const toast = document.getElementById('toast');
+      const toastMessage = document.getElementById('toastMessage');
+      
+      toast.className = `toast ${type}`;
+      toastMessage.textContent = message;
+      toast.classList.add('show');
+      
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+    
+    // Search Function
+    function performSearch() {
+      const query = document.getElementById('globalSearch').value;
+      if (!query) {
+        loadOverview();
+        return;
+      }
+      
+      // Search across all data types
+      const types = ['orders', 'projects', 'tickets', 'clients', 'invoices'];
+      const results = [];
+      
+      types.forEach(type => {
+        const items = dataManager.search(type, query);
+        results.push(...items.map(item => ({ ...item, type })));
+      });
+      
+      if (results.length > 0) {
+        showToast('success', `Found ${results.length} results`);
+      } else {
+        showToast('warning', 'No results found');
+      }
+    }
+    
+    // Data Export/Import Functions
+    function exportAllData() {
+      const data = dataManager.exportData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `imisofts_backup_${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      showToast('success', 'Data exported successfully!');
+    }
+    
+    function importData(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const data = JSON.parse(e.target.result);
+          dataManager.importData(data);
+          showToast('success', 'Data imported successfully!');
+          location.reload(); // Reload to show new data
+        } catch (error) {
+          showToast('error', 'Invalid JSON file!');
+        }
+      };
+      reader.readAsText(file);
+    }
+    
+    function clearAllData() {
+      if (confirm('⚠️ WARNING: This will delete ALL data permanently! Are you sure?')) {
+        if (confirm('This action CANNOT be undone! Type "DELETE" to confirm.')) {
+          dataManager.clearAll();
+          showToast('success', 'All data cleared successfully!');
+          location.reload();
+        }
+      }
+    }
+    
+    function copyDataToClipboard() {
+      const data = dataManager.exportData();
+      navigator.clipboard.writeText(JSON.stringify(data, null, 2));
+      showToast('success', 'Data copied to clipboard!');
+    }
+    
+    function backupData() {
+      const data = dataManager.exportData();
+      const backupKey = `backup_${new Date().toISOString()}`;
+      localStorage.setItem(backupKey, JSON.stringify(data));
+      showToast('success', 'Backup created successfully!');
     }
     
     // Logout
@@ -2061,8 +2120,8 @@
       window.location.href = 'admin-login.html';
     }
     
-    // Initialize
-    initializeData();
+    // Initialize Dashboard
+    loadOverview();
   </script>
   
 </body>
