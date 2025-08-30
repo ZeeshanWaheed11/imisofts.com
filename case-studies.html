@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies | imisofts Success Stories | Dubai Digital Agency</title>
+  <meta name="description" content="Explore imisofts case studies. See how we've helped businesses achieve 300% growth through AI automation, web development, and digital marketing solutions.">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      /* Using system font stack to avoid external font loading issues */
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #F45407;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .nav-logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a1a;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+    
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      padding: 8px;
+      min-width: 320px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .dropdown-item-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dropdown-item-icon svg {
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+    
+    .dropdown-item-content {
+      flex: 1;
+    }
+    
+    .dropdown-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    
+    .dropdown-item-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      padding: 20px;
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+    }
+    
+    .mobile-services {
+      margin: 16px 0;
+    }
+    
+    .mobile-services-title {
+      padding: 12px 16px;
+      font-weight: 600;
+      color: #999;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .mobile-service-link {
+      display: block;
+      padding: 12px 16px 12px 32px;
+      color: #666;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+    
+    .mobile-service-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+      color: #F45407;
+    }
+    
+    .mobile-cta {
+      display: block;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    
+    /* ============= CASE STUDIES STYLES ============= */
+    
+    /* Hero Section */
+    .hero-section {
+      padding: 80px 0;
+      background: linear-gradient(to bottom, #ffffff, #f9fafb);
+    }
+    
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      padding: 40px 0;
+    }
+    
+    .stat-card {
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: 42px;
+      font-weight: 800;
+      color: #F45407;
+      margin-bottom: 8px;
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Filter Tabs */
+    .filter-tabs {
+      display: flex;
+      gap: 12px;
+      margin: 48px 0 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .filter-tab {
+      padding: 10px 20px;
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-tab:hover {
+      border-color: #F45407;
+      color: #F45407;
+    }
+    
+    .filter-tab.active {
+      background: #F45407;
+      color: white;
+      border-color: #F45407;
+    }
+    
+    /* Case Study Cards */
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-bottom: 80px;
+    }
+    
+    .case-study-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .case-study-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+    
+    .case-study-image {
+      width: 100%;
+      height: 280px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .case-study-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 6px 12px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #F45407;
+    }
+    
+    .case-study-content {
+      padding: 32px;
+    }
+    
+    .case-study-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+    
+    .case-study-client {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 16px;
+    }
+    
+    .case-study-description {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    
+    .case-study-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 20px 0;
+      border-top: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
+      margin-bottom: 24px;
+    }
+    
+    .metric {
+      text-align: center;
+    }
+    
+    .metric-value {
+      font-size: 24px;
+      font-weight: 700;
+      color: #F45407;
+    }
+    
+    .metric-label {
+      font-size: 12px;
+      color: #999;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    
+    .case-study-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    
+    .tag {
+      padding: 4px 10px;
+      background: #f5f5f5;
+      border-radius: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .case-study-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #F45407;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+      transition: gap 0.3s ease;
+    }
+    
+    .case-study-link:hover {
+      gap: 12px;
+    }
+    
+    /* Featured Case Study */
+    .featured-case-study {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 24px;
+      padding: 48px;
+      margin-bottom: 64px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .featured-case-study::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    
+    /* Footer */
+    .footer {
+      background: #0a0a0a;
+      color: #ccc;
+      padding: 80px 0 40px;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-brand h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    
+    .footer-brand p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #999;
+    }
+    
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      display: inline-block;
+    }
+    
+    .footer-links a:hover {
+      color: #F45407;
+      transform: translateX(3px);
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+      
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .featured-case-study {
+        padding: 32px 24px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- ============= NAVBAR ============= -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo-wrapper">
+          <div class="nav-logo-icon">im</div>
+          <div class="nav-logo">imisofts</div>
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <a href="/ai-automation" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Automation</div>
+                  <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                </div>
+              </a>
+              
+              <a href="/digital-marketing" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Digital Marketing</div>
+                  <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                </div>
+              </a>
+              
+              <a href="/cold-email-marketing" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Cold Email Marketing</div>
+                  <div class="dropdown-item-desc">B2B outreach campaigns that convert</div>
+                </div>
+              </a>
+              
+              <a href="/ecommerce" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">E-commerce</div>
+                  <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                </div>
+              </a>
+              
+              <a href="/web-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Web Development</div>
+                  <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                </div>
+              </a>
+              
+              <a href="/crm-development" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">CRM Development</div>
+                  <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                </div>
+              </a>
+              
+              <a href="/shopify-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">Shopify Apps</div>
+                  <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                </div>
+              </a>
+              
+              <a href="/ai-mobile-apps" class="dropdown-item">
+                <div class="dropdown-item-icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                  </svg>
+                </div>
+                <div class="dropdown-item-content">
+                  <div class="dropdown-item-title">AI Mobile Apps</div>
+                  <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          
+          <!-- CTA Button -->
+          <a href="/contact" class="nav-cta">Get Started</a>
+        </div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="mobile-nav-link">Home</a>
+      
+      <div class="mobile-services">
+        <div class="mobile-services-title">Services</div>
+        <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+        <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+        <a href="/cold-email-marketing" class="mobile-service-link">Cold Email Marketing</a>
+        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+        <a href="/web-development" class="mobile-service-link">Web Development</a>
+        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+        <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+        <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+      </div>
+      
+      <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/pricing" class="mobile-nav-link">Pricing</a>
+      <a href="/blog" class="mobile-nav-link">Blog</a>
+      
+      <a href="/contact" class="mobile-cta">Get Started</a>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: #fff5f3; border-radius: 50px; margin-bottom: 24px;">
+          <span style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; margin-right: 8px;"></span>
+          <span style="color: #F45407; font-size: 14px; font-weight: 500;">Success Stories</span>
+        </div>
+        
+        <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 24px;">
+          Real Results for
+          <span style="color: #F45407;">Real Businesses</span>
+        </h1>
+        
+        <p style="font-size: 20px; color: #666; margin-bottom: 48px;">
+          Discover how we've helped companies achieve exceptional growth through innovative AI automation, cutting-edge web development, and data-driven digital marketing.
+        </p>
+        
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">150+</div>
+            <div class="stat-label">Projects Delivered</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">300%</div>
+            <div class="stat-label">Average ROI</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">$10M+</div>
+            <div class="stat-label">Revenue Generated</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">Client Retention</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Filter Tabs -->
+  <section style="background: white; padding-top: 40px;">
+    <div class="container">
+      <div class="filter-tabs">
+        <div class="filter-tab active" onclick="filterCaseStudies('all')">All Projects</div>
+        <div class="filter-tab" onclick="filterCaseStudies('ai')">AI Automation</div>
+        <div class="filter-tab" onclick="filterCaseStudies('web')">Web Development</div>
+        <div class="filter-tab" onclick="filterCaseStudies('marketing')">Digital Marketing</div>
+        <div class="filter-tab" onclick="filterCaseStudies('ecommerce')">E-commerce</div>
+        <div class="filter-tab" onclick="filterCaseStudies('mobile')">Mobile Apps</div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Featured Case Study -->
+  <section style="background: white; padding: 40px 0;">
+    <div class="container">
+      <div class="featured-case-study">
+        <div style="position: relative; z-index: 1;">
+          <span style="display: inline-block; padding: 6px 12px; background: rgba(255,255,255,0.2); border-radius: 50px; font-size: 12px; font-weight: 600; margin-bottom: 20px;">
+            FEATURED PROJECT
+          </span>
+          <h2 style="font-size: 42px; font-weight: 800; margin-bottom: 24px;">
+            TechVentures Dubai: AI-Powered Customer Support
+          </h2>
+          <p style="font-size: 18px; line-height: 1.6; margin-bottom: 32px; opacity: 0.95;">
+            Revolutionized customer support operations for a leading tech company with our AI chatbot solution, reducing response time by 85% and increasing customer satisfaction scores by 40%.
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-bottom: 32px;">
+            <div>
+              <div style="font-size: 32px; font-weight: 700;">85%</div>
+              <div style="font-size: 14px; opacity: 0.8;">Faster Response</div>
+            </div>
+            <div>
+              <div style="font-size: 32px; font-weight: 700;">24/7</div>
+              <div style="font-size: 14px; opacity: 0.8;">Availability</div>
+            </div>
+            <div>
+              <div style="font-size: 32px; font-weight: 700;">40%</div>
+              <div style="font-size: 14px; opacity: 0.8;">Higher CSAT</div>
+            </div>
+            <div>
+              <div style="font-size: 32px; font-weight: 700;">$2M</div>
+              <div style="font-size: 14px; opacity: 0.8;">Annual Savings</div>
+            </div>
+          </div>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: white; color: #764ba2; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            View Full Case Study
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Case Studies Grid -->
+  <section style="background: #f9fafb; padding: 80px 0;">
+    <div class="container">
+      <div class="case-studies-grid">
+        <!-- Case Study 1 -->
+        <div class="case-study-card">
+          <div class="case-study-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="case-study-badge">E-COMMERCE</div>
+          </div>
+          <div class="case-study-content">
+            <h3 class="case-study-title">LuxuryFashion.ae Shopify Store</h3>
+            <p class="case-study-client">Fashion & Retail</p>
+            <p class="case-study-description">
+              Built a high-converting Shopify Plus store with AI-powered product recommendations, resulting in 250% increase in online sales within 6 months.
+            </p>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <div class="metric-value">250%</div>
+                <div class="metric-label">Sales Growth</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">3.2x</div>
+                <div class="metric-label">Conv. Rate</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">45%</div>
+                <div class="metric-label">Cart Value</div>
+              </div>
+            </div>
+            <div class="case-study-tags">
+              <span class="tag">Shopify Plus</span>
+              <span class="tag">AI Recommendations</span>
+              <span class="tag">Arabic Support</span>
+            </div>
+            <a href="#" class="case-study-link">
+              Read Full Story
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Case Study 2 -->
+        <div class="case-study-card">
+          <div class="case-study-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <div class="case-study-badge">AI AUTOMATION</div>
+          </div>
+          <div class="case-study-content">
+            <h3 class="case-study-title">RealEstate Pro CRM System</h3>
+            <p class="case-study-client">Real Estate Technology</p>
+            <p class="case-study-description">
+              Developed an AI-powered CRM that automates lead qualification and follow-ups, increasing agent productivity by 60% and closing rates by 35%.
+            </p>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <div class="metric-value">60%</div>
+                <div class="metric-label">Productivity</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">35%</div>
+                <div class="metric-label">Close Rate</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">500+</div>
+                <div class="metric-label">Users</div>
+              </div>
+            </div>
+            <div class="case-study-tags">
+              <span class="tag">Custom CRM</span>
+              <span class="tag">AI Lead Scoring</span>
+              <span class="tag">WhatsApp Integration</span>
+            </div>
+            <a href="#" class="case-study-link">
+              Read Full Story
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Case Study 3 -->
+        <div class="case-study-card">
+          <div class="case-study-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+            <div class="case-study-badge">DIGITAL MARKETING</div>
+          </div>
+          <div class="case-study-content">
+            <h3 class="case-study-title">HealthTech Startup Launch</h3>
+            <p class="case-study-client">Healthcare Technology</p>
+            <p class="case-study-description">
+              Executed a comprehensive digital marketing campaign that generated 10,000+ qualified leads and secured $5M in Series A funding.
+            </p>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <div class="metric-value">10K+</div>
+                <div class="metric-label">Leads</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">$5M</div>
+                <div class="metric-label">Funding</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">8x</div>
+                <div class="metric-label">ROAS</div>
+              </div>
+            </div>
+            <div class="case-study-tags">
+              <span class="tag">Google Ads</span>
+              <span class="tag">LinkedIn Marketing</span>
+              <span class="tag">Content Strategy</span>
+            </div>
+            <a href="#" class="case-study-link">
+              Read Full Story
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Case Study 4 -->
+        <div class="case-study-card">
+          <div class="case-study-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+            <div class="case-study-badge">WEB DEVELOPMENT</div>
+          </div>
+          <div class="case-study-content">
+            <h3 class="case-study-title">FinanceHub Portal</h3>
+            <p class="case-study-client">Financial Services</p>
+            <p class="case-study-description">
+              Created a secure, scalable financial services platform handling 1M+ transactions daily with 99.99% uptime and bank-grade security.
+            </p>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <div class="metric-value">1M+</div>
+                <div class="metric-label">Daily Trans.</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">99.99%</div>
+                <div class="metric-label">Uptime</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">0.8s</div>
+                <div class="metric-label">Load Time</div>
+              </div>
+            </div>
+            <div class="case-study-tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">AWS</span>
+              <span class="tag">Blockchain</span>
+            </div>
+            <a href="#" class="case-study-link">
+              Read Full Story
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Case Study 5 -->
+        <div class="case-study-card">
+          <div class="case-study-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+            <div class="case-study-badge">MOBILE APP</div>
+          </div>
+          <div class="case-study-content">
+            <h3 class="case-study-title">FoodDelivery AI App</h3>
+            <p class="case-study-client">Food & Beverage</p>
+            <p class="case-study-description">
+              Launched an AI-powered food delivery app with predictive ordering and smart routing, achieving 50,000+ downloads in the first month.
+            </p>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <div class="metric-value">50K+</div>
+                <div class="metric-label">Downloads</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">4.8★</div>
+                <div class="metric-label">Rating</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">25min</div>
+                <div class="metric-label">Avg Delivery</div>
+              </div>
+            </div>
+            <div class="case-study-tags">
+              <span class="tag">React Native</span>
+              <span class="tag">AI Predictions</span>
+              <span class="tag">Real-time Tracking</span>
+            </div>
+            <a href="#" class="case-study-link">
+              Read Full Story
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Case Study 6 -->
+        <div class="case-study-card">
+          <div class="case-study-image" style="background: linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%);">
+            <div class="case-study-badge">B2B OUTREACH</div>
+          </div>
+          <div class="case-study-content">
+            <h3 class="case-study-title">SaaS Cold Email Campaign</h3>
+            <p class="case-study-client">Software as a Service</p>
+            <p class="case-study-description">
+              Designed and executed a cold email campaign that generated 500+ qualified demos and $2M in pipeline value within 3 months.
+            </p>
+            <div class="case-study-metrics">
+              <div class="metric">
+                <div class="metric-value">500+</div>
+                <div class="metric-label">Demos</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">$2M</div>
+                <div class="metric-label">Pipeline</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">12%</div>
+                <div class="metric-label">Reply Rate</div>
+              </div>
+            </div>
+            <div class="case-study-tags">
+              <span class="tag">Email Automation</span>
+              <span class="tag">Lead Generation</span>
+              <span class="tag">A/B Testing</span>
+            </div>
+            <a href="#" class="case-study-link">
+              Read Full Story
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Section -->
+  <section style="background: linear-gradient(135deg, #F45407, #e14a06); padding: 80px 0;">
+    <div class="container" style="text-align: center;">
+      <h2 style="font-size: 36px; font-weight: 700; color: white; margin-bottom: 16px;">
+        Ready to Be Our Next Success Story?
+      </h2>
+      <p style="font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto;">
+        Join 150+ companies that have transformed their business with imisofts. Let's discuss how we can help you achieve similar results.
+      </p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="/contact" style="padding: 14px 28px; background: white; color: #F45407; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
+          Start Your Project
+        </a>
+        <a href="https://wa.me/971508851645" style="padding: 14px 28px; background: transparent; color: white; border: 2px solid white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>imisofts</h3>
+          <p>Transform your business with AI automation, web development, and digital marketing. Dubai-based, globally connected.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/ai-automation">AI Automation</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/crm-development">CRM Development</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/free-consultation">Free Consultation</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/api-docs">API Docs</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Get In Touch</h4>
+          <p style="font-size: 15px; color: white;">hello@imisofts.com</p>
+          <p style="font-size: 15px; color: white;">+971 50 885 1645</p>
+          <p style="font-size: 15px; color: white;">Dubai, UAE</p>
+        </div>
+      </div>
+      
+      <div style="padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center;">
+        <p style="font-size: 14px; color: #666;">© 2025 imisofts. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Services dropdown toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById('servicesDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('servicesDropdown');
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+    
+    // Filter case studies
+    function filterCaseStudies(category) {
+      // Update active tab
+      const tabs = document.querySelectorAll('.filter-tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // In a real implementation, you would filter the case studies here
+      console.log('Filtering by:', category);
+    }
+  </script>
+  
+</body>
+</html>
