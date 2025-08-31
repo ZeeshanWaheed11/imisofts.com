@@ -130,7 +130,7 @@
       transition: transform 0.3s ease;
     }
     
-    .nav-dropdown.active .nav-dropdown-toggle svg {
+    .nav-dropdown:hover .nav-dropdown-toggle svg {
       transform: rotate(180deg);
     }
     
@@ -139,52 +139,73 @@
       top: calc(100% + 20px);
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-      padding: 8px;
-      min-width: 320px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+      padding: 0;
+      min-width: 900px;
       opacity: 0;
       visibility: hidden;
       transform: translateX(-50%) translateY(-10px);
       transition: all 0.3s ease;
+      display: flex;
+      overflow: hidden;
     }
     
-    .nav-dropdown.active .nav-dropdown-menu {
+    .nav-dropdown:hover .nav-dropdown-menu {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      padding: 32px;
+      max-width: 560px;
     }
     
     .dropdown-item {
       display: flex;
       align-items: flex-start;
       gap: 16px;
-      padding: 16px;
+      padding: 20px;
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.2s ease;
+      position: relative;
     }
     
     .dropdown-item:hover {
-      background: rgba(244, 84, 7, 0.08);
+      background: #f8f9fa;
     }
     
     .dropdown-item-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, #F45407, #ff6b28);
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.1), rgba(244, 84, 7, 0.05));
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .dropdown-item:hover .dropdown-item-icon {
+      background: linear-gradient(135deg, #F45407, #ff6b28);
     }
     
     .dropdown-item-icon svg {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
+      color: #F45407;
+      transition: all 0.3s ease;
+    }
+    
+    .dropdown-item:hover .dropdown-item-icon svg {
       color: white;
     }
     
@@ -193,16 +214,105 @@
     }
     
     .dropdown-item-title {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 600;
       color: #1a1a1a;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
+      transition: color 0.3s ease;
+    }
+    
+    .dropdown-item:hover .dropdown-item-title {
+      color: #F45407;
     }
     
     .dropdown-item-desc {
       font-size: 13px;
-      color: #666;
-      line-height: 1.4;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+    
+    .dropdown-promo {
+      width: 340px;
+      background: linear-gradient(135deg, #fff8f5 0%, #ffede8 100%);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .dropdown-promo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(244, 84, 7, 0.08) 0%, transparent 60%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    .dropdown-promo-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .dropdown-promo h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    
+    .dropdown-promo p {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    
+    .dropdown-promo-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .dropdown-promo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    .dropdown-promo-graphic {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 180px;
+    }
+    
+    .dropdown-promo-svg {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
     
     /* CTA Button */
@@ -673,6 +783,14 @@
         grid-template-columns: 1fr !important;
       }
       
+      .phone-input-group {
+        grid-template-columns: 100px 1fr !important;
+      }
+      
+      #countryCode {
+        font-size: 13px !important;
+      }
+      
       .section-padding {
         padding: 48px 0 !important;
       }
@@ -742,108 +860,161 @@
         <div class="nav-menu">
           <!-- Services Dropdown -->
           <div class="nav-dropdown" id="servicesDropdown">
-            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+            <div class="nav-link nav-dropdown-toggle">
               Services
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </div>
             <div class="nav-dropdown-menu">
-              <a href="/ai-automation" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">AI Automation</div>
-                  <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
-                </div>
-              </a>
+              <div class="dropdown-grid">
+                <a href="/ai-automation" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">AI Automation</div>
+                    <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                  </div>
+                </a>
+                
+                <a href="/digital-marketing" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Digital Marketing</div>
+                    <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                  </div>
+                </a>
+                
+                <a href="/cold-email-marketing" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Cold Email Marketing</div>
+                    <div class="dropdown-item-desc">Professional cold email systems that generate leads</div>
+                  </div>
+                </a>
+                
+                <a href="/ecommerce" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">E-commerce</div>
+                    <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                  </div>
+                </a>
+                
+                <a href="/web-development" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Web Development</div>
+                    <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                  </div>
+                </a>
+                
+                <a href="/crm-development" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">CRM Development</div>
+                    <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                  </div>
+                </a>
+                
+                <a href="/shopify-apps" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Shopify Apps</div>
+                    <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                  </div>
+                </a>
+                
+                <a href="/ai-mobile-apps" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">AI Mobile Apps</div>
+                    <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                  </div>
+                </a>
+              </div>
               
-              <a href="/digital-marketing" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              <div class="dropdown-promo">
+                <div class="dropdown-promo-content">
+                  <h3>From Idea to Revenue in 30 Days</h3>
+                  <p>We're not consultants who talk. We're builders who ship. AI automation, marketing, and development—all under one roof.</p>
+                  <a href="#contact" class="dropdown-promo-btn">See How We Work</a>
+                </div>
+                
+                <div class="dropdown-promo-graphic">
+                  <svg class="dropdown-promo-svg" viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central Hub -->
+                    <circle cx="140" cy="90" r="35" fill="#F45407" opacity="0.1"></circle>
+                    <circle cx="140" cy="90" r="25" fill="white" stroke="#F45407" stroke-width="2"></circle>
+                    
+                    <!-- Connecting Lines -->
+                    <path d="M140 90 L80 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L200 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L80 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L200 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    
+                    <!-- Service Nodes -->
+                    <rect x="60" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="180" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="60" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="180" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    
+                    <!-- Floating Dots -->
+                    <circle cx="100" cy="60" r="2" fill="#F45407" opacity="0.4">
+                      <animate attributeName="cy" values="60;55;60" dur="3s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="180" cy="80" r="2" fill="#ff6b28" opacity="0.4">
+                      <animate attributeName="cy" values="80;75;80" dur="3s" begin="0.5s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="0.5s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="120" cy="120" r="2" fill="#F45407" opacity="0.4">
+                      <animate attributeName="cy" values="120;115;120" dur="3s" begin="1s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="1s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="160" cy="50" r="2" fill="#ff6b28" opacity="0.4">
+                      <animate attributeName="cy" values="50;45;50" dur="3s" begin="1.5s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="1.5s" repeatCount="indefinite"></animate>
+                    </circle>
+                    
+                    <!-- Center Icon -->
+                    <g transform="translate(125, 75)">
+                      <path d="M15 10l5 5-5 5M10 10l-5 5 5 5" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+                    </g>
                   </svg>
                 </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">Digital Marketing</div>
-                  <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
-                </div>
-              </a>
-              
-              <a href="/cold-email-marketing" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">Cold Email Marketing</div>
-                  <div class="dropdown-item-desc">Professional cold email systems that generate leads</div>
-                </div>
-              </a>
-              
-              <a href="/ecommerce" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">E-commerce</div>
-                  <div class="dropdown-item-desc">High-converting online stores built to scale</div>
-                </div>
-              </a>
-              
-              <a href="/web-development" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">Web Development</div>
-                  <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
-                </div>
-              </a>
-              
-              <a href="/crm-development" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">CRM Development</div>
-                  <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
-                </div>
-              </a>
-              
-              <a href="/shopify-apps" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">Shopify Apps</div>
-                  <div class="dropdown-item-desc">Built for Shopify certified app development</div>
-                </div>
-              </a>
-              
-              <a href="/ai-mobile-apps" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">AI Mobile Apps</div>
-                  <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
-                </div>
-              </a>
+              </div>
             </div>
           </div>
           
@@ -1096,56 +1267,56 @@
             <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">What's Included:</h4>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Landing Page & Website</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">High-converting site with booking system</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Web App MVP</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Full-stack application with user dashboard</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Cold Email Infrastructure</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">10 domains, 70 inboxes, full warmup</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Lead Generation System</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">5,000 verified B2B leads + sequences</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>AI Sales Agent</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">24/7 chatbot for qualification & booking</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>CRM & Automation</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Full pipeline automation setup</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Analytics Dashboard</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Track everything that matters</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>90-Day Support</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Weekly calls + Slack support</div>
@@ -1179,56 +1350,56 @@
             <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">What's Included:</h4>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Shopify Store Setup</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Premium theme + customization</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Product Setup</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Up to 100 products with SEO</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Facebook & Google Ads</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Campaign setup + first month management</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Email Marketing</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Klaviyo setup + 20 automated flows</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>AI Customer Support</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">24/7 chatbot for FAQs & support</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Conversion Optimization</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Upsells, bundles, checkout optimization</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Analytics Setup</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">GA4, pixels, conversion tracking</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>60-Day Support</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Training + optimization support</div>
@@ -1262,56 +1433,56 @@
             <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">What's Included:</h4>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>AI Web/Mobile App</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Custom AI application (GPT-4/Claude)</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Landing Page</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">High-converting marketing site</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>User Authentication</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Secure login with payment integration</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Subscription System</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Stripe integration with tiers</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>API Integration</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">OpenAI/Claude/custom models</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Launch Marketing</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Product Hunt, Reddit, Twitter strategy</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>Analytics & Monitoring</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Usage tracking & cost management</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✓</span>
+                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
                 <div>
                   <strong>120-Day Support</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Feature updates + scaling support</div>
@@ -1682,16 +1853,30 @@
         </p>
       </div>
       
-      <form action="https://formspree.io/f/meolgepd" method="POST" style="max-width: 600px; margin: 0 auto;">
+      <form id="contactForm" action="https://formspree.io/f/meolgepd" method="POST" style="max-width: 600px; margin: 0 auto;">
         <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="text" name="name" placeholder="Your full name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
-          <input type="text" name="company" placeholder="Company name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+          <input type="text" name="name" id="contactName" placeholder="Your full name" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; background: white; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="if(!this.value || this.style.borderColor !== '#dc3545') this.style.borderColor='transparent'" required>
+          <input type="text" name="company" id="contactCompany" placeholder="Company name" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; background: white; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="if(!this.value || this.style.borderColor !== '#dc3545') this.style.borderColor='transparent'" required>
         </div>
         <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="email" name="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
-          <input type="tel" name="phone" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;">
+          <input type="email" name="email" id="contactEmail" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; background: white; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" required>
+          <input type="url" name="website" id="contactWebsite" placeholder="Company website (optional)" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; background: white; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'">
         </div>
-        <textarea name="message" placeholder="Tell us about your project" rows="4" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px; resize: vertical;"></textarea>
+        <div class="phone-input-group" style="display: grid; grid-template-columns: 120px 1fr; gap: 8px; margin-bottom: 16px;">
+          <select name="country_code" id="countryCode" style="padding: 12px 8px; border-radius: 8px; border: 2px solid transparent; font-size: 14px; background: white; cursor: pointer; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="this.style.borderColor='transparent'">
+            <option value="+1">🇺🇸 +1</option>
+            <option value="+44">🇬🇧 +44</option>
+            <option value="+971" selected>🇦🇪 +971</option>
+            <option value="+91">🇮🇳 +91</option>
+            <option value="+92">🇵🇰 +92</option>
+            <!-- Add more country codes as needed -->
+          </select>
+          <input type="tel" name="phone" id="contactPhone" placeholder="Phone number (optional)" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; background: white; transition: border-color 0.3s; outline: none;" pattern="[0-9]{7,15}" onfocus="this.style.borderColor='#F45407'">
+        </div>
+        <textarea name="message" id="contactMessage" placeholder="Tell us about your project" rows="4" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 8px; resize: vertical; background: white; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="if(!this.value || this.style.borderColor !== '#dc3545') this.style.borderColor='transparent'"></textarea>
+        
+        <!-- Validation Error Messages -->
+        <div id="validationError" style="color: #dc3545; font-size: 14px; margin-bottom: 16px; display: none;"></div>
         
         <!-- Honeypot field for spam protection (hidden from users) -->
         <input type="text" name="_gotcha" style="display:none">
@@ -1699,9 +1884,12 @@
         <!-- Success redirect (optional - you can set this up in Formspree dashboard) -->
         <input type="hidden" name="_subject" value="New Free Audit Request from Homepage">
         
-        <button type="submit" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(255,255,255,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+        <button type="submit" id="submitBtn" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(255,255,255,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
           Get Your Free Audit →
         </button>
+        
+        <!-- Success/Error Messages -->
+        <div id="formMessage" style="margin-top: 20px; padding: 16px; border-radius: 8px; display: none; text-align: center; font-weight: 600;"></div>
       </form>
       
       <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
@@ -1786,11 +1974,12 @@
           <div class="footer-newsletter">
             <h4>Stay Updated</h4>
             <p>Get the latest on AI automation and growth strategies</p>
-            <form class="newsletter-form" action="https://formspree.io/f/meolgepd" method="POST">
+            <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/meolgepd" method="POST">
               <input type="email" name="newsletter_email" class="newsletter-input" placeholder="Enter your email" required>
               <input type="hidden" name="_subject" value="New Newsletter Subscription">
-              <button type="submit" class="newsletter-btn">Subscribe</button>
+              <button type="submit" class="newsletter-btn" id="newsletterBtn">Subscribe</button>
             </form>
+            <div id="newsletterMessage" style="margin-top: 12px; padding: 10px; border-radius: 6px; display: none; text-align: center; font-size: 14px; font-weight: 600;"></div>
           </div>
           <div style="margin-top: 24px;">
             <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Contact us directly:</p>
@@ -1825,25 +2014,282 @@
       }
     });
     
-    // Services dropdown toggle
-    function toggleDropdown() {
-      const dropdown = document.getElementById('servicesDropdown');
-      dropdown.classList.toggle('active');
-    }
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-      const dropdown = document.getElementById('servicesDropdown');
-      if (!dropdown.contains(event.target)) {
-        dropdown.classList.remove('active');
-      }
-    });
-    
     // Mobile menu toggle
     function toggleMobileMenu() {
       const mobileMenu = document.getElementById('mobileMenu');
       mobileMenu.classList.toggle('active');
     }
+    
+    // Email validation
+    function validateEmail(email) {
+      const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return regex.test(email);
+    }
+    
+    // URL validation
+    function validateURL(url) {
+      if (!url) return true; // Optional field
+      try {
+        const urlObj = new URL(url);
+        return urlObj.protocol === 'http:' || urlObj.protocol === 'https:';
+      } catch {
+        // Try adding https:// if no protocol
+        try {
+          const urlObj = new URL('https://' + url);
+          return true;
+        } catch {
+          return false;
+        }
+      }
+    }
+    
+    // Phone validation
+    function validatePhone(phone) {
+      if (!phone) return true; // Optional field
+      const regex = /^[0-9]{7,15}$/;
+      return regex.test(phone);
+    }
+    
+    // Show field error
+    function showFieldError(field, message) {
+      field.style.borderColor = '#dc3545';
+      const errorDiv = document.getElementById('validationError');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+    }
+    
+    // Clear field errors
+    function clearFieldErrors() {
+      const fields = ['contactName', 'contactCompany', 'contactEmail', 'contactWebsite', 'contactPhone', 'contactMessage'];
+      fields.forEach(id => {
+        const field = document.getElementById(id);
+        if (field) field.style.borderColor = 'transparent';
+      });
+      const errorDiv = document.getElementById('validationError');
+      errorDiv.style.display = 'none';
+    }
+    
+    // Contact Form Handler
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Clear previous errors
+      clearFieldErrors();
+      
+      // Get form values
+      const name = document.getElementById('contactName').value.trim();
+      const company = document.getElementById('contactCompany').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const website = document.getElementById('contactWebsite').value.trim();
+      const phone = document.getElementById('contactPhone').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+      
+      // Validate required fields
+      if (!name) {
+        showFieldError(document.getElementById('contactName'), 'Please enter your full name');
+        return;
+      }
+      
+      if (!company) {
+        showFieldError(document.getElementById('contactCompany'), 'Please enter your company name');
+        return;
+      }
+      
+      if (!email) {
+        showFieldError(document.getElementById('contactEmail'), 'Please enter your email address');
+        return;
+      }
+      
+      if (!validateEmail(email)) {
+        showFieldError(document.getElementById('contactEmail'), 'Please enter a valid email address (e.g., name@company.com)');
+        return;
+      }
+      
+      // Validate optional fields
+      if (website && !validateURL(website)) {
+        showFieldError(document.getElementById('contactWebsite'), 'Please enter a valid website URL (e.g., https://example.com)');
+        // Auto-fix common URL issues
+        if (!website.startsWith('http://') && !website.startsWith('https://')) {
+          document.getElementById('contactWebsite').value = 'https://' + website;
+        }
+        return;
+      }
+      
+      if (phone && !validatePhone(phone)) {
+        showFieldError(document.getElementById('contactPhone'), 'Please enter a valid phone number (digits only, 7-15 numbers)');
+        return;
+      }
+      
+      const form = e.target;
+      const submitBtn = document.getElementById('submitBtn');
+      const formMessage = document.getElementById('formMessage');
+      const formData = new FormData(form);
+      
+      // Combine country code with phone number
+      const countryCode = document.getElementById('countryCode').value;
+      if (phone) {
+        formData.set('phone', countryCode + ' ' + phone);
+      }
+      
+      // Change button text to loading state
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Success
+          clearFieldErrors();
+          formMessage.style.display = 'block';
+          formMessage.style.background = 'rgba(255, 255, 255, 0.2)';
+          formMessage.style.color = 'white';
+          formMessage.style.border = '2px solid white';
+          formMessage.innerHTML = '✔ Thank you! We\'ll get back to you within 24 hours.';
+          form.reset();
+          
+          // Hide message after 5 seconds
+          setTimeout(() => {
+            formMessage.style.display = 'none';
+          }, 5000);
+        } else {
+          // Error
+          formMessage.style.display = 'block';
+          formMessage.style.background = '#fee';
+          formMessage.style.color = '#c00';
+          formMessage.style.border = '2px solid #fcc';
+          formMessage.innerHTML = 'Oops! There was a problem. Please try again or email us directly.';
+        }
+      } catch (error) {
+        // Network error
+        formMessage.style.display = 'block';
+        formMessage.style.background = '#fee';
+        formMessage.style.color = '#c00';
+        formMessage.style.border = '2px solid #fcc';
+        formMessage.innerHTML = 'Connection error. Please check your internet and try again.';
+      } finally {
+        // Reset button
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      }
+    });
+    
+    // Phone number input - only allow digits
+    document.getElementById('contactPhone').addEventListener('input', function(e) {
+      // Remove non-digits
+      this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    
+    // Real-time validation feedback
+    document.getElementById('contactEmail').addEventListener('blur', function() {
+      if (this.value && !validateEmail(this.value)) {
+        this.style.borderColor = '#dc3545';
+      } else if (this.value) {
+        this.style.borderColor = 'transparent';
+      }
+    });
+    
+    document.getElementById('contactWebsite').addEventListener('blur', function() {
+      if (this.value && !validateURL(this.value)) {
+        this.style.borderColor = '#dc3545';
+        // Auto-fix URL
+        if (!this.value.startsWith('http://') && !this.value.startsWith('https://')) {
+          this.value = 'https://' + this.value;
+          this.style.borderColor = 'transparent';
+        }
+      } else if (this.value) {
+        this.style.borderColor = 'transparent';
+      }
+    });
+    
+    document.getElementById('contactPhone').addEventListener('blur', function() {
+      if (this.value && !validatePhone(this.value)) {
+        this.style.borderColor = '#dc3545';
+      } else if (this.value) {
+        this.style.borderColor = 'transparent';
+      }
+    });
+    
+    // Newsletter Form Handler
+    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = document.getElementById('newsletterBtn');
+      const formMessage = document.getElementById('newsletterMessage');
+      const emailInput = form.querySelector('input[type="email"]');
+      
+      // Validate email
+      if (!validateEmail(emailInput.value)) {
+        formMessage.style.display = 'block';
+        formMessage.style.background = '#f8d7da';
+        formMessage.style.color = '#721c24';
+        formMessage.style.border = '1px solid #f5c6cb';
+        formMessage.innerHTML = 'Please enter a valid email address';
+        return;
+      }
+      
+      const formData = new FormData(form);
+      
+      // Change button text to loading state
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Subscribing...';
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Success
+          formMessage.style.display = 'block';
+          formMessage.style.background = '#d4edda';
+          formMessage.style.color = '#155724';
+          formMessage.style.border = '1px solid #c3e6cb';
+          formMessage.innerHTML = '✔ Successfully subscribed! Check your email.';
+          form.reset();
+          
+          // Hide message after 5 seconds
+          setTimeout(() => {
+            formMessage.style.display = 'none';
+          }, 5000);
+        } else {
+          // Error
+          formMessage.style.display = 'block';
+          formMessage.style.background = '#f8d7da';
+          formMessage.style.color = '#721c24';
+          formMessage.style.border = '1px solid #f5c6cb';
+          formMessage.innerHTML = 'Oops! Please try again or email us directly.';
+        }
+      } catch (error) {
+        // Network error
+        formMessage.style.display = 'block';
+        formMessage.style.background = '#f8d7da';
+        formMessage.style.color = '#721c24';
+        formMessage.style.border = '1px solid #f5c6cb';
+        formMessage.innerHTML = 'Connection error. Please try again.';
+      } finally {
+        // Reset button
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      }
+    });
     
     // Trigger animations when page loads
     window.addEventListener('load', () => {
