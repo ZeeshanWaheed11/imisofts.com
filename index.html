@@ -6,6 +6,9 @@
   <title>imisofts - AI Automation & Digital Growth Solutions</title>
   <meta name="description" content="Full-stack digital execution partner. AI automation, performance marketing, cold email systems, and web development that ships in 30-90 days.">
   
+  <!-- Favicon using inline SVG data URL -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
+  
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,10 +58,6 @@
       color: #333;
     }
     
-    .navbar.scrolled .nav-logo {
-      color: #1a1a1a;
-    }
-    
     .nav-container {
       display: flex;
       justify-content: space-between;
@@ -69,28 +68,12 @@
     .nav-logo-wrapper {
       display: flex;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
     }
     
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      background: #F45407;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 16px;
-    }
-    
     .nav-logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: #333;
-      transition: color 0.3s ease;
+      height: 58px;
+      width: auto;
     }
     
     .nav-menu {
@@ -446,6 +429,49 @@
       }
     }
     
+    @keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Logo animation - only on initial page load */
+    @media (prefers-reduced-motion: no-preference) {
+      .nav-logo g:first-of-type {
+        animation: slideInLeft 0.6s ease-out;
+      }
+      
+      .nav-logo .char {
+        opacity: 0;
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+      
+      .nav-logo .char-1 { animation-delay: 0.3s; }
+      .nav-logo .char-2 { animation-delay: 0.35s; }
+      .nav-logo .char-3 { animation-delay: 0.4s; }
+      .nav-logo .char-4 { animation-delay: 0.45s; }
+      .nav-logo .char-5 { animation-delay: 0.5s; }
+      .nav-logo .char-6 { animation-delay: 0.55s; }
+      .nav-logo .char-7 { animation-delay: 0.6s; }
+      .nav-logo .char-8 { animation-delay: 0.65s; }
+    }
+    
     @keyframes fillProgress {
       to {
         width: 25%;
@@ -540,13 +566,6 @@
       grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
       gap: 48px;
       margin-bottom: 60px;
-    }
-    
-    .footer-brand h3 {
-      font-size: 28px;
-      font-weight: 800;
-      color: white;
-      margin-bottom: 16px;
     }
     
     .footer-brand p {
@@ -696,6 +715,24 @@
     
     .footer-bottom-links a:hover {
       color: #F45407;
+    }
+    
+    .check-mark {
+      color: #10b981;
+      font-weight: 700;
+      margin-right: 8px;
+    }
+    
+    .bullet-point {
+      color: #F45407;
+      margin-right: 8px;
+      font-weight: 700;
+    }
+    
+    .bullet-point-gray {
+      color: #999;
+      margin-right: 8px;
+      font-weight: 700;
     }
     
     /* Mobile Styles */
@@ -852,8 +889,23 @@
       <div class="nav-container">
         <!-- Logo -->
         <a href="/" class="nav-logo-wrapper">
-          <div class="nav-logo-icon">im</div>
-          <div class="nav-logo">imisofts</div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" class="nav-logo" role="img" aria-label="imisofts logo">
+            <!-- Icon: dot at bottom-left, then two slanted tiles -->
+            <g fill="#F45407">
+              <circle cx="48" cy="170" r="18"/>
+              <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+              <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+            </g>
+            <!-- Wordmark -->
+            <g transform="translate(200,188)">
+              <text x="0" y="0"
+                    font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto"
+                    font-weight="700" font-size="96" letter-spacing="-0.5"
+                    fill="#0F172A">
+                <tspan class="char char-1">i</tspan><tspan class="char char-2">m</tspan><tspan class="char char-3">i</tspan><tspan class="char char-4">s</tspan><tspan class="char char-5">o</tspan><tspan class="char char-6">f</tspan><tspan class="char char-7">t</tspan><tspan class="char char-8">s</tspan>
+              </text>
+            </g>
+          </svg>
         </a>
         
         <!-- Desktop Menu -->
@@ -968,7 +1020,7 @@
               <div class="dropdown-promo">
                 <div class="dropdown-promo-content">
                   <h3>From Idea to Revenue in 30 Days</h3>
-                  <p>We're not consultants who talk. We're builders who ship. AI automation, marketing, and development—all under one roof.</p>
+                  <p>We're not consultants who talk. We're builders who ship. AI automation, marketing, and development - all under one roof.</p>
                   <a href="#contact" class="dropdown-promo-btn">See How We Work</a>
                 </div>
                 
@@ -1024,7 +1076,7 @@
           <a href="/blog" class="nav-link">Blog</a>
           
           <!-- CTA Button -->
-          <a href="/contact" class="nav-cta">Get Free Audit →</a>
+          <a href="/contact" class="nav-cta">Get Free Audit &rarr;</a>
         </div>
         
         <!-- Mobile Menu Toggle -->
@@ -1057,7 +1109,7 @@
       <a href="/pricing" class="mobile-nav-link">Pricing</a>
       <a href="/blog" class="mobile-nav-link">Blog</a>
       
-      <a href="/contact" class="mobile-cta">Get Free Audit →</a>
+      <a href="/contact" class="mobile-cta">Get Free Audit &rarr;</a>
     </div>
   </nav>
   
@@ -1077,14 +1129,14 @@
           </h1>
           
           <p style="font-size: 18px; color: #666; line-height: 1.6; margin-bottom: 32px;">
-            From cold email infrastructure to AI agents that close deals—we build what scales. 
+            From cold email infrastructure to AI agents that close deals - we build what scales. 
             Businesses worldwide trust us to deliver AI automation, performance marketing, and modern 
             web development that drives measurable outcomes. We ship in 30-90 days, not someday.
           </p>
           
           <div style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
             <a href="#contact" style="padding: 12px 24px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
-              Get Free AI Audit →
+              Get Free AI Audit &rarr;
             </a>
             <a href="#work" style="padding: 12px 24px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 8px; font-weight: 600; text-decoration: none;">
               View Client Results
@@ -1133,7 +1185,7 @@
               </div>
             </div>
             <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #f0f0f0;">
-              <div style="font-size: 12px; color: #999;">Instantly • Smartlead • Apollo • Clay</div>
+              <div style="font-size: 12px; color: #999;">Instantly &bull; Smartlead &bull; Apollo &bull; Clay</div>
             </div>
           </div>
         </div>
@@ -1168,7 +1220,7 @@
       
       <div style="text-align: center; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
         <a href="#work" style="padding: 12px 24px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
-          See Case Studies →
+          See Case Studies &rarr;
         </a>
         <a href="#contact" style="padding: 12px 24px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 8px; font-weight: 600; text-decoration: none;">
           Book Strategy Call
@@ -1191,49 +1243,49 @@
         <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; cursor: pointer;">
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">AI Automation</h3>
           <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Workflow orchestration, chatbots, sales agents that never sleep</p>
-          <a href="/ai-automation" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more →</a>
+          <a href="/ai-automation" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more &rarr;</a>
         </div>
         
         <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; cursor: pointer;">
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Digital Marketing</h3>
           <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Paid ads, SEO, content marketing that generates pipeline</p>
-          <a href="/digital-marketing" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more →</a>
+          <a href="/digital-marketing" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more &rarr;</a>
         </div>
         
         <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; cursor: pointer;">
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Cold Email Marketing</h3>
           <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Complete email infrastructure with 95%+ inbox rates</p>
-          <a href="/cold-email-marketing" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more →</a>
+          <a href="/cold-email-marketing" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more &rarr;</a>
         </div>
         
         <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; cursor: pointer;">
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">E-commerce</h3>
           <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Shopify stores that convert visitors into customers</p>
-          <a href="/ecommerce" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more →</a>
+          <a href="/ecommerce" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more &rarr;</a>
         </div>
         
         <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; cursor: pointer;">
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Web Development</h3>
           <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Fast, modern websites for SaaS & agencies</p>
-          <a href="/web-development" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more →</a>
+          <a href="/web-development" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more &rarr;</a>
         </div>
         
         <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; cursor: pointer;">
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">CRM Development</h3>
           <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Custom CRM solutions that scale with you</p>
-          <a href="/crm-development" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more →</a>
+          <a href="/crm-development" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more &rarr;</a>
         </div>
         
         <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; cursor: pointer;">
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Shopify Apps</h3>
           <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Built for Shopify certified development</p>
-          <a href="/shopify-apps" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more →</a>
+          <a href="/shopify-apps" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more &rarr;</a>
         </div>
         
         <div style="background: white; padding: 24px; border-radius: 12px; border: 1px solid #e5e5e5; cursor: pointer;">
           <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">AI Mobile Apps</h3>
           <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Intelligent mobile experiences powered by AI</p>
-          <a href="/ai-mobile-apps" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more →</a>
+          <a href="/ai-mobile-apps" style="color: #F45407; font-weight: 600; text-decoration: none;">Learn more &rarr;</a>
         </div>
       </div>
     </div>
@@ -1267,56 +1319,56 @@
             <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">What's Included:</h4>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Landing Page & Website</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">High-converting site with booking system</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Web App MVP</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Full-stack application with user dashboard</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Cold Email Infrastructure</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">10 domains, 70 inboxes, full warmup</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Lead Generation System</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">5,000 verified B2B leads + sequences</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>AI Sales Agent</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">24/7 chatbot for qualification & booking</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>CRM & Automation</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Full pipeline automation setup</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Analytics Dashboard</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Track everything that matters</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>90-Day Support</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Weekly calls + Slack support</div>
@@ -1332,7 +1384,7 @@
           </div>
           
           <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
-            Launch Your SaaS →
+            Launch Your SaaS &rarr;
           </a>
         </div>
         
@@ -1350,56 +1402,56 @@
             <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">What's Included:</h4>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Shopify Store Setup</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Premium theme + customization</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Product Setup</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Up to 100 products with SEO</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Facebook & Google Ads</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Campaign setup + first month management</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Email Marketing</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Klaviyo setup + 20 automated flows</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>AI Customer Support</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">24/7 chatbot for FAQs & support</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Conversion Optimization</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Upsells, bundles, checkout optimization</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Analytics Setup</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">GA4, pixels, conversion tracking</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>60-Day Support</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Training + optimization support</div>
@@ -1415,7 +1467,7 @@
           </div>
           
           <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none;">
-            Launch Your Store →
+            Launch Your Store &rarr;
           </a>
         </div>
         
@@ -1433,56 +1485,56 @@
             <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 12px;">What's Included:</h4>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>AI Web/Mobile App</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Custom AI application (GPT-4/Claude)</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Landing Page</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">High-converting marketing site</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>User Authentication</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Secure login with payment integration</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Subscription System</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Stripe integration with tiers</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>API Integration</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">OpenAI/Claude/custom models</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Launch Marketing</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Product Hunt, Reddit, Twitter strategy</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>Analytics & Monitoring</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Usage tracking & cost management</div>
                 </div>
               </li>
               <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                <span style="color: #10b981; margin-right: 8px; font-weight: 700;">✔</span>
+                <span class="check-mark">&#10003;</span>
                 <div>
                   <strong>120-Day Support</strong>
                   <div style="font-size: 12px; color: #999; margin-top: 2px;">Feature updates + scaling support</div>
@@ -1498,7 +1550,7 @@
           </div>
           
           <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none;">
-            Launch Your AI App →
+            Launch Your AI App &rarr;
           </a>
         </div>
       </div>
@@ -1510,7 +1562,7 @@
           For enterprise clients or unique requirements, we create custom packages tailored to your specific needs and objectives.
         </p>
         <a href="#contact" style="display: inline-block; padding: 14px 32px; background: white; color: #1a1a1a; border-radius: 8px; font-weight: 600; text-decoration: none;">
-          Discuss Custom Package →
+          Discuss Custom Package &rarr;
         </a>
       </div>
     </div>
@@ -1545,10 +1597,10 @@
             <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Discovery</h3>
             <p style="font-size: 14px; color: #F45407; font-weight: 600; margin-bottom: 16px;">Day 1-5</p>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #F45407; margin-right: 8px; font-weight: 700;">•</span> Audit your current systems</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #F45407; margin-right: 8px; font-weight: 700;">•</span> Define success metrics</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #F45407; margin-right: 8px; font-weight: 700;">•</span> Create technical roadmap</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #F45407; margin-right: 8px; font-weight: 700;">•</span> Set revenue targets</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point">&bull;</span> Audit your current systems</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point">&bull;</span> Define success metrics</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point">&bull;</span> Create technical roadmap</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point">&bull;</span> Set revenue targets</li>
             </ul>
           </div>
           
@@ -1559,10 +1611,10 @@
             <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Build</h3>
             <p style="font-size: 14px; color: #999; font-weight: 600; margin-bottom: 16px;">Day 6-20</p>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Ship working prototypes</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Connect your tools</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Test with real data</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Daily progress videos</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Ship working prototypes</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Connect your tools</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Test with real data</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Daily progress videos</li>
             </ul>
           </div>
           
@@ -1573,10 +1625,10 @@
             <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Launch</h3>
             <p style="font-size: 14px; color: #999; font-weight: 600; margin-bottom: 16px;">Day 21-30</p>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Go live with confidence</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Monitor everything</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Optimize based on data</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Train your team</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Go live with confidence</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Monitor everything</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Optimize based on data</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Train your team</li>
             </ul>
           </div>
           
@@ -1587,10 +1639,10 @@
             <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 8px;">Scale</h3>
             <p style="font-size: 14px; color: #999; font-weight: 600; margin-bottom: 16px;">Month 2+</p>
             <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Compound your results</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Add new channels</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Expand to new markets</li>
-              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span style="color: #999; margin-right: 8px; font-weight: 700;">•</span> Continuous improvement</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Compound your results</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Add new channels</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Expand to new markets</li>
+              <li style="margin-bottom: 8px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Continuous improvement</li>
             </ul>
           </div>
         </div>
@@ -1615,19 +1667,19 @@
               <p style="font-size: 14px; color: #666; margin-bottom: 12px;">We dive deep into your business to understand exactly what will move the needle.</p>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #F45407; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point">&bull;</span>
                   <span style="font-size: 13px;">Full audit</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #F45407; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point">&bull;</span>
                   <span style="font-size: 13px;">KPIs defined</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #F45407; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point">&bull;</span>
                   <span style="font-size: 13px;">Tech stack</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #F45407; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point">&bull;</span>
                   <span style="font-size: 13px;">Roadmap</span>
                 </div>
               </div>
@@ -1647,19 +1699,19 @@
               <p style="font-size: 14px; color: #666; margin-bottom: 12px;">Rapid development with daily updates. You see progress every single day.</p>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Fast sprints</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Integrations</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Testing</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Daily videos</span>
                 </div>
               </div>
@@ -1679,19 +1731,19 @@
               <p style="font-size: 14px; color: #666; margin-bottom: 12px;">Go live with confidence. Everything monitored, optimized, and documented.</p>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Go live</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Monitoring</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Training</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Support</span>
                 </div>
               </div>
@@ -1711,19 +1763,19 @@
               <p style="font-size: 14px; color: #666; margin-bottom: 12px;">Now we compound your results. More channels, more automation, more revenue.</p>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Growth loops</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">New channels</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Expansion</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 6px;">
-                  <span style="color: #999; font-size: 14px; font-weight: 700;">•</span>
+                  <span class="bullet-point-gray">&bull;</span>
                   <span style="font-size: 13px;">Optimization</span>
                 </div>
               </div>
@@ -1790,7 +1842,7 @@
           <p style="font-size: 14px; color: #666; font-style: italic; margin-bottom: 16px;">
             "imisofts built our entire outbound infrastructure. We went from 0 to 450 qualified leads in 30 days."
           </p>
-          <a href="#" style="color: #F45407; font-weight: 600; text-decoration: none;">Read Full Case →</a>
+          <a href="#" style="color: #F45407; font-weight: 600; text-decoration: none;">Read Full Case &rarr;</a>
         </div>
         
         <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
@@ -1813,7 +1865,7 @@
           <p style="font-size: 14px; color: #666; font-style: italic; margin-bottom: 16px;">
             "They transformed our marketing. We're now profitable on first purchase."
           </p>
-          <a href="#" style="color: #F45407; font-weight: 600; text-decoration: none;">Read Full Case →</a>
+          <a href="#" style="color: #F45407; font-weight: 600; text-decoration: none;">Read Full Case &rarr;</a>
         </div>
         
         <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
@@ -1836,7 +1888,7 @@
           <p style="font-size: 14px; color: #666; font-style: italic; margin-bottom: 16px;">
             "Our AI agent is like having 10 support reps working 24/7."
           </p>
-          <a href="#" style="color: #F45407; font-weight: 600; text-decoration: none;">Read Full Case →</a>
+          <a href="#" style="color: #F45407; font-weight: 600; text-decoration: none;">Read Full Case &rarr;</a>
         </div>
       </div>
     </div>
@@ -1864,11 +1916,11 @@
         </div>
         <div class="phone-input-group" style="display: grid; grid-template-columns: 120px 1fr; gap: 8px; margin-bottom: 16px;">
           <select name="country_code" id="countryCode" style="padding: 12px 8px; border-radius: 8px; border: 2px solid transparent; font-size: 14px; background: white; cursor: pointer; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="this.style.borderColor='transparent'">
-            <option value="+1">🇺🇸 +1</option>
-            <option value="+44">🇬🇧 +44</option>
-            <option value="+971" selected>🇦🇪 +971</option>
-            <option value="+91">🇮🇳 +91</option>
-            <option value="+92">🇵🇰 +92</option>
+            <option value="+1">US +1</option>
+            <option value="+44">UK +44</option>
+            <option value="+971" selected>UAE +971</option>
+            <option value="+91">IN +91</option>
+            <option value="+92">PK +92</option>
             <!-- Add more country codes as needed -->
           </select>
           <input type="tel" name="phone" id="contactPhone" placeholder="Phone number (optional)" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; background: white; transition: border-color 0.3s; outline: none;" pattern="[0-9]{7,15}" onfocus="this.style.borderColor='#F45407'">
@@ -1885,7 +1937,7 @@
         <input type="hidden" name="_subject" value="New Free Audit Request from Homepage">
         
         <button type="submit" id="submitBtn" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(255,255,255,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
-          Get Your Free Audit →
+          Get Your Free Audit &rarr;
         </button>
         
         <!-- Success/Error Messages -->
@@ -1904,7 +1956,24 @@
       <div class="footer-grid">
         <!-- Brand Column -->
         <div class="footer-brand">
-          <h3>imisofts</h3>
+          <!-- Logo for dark background -->
+          <div style="margin-bottom: 24px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" width="260" height="74" role="img" aria-label="imisofts logo">
+              <!-- Icon: dot at bottom-left, then two slanted tiles -->
+              <g fill="#F45407">
+                <circle cx="48" cy="170" r="18"/>
+                <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+                <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+              </g>
+              <!-- Wordmark -->
+              <g transform="translate(200,188)">
+                <text x="0" y="0"
+                      font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto"
+                      font-weight="700" font-size="96" letter-spacing="-0.5"
+                      fill="#FFFFFF">imisofts</text>
+              </g>
+            </svg>
+          </div>
           <p>The fastest digital execution partner. We ship AI automation, performance marketing, and web development that actually works.</p>
           <div class="footer-social">
             <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
@@ -2002,7 +2071,7 @@
       </div>
     </div>
   </footer>
-  
+
   <script>
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -2302,6 +2371,6 @@
       }
     });
   </script>
-  
+
 </body>
 </html>
