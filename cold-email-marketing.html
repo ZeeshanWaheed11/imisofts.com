@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Cold Email Marketing & Infrastructure | imisofts</title>
   <meta name="description" content="Professional cold email marketing and infrastructure setup for ambitious businesses. Private email servers, campaign automation, 95%+ inbox rates. Launch in 48 hours.">
   
@@ -15,11 +15,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <style>
+    /* Global overflow prevention */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      max-width: 100vw;
+    }
+    
+    html {
+      overflow-x: hidden;
     }
     
     body {
@@ -27,12 +33,16 @@
       color: #1a1a1a;
       overflow-x: hidden;
       line-height: 1.6;
+      width: 100%;
+      max-width: 100vw;
     }
     
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 20px;
+      width: 100%;
+      overflow-x: hidden;
     }
     
     /* ============= NAVBAR STYLES ============= */
@@ -952,16 +962,30 @@
     
     /* Mobile Styles */
     @media (max-width: 768px) {
+      /* Prevent horizontal scroll */
+      html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+      }
+      
       .container {
         padding: 0 16px;
+        max-width: 100%;
       }
       
       .navbar {
         background: rgba(255, 255, 255, 0.98) !important;
         backdrop-filter: blur(10px) !important;
         height: 72px;
+        width: 100%;
       }
       
+      /* Disable dropdown on mobile */
+      .nav-dropdown-menu {
+        display: none !important;
+      }
+      
+      /* Nav menu */
       .nav-menu {
         display: none;
       }
@@ -973,7 +997,8 @@
       .grid-2,
       .grid-3,
       .grid-4 {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
       }
       
       h1 {
@@ -982,13 +1007,189 @@
       }
       
       h2 {
-        font-size: 28px !important;
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+      }
+      
+      h3 {
+        font-size: 20px !important;
+      }
+      
+      p {
+        font-size: 16px !important;
       }
       
       .stats-grid {
         grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
       }
       
+      .stats-grid > div {
+        text-align: center;
+      }
+      
+      .stats-grid > div > div:first-child {
+        font-size: 20px !important;
+      }
+      
+      .stats-grid > div > div:last-child {
+        font-size: 12px !important;
+      }
+      
+      /* Hero Section Mobile */
+      .hero-section {
+        padding-top: 100px !important;
+        padding-bottom: 60px !important;
+      }
+      
+      .hero-section .grid {
+        gap: 32px !important;
+      }
+      
+      .hero-section h1 {
+        margin-bottom: 16px !important;
+      }
+      
+      .hero-section p {
+        margin-bottom: 20px !important;
+      }
+      
+      /* Fix hero badge */
+      .hero-section div[style*="display: inline-flex"] {
+        display: inline-flex !important;
+        flex-wrap: wrap !important;
+        max-width: 100% !important;
+      }
+      
+      /* Ensure text doesn't overflow */
+      .hero-section span {
+        word-break: break-word !important;
+      }
+      
+      .hero-buttons > a {
+        width: 100% !important;
+        text-align: center !important;
+      }
+      
+      /* Hero Metrics Card Mobile */
+      .hero-metrics {
+        position: relative !important;
+      }
+      
+      .hero-metrics > div {
+        padding: 24px 16px !important;
+      }
+      
+      .hero-metrics h3 {
+        font-size: 28px !important;
+      }
+      
+      /* Problem section cards */
+      #packages + section .grid {
+        gap: 12px !important;
+      }
+      
+      #packages + section .grid > div {
+        padding: 16px !important;
+      }
+      
+      /* Service cards */
+      .service-card {
+        padding: 20px !important;
+        margin-bottom: 0;
+      }
+      
+      /* Calculator Section */
+      .calculator-container {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0;
+      }
+      
+      .calculator-input-section,
+      .calculator-results-section {
+        padding: 1.5rem !important;
+      }
+      
+      .calc-form-group input {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+      }
+      
+      .email-count-display {
+        font-size: 2rem !important;
+      }
+      
+      .recommendation-box {
+        padding: 1rem !important;
+      }
+      
+      .recommendation-title {
+        font-size: 1.1rem !important;
+      }
+      
+      .recommendation-price {
+        font-size: 1.5rem !important;
+      }
+      
+      /* Service Toggle */
+      .service-toggle-container {
+        padding: 0.2rem !important;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto 2rem !important;
+      }
+      
+      .service-toggle-btn {
+        padding: 0.7rem 1.2rem !important;
+        font-size: 0.85rem !important;
+      }
+      
+      /* Package Cards */
+      #campaign-packages > div,
+      #infrastructure-packages > div {
+        padding: 24px !important;
+      }
+      
+      #campaign-packages h3,
+      #infrastructure-packages h3 {
+        font-size: 22px !important;
+      }
+      
+      #campaign-packages > div > div:nth-child(4) > span:first-child,
+      #infrastructure-packages > div > div:nth-child(4) > span:first-child {
+        font-size: 28px !important;
+      }
+      
+      /* Comparison Tables */
+      .comparison-table {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        margin: 1rem -16px !important;
+        padding: 0 16px !important;
+      }
+      
+      .comparison-table table {
+        min-width: 600px;
+      }
+      
+      .comparison-table th,
+      .comparison-table td {
+        padding: 0.75rem !important;
+        font-size: 13px !important;
+      }
+      
+      /* CTA Section Form */
+      #audit form > div {
+        grid-template-columns: 1fr !important;
+      }
+      
+      #audit input,
+      #audit select,
+      #audit button {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+      }
+      
+      /* Footer */
       .footer-grid {
         grid-template-columns: 1fr !important;
         gap: 32px !important;
@@ -999,44 +1200,101 @@
         text-align: center;
       }
       
+      .footer-bottom-links {
+        flex-direction: column;
+        gap: 12px !important;
+      }
+      
       .newsletter-form {
         flex-direction: column;
       }
       
+      .newsletter-input,
+      .newsletter-btn {
+        width: 100% !important;
+      }
+      
+      /* Section Padding */
       .section-padding {
         padding: 48px 0 !important;
       }
       
-      .calculator-container {
-        grid-template-columns: 1fr;
+      /* Hide overflow on specific sections */
+      section {
+        overflow-x: hidden !important;
       }
       
-      .service-toggle-btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
+      /* Fix popular/best value badges */
+      div[style*="position: absolute"][style*="top: -12px"] {
+        position: sticky !important;
+        top: 0 !important;
+        margin-bottom: 12px !important;
+        width: fit-content !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        transform: none !important;
+        left: auto !important;
       }
       
-      .comparison-table {
-        overflow-x: auto;
+      /* Fix problem section layout */
+      .section-padding:nth-of-type(2) .grid {
+        max-width: 100% !important;
+        margin: 0 auto 24px !important;
       }
       
-      .comparison-table table {
-        min-width: 600px;
-      }
-      
-      /* Adjust hero section for fixed navbar */
-      .hero-section {
-        padding-top: 100px !important;
+      /* Fix Package badges */
+      #campaign-packages > div,
+      #infrastructure-packages > div {
+        position: relative !important;
+        margin-top: 16px !important;
       }
     }
     
+    /* Tablet Styles */
     @media (min-width: 769px) and (max-width: 1024px) {
+      .container {
+        padding: 0 24px;
+      }
+      
       .grid-4 {
         grid-template-columns: repeat(2, 1fr);
       }
+      
+      .grid-3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .calculator-container {
+        gap: 1.5rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
     
-    /* Adjust first section for fixed navbar */
+    /* Large Tablet / Small Desktop */
+    @media (min-width: 1025px) and (max-width: 1280px) {
+      .container {
+        padding: 0 32px;
+      }
+    }
+    
+    /* Section overflow control */
+    section {
+      overflow: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
+    
+    /* Prevent any element from breaking layout */
+    div, span, p, h1, h2, h3, h4, h5, h6, ul, li, table {
+      max-width: 100%;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    
+    /* Adjust first section for fixed navbar on all screen sizes */
     body > section:first-of-type {
       margin-top: 72px;
     }
@@ -1298,7 +1556,7 @@
             Stop sharing servers with spammers. Get your own private email infrastructure with 7 professional inboxes per domain, complete authentication, and expert campaign management. From setup to scale in 48 hours.
           </p>
           
-          <div style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
+          <div class="hero-buttons" style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
             <a href="#packages" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px; transition: all 0.3s ease;">
               View Packages
             </a>
@@ -1327,7 +1585,7 @@
           </div>
         </div>
         
-        <div style="position: relative;">
+        <div class="hero-metrics" style="position: relative;">
           <div style="background: white; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
             <div style="text-align: center; margin-bottom: 32px;">
               <div style="font-size: 14px; color: #F45407; font-weight: 600; margin-bottom: 8px;">LIVE PERFORMANCE</div>
