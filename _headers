@@ -1,0 +1,13 @@
+/*
+  # Security Headers for imisofts.com
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), vr=(), accelerometer=(), gyroscope=(), magnetometer=(), midi=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://formspree.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io;
+
+/index.html
+  # Additional security for homepage
+  Cache-Control: public, max-age=3600
