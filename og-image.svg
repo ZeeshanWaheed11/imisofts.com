@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Background Pattern -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff5f2;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="none"/>
+      <circle cx="20" cy="20" r="1" fill="#F45407" opacity="0.05"/>
+    </pattern>
+  </defs>
+  
+  <!-- Grid pattern overlay -->
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Main logo (scaled appropriately) -->
+  <g transform="translate(100, 80)">
+    <!-- Icon: dot at bottom-left, then two slanted tiles -->
+    <g fill="#F45407">
+      <circle cx="24" cy="85" r="9"/>
+      <path d="M42,42 L68,42 L59,94 L33,94 Z"/>
+      <path d="M73,42 L99,42 L90,94 L64,94 Z"/>
+    </g>
+    <!-- Wordmark -->
+    <g transform="translate(120,94)">
+      <text x="0" y="0"
+            font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+            font-weight="700" font-size="48" letter-spacing="-1"
+            fill="#1a1a1a">imisofts</text>
+    </g>
+  </g>
+  
+  <!-- Main headline -->
+  <text x="100" y="280" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="64" font-weight="800" fill="#1a1a1a">
+    From idea to revenue
+  </text>
+  
+  <!-- Tagline continued -->
+  <text x="100" y="350" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="64" font-weight="800" fill="#F45407">
+    in 30 days
+  </text>
+  
+  <!-- Supporting text -->
+  <text x="100" y="420" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="24" font-weight="500" fill="#666">
+    AI automation, performance marketing, and web development
+  </text>
+  
+  <text x="100" y="455" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="24" font-weight="500" fill="#666">
+    that actually works.
+  </text>
+  
+  <!-- Decorative elements -->
+  <g transform="translate(800, 200)">
+    <!-- Central hub -->
+    <circle cx="140" cy="90" r="35" fill="#F45407" opacity="0.1"/>
+    <circle cx="140" cy="90" r="25" fill="white" stroke="#F45407" stroke-width="2"/>
+    
+    <!-- Connecting lines -->
+    <path d="M140 90 L80 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"/>
+    <path d="M140 90 L200 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"/>
+    <path d="M140 90 L80 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"/>
+    <path d="M140 90 L200 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"/>
+    
+    <!-- Service nodes -->
+    <rect x="60" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+    <rect x="180" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+    <rect x="60" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+    <rect x="180" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+    
+    <!-- Center icon -->
+    <g transform="translate(125, 75)">
+      <path d="M15 10l5 5-5 5M10 10l-5 5 5 5" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+  </g>
+  
+  <!-- Website URL -->
+  <text x="100" y="550" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="20" font-weight="600" fill="#F45407">
+    imisofts.com
+  </text>
+</svg>

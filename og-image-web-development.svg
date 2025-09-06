@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff5f2;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Subtle grid pattern -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="none"/>
+      <circle cx="20" cy="20" r="1" fill="#F45407" opacity="0.05"/>
+    </pattern>
+  </defs>
+  
+  <!-- Grid pattern overlay -->
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Logo (smaller for service pages) -->
+  <g transform="translate(100, 50)">
+    <g fill="#F45407">
+      <circle cx="18" cy="64" r="7"/>
+      <path d="M32,32 L51,32 L44,71 L25,71 Z"/>
+      <path d="M55,32 L74,32 L67,71 L48,71 Z"/>
+    </g>
+    <g transform="translate(90,71)">
+      <text x="0" y="0"
+            font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+            font-weight="700" font-size="36" letter-spacing="-0.5"
+            fill="#1a1a1a">imisofts</text>
+    </g>
+  </g>
+  
+  <!-- Service icon -->
+  <g transform="translate(100, 180)">
+    <rect x="0" y="0" width="80" height="80" rx="20" fill="#F45407" opacity="0.1"/>
+    <g transform="translate(20, 20)">
+      <!-- Code/Development icon -->
+      <path d="M14 9l-3 3 3 3M26 9l3 3-3 3" stroke="#F45407" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <rect x="6" y="6" width="28" height="20" rx="3" fill="none" stroke="#F45407" stroke-width="2"/>
+      <circle cx="10" cy="10" r="1" fill="#F45407"/>
+      <circle cx="14" cy="10" r="1" fill="#F45407"/>
+      <circle cx="18" cy="10" r="1" fill="#F45407"/>
+    </g>
+  </g>
+  
+  <!-- Main service title -->
+  <text x="220" y="220" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="56" font-weight="800" fill="#1a1a1a">
+    Web Development
+  </text>
+  
+  <text x="220" y="280" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="56" font-weight="800" fill="#F45407">
+    That Scales
+  </text>
+  
+  <!-- Service description -->
+  <text x="220" y="340" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="28" font-weight="500" fill="#666">
+    Fast, modern websites for
+  </text>
+  
+  <text x="220" y="380" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="28" font-weight="500" fill="#666">
+    ambitious companies
+  </text>
+  
+  <!-- Key features -->
+  <g transform="translate(220, 440)">
+    <text x="0" y="0" 
+          font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+          font-size="18" font-weight="600" fill="#F45407">
+      ✓ React/Next.js  ✓ Mobile First  ✓ SEO Optimized
+    </text>
+  </g>
+  
+  <!-- Code/Development visualization -->
+  <g transform="translate(750, 350)">
+    <!-- Browser window -->
+    <rect x="0" y="0" width="200" height="120" rx="6" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+    <!-- Browser header -->
+    <rect x="0" y="0" width="200" height="20" rx="6" fill="#f8f9fa"/>
+    <circle cx="10" cy="10" r="2" fill="#ff5f56"/>
+    <circle cx="20" cy="10" r="2" fill="#ffbd2e"/>
+    <circle cx="30" cy="10" r="2" fill="#27ca3f"/>
+    
+    <!-- Code lines -->
+    <g transform="translate(10, 30)">
+      <rect x="0" y="0" width="40" height="4" rx="1" fill="#F45407" opacity="0.3"/>
+      <rect x="0" y="8" width="60" height="4" rx="1" fill="#F45407" opacity="0.5"/>
+      <rect x="10" y="16" width="70" height="4" rx="1" fill="#F45407" opacity="0.7"/>
+      <rect x="10" y="24" width="50" height="4" rx="1" fill="#F45407"/>
+      <rect x="0" y="32" width="65" height="4" rx="1" fill="#F45407" opacity="0.4"/>
+      
+      <!-- Closing tags -->
+      <rect x="0" y="45" width="35" height="4" rx="1" fill="#666" opacity="0.3"/>
+      <rect x="0" y="53" width="30" height="4" rx="1" fill="#666" opacity="0.3"/>
+    </g>
+    
+    <!-- Tech stack labels -->
+    <text x="100" y="150" text-anchor="middle" 
+          font-family="Inter" font-size="14" font-weight="600" fill="#F45407">
+      Modern Tech Stack
+    </text>
+  </g>
+  
+  <!-- Website URL -->
+  <text x="100" y="580" 
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+        font-size="18" font-weight="600" fill="#F45407">
+    imisofts.com/web-development
+  </text>
+</svg>
