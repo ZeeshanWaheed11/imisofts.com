@@ -14,6 +14,94 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
+  <!-- Structured Data for AI Automation Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Automation Solutions",
+    "description": "Custom AI workflow automation, WhatsApp chatbots, document OCR, CRM automation, and intelligent process automation for businesses worldwide. Reduce manual work by 60-80%.",
+    "provider": {
+      "@type": "Organization",
+      "name": "imisofts",
+      "url": "https://imisofts.com"
+    },
+    "serviceType": "AI Automation Services",
+    "category": "Business Process Automation",
+    "areaServed": {
+      "@type": "GeoCircle", 
+      "name": "Global",
+      "description": "Worldwide AI automation services delivered remotely"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "AI Automation Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "WhatsApp Business Automation",
+            "description": "AI-powered WhatsApp chatbots for customer service, lead qualification, and automated responses"
+          }
+        },
+        {
+          "@type": "Offer", 
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Document Processing & OCR",
+            "description": "Automated document processing, OCR extraction, and intelligent data capture from PDFs and images"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service", 
+            "name": "CRM Workflow Automation",
+            "description": "Automated lead routing, follow-up sequences, and customer lifecycle management"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "E-commerce Automation",
+            "description": "Order processing, inventory management, and customer communication automation"
+          }
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Businesses seeking process automation"
+    },
+    "serviceOutput": {
+      "@type": "Thing",
+      "name": "Automated Business Processes",
+      "description": "Fully automated workflows that reduce manual work by 60-80%"
+    },
+    "offers": {
+      "@type": "Offer",
+      "description": "Custom AI automation solutions starting from consultation to full implementation",
+      "priceRange": "$5,000 - $50,000",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "deliveryLeadTime": "P30D",
+      "warranty": {
+        "@type": "WarrantyPromise",
+        "durationOfWarranty": "P90D",
+        "warrantyScope": "Full system support and maintenance"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "47",
+      "bestRating": "5"
+    }
+  }
+  </script>
+  
   <style>
     * {
       margin: 0;
@@ -1693,38 +1781,47 @@
         </p>
       </div>
       
-      <form style="max-width: 600px; margin: 0 auto;">
+      <form id="aiAutomationForm" action="https://formspree.io/f/mdklynpy" method="POST" style="max-width: 600px; margin: 0 auto;">
         <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="text" placeholder="Name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
-          <input type="text" placeholder="Company" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+          <input type="text" name="name" id="aiName" placeholder="Name" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="if(!this.value || this.style.borderColor !== '#dc3545') this.style.borderColor='transparent'" required>
+          <input type="text" name="company" id="aiCompany" placeholder="Company" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="if(!this.value || this.style.borderColor !== '#dc3545') this.style.borderColor='transparent'" required>
         </div>
         <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
-          <input type="tel" placeholder="Phone/WhatsApp" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;">
+          <input type="email" name="email" id="aiEmail" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="if(!this.value || this.style.borderColor !== '#dc3545') this.style.borderColor='transparent'" required>
+          <input type="tel" name="phone" id="aiPhone" placeholder="Phone/WhatsApp" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="if(!this.value || this.style.borderColor !== '#dc3545') this.style.borderColor='transparent'">
         </div>
-        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 16px; background: white;">
-          <option>What do you want to automate?</option>
-          <option>WhatsApp Customer Support</option>
-          <option>Lead Management & CRM</option>
-          <option>Document Processing (Emirates ID, VAT)</option>
-          <option>E-commerce Operations</option>
-          <option>Finance & Accounting</option>
-          <option>Everything - Full Transformation</option>
+        <select name="automation_type" id="aiAutomationType" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 16px; background: white; transition: border-color 0.3s; outline: none; cursor: pointer;" onfocus="this.style.borderColor='#F45407'" onblur="this.style.borderColor='transparent'" required>
+          <option value="">What do you want to automate?</option>
+          <option value="WhatsApp Customer Support">WhatsApp Customer Support</option>
+          <option value="Lead Management & CRM">Lead Management & CRM</option>
+          <option value="Document Processing (Emirates ID, VAT)">Document Processing (Emirates ID, VAT)</option>
+          <option value="E-commerce Operations">E-commerce Operations</option>
+          <option value="Finance & Accounting">Finance & Accounting</option>
+          <option value="Everything - Full Transformation">Everything - Full Transformation</option>
         </select>
-        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px; background: white;">
-          <option>Budget band</option>
-          <option>Under AED 25,000</option>
-          <option>AED 25,000 - 75,000</option>
-          <option>AED 75,000+</option>
+        <select name="budget" id="aiBudget" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 24px; background: white; transition: border-color 0.3s; outline: none; cursor: pointer;" onfocus="this.style.borderColor='#F45407'" onblur="this.style.borderColor='transparent'" required>
+          <option value="">Budget band</option>
+          <option value="Under $10,000">Under $10,000</option>
+          <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+          <option value="$25,000+">$25,000+</option>
         </select>
         
-        <button type="submit" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%;">
+        <!-- Validation Error Messages -->
+        <div id="aiValidationError" style="color: #dc3545; font-size: 14px; margin-bottom: 16px; display: none;"></div>
+        
+        <!-- Honeypot field for spam protection (hidden from users) -->
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <!-- Success redirect (optional) -->
+        <input type="hidden" name="_subject" value="New AI Automation Audit Request">
+        
+        <button type="submit" id="aiSubmitBtn" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: opacity 0.3s;">
           Book Your 20-min Audit →
         </button>
       </form>
       
       <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
-        <p style="font-size: 16px;">Prefer WhatsApp? Message us now: <a href="https://wa.me/971508851645" style="color: white; font-weight: 600;">+971 50 885 1645</a></p>
+        <p style="font-size: 16px;">Prefer WhatsApp? Message us now: <a href="https://wa.me/971558851645" style="color: white; font-weight: 600;">+971 55 885 1645</a></p>
         <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Limited to 5 audits per week. Currently booking mid-January.</p>
       </div>
     </div>
@@ -1873,6 +1970,126 @@
       alert('Thank you for subscribing! We\'ll be in touch soon.');
       event.target.reset();
     }
+    
+    // Form validation functions
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+    
+    function showFieldError(field, message) {
+      field.style.borderColor = '#dc3545';
+      const errorDiv = document.getElementById('aiValidationError');
+      errorDiv.style.display = 'block';
+      errorDiv.textContent = message;
+      field.focus();
+    }
+    
+    function clearFieldErrors() {
+      const fields = ['aiName', 'aiCompany', 'aiEmail', 'aiPhone', 'aiAutomationType', 'aiBudget'];
+      fields.forEach(id => {
+        const field = document.getElementById(id);
+        if (field) field.style.borderColor = 'transparent';
+      });
+      const errorDiv = document.getElementById('aiValidationError');
+      if (errorDiv) {
+        errorDiv.style.display = 'none';
+        errorDiv.textContent = '';
+      }
+    }
+    
+    // AI Automation Form Handler
+    document.getElementById('aiAutomationForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      // Clear previous errors
+      clearFieldErrors();
+      
+      // Get form values
+      const name = document.getElementById('aiName').value.trim();
+      const company = document.getElementById('aiCompany').value.trim();
+      const email = document.getElementById('aiEmail').value.trim();
+      const phone = document.getElementById('aiPhone').value.trim();
+      const automationType = document.getElementById('aiAutomationType').value;
+      const budget = document.getElementById('aiBudget').value;
+      
+      // Validate required fields
+      if (!name) {
+        showFieldError(document.getElementById('aiName'), 'Please enter your name');
+        return;
+      }
+      
+      if (!company) {
+        showFieldError(document.getElementById('aiCompany'), 'Please enter your company name');
+        return;
+      }
+      
+      if (!email || !validateEmail(email)) {
+        showFieldError(document.getElementById('aiEmail'), 'Please enter a valid email address');
+        return;
+      }
+      
+      if (!automationType) {
+        showFieldError(document.getElementById('aiAutomationType'), 'Please select what you want to automate');
+        return;
+      }
+      
+      if (!budget) {
+        showFieldError(document.getElementById('aiBudget'), 'Please select your budget band');
+        return;
+      }
+      
+      const form = e.target;
+      const submitBtn = document.getElementById('aiSubmitBtn');
+      const formData = new FormData(form);
+      
+      // Change button text to loading state
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Sending...';
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
+      
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Success
+          submitBtn.innerHTML = '✓ Sent Successfully!';
+          submitBtn.style.background = '#28a745';
+          submitBtn.style.color = 'white';
+          
+          // Reset form after 2 seconds
+          setTimeout(() => {
+            form.reset();
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.style.background = 'white';
+            submitBtn.style.color = '#F45407';
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '1';
+            
+            // Show success message
+            alert('Thank you for your submission! We\'ll contact you within 24 hours to schedule your AI automation audit.');
+          }, 2000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        // Error
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        
+        const errorDiv = document.getElementById('aiValidationError');
+        errorDiv.style.display = 'block';
+        errorDiv.textContent = 'Something went wrong. Please try again or contact us directly at growth@imisofts.com';
+      }
+    });
   </script>
   
 </body>

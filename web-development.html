@@ -14,6 +14,94 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
+  <!-- Structured Data for Web Development Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service", 
+    "name": "Web Development Services",
+    "description": "Modern web applications, responsive websites, and custom development solutions delivered in 30-90 days. Full-stack development with global service delivery.",
+    "provider": {
+      "@type": "Organization",
+      "name": "imisofts", 
+      "url": "https://imisofts.com"
+    },
+    "serviceType": "Web Development Company",
+    "category": "Software Development",
+    "areaServed": {
+      "@type": "GeoCircle",
+      "name": "Global",
+      "description": "Worldwide web development services delivered remotely"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Development Solutions",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service", 
+            "name": "Custom Web Applications",
+            "description": "Full-stack web applications built with modern frameworks like React, Vue, and Node.js"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Responsive Website Design", 
+            "description": "Mobile-first responsive websites optimized for all devices and browsers"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "API Development & Integration",
+            "description": "RESTful APIs, third-party integrations, and backend system development"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service", 
+            "name": "Website Maintenance & Support",
+            "description": "Ongoing maintenance, security updates, and performance optimization"
+          }
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience", 
+      "audienceType": "Businesses needing web development solutions"
+    },
+    "serviceOutput": {
+      "@type": "SoftwareApplication",
+      "name": "Custom Web Solutions",
+      "description": "Fully functional web applications and websites optimized for performance and user experience"
+    },
+    "offers": {
+      "@type": "Offer",
+      "description": "Custom web development from concept to deployment with ongoing support",
+      "priceRange": "$8,000 - $75,000", 
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "deliveryLeadTime": "P60D",
+      "warranty": {
+        "@type": "WarrantyPromise",
+        "durationOfWarranty": "P180D",
+        "warrantyScope": "Bug fixes and technical support"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9", 
+      "reviewCount": "38",
+      "bestRating": "5"
+    }
+  }
+  </script>
+  
   <style>
     * {
       margin: 0;
@@ -663,6 +751,26 @@
     
     .newsletter-btn:hover {
       background: #ff6b28;
+    }
+
+    /* Web Development Form Styles */
+    #webDevForm input:focus,
+    #webDevForm select:focus {
+      outline: none;
+      border-color: #F45407 !important;
+      box-shadow: 0 0 0 3px rgba(244, 84, 7, 0.1);
+    }
+
+    #webDevSubmitBtn:hover {
+      background: #f8f8f8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    #webDevSubmitBtn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
     }
     
     .footer-bottom {
@@ -1800,36 +1908,38 @@
         </p>
       </div>
       
-      <form action="https://formspree.io/f/meolgepd" method="POST" style="max-width: 600px; margin: 0 auto;">
+      <form id="webDevForm" action="https://formspree.io/f/mqadwzwj" method="POST" style="max-width: 600px; margin: 0 auto;">
+        <div id="webDevFormMessage" style="display: none; margin-bottom: 16px; padding: 12px; border-radius: 8px; text-align: center; font-weight: 600;"></div>
+        
+        <!-- Honeypot field -->
+        <input type="text" name="_gotcha" style="display: none;">
+        <input type="hidden" name="_subject" value="New Web Development Audit Request">
+        
         <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="text" name="name" placeholder="Name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
-          <input type="text" name="company" placeholder="Company" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+          <input type="text" id="webDevName" name="name" placeholder="Name" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+          <input type="text" id="webDevCompany" name="company" placeholder="Company" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
         </div>
         <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="email" name="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
-          <input type="tel" name="phone" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;">
+          <input type="email" id="webDevEmail" name="email" placeholder="Work email" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+          <input type="tel" id="webDevPhone" name="phone" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
         </div>
-        <input type="url" name="website" placeholder="Current website URL (if any)" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 16px;">
-        <select name="project_type" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px; background: white;">
-          <option>Project type</option>
-          <option>New website from scratch</option>
-          <option>Redesign existing site</option>
-          <option>Web application</option>
-          <option>E-commerce platform</option>
-          <option>Not sure yet</option>
+        <input type="url" id="webDevWebsite" name="website" placeholder="Current website URL (if any)" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+        <select id="webDevProjectType" name="project_type" required style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 24px; background: white; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+          <option value="">Select Project Type</option>
+          <option value="New website from scratch">New website from scratch</option>
+          <option value="Redesign existing site">Redesign existing site</option>
+          <option value="Web application">Web application</option>
+          <option value="E-commerce platform">E-commerce platform</option>
+          <option value="Not sure yet">Not sure yet</option>
         </select>
         
-        <!-- Hidden fields for tracking -->
-        <input type="hidden" name="_subject" value="New Web Development Audit Request">
-        <input type="text" name="_gotcha" style="display:none">
-        
-        <button type="submit" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%;">
+        <button type="submit" id="webDevSubmitBtn" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: all 0.3s ease;">
           Get Your Free Audit →
         </button>
       </form>
       
       <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
-        <p style="font-size: 16px;">Or call us directly: <a href="tel:+971508851645" style="color: white; font-weight: 600;">+971 50 885 1645</a></p>
+        <p style="font-size: 16px;">Or call us directly: <a href="tel:+971558851645" style="color: white; font-weight: 600;">+971 55 885 1645</a></p>
         <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Free audit includes performance analysis, SEO review, and improvement roadmap</p>
       </div>
     </div>
@@ -1938,7 +2048,7 @@
           <div style="margin-top: 24px;">
             <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Contact us directly:</p>
             <p style="font-size: 15px; color: white;">growth@imisofts.com</p>
-            <p style="font-size: 15px; color: white;">+971 50 885 1645</p>
+            <p style="font-size: 15px; color: white;">+971 55 885 1645</p>
           </div>
         </div>
       </div>
@@ -2031,6 +2141,104 @@
         submitBtn.innerHTML = originalBtnText;
         submitBtn.disabled = false;
         submitBtn.style.opacity = '1';
+      }
+    });
+
+    // Web Development Form Handler
+    document.getElementById('webDevForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = document.getElementById('webDevSubmitBtn');
+      const formMessage = document.getElementById('webDevFormMessage');
+      const nameInput = document.getElementById('webDevName');
+      const companyInput = document.getElementById('webDevCompany');
+      const emailInput = document.getElementById('webDevEmail');
+      const projectTypeInput = document.getElementById('webDevProjectType');
+      
+      // Validate required fields
+      let isValid = true;
+      let errorMessage = '';
+      
+      if (!nameInput.value.trim()) {
+        isValid = false;
+        errorMessage = 'Please enter your name';
+        nameInput.focus();
+      } else if (!companyInput.value.trim()) {
+        isValid = false;
+        errorMessage = 'Please enter your company name';
+        companyInput.focus();
+      } else if (!emailInput.value.trim()) {
+        isValid = false;
+        errorMessage = 'Please enter your email address';
+        emailInput.focus();
+      } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailInput.value)) {
+        isValid = false;
+        errorMessage = 'Please enter a valid email address';
+        emailInput.focus();
+      } else if (!projectTypeInput.value) {
+        isValid = false;
+        errorMessage = 'Please select a project type';
+        projectTypeInput.focus();
+      }
+      
+      if (!isValid) {
+        formMessage.style.display = 'block';
+        formMessage.style.background = '#f8d7da';
+        formMessage.style.color = '#721c24';
+        formMessage.style.border = '1px solid #f5c6cb';
+        formMessage.innerHTML = errorMessage;
+        return;
+      }
+      
+      const formData = new FormData(form);
+      
+      // Change button text to loading state
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Requesting audit...';
+      submitBtn.disabled = true;
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Success
+          formMessage.style.display = 'block';
+          formMessage.style.background = '#d4edda';
+          formMessage.style.color = '#155724';
+          formMessage.style.border = '1px solid #c3e6cb';
+          formMessage.innerHTML = '✅ Audit request sent successfully! We\'ll send your free audit within 24 hours.';
+          form.reset();
+          
+          // Hide message after 8 seconds
+          setTimeout(() => {
+            formMessage.style.display = 'none';
+          }, 8000);
+        } else {
+          // Error
+          formMessage.style.display = 'block';
+          formMessage.style.background = '#f8d7da';
+          formMessage.style.color = '#721c24';
+          formMessage.style.border = '1px solid #f5c6cb';
+          formMessage.innerHTML = 'There was an error sending your request. Please try again or call us directly.';
+        }
+      } catch (error) {
+        // Network error
+        formMessage.style.display = 'block';
+        formMessage.style.background = '#f8d7da';
+        formMessage.style.color = '#721c24';
+        formMessage.style.border = '1px solid #f5c6cb';
+        formMessage.innerHTML = 'Connection error. Please check your internet connection and try again.';
+      } finally {
+        // Reset button
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
       }
     });
   </script>

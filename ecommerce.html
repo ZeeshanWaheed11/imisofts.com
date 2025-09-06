@@ -14,6 +14,84 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
+  <!-- Structured Data for E-commerce Development Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "E-commerce Development Services",
+    "description": "Complete e-commerce solutions, online stores, and payment integration with conversion optimization. Build high-converting Shopify stores that scale globally.",
+    "provider": {
+      "@type": "Organization",
+      "name": "imisofts",
+      "url": "https://imisofts.com"
+    },
+    "serviceType": "E-commerce Development",
+    "category": "Online Store Development",
+    "areaServed": {
+      "@type": "GeoCircle",
+      "name": "Global",
+      "description": "Worldwide e-commerce development services"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "E-commerce Solutions",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Shopify Store Development",
+            "description": "Custom Shopify stores with theme customization, app integration, and conversion optimization"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Multi-Currency & Payment Setup",
+            "description": "Global payment gateway integration with multi-currency support and COD options"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "E-commerce Automation",
+            "description": "Order processing, inventory management, and customer communication automation"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Store Migration & Optimization",
+            "description": "Platform migration and performance optimization for existing e-commerce stores"
+          }
+        }
+      ]
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Businesses seeking e-commerce solutions"
+    },
+    "offers": {
+      "@type": "Offer",
+      "description": "Complete e-commerce development from store setup to optimization",
+      "priceRange": "$5,000 - $35,000",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "deliveryLeadTime": "P28D"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "41",
+      "bestRating": "5"
+    }
+  }
+  </script>
+  
   <style>
     * {
       margin: 0;
@@ -666,6 +744,26 @@
     
     .newsletter-btn:hover {
       background: #ff6b28;
+    }
+
+    /* Ecommerce Form Styles */
+    #ecommerceForm input:focus,
+    #ecommerceForm select:focus {
+      outline: none;
+      border-color: #F45407 !important;
+      box-shadow: 0 0 0 3px rgba(244, 84, 7, 0.1);
+    }
+
+    #ecommerceSubmitBtn:hover {
+      background: #f8f8f8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    #ecommerceSubmitBtn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
     }
     
     .footer-bottom {
@@ -1596,38 +1694,44 @@
         </p>
       </div>
       
-      <form style="max-width: 600px; margin: 0 auto;">
+      <form id="ecommerceForm" action="https://formspree.io/f/xandawav" method="POST" style="max-width: 600px; margin: 0 auto;">
+        <div id="ecommerceFormMessage" style="display: none; margin-bottom: 16px; padding: 12px; border-radius: 8px; text-align: center; font-weight: 600;"></div>
+        
+        <!-- Honeypot field -->
+        <input type="text" name="_gotcha" style="display: none;">
+        <input type="hidden" name="_subject" value="New Ecommerce Store Audit Request">
+        
         <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="text" placeholder="Name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
-          <input type="text" placeholder="Company" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
+          <input type="text" id="ecommerceName" name="name" placeholder="Name" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+          <input type="text" id="ecommerceCompany" name="company" placeholder="Company" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
         </div>
         <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;" required>
-          <input type="tel" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px; width: 100%;">
+          <input type="email" id="ecommerceEmail" name="email" placeholder="Work email" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+          <input type="tel" id="ecommercePhone" name="phone" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
         </div>
-        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 16px; background: white;">
-          <option>Current situation</option>
-          <option>No store yet</option>
-          <option>Have a store, need optimization</option>
-          <option>Migrating from another platform</option>
-          <option>Scaling existing operations</option>
+        <select id="ecommerceSituation" name="current_situation" required style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 16px; background: white; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+          <option value="">Select Current Situation</option>
+          <option value="No store yet">No store yet</option>
+          <option value="Have a store, need optimization">Have a store, need optimization</option>
+          <option value="Migrating from another platform">Migrating from another platform</option>
+          <option value="Scaling existing operations">Scaling existing operations</option>
         </select>
-        <select style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px; background: white;">
-          <option>Monthly revenue</option>
-          <option>Not launched yet</option>
-          <option>$0 - $10,000</option>
-          <option>$10,000 - $50,000</option>
-          <option>$50,000 - $200,000</option>
-          <option>$200,000+</option>
+        <select id="ecommerceRevenue" name="monthly_revenue" required style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 24px; background: white; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+          <option value="">Select Monthly Revenue</option>
+          <option value="Not launched yet">Not launched yet</option>
+          <option value="$0 - $10,000">$0 - $10,000</option>
+          <option value="$10,000 - $50,000">$10,000 - $50,000</option>
+          <option value="$50,000 - $200,000">$50,000 - $200,000</option>
+          <option value="$200,000+">$200,000+</option>
         </select>
         
-        <button type="submit" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%;">
+        <button type="submit" id="ecommerceSubmitBtn" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: all 0.3s ease;">
           Get Your Free Audit →
         </button>
       </form>
       
       <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
-        <p style="font-size: 16px;">Or call us directly: <a href="tel:+1234567890" style="color: white; font-weight: 600;">+1 (234) 567-890</a></p>
+        <p style="font-size: 16px;">Questions? WhatsApp us: <a href="https://wa.me/971558851645" style="color: white; font-weight: 600;">+971 55 885 1645</a></p>
         <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Free audit includes conversion analysis, competitor research, and growth roadmap</p>
       </div>
     </div>
@@ -1736,7 +1840,7 @@
           <div style="margin-top: 24px;">
             <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Contact us directly:</p>
             <p style="font-size: 15px; color: white;">growth@imisofts.com</p>
-            <p style="font-size: 15px; color: white;">+971 50 885 1645</p>
+            <p style="font-size: 15px; color: white;">+971 55 885 1645</p>
           </div>
         </div>
       </div>
@@ -1771,6 +1875,109 @@
       const mobileMenu = document.getElementById('mobileMenu');
       mobileMenu.classList.toggle('active');
     }
+
+    // Ecommerce Form Handler
+    document.getElementById('ecommerceForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = document.getElementById('ecommerceSubmitBtn');
+      const formMessage = document.getElementById('ecommerceFormMessage');
+      const nameInput = document.getElementById('ecommerceName');
+      const companyInput = document.getElementById('ecommerceCompany');
+      const emailInput = document.getElementById('ecommerceEmail');
+      const situationInput = document.getElementById('ecommerceSituation');
+      const revenueInput = document.getElementById('ecommerceRevenue');
+      
+      // Validate required fields
+      let isValid = true;
+      let errorMessage = '';
+      
+      if (!nameInput.value.trim()) {
+        isValid = false;
+        errorMessage = 'Please enter your name';
+        nameInput.focus();
+      } else if (!companyInput.value.trim()) {
+        isValid = false;
+        errorMessage = 'Please enter your company name';
+        companyInput.focus();
+      } else if (!emailInput.value.trim()) {
+        isValid = false;
+        errorMessage = 'Please enter your email address';
+        emailInput.focus();
+      } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailInput.value)) {
+        isValid = false;
+        errorMessage = 'Please enter a valid email address';
+        emailInput.focus();
+      } else if (!situationInput.value) {
+        isValid = false;
+        errorMessage = 'Please select your current situation';
+        situationInput.focus();
+      } else if (!revenueInput.value) {
+        isValid = false;
+        errorMessage = 'Please select your monthly revenue range';
+        revenueInput.focus();
+      }
+      
+      if (!isValid) {
+        formMessage.style.display = 'block';
+        formMessage.style.background = '#f8d7da';
+        formMessage.style.color = '#721c24';
+        formMessage.style.border = '1px solid #f5c6cb';
+        formMessage.innerHTML = errorMessage;
+        return;
+      }
+      
+      const formData = new FormData(form);
+      
+      // Change button text to loading state
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Requesting audit...';
+      submitBtn.disabled = true;
+      
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (response.ok) {
+          // Success
+          formMessage.style.display = 'block';
+          formMessage.style.background = '#d4edda';
+          formMessage.style.color = '#155724';
+          formMessage.style.border = '1px solid #c3e6cb';
+          formMessage.innerHTML = '✅ Audit request sent successfully! We\'ll send your custom roadmap within 48 hours.';
+          form.reset();
+          
+          // Hide message after 8 seconds
+          setTimeout(() => {
+            formMessage.style.display = 'none';
+          }, 8000);
+        } else {
+          // Error
+          formMessage.style.display = 'block';
+          formMessage.style.background = '#f8d7da';
+          formMessage.style.color = '#721c24';
+          formMessage.style.border = '1px solid #f5c6cb';
+          formMessage.innerHTML = 'There was an error sending your request. Please try again or contact us directly.';
+        }
+      } catch (error) {
+        // Network error
+        formMessage.style.display = 'block';
+        formMessage.style.background = '#f8d7da';
+        formMessage.style.color = '#721c24';
+        formMessage.style.border = '1px solid #f5c6cb';
+        formMessage.innerHTML = 'Connection error. Please check your internet connection and try again.';
+      } finally {
+        // Reset button
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      }
+    });
   </script>
   
 </body>
