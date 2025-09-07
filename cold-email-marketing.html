@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cold Email Marketing & Infrastructure | imisofts</title>
   <meta name="description" content="Professional cold email marketing and infrastructure setup for ambitious businesses. Private email servers, campaign automation, 95%+ inbox rates. Launch in 48 hours.">
   
@@ -11,7 +11,7 @@
   <meta property="og:title" content="Cold Email Marketing & Infrastructure | imisofts">
   <meta property="og:description" content="Professional cold email marketing and infrastructure setup for ambitious businesses. Private email servers, campaign automation, 95%+ inbox rates. Launch in 48 hours.">
   <meta property="og:url" content="https://imisofts.com/cold-email-marketing">
-  <meta property="og:image" content="https://imisofts.com/og-image-cold-email-marketing.jpg">
+  <meta property="og:image" content="https://imisofts.com/og-image-cold-email.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:site_name" content="imisofts">
@@ -19,11 +19,14 @@
   
   <!-- Twitter Card Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cold Email Marketing & Infrastructure">
+  <meta name="twitter:title" content="Cold Email Marketing & Infrastructure | imisofts">
   <meta name="twitter:description" content="Professional cold email marketing and infrastructure setup for ambitious businesses. Private email servers, campaign automation, 95%+ inbox rates. Launch in 48 hours.">
-  <meta name="twitter:image" content="https://imisofts.com/og-image-cold-email-marketing.jpg">
+  <meta name="twitter:image" content="https://imisofts.com/og-image-cold-email.jpg">
   <meta name="twitter:site" content="@imisofts">
   <meta name="twitter:creator" content="@imisofts">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://imisofts.com/cold-email-marketing">
   
   <!-- Favicon using inline SVG data URL -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
@@ -38,83 +41,67 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Cold Email Marketing Systems",
-    "description": "Professional cold email campaigns and lead generation systems with high deliverability and conversion rates. Global B2B outreach services with 95%+ inbox rates.",
+    "name": "Cold Email Marketing & Infrastructure",
+    "description": "Professional cold email marketing and infrastructure setup for ambitious businesses. Private email servers, campaign automation, 95%+ inbox rates. Launch in 48 hours.",
     "provider": {
       "@type": "Organization",
       "name": "imisofts",
-      "url": "https://imisofts.com"
+      "url": "https://imisofts.com",
+      "logo": "https://imisofts.com/logo.svg"
     },
-    "serviceType": "Email Marketing Services",
-    "category": "Lead Generation",
+    "serviceType": "Cold Email Marketing",
     "areaServed": {
       "@type": "GeoCircle",
       "name": "Global",
-      "description": "Worldwide cold email marketing services"
+      "description": "We serve clients worldwide with remote cold email marketing services"
+    },
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "USD",
+      "price": "1497",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "1497",
+        "priceCurrency": "USD",
+        "billingPeriod": "P1M"
+      }
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Cold Email Marketing Solutions",
+      "name": "Cold Email Marketing Packages",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Cold Email Infrastructure Setup",
-            "description": "Complete cold email infrastructure with domain setup, email warming, and deliverability optimization"
-          }
+            "name": "Foundation Package",
+            "description": "2 domains + 14 inboxes, complete authentication setup, IP warming, basic analytics"
+          },
+          "price": "1497",
+          "priceCurrency": "USD"
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Lead List Building & Research",
-            "description": "Targeted prospect research and qualified lead database creation with contact verification"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Email Sequence Writing",
-            "description": "High-converting email copy and automated follow-up sequences"
-          }
+            "name": "Accelerator Package",
+            "description": "5 domains + 35 inboxes, advanced IP warming, custom sequences, A/B testing"
+          },
+          "price": "2997",
+          "priceCurrency": "USD"
         }
       ]
-    },
-    "audience": {
-      "@type": "BusinessAudience",
-      "audienceType": "B2B companies seeking lead generation"
-    },
-    "offers": {
-      "@type": "Offer",
-      "description": "Complete cold email marketing system from setup to campaign management",
-      "priceRange": "$3,500 - $15,000",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock",
-      "deliveryLeadTime": "P21D"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.7",
-      "reviewCount": "29",
-      "bestRating": "5"
     }
   }
   </script>
   
   <style>
-    /* Global overflow prevention */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      max-width: 100vw;
-    }
-    
-    html {
-      overflow-x: hidden;
     }
     
     body {
@@ -122,16 +109,12 @@
       color: #1a1a1a;
       overflow-x: hidden;
       line-height: 1.6;
-      width: 100%;
-      max-width: 100vw;
     }
     
     .container {
       max-width: 1280px;
       margin: 0 auto;
       padding: 0 20px;
-      width: 100%;
-      overflow-x: hidden;
     }
     
     /* ============= NAVBAR STYLES ============= */
@@ -652,26 +635,6 @@
     .newsletter-btn:hover {
       background: #ff6b28;
     }
-
-    /* Cold Email Form Styles */
-    #coldEmailForm input:focus,
-    #coldEmailForm select:focus {
-      outline: none;
-      border-color: #F45407 !important;
-      box-shadow: 0 0 0 3px rgba(244, 84, 7, 0.1);
-    }
-
-    #coldEmailSubmitBtn:hover {
-      background: #f8f8f8;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-
-    #coldEmailSubmitBtn:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: none;
-    }
     
     .footer-bottom {
       padding-top: 40px;
@@ -1071,30 +1034,16 @@
     
     /* Mobile Styles */
     @media (max-width: 768px) {
-      /* Prevent horizontal scroll */
-      html, body {
-        overflow-x: hidden !important;
-        width: 100% !important;
-      }
-      
       .container {
         padding: 0 16px;
-        max-width: 100%;
       }
       
       .navbar {
         background: rgba(255, 255, 255, 0.98) !important;
         backdrop-filter: blur(10px) !important;
         height: 72px;
-        width: 100%;
       }
       
-      /* Disable dropdown on mobile */
-      .nav-dropdown-menu {
-        display: none !important;
-      }
-      
-      /* Nav menu */
       .nav-menu {
         display: none;
       }
@@ -1106,8 +1055,7 @@
       .grid-2,
       .grid-3,
       .grid-4 {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
+        grid-template-columns: 1fr;
       }
       
       h1 {
@@ -1116,189 +1064,13 @@
       }
       
       h2 {
-        font-size: 26px !important;
-        line-height: 1.3 !important;
-      }
-      
-      h3 {
-        font-size: 20px !important;
-      }
-      
-      p {
-        font-size: 16px !important;
+        font-size: 28px !important;
       }
       
       .stats-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
       }
       
-      .stats-grid > div {
-        text-align: center;
-      }
-      
-      .stats-grid > div > div:first-child {
-        font-size: 20px !important;
-      }
-      
-      .stats-grid > div > div:last-child {
-        font-size: 12px !important;
-      }
-      
-      /* Hero Section Mobile */
-      .hero-section {
-        padding-top: 100px !important;
-        padding-bottom: 60px !important;
-      }
-      
-      .hero-section .grid {
-        gap: 32px !important;
-      }
-      
-      .hero-section h1 {
-        margin-bottom: 16px !important;
-      }
-      
-      .hero-section p {
-        margin-bottom: 20px !important;
-      }
-      
-      /* Fix hero badge */
-      .hero-section div[style*="display: inline-flex"] {
-        display: inline-flex !important;
-        flex-wrap: wrap !important;
-        max-width: 100% !important;
-      }
-      
-      /* Ensure text doesn't overflow */
-      .hero-section span {
-        word-break: break-word !important;
-      }
-      
-      .hero-buttons > a {
-        width: 100% !important;
-        text-align: center !important;
-      }
-      
-      /* Hero Metrics Card Mobile */
-      .hero-metrics {
-        position: relative !important;
-      }
-      
-      .hero-metrics > div {
-        padding: 24px 16px !important;
-      }
-      
-      .hero-metrics h3 {
-        font-size: 28px !important;
-      }
-      
-      /* Problem section cards */
-      #packages + section .grid {
-        gap: 12px !important;
-      }
-      
-      #packages + section .grid > div {
-        padding: 16px !important;
-      }
-      
-      /* Service cards */
-      .service-card {
-        padding: 20px !important;
-        margin-bottom: 0;
-      }
-      
-      /* Calculator Section */
-      .calculator-container {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        padding: 0;
-      }
-      
-      .calculator-input-section,
-      .calculator-results-section {
-        padding: 1.5rem !important;
-      }
-      
-      .calc-form-group input {
-        font-size: 16px !important; /* Prevent zoom on iOS */
-      }
-      
-      .email-count-display {
-        font-size: 2rem !important;
-      }
-      
-      .recommendation-box {
-        padding: 1rem !important;
-      }
-      
-      .recommendation-title {
-        font-size: 1.1rem !important;
-      }
-      
-      .recommendation-price {
-        font-size: 1.5rem !important;
-      }
-      
-      /* Service Toggle */
-      .service-toggle-container {
-        padding: 0.2rem !important;
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto 2rem !important;
-      }
-      
-      .service-toggle-btn {
-        padding: 0.7rem 1.2rem !important;
-        font-size: 0.85rem !important;
-      }
-      
-      /* Package Cards */
-      #campaign-packages > div,
-      #infrastructure-packages > div {
-        padding: 24px !important;
-      }
-      
-      #campaign-packages h3,
-      #infrastructure-packages h3 {
-        font-size: 22px !important;
-      }
-      
-      #campaign-packages > div > div:nth-child(4) > span:first-child,
-      #infrastructure-packages > div > div:nth-child(4) > span:first-child {
-        font-size: 28px !important;
-      }
-      
-      /* Comparison Tables */
-      .comparison-table {
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch;
-        margin: 1rem -16px !important;
-        padding: 0 16px !important;
-      }
-      
-      .comparison-table table {
-        min-width: 600px;
-      }
-      
-      .comparison-table th,
-      .comparison-table td {
-        padding: 0.75rem !important;
-        font-size: 13px !important;
-      }
-      
-      /* CTA Section Form */
-      #audit form > div {
-        grid-template-columns: 1fr !important;
-      }
-      
-      #audit input,
-      #audit select,
-      #audit button {
-        font-size: 16px !important; /* Prevent zoom on iOS */
-      }
-      
-      /* Footer */
       .footer-grid {
         grid-template-columns: 1fr !important;
         gap: 32px !important;
@@ -1309,101 +1081,44 @@
         text-align: center;
       }
       
-      .footer-bottom-links {
-        flex-direction: column;
-        gap: 12px !important;
-      }
-      
       .newsletter-form {
         flex-direction: column;
       }
       
-      .newsletter-input,
-      .newsletter-btn {
-        width: 100% !important;
-      }
-      
-      /* Section Padding */
       .section-padding {
         padding: 48px 0 !important;
       }
       
-      /* Hide overflow on specific sections */
-      section {
-        overflow-x: hidden !important;
+      .calculator-container {
+        grid-template-columns: 1fr;
       }
       
-      /* Fix popular/best value badges */
-      div[style*="position: absolute"][style*="top: -12px"] {
-        position: sticky !important;
-        top: 0 !important;
-        margin-bottom: 12px !important;
-        width: fit-content !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        transform: none !important;
-        left: auto !important;
+      .service-toggle-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
       }
       
-      /* Fix problem section layout */
-      .section-padding:nth-of-type(2) .grid {
-        max-width: 100% !important;
-        margin: 0 auto 24px !important;
+      .comparison-table {
+        overflow-x: auto;
       }
       
-      /* Fix Package badges */
-      #campaign-packages > div,
-      #infrastructure-packages > div {
-        position: relative !important;
-        margin-top: 16px !important;
+      .comparison-table table {
+        min-width: 600px;
+      }
+      
+      /* Adjust hero section for fixed navbar */
+      .hero-section {
+        padding-top: 100px !important;
       }
     }
     
-    /* Tablet Styles */
     @media (min-width: 769px) and (max-width: 1024px) {
-      .container {
-        padding: 0 24px;
-      }
-      
       .grid-4 {
         grid-template-columns: repeat(2, 1fr);
       }
-      
-      .grid-3 {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-      
-      .calculator-container {
-        gap: 1.5rem;
-      }
-      
-      .stats-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
     }
     
-    /* Large Tablet / Small Desktop */
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      .container {
-        padding: 0 32px;
-      }
-    }
-    
-    /* Section overflow control */
-    section {
-      overflow: hidden;
-      width: 100%;
-      max-width: 100vw;
-    }
-    
-    /* Prevent any element from breaking layout */
-    div, span, p, h1, h2, h3, h4, h5, h6, ul, li, table {
-      max-width: 100%;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
-    
-    /* Adjust first section for fixed navbar on all screen sizes */
+    /* Adjust first section for fixed navbar */
     body > section:first-of-type {
       margin-top: 72px;
     }
@@ -1442,7 +1157,7 @@
           <div class="nav-dropdown" id="servicesDropdown">
             <div class="nav-link nav-dropdown-toggle">
               Services
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </div>
@@ -1450,7 +1165,7 @@
               <div class="dropdown-grid">
                 <a href="/ai-automation" class="dropdown-item">
                   <div class="dropdown-item-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                   </div>
@@ -1462,7 +1177,7 @@
                 
                 <a href="/digital-marketing" class="dropdown-item">
                   <div class="dropdown-item-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
                   </div>
@@ -1474,7 +1189,7 @@
                 
                 <a href="/cold-email-marketing" class="dropdown-item current-page">
                   <div class="dropdown-item-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                   </div>
@@ -1486,7 +1201,7 @@
                 
                 <a href="/ecommerce" class="dropdown-item">
                   <div class="dropdown-item-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
                   </div>
@@ -1498,7 +1213,7 @@
                 
                 <a href="/web-development" class="dropdown-item">
                   <div class="dropdown-item-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                     </svg>
                   </div>
@@ -1510,7 +1225,7 @@
                 
                 <a href="/crm-development" class="dropdown-item">
                   <div class="dropdown-item-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                     </svg>
                   </div>
@@ -1522,7 +1237,7 @@
                 
                 <a href="/shopify-apps" class="dropdown-item">
                   <div class="dropdown-item-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
                     </svg>
                   </div>
@@ -1534,7 +1249,7 @@
                 
                 <a href="/ai-mobile-apps" class="dropdown-item">
                   <div class="dropdown-item-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
                     </svg>
                   </div>
@@ -1641,7 +1356,6 @@
     </div>
   </nav>
   
-  <main>
   <!-- Hero Section -->
   <section class="section-padding hero-section" style="background: linear-gradient(to bottom, #ffffff, #f9fafb);">
     <div class="container">
@@ -1666,7 +1380,7 @@
             Stop sharing servers with spammers. Get your own private email infrastructure with 7 professional inboxes per domain, complete authentication, and expert campaign management. From setup to scale in 48 hours.
           </p>
           
-          <div class="hero-buttons" style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
+          <div style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
             <a href="#packages" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px; transition: all 0.3s ease;">
               View Packages
             </a>
@@ -1695,7 +1409,7 @@
           </div>
         </div>
         
-        <div class="hero-metrics" style="position: relative;">
+        <div style="position: relative;">
           <div style="background: white; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
             <div style="text-align: center; margin-bottom: 32px;">
               <div style="font-size: 14px; color: #F45407; font-weight: 600; margin-bottom: 8px;">LIVE PERFORMANCE</div>
@@ -2662,23 +2376,17 @@
         </p>
       </div>
       
-      <form id="coldEmailForm" action="https://formspree.io/f/mjkejbjp" method="POST" style="max-width: 600px; margin: 0 auto;">
-        <div id="coldEmailFormMessage" style="display: none; margin-bottom: 16px; padding: 12px; border-radius: 8px; text-align: center; font-weight: 600;"></div>
-        
-        <!-- Honeypot field -->
-        <input type="text" name="_gotcha" style="display: none;">
-        <input type="hidden" name="_subject" value="New Cold Email Marketing Audit Request">
-        
+      <form action="https://formspree.io/f/mjkejbjp" method="POST" style="max-width: 600px; margin: 0 auto;" id="contactForm">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="text" id="coldEmailName" name="name" placeholder="Name" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <input type="text" id="coldEmailCompany" name="company" placeholder="Company" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+          <input type="text" name="name" placeholder="Name" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;" required>
+          <input type="text" name="company" placeholder="Company" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;" required>
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="email" id="coldEmailEmail" name="email" placeholder="Work email" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <input type="tel" id="coldEmailPhone" name="phone" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+          <input type="email" name="email" placeholder="Work email" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;" required>
+          <input type="tel" name="phone" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: none; font-size: 16px;">
         </div>
-        <input type="number" id="coldEmailVolume" name="daily_email_volume" placeholder="How many emails do you send per day?" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 16px; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-        <select id="coldEmailGoal" name="main_goal" required style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 24px; background: white; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+        <input type="number" name="daily_emails" placeholder="How many emails do you send per day?" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 16px;">
+        <select name="goal" style="width: 100%; padding: 12px; border-radius: 8px; border: none; font-size: 16px; margin-bottom: 24px; background: white;">
           <option value="">What's your main goal?</option>
           <option value="Generate more leads">Generate more leads</option>
           <option value="Fix deliverability issues">Fix deliverability issues</option>
@@ -2687,18 +2395,26 @@
           <option value="Not sure yet">Not sure yet</option>
         </select>
         
-        <button type="submit" id="coldEmailSubmitBtn" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: all 0.3s ease;">
+        <!-- Honeypot field for spam protection (hidden from users) -->
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <!-- Form subject -->
+        <input type="hidden" name="_subject" value="New Cold Email Audit Request">
+        
+        <button type="submit" id="submitBtn" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: all 0.3s ease;">
           Get Your Free Audit
         </button>
+        
+        <!-- Success/Error Messages -->
+        <div id="formMessage" style="margin-top: 20px; padding: 16px; border-radius: 8px; display: none; text-align: center; font-weight: 600;"></div>
       </form>
       
       <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
-        <p style="font-size: 16px;">Questions? WhatsApp us: <a href="https://wa.me/971558851645" style="color: white; font-weight: 600;">+971 55 885 1645</a></p>
+        <p style="font-size: 16px;">Or message us on WhatsApp: <a href="https://wa.me/971558851645" style="color: white; font-weight: 600;">+971 55 885 1645</a></p>
         <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Free audit includes deliverability analysis, campaign review, and improvement roadmap</p>
       </div>
     </div>
   </section>
-  </main>
   
   <!-- ============= FOOTER ============= -->
   <footer class="footer">
@@ -2727,22 +2443,22 @@
           <p>The fastest digital execution partner. We ship AI automation, performance marketing, and web development that actually works.</p>
           <div class="footer-social">
             <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
-              <svg fill="currentColor" viewBox="0 0 24 24" role="img">
+              <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
               </svg>
             </a>
             <a href="https://twitter.com/imisofts" aria-label="Twitter">
-              <svg fill="currentColor" viewBox="0 0 24 24" role="img">
+              <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
               </svg>
             </a>
             <a href="https://instagram.com/imisofts" aria-label="Instagram">
-              <svg fill="currentColor" viewBox="0 0 24 24" role="img">
+              <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
               </svg>
             </a>
             <a href="https://github.com/imisofts" aria-label="GitHub">
-              <svg fill="currentColor" viewBox="0 0 24 24" role="img">
+              <svg fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
               </svg>
             </a>
@@ -2793,7 +2509,7 @@
           <div class="footer-newsletter">
             <h4>Stay Updated</h4>
             <p>Get the latest on AI automation and growth strategies</p>
-            <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/meolgepd" method="POST">
+            <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/mjkejbjp" method="POST">
               <input type="email" name="newsletter_email" class="newsletter-input" placeholder="Enter your email" required>
               <input type="hidden" name="_subject" value="New Newsletter Subscription">
               <button type="submit" class="newsletter-btn" id="newsletterBtn">Subscribe</button>
@@ -2803,7 +2519,7 @@
           <div style="margin-top: 24px;">
             <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Contact us directly:</p>
             <p style="font-size: 15px; color: white;">growth@imisofts.com</p>
-            <p style="font-size: 15px; color: white;">+971 55 885 1645</p>
+            <a href="https://wa.me/971558851645" style="font-size: 15px; color: white; text-decoration: none;">+971 55 885 1645</a>
           </div>
         </div>
       </div>
@@ -2985,60 +2701,21 @@
         submitBtn.style.opacity = '1';
       }
     });
-
-    // Cold Email Form Handler
-    document.getElementById('coldEmailForm').addEventListener('submit', async function(e) {
+    
+    // Contact Form Handling
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       
       const form = e.target;
-      const submitBtn = document.getElementById('coldEmailSubmitBtn');
-      const formMessage = document.getElementById('coldEmailFormMessage');
-      const nameInput = document.getElementById('coldEmailName');
-      const companyInput = document.getElementById('coldEmailCompany');
-      const emailInput = document.getElementById('coldEmailEmail');
-      const goalInput = document.getElementById('coldEmailGoal');
-      
-      // Validate required fields
-      let isValid = true;
-      let errorMessage = '';
-      
-      if (!nameInput.value.trim()) {
-        isValid = false;
-        errorMessage = 'Please enter your name';
-        nameInput.focus();
-      } else if (!companyInput.value.trim()) {
-        isValid = false;
-        errorMessage = 'Please enter your company name';
-        companyInput.focus();
-      } else if (!emailInput.value.trim()) {
-        isValid = false;
-        errorMessage = 'Please enter your email address';
-        emailInput.focus();
-      } else if (!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailInput.value)) {
-        isValid = false;
-        errorMessage = 'Please enter a valid email address';
-        emailInput.focus();
-      } else if (!goalInput.value) {
-        isValid = false;
-        errorMessage = 'Please select your main goal';
-        goalInput.focus();
-      }
-      
-      if (!isValid) {
-        formMessage.style.display = 'block';
-        formMessage.style.background = '#f8d7da';
-        formMessage.style.color = '#721c24';
-        formMessage.style.border = '1px solid #f5c6cb';
-        formMessage.innerHTML = errorMessage;
-        return;
-      }
-      
       const formData = new FormData(form);
+      const submitBtn = document.getElementById('submitBtn');
+      const formMessage = document.getElementById('formMessage');
       
       // Change button text to loading state
       const originalBtnText = submitBtn.innerHTML;
-      submitBtn.innerHTML = 'Requesting audit...';
+      submitBtn.innerHTML = 'Sending Request...';
       submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.7';
       
       try {
         const response = await fetch(form.action, {
@@ -3055,7 +2732,7 @@
           formMessage.style.background = '#d4edda';
           formMessage.style.color = '#155724';
           formMessage.style.border = '1px solid #c3e6cb';
-          formMessage.innerHTML = '✅ Audit request sent successfully! We\'ll send your free audit and improvement roadmap within 24 hours.';
+          formMessage.innerHTML = '✔ Audit request submitted! We\'ll send your detailed report within 24 hours.';
           form.reset();
           
           // Hide message after 8 seconds
@@ -3068,7 +2745,7 @@
           formMessage.style.background = '#f8d7da';
           formMessage.style.color = '#721c24';
           formMessage.style.border = '1px solid #f5c6cb';
-          formMessage.innerHTML = 'There was an error sending your request. Please try again or contact us directly.';
+          formMessage.innerHTML = 'Oops! Please try again or message us on WhatsApp.';
         }
       } catch (error) {
         // Network error
@@ -3076,11 +2753,12 @@
         formMessage.style.background = '#f8d7da';
         formMessage.style.color = '#721c24';
         formMessage.style.border = '1px solid #f5c6cb';
-        formMessage.innerHTML = 'Connection error. Please check your internet connection and try again.';
+        formMessage.innerHTML = 'Connection error. Please try again or contact us directly.';
       } finally {
         // Reset button
         submitBtn.innerHTML = originalBtnText;
         submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
       }
     });
   </script>
