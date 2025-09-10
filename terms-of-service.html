@@ -3,81 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Terms of Service | imisofts</title>
-  <meta name="description" content="Terms of Service for imisofts - Legal terms and conditions for using our services and website.">
-  <link rel="canonical" href="https://imisofts.com/terms-of-service">
+  <title>Terms of Service - imisofts</title>
+  <meta name="description" content="Terms of Service for imisofts - Review our terms and conditions for using our AI automation and digital services.">
+  
+  <!-- Favicon using inline SVG data URL -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
   
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Structured Data for Terms of Service -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Terms of Service",
-    "description": "Terms of Service for imisofts - Legal terms and conditions for using our services and website",
-    "url": "https://imisofts.com/terms-of-service",
-    "inLanguage": "en-US",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "imisofts",
-      "url": "https://imisofts.com"
-    },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://imisofts.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Terms of Service",
-          "item": "https://imisofts.com/terms-of-service"
-        }
-      ]
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "imisofts",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://imisofts.com/logo.svg"
-      }
-    },
-    "datePublished": "2020-01-01",
-    "dateModified": "2025-01-01"
-  }
-  </script>
-  
   <style>
+    /* Reset and Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
-    
+
     body {
-      background: white;
-      color: #1a1a1a;
-      overflow-x: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
       line-height: 1.6;
+      color: #333;
+      background: #fff;
     }
-    
+
     .container {
-      max-width: 1280px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    
-    /* ============= NAVBAR STYLES ============= */
+
+    /* Navbar Styles */
     .navbar {
       position: sticky;
       top: 0;
@@ -88,51 +46,35 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
     }
-    
+
     .navbar.scrolled {
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
-    
+
     .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 72px;
     }
-    
+
     .nav-logo-wrapper {
       display: flex;
       align-items: center;
-      gap: 10px;
       text-decoration: none;
     }
-    
-    .nav-logo-icon {
-      width: 36px;
-      height: 36px;
-      background: #F45407;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 16px;
-    }
-    
+
     .nav-logo {
-      font-size: 26px;
-      font-weight: 800;
-      color: #1a1a1a;
-      transition: color 0.3s ease;
+      height: 40px;
+      width: auto;
     }
-    
+
     .nav-menu {
       display: flex;
       align-items: center;
       gap: 40px;
     }
-    
+
     .nav-link {
       color: #666;
       text-decoration: none;
@@ -141,56 +83,66 @@
       transition: color 0.3s ease;
       position: relative;
     }
-    
+
     .nav-link:hover {
       color: #F45407;
     }
-    
+
     /* Services Dropdown */
     .nav-dropdown {
       position: relative;
     }
-    
+
     .nav-dropdown-toggle {
       display: flex;
       align-items: center;
       gap: 6px;
       cursor: pointer;
     }
-    
+
     .nav-dropdown-toggle svg {
       width: 16px;
       height: 16px;
       transition: transform 0.3s ease;
     }
-    
-    .nav-dropdown.active .nav-dropdown-toggle svg {
+
+    .nav-dropdown:hover .nav-dropdown-toggle svg {
       transform: rotate(180deg);
     }
-    
+
     .nav-dropdown-menu {
       position: absolute;
       top: calc(100% + 20px);
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-      padding: 8px;
-      min-width: 320px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+      padding: 0;
+      min-width: 900px;
       opacity: 0;
       visibility: hidden;
       transform: translateX(-50%) translateY(-10px);
       transition: all 0.3s ease;
+      display: flex;
+      overflow: hidden;
     }
-    
-    .nav-dropdown.active .nav-dropdown-menu {
+
+    .nav-dropdown:hover .nav-dropdown-menu {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
     }
-    
+
+    .dropdown-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      padding: 32px;
+      max-width: 560px;
+    }
+
     .dropdown-item {
       display: flex;
       align-items: flex-start;
@@ -200,45 +152,134 @@
       text-decoration: none;
       transition: all 0.2s ease;
     }
-    
+
     .dropdown-item:hover {
-      background: rgba(244, 84, 7, 0.08);
+      background: #f8f9fa;
     }
-    
+
+    .dropdown-item:hover .dropdown-item-title {
+      color: #F45407;
+    }
+
     .dropdown-item-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, #F45407, #ff6b28);
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.1), rgba(244, 84, 7, 0.05));
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+      transition: all 0.3s ease;
     }
-    
+
+    .dropdown-item:hover .dropdown-item-icon {
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+    }
+
     .dropdown-item-icon svg {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
+      color: #F45407;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown-item:hover .dropdown-item-icon svg {
       color: white;
     }
-    
+
     .dropdown-item-content {
       flex: 1;
     }
-    
+
     .dropdown-item-title {
       font-size: 15px;
       font-weight: 600;
       color: #1a1a1a;
       margin-bottom: 4px;
     }
-    
+
     .dropdown-item-desc {
       font-size: 13px;
-      color: #666;
-      line-height: 1.4;
+      color: #6b7280;
+      line-height: 1.5;
     }
-    
+
+    .dropdown-promo {
+      width: 340px;
+      background: linear-gradient(135deg, #fff8f5 0%, #ffede8 100%);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dropdown-promo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(244, 84, 7, 0.08) 0%, transparent 60%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .dropdown-promo-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .dropdown-promo h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .dropdown-promo p {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .dropdown-promo-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .dropdown-promo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+
+    .dropdown-promo-graphic {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 180px;
+    }
+
+    .dropdown-promo-svg {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
     /* CTA Button */
     .nav-cta {
       padding: 10px 20px;
@@ -250,13 +291,13 @@
       transition: all 0.3s ease;
       font-size: 15px;
     }
-    
+
     .nav-cta:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
     }
-    
-    /* Mobile Menu Toggle */
+
+    /* Mobile Menu */
     .mobile-menu-toggle {
       display: none;
       background: none;
@@ -264,7 +305,7 @@
       cursor: pointer;
       padding: 8px;
     }
-    
+
     .mobile-menu-toggle span {
       display: block;
       width: 24px;
@@ -273,8 +314,7 @@
       margin: 5px 0;
       transition: 0.3s;
     }
-    
-    /* Mobile Menu */
+
     .mobile-menu {
       display: none;
       position: fixed;
@@ -288,11 +328,11 @@
       overflow-y: auto;
       box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     }
-    
+
     .mobile-menu.active {
       display: block;
     }
-    
+
     .mobile-nav-link {
       display: block;
       padding: 12px 16px;
@@ -302,15 +342,15 @@
       border-radius: 8px;
       transition: background 0.2s ease;
     }
-    
+
     .mobile-nav-link:hover {
       background: rgba(244, 84, 7, 0.08);
     }
-    
+
     .mobile-services {
       margin: 16px 0;
     }
-    
+
     .mobile-services-title {
       padding: 12px 16px;
       font-weight: 600;
@@ -319,7 +359,7 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    
+
     .mobile-service-link {
       display: block;
       padding: 12px 16px 12px 32px;
@@ -329,12 +369,12 @@
       transition: all 0.2s ease;
       border-radius: 8px;
     }
-    
+
     .mobile-service-link:hover {
       background: rgba(244, 84, 7, 0.08);
       color: #F45407;
     }
-    
+
     .mobile-cta {
       display: block;
       padding: 14px 24px;
@@ -346,40 +386,89 @@
       text-decoration: none;
       margin-top: 20px;
     }
-    
-    /* ============= FOOTER STYLES ============= */
+
+    /* Page Content */
+    .page-hero {
+      padding: 120px 0 60px;
+      background: linear-gradient(to bottom, #ffffff, #f9fafb);
+    }
+
+    .page-title {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+
+    .page-subtitle {
+      font-size: 18px;
+      color: #666;
+      max-width: 600px;
+    }
+
+    .policy-content {
+      padding: 60px 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .policy-content h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 40px 0 20px 0;
+      color: #1a1a1a;
+    }
+
+    .policy-content h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 24px 0 12px 0;
+      color: #333;
+    }
+
+    .policy-content p {
+      margin-bottom: 16px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .policy-content ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    .policy-content li {
+      margin-bottom: 8px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* Footer Styles */
     .footer {
       background: #0a0a0a;
       color: #ccc;
       padding: 80px 0 40px;
     }
-    
+
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
       gap: 48px;
       margin-bottom: 60px;
     }
-    
-    .footer-brand h3 {
-      font-size: 28px;
-      font-weight: 800;
-      color: white;
-      margin-bottom: 16px;
-    }
-    
+
     .footer-brand p {
       font-size: 15px;
       line-height: 1.6;
       margin-bottom: 24px;
       color: #999;
     }
-    
+
     .footer-social {
       display: flex;
       gap: 12px;
     }
-    
+
     .footer-social a {
       width: 40px;
       height: 40px;
@@ -390,18 +479,18 @@
       justify-content: center;
       transition: all 0.3s ease;
     }
-    
+
     .footer-social a:hover {
       background: #F45407;
       transform: translateY(-3px);
     }
-    
+
     .footer-social svg {
       width: 20px;
       height: 20px;
       color: white;
     }
-    
+
     .footer-column h4 {
       font-size: 14px;
       font-weight: 600;
@@ -410,16 +499,16 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    
+
     .footer-links {
       list-style: none;
       padding: 0;
     }
-    
+
     .footer-links li {
       margin-bottom: 12px;
     }
-    
+
     .footer-links a {
       color: #999;
       text-decoration: none;
@@ -427,12 +516,57 @@
       transition: color 0.3s ease;
       display: inline-block;
     }
-    
+
     .footer-links a:hover {
       color: #F45407;
       transform: translateX(3px);
     }
-    
+
+    .footer-newsletter h4 {
+      margin-bottom: 8px;
+    }
+
+    .footer-newsletter p {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 16px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .newsletter-input::placeholder {
+      color: #999;
+    }
+
+    .newsletter-btn {
+      padding: 10px 16px;
+      background: #F45407;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .newsletter-btn:hover {
+      background: #d63f06;
+    }
+
     .footer-bottom {
       padding-top: 40px;
       border-top: 1px solid rgba(255,255,255,0.1);
@@ -442,250 +576,250 @@
       flex-wrap: wrap;
       gap: 20px;
     }
-    
+
     .footer-copyright {
       font-size: 14px;
       color: #666;
     }
-    
+
     .footer-bottom-links {
       display: flex;
       gap: 24px;
     }
-    
+
     .footer-bottom-links a {
       color: #666;
       text-decoration: none;
       font-size: 14px;
       transition: color 0.3s ease;
     }
-    
+
     .footer-bottom-links a:hover {
       color: #F45407;
     }
-    
-    /* ============= TERMS OF SERVICE STYLES ============= */
-    .legal-hero {
-      background: linear-gradient(to bottom, #ffffff, #f9fafb);
-      padding: 120px 0 80px;
-    }
-    
-    .legal-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 80px 20px;
-    }
-    
-    .legal-section {
-      margin-bottom: 48px;
-    }
-    
-    .legal-section h2 {
-      font-size: 24px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid #F45407;
-    }
-    
-    .legal-section h3 {
-      font-size: 18px;
-      font-weight: 600;
-      color: #333;
-      margin-top: 24px;
-      margin-bottom: 12px;
-    }
-    
-    .legal-section p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #666;
-      margin-bottom: 16px;
-    }
-    
-    .legal-section ul {
-      margin: 16px 0;
-      padding-left: 24px;
-    }
-    
-    .legal-section li {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #666;
-      margin-bottom: 8px;
-    }
-    
-    .last-updated {
-      font-size: 14px;
-      color: #999;
-      font-style: italic;
-    }
-    
-    .highlight-box {
-      background: #fff5f3;
-      border-left: 4px solid #F45407;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px 0;
-    }
-    
+
     /* Mobile Styles */
     @media (max-width: 768px) {
-      .container {
-        padding: 0 16px;
-      }
-      
       .nav-menu {
         display: none;
       }
-      
+
       .mobile-menu-toggle {
-        display: block;
-      }
-      
-      .footer-grid {
-        grid-template-columns: 1fr !important;
-        gap: 32px !important;
-      }
-      
-      .footer-bottom {
+        display: flex;
         flex-direction: column;
-        text-align: center;
       }
-      
-      .legal-hero {
-        padding: 80px 0 60px;
+
+      .page-title {
+        font-size: 32px;
       }
-      
-      .legal-hero h1 {
-        font-size: 32px !important;
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
       }
-      
-      .legal-content {
-        padding: 40px 20px;
+
+      .dropdown-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-dropdown-menu {
+        min-width: 320px;
+        left: 0;
+        transform: none;
+      }
+
+      .dropdown-promo {
+        width: 100%;
       }
     }
   </style>
 </head>
+
 <body>
-  
   <!-- ============= NAVBAR ============= -->
   <nav class="navbar" id="navbar">
     <div class="container">
       <div class="nav-container">
         <!-- Logo -->
         <a href="/" class="nav-logo-wrapper">
-          <div class="nav-logo-icon">im</div>
-          <div class="nav-logo">imisofts</div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" class="nav-logo" role="img" aria-label="imisofts logo">
+            <!-- Icon: dot at bottom-left, then two slanted tiles -->
+            <g fill="#F45407">
+              <circle cx="48" cy="170" r="18"/>
+              <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+              <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+            </g>
+            <!-- Wordmark -->
+            <g transform="translate(200,188)">
+              <text x="0" y="0"
+                    font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto"
+                    font-weight="700" font-size="96" letter-spacing="-0.5"
+                    fill="#0F172A">
+                <tspan class="char char-1">i</tspan><tspan class="char char-2">m</tspan><tspan class="char char-3">i</tspan><tspan class="char char-4">s</tspan><tspan class="char char-5">o</tspan><tspan class="char char-6">f</tspan><tspan class="char char-7">t</tspan><tspan class="char char-8">s</tspan>
+              </text>
+            </g>
+          </svg>
         </a>
         
         <!-- Desktop Menu -->
         <div class="nav-menu">
           <!-- Services Dropdown -->
           <div class="nav-dropdown" id="servicesDropdown">
-            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+            <div class="nav-link nav-dropdown-toggle">
               Services
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </div>
             <div class="nav-dropdown-menu">
-              <a href="/ai-automation" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">AI Automation</div>
-                  <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
-                </div>
-              </a>
+              <div class="dropdown-grid">
+                <a href="/ai-automation" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="AI Automation services icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">AI Automation</div>
+                    <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                  </div>
+                </a>
+                
+                <a href="/digital-marketing" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Digital Marketing</div>
+                    <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                  </div>
+                </a>
+                
+                <a href="/cold-email-marketing" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Cold Email Marketing</div>
+                    <div class="dropdown-item-desc">Professional cold email systems that generate leads</div>
+                  </div>
+                </a>
+                
+                <a href="/ecommerce" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">E-commerce</div>
+                    <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                  </div>
+                </a>
+                
+                <a href="/web-development" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Web Development</div>
+                    <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                  </div>
+                </a>
+                
+                <a href="/crm-development" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">CRM Development</div>
+                    <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                  </div>
+                </a>
+                
+                <a href="/shopify-apps" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Shopify Apps</div>
+                    <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                  </div>
+                </a>
+                
+                <a href="/ai-mobile-apps" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">AI Mobile Apps</div>
+                    <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                  </div>
+                </a>
+              </div>
               
-              <a href="/digital-marketing" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              <div class="dropdown-promo">
+                <div class="dropdown-promo-content">
+                  <h3>From Idea to Revenue in 30 Days</h3>
+                  <p>We're not consultants who talk. We're builders who ship. AI automation, marketing, and development - all under one roof.</p>
+                  <a href="#contact" class="dropdown-promo-btn">See How We Work</a>
+                </div>
+                
+                <div class="dropdown-promo-graphic">
+                  <svg class="dropdown-promo-svg" viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central Hub -->
+                    <circle cx="140" cy="90" r="35" fill="#F45407" opacity="0.1"></circle>
+                    <circle cx="140" cy="90" r="25" fill="white" stroke="#F45407" stroke-width="2"></circle>
+                    
+                    <!-- Connecting Lines -->
+                    <path d="M140 90 L80 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L200 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L80 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L200 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    
+                    <!-- Service Nodes -->
+                    <rect x="60" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="180" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="60" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="180" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    
+                    <!-- Floating Dots -->
+                    <circle cx="100" cy="60" r="2" fill="#F45407" opacity="0.4">
+                      <animate attributeName="cy" values="60;55;60" dur="3s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="180" cy="80" r="2" fill="#ff6b28" opacity="0.4">
+                      <animate attributeName="cy" values="80;75;80" dur="3s" begin="0.5s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="0.5s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="120" cy="120" r="2" fill="#F45407" opacity="0.4">
+                      <animate attributeName="cy" values="120;115;120" dur="3s" begin="1s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="1s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="160" cy="50" r="2" fill="#ff6b28" opacity="0.4">
+                      <animate attributeName="cy" values="50;45;50" dur="3s" begin="1.5s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="1.5s" repeatCount="indefinite"></animate>
+                    </circle>
+                    
+                    <!-- Center Icon -->
+                    <g transform="translate(125, 75)">
+                      <path d="M15 10l5 5-5 5M10 10l-5 5 5 5" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+                    </g>
                   </svg>
                 </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">Digital Marketing</div>
-                  <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
-                </div>
-              </a>
-              
-              <a href="/cold-email-marketing" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">Cold Email Marketing</div>
-                  <div class="dropdown-item-desc">Professional cold email systems that generate leads</div>
-                </div>
-              </a>
-              
-              <a href="/ecommerce" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">E-commerce</div>
-                  <div class="dropdown-item-desc">High-converting online stores built to scale</div>
-                </div>
-              </a>
-              
-              <a href="/web-development" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">Web Development</div>
-                  <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
-                </div>
-              </a>
-              
-              <a href="/crm-development" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">CRM Development</div>
-                  <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
-                </div>
-              </a>
-              
-              <a href="/shopify-apps" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">Shopify Apps</div>
-                  <div class="dropdown-item-desc">Built for Shopify certified app development</div>
-                </div>
-              </a>
-              
-              <a href="/ai-mobile-apps" class="dropdown-item">
-                <div class="dropdown-item-icon">
-                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div class="dropdown-item-content">
-                  <div class="dropdown-item-title">AI Mobile Apps</div>
-                  <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
-                </div>
-              </a>
+              </div>
             </div>
           </div>
           
@@ -695,7 +829,7 @@
           <a href="/blog" class="nav-link">Blog</a>
           
           <!-- CTA Button -->
-          <a href="/contact" class="nav-cta">Get Started</a>
+          <a href="/contact" class="nav-cta">Get Free Audit &rarr;</a>
         </div>
         
         <!-- Mobile Menu Toggle -->
@@ -728,279 +862,156 @@
       <a href="/pricing" class="mobile-nav-link">Pricing</a>
       <a href="/blog" class="mobile-nav-link">Blog</a>
       
-      <a href="/contact" class="mobile-cta">Get Started</a>
+      <a href="/contact" class="mobile-cta">Get Free Audit &rarr;</a>
     </div>
   </nav>
-  
+
   <main>
-  <!-- Terms of Service Hero -->
-  <div class="legal-hero">
-    <div class="container">
-      <h1 style="font-size: 48px; font-weight: 800; color: #1a1a1a; margin-bottom: 16px; text-align: center;">Terms of Service</h1>
-      <p style="font-size: 18px; color: #666; text-align: center;">Legal terms and conditions for using our services</p>
-      <p class="last-updated" style="text-align: center; margin-top: 24px;">Last updated: January 1, 2025</p>
-    </div>
-  </div>
-  
-  <!-- Terms of Service Content -->
-  <div class="legal-content">
-    <div class="legal-section">
-      <h2>1. Agreement to Terms</h2>
-      <p>By accessing and using the services provided by imisofts ("Company," "we," "us," or "our"), you agree to be bound by these Terms of Service ("Terms"). These Terms apply to all visitors, users, and others who access or use our services.</p>
-      <p>If you disagree with any part of these terms, then you may not access our services. These Terms of Service apply to all services offered by imisofts, including but not limited to web development, CRM development, AI automation, digital marketing, cold email marketing, e-commerce solutions, Shopify apps, and mobile app development.</p>
-    </div>
-    
-    <div class="legal-section">
-      <h2>2. Use of Our Services</h2>
-      
-      <h3>Eligibility</h3>
-      <p>You must be at least 18 years old and capable of entering into a legally binding contract to use our services. By using our services, you represent and warrant that you meet these eligibility requirements.</p>
-      
-      <h3>Account Registration</h3>
-      <p>Some services may require you to create an account. When you create an account, you must:</p>
-      <ul>
-        <li>Provide accurate, current, and complete information</li>
-        <li>Maintain and promptly update your account information</li>
-        <li>Maintain the security and confidentiality of your login credentials</li>
-        <li>Accept responsibility for all activities under your account</li>
-        <li>Notify us immediately of any unauthorized access or security breach</li>
-      </ul>
-      
-      <h3>Acceptable Use</h3>
-      <p>You agree not to use our services to:</p>
-      <ul>
-        <li>Violate any applicable laws or regulations</li>
-        <li>Infringe upon intellectual property rights of others</li>
-        <li>Transmit malicious code, viruses, or harmful software</li>
-        <li>Engage in fraudulent, deceptive, or misleading practices</li>
-        <li>Harass, abuse, or harm another person or entity</li>
-        <li>Attempt to gain unauthorized access to our systems or networks</li>
-        <li>Interfere with or disrupt the integrity of our services</li>
-        <li>Use automated systems or bots without our express permission</li>
-      </ul>
-    </div>
-    
-    <div class="legal-section">
-      <h2>3. Services and Deliverables</h2>
-      
-      <h3>Scope of Services</h3>
-      <p>The specific services, deliverables, timelines, and pricing will be outlined in a separate Statement of Work (SOW) or Service Agreement for each project. These Terms govern all such agreements unless explicitly stated otherwise.</p>
-      
-      <h3>Project Timeline</h3>
-      <p>While we strive to meet all agreed-upon deadlines, delivery dates are estimates and not guarantees unless explicitly stated in writing. Delays may occur due to:</p>
-      <ul>
-        <li>Client delays in providing necessary materials or feedback</li>
-        <li>Changes in project scope or requirements</li>
-        <li>Third-party dependencies or integrations</li>
-        <li>Force majeure events</li>
-      </ul>
-      
-      <h3>Client Responsibilities</h3>
-      <p>To ensure successful project completion, you agree to:</p>
-      <ul>
-        <li>Provide timely access to necessary resources, data, and personnel</li>
-        <li>Review and approve deliverables within agreed timeframes</li>
-        <li>Communicate project requirements clearly and completely</li>
-        <li>Ensure all provided content complies with applicable laws</li>
-        <li>Obtain necessary licenses for any third-party materials</li>
-      </ul>
-    </div>
-    
-    <div class="legal-section">
-      <h2>4. Payment Terms</h2>
-      
-      <h3>Pricing and Fees</h3>
-      <p>All prices are in USD unless otherwise specified. Payment terms will be outlined in your Service Agreement and may include:</p>
-      <ul>
-        <li>One-time project fees</li>
-        <li>Monthly or annual subscription fees</li>
-        <li>Hourly or daily rates for consulting services</li>
-        <li>Additional fees for rush delivery or scope changes</li>
-      </ul>
-      
-      <h3>Payment Schedule</h3>
-      <p>Unless otherwise agreed in writing:</p>
-      <ul>
-        <li>50% deposit is required before project commencement</li>
-        <li>Remaining balance due upon project completion</li>
-        <li>Subscription services are billed in advance</li>
-        <li>Late payments may incur interest at 1.5% per month</li>
-      </ul>
-      
-      <h3>Refund Policy</h3>
-      <p>Due to the custom nature of our services, refunds are evaluated on a case-by-case basis. Generally:</p>
-      <ul>
-        <li>Deposits are non-refundable once work has commenced</li>
-        <li>Subscription cancellations take effect at the end of the current billing period</li>
-        <li>No refunds for completed and delivered work</li>
-      </ul>
-      
-      <div class="highlight-box">
-        <p><strong>Important:</strong> All fees are exclusive of taxes. You are responsible for any applicable VAT, GST, sales tax, or other taxes associated with your purchase.</p>
+    <!-- Terms of Service Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 class="page-title">Terms of Service</h1>
+        <p class="page-subtitle">
+          Review our terms and conditions for using our AI automation and digital services.
+        </p>
       </div>
-    </div>
-    
-    <div class="legal-section">
-      <h2>5. Intellectual Property</h2>
-      
-      <h3>Ownership of Deliverables</h3>
-      <p>Upon full payment, you own the final deliverables created specifically for your project. However, we retain the right to:</p>
-      <ul>
-        <li>Use generic components, methodologies, and know-how in future projects</li>
-        <li>Display your project in our portfolio (unless otherwise agreed)</li>
-        <li>Retain ownership of any pre-existing intellectual property</li>
-      </ul>
-      
-      <h3>License to Use</h3>
-      <p>You grant us a non-exclusive, worldwide license to use any materials you provide to us solely for the purpose of completing your project.</p>
-      
-      <h3>Third-Party Components</h3>
-      <p>Our deliverables may include third-party components (libraries, frameworks, plugins) that are subject to their own licensing terms. We will inform you of any such components and their respective licenses.</p>
-    </div>
-    
-    <div class="legal-section">
-      <h2>6. Confidentiality</h2>
-      <p>Both parties agree to maintain the confidentiality of any proprietary information received during the course of the business relationship. This obligation survives the termination of these Terms.</p>
-      
-      <h3>Exceptions</h3>
-      <p>Confidentiality obligations do not apply to information that:</p>
-      <ul>
-        <li>Is or becomes publicly available through no breach by the receiving party</li>
-        <li>Was rightfully known before receipt from the disclosing party</li>
-        <li>Is independently developed without use of confidential information</li>
-        <li>Must be disclosed by law or court order</li>
-      </ul>
-    </div>
-    
-    <div class="legal-section">
-      <h2>7. Warranties and Disclaimers</h2>
-      
-      <h3>Service Warranty</h3>
-      <p>We warrant that our services will be performed in a professional and workmanlike manner consistent with industry standards. We will remedy any non-conforming services reported within 30 days of delivery.</p>
-      
-      <h3>Disclaimer of Warranties</h3>
-      <p>EXCEPT AS EXPRESSLY PROVIDED HEREIN, OUR SERVICES ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND. WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
-      
-      <h3>No Guarantee of Results</h3>
-      <p>While we strive for excellence, we cannot guarantee specific results such as:</p>
-      <ul>
-        <li>Search engine rankings or traffic levels</li>
-        <li>Sales or conversion rates</li>
-        <li>Social media engagement metrics</li>
-        <li>Email deliverability rates to third-party providers</li>
-        <li>App store approval or rankings</li>
-      </ul>
-    </div>
-    
-    <div class="legal-section">
-      <h2>8. Limitation of Liability</h2>
-      <p>IN NO EVENT SHALL IMISOFTS, ITS DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION, LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM YOUR USE OF OUR SERVICES.</p>
-      
-      <p>OUR TOTAL LIABILITY FOR ANY CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR OUR SERVICES SHALL NOT EXCEED THE AMOUNT YOU HAVE PAID TO US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.</p>
-      
-      <div class="highlight-box">
-        <p><strong>Note:</strong> Some jurisdictions do not allow the exclusion or limitation of certain damages. If these laws apply to you, some or all of the above exclusions or limitations may not apply.</p>
+    </section>
+
+    <!-- Terms of Service Content -->
+    <section class="policy-content">
+      <div class="container">
+        <p><strong>Last Updated:</strong> January 1, 2025</p>
+
+        <h2>1. Agreement to Terms</h2>
+        <p>By accessing and using imisofts services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.</p>
+
+        <h2>2. Services Description</h2>
+        <p>imisofts provides AI automation, digital marketing, web development, and related digital services including:</p>
+        <ul>
+          <li>AI workflow automation and chatbot development</li>
+          <li>Performance marketing and cold email campaigns</li>
+          <li>Web development and e-commerce solutions</li>
+          <li>CRM development and system integration</li>
+          <li>Shopify app development and mobile applications</li>
+        </ul>
+
+        <h2>3. User Accounts</h2>
+        <p>When you create an account with us, you must provide accurate and complete information. You are responsible for:</p>
+        <ul>
+          <li>Safeguarding your account credentials</li>
+          <li>All activities that occur under your account</li>
+          <li>Notifying us immediately of unauthorized use</li>
+          <li>Maintaining current and accurate account information</li>
+        </ul>
+
+        <h2>4. Payment Terms</h2>
+        <h3>Project Payments</h3>
+        <p>Payment terms for our services include:</p>
+        <ul>
+          <li>50% deposit required before project commencement</li>
+          <li>Remaining balance due upon project completion</li>
+          <li>Monthly payments for ongoing services</li>
+          <li>All payments due within 30 days of invoice date</li>
+        </ul>
+
+        <h3>Refund Policy</h3>
+        <p>Refunds may be provided under specific circumstances:</p>
+        <ul>
+          <li>Service cancellation within 48 hours of agreement</li>
+          <li>Failure to deliver agreed-upon milestones</li>
+          <li>Technical issues preventing service delivery</li>
+        </ul>
+
+        <h2>5. Intellectual Property</h2>
+        <p>Upon full payment, you will own:</p>
+        <ul>
+          <li>Custom code and applications developed for your project</li>
+          <li>Content and designs created specifically for you</li>
+          <li>Access credentials and administrative rights</li>
+        </ul>
+        <p>We retain rights to:</p>
+        <ul>
+          <li>Our proprietary tools and frameworks</li>
+          <li>General methodologies and processes</li>
+          <li>Third-party licenses and software</li>
+        </ul>
+
+        <h2>6. Service Level Agreements</h2>
+        <p>We commit to:</p>
+        <ul>
+          <li>Project delivery within agreed timelines</li>
+          <li>24-hour response time for critical issues</li>
+          <li>95% uptime for hosted services</li>
+          <li>Regular project updates and communication</li>
+        </ul>
+
+        <h2>7. Limitations of Liability</h2>
+        <p>Our liability is limited to:</p>
+        <ul>
+          <li>The amount paid for services in the preceding 12 months</li>
+          <li>Direct damages only (no indirect or consequential damages)</li>
+          <li>Services must be used as intended and documented</li>
+        </ul>
+
+        <h2>8. Prohibited Uses</h2>
+        <p>You may not use our services for:</p>
+        <ul>
+          <li>Illegal activities or violation of applicable laws</li>
+          <li>Spam, harassment, or malicious communications</li>
+          <li>Unauthorized access to systems or data</li>
+          <li>Activities that could harm our reputation or operations</li>
+        </ul>
+
+        <h2>9. Termination</h2>
+        <p>Either party may terminate services with:</p>
+        <ul>
+          <li>30 days written notice for ongoing services</li>
+          <li>Immediate termination for breach of terms</li>
+          <li>Completion of project deliverables as agreed</li>
+        </ul>
+
+        <h2>10. Governing Law</h2>
+        <p>These terms are governed by the laws of the United Arab Emirates. Any disputes will be resolved through binding arbitration in Dubai, UAE.</p>
+
+        <h2>11. Changes to Terms</h2>
+        <p>We may update these terms periodically. Continued use of our services constitutes acceptance of updated terms. We will notify users of significant changes.</p>
+
+        <h2>12. Contact Information</h2>
+        <p>For questions about these terms, contact us:</p>
+        <ul>
+          <li>Email: legal@imisofts.com</li>
+          <li>Phone: +971 55 885 1645</li>
+          <li>Address: Dubai, UAE</li>
+        </ul>
       </div>
-    </div>
-    
-    <div class="legal-section">
-      <h2>9. Indemnification</h2>
-      <p>You agree to indemnify, defend, and hold harmless imisofts and its officers, directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, costs, or expenses (including reasonable attorney's fees) arising from:</p>
-      <ul>
-        <li>Your violation of these Terms</li>
-        <li>Your violation of any third-party rights</li>
-        <li>Your use or misuse of our services</li>
-        <li>Content you provide that infringes on intellectual property rights</li>
-        <li>Your violation of applicable laws or regulations</li>
-      </ul>
-    </div>
-    
-    <div class="legal-section">
-      <h2>10. Termination</h2>
-      
-      <h3>Termination by Either Party</h3>
-      <p>Either party may terminate these Terms or any Service Agreement by providing 30 days written notice to the other party. Upon termination:</p>
-      <ul>
-        <li>All outstanding fees become immediately due and payable</li>
-        <li>We will deliver any completed work up to the termination date</li>
-        <li>Each party will return or destroy the other's confidential information</li>
-      </ul>
-      
-      <h3>Termination for Cause</h3>
-      <p>Either party may terminate immediately upon written notice if the other party:</p>
-      <ul>
-        <li>Materially breaches these Terms and fails to cure within 10 days of notice</li>
-        <li>Becomes insolvent or files for bankruptcy</li>
-        <li>Engages in illegal or fraudulent activities</li>
-      </ul>
-      
-      <h3>Effect of Termination</h3>
-      <p>Termination does not relieve either party of obligations incurred prior to termination. Sections relating to payment, intellectual property, confidentiality, warranties, limitation of liability, and indemnification survive termination.</p>
-    </div>
-    
-    <div class="legal-section">
-      <h2>11. Dispute Resolution</h2>
-      
-      <h3>Negotiation</h3>
-      <p>The parties agree to attempt to resolve any dispute through good faith negotiation before pursuing other remedies.</p>
-      
-      <h3>Arbitration</h3>
-      <p>If negotiation fails, any dispute arising from these Terms shall be resolved through binding arbitration in accordance with the rules of the Dubai International Arbitration Centre (DIAC). The arbitration shall be conducted in English, and judgment on the award may be entered in any court having jurisdiction.</p>
-      
-      <h3>Exceptions</h3>
-      <p>Notwithstanding the above, either party may seek injunctive relief in any court of competent jurisdiction to protect its intellectual property rights or confidential information.</p>
-    </div>
-    
-    <div class="legal-section">
-      <h2>12. General Provisions</h2>
-      
-      <h3>Governing Law</h3>
-      <p>These Terms shall be governed by and construed in accordance with the laws of the United Arab Emirates, without regard to its conflict of law provisions.</p>
-      
-      <h3>Entire Agreement</h3>
-      <p>These Terms, together with any Service Agreements, constitute the entire agreement between you and imisofts regarding our services and supersede all prior agreements and understandings.</p>
-      
-      <h3>Amendments</h3>
-      <p>We reserve the right to modify these Terms at any time. We will notify you of any material changes by posting the new Terms on our website and updating the "Last updated" date. Your continued use of our services after such modifications constitutes acceptance of the updated Terms.</p>
-      
-      <h3>Severability</h3>
-      <p>If any provision of these Terms is deemed invalid or unenforceable, the remaining provisions shall continue in full force and effect.</p>
-      
-      <h3>Waiver</h3>
-      <p>No waiver of any term or condition shall be deemed a further or continuing waiver of such term or condition or any other term or condition.</p>
-      
-      <h3>Force Majeure</h3>
-      <p>Neither party shall be liable for any failure or delay in performance due to circumstances beyond its reasonable control, including but not limited to acts of God, natural disasters, war, terrorism, pandemic, labor disputes, or internet service failures.</p>
-      
-      <h3>Assignment</h3>
-      <p>You may not assign or transfer these Terms without our prior written consent. We may assign our rights and obligations under these Terms without restriction.</p>
-    </div>
-    
-    <div class="legal-section">
-      <h2>13. Contact Information</h2>
-      <p>For questions about these Terms of Service, please contact us at:</p>
-      <ul style="list-style: none; padding-left: 0;">
-        <li><strong>imisofts</strong></li>
-        <li>Email: legal@imisofts.com</li>
-        <li>Phone: +971 55 885 1645</li>
-        <li>Address: Dubai, United Arab Emirates</li>
-      </ul>
-      
-      <div class="highlight-box" style="margin-top: 32px;">
-        <p><strong>Thank you for choosing imisofts!</strong> We look forward to helping you achieve your digital transformation goals.</p>
-      </div>
-    </div>
-  </div>
+    </section>
   </main>
-  
+
   <!-- ============= FOOTER ============= -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <!-- Brand Column -->
         <div class="footer-brand">
-          <h3>imisofts</h3>
-          <p>Building digital solutions that drive growth and transformation for ambitious businesses worldwide.</p>
+          <!-- Logo for dark background -->
+          <div style="margin-bottom: 24px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" width="260" height="74" role="img" aria-label="imisofts logo">
+              <!-- Icon: dot at bottom-left, then two slanted tiles -->
+              <g fill="#F45407">
+                <circle cx="48" cy="170" r="18"/>
+                <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+                <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+              </g>
+              <!-- Wordmark -->
+              <g transform="translate(200,188)">
+                <text x="0" y="0"
+                      font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto"
+                      font-weight="700" font-size="96" letter-spacing="-0.5"
+                      fill="#FFFFFF">imisofts</text>
+              </g>
+            </svg>
+          </div>
+          <p>From idea to revenue in 30 days. We ship AI automation, performance marketing, and web development that actually works.</p>
           <div class="footer-social">
             <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
               <svg fill="currentColor" viewBox="0 0 24 24" role="img">
@@ -1034,7 +1045,7 @@
             <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
             <li><a href="/ecommerce">E-commerce</a></li>
             <li><a href="/web-development">Web Development</a></li>
-            <li><a href="/crm-development">CRM Development</a></li>
+            <li><a href="/crm-development">CRM Systems</a></li>
             <li><a href="/shopify-apps">Shopify Apps</a></li>
             <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
           </ul>
@@ -1064,18 +1075,23 @@
           </ul>
         </div>
         
-        <!-- Contact Column -->
+        <!-- Newsletter Column -->
         <div class="footer-column">
-          <h4>Get In Touch</h4>
-          <div style="margin-bottom: 24px;">
-            <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Ready to grow?</p>
-            <p style="font-size: 15px; color: white;">hello@imisofts.com</p>
-            <p style="font-size: 15px; color: white;">+971 55 885 1645</p>
-            <p style="font-size: 15px; color: white;">Dubai, UAE</p>
+          <div class="footer-newsletter">
+            <h4>Stay Updated</h4>
+            <p>Get the latest on AI automation and growth strategies</p>
+            <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/meolgepd" method="POST">
+              <input type="email" name="newsletter_email" class="newsletter-input" placeholder="Enter your email" required>
+              <input type="hidden" name="_subject" value="New Newsletter Subscription">
+              <button type="submit" class="newsletter-btn" id="newsletterBtn">Subscribe</button>
+            </form>
+            <div id="newsletterMessage" style="margin-top: 12px; padding: 10px; border-radius: 6px; display: none; text-align: center; font-size: 14px; font-weight: 600;"></div>
           </div>
-          <a href="/contact" style="display: inline-block; padding: 10px 20px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 14px;">
-            Start a Project →
-          </a>
+          <div style="margin-top: 24px;">
+            <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Contact us directly:</p>
+            <p style="font-size: 15px; color: white;">growth@imisofts.com</p>
+            <p style="font-size: 15px; color: white;">+971 55 885 1645</p>
+          </div>
         </div>
       </div>
       
@@ -1092,7 +1108,7 @@
       </div>
     </div>
   </footer>
-  
+
   <script>
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -1104,26 +1120,11 @@
       }
     });
     
-    // Services dropdown toggle
-    function toggleDropdown() {
-      const dropdown = document.getElementById('servicesDropdown');
-      dropdown.classList.toggle('active');
-    }
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-      const dropdown = document.getElementById('servicesDropdown');
-      if (!dropdown.contains(event.target)) {
-        dropdown.classList.remove('active');
-      }
-    });
-    
     // Mobile menu toggle
     function toggleMobileMenu() {
       const mobileMenu = document.getElementById('mobileMenu');
       mobileMenu.classList.toggle('active');
     }
   </script>
-  
 </body>
 </html>

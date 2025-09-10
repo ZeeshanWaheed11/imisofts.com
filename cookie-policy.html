@@ -75,45 +75,52 @@
       padding: 0 20px;
     }
     
-    /* ============= NAVIGATION STYLES ============= */
-    nav {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      position: fixed;
-      width: 100%;
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: sticky;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
+      background: white;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
     
     .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      height: 80px;
     }
     
-    .logo {
-      font-size: 24px;
-      font-weight: 900;
-      color: #1a1a1a;
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
       text-decoration: none;
     }
     
-    .nav-links {
+    .nav-logo {
+      height: 58px;
+      width: auto;
+    }
+    
+    .nav-menu {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 40px;
     }
     
     .nav-link {
       color: #666;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
+      font-size: 15px;
+      transition: all 0.3s ease;
       position: relative;
     }
     
@@ -121,146 +128,374 @@
       color: #F45407;
     }
     
-    .nav-cta {
-      background: #F45407;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+    
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 20px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.1);
+      border: 1px solid rgba(0,0,0,0.05);
+      padding: 12px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(-10px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      gap: 20px;
+      min-width: 680px;
+    }
+    
+    .nav-dropdown.active .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
+    .dropdown-services {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      flex: 1;
+    }
+    
+    .dropdown-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 12px;
       text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+    }
+    
+    .dropdown-item:hover {
+      background: rgba(244, 84, 7, 0.08);
+      border-color: rgba(244, 84, 7, 0.1);
+      transform: translateY(-1px);
+    }
+    
+    .dropdown-item-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .dropdown-item-icon svg {
+      width: 18px;
+      height: 18px;
+      color: white;
+    }
+    
+    .dropdown-item-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .dropdown-item-title {
+      font-size: 14px;
       font-weight: 600;
-      transition: background 0.3s ease;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+      line-height: 1.3;
+    }
+    
+    .dropdown-item-desc {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+    
+    .dropdown-promo {
+      width: 340px;
+      background: linear-gradient(135deg, #fff8f5 0%, #ffede8 100%);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+    
+    .dropdown-promo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(244, 84, 7, 0.08) 0%, transparent 60%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    .dropdown-promo-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .dropdown-promo h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    
+    .dropdown-promo p {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    
+    .dropdown-promo-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .dropdown-promo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    .dropdown-promo-graphic {
+      margin-top: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 180px;
+    }
+    
+    .dropdown-promo-svg {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.08;
+      }
+      50% {
+        opacity: 0.12;
+      }
+    }
+    
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
     }
     
     .nav-cta:hover {
-      background: #d63f06;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
     }
     
+    /* Mobile Menu Toggle */
     .mobile-menu-toggle {
       display: none;
-      flex-direction: column;
+      background: none;
+      border: none;
       cursor: pointer;
-      padding: 4px;
+      padding: 8px;
     }
     
     .mobile-menu-toggle span {
-      width: 25px;
-      height: 3px;
-      background: #1a1a1a;
-      margin: 3px 0;
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
       transition: 0.3s;
-      border-radius: 2px;
     }
     
-    .mobile-nav {
+    /* Mobile Menu */
+    .mobile-menu {
       display: none;
       position: fixed;
-      top: 73px;
+      top: 80px;
       left: 0;
       right: 0;
-      background: white;
-      border-bottom: 1px solid #e5e5e5;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px);
       padding: 20px;
-      z-index: 999;
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-menu.active {
+      display: block;
     }
     
     .mobile-nav-link {
       display: block;
-      padding: 12px 0;
-      color: #666;
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 1px solid #f0f0f0;
-    }
-    
-    .mobile-nav-link:last-child {
-      border-bottom: none;
-    }
-    
-    .mobile-cta {
-      display: inline-block;
-      background: #F45407;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      margin-top: 16px;
-    }
-    
-    .services-dropdown {
-      position: relative;
-    }
-    
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      padding: 16px;
-      min-width: 280px;
-      z-index: 1000;
-      border: 1px solid rgba(0, 0, 0, 0.05);
-    }
-    
-    .services-dropdown:hover .dropdown-content {
-      display: block;
-    }
-    
-    .dropdown-link {
-      display: block;
       padding: 12px 16px;
-      color: #666;
+      color: #333;
       text-decoration: none;
-      font-size: 14px;
       font-weight: 500;
       border-radius: 8px;
-      transition: all 0.3s ease;
-      border-bottom: none;
+      transition: background 0.2s ease;
     }
     
-    .dropdown-link:hover {
-      background: #f8f9fa;
-      color: #F45407;
+    .mobile-nav-link:hover {
+      background: rgba(244, 84, 7, 0.08);
     }
     
     .mobile-services {
-      padding-left: 20px;
+      margin: 16px 0;
+    }
+    
+    .mobile-services-title {
+      padding: 12px 16px;
+      font-weight: 600;
+      color: #999;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     
     .mobile-service-link {
       display: block;
-      padding: 8px 0;
-      color: #999;
+      padding: 12px 16px 12px 32px;
+      color: #666;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+    
+    .mobile-service-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+      color: #F45407;
+    }
+    
+    .mobile-cta {
+      display: block;
+      padding: 14px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 20px;
     }
     
     /* ============= FOOTER STYLES ============= */
-    footer {
-      background: #1a1a1a;
-      color: white;
-      padding: 60px 0 30px;
+    .footer {
+      background: #0a0a0a;
+      color: #ccc;
+      padding: 80px 0 40px;
     }
     
-    .footer-content {
+    .footer-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      margin-bottom: 40px;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    
+    .footer-brand h3 {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 16px;
+    }
+    
+    .footer-brand p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      color: #999;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-social a:hover {
+      background: #F45407;
+      transform: translateY(-3px);
+    }
+    
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+      color: white;
     }
     
     .footer-column h4 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: 600;
       color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     
     .footer-links {
       list-style: none;
+      padding: 0;
     }
     
     .footer-links li {
@@ -268,54 +503,76 @@
     }
     
     .footer-links a {
-      color: #ccc;
+      color: #999;
       text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s ease;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      display: inline-block;
     }
     
     .footer-links a:hover {
       color: #F45407;
+      transform: translateX(3px);
     }
     
-    .footer-description {
-      color: #ccc;
+    .footer-newsletter h4 {
+      color: white;
+      margin-bottom: 12px;
+    }
+    
+    .footer-newsletter p {
       font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      color: #999;
+      margin-bottom: 16px;
     }
     
-    .social-links {
+    .newsletter-form {
       display: flex;
-      gap: 12px;
+      gap: 8px;
     }
     
-    .social-link {
-      width: 40px;
-      height: 40px;
-      background: #333;
+    .newsletter-input {
+      flex: 1;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: #ccc;
+      color: white;
+      font-size: 14px;
+    }
+    
+    .newsletter-input::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+    
+    .newsletter-btn {
+      padding: 10px 20px;
+      background: #F45407;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
       transition: all 0.3s ease;
     }
     
-    .social-link:hover {
-      background: #F45407;
-      color: white;
+    .newsletter-btn:hover {
+      background: #ff6b28;
     }
     
     .footer-bottom {
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 30px;
-      border-top: 1px solid #333;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    .footer-copyright {
       font-size: 14px;
-      color: #ccc;
+      color: #666;
     }
     
     .footer-bottom-links {
@@ -324,8 +581,9 @@
     }
     
     .footer-bottom-links a {
-      color: #ccc;
+      color: #666;
       text-decoration: none;
+      font-size: 14px;
       transition: color 0.3s ease;
     }
     
@@ -335,8 +593,25 @@
     
     /* ============= COOKIE POLICY STYLES ============= */
     .legal-hero {
-      background: linear-gradient(to bottom, #ffffff, #f9fafb);
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
       padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .legal-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(244, 84, 7, 0.1) 0%, transparent 50%);
+    }
+    
+    .legal-hero .container {
+      position: relative;
+      z-index: 1;
     }
     
     .legal-content {
@@ -356,13 +631,24 @@
       margin-bottom: 16px;
       padding-bottom: 12px;
       border-bottom: 2px solid #F45407;
+      position: relative;
+    }
+    
+    .legal-section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
     }
     
     .legal-section h3 {
       font-size: 18px;
       font-weight: 600;
       color: #333;
-      margin-top: 24px;
+      margin-top: 32px;
       margin-bottom: 12px;
     }
     
@@ -385,50 +671,107 @@
       margin-bottom: 8px;
     }
     
+    .legal-section a {
+      color: #F45407;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .legal-section a:hover {
+      color: #d63d00;
+      text-decoration: underline;
+    }
+    
     .cookie-table {
       width: 100%;
       border-collapse: collapse;
       margin: 24px 0;
       background: white;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     
     .cookie-table th,
     .cookie-table td {
-      padding: 16px;
+      padding: 16px 20px;
       text-align: left;
       border-bottom: 1px solid #e5e5e5;
     }
     
     .cookie-table th {
-      background: #f8f9fa;
+      background: linear-gradient(135deg, #f8f9fa, #f1f3f4);
       font-weight: 600;
       color: #333;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .cookie-table td {
+      font-size: 15px;
+      color: #666;
     }
     
     .cookie-table tr:last-child td {
       border-bottom: none;
     }
     
+    .cookie-table tr:hover {
+      background: rgba(244, 84, 7, 0.02);
+    }
+    
     .last-updated {
       color: #999;
       font-size: 14px;
+      font-style: italic;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .nav-dropdown-menu {
+        flex-direction: column;
+        min-width: 400px;
+      }
+      
+      .dropdown-promo {
+        order: -1;
+        width: 100%;
+        min-height: 200px;
+      }
+      
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      
+      .footer-brand {
+        grid-column: 1 / -1;
+        max-width: none;
+      }
     }
     
     @media (max-width: 768px) {
-      .nav-links {
+      .nav-menu {
         display: none;
       }
       
       .mobile-menu-toggle {
-        display: flex;
+        display: block;
       }
       
-      .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+      .nav-dropdown-menu {
+        min-width: 300px;
+      }
+      
+      .dropdown-services {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
       }
       
       .footer-bottom {
@@ -445,7 +788,7 @@
       }
       
       .legal-content {
-        padding: 40px 20px;
+        padding: 60px 20px;
       }
       
       .cookie-table {
@@ -454,57 +797,235 @@
       
       .cookie-table th,
       .cookie-table td {
-        padding: 12px 8px;
+        padding: 12px 16px;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+        gap: 12px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <a href="/" class="logo">imisofts</a>
-      
-      <div class="nav-links">
-        <div class="services-dropdown">
-          <a href="#" class="nav-link">Services ▼</a>
-          <div class="dropdown-content">
-            <a href="/web-development" class="dropdown-link">Web Development</a>
-            <a href="/ai-automation" class="dropdown-link">AI Automation</a>
-            <a href="/shopify-apps" class="dropdown-link">Shopify Apps</a>
-            <a href="/ecommerce" class="dropdown-link">E-commerce</a>
-            <a href="/crm-development" class="dropdown-link">CRM Development</a>
-            <a href="/digital-marketing" class="dropdown-link">Digital Marketing</a>
-            <a href="/cold-email-marketing" class="dropdown-link">Cold Email Marketing</a>
-            <a href="/ai-mobile-apps" class="dropdown-link">AI Mobile Apps</a>
+  <!-- ============= NAVBAR ============= -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" class="nav-logo" role="img" aria-label="imisofts logo">
+            <!-- Icon: dot at bottom-left, then two slanted tiles -->
+            <g fill="#F45407">
+              <circle cx="48" cy="170" r="18"/>
+              <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+              <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+            </g>
+            <!-- Wordmark -->
+            <g transform="translate(200,188)">
+              <text x="0" y="0"
+                    font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto"
+                    font-weight="700" font-size="96" letter-spacing="-0.5"
+                    fill="#0F172A">
+                <tspan class="char char-1">i</tspan><tspan class="char char-2">m</tspan><tspan class="char char-3">i</tspan><tspan class="char char-4">s</tspan><tspan class="char char-5">o</tspan><tspan class="char char-6">f</tspan><tspan class="char char-7">t</tspan><tspan class="char char-8">s</tspan>
+              </text>
+            </g>
+          </svg>
+        </a>
+        
+        <!-- Desktop Menu -->
+        <div class="nav-menu">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle" onclick="toggleDropdown()">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <div class="dropdown-services">
+                <a href="/ai-automation" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">AI Automation</div>
+                    <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
+                  </div>
+                </a>
+                
+                <a href="/digital-marketing" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Digital Marketing</div>
+                    <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
+                  </div>
+                </a>
+                
+                <a href="/cold-email-marketing" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Cold Email Marketing</div>
+                    <div class="dropdown-item-desc">Professional cold email systems that generate leads</div>
+                  </div>
+                </a>
+                
+                <a href="/ecommerce" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">E-commerce</div>
+                    <div class="dropdown-item-desc">High-converting online stores built to scale</div>
+                  </div>
+                </a>
+                
+                <a href="/web-development" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Web Development</div>
+                    <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
+                  </div>
+                </a>
+                
+                <a href="/crm-development" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">CRM Development</div>
+                    <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
+                  </div>
+                </a>
+                
+                <a href="/shopify-apps" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Shopify Apps</div>
+                    <div class="dropdown-item-desc">Built for Shopify certified app development</div>
+                  </div>
+                </a>
+                
+                <a href="/ai-mobile-apps" class="dropdown-item">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">AI Mobile Apps</div>
+                    <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
+                  </div>
+                </a>
+              </div>
+              
+              <div class="dropdown-promo">
+                <div class="dropdown-promo-content">
+                  <h3>From Idea to Revenue in 30 Days</h3>
+                  <p>We're not consultants who talk. We're builders who ship. AI automation, marketing, and development - all under one roof.</p>
+                  <a href="#contact" class="dropdown-promo-btn">See How We Work</a>
+                </div>
+                
+                <div class="dropdown-promo-graphic">
+                  <svg class="dropdown-promo-svg" viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central Hub -->
+                    <circle cx="140" cy="90" r="35" fill="#F45407" opacity="0.1"></circle>
+                    <circle cx="140" cy="90" r="25" fill="white" stroke="#F45407" stroke-width="2"></circle>
+                    
+                    <!-- Connecting Lines -->
+                    <path d="M140 90 L80 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L200 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L80 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L200 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    
+                    <!-- Service Nodes -->
+                    <rect x="60" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="180" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="60" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="180" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    
+                    <!-- Floating Dots -->
+                    <circle cx="100" cy="60" r="2" fill="#F45407" opacity="0.4">
+                      <animate attributeName="cy" values="60;55;60" dur="3s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="180" cy="80" r="2" fill="#ff6b28" opacity="0.4">
+                      <animate attributeName="cy" values="80;75;80" dur="3s" begin="0.5s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="0.5s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="120" cy="120" r="2" fill="#F45407" opacity="0.4">
+                      <animate attributeName="cy" values="120;115;120" dur="3s" begin="1s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="1s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="160" cy="50" r="2" fill="#ff6b28" opacity="0.4">
+                      <animate attributeName="cy" values="50;45;50" dur="3s" begin="1.5s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="1.5s" repeatCount="indefinite"></animate>
+                    </circle>
+                    
+                    <!-- Center Icon -->
+                    <g transform="translate(125, 75)">
+                      <path d="M15 10l5 5-5 5M10 10l-5 5 5 5" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
+          
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          
+          <!-- CTA Button -->
+          <a href="/contact" class="nav-cta">Get Free Audit &rarr;</a>
         </div>
         
-        <a href="/case-studies" class="nav-link">Case Studies</a>
-        <a href="/about" class="nav-link">About</a>
-        <a href="/pricing" class="nav-link">Pricing</a>
-        <a href="/blog" class="nav-link">Blog</a>
-        
-        <!-- CTA Button -->
-        <a href="/contact" class="nav-cta">Get Free Audit →</a>
-      </div>
-      
-      <div class="mobile-menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
     
-    <div class="mobile-nav">
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="mobile-nav-link">Home</a>
+      
       <div class="mobile-services">
-        <a href="/web-development" class="mobile-service-link">Web Development</a>
+        <div class="mobile-services-title">Services</div>
         <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
-        <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
-        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
-        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
         <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
         <a href="/cold-email-marketing" class="mobile-service-link">Cold Email Marketing</a>
+        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+        <a href="/web-development" class="mobile-service-link">Web Development</a>
+        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+        <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
         <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
       </div>
       
@@ -513,180 +1034,284 @@
       <a href="/pricing" class="mobile-nav-link">Pricing</a>
       <a href="/blog" class="mobile-nav-link">Blog</a>
       
-      <a href="/contact" class="mobile-cta">Get Free Audit →</a>
+      <a href="/contact" class="mobile-cta">Get Started</a>
     </div>
   </nav>
   
   <main>
-  <!-- Cookie Policy Hero -->
-  <div class="legal-hero">
-    <div class="container">
-      <h1 style="font-size: 48px; font-weight: 800; color: #1a1a1a; margin-bottom: 16px; text-align: center;">Cookie Policy</h1>
-      <p style="font-size: 18px; color: #666; text-align: center;">How we use cookies and similar tracking technologies</p>
-      <p class="last-updated" style="text-align: center; margin-top: 24px;">Last updated: January 1, 2025</p>
-    </div>
-  </div>
-  
-  <!-- Cookie Policy Content -->
-  <div class="legal-content">
-    <div class="legal-section">
-      <h2>1. Introduction</h2>
-      <p>This Cookie Policy explains how imisofts ("we," "our," or "us") uses cookies and similar technologies when you visit our website www.imisofts.com (the "Service"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
-      <p>In some cases we may use cookies to collect personal information, or that becomes personal information if we combine it with other information. In such cases our Privacy Policy will apply in addition to this Cookie Policy.</p>
+    <!-- Cookie Policy Hero -->
+    <div class="legal-hero">
+      <div class="container">
+        <h1 style="font-size: 48px; font-weight: 800; color: #1a1a1a; margin-bottom: 16px; text-align: center;">Cookie Policy</h1>
+        <p style="font-size: 18px; color: #666; text-align: center; max-width: 600px; margin: 0 auto;">How we use cookies and similar tracking technologies to provide and improve our services</p>
+        <p class="last-updated" style="text-align: center; margin-top: 24px;">Last updated: January 1, 2025</p>
+      </div>
     </div>
     
-    <div class="legal-section">
-      <h2>2. What Are Cookies</h2>
-      <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
-      <p>Cookies set by the website owner (in this case, imisofts) are called "first party cookies." Cookies set by parties other than the website owner are called "third party cookies." Third party cookies enable third party features or functionality to be provided on or through the website (e.g., like advertising, interactive content, and analytics).</p>
+    <!-- Cookie Policy Content -->
+    <div class="legal-content">
+      <div class="legal-section">
+        <h2>1. Introduction</h2>
+        <p>This Cookie Policy explains how imisofts ("we," "our," or "us") uses cookies and similar technologies when you visit our website www.imisofts.com (the "Service"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
+        <p>In some cases we may use cookies to collect personal information, or that becomes personal information if we combine it with other information. In such cases our <a href="/privacy-policy">Privacy Policy</a> will apply in addition to this Cookie Policy.</p>
+      </div>
+      
+      <div class="legal-section">
+        <h2>2. What Are Cookies</h2>
+        <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
+        <p>Cookies set by the website owner (in this case, imisofts) are called "first party cookies." Cookies set by parties other than the website owner are called "third party cookies." Third party cookies enable third party features or functionality to be provided on or through the website (e.g., like advertising, interactive content, and analytics).</p>
+      </div>
+      
+      <div class="legal-section">
+        <h2>3. Types of Cookies We Use</h2>
+        
+        <h3>Essential Cookies</h3>
+        <p>These cookies are strictly necessary to provide you with services available through our website and to use some of its features, such as access to secure areas.</p>
+        
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Cookie Name</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>session_id</td>
+              <td>Maintains user session state and preferences</td>
+              <td>Session</td>
+            </tr>
+            <tr>
+              <td>csrf_token</td>
+              <td>Security protection against cross-site request forgery attacks</td>
+              <td>Session</td>
+            </tr>
+            <tr>
+              <td>consent_preferences</td>
+              <td>Stores your cookie consent preferences</td>
+              <td>1 year</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3>Performance and Analytics Cookies</h3>
+        <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.</p>
+        
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Cookie Name</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>_ga</td>
+              <td>Google Analytics - distinguishes unique users and sessions</td>
+              <td>2 years</td>
+            </tr>
+            <tr>
+              <td>_ga_*</td>
+              <td>Google Analytics 4 - contains campaign and user information</td>
+              <td>2 years</td>
+            </tr>
+            <tr>
+              <td>_gid</td>
+              <td>Google Analytics - distinguishes users over a 24-hour period</td>
+              <td>24 hours</td>
+            </tr>
+            <tr>
+              <td>_gat</td>
+              <td>Google Analytics - throttles request rate to Analytics servers</td>
+              <td>1 minute</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3>Functionality Cookies</h3>
+        <p>These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.</p>
+        
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Cookie Name</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>theme_preference</td>
+              <td>Remembers your preferred theme (light/dark mode)</td>
+              <td>1 year</td>
+            </tr>
+            <tr>
+              <td>language_preference</td>
+              <td>Stores your preferred language setting</td>
+              <td>1 year</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3>Targeting and Advertising Cookies</h3>
+        <p>These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.</p>
+        
+        <table class="cookie-table">
+          <thead>
+            <tr>
+              <th>Cookie Name</th>
+              <th>Purpose</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>_fbp</td>
+              <td>Facebook Pixel - tracks conversions and website behavior</td>
+              <td>3 months</td>
+            </tr>
+            <tr>
+              <td>ads_preferences</td>
+              <td>Stores advertising preferences and targeting information</td>
+              <td>1 year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="legal-section">
+        <h2>4. How Long Do Cookies Stay on My Device</h2>
+        <p>The length of time a cookie stays on your device depends on whether it is a "persistent" or "session" cookie:</p>
+        <ul>
+          <li><strong>Session cookies:</strong> These are temporary and are deleted when you close your browser. They help us track your activity during a single browsing session.</li>
+          <li><strong>Persistent cookies:</strong> These remain on your device for a set period of time or until you delete them manually. They help us remember your preferences between visits.</li>
+        </ul>
+      </div>
+      
+      <div class="legal-section">
+        <h2>5. Your Cookie Choices</h2>
+        <p>You have several options to manage or disable cookies:</p>
+        
+        <h3>Browser Settings</h3>
+        <p>Most web browsers allow you to control cookies through their settings preferences. However, if you limit the ability of websites to set cookies, you may worsen your overall user experience, since it will no longer be personalized to you.</p>
+        <p>Here's how to manage cookies in popular browsers:</p>
+        <ul>
+          <li><strong>Chrome:</strong> Settings → Privacy and security → Cookies and other site data</li>
+          <li><strong>Firefox:</strong> Preferences → Privacy & Security → Cookies and Site Data</li>
+          <li><strong>Safari:</strong> Preferences → Privacy → Manage Website Data</li>
+          <li><strong>Edge:</strong> Settings → Cookies and site permissions → Cookies and site data</li>
+        </ul>
+        
+        <h3>Opt-out Links</h3>
+        <p>You can opt out of certain third-party cookies through these industry resources:</p>
+        <ul>
+          <li>Digital Advertising Alliance: <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info/choices</a></li>
+          <li>Network Advertising Initiative: <a href="http://www.networkadvertising.org/choices/" target="_blank" rel="noopener noreferrer">www.networkadvertising.org/choices</a></li>
+          <li>European Interactive Digital Advertising Alliance: <a href="http://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">www.youronlinechoices.eu</a></li>
+        </ul>
+        
+        <h3>Google Analytics</h3>
+        <p>You can opt out of Google Analytics by downloading and installing the browser add-on available at: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">tools.google.com/dlpage/gaoptout</a></p>
+        
+        <h3>Facebook Pixel</h3>
+        <p>You can control Facebook's use of cookies and ad targeting through your Facebook Ad Preferences: <a href="https://www.facebook.com/ads/preferences/" target="_blank" rel="noopener noreferrer">facebook.com/ads/preferences</a></p>
+      </div>
+      
+      <div class="legal-section">
+        <h2>6. Other Tracking Technologies</h2>
+        <p>We may also use other tracking technologies such as:</p>
+        <ul>
+          <li><strong>Web beacons:</strong> Small graphic images (also known as "pixel tags" or "clear GIFs") that may be included on our site and in our emails to monitor user behavior and email engagement.</li>
+          <li><strong>Local storage:</strong> HTML5 local storage that allows data to be stored locally within your browser, providing enhanced functionality and performance.</li>
+          <li><strong>Session storage:</strong> Temporary storage that exists only for the duration of your browser session.</li>
+          <li><strong>Server logs:</strong> Automatically collected information about your visit, including IP address, browser type, and pages visited.</li>
+        </ul>
+      </div>
+      
+      <div class="legal-section">
+        <h2>7. International Transfers</h2>
+        <p>Some of our cookie and tracking technology providers may transfer, store, and process your information in countries outside of your home country. These countries may have different data protection laws. However, we ensure that appropriate safeguards are in place to protect your information.</p>
+      </div>
+      
+      <div class="legal-section">
+        <h2>8. Updates to This Cookie Policy</h2>
+        <p>We may update this Cookie Policy from time to time in order to reflect changes to the cookies we use or for other operational, legal, or regulatory reasons. Please therefore revisit this Cookie Policy regularly to stay informed about our use of cookies and related technologies.</p>
+        <p>The date at the top of this Cookie Policy indicates when it was last updated. We will notify you of any material changes by posting the new Cookie Policy on this page and updating the "Last updated" date.</p>
+      </div>
+      
+      <div class="legal-section">
+        <h2>9. Contact Us</h2>
+        <p>If you have questions about our use of cookies or other technologies, please contact us at:</p>
+        <ul style="list-style: none; padding-left: 0;">
+          <li style="margin-bottom: 8px;"><strong>imisofts</strong></li>
+          <li style="margin-bottom: 8px;"><strong>Email:</strong> privacy@imisofts.com</li>
+          <li style="margin-bottom: 8px;"><strong>Phone:</strong> +971 55 885 1645</li>
+          <li style="margin-bottom: 8px;"><strong>Website:</strong> <a href="https://imisofts.com/contact">imisofts.com/contact</a></li>
+          <li><strong>Mailing Address:</strong> Dubai, United Arab Emirates</li>
+        </ul>
+        <p style="margin-top: 24px;">For specific privacy-related inquiries, you can also reach us through our dedicated privacy contact form on our website.</p>
+      </div>
     </div>
-    
-    <div class="legal-section">
-      <h2>3. Types of Cookies We Use</h2>
-      
-      <h3>Essential Cookies</h3>
-      <p>These cookies are strictly necessary to provide you with services available through our website and to use some of its features, such as access to secure areas.</p>
-      
-      <table class="cookie-table">
-        <thead>
-          <tr>
-            <th>Cookie Name</th>
-            <th>Purpose</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>session_id</td>
-            <td>Maintains user session state</td>
-            <td>Session</td>
-          </tr>
-          <tr>
-            <td>csrf_token</td>
-            <td>Security protection against cross-site request forgery</td>
-            <td>Session</td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <h3>Performance and Analytics Cookies</h3>
-      <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.</p>
-      
-      <table class="cookie-table">
-        <thead>
-          <tr>
-            <th>Cookie Name</th>
-            <th>Purpose</th>
-            <th>Duration</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>_ga</td>
-            <td>Google Analytics - distinguishes unique users</td>
-            <td>2 years</td>
-          </tr>
-          <tr>
-            <td>_ga_*</td>
-            <td>Google Analytics - contains campaign related information</td>
-            <td>2 years</td>
-          </tr>
-          <tr>
-            <td>_gid</td>
-            <td>Google Analytics - distinguishes unique users</td>
-            <td>24 hours</td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <h3>Functionality Cookies</h3>
-      <p>These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.</p>
-      
-      <h3>Targeting and Advertising Cookies</h3>
-      <p>These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.</p>
-    </div>
-    
-    <div class="legal-section">
-      <h2>4. How Long Do Cookies Stay on My Device</h2>
-      <p>The length of time a cookie stays on your device depends on whether it is a "persistent" or "session" cookie:</p>
-      <ul>
-        <li><strong>Session cookies:</strong> These are temporary and are deleted when you close your browser</li>
-        <li><strong>Persistent cookies:</strong> These remain on your device for a set period of time or until you delete them manually</li>
-      </ul>
-    </div>
-    
-    <div class="legal-section">
-      <h2>5. Your Cookie Choices</h2>
-      <p>You have several options to manage or disable cookies:</p>
-      
-      <h3>Browser Settings</h3>
-      <p>Most web browsers allow you to control cookies through their settings preferences. However, if you limit the ability of websites to set cookies, you may worsen your overall user experience.</p>
-      
-      <h3>Opt-out Links</h3>
-      <p>You can opt out of certain third-party cookies through these industry resources:</p>
-      <ul>
-        <li>Digital Advertising Alliance: <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info/choices</a></li>
-        <li>Network Advertising Initiative: <a href="http://www.networkadvertising.org/choices/" target="_blank" rel="noopener noreferrer">www.networkadvertising.org/choices</a></li>
-        <li>European Interactive Digital Advertising Alliance: <a href="http://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">www.youronlinechoices.eu</a></li>
-      </ul>
-      
-      <h3>Google Analytics</h3>
-      <p>You can opt out of Google Analytics by downloading and installing the browser add-on available at: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">tools.google.com/dlpage/gaoptout</a></p>
-    </div>
-    
-    <div class="legal-section">
-      <h2>6. Other Tracking Technologies</h2>
-      <p>We may also use other tracking technologies such as:</p>
-      <ul>
-        <li><strong>Web beacons:</strong> Small graphic images that may be included on our site and in our emails</li>
-        <li><strong>Local storage:</strong> HTML5 local storage that allows data to be stored locally within your browser</li>
-        <li><strong>Flash cookies:</strong> Local shared objects used by Adobe Flash Player</li>
-      </ul>
-    </div>
-    
-    <div class="legal-section">
-      <h2>7. Updates to This Cookie Policy</h2>
-      <p>We may update this Cookie Policy from time to time in order to reflect changes to the cookies we use or for other operational, legal, or regulatory reasons. Please therefore revisit this Cookie Policy regularly to stay informed about our use of cookies and related technologies.</p>
-      <p>The date at the top of this Cookie Policy indicates when it was last updated.</p>
-    </div>
-    
-    <div class="legal-section">
-      <h2>8. Contact Us</h2>
-      <p>If you have questions about our use of cookies or other technologies, please contact us at:</p>
-      <ul style="list-style: none; padding-left: 0;">
-        <li><strong>imisofts</strong></li>
-        <li>Email: privacy@imisofts.com</li>
-        <li>Website: <a href="https://imisofts.com/contact">https://imisofts.com/contact</a></li>
-      </ul>
-    </div>
-  </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
+  <!-- ============= FOOTER ============= -->
+  <footer class="footer">
     <div class="container">
-      <div class="footer-content">
-        <!-- Company Column -->
-        <div class="footer-column">
-          <h4>Company</h4>
-          <ul class="footer-links">
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/careers">Careers</a></li>
-            <li><a href="/case-studies">Case Studies</a></li>
-            <li><a href="/blog">Blog</a></li>
-          </ul>
+      <div class="footer-grid">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <h3>imisofts</h3>
+          <p>Building digital solutions that drive growth and transformation for ambitious businesses worldwide.</p>
+          <div class="footer-social">
+            <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="https://twitter.com/imisofts" aria-label="Twitter">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/imisofts" aria-label="Instagram">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
+              </svg>
+            </a>
+            <a href="https://github.com/imisofts" aria-label="GitHub">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+          </div>
         </div>
         
         <!-- Services Column -->
         <div class="footer-column">
           <h4>Services</h4>
           <ul class="footer-links">
-            <li><a href="/web-development">Web Development</a></li>
             <li><a href="/ai-automation">AI Automation</a></li>
-            <li><a href="/shopify-apps">Shopify Apps</a></li>
-            <li><a href="/ecommerce">E-commerce</a></li>
-            <li><a href="/crm-development">CRM Development</a></li>
             <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/crm-development">CRM Development</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+          </ul>
+        </div>
+        
+        <!-- Company Column -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         
@@ -702,20 +1327,29 @@
           </ul>
         </div>
         
-        <!-- Contact Column -->
+        <!-- Newsletter Column -->
         <div class="footer-column">
-          <h4>Get In Touch</h4>
-          <p class="footer-description">Ready to transform your business with custom software solutions?</p>
-          <div class="social-links">
-            <a href="#" class="social-link">📧</a>
-            <a href="#" class="social-link">🐦</a>
-            <a href="#" class="social-link">💼</a>
+          <div class="footer-newsletter">
+            <h4>Stay Updated</h4>
+            <p>Get the latest on AI automation and growth strategies</p>
+            <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/meolgepd" method="POST">
+              <input type="email" name="newsletter_email" class="newsletter-input" placeholder="Enter your email" required>
+              <input type="hidden" name="_subject" value="New Newsletter Subscription">
+              <button type="submit" class="newsletter-btn" id="newsletterBtn">Subscribe</button>
+            </form>
+            <div id="newsletterMessage" style="margin-top: 12px; padding: 10px; border-radius: 6px; display: none; text-align: center; font-size: 14px; font-weight: 600;"></div>
+          </div>
+          <div style="margin-top: 24px;">
+            <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Contact us directly:</p>
+            <p style="font-size: 15px; color: white; margin-bottom: 4px;">growth@imisofts.com</p>
+            <p style="font-size: 15px; color: white;">+971 55 885 1645</p>
           </div>
         </div>
       </div>
       
+      <!-- Footer Bottom -->
       <div class="footer-bottom">
-        <div>
+        <div class="footer-copyright">
           © 2025 imisofts. All rights reserved.
         </div>
         <div class="footer-bottom-links">
@@ -728,10 +1362,90 @@
   </footer>
 
   <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Services dropdown toggle
+    function toggleDropdown() {
+      const dropdown = document.getElementById('servicesDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('servicesDropdown');
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+    
     // Mobile menu toggle
-    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-      const mobileNav = document.querySelector('.mobile-nav');
-      mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileMenu.classList.toggle('active');
+    }
+    
+    // Newsletter form handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const newsletterForm = document.getElementById('newsletterForm');
+      const newsletterBtn = document.getElementById('newsletterBtn');
+      const newsletterMessage = document.getElementById('newsletterMessage');
+      
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Show loading state
+          newsletterBtn.innerHTML = 'Subscribing...';
+          newsletterBtn.disabled = true;
+          
+          // Submit form data
+          const formData = new FormData(newsletterForm);
+          
+          fetch(newsletterForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              // Success
+              newsletterMessage.style.display = 'block';
+              newsletterMessage.style.background = 'rgba(34, 197, 94, 0.1)';
+              newsletterMessage.style.color = '#16a34a';
+              newsletterMessage.style.border = '1px solid rgba(34, 197, 94, 0.2)';
+              newsletterMessage.textContent = 'Successfully subscribed! Thank you.';
+              newsletterForm.reset();
+            } else {
+              throw new Error('Network response was not ok');
+            }
+          }).catch(error => {
+            // Error
+            newsletterMessage.style.display = 'block';
+            newsletterMessage.style.background = 'rgba(239, 68, 68, 0.1)';
+            newsletterMessage.style.color = '#dc2626';
+            newsletterMessage.style.border = '1px solid rgba(239, 68, 68, 0.2)';
+            newsletterMessage.textContent = 'Subscription failed. Please try again.';
+          }).finally(() => {
+            // Reset button state
+            newsletterBtn.innerHTML = 'Subscribe';
+            newsletterBtn.disabled = false;
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+              newsletterMessage.style.display = 'none';
+            }, 5000);
+          });
+        });
+      }
     });
   </script>
 </body>
