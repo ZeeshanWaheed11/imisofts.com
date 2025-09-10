@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products by imisofts - Shopify Apps, Themes & Mobile Solutions</title>
+  <meta name="description" content="Premium digital products by imisofts. Shopify apps, themes, and mobile applications built for modern businesses.">
+  <link rel="canonical" href="https://imisofts.com/products">
+  
+  <!-- Favicon using inline SVG data URL -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 120px 0 80px;
+      background: linear-gradient(135deg, #fff8f5 0%, #ffede8 100%);
+      text-align: center;
+    }
+    
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      background: white;
+      border-radius: 50px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: #F45407;
+      border-radius: 50%;
+      margin-right: 8px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    h1 {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    
+    .hero p {
+      font-size: 20px;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    
+    /* Product Categories */
+    .categories {
+      padding: 80px 0;
+      background: white;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    
+    .section-title h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    
+    .category-card {
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border-color: #F45407;
+    }
+    
+    .category-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.1), rgba(244, 84, 7, 0.05));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+    
+    .category-card:hover .category-icon {
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+    }
+    
+    .category-icon svg {
+      width: 40px;
+      height: 40px;
+      color: #F45407;
+    }
+    
+    .category-card:hover .category-icon svg {
+      color: white;
+    }
+    
+    .category-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    
+    .category-card p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 50px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    
+    .status-coming {
+      background: #fff5f3;
+      color: #F45407;
+    }
+    
+    .status-live {
+      background: #d4edda;
+      color: #155724;
+    }
+    
+    .status-beta {
+      background: #cce5ff;
+      color: #004085;
+    }
+    
+    /* Featured Products */
+    .featured {
+      padding: 80px 0;
+      background: #f9fafb;
+    }
+    
+    .product-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+    
+    .product-content h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .product-content p {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 24px;
+    }
+    
+    .feature-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+    
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+    
+    .check-icon {
+      width: 24px;
+      height: 24px;
+      background: #F45407;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .check-icon svg {
+      width: 14px;
+      height: 14px;
+      color: white;
+    }
+    
+    .product-preview {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .cta-group {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .btn {
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: #333;
+      border: 1px solid #e5e5e5;
+    }
+    
+    .btn-secondary:hover {
+      border-color: #F45407;
+      color: #F45407;
+    }
+    
+    /* Roadmap */
+    .roadmap {
+      padding: 80px 0;
+      background: white;
+    }
+    
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #e5e5e5;
+      transform: translateX(-50%);
+    }
+    
+    .timeline-item {
+      display: flex;
+      margin-bottom: 60px;
+      position: relative;
+    }
+    
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    
+    .timeline-content {
+      flex: 1;
+      padding: 24px 32px;
+      background: white;
+      border: 1px solid #e5e5e5;
+      border-radius: 16px;
+      margin: 0 40px;
+      position: relative;
+    }
+    
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border: 3px solid #F45407;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-content::before {
+      right: -50px;
+    }
+    
+    .timeline-item:nth-child(even) .timeline-content::before {
+      left: -50px;
+    }
+    
+    .timeline-date {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+    
+    .timeline-content h4 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    
+    .timeline-content p {
+      color: #666;
+      font-size: 15px;
+    }
+    
+    /* Newsletter */
+    .newsletter {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      text-align: center;
+      color: white;
+    }
+    
+    .newsletter h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .newsletter p {
+      font-size: 18px;
+      margin-bottom: 32px;
+      opacity: 0.95;
+    }
+    
+    .newsletter-form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    
+    .newsletter-btn {
+      padding: 14px 28px;
+      background: white;
+      color: #F45407;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .newsletter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+      
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .product-showcase {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .timeline::before {
+        left: 20px;
+      }
+      
+      .timeline-item,
+      .timeline-item:nth-child(even) {
+        flex-direction: row;
+      }
+      
+      .timeline-content {
+        margin-left: 60px;
+        margin-right: 20px;
+      }
+      
+      .timeline-content::before {
+        left: -41px !important;
+      }
+      
+      .newsletter-form {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span style="color: #F45407; font-size: 14px; font-weight: 500;">Building Digital Products</span>
+      </div>
+      
+      <h1>Products That Power<br><span style="color: #F45407;">Modern Businesses</span></h1>
+      
+      <p>Premium Shopify apps, themes, and mobile solutions built by developers who understand what businesses actually need.</p>
+      
+      <div class="cta-group" style="justify-content: center;">
+        <a href="#roadmap" class="btn btn-primary">View Roadmap</a>
+        <a href="#newsletter" class="btn btn-secondary">Get Early Access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="categories">
+    <div class="container">
+      <div class="section-title">
+        <h2>What We're Building</h2>
+        <p style="color: #666; font-size: 18px;">Digital products that solve real problems for real businesses</p>
+      </div>
+      
+      <div class="category-grid">
+        <div class="category-card">
+          <div class="category-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3>Shopify Apps</h3>
+          <p>Smart apps that help store owners increase sales and save time</p>
+          <span class="status-badge status-coming">Coming Q2 2025</span>
+        </div>
+        
+        <div class="category-card">
+          <div class="category-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+            </svg>
+          </div>
+          <h3>Shopify Themes</h3>
+          <p>Premium themes designed for conversion and brand identity</p>
+          <span class="status-badge status-coming">Coming Q3 2025</span>
+        </div>
+        
+        <div class="category-card">
+          <div class="category-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3>Mobile Apps</h3>
+          <p>AI-powered mobile apps for iOS and Android platforms</p>
+          <span class="status-badge status-coming">Coming Q4 2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Product Preview -->
+  <section class="featured">
+    <div class="container">
+      <div class="section-title">
+        <h2>First Product Launch</h2>
+        <p style="color: #666; font-size: 18px;">Our flagship Shopify app launching soon</p>
+      </div>
+      
+      <div class="product-showcase">
+        <div class="product-content">
+          <span class="status-badge status-beta">In Development</span>
+          <h3 style="margin-top: 16px;">Smart Invoice Pro</h3>
+          <p>Professional invoice generation for Shopify stores with automatic tax calculations, multi-currency support, and beautiful templates.</p>
+          
+          <ul class="feature-list">
+            <li>
+              <div class="check-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              One-click invoice generation from orders
+            </li>
+            <li>
+              <div class="check-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              Automatic tax calculations for 180+ countries
+            </li>
+            <li>
+              <div class="check-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              Custom branding and templates
+            </li>
+            <li>
+              <div class="check-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              Bulk export to PDF and email automation
+            </li>
+          </ul>
+          
+          <div class="cta-group">
+            <a href="#newsletter" class="btn btn-primary">Get Early Access</a>
+            <a href="/blog/building-smart-invoice-pro" class="btn btn-secondary">Read Blog Post</a>
+          </div>
+        </div>
+        
+        <div class="product-preview">
+          <div style="text-align: center;">
+            <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="40" y="30" width="120" height="140" rx="8" fill="#f9fafb" stroke="#e5e5e5" stroke-width="2"/>
+              <rect x="50" y="40" width="100" height="20" rx="4" fill="#F45407" opacity="0.2"/>
+              <rect x="50" y="70" width="60" height="8" rx="2" fill="#e5e5e5"/>
+              <rect x="50" y="85" width="80" height="8" rx="2" fill="#e5e5e5"/>
+              <rect x="50" y="100" width="50" height="8" rx="2" fill="#e5e5e5"/>
+              <rect x="50" y="115" width="70" height="8" rx="2" fill="#e5e5e5"/>
+              <rect x="50" y="130" width="40" height="8" rx="2" fill="#e5e5e5"/>
+              <rect x="90" y="145" width="50" height="15" rx="4" fill="#F45407"/>
+            </svg>
+            <p style="margin-top: 24px; color: #666;">Invoice Preview Coming Soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section class="roadmap" id="roadmap">
+    <div class="container">
+      <div class="section-title">
+        <h2>Product Roadmap</h2>
+        <p style="color: #666; font-size: 18px;">Our journey to building products that matter</p>
+      </div>
+      
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Q1 2025</div>
+            <h4>Research & Development</h4>
+            <p>Market research, competitor analysis, and MVP development for our first Shopify app</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Q2 2025</div>
+            <h4>First App Launch</h4>
+            <p>Launch Smart Invoice Pro on Shopify App Store with early adopter pricing</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Q3 2025</div>
+            <h4>Theme Collection</h4>
+            <p>Release our first premium Shopify theme focused on high-converting stores</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">Q4 2025</div>
+            <h4>Mobile Expansion</h4>
+            <p>Launch our first AI-powered mobile app for iOS and Android</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2026</div>
+            <h4>Ecosystem Growth</h4>
+            <p>Expand product line with 5+ apps and establish imisofts as a premium product brand</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter" id="newsletter">
+    <div class="container">
+      <h2>Be First to Know</h2>
+      <p>Get exclusive early access to our products and special launch pricing</p>
+      
+      <form class="newsletter-form" action="https://formspree.io/f/meolgepd" method="POST">
+        <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
+        <input type="hidden" name="_subject" value="Product Early Access Request">
+        <button type="submit" class="newsletter-btn">Get Early Access</button>
+      </form>
+      
+      <p style="font-size: 14px; opacity: 0.8; margin-top: 16px;">
+        Join 500+ entrepreneurs waiting for our products
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Policy | imisofts</title>
+  <meta name="description" content="Cookie Policy for imisofts - Learn about how we use cookies and similar tracking technologies.">
+  <link rel="canonical" href="https://imisofts.com/cookie-policy">
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Structured Data for Cookie Policy -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Cookie Policy",
+    "description": "Cookie Policy for imisofts - Learn about how we use cookies and similar tracking technologies",
+    "url": "https://imisofts.com/cookie-policy",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "imisofts",
+      "url": "https://imisofts.com"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://imisofts.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cookie Policy",
+          "item": "https://imisofts.com/cookie-policy"
+        }
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "imisofts",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://imisofts.com/og-image.svg"
+      }
+    }
+  }
+  </script>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background-color: #ffffff;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVIGATION STYLES ============= */
+    nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+    
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    .nav-cta {
+      background: #F45407;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    
+    .nav-cta:hover {
+      background: #d63f06;
+    }
+    
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 4px;
+    }
+    
+    .mobile-menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: #1a1a1a;
+      margin: 3px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+    
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 73px;
+      left: 0;
+      right: 0;
+      background: white;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 20px;
+      z-index: 999;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 0;
+      color: #666;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .mobile-nav-link:last-child {
+      border-bottom: none;
+    }
+    
+    .mobile-cta {
+      display: inline-block;
+      background: #F45407;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 16px;
+    }
+    
+    .services-dropdown {
+      position: relative;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      min-width: 280px;
+      z-index: 1000;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .services-dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .dropdown-link {
+      display: block;
+      padding: 12px 16px;
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      border-bottom: none;
+    }
+    
+    .dropdown-link:hover {
+      background: #f8f9fa;
+      color: #F45407;
+    }
+    
+    .mobile-services {
+      padding-left: 20px;
+    }
+    
+    .mobile-service-link {
+      display: block;
+      padding: 8px 0;
+      color: #999;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    
+    /* ============= FOOTER STYLES ============= */
+    footer {
+      background: #1a1a1a;
+      color: white;
+      padding: 60px 0 30px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+    
+    .footer-column h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: white;
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: #F45407;
+    }
+    
+    .footer-description {
+      color: #ccc;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: #333;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #ccc;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background: #F45407;
+      color: white;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 30px;
+      border-top: 1px solid #333;
+      font-size: 14px;
+      color: #ccc;
+    }
+    
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .footer-bottom-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-bottom-links a:hover {
+      color: #F45407;
+    }
+    
+    /* ============= COOKIE POLICY STYLES ============= */
+    .legal-hero {
+      background: linear-gradient(to bottom, #ffffff, #f9fafb);
+      padding: 120px 0 80px;
+    }
+    
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+    
+    .legal-section {
+      margin-bottom: 48px;
+    }
+    
+    .legal-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #F45407;
+    }
+    
+    .legal-section h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    
+    .legal-section p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #666;
+      margin-bottom: 16px;
+    }
+    
+    .legal-section ul {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+    
+    .legal-section li {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #666;
+      margin-bottom: 8px;
+    }
+    
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cookie-table th,
+    .cookie-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    
+    .cookie-table th {
+      background: #f8f9fa;
+      font-weight: 600;
+      color: #333;
+    }
+    
+    .cookie-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .last-updated {
+      color: #999;
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      
+      .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .legal-hero {
+        padding: 80px 0 60px;
+      }
+      
+      .legal-hero h1 {
+        font-size: 32px !important;
+      }
+      
+      .legal-content {
+        padding: 40px 20px;
+      }
+      
+      .cookie-table {
+        font-size: 14px;
+      }
+      
+      .cookie-table th,
+      .cookie-table td {
+        padding: 12px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="logo">imisofts</a>
+      
+      <div class="nav-links">
+        <div class="services-dropdown">
+          <a href="#" class="nav-link">Services ▼</a>
+          <div class="dropdown-content">
+            <a href="/web-development" class="dropdown-link">Web Development</a>
+            <a href="/ai-automation" class="dropdown-link">AI Automation</a>
+            <a href="/shopify-apps" class="dropdown-link">Shopify Apps</a>
+            <a href="/ecommerce" class="dropdown-link">E-commerce</a>
+            <a href="/crm-development" class="dropdown-link">CRM Development</a>
+            <a href="/digital-marketing" class="dropdown-link">Digital Marketing</a>
+            <a href="/cold-email-marketing" class="dropdown-link">Cold Email Marketing</a>
+            <a href="/ai-mobile-apps" class="dropdown-link">AI Mobile Apps</a>
+          </div>
+        </div>
+        
+        <a href="/case-studies" class="nav-link">Case Studies</a>
+        <a href="/about" class="nav-link">About</a>
+        <a href="/pricing" class="nav-link">Pricing</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        
+        <!-- CTA Button -->
+        <a href="/contact" class="nav-cta">Get Free Audit →</a>
+      </div>
+      
+      <div class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    
+    <div class="mobile-nav">
+      <div class="mobile-services">
+        <a href="/web-development" class="mobile-service-link">Web Development</a>
+        <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+        <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+        <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+        <a href="/cold-email-marketing" class="mobile-service-link">Cold Email Marketing</a>
+        <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+      </div>
+      
+      <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/pricing" class="mobile-nav-link">Pricing</a>
+      <a href="/blog" class="mobile-nav-link">Blog</a>
+      
+      <a href="/contact" class="mobile-cta">Get Free Audit →</a>
+    </div>
+  </nav>
+  
+  <main>
+  <!-- Cookie Policy Hero -->
+  <div class="legal-hero">
+    <div class="container">
+      <h1 style="font-size: 48px; font-weight: 800; color: #1a1a1a; margin-bottom: 16px; text-align: center;">Cookie Policy</h1>
+      <p style="font-size: 18px; color: #666; text-align: center;">How we use cookies and similar tracking technologies</p>
+      <p class="last-updated" style="text-align: center; margin-top: 24px;">Last updated: January 1, 2025</p>
+    </div>
+  </div>
+  
+  <!-- Cookie Policy Content -->
+  <div class="legal-content">
+    <div class="legal-section">
+      <h2>1. Introduction</h2>
+      <p>This Cookie Policy explains how imisofts ("we," "our," or "us") uses cookies and similar technologies when you visit our website www.imisofts.com (the "Service"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
+      <p>In some cases we may use cookies to collect personal information, or that becomes personal information if we combine it with other information. In such cases our Privacy Policy will apply in addition to this Cookie Policy.</p>
+    </div>
+    
+    <div class="legal-section">
+      <h2>2. What Are Cookies</h2>
+      <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
+      <p>Cookies set by the website owner (in this case, imisofts) are called "first party cookies." Cookies set by parties other than the website owner are called "third party cookies." Third party cookies enable third party features or functionality to be provided on or through the website (e.g., like advertising, interactive content, and analytics).</p>
+    </div>
+    
+    <div class="legal-section">
+      <h2>3. Types of Cookies We Use</h2>
+      
+      <h3>Essential Cookies</h3>
+      <p>These cookies are strictly necessary to provide you with services available through our website and to use some of its features, such as access to secure areas.</p>
+      
+      <table class="cookie-table">
+        <thead>
+          <tr>
+            <th>Cookie Name</th>
+            <th>Purpose</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>session_id</td>
+            <td>Maintains user session state</td>
+            <td>Session</td>
+          </tr>
+          <tr>
+            <td>csrf_token</td>
+            <td>Security protection against cross-site request forgery</td>
+            <td>Session</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3>Performance and Analytics Cookies</h3>
+      <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular and see how visitors move around the site.</p>
+      
+      <table class="cookie-table">
+        <thead>
+          <tr>
+            <th>Cookie Name</th>
+            <th>Purpose</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>_ga</td>
+            <td>Google Analytics - distinguishes unique users</td>
+            <td>2 years</td>
+          </tr>
+          <tr>
+            <td>_ga_*</td>
+            <td>Google Analytics - contains campaign related information</td>
+            <td>2 years</td>
+          </tr>
+          <tr>
+            <td>_gid</td>
+            <td>Google Analytics - distinguishes unique users</td>
+            <td>24 hours</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3>Functionality Cookies</h3>
+      <p>These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose services we have added to our pages.</p>
+      
+      <h3>Targeting and Advertising Cookies</h3>
+      <p>These cookies may be set through our site by our advertising partners. They may be used by those companies to build a profile of your interests and show you relevant adverts on other sites.</p>
+    </div>
+    
+    <div class="legal-section">
+      <h2>4. How Long Do Cookies Stay on My Device</h2>
+      <p>The length of time a cookie stays on your device depends on whether it is a "persistent" or "session" cookie:</p>
+      <ul>
+        <li><strong>Session cookies:</strong> These are temporary and are deleted when you close your browser</li>
+        <li><strong>Persistent cookies:</strong> These remain on your device for a set period of time or until you delete them manually</li>
+      </ul>
+    </div>
+    
+    <div class="legal-section">
+      <h2>5. Your Cookie Choices</h2>
+      <p>You have several options to manage or disable cookies:</p>
+      
+      <h3>Browser Settings</h3>
+      <p>Most web browsers allow you to control cookies through their settings preferences. However, if you limit the ability of websites to set cookies, you may worsen your overall user experience.</p>
+      
+      <h3>Opt-out Links</h3>
+      <p>You can opt out of certain third-party cookies through these industry resources:</p>
+      <ul>
+        <li>Digital Advertising Alliance: <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">www.aboutads.info/choices</a></li>
+        <li>Network Advertising Initiative: <a href="http://www.networkadvertising.org/choices/" target="_blank" rel="noopener noreferrer">www.networkadvertising.org/choices</a></li>
+        <li>European Interactive Digital Advertising Alliance: <a href="http://www.youronlinechoices.eu/" target="_blank" rel="noopener noreferrer">www.youronlinechoices.eu</a></li>
+      </ul>
+      
+      <h3>Google Analytics</h3>
+      <p>You can opt out of Google Analytics by downloading and installing the browser add-on available at: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">tools.google.com/dlpage/gaoptout</a></p>
+    </div>
+    
+    <div class="legal-section">
+      <h2>6. Other Tracking Technologies</h2>
+      <p>We may also use other tracking technologies such as:</p>
+      <ul>
+        <li><strong>Web beacons:</strong> Small graphic images that may be included on our site and in our emails</li>
+        <li><strong>Local storage:</strong> HTML5 local storage that allows data to be stored locally within your browser</li>
+        <li><strong>Flash cookies:</strong> Local shared objects used by Adobe Flash Player</li>
+      </ul>
+    </div>
+    
+    <div class="legal-section">
+      <h2>7. Updates to This Cookie Policy</h2>
+      <p>We may update this Cookie Policy from time to time in order to reflect changes to the cookies we use or for other operational, legal, or regulatory reasons. Please therefore revisit this Cookie Policy regularly to stay informed about our use of cookies and related technologies.</p>
+      <p>The date at the top of this Cookie Policy indicates when it was last updated.</p>
+    </div>
+    
+    <div class="legal-section">
+      <h2>8. Contact Us</h2>
+      <p>If you have questions about our use of cookies or other technologies, please contact us at:</p>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>imisofts</strong></li>
+        <li>Email: privacy@imisofts.com</li>
+        <li>Website: <a href="https://imisofts.com/contact">https://imisofts.com/contact</a></li>
+      </ul>
+    </div>
+  </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <!-- Company Column -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services Column -->
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/ai-automation">AI Automation</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/crm-development">CRM Development</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+          </ul>
+        </div>
+        
+        <!-- Resources Column -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/free-audit">Free Audit</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/api-docs">API Docs</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Column -->
+        <div class="footer-column">
+          <h4>Get In Touch</h4>
+          <p class="footer-description">Ready to transform your business with custom software solutions?</p>
+          <div class="social-links">
+            <a href="#" class="social-link">📧</a>
+            <a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">💼</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>
+          © 2025 imisofts. All rights reserved.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms-of-service">Terms of Service</a>
+          <a href="/cookie-policy">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+      const mobileNav = document.querySelector('.mobile-nav');
+      mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+    });
+  </script>
+</body>
+</html>
