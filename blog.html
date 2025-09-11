@@ -801,6 +801,19 @@
       gap: 8px;
     }
     
+    .author-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.3s ease;
+    }
+    
+    .author-link:hover {
+      opacity: 0.7;
+    }
+    
     .author-avatar {
       width: 32px;
       height: 32px;
@@ -812,6 +825,13 @@
       color: white;
       font-size: 12px;
       font-weight: 600;
+    }
+    
+    .author-avatar-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
     }
     
     .author-name {
@@ -1460,8 +1480,10 @@
             </p>
             <div class="blog-card-footer">
               <div class="author-info">
-                <div class="author-avatar">ZW</div>
-                <span class="author-name">Zeeshan Waheed</span>
+                <a href="/author/zeeshan-waheed/" class="author-link" aria-label="About Zeeshan Waheed">
+                  <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed-thumb.jpg?v=1757561134" alt="Zeeshan Waheed" width="32" height="32" class="author-avatar-img">
+                  <span class="author-name">Zeeshan Waheed</span>
+                </a>
               </div>
               <span class="read-time">7 min read</span>
             </div>
