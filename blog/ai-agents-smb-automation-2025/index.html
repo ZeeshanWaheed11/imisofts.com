@@ -106,6 +106,62 @@
       box-sizing: border-box;
     }
     
+    /* Reading Progress Bar */
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #F45407, #ff6b28);
+      z-index: 1001;
+      transition: width 0.25s ease;
+    }
+    
+    /* Table of Contents */
+    .table-of-contents {
+      background: #f9fafb;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      border-left: 4px solid #F45407;
+    }
+    
+    .table-of-contents h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+      color: #1a1a1a;
+    }
+    
+    .table-of-contents ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .table-of-contents li {
+      margin-bottom: 8px;
+    }
+    
+    .table-of-contents a {
+      color: #4a5568;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+      display: block;
+      padding: 4px 0;
+    }
+    
+    .table-of-contents a:hover {
+      color: #F45407;
+    }
+    
+    .table-of-contents a.active {
+      color: #F45407;
+      font-weight: 500;
+    }
+    
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
@@ -762,6 +818,10 @@
   </style>
 </head>
 <body>
+  
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress" id="reading-progress"></div>
+  
   <!-- ============= NAVBAR ============= -->
   <nav class="navbar" id="navbar">
     <div class="container">
@@ -973,11 +1033,20 @@
     <div class="container">
       <h1>AI Agents Are Revolutionizing SMB Operations in 2025</h1>
       <div class="blog-meta">
-        <span>Updated on January 10, 2025</span>
-        <span>•</span>
-        <span>6 min read</span>
-        <span>•</span>
-        <span>AI & Automation</span>
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+          <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed-thumb.jpg?v=1757561134" alt="Zeeshan Waheed" 
+               width="24" height="24" style="border-radius: 50%; object-fit: cover;">
+          <span>By <strong>Zeeshan Waheed</strong></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+          <time datetime="2025-09-11">September 11, 2025</time>
+          <span>•</span>
+          <span>7 min read</span>
+          <span>•</span>
+          <span>AI & Automation</span>
+          <span>•</span>
+          <span>Updated: <time datetime="2025-09-11">Sep 11, 2025</time></span>
+        </div>
       </div>
     </div>
   </div>
@@ -987,6 +1056,14 @@
     <p>Small and medium businesses are experiencing a seismic shift. AI agents (autonomous digital workers) are no longer a futuristic concept. They're here, and they're transforming how SMBs operate, compete, and grow.</p>
     
     <p>Recent data from <a href="https://www.salesforce.com/news/stories/smbs-ai-trends-2025/" target="_blank">Salesforce</a> reveals a striking statistic: 91% of SMBs using AI report revenue growth. This isn't just correlation. It's a fundamental change in how businesses can leverage technology to punch above their weight.</p>
+
+    <!-- Table of Contents -->
+    <div class="table-of-contents" id="table-of-contents">
+      <h3>Table of Contents</h3>
+      <ul id="toc-list">
+        <!-- Generated automatically by JavaScript -->
+      </ul>
+    </div>
 
     <h2>What Are AI Agents and Why 2025 Is Their Breakout Year</h2>
     
@@ -1066,6 +1143,36 @@
 
     <p>For SMBs ready to embrace this transformation, the message is clear: start now, start small, but start. Your future self and your bottom line will thank you.</p>
   </article>
+
+  <!-- Related Reading Section -->
+  <div class="container">
+    <section style="max-width: 780px; margin: 48px auto; padding: 32px; background: #ffffff; border-radius: 16px; border: 1px solid #e5e7eb;">
+      <h3 style="font-size: 20px; font-weight: 600; margin: 0 0 20px 0; color: #1a1a1a;">Related Reading</h3>
+      <div style="display: grid; gap: 16px;">
+        <a href="/ai-automation/" style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #f9fafb; border-radius: 12px; text-decoration: none; transition: background 0.3s ease;" onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='#f9fafb'">
+          <div style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; flex-shrink: 0;"></div>
+          <div>
+            <div style="font-weight: 600; color: #1a1a1a; font-size: 16px; margin-bottom: 4px;">AI Automation Services</div>
+            <div style="color: #6b7280; font-size: 14px;">Discover how our AI automation solutions can transform your business operations and boost efficiency.</div>
+          </div>
+        </a>
+        <a href="/digital-marketing/" style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #f9fafb; border-radius: 12px; text-decoration: none; transition: background 0.3s ease;" onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='#f9fafb'">
+          <div style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; flex-shrink: 0;"></div>
+          <div>
+            <div style="font-weight: 600; color: #1a1a1a; font-size: 16px; margin-bottom: 4px;">Digital Marketing Strategy</div>
+            <div style="color: #6b7280; font-size: 14px;">Learn how to leverage digital marketing alongside AI automation for maximum business growth.</div>
+          </div>
+        </a>
+        <a href="/contact/" style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #f9fafb; border-radius: 12px; text-decoration: none; transition: background 0.3s ease;" onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='#f9fafb'">
+          <div style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; flex-shrink: 0;"></div>
+          <div>
+            <div style="font-weight: 600; color: #1a1a1a; font-size: 16px; margin-bottom: 4px;">Get Your Free AI Strategy Session</div>
+            <div style="color: #6b7280; font-size: 14px;">Ready to implement AI agents in your business? Schedule a consultation with our experts.</div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
 
   <!-- Author Box -->
   <div class="container">
@@ -1277,6 +1384,71 @@
             setTimeout(() => {
               newsletterMessage.style.display = 'none';
             }, 5000);
+          });
+        });
+      }
+    });
+    
+    // Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      const progressBar = document.getElementById('reading-progress');
+      const article = document.querySelector('article');
+      
+      if (article) {
+        const articleStart = article.offsetTop;
+        const articleHeight = article.offsetHeight;
+        const windowHeight = window.innerHeight;
+        const scrolled = window.scrollY;
+        
+        // Calculate progress within the article
+        const progress = Math.max(0, Math.min(100, 
+          ((scrolled - articleStart + windowHeight) / articleHeight) * 100
+        ));
+        
+        progressBar.style.width = progress + '%';
+      }
+    });
+    
+    // Generate Table of Contents
+    document.addEventListener('DOMContentLoaded', function() {
+      const tocList = document.getElementById('toc-list');
+      const headings = document.querySelectorAll('article h2');
+      
+      if (headings.length > 0 && tocList) {
+        headings.forEach((heading, index) => {
+          // Create unique ID for heading
+          const id = 'heading-' + (index + 1);
+          heading.id = id;
+          
+          // Create TOC link
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = '#' + id;
+          a.textContent = heading.textContent;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            heading.scrollIntoView({ behavior: 'smooth' });
+          });
+          
+          li.appendChild(a);
+          tocList.appendChild(li);
+        });
+        
+        // Highlight active section on scroll
+        window.addEventListener('scroll', function() {
+          let current = '';
+          headings.forEach(heading => {
+            const rect = heading.getBoundingClientRect();
+            if (rect.top <= 100) {
+              current = heading.id;
+            }
+          });
+          
+          tocList.querySelectorAll('a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+              link.classList.add('active');
+            }
           });
         });
       }
