@@ -12,7 +12,7 @@
   <meta property="og:title" content="Zeeshan Waheed — Founder & CEO at imisofts">
   <meta property="og:description" content="Expert in AI automation, cold email marketing, Shopify development, and growth systems that drive revenue for SMBs and startups.">
   <meta property="og:url" content="https://imisofts.com/author/zeeshan-waheed/">
-  <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed-thumb.jpg?v=1757561134">
+  <meta property="og:image" content="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed.jpg?v=1757588956">
   <meta property="og:image:width" content="400">
   <meta property="og:image:height" content="400">
   <meta property="og:site_name" content="imisofts">
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Zeeshan Waheed — Founder & CEO at imisofts">
   <meta name="twitter:description" content="Expert in AI automation, cold email marketing, Shopify development, and growth systems that drive revenue for SMBs and startups.">
-  <meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed-thumb.jpg?v=1757561134">
+  <meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed.jpg?v=1757588956">
   <meta name="twitter:site" content="@imisofts">
   <meta name="twitter:creator" content="@izeeshanwaheed">
 
@@ -44,7 +44,7 @@
         "@id": "https://imisofts.com/author/zeeshan-waheed/#person",
         "name": "Zeeshan Waheed",
         "jobTitle": "Founder & CEO",
-        "image": "https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed-thumb.jpg?v=1757561134",
+        "image": "https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed.jpg?v=1757588956",
         "url": "https://imisofts.com/author/zeeshan-waheed/",
         "worksFor": {
           "@type": "Organization",
@@ -83,7 +83,7 @@
         "about": {
           "@id": "https://imisofts.com/author/zeeshan-waheed/#person"
         },
-        "primaryImageOfPage": "https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed-thumb.jpg?v=1757561134"
+        "primaryImageOfPage": "https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed.jpg?v=1757588956"
       },
       {
         "@type": "BreadcrumbList",
@@ -294,6 +294,71 @@
       color: #666;
       line-height: 1.4;
     }
+    
+    .dropdown-promo {
+      width: 340px;
+      background: linear-gradient(135deg, #fff8f5 0%, #ffede8 100%);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      border-radius: 0 20px 20px 0;
+    }
+    
+    .dropdown-promo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(244, 84, 7, 0.08) 0%, transparent 60%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.1); }
+    }
+    
+    .dropdown-promo-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .dropdown-promo h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    
+    .dropdown-promo p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    
+    .dropdown-promo-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    
+    .dropdown-promo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
 
     .nav-cta {
       padding: 10px 20px;
@@ -340,13 +405,101 @@
       padding: 20px;
       max-height: calc(100vh - 72px);
       overflow-y: auto;
+      z-index: 999;
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 12px 16px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 8px;
+      margin-bottom: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-nav-link:hover {
+      background: #f8f9fa;
+      color: #F45407;
+    }
+    
+    .mobile-services {
+      margin: 16px 0;
+      padding: 16px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+    
+    .mobile-services-title {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+    
+    .mobile-service-link {
+      display: block;
+      padding: 8px 12px;
+      color: #666;
+      text-decoration: none;
+      font-size: 15px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-service-link:hover {
+      background: white;
+      color: #F45407;
+    }
+    
+    .mobile-cta {
+      display: block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
     }
 
     /* Author page specific styles */
     .author-hero {
-      max-width: 1100px;
-      margin: 120px auto 80px;
-      padding: 0 20px;
+      position: relative;
+      margin: 72px 0 80px 0;
+      padding: 80px 0;
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.03) 0%, rgba(244, 84, 7, 0.08) 50%, rgba(255, 255, 255, 0) 100%);
+      overflow: hidden;
+    }
+    
+    .author-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(244, 84, 7, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(244, 84, 7, 0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .author-hero .container {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-grid {
@@ -458,8 +611,8 @@
     }
 
     .about-content {
-      max-width: 800px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
     }
 
     .about-content p {
@@ -837,6 +990,11 @@
         grid-template-columns: 1fr;
         text-align: center;
         gap: 24px;
+        justify-items: center;
+      }
+
+      .hero-avatar {
+        justify-self: center;
       }
 
       .hero-content h1 {
@@ -1014,6 +1172,15 @@
                   </div>
                 </a>
               </div>
+              
+              <!-- CTA Column -->
+              <div class="dropdown-promo">
+                <div class="dropdown-promo-content">
+                  <h3>Ready to Scale?</h3>
+                  <p>Get your free growth audit and see how we can 3x your revenue in 90 days</p>
+                  <a href="/contact" class="dropdown-promo-btn">Get Free Audit →</a>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -1034,13 +1201,38 @@
         </button>
       </div>
     </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="/" class="mobile-nav-link">Home</a>
+      
+      <div class="mobile-services">
+        <div class="mobile-services-title">Services</div>
+        <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+        <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+        <a href="/cold-email-marketing" class="mobile-service-link">Cold Email Marketing</a>
+        <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+        <a href="/web-development" class="mobile-service-link">Web Development</a>
+        <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+        <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+        <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+      </div>
+      
+      <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+      <a href="/about" class="mobile-nav-link">About</a>
+      <a href="/pricing" class="mobile-nav-link">Pricing</a>
+      <a href="/blog" class="mobile-nav-link">Blog</a>
+      
+      <a href="/contact" class="mobile-cta">Get Free Audit →</a>
+    </div>
   </nav>
 
   <main>
     <!-- Hero Section -->
     <section class="author-hero">
-      <div class="hero-grid">
-        <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed-thumb.jpg?v=1757561134" 
+      <div class="container">
+        <div class="hero-grid">
+        <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed.jpg?v=1757588956" 
              alt="Zeeshan Waheed, Founder & CEO at imisofts" 
              width="160" height="160" 
              class="hero-avatar">
@@ -1083,7 +1275,7 @@
         <div class="about-content">
           <p>I'm the Founder and CEO of imisofts, where we've helped 500+ businesses automate their operations and scale their revenue through AI-powered systems. My focus is on building practical solutions that deliver measurable results, not just impressive demos.</p>
           
-          <p>Over the past 5 years, I've specialized in creating cold email infrastructures that generate consistent pipeline, AI automation workflows that reduce manual work by 60-80%, and Shopify experiences that convert visitors into customers. My approach combines technical expertise with deep understanding of business growth challenges.</p>
+          <p>Over the past 8+ years, I've personally worked with 1,500+ clients globally and earned 550+ five-star ratings across freelance platforms. I specialize in creating cold email infrastructures that generate consistent pipeline, AI automation workflows that reduce manual work by 60-80%, and Shopify experiences that convert visitors into customers. My approach combines technical expertise with deep understanding of business growth challenges.</p>
           
           <p>What sets my work apart is the focus on speed and results. We ship solutions in 30-90 days that are designed to generate revenue from day one, with guaranteed first results within 14 days.</p>
           
@@ -1094,7 +1286,7 @@
             <div class="specialty-item">LinkedIn Lead Generation</div>
             <div class="specialty-item">n8n & Zapier Integration</div>
             <div class="specialty-item">Instantly & Apollo Setup</div>
-            <div class="specialty-item">Clay & Pinecone Implementation</div>
+            <div class="specialty-item">Vibe Coding</div>
             <div class="specialty-item">CRM Development</div>
             <div class="specialty-item">AI Voice Agents</div>
             <div class="specialty-item">Mobile App Development</div>
