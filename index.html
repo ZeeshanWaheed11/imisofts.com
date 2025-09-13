@@ -29,6 +29,9 @@
   <!-- Favicon using inline SVG data URL -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
   
+  <!-- Visitor Tracking -->
+  <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="Sfy91D1xWAFhfQuk" data-version="062024"></script>
+  
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -687,6 +690,29 @@
       to {
         height: 25%;
       }
+    }
+    
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
+    /* Partner Logos Styles */
+    .partner-logo:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px) !important;
+    }
+    
+    .partner-logo:hover img {
+      filter: grayscale(0%) !important;
+    }
+    
+    .partner-logos-container:hover .partner-logos-scroll {
+      animation-play-state: paused;
     }
     
     /* Responsive Grid Classes */
@@ -1403,23 +1429,59 @@
     </div>
   </section>
   
-  <!-- Results Section -->
-  <section class="section-padding" style="padding: 64px 0; background: #f9fafb;">
+  <!-- Partner Platforms Section -->
+  <section style="background: #f8f9fa; padding: 60px 0;">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Built for results, not recognition</h2>
-        <p style="font-size: 18px; color: #666;">
-          Real metrics from real projects. We ship solutions that actually move the needle.
-        </p>
+      <div style="text-align: center; margin-bottom: 40px;">
+        <h3 style="font-size: 18px; font-weight: 600; color: #666; margin-bottom: 32px; text-transform: uppercase; letter-spacing: 1px;">Powered by industry-leading platforms</h3>
       </div>
       
-      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <a href="#work" style="padding: 12px 24px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
-          See Case Studies &rarr;
-        </a>
-        <a href="#contact" style="padding: 12px 24px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 8px; font-weight: 600; text-decoration: none;">
-          Book Strategy Call
-        </a>
+      <div class="partner-logos-container" style="overflow: hidden; width: 100%; white-space: nowrap; position: relative; margin: 0 auto; max-width: 1200px;">
+        <div class="partner-logos-scroll" style="display: inline-flex; align-items: center; animation: scroll-left 30s linear infinite; gap: 60px;">
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/instantly_logo.png?v=1757758097" alt="Instantly" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/Lovable_logo.svg?v=1757778638" alt="Lovable" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/Replit_logo.svg?v=1757778639" alt="Replit" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/N8n-logo-new_svg.png?v=1757778639" alt="n8n" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/Claude_AI_logo_svg.png?v=1757778639" alt="Claude AI" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/supasebase_logo.png?v=1757778639" alt="Supabase" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/GoHighLevel.png?v=1757761084" alt="GoHighLevel" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <!-- Duplicate for seamless loop -->
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/instantly_logo.png?v=1757758097" alt="Instantly" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/Lovable_logo.svg?v=1757778638" alt="Lovable" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/Replit_logo.svg?v=1757778639" alt="Replit" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/N8n-logo-new_svg.png?v=1757778639" alt="n8n" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/Claude_AI_logo_svg.png?v=1757778639" alt="Claude AI" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/supasebase_logo.png?v=1757778639" alt="Supabase" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+          <div class="partner-logo" style="display: flex; align-items: center; justify-content: center; height: 60px; min-width: 140px; opacity: 0.7; transition: opacity 0.3s ease, transform 0.3s ease; flex-shrink: 0;">
+            <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/GoHighLevel.png?v=1757761084" alt="GoHighLevel" loading="lazy" style="max-height: 50px; max-width: 140px; width: auto; height: auto; object-fit: contain; filter: grayscale(100%); transition: filter 0.3s ease;">
+          </div>
+        </div>
       </div>
     </div>
   </section>
