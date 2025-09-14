@@ -937,6 +937,13 @@
         display: none;
       }
 
+      /* Hide dropdown completely to prevent overflow */
+      .nav-dropdown:hover .nav-dropdown-menu {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+      }
+
       .mobile-menu-toggle {
         display: flex;
       }
@@ -1017,8 +1024,45 @@
       }
 
       /* Ensure all content stays within viewport */
+      html {
+        overflow-x: hidden !important;
+      }
+
+      body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative !important;
+      }
+
       .article-container {
         overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      /* Hide desktop dropdown completely on mobile */
+      .nav-dropdown-menu,
+      .dropdown-promo,
+      .dropdown-grid {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        min-width: 0 !important;
+      }
+
+      /* Fix navbar overflow */
+      .navbar {
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .navbar .container {
+        max-width: 100%;
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
       }
 
       img, picture, video {
@@ -1029,6 +1073,21 @@
       pre, code {
         overflow-x: auto;
         max-width: 100%;
+        word-break: break-word;
+      }
+
+      /* Prevent any element from overflowing */
+      * {
+        max-width: 100%;
+      }
+
+      /* Fix specific elements that might overflow */
+      .footer-grid,
+      .related-grid,
+      .author-box {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
       }
     }
   </style>
