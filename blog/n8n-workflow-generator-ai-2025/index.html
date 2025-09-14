@@ -723,14 +723,20 @@
       display: block;
     }
 
+    /* Table wrapper for mobile scroll */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 32px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+      -webkit-overflow-scrolling: touch;
+    }
+
     .comparison-table {
       width: 100%;
+      min-width: 600px;
       border-collapse: collapse;
-      margin: 32px 0;
       background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
     }
 
     .comparison-table th {
@@ -739,6 +745,7 @@
       text-align: left;
       font-weight: 600;
       border-bottom: 2px solid #e5e7eb;
+      white-space: nowrap;
     }
 
     .comparison-table td {
@@ -1137,11 +1144,54 @@
 
       .comparison-table {
         font-size: 14px;
+        min-width: 500px;
       }
 
       .comparison-table th,
       .comparison-table td {
         padding: 12px 8px;
+        font-size: 13px;
+      }
+
+      .table-wrapper {
+        position: relative;
+        margin: 20px -20px;
+        padding: 0 20px;
+      }
+
+      .table-wrapper::after {
+        content: '→ Scroll';
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        background: #F45407;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 600;
+        pointer-events: none;
+        animation: fadeOut 3s forwards;
+      }
+
+      @keyframes fadeOut {
+        0% { opacity: 1; }
+        70% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      .article-container {
+        overflow-x: hidden;
+      }
+
+      img, picture, video {
+        max-width: 100%;
+        height: auto;
+      }
+
+      pre, code {
+        overflow-x: auto;
+        max-width: 100%;
       }
 
       .generator-buttons {
@@ -1473,7 +1523,8 @@
 
       <p>n8n has become the go-to automation platform for businesses that need more than simple "if-this-then-that" logic. With <strong>AI agent integration</strong>, businesses are building intelligent workflows that adapt and make decisions.</p>
 
-      <table class="comparison-table">
+      <div class="table-wrapper">
+        <table class="comparison-table">
         <thead>
           <tr>
             <th>Feature</th>
@@ -1509,6 +1560,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <h2 id="templates">10 Ready-to-Import n8n Templates</h2>
 
@@ -1583,7 +1635,8 @@
 
       <h2 id="comparison">n8n vs Zapier vs Make (2025 Comparison)</h2>
 
-      <table class="comparison-table">
+      <div class="table-wrapper">
+        <table class="comparison-table">
         <thead>
           <tr>
             <th>Platform</th>
@@ -1613,6 +1666,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <h2 id="use-cases">Popular n8n Use Cases in 2025</h2>
 

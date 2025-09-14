@@ -558,14 +558,20 @@
       border-bottom-color: #F45407;
     }
 
+    /* Table wrapper for mobile scroll */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 32px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    }
+
     .comparison-table {
       width: 100%;
+      min-width: 600px; /* Minimum width to maintain readability */
       border-collapse: collapse;
-      margin: 32px 0;
       background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
     }
 
     .comparison-table th {
@@ -574,6 +580,7 @@
       text-align: left;
       font-weight: 600;
       border-bottom: 2px solid #e5e7eb;
+      white-space: nowrap; /* Prevent header text wrapping */
     }
 
     .comparison-table td {
@@ -972,11 +979,56 @@
 
       .comparison-table {
         font-size: 14px;
+        min-width: 500px; /* Reduce minimum width on mobile */
       }
 
       .comparison-table th,
       .comparison-table td {
         padding: 12px 8px;
+        font-size: 13px;
+      }
+
+      .table-wrapper {
+        position: relative;
+        margin: 20px -20px; /* Extend wrapper to screen edges */
+        padding: 0 20px;
+      }
+
+      /* Add scroll indicator for mobile */
+      .table-wrapper::after {
+        content: '→ Scroll';
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        background: #F45407;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 600;
+        pointer-events: none;
+        animation: fadeOut 3s forwards;
+      }
+
+      @keyframes fadeOut {
+        0% { opacity: 1; }
+        70% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      /* Ensure all content stays within viewport */
+      .article-container {
+        overflow-x: hidden;
+      }
+
+      img, picture, video {
+        max-width: 100%;
+        height: auto;
+      }
+
+      pre, code {
+        overflow-x: auto;
+        max-width: 100%;
       }
     }
   </style>
@@ -1253,7 +1305,8 @@
 
       <p>Before diving into features, here's what actually matters: <strong>real performance data</strong> from our cold email campaigns:</p>
 
-      <table class="comparison-table">
+      <div class="table-wrapper">
+        <table class="comparison-table">
         <thead>
           <tr>
             <th>Metric</th>
@@ -1295,6 +1348,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <p><em>*Data based on 5,000,000+ emails sent across 127 campaigns from January-September 2025</em></p>
 
@@ -1302,7 +1356,8 @@
 
       <p>Let's break down the real costs, including hidden fees most reviews don't mention:</p>
 
-      <table class="comparison-table">
+      <div class="table-wrapper">
+        <table class="comparison-table">
         <thead>
           <tr>
             <th>Feature</th>
@@ -1338,6 +1393,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <p>While Smartlead appears competitive on paper, Instantly's unlimited email accounts feature provides significantly better value for scaling campaigns. You're not artificially limited when testing new offers or expanding into new markets.</p>
 
