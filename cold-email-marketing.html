@@ -2083,11 +2083,11 @@
           
           <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Live in 48 hours</p>
           
-          <a href="#audit" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;">
+          <a href="https://pay.ziina.com/zeeshanwaheed/Mh0nZRcnl" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;" target="_blank">
             Get Started
           </a>
         </div>
-        
+
         <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
           <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600;">
             MOST POPULAR
@@ -2160,11 +2160,11 @@
           
           <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Typical: 10+ leads in first week</p>
           
-          <a href="#audit" style="display: block; text-align: center; padding: 14px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none;">
+          <a href="https://pay.ziina.com/zeeshanwaheed/_weprtO2n" style="display: block; text-align: center; padding: 14px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none;" target="_blank">
             Get Started Today
           </a>
         </div>
-        
+
         <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
           <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Enterprise</h3>
           <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Dominate your entire market</p>
@@ -2233,13 +2233,17 @@
           </div>
           
           <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Target: 50+ leads/week</p>
-          
-          <a href="#audit" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;">
+
+          <a href="https://pay.ziina.com/zeeshanwaheed/NCkJSbw35" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;" target="_blank">
             Get Started
           </a>
         </div>
       </div>
-      
+
+      <div id="campaign-note" style="margin-top: 48px; text-align: center; color: #666; font-size: 14px;">
+        <p>Note: Domain purchases and tool subscriptions (Instantly/Smartlead) are separate costs. We guide you through the most cost-effective options. If you don't have domains and inboxes please scroll up to see our Email Infrastructure packages.</p>
+      </div>
+
       <!-- Infrastructure Packages (Hidden by default) -->
       <div id="infrastructure-packages" class="grid grid-3" style="gap: 32px; display: none;">
         <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
@@ -2445,10 +2449,6 @@
             Get Started
           </a>
         </div>
-      </div>
-      
-      <div style="margin-top: 48px; text-align: center; color: #666; font-size: 14px;">
-        <p>Note: Domain purchases and tool subscriptions (Instantly/Smartlead) are separate costs. We guide you through the most cost-effective options.</p>
       </div>
     </div>
   </section>
@@ -2879,21 +2879,24 @@
       const infrastructurePackages = document.getElementById('infrastructure-packages');
       const campaignComparison = document.getElementById('campaignComparison');
       const infrastructureComparison = document.getElementById('infrastructureComparison');
+      const campaignNote = document.getElementById('campaign-note');
       const buttons = document.querySelectorAll('.service-toggle-btn');
-      
+
       buttons.forEach(btn => btn.classList.remove('active'));
-      
+
       if (service === 'campaign') {
         campaignPackages.style.display = 'grid';
         infrastructurePackages.style.display = 'none';
         campaignComparison.style.display = 'block';
         infrastructureComparison.style.display = 'none';
+        if (campaignNote) campaignNote.style.display = 'block';
         buttons[0].classList.add('active');
       } else {
         campaignPackages.style.display = 'none';
         infrastructurePackages.style.display = 'grid';
         campaignComparison.style.display = 'none';
         infrastructureComparison.style.display = 'block';
+        if (campaignNote) campaignNote.style.display = 'none';
         buttons[1].classList.add('active');
       }
     }
