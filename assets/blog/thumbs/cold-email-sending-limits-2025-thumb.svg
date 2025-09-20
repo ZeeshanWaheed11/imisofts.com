@@ -1,0 +1,71 @@
+<svg width="480" height="270" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F45407;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b28;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="480" height="270" fill="url(#bgGradient)"/>
+
+  <!-- Pattern overlay -->
+  <rect width="480" height="270" fill="#000" opacity="0.1"/>
+
+  <!-- Content Container -->
+  <g transform="translate(40, 40)">
+    <!-- Email icon -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="60" height="45" rx="4" fill="white" opacity="0.9"/>
+      <path d="M5 10 L30 25 L55 10" stroke="#F45407" stroke-width="2" fill="none"/>
+      <path d="M5 10 L5 40 L55 40 L55 10 Z" stroke="#F45407" stroke-width="2" fill="none"/>
+    </g>
+
+    <!-- Title -->
+    <text x="0" y="80" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="700" fill="white">
+      Cold Email Daily Limits
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="110" font-family="Inter, system-ui, sans-serif" font-size="16" fill="white" opacity="0.95">
+      2025 Safe Sending Guidelines
+    </text>
+
+    <!-- Platform boxes -->
+    <g transform="translate(0, 130)">
+      <!-- Google Workspace -->
+      <rect x="0" y="0" width="120" height="50" rx="8" fill="white" opacity="0.15"/>
+      <text x="10" y="25" font-family="Inter, system-ui, sans-serif" font-size="12" fill="white" font-weight="600">
+        GOOGLE
+      </text>
+      <text x="10" y="40" font-family="Inter, system-ui, sans-serif" font-size="14" fill="white">
+        50-75/day
+      </text>
+
+      <!-- Outlook -->
+      <rect x="130" y="0" width="120" height="50" rx="8" fill="white" opacity="0.15"/>
+      <text x="140" y="25" font-family="Inter, system-ui, sans-serif" font-size="12" fill="white" font-weight="600">
+        OUTLOOK
+      </text>
+      <text x="140" y="40" font-family="Inter, system-ui, sans-serif" font-size="14" fill="white">
+        75-100/day
+      </text>
+
+      <!-- Private -->
+      <rect x="260" y="0" width="120" height="50" rx="8" fill="white" opacity="0.25"/>
+      <text x="270" y="25" font-family="Inter, system-ui, sans-serif" font-size="12" fill="white" font-weight="600">
+        PRIVATE
+      </text>
+      <text x="270" y="40" font-family="Inter, system-ui, sans-serif" font-size="14" fill="white">
+        150-200/day
+      </text>
+    </g>
+  </g>
+
+  <!-- Logo -->
+  <g transform="translate(400, 220)">
+    <circle cx="10" cy="10" r="5" fill="white" opacity="0.9"/>
+    <rect x="15" y="5" width="15" height="15" transform="skewX(-15)" fill="white" opacity="0.9"/>
+    <rect x="32" y="5" width="15" height="15" transform="skewX(-15)" fill="white" opacity="0.9"/>
+  </g>
+</svg>
