@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Center - Get Help Fast | imisofts</title>
+
+  <!-- Visitor Tracking -->
+  <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="Sfy91D1xWAFhfQuk" data-version="062024"></script>
+
+  <meta name="description" content="Get support for your imisofts services. Find answers in our knowledge base, submit a ticket, or schedule a call with our support team.">
+  <link rel="canonical" href="https://imisofts.com/support">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Support Center - imisofts">
+  <meta property="og:description" content="Get help with your imisofts services. Knowledge base, support tickets, and direct assistance available.">
+  <meta property="og:url" content="https://imisofts.com/support">
+  <meta property="og:image" content="https://imisofts.com/assets/og/support-og.png">
+  <meta property="og:site_name" content="imisofts">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support Center - imisofts">
+  <meta name="twitter:description" content="Get help fast. Knowledge base, tickets, and direct support.">
+  <meta name="twitter:image" content="https://imisofts.com/assets/og/support-og.png">
+  <meta name="twitter:site" content="@imisofts">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar - matching other pages */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .nav-logo {
+      height: 58px;
+      width: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: #F45407;
+    }
+
+    .nav-cta {
+      background: #F45407;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(244, 84, 7, 0.3);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 140px 0 80px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: #0F172A;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      color: #475569;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .search-container {
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 16px 24px;
+      padding-right: 120px;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #F45407;
+      box-shadow: 0 0 0 3px rgba(244, 84, 7, 0.1);
+    }
+
+    .search-button {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #F45407;
+      color: white;
+      padding: 10px 24px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .search-button:hover {
+      background: #dc3e00;
+    }
+
+    /* Support Options */
+    .support-options {
+      padding: 80px 0;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+
+    .option-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .option-card:hover {
+      border-color: #F45407;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+
+    .option-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #F45407 0%, #ff6b35 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .option-icon svg {
+      width: 32px;
+      height: 32px;
+      color: white;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #0F172A;
+    }
+
+    .option-description {
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* Knowledge Base */
+    .kb-section {
+      padding: 80px 0;
+      background: #f8fafc;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 48px;
+      color: #0F172A;
+    }
+
+    .kb-categories {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .kb-category {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .kb-category h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #1e293b;
+    }
+
+    .kb-links {
+      list-style: none;
+    }
+
+    .kb-links li {
+      margin-bottom: 12px;
+    }
+
+    .kb-links a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .kb-links a:hover {
+      color: #F45407;
+    }
+
+    .kb-links a::before {
+      content: '→';
+      font-weight: 600;
+    }
+
+    /* Contact Form Section */
+    .contact-section {
+      padding: 80px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info {
+      background: #f8fafc;
+      padding: 32px;
+      border-radius: 16px;
+    }
+
+    .contact-info h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #0F172A;
+    }
+
+    .info-item {
+      margin-bottom: 24px;
+    }
+
+    .info-label {
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .info-value {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .info-value a {
+      color: #F45407;
+      text-decoration: none;
+    }
+
+    .info-value a:hover {
+      text-decoration: underline;
+    }
+
+    .ticket-form {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #334155;
+      font-size: 14px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #F45407;
+      box-shadow: 0 0 0 3px rgba(244, 84, 7, 0.1);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .submit-btn {
+      background: #F45407;
+      color: white;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #dc3e00;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(244, 84, 7, 0.3);
+    }
+
+    /* Footer - matching other pages */
+    .footer {
+      background: #0a0a0a;
+      color: #ccc;
+      padding: 80px 0 40px;
+      margin-top: 120px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      color: #999;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+
+    .footer-column h4 {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #999;
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #F45407;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-menu {
+        display: none;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .kb-categories {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <a href="/" class="nav-logo-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" class="nav-logo" role="img" aria-label="imisofts logo">
+            <g fill="#F45407">
+              <circle cx="48" cy="170" r="18"/>
+              <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+              <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+            </g>
+            <g transform="translate(200,188)">
+              <text x="0" y="0" font-family="Inter, ui-sans-serif" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#0F172A">imisofts</text>
+            </g>
+          </svg>
+        </a>
+
+        <div class="nav-menu">
+          <a href="/ai-automation" class="nav-link">Services</a>
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/contact" class="nav-cta">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>How Can We Help You?</h1>
+      <p class="hero-subtitle">Search our knowledge base or submit a support ticket</p>
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search for answers...">
+        <button class="search-button">Search</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Support Options -->
+  <section class="support-options">
+    <div class="container">
+      <div class="options-grid">
+        <a href="#knowledge-base" class="option-card">
+          <div class="option-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+            </svg>
+          </div>
+          <h2>Knowledge Base</h2>
+          <p class="option-description">Browse our documentation and guides for quick answers</p>
+        </a>
+
+        <a href="#submit-ticket" class="option-card">
+          <div class="option-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path>
+            </svg>
+          </div>
+          <h2>Submit Ticket</h2>
+          <p class="option-description">Get personalized help from our support team</p>
+        </a>
+
+        <a href="/contact" class="option-card">
+          <div class="option-icon">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+          </div>
+          <h2>Schedule Call</h2>
+          <p class="option-description">Book a call with our team for urgent issues</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Knowledge Base -->
+  <section id="knowledge-base" class="kb-section">
+    <div class="container">
+      <h2 class="section-title">Popular Topics</h2>
+      <div class="kb-categories">
+        <div class="kb-category">
+          <h3>Cold Email Marketing</h3>
+          <ul class="kb-links">
+            <li><a href="#">Setting up email infrastructure</a></li>
+            <li><a href="#">Email warming best practices</a></li>
+            <li><a href="#">Improving deliverability rates</a></li>
+            <li><a href="#">Campaign analytics explained</a></li>
+            <li><a href="#">Handling bounces and replies</a></li>
+          </ul>
+        </div>
+
+        <div class="kb-category">
+          <h3>AI Automation</h3>
+          <ul class="kb-links">
+            <li><a href="#">Training your AI chatbot</a></li>
+            <li><a href="#">Integrating with your CRM</a></li>
+            <li><a href="#">Workflow automation setup</a></li>
+            <li><a href="#">API documentation</a></li>
+            <li><a href="#">Troubleshooting common issues</a></li>
+          </ul>
+        </div>
+
+        <div class="kb-category">
+          <h3>Digital Marketing</h3>
+          <ul class="kb-links">
+            <li><a href="#">Campaign performance tracking</a></li>
+            <li><a href="#">Understanding your reports</a></li>
+            <li><a href="#">Ad account access</a></li>
+            <li><a href="#">Budget optimization tips</a></li>
+            <li><a href="#">Conversion tracking setup</a></li>
+          </ul>
+        </div>
+
+        <div class="kb-category">
+          <h3>Account & Billing</h3>
+          <ul class="kb-links">
+            <li><a href="#">Payment methods</a></li>
+            <li><a href="#">Upgrading your package</a></li>
+            <li><a href="#">Invoices and receipts</a></li>
+            <li><a href="#">Cancellation policy</a></li>
+            <li><a href="#">Refund requests</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="submit-ticket" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Submit a Support Ticket</h2>
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+
+          <div class="info-item">
+            <div class="info-label">Response Time</div>
+            <div class="info-value">We typically respond within 2-4 business hours during weekdays</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Priority Support</div>
+            <div class="info-value">Enterprise clients get priority support with 1-hour response time</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Emergency?</div>
+            <div class="info-value">For urgent issues, email us directly at <a href="mailto:urgent@imisofts.com">urgent@imisofts.com</a></div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">Business Hours</div>
+            <div class="info-value">Monday - Friday: 9:00 AM - 6:00 PM (GMT+4)<br>Saturday - Sunday: Limited support</div>
+          </div>
+        </div>
+
+        <!-- Ticket Form -->
+        <div class="ticket-form">
+          <form action="https://formspree.io/f/meolgepd" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company">
+              </div>
+              <div class="form-group">
+                <label for="service">Service Type *</label>
+                <select id="service" name="service" required>
+                  <option value="">Select service</option>
+                  <option value="cold-email">Cold Email Marketing</option>
+                  <option value="ai-automation">AI Automation</option>
+                  <option value="digital-marketing">Digital Marketing</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="billing">Billing & Account</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="priority">Priority Level *</label>
+              <select id="priority" name="priority" required>
+                <option value="low">Low - General question</option>
+                <option value="medium">Medium - Issue affecting work</option>
+                <option value="high">High - Service disruption</option>
+                <option value="critical">Critical - Complete outage</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input type="text" id="subject" name="subject" placeholder="Brief description of your issue" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Describe Your Issue *</label>
+              <textarea id="message" name="message" placeholder="Please provide as much detail as possible..." required></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="New Support Ticket">
+            <button type="submit" class="submit-btn">Submit Ticket</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" width="260" height="74" role="img" aria-label="imisofts logo">
+            <g fill="#F45407">
+              <circle cx="48" cy="170" r="18"/>
+              <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+              <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+            </g>
+            <g transform="translate(200,188)">
+              <text x="0" y="0" font-family="Inter, ui-sans-serif" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#FFFFFF">imisofts</text>
+            </g>
+          </svg>
+          <p>From idea to revenue in 30 days. We ship AI automation, performance marketing, and web development that actually works.</p>
+        </div>
+
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="/ai-automation">AI Automation</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
+            <li><a href="/web-development">Web Development</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="/free-audit">Free Audit</a></li>
+            <li><a href="/support">Support</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
