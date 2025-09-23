@@ -1,0 +1,138 @@
+<svg viewBox="0 0 480 270" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="480" height="270" fill="url(#bg-gradient)"/>
+
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F45407;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b28;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="money-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#22c55e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="growth-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Pattern -->
+  <circle cx="50" cy="50" r="30" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="430" cy="220" r="40" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="400" cy="50" r="25" fill="rgba(255,255,255,0.12)"/>
+
+  <!-- Main Content Container -->
+  <rect x="40" y="40" width="400" height="190" rx="12" fill="rgba(255,255,255,0.95)" stroke="rgba(244,84,7,0.2)" stroke-width="2"/>
+
+  <!-- 7-Figure Visual -->
+  <g transform="translate(60, 55)">
+    <!-- Dollar Sign -->
+    <rect x="0" y="10" width="30" height="50" rx="4" fill="url(#money-gradient)"/>
+    <text x="15" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">$</text>
+
+    <!-- Number 7 -->
+    <rect x="35" y="10" width="30" height="50" rx="4" fill="url(#growth-gradient)"/>
+    <text x="50" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">7</text>
+
+    <!-- Revenue indicator -->
+    <text x="32.5" y="75" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#1e293b" text-anchor="middle">FIGURES</text>
+  </g>
+
+  <!-- Lead Generation Funnel -->
+  <g transform="translate(130, 55)">
+    <!-- Funnel stages -->
+    <polygon points="0,10 80,10 70,25 10,25" fill="rgba(59,130,246,0.2)" stroke="#3b82f6" stroke-width="1"/>
+    <text x="40" y="20" font-family="Arial, sans-serif" font-size="8" fill="#3b82f6" text-anchor="middle">Cold Email</text>
+
+    <polygon points="10,25 70,25 60,40 20,40" fill="rgba(244,84,7,0.2)" stroke="#F45407" stroke-width="1"/>
+    <text x="40" y="35" font-family="Arial, sans-serif" font-size="8" fill="#F45407" text-anchor="middle">Content</text>
+
+    <polygon points="20,40 60,40 50,55 30,55" fill="rgba(34,197,94,0.2)" stroke="#22c55e" stroke-width="1"/>
+    <text x="40" y="50" font-family="Arial, sans-serif" font-size="8" fill="#22c55e" text-anchor="middle">Social</text>
+
+    <polygon points="30,55 50,55 45,70 35,70" fill="rgba(168,85,247,0.2)" stroke="#a855f7" stroke-width="1"/>
+    <text x="40" y="65" font-family="Arial, sans-serif" font-size="8" fill="#a855f7" text-anchor="middle">Paid</text>
+
+    <!-- Arrow pointing down -->
+    <path d="M40 75 L40 85" stroke="url(#accent-gradient)" stroke-width="2" fill="none"/>
+    <polygon points="37,82 40,87 43,82" fill="#F45407"/>
+
+    <!-- Revenue box -->
+    <rect x="25" y="90" width="30" height="15" rx="3" fill="url(#money-gradient)"/>
+    <text x="40" y="100" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white" text-anchor="middle">$1M+</text>
+  </g>
+
+  <!-- Lead Generation Channels -->
+  <g transform="translate(230, 60)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1e293b">Multi-Channel System:</text>
+
+    <!-- Channel icons and labels -->
+    <rect x="0" y="25" width="60" height="12" rx="2" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="1"/>
+    <text x="30" y="33" font-family="Arial, sans-serif" font-size="7" fill="#3b82f6" text-anchor="middle">Cold Email (40%)</text>
+
+    <rect x="70" y="25" width="60" height="12" rx="2" fill="rgba(244,84,7,0.1)" stroke="#F45407" stroke-width="1"/>
+    <text x="100" y="33" font-family="Arial, sans-serif" font-size="7" fill="#F45407" text-anchor="middle">Content (25%)</text>
+
+    <rect x="140" y="25" width="60" height="12" rx="2" fill="rgba(34,197,94,0.1)" stroke="#22c55e" stroke-width="1"/>
+    <text x="170" y="33" font-family="Arial, sans-serif" font-size="7" fill="#22c55e" text-anchor="middle">Social (20%)</text>
+
+    <rect x="0" y="45" width="60" height="12" rx="2" fill="rgba(168,85,247,0.1)" stroke="#a855f7" stroke-width="1"/>
+    <text x="30" y="53" font-family="Arial, sans-serif" font-size="7" fill="#a855f7" text-anchor="middle">Paid Ads (15%)</text>
+
+    <rect x="70" y="45" width="60" height="12" rx="2" fill="rgba(245,158,11,0.1)" stroke="#f59e0b" stroke-width="1"/>
+    <text x="100" y="53" font-family="Arial, sans-serif" font-size="7" fill="#f59e0b" text-anchor="middle">Referrals (10%)</text>
+
+    <rect x="140" y="45" width="60" height="12" rx="2" fill="rgba(239,68,68,0.1)" stroke="#ef4444" stroke-width="1"/>
+    <text x="170" y="53" font-family="Arial, sans-serif" font-size="7" fill="#ef4444" text-anchor="middle">Events (8%)</text>
+  </g>
+
+  <!-- Performance Metrics -->
+  <g transform="translate(60, 155)">
+    <!-- Leads -->
+    <rect x="0" y="0" width="80" height="40" rx="6" fill="#f0f9ff"/>
+    <text x="40" y="16" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#0284c7" text-anchor="middle">3,400+</text>
+    <text x="40" y="27" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Leads/Month</text>
+    <text x="40" y="36" font-family="Arial, sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">Multi-channel</text>
+
+    <!-- Conversion Rate -->
+    <rect x="90" y="0" width="80" height="40" rx="6" fill="#f0fdf4"/>
+    <text x="130" y="16" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#22c55e" text-anchor="middle">23%</text>
+    <text x="130" y="27" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Conversion</text>
+    <text x="130" y="36" font-family="Arial, sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">Lead to Customer</text>
+
+    <!-- Cost Per Lead -->
+    <rect x="180" y="0" width="80" height="40" rx="6" fill="#fef2f2"/>
+    <text x="220" y="16" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#F45407" text-anchor="middle">$47</text>
+    <text x="220" y="27" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Cost Per Lead</text>
+    <text x="220" y="36" font-family="Arial, sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">Blended average</text>
+
+    <!-- Revenue -->
+    <rect x="270" y="0" width="80" height="40" rx="6" fill="#f8fafc"/>
+    <text x="310" y="16" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#6366f1" text-anchor="middle">$1.2M</text>
+    <text x="310" y="27" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Avg Revenue</text>
+    <text x="310" y="36" font-family="Arial, sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">Annual</text>
+
+    <!-- ROI -->
+    <rect x="360" y="0" width="60" height="40" rx="6" fill="#fffbeb"/>
+    <text x="390" y="16" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#f59e0b" text-anchor="middle">450%</text>
+    <text x="390" y="27" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">ROI</text>
+    <text x="390" y="36" font-family="Arial, sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">Average</text>
+  </g>
+
+  <!-- Growth Arrow -->
+  <g transform="translate(380, 70)">
+    <path d="M0 40 L0 10 L20 10" stroke="url(#money-gradient)" stroke-width="3" fill="none"/>
+    <polygon points="15,7 20,10 15,13" fill="#22c55e"/>
+    <text x="10" y="50" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#22c55e" text-anchor="middle">GROWTH</text>
+  </g>
+
+  <!-- System Badge -->
+  <rect x="340" y="45" width="90" height="20" rx="10" fill="rgba(244,84,7,0.1)" stroke="#F45407" stroke-width="1"/>
+  <text x="385" y="57" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#F45407" text-anchor="middle">SYSTEM BLUEPRINT</text>
+</svg>
