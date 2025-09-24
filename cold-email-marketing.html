@@ -985,7 +985,7 @@
       background: white;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
       margin: 2rem 0;
     }
     
@@ -994,12 +994,20 @@
       border-collapse: collapse;
     }
     
+    .comparison-table th,
+    .comparison-table td {
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    
     .comparison-table th {
-      background: #f9fafb;
+      background: #f8fafc;
       padding: 1.5rem;
       text-align: left;
-      font-weight: 600;
-      color: #1a1a1a;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: 0.01em;
+      border-bottom: 1px solid #e2e8f0;
     }
     
     .comparison-table th:not(:first-child) {
@@ -1007,17 +1015,24 @@
     }
     
     .comparison-table td {
-      padding: 1.25rem;
-      border-bottom: 1px solid #f1f5f9;
-      color: #333;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid #eef2f7;
+      color: #1f2937;
+      background: white;
+    }
+    
+    .comparison-table td:first-child {
+      font-weight: 600;
+      color: #0f172a;
     }
     
     .comparison-table td:not(:first-child) {
       text-align: center;
+      color: #475569;
     }
     
-    .comparison-table tbody tr:hover {
-      background: #fafbfc;
+    .comparison-table tbody tr:hover td {
+      background: #f6f7fb;
     }
     
     .check-mark {
@@ -1168,31 +1183,12 @@
         height: 72px;
       }
       
-      .navbar .container {
-        padding: 0 16px !important;
-      }
-      
-      .nav-container {
-        padding: 0;
-      }
-      
       .nav-menu {
         display: none;
       }
       
       .mobile-menu-toggle {
         display: block;
-        padding: 8px 4px;
-        margin: 0;
-      }
-      
-      .nav-logo {
-        height: 56px;
-      }
-
-      .nav-logo-wrapper {
-        margin-left: 0;
-        padding-left: 0;
       }
 
       .hero-grid {
@@ -1200,33 +1196,24 @@
       }
 
       .hero-content {
-        text-align: center;
-      }
-
-      .hero-content > div:first-child {
-        margin-left: auto !important;
-        margin-right: auto !important;
+        text-align: left;
       }
 
       .hero-content h1 span {
         display: inline !important;
       }
 
-      .hero-content p {
-        text-align: center !important;
-        font-size: 16px !important;
-      }
-
       .hero-cta-group {
-        justify-content: center;
+        justify-content: flex-start;
         flex-direction: column;
-        align-items: stretch;
+        align-items: flex-start;
         gap: 12px !important;
       }
 
       .hero-cta-group a {
         width: 100%;
         text-align: center;
+        display: block;
       }
 
       .stats-grid {
@@ -2090,424 +2077,323 @@
       
       <!-- Campaign Setup Packages -->
       <div id="campaign-packages" class="grid grid-3" style="gap: 32px;">
-        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
-          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Foundation</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Perfect for testing the waters</p>
-          <div style="margin: 24px 0;">
-            <span style="font-size: 36px; font-weight: 700;">$299</span>
-            <span style="font-size: 16px; color: #666;">/setup</span>
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5; display: flex; flex-direction: column;">
+          <div style="flex-grow: 1;">
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Foundation</h3>
+            <div style="margin: 16px 0;">
+              <span style="font-size: 32px; font-weight: 700; color: #F45407;">$299</span>
+              <span style="font-size: 16px; color: #666;">/setup</span>
+            </div>
+            <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">Launch your first outbound system with expert guidance.</p>
+
+            <div style="margin-bottom: 24px;">
+              <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
+              <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>5 sending inboxes configured end-to-end</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Instantly or Smartlead workspace setup</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Warm-up plan and deliverability checks</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>One proven campaign template &amp; copy</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>SPF, DKIM, DMARC authentication</span>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Post-launch support for 3 business days</span>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+              <strong>Best for:</strong> Founders validating cold email before scaling
+            </p>
           </div>
-          
-          <div style="margin-bottom: 32px;">
-            <ul style="list-style: none; padding: 0;">
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>5 email accounts configuration</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Basic platform setup (Instantly/Smartlead)</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Email warming activation</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>1 campaign template</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Basic authentication setup</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>3-day email support</span>
-              </li>
-            </ul>
-          </div>
-          
-          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Live in 48 hours</p>
-          
-          <a href="https://pay.ziina.com/zeeshanwaheed/Mh0nZRcnl" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;" target="_blank">
+
+          <a href="https://pay.ziina.com/zeeshanwaheed/Mh0nZRcnl" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none; margin-top: auto;" target="_blank">
             Get Started
           </a>
         </div>
 
-        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
-          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600;">
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative; display: flex; flex-direction: column;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px;">
             MOST POPULAR
           </div>
-          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Accelerator</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">For serious businesses ready to scale</p>
-          <div style="margin: 24px 0;">
-            <span style="font-size: 36px; font-weight: 700; color: #F45407;">$599</span>
-            <span style="font-size: 16px; color: #666;">/setup</span>
+          <div style="flex-grow: 1;">
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Accelerator</h3>
+            <div style="margin: 16px 0;">
+              <span style="font-size: 32px; font-weight: 700; color: #F45407;">$599</span>
+              <span style="font-size: 16px; color: #666;">/setup</span>
+            </div>
+            <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 600;">Everything needed to launch a high-velocity outbound engine.</p>
+
+            <div style="margin-bottom: 24px;">
+              <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
+              <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>12 premium inboxes with custom domains</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Daily deliverability monitoring dashboard</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>3 multi-touch campaign sequences &amp; copy</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Reply handling &amp; objection playbooks</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>CRM &amp; pipeline integration support</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Qualified lead sheet with 500 prospects</span>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Weekly performance analytics report</span>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+              <strong>Best for:</strong> Teams aiming for 10+ qualified meetings monthly
+            </p>
           </div>
-          
-          <div style="margin-bottom: 32px;">
-            <ul style="list-style: none; padding: 0;">
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Everything in Foundation PLUS:</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>15 email accounts configuration</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Advanced warming strategy</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>3 complete campaign sequences</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Custom email templates (10)</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Full DMARC implementation</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Lead list cleaning (5,000)</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>30-day optimization support</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Zoom training session</span>
-              </li>
-            </ul>
-          </div>
-          
-          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Typical: 10+ leads in first week</p>
-          
-          <a href="https://pay.ziina.com/zeeshanwaheed/_weprtO2n" style="display: block; text-align: center; padding: 14px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none;" target="_blank">
-            Get Started Today
+
+          <a href="https://pay.ziina.com/zeeshanwaheed/_weprtO2n" style="display: block; text-align: center; padding: 12px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 8px; font-weight: 600; text-decoration: none; margin-top: auto;" target="_blank">
+            Get Started
           </a>
         </div>
 
-        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
-          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Enterprise</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Dominate your entire market</p>
-          <div style="margin: 24px 0;">
-            <span style="font-size: 36px; font-weight: 700;">$1,499</span>
-            <span style="font-size: 16px; color: #666;">/setup</span>
-          </div>
-          
-          <div style="margin-bottom: 32px;">
-            <ul style="list-style: none; padding: 0;">
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Unlimited email accounts</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Multiple domain setup</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>10 campaign sequences</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>AI personalization setup</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Lead database integration</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>CRM synchronization</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Weekly optimization calls</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>90-day partnership support</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Team training included</span>
-              </li>
-            </ul>
-          </div>
-          
-          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Target: 50+ leads/week</p>
+        <div style="background: #101828; color: white; padding: 32px; border-radius: 16px; display: flex; flex-direction: column;">
+          <div style="flex-grow: 1;">
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Enterprise</h3>
+            <div style="margin: 16px 0;">
+              <span style="font-size: 32px; font-weight: 700; color: white;">$1,499</span>
+              <span style="font-size: 16px; color: #cbd5f5;">/setup</span>
+            </div>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 24px; font-weight: 600;">Scale outbound across multiple markets with full automation.</p>
 
-          <a href="https://pay.ziina.com/zeeshanwaheed/NCkJSbw35" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;" target="_blank">
+            <div style="margin-bottom: 24px;">
+              <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: white;">What you get:</p>
+              <ul style="font-size: 14px; color: rgba(255,255,255,0.8); list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Unlimited inboxes &amp; domain rotation</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>10 bespoke campaign &amp; follow-up sequences</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>AI-powered personalization &amp; A/B testing</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Lead list enrichment &amp; cleaning (5,000 records)</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>30-day optimization &amp; team enablement</span>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Leadership workshop + ongoing strategy</span>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.2);">
+              <strong>Best for:</strong> Revenue teams targeting enterprise pipeline at scale
+            </p>
+          </div>
+
+          <a href="https://pay.ziina.com/zeeshanwaheed/Z_Wgpyb4s" style="display: block; text-align: center; padding: 12px; background: white; color: #101828; border-radius: 8px; font-weight: 600; text-decoration: none; margin-top: auto;" target="_blank">
             Get Started
           </a>
         </div>
       </div>
-
       <div id="campaign-note" style="margin-top: 48px; text-align: center; color: #666; font-size: 14px;">
         <p>Note: Domain purchases and tool subscriptions (Instantly/Smartlead) are separate costs. We guide you through the most cost-effective options. If you don't have domains and inboxes please scroll up to see our Email Infrastructure packages.</p>
       </div>
 
       <!-- Infrastructure Packages (Hidden by default) -->
       <div id="infrastructure-packages" class="grid grid-3" style="gap: 32px; display: none;">
-        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
-          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Starter</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Test the waters professionally</p>
-          <div style="margin: 24px 0;">
-            <span style="font-size: 36px; font-weight: 700;">$489</span>
-            <span style="font-size: 16px; color: #666;">/year</span>
-          </div>
-          <p style="font-size: 12px; color: #666; margin-top: -16px; margin-bottom: 24px;">(10 domains included)</p>
-          
-          <div style="margin-bottom: 32px;">
-            <ul style="list-style: none; padding: 0;">
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>10 domains minimum</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>70 professional inboxes total</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Complete DMARC/SPF/DKIM</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>IP rotation included</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>14-day warming protocol</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Platform integration</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Email support</span>
-              </li>
-            </ul>
-          </div>
-          
-          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Perfect for testing campaigns</p>
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5; display: flex; flex-direction: column;">
+          <div style="flex-grow: 1;">
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Starter</h3>
+            <div style="margin: 16px 0;">
+              <span style="font-size: 32px; font-weight: 700; color: #F45407;">$489</span>
+              <span style="font-size: 16px; color: #666;">/year</span>
+            </div>
+            <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 600;">Reliable infrastructure for early-stage campaigns.</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 10 domains &amp; 70 professional inboxes</p>
 
-          <a href="https://pay.ziina.com/zeeshanwaheed/zjqzAbHgC" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;" target="_blank">
+            <div style="margin-bottom: 24px;">
+              <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
+              <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>10 sending domains with 70 warmed inboxes</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>DNS authentication (SPF, DKIM, DMARC) handled</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>IP rotation &amp; reputation safeguards</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>14-day automated warm-up protocol</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Instantly/Smartlead integration and QA</span>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Monthly deliverability health snapshot</span>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+              <strong>Best for:</strong> Agencies testing cold email with healthy sender reputation
+            </p>
+          </div>
+
+          <a href="https://pay.ziina.com/zeeshanwaheed/zjqzAbHgC" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 600; text-decoration: none; margin-top: auto;" target="_blank">
             Get Started
           </a>
         </div>
-        
-        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
-          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600;">
+
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative; display: flex; flex-direction: column;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px;">
             BEST VALUE
           </div>
-          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Professional</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Scale your outreach properly</p>
-          <div style="margin: 24px 0;">
-            <span style="font-size: 36px; font-weight: 700; color: #F45407;">$1,225</span>
-            <span style="font-size: 16px; color: #666;">/year</span>
-          </div>
-          <p style="font-size: 12px; color: #666; margin-top: -16px; margin-bottom: 24px;">(25 domains included)</p>
-          
-          <div style="margin-bottom: 32px;">
-            <ul style="list-style: none; padding: 0;">
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Everything in Starter PLUS:</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>25 domains included</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>175 professional inboxes total</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Priority server allocation</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Advanced IP management</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Reputation monitoring dashboard</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Slack support channel</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Weekly optimization calls</span>
-              </li>
-            </ul>
-          </div>
-          
-          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">Best for growing agencies</p>
+          <div style="flex-grow: 1;">
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Professional</h3>
+            <div style="margin: 16px 0;">
+              <span style="font-size: 32px; font-weight: 700; color: #F45407;">$1,225</span>
+              <span style="font-size: 16px; color: #666;">/year</span>
+            </div>
+            <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 600;">Scaled infrastructure with redundancy &amp; monitoring.</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 25 domains &amp; 175 professional inboxes</p>
 
-          <a href="https://pay.ziina.com/zeeshanwaheed/wI-FYoxkQ" style="display: block; text-align: center; padding: 14px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none;" target="_blank">
-            Get Started Today
+            <div style="margin-bottom: 24px;">
+              <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
+              <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>25 sending domains with geo &amp; risk segmentation</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Dedicated tracking &amp; bounce handling infrastructure</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Multi-provider routing (Google, Microsoft, custom)</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Automated warm-up with blacklist monitoring</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Monthly deliverability review with analyst</span>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Priority Slack support during business hours</span>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+              <strong>Best for:</strong> Agencies &amp; SaaS teams scaling outbound volume responsibly
+            </p>
+          </div>
+
+          <a href="https://pay.ziina.com/zeeshanwaheed/wI-FYoxkQ" style="display: block; text-align: center; padding: 12px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 8px; font-weight: 600; text-decoration: none; margin-top: auto;" target="_blank">
+            Get Started
           </a>
         </div>
-        
-        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #e5e5e5;">
-          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Enterprise</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">Unlimited scaling potential</p>
-          <div style="margin: 24px 0;">
-            <span style="font-size: 36px; font-weight: 700;">$2,450+</span>
-            <span style="font-size: 16px; color: #666;">/year</span>
-          </div>
-          <p style="font-size: 12px; color: #666; margin-top: -16px; margin-bottom: 24px;">(50+ domains included)</p>
-          
-          <div style="margin-bottom: 32px;">
-            <ul style="list-style: none; padding: 0;">
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>50+ domains scalable</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>350+ professional inboxes</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Dedicated server cluster</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Custom warming schedules</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>White-label options available</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>24/7 priority support</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Dedicated account manager</span>
-              </li>
-              <li style="padding: 8px 0; font-size: 14px; display: flex; align-items: flex-start;">
-                <svg width="20" height="20" fill="none" stroke="#10b981" stroke-width="2" style="margin-right: 8px; flex-shrink: 0;">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-                <span>Custom integrations</span>
-              </li>
-            </ul>
-          </div>
-          
-          <p style="font-size: 12px; color: #999; margin-bottom: 20px; text-align: center;">For serious operations</p>
 
-          <a href="https://pay.ziina.com/zeeshanwaheed/Z_Wgpyb4s" style="display: block; text-align: center; padding: 14px; background: #f5f5f5; color: #666; border-radius: 10px; font-weight: 600; text-decoration: none;" target="_blank">
+        <div style="background: linear-gradient(135deg, #0f172a, #1f2937); color: white; padding: 32px; border-radius: 16px; display: flex; flex-direction: column; position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: white; color: #0f172a; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;">
+            ENTERPRISE
+          </div>
+          <div style="flex-grow: 1;">
+            <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Enterprise</h3>
+            <div style="margin: 16px 0;">
+              <span style="font-size: 32px; font-weight: 700; color: white;">$2,450+</span>
+              <span style="font-size: 16px; color: rgba(255,255,255,0.8);">/year</span>
+            </div>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 8px; font-weight: 600;">Custom infrastructure for large-scale, multi-brand outbound.</p>
+            <p style="font-size: 12px; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Includes 50+ domains &amp; 350+ professional inboxes</p>
+
+            <div style="margin-bottom: 24px;">
+              <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: white;">What you get:</p>
+              <ul style="font-size: 14px; color: rgba(255,255,255,0.85); list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>50+ domains with automated scaling playbooks</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Dedicated server cluster &amp; custom routing rules</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Advanced warming schedules &amp; IP warming</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Deliverability command center &amp; dashboards</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>24/7 priority escalation &amp; remediation</span>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">✓</span>
+                  <span>Quarterly strategy workshops &amp; training</span>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.25);">
+              <strong>Best for:</strong> Enterprise sales teams needing bulletproof deliverability at volume
+            </p>
+          </div>
+
+          <a href="https://pay.ziina.com/zeeshanwaheed/NCkJSbw35" style="display: block; text-align: center; padding: 12px; background: white; color: #0f172a; border-radius: 8px; font-weight: 600; text-decoration: none; margin-top: auto;" target="_blank">
             Get Started
           </a>
         </div>
       </div>
+
     </div>
   </section>
   
@@ -2531,12 +2417,12 @@
           </thead>
           <tbody>
             <tr>
-              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Setup & Configuration Services</td>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Setup &amp; Configuration</td>
             </tr>
             <tr>
               <td>Email Account Setup</td>
-              <td>5 accounts</td>
-              <td>15 accounts</td>
+              <td>5 inboxes</td>
+              <td>12 inboxes</td>
               <td>Unlimited</td>
             </tr>
             <tr>
@@ -2546,70 +2432,64 @@
               <td><span class="check-mark">✔</span></td>
             </tr>
             <tr>
-              <td>DNS Configuration</td>
-              <td>Basic</td>
-              <td>Advanced</td>
-              <td>Custom</td>
+              <td>Deliverability Monitoring</td>
+              <td>Baseline checks</td>
+              <td>Daily dashboard</td>
+              <td>Live monitoring</td>
             </tr>
             <tr>
-              <td>Email Warming</td>
-              <td>Standard</td>
-              <td>Advanced</td>
-              <td>Custom</td>
+              <td>Warm-up Strategy</td>
+              <td>Standard protocol</td>
+              <td>Advanced automation</td>
+              <td>Custom playbooks</td>
             </tr>
             <tr>
-              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Campaign Management</td>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Campaign Execution</td>
             </tr>
             <tr>
-              <td>Campaign Template Creation</td>
-              <td>1 template</td>
-              <td>3 sequences</td>
-              <td>10 sequences</td>
+              <td>Sequences Delivered</td>
+              <td>1 campaign template</td>
+              <td>3 multi-touch sequences</td>
+              <td>10 bespoke sequences</td>
             </tr>
             <tr>
-              <td>Email Copywriting</td>
-              <td>Basic</td>
-              <td>10 Custom</td>
-              <td>Unlimited</td>
+              <td>Personalization &amp; AI</td>
+              <td>Manual tuning</td>
+              <td>Rule-based personalization</td>
+              <td>AI personalization + A/B tests</td>
             </tr>
             <tr>
-              <td>A/B Testing</td>
-              <td><span class="x-mark">✗</span></td>
-              <td><span class="check-mark">✔</span></td>
-              <td><span class="check-mark">✔</span></td>
+              <td>Reply Enablement</td>
+              <td>Email response guide</td>
+              <td>Objection playbooks</td>
+              <td>Playbooks + enablement workshop</td>
             </tr>
             <tr>
-              <td>AI Personalization</td>
-              <td><span class="x-mark">✗</span></td>
-              <td><span class="x-mark">✗</span></td>
-              <td><span class="check-mark">✔</span></td>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Support &amp; Reporting</td>
             </tr>
             <tr>
-              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Support & Training</td>
+              <td>Reporting Cadence</td>
+              <td>Weekly summary</td>
+              <td>Weekly analytics report</td>
+              <td>Custom dashboards</td>
             </tr>
             <tr>
-              <td>Support Channel</td>
+              <td>Support Window</td>
+              <td>3 business days</td>
+              <td>30 days</td>
+              <td>90 days</td>
+            </tr>
+            <tr>
+              <td>Support Channels</td>
               <td>Email</td>
-              <td>Email + Slack</td>
+              <td>Email &amp; Slack</td>
               <td>Priority 24/7</td>
             </tr>
             <tr>
-              <td>Response Time</td>
-              <td>48 hours</td>
-              <td>12 hours</td>
-              <td>2 hours</td>
-            </tr>
-            <tr>
-              <td>Training Service</td>
-              <td>Guide</td>
-              <td>Zoom Session</td>
-              <td>Team Training</td>
-            </tr>
-            <tr>
-              <td>Support Duration</td>
-              <td>3 days</td>
-              <td>30 days</td>
-              <td>90 days</td>
+              <td>Training &amp; Onboarding</td>
+              <td>Quick-start guide</td>
+              <td>Team ramp session</td>
+              <td>Dedicated sales workshop</td>
             </tr>
           </tbody>
         </table>
@@ -2628,73 +2508,61 @@
           </thead>
           <tbody>
             <tr>
-              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Domain & Email Infrastructure</td>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Domains &amp; Inboxes</td>
             </tr>
             <tr>
-              <td>Number of Domains</td>
+              <td>Sending Domains</td>
               <td>10 domains</td>
               <td>25 domains</td>
               <td>50+ domains</td>
             </tr>
             <tr>
               <td>Professional Inboxes</td>
-              <td>70 total</td>
-              <td>175 total</td>
-              <td>350+ total</td>
+              <td>70 inboxes</td>
+              <td>175 inboxes</td>
+              <td>350+ inboxes</td>
             </tr>
             <tr>
-              <td>DNS Authentication</td>
-              <td><span class="check-mark">✔</span></td>
-              <td><span class="check-mark">✔</span></td>
-              <td><span class="check-mark">✔</span></td>
-            </tr>
-            <tr>
-              <td>DMARC/SPF/DKIM Setup</td>
+              <td>Authentication (SPF/DKIM/DMARC)</td>
               <td><span class="check-mark">✔</span></td>
               <td><span class="check-mark">✔</span></td>
               <td><span class="check-mark">✔</span></td>
             </tr>
             <tr>
-              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Server & IP Management</td>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Routing &amp; Reputation</td>
             </tr>
             <tr>
               <td>IP Rotation</td>
-              <td>Standard</td>
-              <td>Advanced</td>
-              <td>Custom</td>
+              <td>Shared pool</td>
+              <td>Priority pool</td>
+              <td>Dedicated cluster</td>
             </tr>
             <tr>
-              <td>Server Allocation</td>
-              <td>Shared</td>
-              <td>Priority</td>
-              <td>Dedicated Cluster</td>
+              <td>Warm-up Automation</td>
+              <td>14-day protocol</td>
+              <td>Custom sequences</td>
+              <td>Custom + IP warming</td>
             </tr>
             <tr>
-              <td>Warming Protocol</td>
-              <td>14-day</td>
-              <td>Custom</td>
-              <td>Custom</td>
+              <td>Platform Integrations</td>
+              <td>Instantly/Smartlead</td>
+              <td>Multi-provider routing</td>
+              <td>Full multi-brand orchestration</td>
             </tr>
             <tr>
-              <td>IP Management</td>
-              <td>Basic</td>
-              <td>Advanced</td>
-              <td>Enterprise</td>
+              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Monitoring &amp; Support</td>
             </tr>
             <tr>
-              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Monitoring & Support</td>
+              <td>Health Reporting</td>
+              <td>Monthly summary</td>
+              <td>Weekly dashboards</td>
+              <td>Real-time command center</td>
             </tr>
             <tr>
-              <td>Health Reports</td>
-              <td>Monthly</td>
-              <td>Weekly</td>
-              <td>Real-time</td>
-            </tr>
-            <tr>
-              <td>Reputation Monitoring</td>
+              <td>Deliverability Analyst</td>
               <td><span class="x-mark">✗</span></td>
-              <td>Dashboard</td>
-              <td>Advanced Analytics</td>
+              <td>Monthly review</td>
+              <td>Dedicated analyst</td>
             </tr>
             <tr>
               <td>Support Channel</td>
@@ -2703,44 +2571,17 @@
               <td>24/7 Priority</td>
             </tr>
             <tr>
-              <td>Account Management</td>
+              <td>Strategy Workshops</td>
               <td><span class="x-mark">✗</span></td>
-              <td>Weekly Calls</td>
-              <td>Dedicated Manager</td>
-            </tr>
-            <tr>
-              <td style="background: #f9fafb; font-weight: 600;" colspan="4">Additional Features</td>
-            </tr>
-            <tr>
-              <td>Platform Integration</td>
-              <td><span class="check-mark">✔</span></td>
-              <td><span class="check-mark">✔</span></td>
-              <td><span class="check-mark">✔</span></td>
-            </tr>
-            <tr>
-              <td>White-Label Options</td>
-              <td><span class="x-mark">✗</span></td>
-              <td><span class="x-mark">✗</span></td>
-              <td><span class="check-mark">✔</span></td>
-            </tr>
-            <tr>
-              <td>Custom Integrations</td>
-              <td><span class="x-mark">✗</span></td>
-              <td><span class="x-mark">✗</span></td>
-              <td><span class="check-mark">✔</span></td>
-            </tr>
-            <tr>
-              <td>SLA Guarantees</td>
-              <td><span class="x-mark">✗</span></td>
-              <td><span class="x-mark">✗</span></td>
-              <td><span class="check-mark">✔</span></td>
+              <td>Quarterly advisory</td>
+              <td>Quarterly workshops</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
-  
+
   <!-- CTA Section -->
   <section id="audit" class="section-padding" style="background: linear-gradient(135deg, #F45407, #e14a06);">
     <div class="container" style="max-width: 800px;">

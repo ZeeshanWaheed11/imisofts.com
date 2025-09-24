@@ -805,6 +805,137 @@
       color: #F45407;
     }
     
+    /* Process Timeline Styles */
+    .process-desktop {
+      display: block;
+    }
+
+    .process-mobile {
+      display: none;
+    }
+
+    .mobile-timeline-line {
+      position: relative;
+      margin-left: 12px;
+      padding-left: 28px;
+    }
+
+    .mobile-timeline-line::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #ffd4c4 0%, rgba(244, 84, 7, 0.4) 100%);
+    }
+
+    .mobile-timeline-step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 32px;
+    }
+
+    .mobile-timeline-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .mobile-timeline-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #F45407;
+      background: white;
+      color: #F45407;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 4px #fff4ef;
+      flex-shrink: 0;
+    }
+
+    .mobile-timeline-number.is-active {
+      background: #F45407;
+      color: white;
+      box-shadow: 0 0 0 4px #ffe3d6;
+    }
+
+    .mobile-timeline-card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      border: 1px solid #f1f5f9;
+      flex: 1;
+    }
+
+    .mobile-timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .mobile-timeline-header h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0;
+    }
+
+    .mobile-timeline-badge {
+      background: #f3f4f6;
+      color: #666;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .mobile-timeline-badge.is-active {
+      background: rgba(244, 84, 7, 0.12);
+      color: #F45407;
+    }
+
+    .mobile-timeline-summary {
+      font-size: 14px;
+      color: #4b5563;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .mobile-timeline-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+      color: #52525b;
+    }
+
+    .mobile-timeline-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .mobile-timeline-bullet {
+      color: #F45407;
+      font-weight: 700;
+      line-height: 1;
+      margin-top: 3px;
+    }
+
+    .mobile-timeline-bullet.gray {
+      color: #94a3b8;
+    }
+    
     /* Mobile Styles */
     @media (max-width: 768px) {
       .container {
@@ -870,6 +1001,35 @@
       
       .automation-visual {
         display: none !important;
+      }
+
+      .process-desktop {
+        display: none !important;
+      }
+
+      .process-mobile {
+        display: block !important;
+        margin-top: 32px;
+      }
+
+      .mobile-timeline-line {
+        margin-left: 0;
+        padding-left: 36px;
+      }
+
+      .mobile-timeline-line::before {
+        left: 18px;
+      }
+
+      .mobile-timeline-number {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+      }
+
+      .mobile-timeline-card {
+        padding: 18px;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
       }
     }
     
@@ -1781,6 +1941,96 @@
               <li style="margin-bottom: 6px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> Strategic scaling to new processes</li>
               <li style="margin-bottom: 6px; display: flex; align-items: flex-start;"><span class="bullet-point-gray">&bull;</span> ROI maximization</li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Timeline -->
+      <div class="process-mobile">
+        <div class="mobile-timeline-line">
+          <div class="mobile-timeline-step">
+            <div class="mobile-timeline-number is-active">1</div>
+            <div class="mobile-timeline-card">
+              <div class="mobile-timeline-header">
+                <h3>Assessment & Strategy</h3>
+                <span class="mobile-timeline-badge is-active">Week 1</span>
+              </div>
+              <p class="mobile-timeline-summary">Map your current workflows, identify fast wins, and align the automation roadmap with ROI targets.</p>
+              <ul class="mobile-timeline-list">
+                <li><span class="mobile-timeline-bullet">&bull;</span><span>Process documentation & audit</span></li>
+                <li><span class="mobile-timeline-bullet">&bull;</span><span>High-impact use case identification</span></li>
+                <li><span class="mobile-timeline-bullet">&bull;</span><span>ROI projections & success metrics</span></li>
+                <li><span class="mobile-timeline-bullet">&bull;</span><span>Implementation roadmap</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mobile-timeline-step">
+            <div class="mobile-timeline-number">2</div>
+            <div class="mobile-timeline-card">
+              <div class="mobile-timeline-header">
+                <h3>Pilot Development</h3>
+                <span class="mobile-timeline-badge">Week 2-3</span>
+              </div>
+              <p class="mobile-timeline-summary">Configure AI models, connect data sources, and prove the flow with a controlled pilot.</p>
+              <ul class="mobile-timeline-list">
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>AI model configuration</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>System integrations</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Controlled pilot testing</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Stakeholder demos</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mobile-timeline-step">
+            <div class="mobile-timeline-number">3</div>
+            <div class="mobile-timeline-card">
+              <div class="mobile-timeline-header">
+                <h3>Validation & Optimization</h3>
+                <span class="mobile-timeline-badge">Week 4-5</span>
+              </div>
+              <p class="mobile-timeline-summary">Test with production data, tighten reliability, and sign off with compliance and end users.</p>
+              <ul class="mobile-timeline-list">
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Production data testing</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Performance optimization</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Security & compliance reviews</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>User acceptance testing</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mobile-timeline-step">
+            <div class="mobile-timeline-number">4</div>
+            <div class="mobile-timeline-card">
+              <div class="mobile-timeline-header">
+                <h3>Production Deployment</h3>
+                <span class="mobile-timeline-badge">Week 6</span>
+              </div>
+              <p class="mobile-timeline-summary">Roll out safely, monitor every transaction, and turn the system over to your team.</p>
+              <ul class="mobile-timeline-list">
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Phased production rollout</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Real-time monitoring</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Team training & onboarding</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Documentation & handoff</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mobile-timeline-step">
+            <div class="mobile-timeline-number">5</div>
+            <div class="mobile-timeline-card">
+              <div class="mobile-timeline-header">
+                <h3>Scale & Continuous Improvement</h3>
+                <span class="mobile-timeline-badge">Ongoing</span>
+              </div>
+              <p class="mobile-timeline-summary">Track performance, expand coverage to new processes, and keep compounding ROI.</p>
+              <ul class="mobile-timeline-list">
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Performance analytics</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Intelligent feature expansion</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>Strategic scaling to new processes</span></li>
+                <li><span class="mobile-timeline-bullet gray">&bull;</span><span>ROI maximization</span></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
