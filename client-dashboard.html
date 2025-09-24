@@ -3,630 +3,933 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Client Dashboard - imisofts</title>
-  
+  <title>Client Workspace | imisofts</title>
+
   <!-- Visitor Tracking -->
   <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="Sfy91D1xWAFhfQuk" data-version="062024"></script>
-  
+
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
+
   <style>
+    :root {
+      --sidebar-bg: #0f172a;
+      --sidebar-border: rgba(255, 255, 255, 0.08);
+      --primary: #2563eb;
+      --primary-soft: #edf2ff;
+      --surface: #ffffff;
+      --surface-alt: #f8fafc;
+      --border: #e2e8f0;
+      --text-strong: #0f172a;
+      --text-subtle: #475569;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --shadow-soft: 0 24px 60px rgba(15, 23, 42, 0.08);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
-    
+
     body {
-      background: #f7f8fa;
+      background: linear-gradient(180deg, #f1f5f9 0%, #f8fafc 100%);
       min-height: 100vh;
+      color: var(--text-strong);
     }
-    
-    /* Header */
-    .header {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      padding: 16px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+
+    a { color: inherit; text-decoration: none; }
+
+    .dashboard-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
     }
-    
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      background: #3b82f6;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-      font-size: 16px;
-    }
-    
-    .logo-text {
-      font-size: 20px;
-      font-weight: 700;
-      color: #1a1a1a;
-    }
-    
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    
-    .user-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 8px 16px;
-      background: #f3f4f6;
-      border-radius: 8px;
-    }
-    
-    .user-avatar {
-      width: 32px;
-      height: 32px;
-      background: #3b82f6;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 600;
-      font-size: 14px;
-    }
-    
-    .user-details {
+
+    .sidebar {
+      background: var(--sidebar-bg);
+      color: rgba(226, 232, 240, 0.92);
+      padding: 32px 28px;
       display: flex;
       flex-direction: column;
+      gap: 32px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      border-right: 1px solid var(--sidebar-border);
     }
-    
-    .user-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1f2937;
-    }
-    
-    .user-company {
-      font-size: 12px;
-      color: #6b7280;
-    }
-    
-    .logout-btn {
-      padding: 8px 16px;
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      color: #6b7280;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .logout-btn:hover {
-      background: #f3f4f6;
-      color: #1f2937;
-    }
-    
-    /* Main Content */
-    .main-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-    
-    .welcome-section {
-      background: linear-gradient(135deg, #3b82f6, #6366f1);
-      color: white;
-      border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 24px;
-    }
-    
-    .welcome-title {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    
-    .welcome-subtitle {
-      font-size: 16px;
-      opacity: 0.9;
-    }
-    
-    /* Navigation Tabs */
-    .nav-tabs {
+
+    .sidebar-brand {
       display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
-      background: white;
-      padding: 8px;
-      border-radius: 12px;
-      border: 1px solid #e5e7eb;
+      align-items: center;
+      gap: 14px;
     }
-    
-    .nav-tab {
-      padding: 10px 20px;
-      border-radius: 8px;
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(59, 130, 246, 0.18);
+      color: #60a5fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-tagline {
+      font-size: 12px;
+      color: rgba(226, 232, 240, 0.6);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .sidebar-user-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--sidebar-border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .sidebar-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: rgba(59, 130, 246, 0.18);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .sidebar-user-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .sidebar-user-company {
+      font-size: 13px;
+      color: rgba(226, 232, 240, 0.7);
+      margin-top: 2px;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid transparent;
       background: transparent;
-      border: none;
-      color: #6b7280;
+      color: rgba(226, 232, 240, 0.75);
       font-size: 14px;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
-    
-    .nav-tab:hover {
-      background: #f3f4f6;
-      color: #1f2937;
+
+    .nav-link:hover {
+      border-color: rgba(148, 163, 184, 0.25);
+      background: rgba(148, 163, 184, 0.08);
+      color: #fff;
     }
-    
-    .nav-tab.active {
-      background: #3b82f6;
-      color: white;
+
+    .nav-link.active {
+      background: rgba(59, 130, 246, 0.15);
+      color: #fff;
+      border-color: rgba(148, 163, 184, 0.35);
+      box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.2);
     }
-    
-    /* Content Sections */
-    .content-section {
-      display: none;
+
+    .nav-icon {
+      font-size: 18px;
+      width: 20px;
+      text-align: center;
     }
-    
-    .content-section.active {
-      display: block;
+
+    .sidebar-footer {
+      margin-top: auto;
+      font-size: 13px;
+      color: rgba(226, 232, 240, 0.6);
+      display: grid;
+      gap: 6px;
     }
-    
-    /* Stats Cards */
+
+    .sidebar-footer a {
+      color: #bfdbfe;
+      font-weight: 500;
+    }
+
+    .content-area {
+      background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(248,250,252,0.98) 100%);
+      padding: 36px 48px;
+    }
+
+    .content-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .breadcrumb {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin-bottom: 8px;
+    }
+
+    .welcome-heading {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-strong);
+    }
+
+    .content-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .support-btn,
+    .logout-btn {
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-subtle);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .support-btn:hover {
+      border-color: rgba(37, 99, 235, 0.4);
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
+    .logout-btn {
+      background: var(--text-strong);
+      color: #fff;
+      border: none;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+    }
+
+    .logout-btn:hover {
+      transform: translateY(-1px);
+      background: #0b1529;
+    }
+
+    .content-scroll {
+      display: grid;
+      gap: 32px;
+    }
+
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
-      margin-bottom: 24px;
     }
-    
+
     .stat-card {
-      background: white;
-      border-radius: 12px;
+      background: var(--surface);
+      border-radius: var(--radius-md);
       padding: 20px;
-      border: 1px solid #e5e7eb;
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      box-shadow: 0 10px 35px rgba(15, 23, 42, 0.06);
+      display: grid;
+      gap: 12px;
     }
-    
+
     .stat-icon {
-      width: 48px;
-      height: 48px;
-      background: #eff6ff;
-      border-radius: 10px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
-      font-size: 24px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 20px;
     }
-    
+
     .stat-label {
-      font-size: 13px;
-      color: #6b7280;
-      margin-bottom: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      color: var(--text-subtle);
     }
-    
+
     .stat-value {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
-      color: #1f2937;
+      color: var(--text-strong);
     }
-    
-    /* Project Cards */
-    .projects-grid {
+
+    .panel-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 20px;
-      margin-bottom: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
-    
-    .project-card {
-      background: white;
-      border-radius: 12px;
+
+    .panel {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      box-shadow: var(--shadow-soft);
       padding: 24px;
-      border: 1px solid #e5e7eb;
-      transition: all 0.2s;
+      display: grid;
+      gap: 18px;
     }
-    
-    .project-card:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transform: translateY(-2px);
+
+    .panel.span-2 {
+      grid-column: span 2;
     }
-    
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      margin-bottom: 16px;
-    }
-    
-    .project-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #1f2937;
-      margin-bottom: 4px;
-    }
-    
-    .project-date {
-      font-size: 12px;
-      color: #6b7280;
-    }
-    
-    .status-badge {
-      display: inline-block;
-      padding: 4px 12px;
-      border-radius: 50px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-    
-    .status-badge.planning {
-      background: #fef3c7;
-      color: #d97706;
-    }
-    
-    .status-badge.in_progress {
-      background: #dbeafe;
-      color: #2563eb;
-    }
-    
-    .status-badge.completed {
-      background: #d4f4dd;
-      color: #16a34a;
-    }
-    
-    .status-badge.done {
-      background: #d4f4dd;
-      color: #16a34a;
-    }
-    
-    .status-badge.todo {
-      background: #f3f4f6;
-      color: #6b7280;
-    }
-    
-    .status-badge.high {
-      background: #fee2e2;
-      color: #dc2626;
-    }
-    
-    .status-badge.medium {
-      background: #fef3c7;
-      color: #d97706;
-    }
-    
-    .status-badge.low {
-      background: #f3f4f6;
-      color: #6b7280;
-    }
-    
-    .project-description {
-      font-size: 14px;
-      color: #6b7280;
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    
-    .project-footer {
+
+    .panel-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-top: 16px;
-      border-top: 1px solid #f3f4f6;
+      gap: 12px;
     }
-    
-    .project-progress {
-      flex: 1;
-      margin-right: 16px;
-    }
-    
-    .progress-label {
-      font-size: 12px;
-      color: #6b7280;
-      margin-bottom: 4px;
-    }
-    
-    .progress-bar {
-      height: 6px;
-      background: #e5e7eb;
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    
-    .progress-fill {
-      height: 100%;
-      background: #3b82f6;
-      border-radius: 3px;
-      transition: width 0.3s ease;
-    }
-    
-    /* Updates Timeline */
-    .updates-container {
-      background: white;
-      border-radius: 12px;
-      padding: 24px;
-      border: 1px solid #e5e7eb;
-    }
-    
-    .section-title {
-      font-size: 20px;
+
+    .panel-title {
+      font-size: 18px;
       font-weight: 600;
-      color: #1f2937;
-      margin-bottom: 20px;
+      color: var(--text-strong);
     }
-    
+
+    .panel-subtitle {
+      font-size: 13px;
+      color: var(--text-subtle);
+    }
+
+    .panel-action {
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .panel-body {
+      display: grid;
+      gap: 16px;
+    }
+
     .timeline {
       position: relative;
-      padding-left: 32px;
+      padding-left: 24px;
     }
-    
+
     .timeline::before {
       content: '';
       position: absolute;
-      left: 8px;
+      left: 6px;
       top: 0;
       bottom: 0;
       width: 2px;
-      background: #e5e7eb;
+      background: rgba(226, 232, 240, 0.8);
     }
-    
+
     .timeline-item {
       position: relative;
-      padding-bottom: 24px;
+      padding-bottom: 18px;
+      display: grid;
+      gap: 6px;
     }
-    
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
     .timeline-item::before {
       content: '';
       position: absolute;
-      left: -28px;
-      top: 4px;
-      width: 12px;
-      height: 12px;
-      background: #3b82f6;
+      left: -20px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      background: var(--primary);
       border-radius: 50%;
-      border: 2px solid white;
-      box-shadow: 0 0 0 4px #eff6ff;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 4px var(--primary-soft);
     }
-    
+
     .update-date {
       font-size: 12px;
-      color: #6b7280;
-      margin-bottom: 8px;
+      color: var(--text-subtle);
+      letter-spacing: 0.02em;
     }
-    
+
     .update-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
-      color: #1f2937;
-      margin-bottom: 8px;
+      color: var(--text-strong);
     }
-    
+
     .update-content {
       font-size: 14px;
-      color: #6b7280;
+      color: var(--text-subtle);
       line-height: 1.6;
     }
-    
+
     .update-project {
-      display: inline-block;
-      font-size: 12px;
-      color: #3b82f6;
-      background: #eff6ff;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-top: 8px;
-    }
-    
-    /* Task List */
-    .task-list {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      border: 1px solid #e5e7eb;
-      margin-bottom: 20px;
-    }
-    
-    .task-item {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 12px;
-      border-bottom: 1px solid #f3f4f6;
-    }
-    
-    .task-item:last-child {
-      border-bottom: none;
-    }
-    
-    .task-title {
-      font-size: 14px;
-      color: #1f2937;
-      flex: 1;
-    }
-    
-    /* Empty State */
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: #6b7280;
-    }
-    
-    .empty-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-      opacity: 0.3;
-    }
-    
-    .empty-title {
-      font-size: 18px;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--primary);
+      background: var(--primary-soft);
       font-weight: 600;
-      color: #1f2937;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(226, 232, 240, 0.7);
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .project-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-strong);
+      margin-bottom: 6px;
+    }
+
+    .project-date {
+      font-size: 13px;
+      color: var(--text-subtle);
+    }
+
+    .project-description {
+      font-size: 14px;
+      color: var(--text-subtle);
+      line-height: 1.65;
+    }
+
+    .project-footer {
+      border-top: 1px solid rgba(226, 232, 240, 0.7);
+      padding-top: 16px;
+    }
+
+    .progress-label {
+      font-size: 13px;
+      color: var(--text-subtle);
       margin-bottom: 8px;
     }
-    
-    .empty-text {
+
+    .progress-bar {
+      height: 8px;
+      background: rgba(226, 232, 240, 0.8);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+
+    .task-list {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(226, 232, 240, 0.7);
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .task-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    }
+
+    .task-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .task-title {
       font-size: 14px;
-      color: #6b7280;
+      color: var(--text-strong);
+      font-weight: 500;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+
+    .status-badge.planning { background: #fef3c7; color: #b45309; }
+    .status-badge.in_progress { background: #dbeafe; color: #2563eb; }
+    .status-badge.completed,
+    .status-badge.done { background: #dcfce7; color: #15803d; }
+    .status-badge.todo { background: #f8fafc; color: #64748b; }
+    .status-badge.high { background: #fee2e2; color: #dc2626; }
+    .status-badge.medium { background: #fef3c7; color: #b45309; }
+    .status-badge.low { background: #f8fafc; color: #64748b; }
+
+    .empty-state {
+      padding: 48px 24px;
+      background: #fff;
+      border-radius: var(--radius-md);
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      text-align: center;
+      display: grid;
+      gap: 8px;
+      color: var(--text-subtle);
+    }
+
+    .empty-icon { font-size: 32px; }
+    .empty-title { font-weight: 600; color: var(--text-strong); }
+    .empty-text { font-size: 14px; }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .section-header p {
+      color: var(--text-subtle);
+      font-size: 14px;
+    }
+
+    .files-grid,
+    .billing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .file-card,
+    .billing-card {
+      background: var(--surface);
+      padding: 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(226, 232, 240, 0.7);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+      display: grid;
+      gap: 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1100px) {
+      .dashboard-shell {
+        grid-template-columns: 240px minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .dashboard-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: relative;
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        gap: 16px;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+        overflow-x: auto;
+      }
+
+      .sidebar-brand,
+      .sidebar-footer {
+        display: none;
+      }
+
+      .sidebar-user-card {
+        padding: 12px;
+      }
+
+      .sidebar-nav {
+        flex-direction: row;
+        gap: 8px;
+      }
+
+      .nav-link {
+        padding: 10px 14px;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+
+      .content-area {
+        padding: 28px 20px 48px;
+      }
+
+      .content-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .content-actions {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .panel-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel.span-2 {
+        grid-column: span 1;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  
-  <!-- Header -->
-  <header class="header">
-    <div class="header-content">
-      <div class="logo">
-        <div class="logo-icon">im</div>
-        <div class="logo-text">imisofts</div>
+  <div class="dashboard-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo">IM</div>
+        <div>
+          <div class="brand-name">imisofts</div>
+          <div class="brand-tagline">client workspace</div>
+        </div>
       </div>
-      
-      <div class="header-right">
-        <div class="user-info">
-          <div class="user-avatar" id="userAvatar">C</div>
-          <div class="user-details">
-            <div class="user-name" id="userName">Client User</div>
-            <div class="user-company" id="userCompany">TechCorp</div>
+
+      <div class="sidebar-user-card">
+        <div class="sidebar-avatar" id="userAvatar">C</div>
+        <div>
+          <div class="sidebar-user-name" id="userName">Client User</div>
+          <div class="sidebar-user-company" id="userCompany">TechCorp</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-link active" data-section="overview"><span class="nav-icon">🏠</span>Overview</button>
+        <button class="nav-link" data-section="projects"><span class="nav-icon">📦</span>Projects</button>
+        <button class="nav-link" data-section="updates"><span class="nav-icon">🗞️</span>Updates</button>
+        <button class="nav-link" data-section="tasks"><span class="nav-icon">✅</span>Tasks</button>
+        <button class="nav-link" data-section="files"><span class="nav-icon">📁</span>Files</button>
+        <button class="nav-link" data-section="billing"><span class="nav-icon">💳</span>Billing</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span>Need urgent assistance?</span>
+        <a href="mailto:support@imisofts.com">support@imisofts.com</a>
+      </div>
+    </aside>
+
+    <div class="content-area">
+      <header class="content-header">
+        <div>
+          <p class="breadcrumb">Client Portal</p>
+          <h1 class="welcome-heading" id="welcomeTitle">Welcome back!</h1>
+        </div>
+        <div class="content-actions">
+          <button class="support-btn">Visit Support Center</button>
+          <button class="logout-btn" onclick="logout()">Sign Out</button>
+        </div>
+      </header>
+
+      <div class="content-scroll">
+        <section id="overview" class="content-section active">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">📊</div>
+              <span class="stat-label">Active Projects</span>
+              <span class="stat-value" id="activeProjects">0</span>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">✅</div>
+              <span class="stat-label">Tasks Completed</span>
+              <span class="stat-value" id="completedTasks">0</span>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⏳</div>
+              <span class="stat-label">In Progress</span>
+              <span class="stat-value" id="inProgressTasks">0</span>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">🗞️</div>
+              <span class="stat-label">Recent Updates</span>
+              <span class="stat-value" id="recentUpdates">0</span>
+            </div>
           </div>
-        </div>
-        <button class="logout-btn" onclick="logout()">Sign Out</button>
+
+          <div class="panel-grid">
+            <article class="panel span-2">
+              <div class="panel-header">
+                <div>
+                  <h2 class="panel-title">Recent Activity</h2>
+                  <p class="panel-subtitle">Latest notes from the imisofts delivery team</p>
+                </div>
+              </div>
+              <div class="panel-body" id="recentActivity"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <h2 class="panel-title">Upcoming Check-ins</h2>
+                  <p class="panel-subtitle">What to expect this week</p>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div>
+                  <span class="chip">Wednesday · 3:00 PM GST</span>
+                  <p class="panel-subtitle">Weekly growth sync with delivery lead</p>
+                </div>
+                <div>
+                  <span class="chip">Friday · 11:00 AM GST</span>
+                  <p class="panel-subtitle">Campaign performance review &amp; next steps</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <div>
+                  <h2 class="panel-title">Key Contacts</h2>
+                  <p class="panel-subtitle">Who is owning what on our side</p>
+                </div>
+              </div>
+              <div class="panel-body">
+                <div>
+                  <strong>Delivery Lead</strong>
+                  <p class="panel-subtitle">Maya Khan · maya@imisofts.com</p>
+                </div>
+                <div>
+                  <strong>Growth Strategist</strong>
+                  <p class="panel-subtitle">Omar Haddad · omar@imisofts.com</p>
+                </div>
+                <div>
+                  <strong>Support Desk</strong>
+                  <p class="panel-subtitle">support@imisofts.com</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects" class="content-section">
+          <div class="section-header">
+            <h2 class="panel-title">Projects in Motion</h2>
+            <p>Every deliverable and build currently shipping for your team.</p>
+          </div>
+          <div id="projectsList"></div>
+        </section>
+
+        <section id="updates" class="content-section">
+          <div class="section-header">
+            <h2 class="panel-title">Detailed Updates</h2>
+            <p>Milestones, blockers, and hand-offs logged by the delivery team.</p>
+          </div>
+          <div class="panel">
+            <div class="panel-body" id="updatesList"></div>
+          </div>
+        </section>
+
+        <section id="tasks" class="content-section">
+          <div class="section-header">
+            <h2 class="panel-title">Task Progress</h2>
+            <p>Track the granular work happening across each project.</p>
+          </div>
+          <div id="tasksList"></div>
+        </section>
+
+        <section id="files" class="content-section">
+          <div class="section-header">
+            <h2 class="panel-title">Shared Assets</h2>
+            <p>Campaign copy, creative, and resources delivered to date.</p>
+          </div>
+          <div class="files-grid">
+            <div class="file-card">
+              <span class="chip">Latest Upload</span>
+              <strong>Onboarding Kit</strong>
+              <p class="panel-subtitle">Welcome guide, launch checklist, and escalation paths.</p>
+              <a href="#" class="panel-action">Download</a>
+            </div>
+            <div class="file-card">
+              <span class="chip">Template</span>
+              <strong>Cold Email Sequence v2</strong>
+              <p class="panel-subtitle">Approved copy set for ICP #1 including follow-ups.</p>
+              <a href="#" class="panel-action">View in Notion</a>
+            </div>
+            <div class="file-card">
+              <span class="chip">Reference</span>
+              <strong>Reporting Dashboard</strong>
+              <p class="panel-subtitle">Live campaign performance tracked in Data Studio.</p>
+              <a href="#" class="panel-action">Open dashboard</a>
+            </div>
+          </div>
+        </section>
+
+        <section id="billing" class="content-section">
+          <div class="section-header">
+            <h2 class="panel-title">Billing &amp; Invoices</h2>
+            <p>Your subscriptions, invoices, and upcoming renewals.</p>
+          </div>
+          <div class="billing-grid">
+            <div class="billing-card">
+              <span class="chip">Current Plan</span>
+              <strong>Growth Retainer · $4,800/mo</strong>
+              <p class="panel-subtitle">Next renewal on July 28 · Payment method ending ••34</p>
+              <a href="#" class="panel-action">Manage subscription →</a>
+            </div>
+            <div class="billing-card">
+              <span class="chip">Latest Invoice</span>
+              <strong>Invoice #INV-1092</strong>
+              <p class="panel-subtitle">Issued June 28 · Paid · Receipt emailed to finance@techcorp.com</p>
+              <a href="#" class="panel-action">Download PDF</a>
+            </div>
+            <div class="billing-card">
+              <span class="chip">Add-ons</span>
+              <strong>Domain Infrastructure</strong>
+              <p class="panel-subtitle">Billed annually · Next review September 1</p>
+              <a href="#" class="panel-action">View agreement</a>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
-  </header>
-  
-  <!-- Main Content -->
-  <main class="main-container">
-    <!-- Welcome Section -->
-    <div class="welcome-section">
-      <h1 class="welcome-title" id="welcomeTitle">Welcome back!</h1>
-      <p class="welcome-subtitle">Track your projects, view updates, and monitor progress</p>
-    </div>
-    
-    <!-- Navigation Tabs -->
-    <div class="nav-tabs">
-      <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
-      <button class="nav-tab" onclick="showSection('projects')">My Projects</button>
-      <button class="nav-tab" onclick="showSection('updates')">Updates</button>
-      <button class="nav-tab" onclick="showSection('tasks')">Task Progress</button>
-    </div>
-    
-    <!-- Overview Section -->
-    <div id="overview" class="content-section active">
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-icon">📊</div>
-          <div class="stat-label">Active Projects</div>
-          <div class="stat-value" id="activeProjects">0</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-icon">✅</div>
-          <div class="stat-label">Completed Tasks</div>
-          <div class="stat-value" id="completedTasks">0</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-icon">⏳</div>
-          <div class="stat-label">In Progress</div>
-          <div class="stat-value" id="inProgressTasks">0</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-icon">📝</div>
-          <div class="stat-label">Recent Updates</div>
-          <div class="stat-value" id="recentUpdates">0</div>
-        </div>
-      </div>
-      
-      <div class="updates-container">
-        <h2 class="section-title">Recent Activity</h2>
-        <div id="recentActivity"></div>
-      </div>
-    </div>
-    
-    <!-- Projects Section -->
-    <div id="projects" class="content-section">
-      <h2 class="section-title">Your Projects</h2>
-      <div id="projectsList"></div>
-    </div>
-    
-    <!-- Updates Section -->
-    <div id="updates" class="content-section">
-      <h2 class="section-title">Project Updates</h2>
-      <div id="updatesList"></div>
-    </div>
-    
-    <!-- Tasks Section -->
-    <div id="tasks" class="content-section">
-      <h2 class="section-title">Task Progress</h2>
-      <div id="tasksList"></div>
-    </div>
-  </main>
-  
+  </div>
+
   <script>
-    // Check authentication
     const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
     if (!currentUser || currentUser.role !== 'client') {
       window.location.href = 'client-login.html';
     }
-    
-    // Get company info
+
     const companies = JSON.parse(localStorage.getItem('companies') || '[]');
     const userCompany = companies.find(c => c.id === currentUser.companyId);
-    
-    // Update user info in header
+
     document.getElementById('userName').textContent = currentUser.fullName;
     document.getElementById('userAvatar').textContent = currentUser.fullName.charAt(0).toUpperCase();
     document.getElementById('userCompany').textContent = userCompany ? userCompany.name : 'Your Company';
     document.getElementById('welcomeTitle').textContent = `Welcome back, ${currentUser.fullName}!`;
-    
-    // Load dashboard data
+
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function showSection(section) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.section === section);
+      });
+
+      document.querySelectorAll('.content-section').forEach(sec => {
+        sec.classList.toggle('active', sec.id === section);
+      });
+
+      if (section === 'overview') loadDashboardData();
+      if (section === 'projects') loadProjects();
+      if (section === 'updates') loadUpdates();
+      if (section === 'tasks') loadTasks();
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => showSection(link.dataset.section));
+    });
+
     function loadDashboardData() {
       const projects = JSON.parse(localStorage.getItem('projects') || '[]');
       const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
       const updates = JSON.parse(localStorage.getItem('updates') || '[]');
-      
-      // Filter for client's company
+
       const companyProjects = projects.filter(p => p.companyId === currentUser.companyId);
       const projectIds = companyProjects.map(p => p.id);
       const companyTasks = tasks.filter(t => projectIds.includes(t.projectId));
       const companyUpdates = updates.filter(u => projectIds.includes(u.projectId) && u.isClientVisible);
-      
-      // Update stats
-      document.getElementById('activeProjects').textContent = 
-        companyProjects.filter(p => p.status === 'in_progress').length;
-      document.getElementById('completedTasks').textContent = 
-        companyTasks.filter(t => t.status === 'done').length;
-      document.getElementById('inProgressTasks').textContent = 
-        companyTasks.filter(t => t.status === 'in_progress').length;
+
+      document.getElementById('activeProjects').textContent = companyProjects.filter(p => p.status === 'in_progress').length;
+      document.getElementById('completedTasks').textContent = companyTasks.filter(t => t.status === 'done').length;
+      document.getElementById('inProgressTasks').textContent = companyTasks.filter(t => t.status === 'in_progress').length;
       document.getElementById('recentUpdates').textContent = companyUpdates.length;
-      
-      // Display recent activity
+
       if (companyUpdates.length > 0) {
         const activityHtml = `
           <div class="timeline">
@@ -645,49 +948,31 @@
         `;
         document.getElementById('recentActivity').innerHTML = activityHtml;
       } else {
-        document.getElementById('recentActivity').innerHTML = 
-          '<div class="empty-state"><div class="empty-text">No recent updates</div></div>';
+        document.getElementById('recentActivity').innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">🗞️</div>
+            <div class="empty-title">No recent updates yet</div>
+            <div class="empty-text">Updates from the delivery team will appear here.</div>
+          </div>
+        `;
       }
     }
-    
-    // Show different sections
-    function showSection(section) {
-      // Update navigation
-      document.querySelectorAll('.nav-tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      event.target.classList.add('active');
-      
-      // Hide all sections
-      document.querySelectorAll('.content-section').forEach(sec => {
-        sec.classList.remove('active');
-      });
-      
-      // Show selected section
-      document.getElementById(section).classList.add('active');
-      
-      // Load section data
-      if (section === 'projects') loadProjects();
-      if (section === 'updates') loadUpdates();
-      if (section === 'tasks') loadTasks();
-    }
-    
-    // Load projects
+
     function loadProjects() {
       const projects = JSON.parse(localStorage.getItem('projects') || '[]');
       const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
       const companyProjects = projects.filter(p => p.companyId === currentUser.companyId);
-      
+
       if (companyProjects.length > 0) {
         const projectsHtml = `
           <div class="projects-grid">
             ${companyProjects.map(project => {
               const projectTasks = tasks.filter(t => t.projectId === project.id);
               const completedTasks = projectTasks.filter(t => t.status === 'done').length;
-              const progress = projectTasks.length > 0 
-                ? Math.round((completedTasks / projectTasks.length) * 100) 
+              const progress = projectTasks.length > 0
+                ? Math.round((completedTasks / projectTasks.length) * 100)
                 : 0;
-              
+
               return `
                 <div class="project-card">
                   <div class="project-header">
@@ -701,11 +986,9 @@
                     ${project.description || 'Project in progress. Updates will be posted regularly.'}
                   </div>
                   <div class="project-footer">
-                    <div class="project-progress">
-                      <div class="progress-label">Progress: ${progress}%</div>
-                      <div class="progress-bar">
-                        <div class="progress-fill" style="width: ${progress}%"></div>
-                      </div>
+                    <div class="progress-label">Progress: ${progress}%</div>
+                    <div class="progress-bar">
+                      <div class="progress-fill" style="width: ${progress}%"></div>
                     </div>
                   </div>
                 </div>
@@ -717,22 +1000,21 @@
       } else {
         document.getElementById('projectsList').innerHTML = `
           <div class="empty-state">
-            <div class="empty-icon">📁</div>
-            <div class="empty-title">No Projects Yet</div>
-            <div class="empty-text">Your projects will appear here once they are created</div>
+            <div class="empty-icon">📦</div>
+            <div class="empty-title">No active projects yet</div>
+            <div class="empty-text">Once a new project kicks off, you will see it here.</div>
           </div>
         `;
       }
     }
-    
-    // Load updates
+
     function loadUpdates() {
       const projects = JSON.parse(localStorage.getItem('projects') || '[]');
       const updates = JSON.parse(localStorage.getItem('updates') || '[]');
       const companyProjects = projects.filter(p => p.companyId === currentUser.companyId);
       const projectIds = companyProjects.map(p => p.id);
       const companyUpdates = updates.filter(u => projectIds.includes(u.projectId) && u.isClientVisible);
-      
+
       if (companyUpdates.length > 0) {
         const updatesHtml = `
           <div class="timeline">
@@ -754,37 +1036,39 @@
         document.getElementById('updatesList').innerHTML = `
           <div class="empty-state">
             <div class="empty-icon">📢</div>
-            <div class="empty-title">No Updates Yet</div>
-            <div class="empty-text">Project updates will appear here</div>
+            <div class="empty-title">No updates available</div>
+            <div class="empty-text">Project updates will appear here as soon as they are published.</div>
           </div>
         `;
       }
     }
-    
-    // Load tasks
+
     function loadTasks() {
       const projects = JSON.parse(localStorage.getItem('projects') || '[]');
       const tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
       const companyProjects = projects.filter(p => p.companyId === currentUser.companyId);
-      
+
       if (companyProjects.length > 0) {
-        let tasksHtml = '<div style="display: grid; gap: 20px;">';
-        
+        let tasksHtml = '<div class="panel-grid">';
+
         companyProjects.forEach(project => {
           const projectTasks = tasks.filter(t => t.projectId === project.id);
-          
+
           if (projectTasks.length > 0) {
             const completedTasks = projectTasks.filter(t => t.status === 'done').length;
             const progressPercent = Math.round((completedTasks / projectTasks.length) * 100);
-            
+
             tasksHtml += `
               <div class="task-list">
-                <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 16px;">
-                  ${project.name}
-                </h3>
-                <div style="margin-bottom: 16px;">
-                  <div class="progress-label">Progress: ${progressPercent}% (${completedTasks}/${projectTasks.length} tasks)</div>
-                  <div class="progress-bar" style="margin-top: 8px;">
+                <div class="panel-header" style="gap: 4px;">
+                  <div>
+                    <h3 class="panel-title" style="font-size: 16px;">${project.name}</h3>
+                    <p class="panel-subtitle">${completedTasks}/${projectTasks.length} tasks complete</p>
+                  </div>
+                </div>
+                <div>
+                  <div class="progress-label">Progress: ${progressPercent}%</div>
+                  <div class="progress-bar">
                     <div class="progress-fill" style="width: ${progressPercent}%"></div>
                   </div>
                 </div>
@@ -801,29 +1085,27 @@
             `;
           }
         });
-        
+
         tasksHtml += '</div>';
         document.getElementById('tasksList').innerHTML = tasksHtml;
       } else {
         document.getElementById('tasksList').innerHTML = `
           <div class="empty-state">
             <div class="empty-icon">✅</div>
-            <div class="empty-title">No Tasks Yet</div>
-            <div class="empty-text">Task progress will appear here</div>
+            <div class="empty-title">No tasks to review</div>
+            <div class="empty-text">Once delivery starts, individual tasks will be tracked here.</div>
           </div>
         `;
       }
     }
-    
-    // Logout function
+
     function logout() {
       sessionStorage.removeItem('currentUser');
       window.location.href = 'client-login.html';
     }
-    
-    // Initialize
+
     loadDashboardData();
+    showSection('overview');
   </script>
-  
 </body>
 </html>
