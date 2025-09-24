@@ -1169,8 +1169,7 @@
       }
       
       .navbar .container {
-        padding: 0 20px 0 20px;
-        padding-right: 12px;
+        padding: 0 16px !important;
       }
       
       .nav-container {
@@ -1185,11 +1184,58 @@
         display: block;
         padding: 8px 4px;
         margin: 0;
-        margin-right: -4px;
       }
       
       .nav-logo {
         height: 56px;
+      }
+
+      .nav-logo-wrapper {
+        margin-left: 0;
+        padding-left: 0;
+      }
+
+      .hero-grid {
+        gap: 32px !important;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-content > div:first-child {
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .hero-content h1 span {
+        display: inline !important;
+      }
+
+      .hero-content p {
+        text-align: center !important;
+        font-size: 16px !important;
+      }
+
+      .hero-cta-group {
+        justify-content: center;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px !important;
+      }
+
+      .hero-cta-group a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .stats-grid {
+        gap: 16px !important;
+        justify-items: center;
+      }
+
+      .stats-grid > div {
+        text-align: center;
       }
       
       /* Mobile Form Styles */
@@ -1283,6 +1329,19 @@
       .calculator-container {
         grid-template-columns: 1fr;
       }
+
+      .calculator-input-section,
+      .calculator-results-section {
+        padding: 1.5rem !important;
+      }
+
+      .cta-button-calc {
+        font-size: 1rem;
+        line-height: 1.35;
+        padding: 0.9rem 1.1rem;
+        white-space: normal;
+        word-break: break-word;
+      }
       
       .service-toggle-btn {
         padding: 0.7rem 1.5rem;
@@ -1346,7 +1405,8 @@
       
       /* Adjust hero section for fixed navbar */
       .hero-section {
-        padding-top: 100px !important;
+        padding-top: 96px !important;
+        padding-bottom: 56px !important;
       }
     }
     
@@ -1612,8 +1672,8 @@
   <!-- Hero Section -->
   <section class="section-padding hero-section" style="background: linear-gradient(to bottom, #ffffff, #f9fafb);">
     <div class="container">
-      <div class="grid grid-2" style="gap: 48px; align-items: center;">
-        <div>
+      <div class="grid grid-2 hero-grid" style="gap: 48px; align-items: center;">
+        <div class="hero-content">
           <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: #fff5f3; border-radius: 50px; margin-bottom: 24px;">
             <span style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;"></span>
             <span style="color: #F45407; font-size: 14px; font-weight: 500;">Limited spots available - Book now</span>
@@ -1633,7 +1693,7 @@
             Stop sharing servers with spammers. Get your own private email infrastructure with 7 professional inboxes per domain, complete authentication, and expert campaign management. From setup to scale in 48 hours.
           </p>
           
-          <div style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
+          <div class="hero-cta-group" style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
             <a href="#packages" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px; transition: all 0.3s ease;">
               View Packages
             </a>
