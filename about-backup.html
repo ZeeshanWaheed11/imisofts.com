@@ -1681,6 +1681,44 @@
   </script>
   
   <script>
+
+    
+(function addFormTrackingMeta(){
+      function attachMeta(){
+        var forms = document.querySelectorAll('form[action*="formspree.io"]');
+        forms.forEach(function(form, index){
+          var identifier = form.getAttribute('data-form-name');
+          if (!identifier) {
+            var idAttr = form.getAttribute('id');
+            if (idAttr) {
+              identifier = idAttr + ' — ' + document.title;
+            } else {
+              identifier = document.title + ' — form #' + (index + 1);
+            }
+          }
+          if (!form.querySelector('input[name="page_url"]')) {
+            var pageInput = document.createElement('input');
+            pageInput.type = 'hidden';
+            pageInput.name = 'page_url';
+            pageInput.value = window.location.href;
+            form.appendChild(pageInput);
+          }
+          if (!form.querySelector('input[name="form_name"]')) {
+            var nameInput = document.createElement('input');
+            nameInput.type = 'hidden';
+            nameInput.name = 'form_name';
+            nameInput.value = identifier;
+            form.appendChild(nameInput);
+          }
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', attachMeta);
+      } else {
+        attachMeta();
+      }
+    })();
+
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.getElementById('navbar');

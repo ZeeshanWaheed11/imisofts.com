@@ -2170,7 +2170,7 @@
       </div>
       
       <div>
-        <form id="contactForm" action="https://formspree.io/f/meolgepd" method="POST" style="max-width: 600px; margin: 0 auto;">
+        <form id="contactForm" action="https://formspree.io/f/mrbylkvp" method="POST" style="max-width: 600px; margin: 0 auto;">
           <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
             <input type="text" name="name" id="contactName" placeholder="Your full name" style="padding: 16px; border-radius: 8px; border: 1px solid #e5e5e5; font-size: 16px; width: 100%; background: white; transition: all 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="if(!this.value || this.style.borderColor !== '#dc3545') {this.style.borderColor='#e5e5e5'}" required>
             <input type="text" name="company" id="contactCompany" placeholder="Company name" style="padding: 16px; border-radius: 8px; border: 1px solid #e5e5e5; font-size: 16px; width: 100%; background: white; transition: all 0.3s; outline: none;" onfocus="this.style.borderColor='#F45407'" onblur="if(!this.value || this.style.borderColor !== '#dc3545') {this.style.borderColor='#e5e5e5'}" required>
@@ -2343,6 +2343,44 @@
   </footer>
 
   <script>
+
+    
+(function addFormTrackingMeta(){
+      function attachMeta(){
+        var forms = document.querySelectorAll('form[action*="formspree.io"]');
+        forms.forEach(function(form, index){
+          var identifier = form.getAttribute('data-form-name');
+          if (!identifier) {
+            var idAttr = form.getAttribute('id');
+            if (idAttr) {
+              identifier = idAttr + ' — ' + document.title;
+            } else {
+              identifier = document.title + ' — form #' + (index + 1);
+            }
+          }
+          if (!form.querySelector('input[name="page_url"]')) {
+            var pageInput = document.createElement('input');
+            pageInput.type = 'hidden';
+            pageInput.name = 'page_url';
+            pageInput.value = window.location.href;
+            form.appendChild(pageInput);
+          }
+          if (!form.querySelector('input[name="form_name"]')) {
+            var nameInput = document.createElement('input');
+            nameInput.type = 'hidden';
+            nameInput.name = 'form_name';
+            nameInput.value = identifier;
+            form.appendChild(nameInput);
+          }
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', attachMeta);
+      } else {
+        attachMeta();
+      }
+    })();
+
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.getElementById('navbar');
@@ -2465,9 +2503,10 @@
       const formData = new FormData(form);
       
       // Combine country code with phone number
-      const countryCode = document.getElementById('countryCode').value;
+      const countryCodeField = document.getElementById('countryCode');
+      const countryCode = countryCodeField ? countryCodeField.value.trim() : '';
       if (phone) {
-        formData.set('phone', countryCode + ' ' + phone);
+        formData.set('phone', countryCode ? `${countryCode} ${phone}` : phone);
       }
       
       // Change button text to loading state
