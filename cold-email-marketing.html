@@ -2079,13 +2079,13 @@
       <!-- Service Toggle -->
       <div style="text-align: center; margin-bottom: 48px;">
         <div class="service-toggle-container">
-          <button class="service-toggle-btn active" onclick="toggleService('campaign')">Campaign Setup</button>
-          <button class="service-toggle-btn" onclick="toggleService('infrastructure')">Email Infrastructure</button>
+          <button class="service-toggle-btn active" data-service="infrastructure" onclick="toggleService('infrastructure')">Email Infrastructure</button>
+          <button class="service-toggle-btn" data-service="campaign" onclick="toggleService('campaign')">Campaign Setup</button>
         </div>
       </div>
       
       <!-- Campaign Setup Packages -->
-      <div id="campaign-packages" class="grid grid-3" style="gap: 32px;">
+      <div id="campaign-packages" class="grid grid-3" style="gap: 32px; display: none;">
         <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5; display: flex; flex-direction: column;">
           <div style="flex-grow: 1;">
             <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Foundation</h3>
@@ -2240,12 +2240,12 @@
           </a>
         </div>
       </div>
-      <div id="campaign-note" style="margin-top: 48px; text-align: center; color: #666; font-size: 14px;">
+      <div id="campaign-note" style="margin-top: 48px; text-align: center; color: #666; font-size: 14px; display: none;">
         <p>Note: Domain purchases and tool subscriptions (Instantly/Smartlead) are separate costs. We guide you through the most cost-effective options. If you don't have domains and inboxes please scroll up to see our Email Infrastructure packages.</p>
       </div>
 
-      <!-- Infrastructure Packages (Hidden by default) -->
-      <div id="infrastructure-packages" class="grid grid-3" style="gap: 32px; display: none;">
+      <!-- Infrastructure Packages -->
+      <div id="infrastructure-packages" class="grid grid-3" style="gap: 32px;">
         <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5; display: flex; flex-direction: column;">
           <div style="flex-grow: 1;">
             <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 8px;">Starter</h3>
@@ -2414,7 +2414,7 @@
       </div>
       
       <!-- Campaign Setup Comparison Table -->
-      <div id="campaignComparison" class="comparison-table" style="display: block;">
+      <div id="campaignComparison" class="comparison-table" style="display: none;">
         <table>
           <thead>
             <tr>
@@ -2505,7 +2505,7 @@
       </div>
       
       <!-- Infrastructure Comparison Table -->
-      <div id="infrastructureComparison" class="comparison-table" style="display: none;">
+      <div id="infrastructureComparison" class="comparison-table" style="display: block;">
         <table>
           <thead>
             <tr>
@@ -2789,24 +2789,23 @@
       const campaignNote = document.getElementById('campaign-note');
       const buttons = document.querySelectorAll('.service-toggle-btn');
 
-      buttons.forEach(btn => btn.classList.remove('active'));
+      buttons.forEach(btn => {
+        const isActive = btn.dataset.service === service;
+        btn.classList.toggle('active', isActive);
+      });
 
-      if (service === 'campaign') {
-        campaignPackages.style.display = 'grid';
-        infrastructurePackages.style.display = 'none';
-        campaignComparison.style.display = 'block';
-        infrastructureComparison.style.display = 'none';
-        if (campaignNote) campaignNote.style.display = 'block';
-        buttons[0].classList.add('active');
-      } else {
-        campaignPackages.style.display = 'none';
-        infrastructurePackages.style.display = 'grid';
-        campaignComparison.style.display = 'none';
-        infrastructureComparison.style.display = 'block';
-        if (campaignNote) campaignNote.style.display = 'none';
-        buttons[1].classList.add('active');
+      const showCampaign = service === 'campaign';
+
+      campaignPackages.style.display = showCampaign ? 'grid' : 'none';
+      infrastructurePackages.style.display = showCampaign ? 'none' : 'grid';
+      campaignComparison.style.display = showCampaign ? 'block' : 'none';
+      infrastructureComparison.style.display = showCampaign ? 'none' : 'block';
+      if (campaignNote) {
+        campaignNote.style.display = showCampaign ? 'block' : 'none';
       }
     }
+
+    toggleService('infrastructure');
     
     // Calculator functionality
     const emailVolumeInput = document.getElementById('emailVolumeInput');
