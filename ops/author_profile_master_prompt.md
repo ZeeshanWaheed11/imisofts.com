@@ -23,7 +23,7 @@ Save this file as `/ops/author_profile_master_prompt.md` and follow it every tim
 * `INSTAGRAM_URL`: https://www.instagram.com/izeeshanwaheed/
 * `FIVERR_URL`: https://www.fiverr.com/impressive_zee?public_mode=true 
 * `UPWORK_URL`: https://upwork.com/freelancers/izeeshanwaheed (update if needed)
-* `Book_A_Meeting_URL`: https://calendly.com/izeeshanwaheed/30mins (or your GHL form iframe)
+* `Book_A_Meeting_URL`: https://cal.com/zeeshanwaheed/30min (or your GHL form iframe)
 
 ## HARD REQUIREMENTS
 
