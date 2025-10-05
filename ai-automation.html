@@ -2391,6 +2391,10 @@
       const form = e.target;
       const submitBtn = document.getElementById('aiSubmitBtn');
       const formData = new FormData(form);
+      const replyToEmail = formData.get('email') || formData.get('newsletter_email');
+      if (replyToEmail) {
+        formData.set('_replyto', replyToEmail);
+      }
       
       // Change button text to loading state
       const originalBtnText = submitBtn.innerHTML;

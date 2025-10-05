@@ -1454,7 +1454,7 @@
             </div>
             <div>
               <h4 style="font-size: 16px; font-weight: 600; margin-bottom: 12px;">Media Contact</h4>
-              <p style="font-size: 14px; color: #666;">press@imisofts.com</p>
+              <p style="font-size: 14px; color: #666;">growth@imisofts.com</p>
             </div>
           </div>
         </div>
@@ -1517,8 +1517,8 @@
             
             <div style="margin-bottom: 24px;">
               <p style="font-weight: 600; margin-bottom: 8px;">Email</p>
-              <a href="mailto:hello@imisofts.com" style="color: rgba(255,255,255,0.9); text-decoration: none;">
-                hello@imisofts.com
+              <a href="mailto:growth@imisofts.com" style="color: rgba(255,255,255,0.9); text-decoration: none;">
+                growth@imisofts.com
               </a>
             </div>
             
@@ -1743,6 +1743,10 @@
       const submitBtn = document.getElementById('newsletterBtn');
       const formMessage = document.getElementById('newsletterMessage');
       const formData = new FormData(form);
+      const replyToEmail = formData.get('email') || formData.get('newsletter_email');
+      if (replyToEmail) {
+        formData.set('_replyto', replyToEmail);
+      }
       
       // Change button text to loading state
       const originalBtnText = submitBtn.innerHTML;

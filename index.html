@@ -196,7 +196,7 @@
       },
       {
         "@type": "ContactPoint", 
-        "email": "hello@imisofts.com",
+        "email": "growth@imisofts.com",
         "contactType": "sales",
         "availableLanguage": "English",
         "areaServed": "Global"
@@ -2478,7 +2478,7 @@
       }
       
       if (!validateEmail(email)) {
-        showFieldError(document.getElementById('contactEmail'), 'Please enter a valid email address (e.g., name@company.com)');
+        showFieldError(document.getElementById('contactEmail'), 'Please enter a valid email address (e.g., growth@imisofts.com)');
         return;
       }
       
@@ -2501,7 +2501,10 @@
       const submitBtn = document.getElementById('submitBtn');
       const formMessage = document.getElementById('formMessage');
       const formData = new FormData(form);
-      
+      const replyToEmail = formData.get('email') || formData.get('newsletter_email');
+      if (replyToEmail) {
+        formData.set('_replyto', replyToEmail);
+      }
       // Combine country code with phone number
       const countryCodeField = document.getElementById('countryCode');
       const countryCode = countryCodeField ? countryCodeField.value.trim() : '';
@@ -2617,6 +2620,10 @@
       }
       
       const formData = new FormData(form);
+      const replyToEmail = formData.get('email') || formData.get('newsletter_email');
+      if (replyToEmail) {
+        formData.set('_replyto', replyToEmail);
+      }
       
       // Change button text to loading state
       const originalBtnText = submitBtn.innerHTML;
