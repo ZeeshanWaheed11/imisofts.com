@@ -1110,6 +1110,261 @@
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
     }
     
+    /* Hero */
+    .hero-saas {
+      position: relative;
+      padding: clamp(72px, 12vw, 140px) 0 clamp(64px, 10vw, 120px);
+      background: radial-gradient(circle at 92% 8%, rgba(244, 84, 7, 0.08), transparent 55%), linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%);
+    }
+
+    .hero-saas__grid {
+      display: grid;
+      gap: clamp(32px, 6vw, 64px);
+    }
+
+    @media (min-width: 1024px) {
+      .hero-saas__grid {
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        align-items: center;
+      }
+    }
+
+    .hero-saas__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-saas__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(244, 84, 7, 0.12);
+      color: #F45407;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-saas__eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #F45407;
+      animation: pulse 2s infinite;
+    }
+
+    .hero-saas__headline {
+      font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+      line-height: 1.1;
+      font-weight: 800;
+      color: #101828;
+      margin: clamp(20px, 3vw, 28px) 0 clamp(16px, 2.8vw, 24px);
+    }
+
+    .hero-saas__headline span {
+      color: #F45407;
+      display: inline-block;
+    }
+
+    .hero-saas__lead {
+      font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+      color: #344054;
+      font-weight: 600;
+      margin-bottom: clamp(16px, 3vw, 20px);
+      max-width: 34rem;
+    }
+
+    .hero-saas__body {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: #667085;
+      margin-bottom: clamp(24px, 3.6vw, 32px);
+      max-width: 36rem;
+    }
+
+    .hero-saas__cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: clamp(28px, 4vw, 40px);
+    }
+
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn-pill--primary {
+      background: linear-gradient(135deg, #F45407, #FF7A29);
+      color: #fff;
+      box-shadow: 0 18px 32px rgba(244, 84, 7, 0.25);
+    }
+
+    .btn-pill--primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 40px rgba(244, 84, 7, 0.25);
+    }
+
+    .btn-pill--ghost {
+      border: 1px solid rgba(16, 24, 40, 0.1);
+      color: #101828;
+      background: #ffffff;
+    }
+
+    .btn-pill--ghost:hover {
+      border-color: #F45407;
+      color: #F45407;
+    }
+
+    .hero-saas__stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 420px;
+    }
+
+    .hero-saas__stat-card {
+      padding: 16px 18px;
+      border: 1px solid rgba(16, 24, 40, 0.08);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-saas__stat-card h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #F45407;
+    }
+
+    .hero-saas__stat-card p {
+      font-size: 0.85rem;
+      color: #475467;
+      margin-top: 4px;
+    }
+
+    .hero-saas__panel {
+      background: linear-gradient(180deg, #101828 0%, #0B1323 95%);
+      border-radius: 24px;
+      padding: clamp(28px, 4vw, 40px);
+      color: #F8F9FF;
+      box-shadow: 0 25px 45px rgba(16, 24, 40, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-saas__panel::after {
+      content: "";
+      position: absolute;
+      width: 60%;
+      aspect-ratio: 1;
+      right: -40%;
+      top: 60%;
+      background: radial-gradient(circle at center, rgba(244, 84, 7, 0.35), transparent 70%);
+      opacity: 0.9;
+    }
+
+    .hero-saas__panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .hero-saas__panel-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(248, 249, 255, 0.7);
+    }
+
+    .hero-saas__panel-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .hero-saas__metrics {
+      display: grid;
+      gap: 14px;
+    }
+
+    .hero-saas__metric {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 16px 18px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-saas__metric-label {
+      font-size: 0.85rem;
+      color: rgba(248, 249, 255, 0.75);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .hero-saas__metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FDF2E7;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-saas__metric-bar {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .hero-saas__metric-bar span {
+      display: block;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #F97316, #F45407);
+    }
+
+    .hero-saas__panel-footer {
+      margin-top: 24px;
+      font-size: 0.75rem;
+      color: rgba(248, 249, 255, 0.6);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-saas__panel {
+        margin: 0 auto;
+        max-width: min(480px, 100%);
+      }
+
+      .hero-saas__stats {
+        grid-template-columns: 1fr;
+        max-width: none;
+      }
+
+      .btn-pill {
+        width: 100%;
+      }
+    }
+
     /* Partner Logos Scrolling Styles */
     .partner-logos-container {
       overflow: hidden;
@@ -1200,38 +1455,21 @@
         padding: 0;
       }
 
-      .hero-grid {
-        gap: 32px !important;
+      .hero-saas {
+        padding: 96px 0 72px;
       }
 
-      .hero-content {
+      .hero-saas__content {
         text-align: left;
       }
 
-      .hero-content h1 span {
-        display: inline !important;
+      .hero-saas__headline {
+        font-size: clamp(2rem, 7vw, 2.6rem);
       }
 
-      .hero-cta-group {
-        justify-content: flex-start;
+      .hero-saas__cta {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 12px !important;
-      }
-
-      .hero-cta-group a {
-        width: 100%;
-        text-align: center;
-        display: block;
-      }
-
-      .stats-grid {
-        gap: 16px !important;
-        justify-items: center;
-      }
-
-      .stats-grid > div {
-        text-align: center;
+        align-items: stretch;
       }
       
       /* Mobile Form Styles */
@@ -1666,114 +1904,84 @@
   </nav>
   
   <!-- Hero Section -->
-  <section class="section-padding hero-section" style="background: linear-gradient(to bottom, #ffffff, #f9fafb);">
+  <section class="hero-saas">
     <div class="container">
-      <div class="grid grid-2 hero-grid" style="gap: 48px; align-items: center;">
-        <div class="hero-content">
-          <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: #fff5f3; border-radius: 50px; margin-bottom: 24px;">
-            <span style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;"></span>
-            <span style="color: #F45407; font-size: 14px; font-weight: 500;">Limited spots available - Book now</span>
-          </div>
-          
-          <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 24px; color: #1a1a1a;">
-            Turn Cold Emails Into
-            <span style="color: #F45407; display: block;">#1 Revenue Channel</span>
-            in 48 Hours
+      <div class="hero-saas__grid">
+        <div class="hero-saas__content">
+          <span class="hero-saas__eyebrow">
+            <span class="hero-saas__eyebrow-dot"></span>
+            Dedicated deliverability engineers
+          </span>
+          <h1 class="hero-saas__headline">
+            Own the <span>infrastructure</span> behind elite inbox rates
           </h1>
-          
-          <p style="font-size: 20px; color: #333; line-height: 1.6; margin-bottom: 16px; font-weight: 600;">
-            Complete cold email infrastructure and campaign setup for ambitious businesses. Private servers, 89% inbox opening rates, guaranteed results.
-          </p>
-          
-          <p style="font-size: 18px; color: #666; line-height: 1.6; margin-bottom: 32px;">
-            Stop sharing servers with spammers. Get your own private email infrastructure with 7 professional inboxes per domain, complete authentication, and expert campaign management. From setup to scale in 48 hours.
-          </p>
-          
-          <div class="hero-cta-group" style="display: flex; gap: 16px; margin-bottom: 48px; flex-wrap: wrap;">
-            <a href="#packages" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px; transition: all 0.3s ease;">
-              View Packages
-            </a>
-            <a href="#audit" style="padding: 14px 28px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 16px;">
-              Get Free Audit
-            </a>
+          <p class="hero-saas__lead">Launch a private cold email engine with warmed domains, automated monitoring, and compliance baked in.</p>
+          <p class="hero-saas__body">We source and warm domains, configure every DNS record, rotate inboxes, and give your team a live deliverability command center. Go from zero to booked meetings in as little as 48 hours.</p>
+          <div class="hero-saas__cta">
+            <a href="https://cal.com/zeeshanwaheed/30min" class="btn-pill btn-pill--primary" target="_blank" rel="noopener">Book Infrastructure Call</a>
+            <a href="#packages" class="btn-pill btn-pill--ghost">Explore Packages</a>
           </div>
-          
-          <div class="stats-grid">
-            <div>
-              <div style="font-size: 24px; font-weight: 700; color: #F45407;">500+</div>
-              <div style="font-size: 14px; color: #666;">Systems Built</div>
+          <div class="hero-saas__stats">
+            <div class="hero-saas__stat-card">
+              <h4>500+</h4>
+              <p>Infrastructure systems deployed</p>
             </div>
-            <div>
-              <div style="font-size: 24px; font-weight: 700; color: #F45407;">89%</div>
-              <div style="font-size: 14px; color: #666;">Open Rate</div>
+            <div class="hero-saas__stat-card">
+              <h4>95%+</h4>
+              <p>Average inbox placement</p>
             </div>
-            <div>
-              <div style="font-size: 24px; font-weight: 700; color: #F45407;">2M+</div>
-              <div style="font-size: 14px; color: #666;">Emails Delivered</div>
+            <div class="hero-saas__stat-card">
+              <h4>48 hrs</h4>
+              <p>Time to first live campaign</p>
             </div>
-            <div>
-              <div style="font-size: 24px; font-weight: 700; color: #F45407;">48hrs</div>
-              <div style="font-size: 14px; color: #666;">To Launch</div>
+            <div class="hero-saas__stat-card">
+              <h4>7 inboxes</h4>
+              <p>Per domain, fully warmed & rotated</p>
             </div>
           </div>
         </div>
-        
-        <div style="position: relative;">
-          <div style="background: white; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-            <div style="text-align: center; margin-bottom: 32px;">
-              <div style="font-size: 14px; color: #F45407; font-weight: 600; margin-bottom: 8px;">LIVE PERFORMANCE</div>
-              <div style="font-size: 36px; font-weight: 700; color: #1a1a1a;">Email Metrics</div>
+        <div>
+          <div class="hero-saas__panel">
+            <div class="hero-saas__panel-header">
+              <span class="hero-saas__panel-badge">Live Deliverability</span>
+              <span style="font-size: 0.78rem; color: rgba(248, 249, 255, 0.65);">Rolling 7 day</span>
             </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 14px; font-weight: 600; color: #333;">Open Rate</span>
-                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">89%</span>
+            <div class="hero-saas__panel-title">Command Center</div>
+            <div class="hero-saas__metrics">
+              <div class="hero-saas__metric">
+                <div class="hero-saas__metric-label">
+                  <span>Warm inboxes</span>
+                  <span>70</span>
                 </div>
-                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
-                  <div style="width: 89%; height: 100%; background: #10b981; border-radius: 4px;"></div>
-                </div>
-                <div style="font-size: 12px; color: #666; margin-top: 4px;">Industry avg: 21.5%</div>
+                <div class="hero-saas__metric-bar"><span style="width: 92%;"></span></div>
+                <div class="hero-saas__metric-value">92% capacity</div>
               </div>
-              
-              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 14px; font-weight: 600; color: #333;">Reply Rate</span>
-                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">8.5%</span>
+              <div class="hero-saas__metric">
+                <div class="hero-saas__metric-label">
+                  <span>Inbox placement</span>
+                  <span>97%</span>
                 </div>
-                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
-                  <div style="width: 85%; height: 100%; background: #10b981; border-radius: 4px;"></div>
-                </div>
-                <div style="font-size: 12px; color: #666; margin-top: 4px;">Industry avg: 1-2%</div>
+                <div class="hero-saas__metric-bar"><span style="width: 97%;"></span></div>
+                <div class="hero-saas__metric-value">97% clean</div>
               </div>
-              
-              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 14px; font-weight: 600; color: #333;">Inbox Placement</span>
-                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">97%</span>
+              <div class="hero-saas__metric">
+                <div class="hero-saas__metric-label">
+                  <span>Replies generated</span>
+                  <span>184</span>
                 </div>
-                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
-                  <div style="width: 97%; height: 100%; background: #10b981; border-radius: 4px;"></div>
-                </div>
-                <div style="font-size: 12px; color: #666; margin-top: 4px;">Industry avg: 85%</div>
+                <div class="hero-saas__metric-bar"><span style="width: 74%;"></span></div>
+                <div class="hero-saas__metric-value">↑ 32% week over week</div>
               </div>
-              
-              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <span style="font-size: 14px; font-weight: 600; color: #333;">Bounce Rate</span>
-                  <span style="font-size: 16px; font-weight: 700; color: #10b981;">0.8%</span>
+              <div class="hero-saas__metric">
+                <div class="hero-saas__metric-label">
+                  <span>Spam alerts</span>
+                  <span>0</span>
                 </div>
-                <div style="height: 8px; background: #e5e5e5; border-radius: 4px; overflow: hidden;">
-                  <div style="width: 99%; height: 100%; background: #10b981; border-radius: 4px;"></div>
-                </div>
-                <div style="font-size: 12px; color: #666; margin-top: 4px;">Target: <2%</div>
+                <div class="hero-saas__metric-bar"><span style="width: 5%;"></span></div>
+                <div class="hero-saas__metric-value">Protected reputation</div>
               </div>
             </div>
-            
-            <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #e5e5e5; text-align: center;">
-              <div style="font-size: 12px; color: #999;">Average across 500+ campaigns</div>
-            </div>
+            <div class="hero-saas__panel-footer">Data shown from anonymized customer averages</div>
           </div>
         </div>
       </div>
