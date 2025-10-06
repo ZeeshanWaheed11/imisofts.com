@@ -982,16 +982,20 @@
     
     /* Table Styles */
     .comparison-table {
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
-      margin: 2rem 0;
+      background: transparent;
+      border-radius: 0;
+      overflow: visible;
+      box-shadow: none;
+      margin: 0;
     }
     
     .comparison-table table {
       width: 100%;
       border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 50px rgba(15, 23, 42, 0.08);
     }
     
     .comparison-table th,
@@ -1032,7 +1036,7 @@
     }
     
     .comparison-table tbody tr:hover td {
-      background: #f6f7fb;
+      background: rgba(244, 84, 7, 0.06);
     }
     
     .check-mark {
@@ -1041,6 +1045,102 @@
       font-size: 1.2rem;
     }
     
+    .comparison-section {
+      position: relative;
+      background: linear-gradient(135deg, #fff5f0 0%, #f3f7ff 100%);
+      overflow: hidden;
+    }
+
+    .comparison-section::before,
+    .comparison-section::after {
+      content: '';
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(244, 84, 7, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .comparison-section::before {
+      inset: -140px auto auto -120px;
+    }
+
+    .comparison-section::after {
+      inset: auto -140px -120px auto;
+    }
+
+    .comparison-container {
+      position: relative;
+      display: grid;
+      gap: 40px;
+      z-index: 1;
+    }
+
+    .comparison-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .comparison-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(244, 84, 7, 0.12);
+      color: #F45407;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .comparison-header h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #101828;
+      margin: 0;
+    }
+
+    .comparison-header p {
+      font-size: 1.05rem;
+      color: #475467;
+      margin: 0 auto;
+    }
+
+    .comparison-table-wrapper {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: 0 45px 80px rgba(15, 23, 42, 0.12);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .comparison-table-wrapper::after {
+      content: '';
+      position: absolute;
+      inset: auto auto -120px 60%;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(244, 84, 7, 0.14) 0%, transparent 70%);
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    .comparison-table-wrapper + .comparison-table-wrapper {
+      margin-top: 20px;
+    }
+
+    .comparison-table th {
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.08) 0%, rgba(244, 84, 7, 0.02) 100%);
+    }
+
     .x-mark {
       color: #ef4444;
       font-weight: bold;
@@ -1054,6 +1154,168 @@
       gap: 24px;
     }
     
+    /* FAQ Section */
+    .faq-section {
+      position: relative;
+      background: linear-gradient(135deg, #fff5f0 0%, #f3f7ff 100%);
+      overflow: hidden;
+    }
+
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      inset: -120px auto auto -120px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(244, 84, 7, 0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .faq__wrapper {
+      position: relative;
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 48px 56px;
+      box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
+      border: none;
+      display: grid;
+      gap: 40px;
+    }
+
+    .faq__header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      background: rgba(244, 84, 7, 0.12);
+      color: #F45407;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .faq__header h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #101828;
+      margin: 0;
+    }
+
+    .faq__header p {
+      font-size: 1.05rem;
+      color: #475467;
+      margin: 0 auto;
+    }
+
+    .faq__columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .faq__column {
+      display: grid;
+      gap: 18px;
+    }
+
+    .faq-item {
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.05) 0%, rgba(255, 255, 255, 0.94) 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(244, 84, 7, 0.12);
+      padding: 22px 26px;
+      box-shadow: 0 18px 32px rgba(15, 23, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 46px rgba(15, 23, 42, 0.12);
+    }
+
+    .faq-item[aria-expanded='true'] {
+      border-color: rgba(244, 84, 7, 0.38);
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.12) 0%, #ffffff 100%);
+    }
+
+    .faq-button {
+      width: 100%;
+      padding: 0;
+      background: transparent;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      color: #101828;
+    }
+
+    .faq-button__text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-align: left;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .faq-button__icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(244, 84, 7, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-button__icon svg {
+      width: 16px;
+      height: 16px;
+      color: #F45407;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .faq-item[aria-expanded='true'] .faq-button__icon {
+      background: #F45407;
+      transform: rotate(45deg);
+    }
+
+    .faq-item[aria-expanded='true'] .faq-button__icon svg {
+      color: #ffffff;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, opacity 0.35s ease;
+      opacity: 0;
+      padding-right: 4px;
+    }
+
+    .faq-item[aria-expanded='true'] .faq-content {
+      opacity: 1;
+      margin-top: 14px;
+    }
+
+    .faq-content p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: #475467;
+      line-height: 1.6;
+    }
+
     /* Form Styles */
     .form-row {
       display: grid;
@@ -1432,6 +1694,45 @@
         padding: 0 16px;
       }
       
+      .faq__wrapper {
+        padding: 32px 24px;
+        gap: 28px;
+      }
+
+      .faq__header h2 {
+        font-size: 1.9rem;
+      }
+
+      .faq__header p {
+        font-size: 1rem;
+      }
+
+      .faq__columns {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .faq__column {
+        gap: 16px;
+      }
+
+      .comparison-container {
+        gap: 28px;
+      }
+
+      .comparison-header h2 {
+        font-size: 2rem;
+      }
+
+      .comparison-header p {
+        font-size: 1rem;
+      }
+
+      .comparison-table-wrapper {
+        padding: 24px 20px;
+        border-radius: 22px;
+      }
+
       .navbar {
         background: rgba(255, 255, 255, 0.98) !important;
         backdrop-filter: blur(10px) !important;
@@ -1644,6 +1945,125 @@
       }
     }
     
+    @media (max-width: 540px) {
+      .hero-saas__eyebrow {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+        letter-spacing: 0.02em;
+      }
+
+      .hero-saas__headline {
+        font-size: clamp(1.9rem, 8.4vw, 2.3rem);
+      }
+
+      .hero-saas__lead {
+        font-size: 0.98rem;
+      }
+
+      .hero-saas__body {
+        font-size: 0.95rem;
+      }
+
+      .btn-pill {
+        font-size: 0.95rem;
+        padding: 12px 18px;
+      }
+
+      .hero-saas__stats {
+        gap: 10px;
+      }
+
+      .hero-saas__stat-card h4 {
+        font-size: 1.1rem;
+      }
+
+      .hero-saas__stat-card p {
+        font-size: 0.8rem;
+      }
+
+      .hero-saas__panel {
+        padding: 22px 20px;
+        border-radius: 20px;
+      }
+
+      .hero-saas__panel-badge {
+        font-size: 0.68rem;
+      }
+
+      .hero-saas__panel-title {
+        font-size: 1.35rem;
+      }
+
+      .hero-saas__metric {
+        padding: 12px 14px;
+      }
+
+      .hero-saas__metric-label {
+        font-size: 0.75rem;
+      }
+
+      .hero-saas__metric-value {
+        font-size: 1.18rem;
+      }
+
+      .faq__wrapper {
+        padding: 28px 20px;
+        border-radius: 24px;
+      }
+
+      .faq__columns {
+        gap: 16px;
+      }
+
+      .faq-item {
+        padding: 18px 20px;
+      }
+
+      .faq-button__text {
+        font-size: 1rem;
+      }
+
+      .faq-button__icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .faq-button__icon svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .comparison-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .comparison-header p {
+        font-size: 0.95rem;
+      }
+
+      .comparison-table-wrapper {
+        padding: 20px 16px;
+        border-radius: 20px;
+      }
+
+      .comparison-table th {
+        padding: 1.1rem;
+      }
+
+      .comparison-table td {
+        padding: 1rem;
+      }
+
+      .hero-saas__panel-footer {
+        font-size: 0.68rem;
+      }
+
+      .cta-button-calc {
+        font-size: 0.92rem;
+        padding: 0.75rem 0.95rem;
+      }
+    }
+
     @media (min-width: 769px) and (max-width: 1024px) {
       .grid-4 {
         grid-template-columns: repeat(2, 1fr);
@@ -2614,15 +3034,18 @@
     </div>
   </section>
   
-  <!-- Comparison Table Section -->
-  <section class="section-padding" style="background: white;">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Compare Our Service Packages</h2>
+    <!-- Comparison Table + FAQ Section -->
+  <section class="section-padding comparison-section">
+    <div class="container comparison-container">
+      <div class="comparison-header">
+        <span class="comparison-eyebrow">Packages</span>
+        <h2>Compare Our Service Packages</h2>
+        <p>See exactly how each tier stacks up across infrastructure, campaign orchestration, reporting, and support.</p>
       </div>
-      
-      <!-- Campaign Setup Comparison Table -->
-      <div id="campaignComparison" class="comparison-table" style="display: none;">
+
+      <div id="campaign-comparison-wrapper" class="comparison-table-wrapper" style="display: none;">
+        <!-- Campaign Setup Comparison Table -->
+        <div id="campaignComparison" class="comparison-table">
         <table>
           <thead>
             <tr>
@@ -2711,9 +3134,10 @@
           </tbody>
         </table>
       </div>
-      
-      <!-- Infrastructure Comparison Table -->
-      <div id="infrastructureComparison" class="comparison-table" style="display: block;">
+      </div>
+
+      <div id="infrastructure-comparison-wrapper" class="comparison-table-wrapper">
+        <div id="infrastructureComparison" class="comparison-table">
         <table>
           <thead>
             <tr>
@@ -2795,6 +3219,189 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+      <div id="faq" class="faq__wrapper">
+        <div class="faq__header">
+          <span class="faq__eyebrow">FAQ</span>
+          <h2>Everything outbound teams ask before plugging us in</h2>
+          <p>We build every engagement around clarity. Here are the answers GTM, RevOps, and founders need before green-lighting the system.</p>
+        </div>
+        <div class="faq__columns">
+          <div class="faq__column">
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">How fast can you launch our cold email infrastructure?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Kickoff happens within 24 hours. Days 1-5 cover domain procurement, DNS, and security alignment. By day 10 we finish warm-up, sequences, and QA, and campaigns start sending between days 12-14.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">Do you supply new domains or use our existing ones?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>We typically stand up fresh domains so your core brand reputation stays untouched. If you already have sending domains, we run a health audit and either warm them or migrate them into our rotation protocols.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">Who writes the email copy and multi-step sequences?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Our strategists craft the entire sequence library—openers, follow-ups, bump steps, and objection handling. We layer in AI-assisted personalization and deliver editable templates directly in your sending platform.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">What does onboarding look like from our side?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>You complete a GTM intake and ICP worksheet, then meet with our deliverability and creative leads. We handle the build while you approve copy and targeting. Expect three milestone reviews across the two-week implementation.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">Can you plug into our CRM, sales engagement, and data tools?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Yes. We routinely integrate with Salesforce, HubSpot, Close, Outreach, Instantly, Smartlead, Clay, Apollo, and internal data warehouses. Reporting and task routing flow back into your source of truth automatically.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">How do you build and verify the prospect lists?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>We combine Clay, Apollo, LinkedIn Sales Navigator, and bespoke scrapers, then run multi-step validation (SMTP, pattern, bounce history) before syncing to your sequences. Every list is re-verified 24 hours before send.</p>
+              </div>
+            </article>
+          </div>
+          <div class="faq__column">
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">How do you protect our sending reputation once campaigns go live?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Volume caps, automated warm-up, seeded inbox monitoring, and spam trap detection run 24/7. If placement dips, sequences pause automatically while our deliverability engineers rotate inboxes and remediate.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">What kind of reporting will we receive?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>You get a live dashboard for placement, replies, meetings booked, and health alerts plus a weekly strategy recap. Enterprise plans add daily Slack digests and quarterly pipeline deep-dives.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">Do you train our internal SDRs to handle replies?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Absolutely. We deliver objection playbooks, Loom reviews, live enablement sessions, and shared inbox workflows so your reps can respond within minutes and push high-intent conversations into pipeline.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">Can you support multi-language or multi-region campaigns?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Yes. We localise copy, sending times, domains, and compliance workflows for EMEA, APAC, LATAM, and North America. Native-language reviewers QA every sequence before it goes live.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">What level of support do we get after launch?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>You receive a shared Slack channel with your deliverability pod, daily inbox sweeps, and proactive recommendations. Scale and Enterprise plans include 24/5 coverage plus emergency weekend escalation.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button">
+                <span class="faq-button__text">Is there a minimum commitment or contract length?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>We recommend a 3-month engagement to capture full deliverability gains, but month-to-month plans are available. Cancel with 30 days’ notice and we hand over all assets, documentation, and playbooks.</p>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -3032,6 +3639,8 @@
       const infrastructurePackages = document.getElementById('infrastructure-packages');
       const campaignComparison = document.getElementById('campaignComparison');
       const infrastructureComparison = document.getElementById('infrastructureComparison');
+      const campaignComparisonWrapper = campaignComparison ? campaignComparison.parentElement : null;
+      const infrastructureComparisonWrapper = infrastructureComparison ? infrastructureComparison.parentElement : null;
       const campaignNote = document.getElementById('campaign-note');
       const buttons = document.querySelectorAll('.service-toggle-btn');
 
@@ -3042,10 +3651,24 @@
 
       const showCampaign = service === 'campaign';
 
-      campaignPackages.style.display = showCampaign ? 'grid' : 'none';
-      infrastructurePackages.style.display = showCampaign ? 'none' : 'grid';
-      campaignComparison.style.display = showCampaign ? 'block' : 'none';
-      infrastructureComparison.style.display = showCampaign ? 'none' : 'block';
+      if (campaignPackages) {
+        campaignPackages.style.display = showCampaign ? 'grid' : 'none';
+      }
+      if (infrastructurePackages) {
+        infrastructurePackages.style.display = showCampaign ? 'none' : 'grid';
+      }
+      if (campaignComparisonWrapper) {
+        campaignComparisonWrapper.style.display = showCampaign ? 'block' : 'none';
+      }
+      if (campaignComparison) {
+        campaignComparison.style.display = showCampaign ? 'block' : 'none';
+      }
+      if (infrastructureComparisonWrapper) {
+        infrastructureComparisonWrapper.style.display = showCampaign ? 'none' : 'block';
+      }
+      if (infrastructureComparison) {
+        infrastructureComparison.style.display = showCampaign ? 'none' : 'block';
+      }
       if (campaignNote) {
         campaignNote.style.display = showCampaign ? 'block' : 'none';
       }
@@ -3115,6 +3738,61 @@
     // Initialize calculator
     updateCalculator();
     
+    // FAQ accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length) {
+      faqItems.forEach((item) => {
+        const button = item.querySelector('.faq-button');
+        const content = item.querySelector('.faq-content');
+        if (content) {
+          content.style.maxHeight = '0px';
+        }
+        if (button && content) {
+          button.addEventListener('click', () => {
+            const isExpanded = item.getAttribute('aria-expanded') === 'true';
+            faqItems.forEach(other => {
+              if (other !== item) {
+                other.setAttribute('aria-expanded', 'false');
+                const otherContent = other.querySelector('.faq-content');
+                if (otherContent) {
+                  otherContent.style.maxHeight = '0px';
+                }
+              }
+            });
+            item.setAttribute('aria-expanded', String(!isExpanded));
+            if (!isExpanded) {
+              content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+              content.style.maxHeight = '0px';
+            }
+          });
+        }
+      });
+
+      const openFirstItem = () => {
+        const first = faqItems[0];
+        const firstContent = first ? first.querySelector('.faq-content') : null;
+        if (first && firstContent) {
+          first.setAttribute('aria-expanded', 'true');
+          firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+        }
+      };
+
+      const recalcFaqHeights = () => {
+        faqItems.forEach(item => {
+          if (item.getAttribute('aria-expanded') === 'true') {
+            const content = item.querySelector('.faq-content');
+            if (content) {
+              content.style.maxHeight = content.scrollHeight + 'px';
+            }
+          }
+        });
+      };
+
+      openFirstItem();
+      window.addEventListener('resize', recalcFaqHeights);
+    }
+
     // Newsletter Form Handler
     document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
       e.preventDefault();
