@@ -1443,16 +1443,27 @@
     }
 
     .hero-saas__headline {
-      font-size: clamp(2.3rem, 4.2vw, 3.6rem);
-      line-height: 1.1;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      line-height: 1.15;
       font-weight: 800;
       color: #101828;
       margin: clamp(20px, 3vw, 28px) 0 clamp(16px, 2.8vw, 24px);
     }
 
     .hero-saas__headline span {
-      color: #F45407;
+      background: linear-gradient(135deg, #F45407 0%, #ff6b28 50%, #F45407 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 3s ease infinite;
       display: inline-block;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% center; }
+      50% { background-position: 100% center; }
+      100% { background-position: 0% center; }
     }
 
     .hero-saas__lead {
@@ -1789,7 +1800,7 @@
       }
 
       .hero-saas__headline {
-        font-size: clamp(2rem, 7vw, 2.6rem);
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
       }
 
       .hero-saas__cta {
@@ -1977,7 +1988,7 @@
       }
 
       .hero-saas__headline {
-        font-size: clamp(1.9rem, 8.4vw, 2.3rem);
+        font-size: clamp(1.5rem, 7vw, 1.9rem);
       }
 
       .hero-saas__lead {
@@ -2360,7 +2371,7 @@
             Stop renting shared inboxes. <span>Own your infrastructure.</span>
           </h1>
           <p class="hero-saas__lead">We build and warm private email servers that plug directly into Instantly, Smartlead, or any cold email platform you use. You own the domains. You own the inboxes. You keep the reputation.</p>
-          <p class="hero-saas__body">Shared sending pools tank your deliverability and burn your budget. We deploy dedicated servers with warmed domains, configured DNS, and rotating inboxes — ready to launch campaigns in 48 hours. Infrastructure that actually lands in the primary inbox, at a fraction of agency costs.</p>
+          <p class="hero-saas__body">Shared sending pools tank your deliverability and burn your budget. We deploy dedicated servers with warmed domains, configured DNS, and rotating inboxes, ready to launch campaigns in 48 hours. Infrastructure that actually lands in the primary inbox, at a fraction of agency costs.</p>
           <div class="hero-saas__cta">
             <a href="https://cal.com/zeeshanwaheed/30min" class="btn-pill btn-pill--primary" target="_blank" rel="noopener">Book Infrastructure Call</a>
             <a href="#packages" class="btn-pill btn-pill--ghost">Explore Packages</a>
