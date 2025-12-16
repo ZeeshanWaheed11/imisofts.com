@@ -79,7 +79,7 @@
           "itemOffered": {
             "@type": "Service",
             "name": "Foundation Package",
-            "description": "2 domains + 14 inboxes, complete authentication setup, IP warming, basic analytics"
+            "description": "2 domains + 10 inboxes, complete authentication setup, IP warming, basic analytics"
           },
           "price": "1497",
           "priceCurrency": "USD"
@@ -89,7 +89,7 @@
           "itemOffered": {
             "@type": "Service",
             "name": "Accelerator Package",
-            "description": "5 domains + 35 inboxes, advanced IP warming, custom sequences, A/B testing"
+            "description": "5 domains + 25 inboxes, advanced IP warming, custom sequences, A/B testing"
           },
           "price": "2997",
           "priceCurrency": "USD"
@@ -2361,7 +2361,7 @@
               <p>Time to first live campaign</p>
             </div>
             <div class="hero-saas__stat-card">
-              <h4>7 inboxes</h4>
+              <h4>5 inboxes</h4>
               <p>Per domain, fully warmed & rotated</p>
             </div>
           </div>
@@ -2561,7 +2561,7 @@
               <path d="M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">7 Inboxes per Domain</h3>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">5 Inboxes per Domain</h3>
           <p style="font-size: 14px; color: #666;">Maximum sending capacity with proper rotation and warming.</p>
         </div>
         
@@ -2692,7 +2692,7 @@
             <div class="recommendation-title" id="recommendedPackage">Starter Package</div>
             <div class="recommendation-price" id="recommendedPrice">$489/year</div>
             <div class="recommendation-details" id="recommendedDetails">
-              Perfect for your needs! Includes 10 domains, 70 professional inboxes, complete DNS setup, and monthly health reports.
+              Perfect for your needs! Includes 10 domains, 50 professional inboxes, complete DNS setup, and monthly health reports.
             </div>
           </div>
           
@@ -2888,14 +2888,14 @@
               <span style="font-size: 16px; color: #666;">/year</span>
             </div>
             <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 600;">Reliable infrastructure for early-stage campaigns.</p>
-            <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 10 domains &amp; 70 professional inboxes</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 10 domains &amp; 50 professional inboxes</p>
 
             <div style="margin-bottom: 24px;">
               <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
               <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
                 <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
                   <span style="color: #10b981; margin-right: 8px;">✓</span>
-                  <span>10 sending domains with 70 warmed inboxes</span>
+                  <span>10 sending domains with 50 warmed inboxes</span>
                 </li>
                 <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
                   <span style="color: #10b981; margin-right: 8px;">✓</span>
@@ -2941,7 +2941,7 @@
               <span style="font-size: 16px; color: #666;">/year</span>
             </div>
             <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 600;">Scaled infrastructure with redundancy &amp; monitoring.</p>
-            <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 25 domains &amp; 175 professional inboxes</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 25 domains &amp; 125 professional inboxes</p>
 
             <div style="margin-bottom: 24px;">
               <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
@@ -2994,7 +2994,7 @@
               <span style="font-size: 16px; color: rgba(255,255,255,0.8);">/year</span>
             </div>
             <p style="font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 8px; font-weight: 600;">Custom infrastructure for large-scale, multi-brand outbound.</p>
-            <p style="font-size: 12px; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Includes 50+ domains &amp; 350+ professional inboxes</p>
+            <p style="font-size: 12px; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Includes 50+ domains &amp; 250+ professional inboxes</p>
 
             <div style="margin-bottom: 24px;">
               <p style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: white;">What you get:</p>
@@ -3165,9 +3165,9 @@
             </tr>
             <tr>
               <td>Professional Inboxes</td>
-              <td>70 inboxes</td>
-              <td>175 inboxes</td>
-              <td>350+ inboxes</td>
+              <td>50 inboxes</td>
+              <td>125 inboxes</td>
+              <td>250+ inboxes</td>
             </tr>
             <tr>
               <td>Authentication (SPF/DKIM/DMARC)</td>
@@ -3691,7 +3691,7 @@
       
       // Calculate requirements (1 domain = 100 emails/day)
       const domains = Math.ceil(volume / 100);
-      const accounts = domains * 7; // 7 accounts per domain
+      const accounts = domains * 5; // 5 accounts per domain
       const monthly = volume * 30;
       
       // Update display
@@ -3703,12 +3703,12 @@
       if (domains <= 10) {
         recommendedPackage.textContent = 'Starter Package';
         recommendedPrice.textContent = '$489/year';
-        recommendedDetails.textContent = 'Perfect for your needs! Includes 10 domains, 70 professional inboxes, complete DNS setup, and monthly health reports.';
+        recommendedDetails.textContent = 'Perfect for your needs! Includes 10 domains, 50 professional inboxes, complete DNS setup, and monthly health reports.';
         packageCTA.textContent = 'Get Started With Starter Package';
       } else if (domains <= 25) {
         recommendedPackage.textContent = 'Professional Package';
         recommendedPrice.textContent = '$1,225/year';
-        recommendedDetails.textContent = 'Scale your outreach with 25 domains, 175 professional inboxes, priority support, and advanced monitoring.';
+        recommendedDetails.textContent = 'Scale your outreach with 25 domains, 125 professional inboxes, priority support, and advanced monitoring.';
         packageCTA.textContent = 'Get Started With Professional Package';
       } else {
         recommendedPackage.textContent = 'Enterprise Package';
