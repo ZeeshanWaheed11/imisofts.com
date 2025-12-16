@@ -1716,41 +1716,26 @@
         </p>
       </div>
       
-      <form id="ecommerceForm" action="https://formspree.io/f/mrbylkvp" method="POST" style="max-width: 600px; margin: 0 auto;">
-        <div id="ecommerceFormMessage" style="display: none; margin-bottom: 16px; padding: 12px; border-radius: 8px; text-align: center; font-weight: 600;"></div>
-        
-        <!-- Honeypot field -->
-        <input type="text" name="_gotcha" style="display: none;">
-        <input type="hidden" name="_subject" value="New Ecommerce Store Audit Request">
-        
-        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="text" id="ecommerceName" name="name" placeholder="Name" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <input type="text" id="ecommerceCompany" name="company" placeholder="Company" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-        </div>
-        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="email" id="ecommerceEmail" name="email" placeholder="Work email" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <input type="tel" id="ecommercePhone" name="phone" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-        </div>
-        <select id="ecommerceSituation" name="current_situation" required style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 16px; background: white; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <option value="">Select Current Situation</option>
-          <option value="No store yet">No store yet</option>
-          <option value="Have a store, need optimization">Have a store, need optimization</option>
-          <option value="Migrating from another platform">Migrating from another platform</option>
-          <option value="Scaling existing operations">Scaling existing operations</option>
-        </select>
-        <select id="ecommerceRevenue" name="monthly_revenue" required style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 24px; background: white; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <option value="">Select Monthly Revenue</option>
-          <option value="Not launched yet">Not launched yet</option>
-          <option value="$0 - $10,000">$0 - $10,000</option>
-          <option value="$10,000 - $50,000">$10,000 - $50,000</option>
-          <option value="$50,000 - $200,000">$50,000 - $200,000</option>
-          <option value="$200,000+">$200,000+</option>
-        </select>
-        
-        <button type="submit" id="ecommerceSubmitBtn" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: all 0.3s ease;">
-          Get Your Free Audit →
-        </button>
-      </form>
+      <div style="max-width: 600px; margin: 0 auto;">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/cOPC6AgjbGOZIdxE5hpl"
+          style="width:100%;height:100%;border:none;border-radius:3px"
+          id="inline-cOPC6AgjbGOZIdxE5hpl"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="All services pages"
+          data-height="543"
+          data-layout-iframe-id="inline-cOPC6AgjbGOZIdxE5hpl"
+          data-form-id="cOPC6AgjbGOZIdxE5hpl"
+          title="All services pages"
+        ></iframe>
+      </div>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
       
       <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
         <p style="font-size: 16px;">Questions? WhatsApp us: <a href="https://wa.me/971558851645" style="color: white; font-weight: 600;">+971 55 885 1645</a></p>
@@ -1937,7 +1922,8 @@
     }
 
     // Ecommerce Form Handler
-    document.getElementById('ecommerceForm').addEventListener('submit', async function(e) {
+    const ecommerceForm = document.getElementById('ecommerceForm');
+    if (ecommerceForm) ecommerceForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       
       const form = e.target;

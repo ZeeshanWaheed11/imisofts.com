@@ -998,108 +998,26 @@
         </div>
         
         <div>
-          <!-- FUNCTIONAL FORMSPREE FORM -->
-          <form
-            id="contactForm"
-            action="https://formspree.io/f/mrbylkvp"
-            method="POST"
-            style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);"
-          >
-            <!-- Success/Error Messages -->
-            <div id="formMessage" style="display: none; padding: 12px; border-radius: 8px; margin-bottom: 20px; text-align: center; font-weight: 500;"></div>
-            <!-- Hidden fields for better email formatting -->
-            <input type="hidden" name="_subject" value="New Contact Form Submission - imisofts">
-            <input type="hidden" name="_template" value="table">
-            
-            <!-- Name fields -->
-            <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-              <div>
-                <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333;">
-                  First Name *
-                  <input type="text" name="firstName" style="width: 100%; padding: 10px; border: 1px solid #e5e5e5; border-radius: 8px; font-size: 15px; margin-top: 6px;" required>
-                </label>
-              </div>
-              <div>
-                <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333;">
-                  Last Name *
-                  <input type="text" name="lastName" style="width: 100%; padding: 10px; border: 1px solid #e5e5e5; border-radius: 8px; font-size: 15px; margin-top: 6px;" required>
-                </label>
-              </div>
-            </div>
-            
-            <!-- Email and Phone -->
-            <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-              <div>
-                <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333;">
-                  Work Email *
-                  <input type="email" name="email" style="width: 100%; padding: 10px; border: 1px solid #e5e5e5; border-radius: 8px; font-size: 15px; margin-top: 6px;" required>
-                </label>
-              </div>
-              <div>
-                <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333;">
-                  Phone
-                  <input type="tel" name="phone" style="width: 100%; padding: 10px; border: 1px solid #e5e5e5; border-radius: 8px; font-size: 15px; margin-top: 6px;">
-                </label>
-              </div>
-            </div>
-            
-            <!-- Company Name -->
-            <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333;">
-              Company Name
-              <input type="text" name="company" style="width: 100%; padding: 10px; border: 1px solid #e5e5e5; border-radius: 8px; font-size: 15px; margin-top: 6px;">
-            </label>
-            
-            <!-- Service Needed -->
-            <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333; margin-top: 16px;">
-              Service Needed *
-              <select name="service" style="width: 100%; padding: 10px; border: 1px solid #e5e5e5; border-radius: 8px; font-size: 15px; background: white; margin-top: 6px;" required>
-                <option value="">Select a service</option>
-                <option value="AI Automation">AI Automation</option>
-                <option value="Digital Marketing">Digital Marketing</option>
-                <option value="Cold Email Marketing">Cold Email Marketing</option>
-                <option value="E-commerce Development">E-commerce Development</option>
-                <option value="Web Development">Web Development</option>
-                <option value="CRM Development">CRM Development</option>
-                <option value="Shopify Apps">Shopify Apps</option>
-                <option value="AI Mobile Apps">AI Mobile Apps</option>
-                <option value="Multiple Services">Multiple Services</option>
-              </select>
-            </label>
-            
-            <!-- Project Budget -->
-            <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333; margin-top: 16px;">
-              Project Budget
-              <select name="budget" style="width: 100%; padding: 10px; border: 1px solid #e5e5e5; border-radius: 8px; font-size: 15px; background: white; margin-top: 6px;">
-                <option value="">Select budget range</option>
-                <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-                <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-                <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                <option value="$100,000+">$100,000+</option>
-                <option value="Not sure yet">Not sure yet</option>
-              </select>
-            </label>
-            
-            <!-- Project Details -->
-            <label style="display: block; font-size: 14px; font-weight: 500; margin-bottom: 6px; color: #333; margin-top: 16px;">
-              Project Details *
-              <textarea name="message" rows="4" style="width: 100%; padding: 10px; border: 1px solid #e5e5e5; border-radius: 8px; font-size: 15px; margin-top: 6px;" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
-            </label>
-            
-            <!-- Honeypot field for spam protection (hidden from users) -->
-            <div style="display: none;">
-              <input type="text" name="_gotcha">
-            </div>
-            
-            <!-- Submit Button -->
-            <button type="submit" style="width: 100%; padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 600; font-size: 16px; border: none; cursor: pointer; margin-top: 24px;">
-              Send Message →
-            </button>
-            
-            <p style="font-size: 13px; color: #999; margin-top: 16px; text-align: center;">
-              By submitting this form, you agree to our privacy policy and terms of service.
-            </p>
-          </form>
+          <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.08);">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/cOPC6AgjbGOZIdxE5hpl"
+              style="width:100%;height:100%;border:none;border-radius:3px"
+              id="inline-cOPC6AgjbGOZIdxE5hpl"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="All services pages"
+              data-height="543"
+              data-layout-iframe-id="inline-cOPC6AgjbGOZIdxE5hpl"
+              data-form-id="cOPC6AgjbGOZIdxE5hpl"
+              title="All services pages"
+            ></iframe>
+          </div>
+          <script src="https://link.msgsndr.com/js/form_embed.js"></script>
         </div>
       </div>
     </div>
@@ -1345,7 +1263,8 @@
     }
     
     // Form submission handling
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
       const form = this;

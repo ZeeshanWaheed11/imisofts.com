@@ -1836,42 +1836,26 @@
         </p>
       </div>
       
-      <form id="digitalMarketingForm" action="https://formspree.io/f/mrbylkvp" method="POST" style="max-width: 600px; margin: 0 auto;">
-        <div id="digitalMarketingFormMessage" style="display: none; margin-bottom: 16px; padding: 12px; border-radius: 8px; text-align: center; font-weight: 600;"></div>
-        
-        <!-- Honeypot field -->
-        <input type="text" name="_gotcha" style="display: none;">
-        <input type="hidden" name="_subject" value="New Digital Marketing Growth Audit Request">
-        
-        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="text" id="digitalMarketingName" name="name" placeholder="Name" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <input type="text" id="digitalMarketingCompany" name="company" placeholder="Company" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-        </div>
-        <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
-          <input type="email" id="digitalMarketingEmail" name="email" placeholder="Work email" required style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <input type="tel" id="digitalMarketingPhone" name="phone" placeholder="Phone" style="padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; width: 100%; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-        </div>
-        <select id="digitalMarketingSpend" name="monthly_ad_spend" required style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 16px; background: white; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <option value="">Select Monthly Ad Spend</option>
-          <option value="Under $5,000">Under $5,000</option>
-          <option value="$5,000 - $10,000">$5,000 - $10,000</option>
-          <option value="$10,000 - $50,000">$10,000 - $50,000</option>
-          <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-          <option value="Over $100,000">Over $100,000</option>
-        </select>
-        <select id="digitalMarketingGoal" name="primary_goal" required style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid transparent; font-size: 16px; margin-bottom: 24px; background: white; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-          <option value="">Select Primary Marketing Goal</option>
-          <option value="Generate more leads">Generate more leads</option>
-          <option value="Increase sales/revenue">Increase sales/revenue</option>
-          <option value="Improve ROAS">Improve ROAS</option>
-          <option value="Build brand awareness">Build brand awareness</option>
-          <option value="Launch new product/service">Launch new product/service</option>
-        </select>
-        
-        <button type="submit" id="digitalMarketingSubmitBtn" style="padding: 16px 32px; background: white; color: #F45407; border-radius: 8px; font-weight: 700; font-size: 18px; border: none; cursor: pointer; width: 100%; transition: all 0.3s ease;">
-          Get Your Free Audit →
-        </button>
-      </form>
+      <div style="max-width: 600px; margin: 0 auto;">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/cOPC6AgjbGOZIdxE5hpl"
+          style="width:100%;height:100%;border:none;border-radius:3px"
+          id="inline-cOPC6AgjbGOZIdxE5hpl"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="All services pages"
+          data-height="543"
+          data-layout-iframe-id="inline-cOPC6AgjbGOZIdxE5hpl"
+          data-form-id="cOPC6AgjbGOZIdxE5hpl"
+          title="All services pages"
+        ></iframe>
+      </div>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
       
       <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
         <p style="font-size: 16px;">Questions? WhatsApp us: <a href="https://wa.me/971558851645" style="color: white; font-weight: 600;">+971 55 885 1645</a></p>
@@ -2139,7 +2123,8 @@
     });
 
     // Digital Marketing Form Handler
-    document.getElementById('digitalMarketingForm').addEventListener('submit', async function(e) {
+    const digitalMarketingForm = document.getElementById('digitalMarketingForm');
+    if (digitalMarketingForm) digitalMarketingForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       
       const form = e.target;
