@@ -3019,14 +3019,14 @@
     <div class="container">
       <div style="text-align: center; margin-bottom: 48px;">
         <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Email Infrastructure Calculator</h2>
-        <p style="font-size: 18px; color: #6b7280; max-width: 600px; margin: 0 auto;">Calculate exactly how many domains and inboxes you need to hit your monthly outreach goals safely.</p>
+        <p style="font-size: 18px; color: #6b7280; max-width: 600px; margin: 0 auto;">Calculate exactly how many domains and inboxes you need to hit your daily outreach goals safely.</p>
       </div>
 
       <div style="max-width: 800px; margin: 0 auto; background: #f9fafb; border-radius: 16px; padding: 32px;">
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
           <div>
-            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Monthly Email Volume Goal</label>
-            <input type="number" id="emailVolume" value="10000" style="width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px;" oninput="calculateInfrastructure()">
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Daily Email Volume Goal</label>
+            <input type="number" id="emailVolume" value="500" style="width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px;" oninput="calculateInfrastructure()">
           </div>
           <div>
             <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #374151;">Emails per Inbox per Day</label>
@@ -3747,11 +3747,10 @@
 
     // Email Infrastructure Calculator
     function calculateInfrastructure() {
-      const volume = parseInt(document.getElementById('emailVolume').value) || 10000;
+      const dailyVolume = parseInt(document.getElementById('emailVolume').value) || 500;
       const emailsPerDay = parseInt(document.getElementById('emailsPerDay').value) || 30;
 
       // Calculate inboxes needed
-      const dailyVolume = volume / 30;
       const inboxes = Math.ceil(dailyVolume / emailsPerDay);
 
       // Calculate domains (5 inboxes per domain)
@@ -3761,12 +3760,12 @@
       document.getElementById('inboxesNeeded').textContent = inboxes;
       document.getElementById('domainsNeeded').textContent = domains;
 
-      // Recommend package based on domains
-      let pkg = 'Foundation';
-      if (domains > 50) {
+      // Recommend package based on domains (Starter: 10, Professional: 25, Enterprise: 50+)
+      let pkg = 'Starter';
+      if (domains > 25) {
         pkg = 'Enterprise';
       } else if (domains > 10) {
-        pkg = 'Accelerator';
+        pkg = 'Professional';
       }
       document.getElementById('recommendedPackage').textContent = pkg;
     }
