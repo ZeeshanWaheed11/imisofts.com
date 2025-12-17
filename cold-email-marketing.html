@@ -2016,6 +2016,29 @@
         gap: 16px !important;
         justify-content: center;
       }
+
+      /* How It Works section - 4 column to 2 column grid */
+      section > .container > div[style*="grid-template-columns: repeat(4"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+      }
+
+      /* Comparison section - 3 column to 1 column */
+      section > .container > div[style*="grid-template-columns: repeat(3"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      /* Remove scale transform on comparison card for mobile */
+      section > .container > div[style*="grid-template-columns: repeat(3"] > div[style*="transform: scale"] {
+        transform: none !important;
+      }
+
+      /* Bottom stats flex wrap */
+      section > .container > div[style*="display: flex"][style*="justify-content: center"][style*="gap: 48px"] {
+        flex-wrap: wrap !important;
+        gap: 24px !important;
+      }
     }
     
     @media (max-width: 540px) {
@@ -2403,33 +2426,33 @@
         <div class="hero-saas__content">
           <span class="hero-saas__eyebrow">
             <span class="hero-saas__eyebrow-dot"></span>
-            Private infrastructure for Instantly, Smartlead & more
+            Cold Email Infrastructure Built for Scale
           </span>
           <h1 class="hero-saas__headline">
-            Stop renting shared inboxes. <span>Own your infrastructure.</span>
+            Stop Landing in Spam. <span>Start Landing Meetings.</span>
           </h1>
-          <p class="hero-saas__lead">We build and warm private email servers that plug directly into Instantly, Smartlead, or any cold email platform you use. You own the domains. You own the inboxes. You keep the reputation.</p>
-          <p class="hero-saas__body">Shared sending pools tank your deliverability and burn your budget. We deploy dedicated servers with warmed domains, configured DNS, and rotating inboxes, ready to launch campaigns in 48 hours. Infrastructure that actually lands in the primary inbox, at a fraction of agency costs.</p>
+          <p class="hero-saas__lead">Private email infrastructure that delivers 95%+ inbox placement. We set up domains, configure DNS, warm inboxes, and integrate with Instantly, Smartlead, or Apollo in 48 hours. You own everything.</p>
+          <p class="hero-saas__body">Google and Outlook weren't built for cold outreach. Shared sending pools destroy your reputation. We deploy dedicated servers with warmed domains and rotating IPs so every email hits the primary inbox, not spam. Scale your outbound without getting flagged.</p>
           <div class="hero-saas__cta">
-            <a href="https://cal.com/zeeshanwaheed/30min" class="btn-pill btn-pill--primary" target="_blank" rel="noopener">Book Infrastructure Call</a>
-            <a href="#packages" class="btn-pill btn-pill--ghost">Explore Packages</a>
+            <a href="#audit" class="btn-pill btn-pill--primary">Get Free Deliverability Audit</a>
+            <a href="#packages" class="btn-pill btn-pill--ghost">View Pricing</a>
           </div>
           <div class="hero-saas__stats">
             <div class="hero-saas__stat-card">
-              <h4>500+</h4>
-              <p>Infrastructure systems deployed</p>
-            </div>
-            <div class="hero-saas__stat-card">
               <h4>95%+</h4>
-              <p>Average inbox placement</p>
+              <p>Inbox placement guaranteed</p>
             </div>
             <div class="hero-saas__stat-card">
               <h4>48 hrs</h4>
-              <p>Time to first live campaign</p>
+              <p>Setup to sending</p>
             </div>
             <div class="hero-saas__stat-card">
-              <h4>5 inboxes</h4>
-              <p>Per domain, fully warmed & rotated</p>
+              <h4>60%</h4>
+              <p>Cheaper than Google Workspace</p>
+            </div>
+            <div class="hero-saas__stat-card">
+              <h4>0</h4>
+              <p>Technical work for you</p>
             </div>
           </div>
         </div>
@@ -2485,168 +2508,213 @@
   <section class="section-padding" style="background: #f9fafb;">
     <div class="container">
       <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Shared Inboxes Are Destroying Your Campaigns</h2>
+        <span style="display: inline-block; background: #fef2f2; color: #dc2626; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 16px;">The Cold Email Infrastructure Problem</span>
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Why 60% of Your Cold Emails Never Get Seen</h2>
+        <p style="font-size: 18px; color: #666; max-width: 700px; margin: 0 auto;">You're paying for Instantly or Smartlead. You've got great copy. But your emails keep landing in spam. Here's why:</p>
       </div>
 
-      <div class="grid grid-2" style="gap: 16px; max-width: 800px; margin: 0 auto 32px;">
-        <div style="display: flex; align-items: flex-start; gap: 12px; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e5e5e5;">
-          <svg width="24" height="24" fill="none" stroke="#ef4444" stroke-width="2" style="flex-shrink: 0;">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
+      <div class="grid grid-2" style="gap: 20px; max-width: 900px; margin: 0 auto 40px;">
+        <div style="display: flex; align-items: flex-start; gap: 16px; background: white; padding: 24px; border-radius: 16px; border: 1px solid #e5e5e5; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 48px; height: 48px; background: #fef2f2; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="24" height="24" fill="none" stroke="#dc2626" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+          </div>
           <div>
-            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Shared IP reputation</h3>
-            <p style="font-size: 14px; color: #666;">One bad sender tanks everyone's deliverability</p>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px; color: #1a1a1a;">Shared IP Pools Tank Your Reputation</h3>
+            <p style="font-size: 15px; color: #666; line-height: 1.6;">One spammer on your shared server gets blacklisted, and suddenly YOUR emails go to spam too. You're paying for someone else's mistakes.</p>
           </div>
         </div>
 
-        <div style="display: flex; align-items: flex-start; gap: 12px; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e5e5e5;">
-          <svg width="24" height="24" fill="none" stroke="#ef4444" stroke-width="2" style="flex-shrink: 0;">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
+        <div style="display: flex; align-items: flex-start; gap: 16px; background: white; padding: 24px; border-radius: 16px; border: 1px solid #e5e5e5; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 48px; height: 48px; background: #fef2f2; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="24" height="24" fill="none" stroke="#dc2626" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
           <div>
-            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">$3,000+/month agencies</h3>
-            <p style="font-size: 14px; color: #666;">Paying premium for infrastructure you don't own</p>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px; color: #1a1a1a;">Google Workspace Costs Add Up Fast</h3>
+            <p style="font-size: 15px; color: #666; line-height: 1.6;">$7/mailbox/month sounds cheap until you need 50 inboxes. That's $4,200/year for infrastructure that isn't even built for outbound.</p>
           </div>
         </div>
 
-        <div style="display: flex; align-items: flex-start; gap: 12px; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e5e5e5;">
-          <svg width="24" height="24" fill="none" stroke="#ef4444" stroke-width="2" style="flex-shrink: 0;">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
+        <div style="display: flex; align-items: flex-start; gap: 16px; background: white; padding: 24px; border-radius: 16px; border: 1px solid #e5e5e5; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 48px; height: 48px; background: #fef2f2; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="24" height="24" fill="none" stroke="#dc2626" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
           <div>
-            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Emails hitting spam</h3>
-            <p style="font-size: 14px; color: #666;">60%+ of cold emails never reach the inbox</p>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px; color: #1a1a1a;">12+ Hours of Tedious Setup</h3>
+            <p style="font-size: 15px; color: #666; line-height: 1.6;">Buying domains, configuring SPF/DKIM/DMARC, setting up mailboxes, warming IPs. Most teams give up or mess it up, burning domains before sending a single email.</p>
           </div>
         </div>
 
-        <div style="display: flex; align-items: flex-start; gap: 12px; background: white; padding: 20px; border-radius: 12px; border: 1px solid #e5e5e5;">
-          <svg width="24" height="24" fill="none" stroke="#ef4444" stroke-width="2" style="flex-shrink: 0;">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
+        <div style="display: flex; align-items: flex-start; gap: 16px; background: white; padding: 24px; border-radius: 16px; border: 1px solid #e5e5e5; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 48px; height: 48px; background: #fef2f2; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <svg width="24" height="24" fill="none" stroke="#dc2626" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"/>
+            </svg>
+          </div>
           <div>
-            <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">DIY setup nightmares</h3>
-            <p style="font-size: 14px; color: #666;">Weeks wasted on DNS, warming, and configs</p>
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 6px; color: #1a1a1a;">No Control Over Your Deliverability</h3>
+            <p style="font-size: 15px; color: #666; line-height: 1.6;">When things break, you're stuck waiting on support tickets. No monitoring, no alerts, no way to fix issues before they tank your campaigns.</p>
           </div>
         </div>
       </div>
 
-      <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 24px; text-align: center; max-width: 800px; margin: 0 auto;">
-        <h3 style="color: #991b1b; font-size: 18px; margin-bottom: 8px; font-weight: bold;">Bad infrastructure = wasted ad spend, burned domains, and zero pipeline</h3>
-        <p style="color: #b91c1c;">Your Instantly subscription is useless without deliverable inboxes behind it</p>
+      <div style="background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%); border: 2px solid #fecaca; border-radius: 16px; padding: 32px; text-align: center; max-width: 900px; margin: 0 auto;">
+        <h3 style="color: #991b1b; font-size: 22px; margin-bottom: 12px; font-weight: 700;">The Result? Burned Domains, Wasted Budget, Zero Pipeline.</h3>
+        <p style="color: #b91c1c; font-size: 17px; max-width: 600px; margin: 0 auto;">Your Instantly subscription is only as good as the infrastructure behind it. Bad inboxes = bad results. Period.</p>
       </div>
     </div>
   </section>
 
-  <!-- Complete Solution Section -->
+  <!-- How It Works Section -->
   <section class="section-padding" style="background: white;">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Done-For-You Infrastructure That Plugs Into Your Tools</h2>
-        <p style="font-size: 18px; color: #666;">We build the sending backbone. You connect it to Instantly, Smartlead, or any platform. Start sending in 48 hours.</p>
+      <div style="text-align: center; margin-bottom: 56px;">
+        <span style="display: inline-block; background: rgba(244, 84, 7, 0.1); color: #F45407; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 16px;">How It Works</span>
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">From Zero to Sending in 48 Hours</h2>
+        <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto;">We handle the technical heavy lifting. You focus on closing deals.</p>
       </div>
-      
+
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto;">
+        <div style="text-align: center; position: relative;">
+          <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; font-weight: 700;">1</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Tell Us Your Goals</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">How many emails per day? Which platform? We design infrastructure to match your outreach volume.</p>
+        </div>
+
+        <div style="text-align: center; position: relative;">
+          <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; font-weight: 700;">2</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">We Build Everything</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Domains purchased, DNS configured, mailboxes created, SPF/DKIM/DMARC aligned. Zero work for you.</p>
+        </div>
+
+        <div style="text-align: center; position: relative;">
+          <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; font-weight: 700;">3</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">14-Day Warm-Up</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Automated warming builds sender reputation before you send a single cold email. No burned domains.</p>
+        </div>
+
+        <div style="text-align: center; position: relative;">
+          <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; font-weight: 700;">4</div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">Connect & Send</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Plug your inboxes into Instantly, Smartlead, or Apollo. Start campaigns with 95%+ inbox placement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section - What You Get -->
+  <section class="section-padding" style="background: #f9fafb;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <span style="display: inline-block; background: rgba(244, 84, 7, 0.1); color: #F45407; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 16px;">What You Get</span>
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Private Infrastructure That Actually Delivers</h2>
+        <p style="font-size: 18px; color: #666; max-width: 700px; margin: 0 auto;">Everything you need to run high-volume cold email campaigns that land in the primary inbox.</p>
+      </div>
+
       <div class="grid grid-4" style="gap: 24px;">
-        <div class="service-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+        <div class="service-card" style="background: white; padding: 28px; border-radius: 16px; border: 1px solid #e5e7eb;">
+          <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.15), rgba(244, 84, 7, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="26" height="26" fill="none" stroke="#F45407" stroke-width="2">
               <path d="M22 12h-6l-2 3h-4l-2-3H2"/>
               <path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Private Email Servers</h3>
-          <p style="font-size: 14px; color: #666;">Your own dedicated infrastructure. No reputation risk from other senders.</p>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">Dedicated Email Servers</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Your own private infrastructure. No shared IPs, no reputation risk from other senders. You own it all.</p>
         </div>
-        
-        <div class="service-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+
+        <div class="service-card" style="background: white; padding: 28px; border-radius: 16px; border: 1px solid #e5e7eb;">
+          <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.15), rgba(244, 84, 7, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="26" height="26" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">Full DNS Authentication</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">SPF, DKIM, DMARC perfectly configured. Pass every spam filter and build sender trust from day one.</p>
+        </div>
+
+        <div class="service-card" style="background: white; padding: 28px; border-radius: 16px; border: 1px solid #e5e7eb;">
+          <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.15), rgba(244, 84, 7, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="26" height="26" fill="none" stroke="#F45407" stroke-width="2">
               <path d="M12 2L2 7l10 5 10-5-10-5z"/>
               <path d="M2 17l10 5 10-5"/>
               <path d="M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">5 Inboxes per Domain</h3>
-          <p style="font-size: 14px; color: #666;">Maximum sending capacity with proper rotation and warming.</p>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">5 Inboxes Per Domain</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Optimal inbox-to-domain ratio for maximum sending capacity without triggering spam filters.</p>
         </div>
-        
-        <div class="service-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+
+        <div class="service-card" style="background: white; padding: 28px; border-radius: 16px; border: 1px solid #e5e7eb;">
+          <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.15), rgba(244, 84, 7, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="26" height="26" fill="none" stroke="#F45407" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Complete Authentication</h3>
-          <p style="font-size: 14px; color: #666;">SPF, DKIM, DMARC perfectly aligned for maximum deliverability.</p>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">Automated IP Warming</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">14-day warming protocol builds sender reputation gradually. Your domains are protected from day one.</p>
         </div>
-        
-        <div class="service-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+
+        <div class="service-card" style="background: white; padding: 28px; border-radius: 16px; border: 1px solid #e5e7eb;">
+          <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.15), rgba(244, 84, 7, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="26" height="26" fill="none" stroke="#F45407" stroke-width="2">
               <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
               <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Platform Integration</h3>
-          <p style="font-size: 14px; color: #666;">Seamlessly connects to Instantly, Smartlead, Apollo, or your preferred sending tool.</p>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">One-Click Integration</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Seamlessly connects to Instantly, Smartlead, Apollo, Saleshandy, or any SMTP-compatible tool.</p>
         </div>
-        
-        <div class="service-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-              <path d="M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Lead Generation</h3>
-          <p style="font-size: 14px; color: #666;">B2B database access with verified emails and enrichment.</p>
-        </div>
-        
-        <div class="service-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">IP Warming</h3>
-          <p style="font-size: 14px; color: #666;">14-day warming protocol for optimal reputation building.</p>
-        </div>
-        
-        <div class="service-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Copywriting</h3>
-          <p style="font-size: 14px; color: #666;">High-converting email templates that get responses.</p>
-        </div>
-        
-        <div class="service-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
+
+        <div class="service-card" style="background: white; padding: 28px; border-radius: 16px; border: 1px solid #e5e7eb;">
+          <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.15), rgba(244, 84, 7, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="26" height="26" fill="none" stroke="#F45407" stroke-width="2">
               <line x1="18" y1="20" x2="18" y2="10"/>
               <line x1="12" y1="20" x2="12" y2="4"/>
               <line x1="6" y1="20" x2="6" y2="14"/>
             </svg>
           </div>
-          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 12px;">Deliverability Monitoring</h3>
-          <p style="font-size: 14px; color: #666;">Real-time inbox placement tracking and reputation alerts.</p>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">Real-Time Monitoring</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Inbox placement tracking, blacklist monitoring, and reputation alerts. Know before problems tank your campaigns.</p>
+        </div>
+
+        <div class="service-card" style="background: white; padding: 28px; border-radius: 16px; border: 1px solid #e5e7eb;">
+          <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.15), rgba(244, 84, 7, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="26" height="26" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">Primary Inbox Placement</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">95%+ of emails land in the primary inbox, not promotions or spam. More opens, more replies, more meetings.</p>
+        </div>
+
+        <div class="service-card" style="background: white; padding: 28px; border-radius: 16px; border: 1px solid #e5e7eb;">
+          <div style="width: 52px; height: 52px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.15), rgba(244, 84, 7, 0.05)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <svg width="26" height="26" fill="none" stroke="#F45407" stroke-width="2">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+              <path d="M12 16v-4"/>
+              <path d="M12 8h.01"/>
+            </svg>
+          </div>
+          <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 10px;">Expert Support</h3>
+          <p style="font-size: 14px; color: #666; line-height: 1.6;">Deliverability experts who actually respond. Get help within hours, not days. We're in this together.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Partner Platforms Section -->
-  <section style="background: #f8f9fa; padding: 60px 0;">
+  <section style="background: white; padding: 60px 0;">
     <div class="container">
       <div style="text-align: center; margin-bottom: 40px;">
-        <h3 style="font-size: 18px; font-weight: 600; color: #666; margin-bottom: 32px; text-transform: uppercase; letter-spacing: 1px;">Seamlessly integrates with your favorite tools</h3>
+        <h3 style="font-size: 16px; font-weight: 600; color: #666; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1.5px;">Works With Your Stack</h3>
+        <p style="font-size: 28px; font-weight: 700; color: #1a1a1a;">Plug Into Any Cold Email Platform in Minutes</p>
       </div>
 
       <div class="partner-logos-container">
@@ -2705,12 +2773,137 @@
     </div>
   </section>
 
+  <!-- Why Choose Us / Comparison Section -->
+  <section class="section-padding" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 56px;">
+        <span style="display: inline-block; background: rgba(244, 84, 7, 0.2); color: #F45407; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 16px; border: 1px solid rgba(244, 84, 7, 0.3);">The imisofts Advantage</span>
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px; color: white;">Why 500+ Teams Choose Our Infrastructure</h2>
+        <p style="font-size: 18px; color: rgba(255,255,255,0.7); max-width: 700px; margin: 0 auto;">Stop wasting money on overpriced agencies or burning domains with DIY setups.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto 48px;">
+        <!-- Google Workspace Column -->
+        <div style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 28px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="text-align: center; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
+            <h3 style="color: rgba(255,255,255,0.6); font-size: 18px; font-weight: 600;">Google Workspace</h3>
+            <p style="color: rgba(255,255,255,0.4); font-size: 14px; margin-top: 4px;">DIY Approach</p>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              $7/mailbox/month
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              12+ hours manual setup
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              Not built for outbound
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              No warming included
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              DIY DNS configuration
+            </li>
+          </ul>
+        </div>
+
+        <!-- imisofts Column (Highlighted) -->
+        <div style="background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 16px; padding: 28px; position: relative; transform: scale(1.05); box-shadow: 0 20px 40px rgba(244, 84, 7, 0.3);">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: white; color: #F45407; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 700;">BEST VALUE</div>
+          <div style="text-align: center; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.2); margin-bottom: 20px;">
+            <h3 style="color: white; font-size: 18px; font-weight: 700;">imisofts</h3>
+            <p style="color: rgba(255,255,255,0.8); font-size: 14px; margin-top: 4px;">Done-For-You</p>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: white; font-size: 14px; font-weight: 500;">
+              <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.5"><path d="M4 9l4 4 8-8"/></svg>
+              60% cheaper than GWS
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: white; font-size: 14px; font-weight: 500;">
+              <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.5"><path d="M4 9l4 4 8-8"/></svg>
+              48-hour setup, zero work
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: white; font-size: 14px; font-weight: 500;">
+              <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.5"><path d="M4 9l4 4 8-8"/></svg>
+              Built for cold outreach
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: white; font-size: 14px; font-weight: 500;">
+              <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.5"><path d="M4 9l4 4 8-8"/></svg>
+              14-day warming included
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; color: white; font-size: 14px; font-weight: 500;">
+              <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2.5"><path d="M4 9l4 4 8-8"/></svg>
+              95%+ deliverability
+            </li>
+          </ul>
+        </div>
+
+        <!-- Cold Email Agencies Column -->
+        <div style="background: rgba(255,255,255,0.05); border-radius: 16px; padding: 28px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="text-align: center; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
+            <h3 style="color: rgba(255,255,255,0.6); font-size: 18px; font-weight: 600;">Cold Email Agencies</h3>
+            <p style="color: rgba(255,255,255,0.4); font-size: 14px; margin-top: 4px;">Managed Service</p>
+          </div>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              $3,000+/month
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              You don't own anything
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              Shared infrastructure
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              Long-term contracts
+            </li>
+            <li style="display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.6); font-size: 14px;">
+              <svg width="18" height="18" fill="none" stroke="#ef4444" stroke-width="2"><path d="M6 6l6 6M6 12L12 6"/></svg>
+              Black-box deliverability
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Stats -->
+      <div style="display: flex; justify-content: center; gap: 48px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div style="text-align: center;">
+          <div style="font-size: 36px; font-weight: 700; color: #F45407;">500+</div>
+          <div style="font-size: 14px; color: rgba(255,255,255,0.6);">Infrastructure Deployments</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 36px; font-weight: 700; color: #F45407;">2M+</div>
+          <div style="font-size: 14px; color: rgba(255,255,255,0.6);">Emails Sent Monthly</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 36px; font-weight: 700; color: #F45407;">95%+</div>
+          <div style="font-size: 14px; color: rgba(255,255,255,0.6);">Avg Inbox Placement</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-size: 36px; font-weight: 700; color: #F45407;">48hr</div>
+          <div style="font-size: 14px; color: rgba(255,255,255,0.6);">Setup to Sending</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Packages Section -->
   <section id="packages" class="section-padding" style="background: #f9fafb;">
     <div class="container">
       <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Choose Your Service Package</h2>
-        <p style="font-size: 18px; color: #666;">Fixed prices, clear deliverables, guaranteed results</p>
+        <span style="display: inline-block; background: rgba(244, 84, 7, 0.1); color: #F45407; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; margin-bottom: 16px;">Simple, Transparent Pricing</span>
+        <h2 style="font-size: 36px; font-weight: 700; margin-bottom: 16px;">Infrastructure That Pays for Itself</h2>
+        <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto;">One meeting booked from cold email pays for months of infrastructure. No hidden fees. No long-term contracts.</p>
       </div>
       
       <!-- Service Toggle -->
@@ -3275,9 +3468,9 @@
 
       <div id="faq" class="faq__wrapper">
         <div class="faq__header">
-          <span class="faq__eyebrow">FAQ</span>
-          <h2>Everything outbound teams ask before plugging us in</h2>
-          <p>We build every engagement around clarity. Here are the answers GTM, RevOps, and founders need before green-lighting the system.</p>
+          <span class="faq__eyebrow">Common Questions</span>
+          <h2>Everything You Need to Know Before Getting Started</h2>
+          <p>No sales fluff. Just straight answers about how our infrastructure works and what results to expect.</p>
         </div>
         <div class="faq__columns">
           <div class="faq__column">
