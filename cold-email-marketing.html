@@ -2044,6 +2044,12 @@
         flex-wrap: wrap !important;
         gap: 24px !important;
       }
+
+      /* Value Prop section - stack on mobile */
+      section > .container > div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 48px"] {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
     }
     
     @media (max-width: 540px) {
@@ -2436,8 +2442,7 @@
           <h1 class="hero-saas__headline">
             Stop Landing in Spam. <span>Start Landing Meetings.</span>
           </h1>
-          <p class="hero-saas__lead">Private email infrastructure that delivers 95%+ inbox placement. We set up domains, configure DNS, warm inboxes, and integrate with Instantly, Smartlead, or Apollo in 48 hours. You own everything.</p>
-          <p class="hero-saas__body">Google and Outlook weren't built for cold outreach. Shared sending pools destroy your reputation. We deploy dedicated servers with warmed domains and rotating IPs so every email hits the primary inbox, not spam. Scale your outbound without getting flagged.</p>
+          <p class="hero-saas__lead">Done-for-you email infrastructure with 95%+ inbox placement. Ready to send in 48 hours.</p>
           <div class="hero-saas__cta">
             <a href="#audit" class="btn-pill btn-pill--primary">Get Free Deliverability Audit</a>
             <a href="#packages" class="btn-pill btn-pill--ghost">View Pricing</a>
@@ -2593,7 +2598,55 @@
       </div>
     </div>
   </section>
-  
+
+  <!-- Value Prop Section -->
+  <section style="background: white; padding: 64px 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 1100px; margin: 0 auto;">
+        <div>
+          <h2 style="font-size: 32px; font-weight: 500; margin-bottom: 20px; line-height: 1.3;">Google and Outlook weren't built for cold outreach</h2>
+          <p style="font-size: 17px; color: #555; line-height: 1.7; margin-bottom: 16px;">Shared sending pools destroy your reputation. One bad actor on your server gets blacklisted, and suddenly your emails go to spam too.</p>
+          <p style="font-size: 17px; color: #555; line-height: 1.7;">We deploy dedicated servers with warmed domains and rotating IPs, so every email hits the primary inbox. You own the domains. You own the inboxes. You keep the reputation.</p>
+        </div>
+        <div style="background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); border-radius: 20px; padding: 32px;">
+          <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 24px; color: #1a1a1a;">What we handle for you:</h3>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+              </div>
+              <span style="font-size: 15px; color: #374151;">Domain procurement & setup</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+              </div>
+              <span style="font-size: 15px; color: #374151;">SPF, DKIM, DMARC configuration</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+              </div>
+              <span style="font-size: 15px; color: #374151;">Mailbox creation & warming</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+              </div>
+              <span style="font-size: 15px; color: #374151;">Instantly / Smartlead / Apollo integration</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+              </div>
+              <span style="font-size: 15px; color: #374151;">Ongoing deliverability monitoring</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Problem Section -->
   <section class="section-padding" style="background: #f9fafb;">
     <div class="container">
