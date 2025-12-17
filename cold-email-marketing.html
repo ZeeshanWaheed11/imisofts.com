@@ -1987,6 +1987,35 @@
         padding-top: 96px !important;
         padding-bottom: 56px !important;
       }
+
+      /* CTA/Audit Section Mobile Fix */
+      #audit .container > div {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
+      #audit h2 {
+        font-size: 28px !important;
+      }
+
+      /* Form card - full width and less padding on mobile */
+      #audit > div > div > div:last-child {
+        padding: 24px 20px !important;
+        border-radius: 16px !important;
+      }
+
+      /* Make iframe container full width */
+      #audit iframe {
+        width: 100% !important;
+        min-width: 100% !important;
+      }
+
+      /* Trust indicators on mobile */
+      #audit .container > div > div:first-child > div:last-child {
+        flex-wrap: wrap;
+        gap: 16px !important;
+        justify-content: center;
+      }
     }
     
     @media (max-width: 540px) {
