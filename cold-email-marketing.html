@@ -1921,7 +1921,12 @@
         white-space: normal;
         word-break: break-word;
       }
-      
+
+      /* Hero visual - hide on mobile */
+      .hero-visual {
+        display: none !important;
+      }
+
       .service-toggle-btn {
         padding: 0.7rem 1.5rem;
         font-size: 0.9rem;
@@ -2456,48 +2461,133 @@
             </div>
           </div>
         </div>
-        <div>
-          <div class="hero-saas__panel">
-            <div class="hero-saas__panel-header">
-              <span class="hero-saas__panel-badge">Live Deliverability</span>
-              <span style="font-size: 0.78rem; color: rgba(248, 249, 255, 0.65);">Rolling 7 day</span>
+        <div class="hero-visual">
+          <!-- Infrastructure Visual inspired by infraforge -->
+          <div style="position: relative; width: 100%; max-width: 500px; margin: 0 auto;">
+            <!-- Central Logo/Hub -->
+            <div style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 70px; height: 70px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 10;">
+              <svg width="36" height="36" viewBox="0 0 256 256" fill="#F45407">
+                <circle cx="48" cy="170" r="18"/>
+                <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+                <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+              </svg>
             </div>
-            <div class="hero-saas__panel-title">Command Center</div>
-            <div class="hero-saas__metrics">
-              <div class="hero-saas__metric">
-                <div class="hero-saas__metric-label">
-                  <span>Warm inboxes</span>
-                  <span>70</span>
+
+            <!-- Connection Lines SVG -->
+            <svg style="position: absolute; left: 35px; top: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#F45407;stop-opacity:0.6" />
+                  <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+                </linearGradient>
+              </defs>
+              <!-- Animated connection lines -->
+              <path d="M0,200 Q80,200 120,60" stroke="url(#lineGrad)" stroke-width="2" fill="none" stroke-dasharray="5,5">
+                <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite"/>
+              </path>
+              <path d="M0,200 Q80,200 140,120" stroke="url(#lineGrad)" stroke-width="2" fill="none" stroke-dasharray="5,5">
+                <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1.2s" repeatCount="indefinite"/>
+              </path>
+              <path d="M0,200 Q80,200 140,200" stroke="url(#lineGrad)" stroke-width="2" fill="none" stroke-dasharray="5,5">
+                <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1.4s" repeatCount="indefinite"/>
+              </path>
+              <path d="M0,200 Q80,200 140,280" stroke="url(#lineGrad)" stroke-width="2" fill="none" stroke-dasharray="5,5">
+                <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1.6s" repeatCount="indefinite"/>
+              </path>
+              <path d="M0,200 Q80,200 120,340" stroke="url(#lineGrad)" stroke-width="2" fill="none" stroke-dasharray="5,5">
+                <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1.8s" repeatCount="indefinite"/>
+              </path>
+              <!-- Connection dots -->
+              <circle cx="120" cy="60" r="6" fill="#F45407" opacity="0.5">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="140" cy="120" r="6" fill="#F45407" opacity="0.5">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" begin="0.2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="140" cy="200" r="6" fill="#F45407" opacity="0.5">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="140" cy="280" r="6" fill="#F45407" opacity="0.5">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="120" cy="340" r="6" fill="#F45407" opacity="0.5">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+
+            <!-- Metric Cards -->
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-left: 140px; position: relative; z-index: 5;">
+              <!-- Active Domains -->
+              <div style="background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 14px; border: 1px solid #f0f0f0;">
+                <div style="width: 44px; height: 44px; background: rgba(244, 84, 7, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                  </svg>
                 </div>
-                <div class="hero-saas__metric-bar"><span style="width: 92%;"></span></div>
-                <div class="hero-saas__metric-value">92% capacity</div>
+                <div>
+                  <div style="font-size: 26px; font-weight: 500; color: #1a1a1a; line-height: 1;">50+</div>
+                  <div style="font-size: 13px; color: #666;">Active Domains</div>
+                </div>
               </div>
-              <div class="hero-saas__metric">
-                <div class="hero-saas__metric-label">
-                  <span>Inbox placement</span>
-                  <span>97%</span>
+
+              <!-- Warmed Inboxes -->
+              <div style="background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 14px; border: 1px solid #f0f0f0;">
+                <div style="width: 44px; height: 44px; background: rgba(16, 185, 129, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <svg width="22" height="22" fill="none" stroke="#10b981" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
                 </div>
-                <div class="hero-saas__metric-bar"><span style="width: 97%;"></span></div>
-                <div class="hero-saas__metric-value">97% clean</div>
+                <div>
+                  <div style="font-size: 26px; font-weight: 500; color: #1a1a1a; line-height: 1;">250+</div>
+                  <div style="font-size: 13px; color: #666;">Warmed Inboxes</div>
+                </div>
               </div>
-              <div class="hero-saas__metric">
-                <div class="hero-saas__metric-label">
-                  <span>Replies generated</span>
-                  <span>184</span>
+
+              <!-- Inbox Placement -->
+              <div style="background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 14px; border: 1px solid #f0f0f0;">
+                <div style="width: 44px; height: 44px; background: rgba(59, 130, 246, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <svg width="22" height="22" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
                 </div>
-                <div class="hero-saas__metric-bar"><span style="width: 74%;"></span></div>
-                <div class="hero-saas__metric-value">↑ 32% week over week</div>
+                <div>
+                  <div style="font-size: 26px; font-weight: 500; color: #1a1a1a; line-height: 1;">95%+</div>
+                  <div style="font-size: 13px; color: #666;">Inbox Placement</div>
+                </div>
               </div>
-              <div class="hero-saas__metric">
-                <div class="hero-saas__metric-label">
-                  <span>Spam alerts</span>
-                  <span>0</span>
+
+              <!-- Emails Sent -->
+              <div style="background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 14px; border: 1px solid #f0f0f0;">
+                <div style="width: 44px; height: 44px; background: rgba(139, 92, 246, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <svg width="22" height="22" fill="none" stroke="#8b5cf6" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                  </svg>
                 </div>
-                <div class="hero-saas__metric-bar"><span style="width: 5%;"></span></div>
-                <div class="hero-saas__metric-value">Protected reputation</div>
+                <div>
+                  <div style="font-size: 26px; font-weight: 500; color: #1a1a1a; line-height: 1;">2M+</div>
+                  <div style="font-size: 13px; color: #666;">Emails Sent Monthly</div>
+                </div>
+              </div>
+
+              <!-- Dedicated IPs -->
+              <div style="background: white; border-radius: 12px; padding: 16px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 14px; border: 1px solid #f0f0f0;">
+                <div style="width: 44px; height: 44px; background: rgba(244, 84, 7, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                  <svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                    <line x1="6" y1="6" x2="6.01" y2="6"/>
+                    <line x1="6" y1="18" x2="6.01" y2="18"/>
+                  </svg>
+                </div>
+                <div>
+                  <div style="font-size: 26px; font-weight: 500; color: #1a1a1a; line-height: 1;">100%</div>
+                  <div style="font-size: 13px; color: #666;">Dedicated IPs</div>
+                </div>
               </div>
             </div>
-            <div class="hero-saas__panel-footer">Data shown from anonymized customer averages</div>
           </div>
         </div>
       </div>
