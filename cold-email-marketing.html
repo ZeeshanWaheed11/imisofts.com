@@ -1816,7 +1816,13 @@
         flex-direction: column;
         align-items: stretch;
       }
-      
+
+      /* Value Prop Section Mobile */
+      .value-prop-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
       /* Mobile Form Styles */
       .form-row {
         grid-template-columns: 1fr;
@@ -2600,46 +2606,49 @@
   </section>
 
   <!-- Value Prop Section -->
-  <section style="background: white; padding: 64px 0;">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 1100px; margin: 0 auto;">
+  <section style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 80px 0; position: relative; overflow: hidden;">
+    <!-- Subtle background pattern -->
+    <div style="position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(244, 84, 7, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(244, 84, 7, 0.05) 0%, transparent 50%);"></div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="value-prop-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1100px; margin: 0 auto;">
         <div>
-          <h2 style="font-size: 32px; font-weight: 500; margin-bottom: 20px; line-height: 1.3;">Google and Outlook weren't built for cold outreach</h2>
-          <p style="font-size: 17px; color: #555; line-height: 1.7; margin-bottom: 16px;">Shared sending pools destroy your reputation. One bad actor on your server gets blacklisted, and suddenly your emails go to spam too.</p>
-          <p style="font-size: 17px; color: #555; line-height: 1.7;">We deploy dedicated servers with warmed domains and rotating IPs, so every email hits the primary inbox. You own the domains. You own the inboxes. You keep the reputation.</p>
+          <span style="display: inline-block; background: linear-gradient(135deg, rgba(244, 84, 7, 0.2) 0%, rgba(244, 84, 7, 0.1) 100%); color: #F45407; padding: 8px 16px; border-radius: 50px; font-size: 13px; font-weight: 500; margin-bottom: 20px; border: 1px solid rgba(244, 84, 7, 0.3);">Why We Exist</span>
+          <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 24px; line-height: 1.3; color: #fff;">Google and Outlook weren't built for cold outreach</h2>
+          <p style="font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 20px;">Shared sending pools destroy your reputation. One bad actor on your server gets blacklisted, and suddenly your emails go to spam too.</p>
+          <p style="font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.8;">We deploy <span style="color: #F45407; font-weight: 500;">dedicated servers</span> with warmed domains and rotating IPs, so every email hits the primary inbox. You own the domains. You own the inboxes. You keep the reputation.</p>
         </div>
-        <div style="background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); border-radius: 20px; padding: 32px;">
-          <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 24px; color: #1a1a1a;">What we handle for you:</h3>
-          <div style="display: flex; flex-direction: column; gap: 16px;">
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+        <div style="background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 36px;">
+          <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 28px; color: #fff;">What we handle for you:</h3>
+          <div style="display: flex; flex-direction: column; gap: 18px;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.25) 0%, rgba(244, 84, 7, 0.1) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(244, 84, 7, 0.3);">
+                <svg width="14" height="14" fill="none" stroke="#F45407" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
               </div>
-              <span style="font-size: 15px; color: #374151;">Domain procurement & setup</span>
+              <span style="font-size: 15px; color: rgba(255,255,255,0.85);">Domain procurement & setup</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.25) 0%, rgba(244, 84, 7, 0.1) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(244, 84, 7, 0.3);">
+                <svg width="14" height="14" fill="none" stroke="#F45407" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
               </div>
-              <span style="font-size: 15px; color: #374151;">SPF, DKIM, DMARC configuration</span>
+              <span style="font-size: 15px; color: rgba(255,255,255,0.85);">SPF, DKIM, DMARC configuration</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.25) 0%, rgba(244, 84, 7, 0.1) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(244, 84, 7, 0.3);">
+                <svg width="14" height="14" fill="none" stroke="#F45407" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
               </div>
-              <span style="font-size: 15px; color: #374151;">Mailbox creation & warming</span>
+              <span style="font-size: 15px; color: rgba(255,255,255,0.85);">Mailbox creation & warming</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.25) 0%, rgba(244, 84, 7, 0.1) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(244, 84, 7, 0.3);">
+                <svg width="14" height="14" fill="none" stroke="#F45407" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
               </div>
-              <span style="font-size: 15px; color: #374151;">Instantly / Smartlead / Apollo integration</span>
+              <span style="font-size: 15px; color: rgba(255,255,255,0.85);">Instantly / Smartlead / Apollo integration</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 12px;">
-              <div style="width: 28px; height: 28px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <svg width="14" height="14" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 32px; height: 32px; background: linear-gradient(135deg, rgba(244, 84, 7, 0.25) 0%, rgba(244, 84, 7, 0.1) 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(244, 84, 7, 0.3);">
+                <svg width="14" height="14" fill="none" stroke="#F45407" stroke-width="2.5"><path d="M2 7l4 4 8-8"/></svg>
               </div>
-              <span style="font-size: 15px; color: #374151;">Ongoing deliverability monitoring</span>
+              <span style="font-size: 15px; color: rgba(255,255,255,0.85);">Ongoing deliverability monitoring</span>
             </div>
           </div>
         </div>
