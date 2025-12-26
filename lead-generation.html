@@ -795,116 +795,217 @@
         </a>
         
         <div class="nav-menu">
-          <div class="nav-dropdown">
+          <!-- Services Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
             <div class="nav-link nav-dropdown-toggle">
               Services
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
             </div>
             <div class="nav-dropdown-menu">
               <div class="dropdown-grid">
                 <a href="/ai-automation" class="dropdown-item">
-                  <div class="dropdown-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="AI Automation services icon">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <div class="dropdown-item-title">AI Automation</div>
-                    <div class="dropdown-item-desc">Intelligent workflows and chatbots</div>
+                    <div class="dropdown-item-desc">Intelligent workflows and chatbots that work 24/7</div>
                   </div>
                 </a>
+
                 <a href="/digital-marketing" class="dropdown-item">
-                  <div class="dropdown-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg></div>
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <div class="dropdown-item-title">Digital Marketing</div>
-                    <div class="dropdown-item-desc">Performance marketing with ROI</div>
+                    <div class="dropdown-item-desc">Performance marketing that drives measurable ROI</div>
                   </div>
                 </a>
-                <a href="/lead-generation" class="dropdown-item current-page">
-                  <div class="dropdown-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
-                  <div class="dropdown-item-content">
-                    <div class="dropdown-item-title">Lead Generation</div>
-                    <div class="dropdown-item-desc">Qualified B2B appointments</div>
-                  </div>
-                </a>
+
                 <a href="/cold-email-marketing" class="dropdown-item">
-                  <div class="dropdown-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <div class="dropdown-item-title">Cold Email Marketing</div>
-                    <div class="dropdown-item-desc">Professional cold email systems</div>
+                    <div class="dropdown-item-desc">Professional cold email systems that generate leads</div>
                   </div>
                 </a>
+
                 <a href="/ecommerce" class="dropdown-item">
-                  <div class="dropdown-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <div class="dropdown-item-title">E-commerce</div>
-                    <div class="dropdown-item-desc">High-converting online stores</div>
+                    <div class="dropdown-item-desc">High-converting online stores built to scale</div>
                   </div>
                 </a>
+
                 <a href="/web-development" class="dropdown-item">
-                  <div class="dropdown-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg></div>
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <div class="dropdown-item-title">Web Development</div>
-                    <div class="dropdown-item-desc">Fast, modern websites</div>
+                    <div class="dropdown-item-desc">Fast, modern websites for ambitious companies</div>
                   </div>
                 </a>
+
                 <a href="/crm-development" class="dropdown-item">
-                  <div class="dropdown-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg></div>
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <div class="dropdown-item-title">CRM Development</div>
-                    <div class="dropdown-item-desc">Custom CRM solutions</div>
+                    <div class="dropdown-item-desc">Custom CRM solutions that grow with your business</div>
                   </div>
                 </a>
+
                 <a href="/shopify-apps" class="dropdown-item">
-                  <div class="dropdown-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg></div>
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <div class="dropdown-item-title">Shopify Apps</div>
-                    <div class="dropdown-item-desc">Certified app development</div>
+                    <div class="dropdown-item-desc">Built for Shopify certified app development</div>
                   </div>
                 </a>
+
                 <a href="/ai-mobile-apps" class="dropdown-item">
-                  <div class="dropdown-item-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg></div>
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
                   <div class="dropdown-item-content">
                     <div class="dropdown-item-title">AI Mobile Apps</div>
                     <div class="dropdown-item-desc">Intelligent mobile experiences powered by AI</div>
                   </div>
                 </a>
+
+                <a href="/lead-generation" class="dropdown-item current-page">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">Lead Generation</div>
+                    <div class="dropdown-item-desc">Qualified B2B appointments delivered to your calendar</div>
+                  </div>
+                </a>
               </div>
+
               <div class="dropdown-promo">
-                <h3>From Idea to Revenue in 30 Days</h3>
-                <p>We're builders who ship. AI automation, marketing, and development under one roof.</p>
-                <a href="https://cal.com/zeeshanwaheed/30min" class="dropdown-promo-btn" target="_blank">Book Growth Call</a>
+                <div class="dropdown-promo-content">
+                  <h3>From Idea to Revenue in 30 Days</h3>
+                  <p>We're not consultants who talk. We're builders who ship. AI automation, marketing, and development - all under one roof.</p>
+                  <a href="https://cal.com/zeeshanwaheed/30min" class="dropdown-promo-btn" target="_blank" rel="noopener">Book Growth Call</a>
+                </div>
+
+                <div class="dropdown-promo-graphic">
+                  <svg class="dropdown-promo-svg" viewBox="0 0 280 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Central Hub -->
+                    <circle cx="140" cy="90" r="35" fill="#F45407" opacity="0.1"></circle>
+                    <circle cx="140" cy="90" r="25" fill="white" stroke="#F45407" stroke-width="2"></circle>
+
+                    <!-- Connecting Lines -->
+                    <path d="M140 90 L80 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L200 40" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L80 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+                    <path d="M140 90 L200 140" stroke="#F45407" stroke-width="1.5" opacity="0.3" stroke-dasharray="4 3"></path>
+
+                    <!-- Service Nodes -->
+                    <rect x="60" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="180" y="20" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="60" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+                    <rect x="180" y="120" width="40" height="40" rx="8" fill="white" stroke="#e5e7eb" stroke-width="1"></rect>
+
+                    <!-- Floating Dots -->
+                    <circle cx="100" cy="60" r="2" fill="#F45407" opacity="0.4">
+                      <animate attributeName="cy" values="60;55;60" dur="3s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="180" cy="80" r="2" fill="#ff6b28" opacity="0.4">
+                      <animate attributeName="cy" values="80;75;80" dur="3s" begin="0.5s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="0.5s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="120" cy="120" r="2" fill="#F45407" opacity="0.4">
+                      <animate attributeName="cy" values="120;115;120" dur="3s" begin="1s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="1s" repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="160" cy="50" r="2" fill="#ff6b28" opacity="0.4">
+                      <animate attributeName="cy" values="50;45;50" dur="3s" begin="1.5s" repeatCount="indefinite"></animate>
+                      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" begin="1.5s" repeatCount="indefinite"></animate>
+                    </circle>
+
+                    <!-- Center Icon -->
+                    <g transform="translate(125, 75)">
+                      <path d="M15 10l5 5-5 5M10 10l-5 5 5 5" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+                    </g>
+                  </svg>
+                </div>
               </div>
             </div>
           </div>
+
           <a href="/case-studies" class="nav-link">Case Studies</a>
           <a href="/about" class="nav-link">About</a>
           <a href="/blog" class="nav-link">Blog</a>
-          <a href="https://app.imisofts.com/login" class="nav-signin" target="_blank">Sign In</a>
-          <a href="#audit" class="nav-cta">Get Free Audit →</a>
+
+          <!-- CTA Button -->
+          <a href="/contact" class="nav-cta">Get Free Audit &rarr;</a>
         </div>
-        
-        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
-          <span></span><span></span><span></span>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>
-    
+
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
       <a href="/" class="mobile-nav-link">Home</a>
+
       <div class="mobile-services">
         <div class="mobile-services-title">Services</div>
         <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
         <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
-        <a href="/lead-generation" class="mobile-service-link current">Lead Generation</a>
         <a href="/cold-email-marketing" class="mobile-service-link">Cold Email Marketing</a>
         <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
         <a href="/web-development" class="mobile-service-link">Web Development</a>
         <a href="/crm-development" class="mobile-service-link">CRM Development</a>
         <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
         <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+        <a href="/lead-generation" class="mobile-service-link">Lead Generation</a>
       </div>
+
       <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
       <a href="/about" class="mobile-nav-link">About</a>
       <a href="/blog" class="mobile-nav-link">Blog</a>
-      <a href="https://app.imisofts.com/login" class="mobile-nav-link">Sign In</a>
-      <a href="#audit" class="mobile-cta">Get Free Audit →</a>
+
+      <a href="/contact" class="mobile-cta">Get Free Audit &rarr;</a>
     </div>
   </nav>
 
