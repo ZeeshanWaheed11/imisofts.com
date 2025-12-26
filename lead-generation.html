@@ -226,11 +226,13 @@
       top: 72px;
       left: 0;
       right: 0;
+      bottom: 0;
       background: rgba(255, 255, 255, 0.98);
       backdrop-filter: blur(20px);
       padding: 20px;
-      max-height: calc(100vh - 72px);
+      padding-bottom: 40px;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     }
     .mobile-menu.active { display: block; }
