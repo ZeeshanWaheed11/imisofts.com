@@ -3568,7 +3568,8 @@
           </div>
           <div>
             <label style="display: block; font-weight: 500; margin-bottom: 8px; color: #374151;">Emails per Inbox per Day</label>
-            <input type="number" id="emailsPerDay" value="30" style="width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px;" oninput="calculateInfrastructure()">
+            <div style="width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; background: #f3f4f6; color: #374151; font-weight: 600;">30 emails <span style="font-weight: 400; color: #6b7280;">(fixed)</span></div>
+            <p style="font-size: 12px; color: #F45407; margin-top: 6px; font-weight: 500;">30 emails/day/inbox is the safe maximum to protect deliverability.</p>
           </div>
         </div>
 
@@ -4165,7 +4166,7 @@
     // Email Infrastructure Calculator
     function calculateInfrastructure() {
       const dailyVolume = parseInt(document.getElementById('emailVolume').value) || 500;
-      const emailsPerDay = parseInt(document.getElementById('emailsPerDay').value) || 30;
+      const emailsPerDay = 30; // Fixed at 30 emails/day/inbox for safe deliverability
 
       // Calculate inboxes needed
       const inboxes = Math.ceil(dailyVolume / emailsPerDay);
