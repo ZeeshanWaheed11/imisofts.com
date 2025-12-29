@@ -3561,17 +3561,22 @@
       </div>
 
       <div style="max-width: 800px; margin: 0 auto; background: #f9fafb; border-radius: 16px; padding: 32px;">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
-          <div>
-            <label style="display: block; font-weight: 500; margin-bottom: 8px; color: #374151;">Daily Email Volume Goal</label>
-            <input type="number" id="emailVolume" value="500" style="width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px;" oninput="calculateInfrastructure()">
+        <div style="margin-bottom: 24px;">
+          <label style="display: block; font-weight: 500; margin-bottom: 8px; color: #374151;">Daily Email Volume Goal</label>
+          <input type="number" id="emailVolume" value="500" style="width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px;" oninput="calculateInfrastructure()">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; padding: 16px; background: #fff7ed; border-radius: 12px; border: 1px solid #fed7aa;">
+          <div style="text-align: center;">
+            <div style="font-size: 28px; font-weight: 600; color: #F45407;">30</div>
+            <div style="font-size: 13px; color: #374151; font-weight: 500;">emails/inbox/day</div>
           </div>
-          <div>
-            <label style="display: block; font-weight: 500; margin-bottom: 8px; color: #374151;">Emails per Inbox per Day</label>
-            <div style="width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 16px; background: #f3f4f6; color: #374151; font-weight: 600;">30 emails <span style="font-weight: 400; color: #6b7280;">(fixed)</span></div>
-            <p style="font-size: 12px; color: #F45407; margin-top: 6px; font-weight: 500;">30 emails/day/inbox is the safe maximum to protect deliverability.</p>
+          <div style="text-align: center;">
+            <div style="font-size: 28px; font-weight: 600; color: #F45407;">100</div>
+            <div style="font-size: 13px; color: #374151; font-weight: 500;">emails/domain/day</div>
           </div>
         </div>
+        <p style="font-size: 12px; color: #6b7280; margin-bottom: 24px; text-align: center;">These are safe sending limits. Exceeding them hurts deliverability and sender reputation.</p>
 
         <div style="background: white; border-radius: 12px; padding: 24px; border: 2px solid #F45407;">
           <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 16px; color: #0f172a;">Your Infrastructure Needs:</h3>
@@ -3589,7 +3594,7 @@
               <div style="font-size: 14px; color: #6b7280;">Recommended Package</div>
             </div>
           </div>
-          <p style="font-size: 13px; color: #6b7280; margin-top: 16px; text-align: center;">Based on 5 inboxes per domain for optimal deliverability</p>
+          <p style="font-size: 13px; color: #6b7280; margin-top: 16px; text-align: center;">Calculated using 30 emails/inbox and 100 emails/domain safe limits</p>
         </div>
       </div>
     </div>
@@ -4166,13 +4171,14 @@
     // Email Infrastructure Calculator
     function calculateInfrastructure() {
       const dailyVolume = parseInt(document.getElementById('emailVolume').value) || 500;
-      const emailsPerDay = 30; // Fixed at 30 emails/day/inbox for safe deliverability
+      const emailsPerInbox = 30; // Fixed: safe max per inbox
+      const emailsPerDomain = 100; // Fixed: safe max per domain
 
-      // Calculate inboxes needed
-      const inboxes = Math.ceil(dailyVolume / emailsPerDay);
+      // Calculate inboxes needed (30 emails/inbox/day)
+      const inboxes = Math.ceil(dailyVolume / emailsPerInbox);
 
-      // Calculate domains (5 inboxes per domain)
-      const domains = Math.ceil(inboxes / 5);
+      // Calculate domains needed (100 emails/domain/day)
+      const domains = Math.ceil(dailyVolume / emailsPerDomain);
 
       // Update display
       document.getElementById('inboxesNeeded').textContent = inboxes;
