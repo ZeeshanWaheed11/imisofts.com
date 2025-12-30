@@ -4595,37 +4595,30 @@
       }
     });
   </script>
-  
-  <!-- Cal floating-popup embed code begins -->
-  <script type="text/javascript">
-    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-  Cal("init", "30min", {origin:"https://app.cal.com"});
-
-  Cal.ns["30min"]("floatingButton", {"calLink":"zeeshanwaheed/30min","config":{"layout":"month_view","theme":"auto"},"buttonText":"Book Growth Call","hideButtonIcon":false});
-  Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
-  </script>
-  <!-- Cal floating-popup embed code ends -->
 
   <!-- Sticky CTA Bar -->
   <div id="stickyCTA" style="position: fixed; bottom: -80px; left: 0; right: 0; background: linear-gradient(135deg, #0f172a, #1e293b); padding: 16px 20px; z-index: 999; transition: bottom 0.3s ease; box-shadow: 0 -4px 20px rgba(0,0,0,0.15);">
-    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
-      <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 16px;" class="sticky-cta-text">
         <div style="display: none; align-items: center; gap: 8px;" class="sticky-cta-badge">
           <span style="display: inline-block; width: 8px; height: 8px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite;"></span>
           <span style="font-size: 13px; color: #10b981; font-weight: 500;">3 spots left</span>
         </div>
         <span style="font-size: 16px; color: white; font-weight: 500;">Ready to fix your cold email deliverability?</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 12px;" class="sticky-cta-buttons">
         <a href="#packages" style="padding: 10px 20px; background: transparent; color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; font-weight: 500; text-decoration: none; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='transparent'">View Pricing</a>
-        <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" style="padding: 10px 24px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.background='#d94806'" onmouseout="this.style.background='#F45407'">Book Free Strategy Call</a>
+        <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" style="padding: 10px 24px; background: #F45407; color: white; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 14px; transition: all 0.2s;" onmouseover="this.style.background='#d94806'" onmouseout="this.style.background='#F45407'">Book Free Call</a>
       </div>
     </div>
     <style>
       @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
       @media (max-width: 768px) {
-        #stickyCTA > div { justify-content: center; text-align: center; }
-        #stickyCTA > div > div:first-child { display: none !important; }
+        #stickyCTA { padding: 12px 16px; }
+        #stickyCTA > div { justify-content: center; flex-direction: column; gap: 8px; }
+        .sticky-cta-text { display: none !important; }
+        .sticky-cta-buttons { width: 100%; justify-content: center; }
+        .sticky-cta-buttons a { padding: 10px 16px; font-size: 13px; }
       }
       @media (min-width: 769px) { .sticky-cta-badge { display: flex !important; } }
     </style>
