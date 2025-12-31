@@ -1373,6 +1373,17 @@
       box-shadow: 0 24px 46px rgba(15, 23, 42, 0.12);
     }
 
+    /* Disable hover effects on touch devices */
+    @media (hover: none) and (pointer: coarse) {
+      .faq-item:hover {
+        transform: none;
+        box-shadow: 0 18px 32px rgba(15, 23, 42, 0.08);
+      }
+      .faq-item {
+        cursor: pointer;
+      }
+    }
+
     .faq-item[aria-expanded='true'] {
       border-color: rgba(244, 84, 7, 0.38);
       background: linear-gradient(135deg, rgba(244, 84, 7, 0.12) 0%, #ffffff 100%);
@@ -1389,6 +1400,10 @@
       gap: 16px;
       cursor: pointer;
       color: #101828;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-user-select: none;
     }
 
     .faq-button__text {
@@ -3386,7 +3401,7 @@
       </div>
 
       <!-- Feature Cards Grid -->
-      <div class="why-cards-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto;">
+      <div class="why-cards-grid" style="display: grid; gap: 20px; max-width: 1200px; margin: 0 auto;">
         <!-- Card 1: Speed -->
         <div class="why-card" style="background: white; border-radius: 16px; padding: 28px 24px; border: 1px solid #e2e8f0; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden;">
           <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #F45407, #ff6b28); transform: scaleX(0); transition: transform 0.4s; transform-origin: left;" class="why-card-accent"></div>
@@ -3524,6 +3539,10 @@
     </div>
 
     <style>
+      /* Base grid - 4 columns on desktop */
+      .why-cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
       .why-card:hover {
         transform: translateY(-6px);
         box-shadow: 0 16px 32px rgba(244, 84, 7, 0.1), 0 6px 12px rgba(0, 0, 0, 0.05);
@@ -3532,19 +3551,19 @@
       .why-card:hover .why-card-accent {
         transform: scaleX(1) !important;
       }
+      /* Tablet - 2 columns */
       @media (max-width: 1024px) {
         .why-cards-grid {
           grid-template-columns: repeat(2, 1fr) !important;
         }
       }
+      /* Mobile - 1 column */
       @media (max-width: 900px) {
-        .why-cards-grid,
-        .why-cards-grid[style] {
+        .why-cards-grid {
           grid-template-columns: 1fr !important;
           gap: 16px !important;
         }
-        .why-card,
-        .why-card[style] {
+        .why-card {
           padding: 24px 20px !important;
           width: 100% !important;
           box-sizing: border-box !important;
@@ -4602,25 +4621,34 @@
         if (content) {
           content.style.maxHeight = '0px';
         }
-        if (button && content) {
-          button.addEventListener('click', () => {
-            const isExpanded = item.getAttribute('aria-expanded') === 'true';
-            faqItems.forEach(other => {
-              if (other !== item) {
-                other.setAttribute('aria-expanded', 'false');
-                const otherContent = other.querySelector('.faq-content');
-                if (otherContent) {
-                  otherContent.style.maxHeight = '0px';
-                }
+
+        // Toggle function
+        const toggleFaq = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const isExpanded = item.getAttribute('aria-expanded') === 'true';
+          faqItems.forEach(other => {
+            if (other !== item) {
+              other.setAttribute('aria-expanded', 'false');
+              const otherContent = other.querySelector('.faq-content');
+              if (otherContent) {
+                otherContent.style.maxHeight = '0px';
               }
-            });
-            item.setAttribute('aria-expanded', String(!isExpanded));
-            if (!isExpanded) {
-              content.style.maxHeight = content.scrollHeight + 'px';
-            } else {
-              content.style.maxHeight = '0px';
             }
           });
+          item.setAttribute('aria-expanded', String(!isExpanded));
+          if (!isExpanded) {
+            content.style.maxHeight = content.scrollHeight + 'px';
+          } else {
+            content.style.maxHeight = '0px';
+          }
+        };
+
+        if (button && content) {
+          // Click for desktop
+          button.addEventListener('click', toggleFaq);
+          // Touch for mobile - add to item itself as well
+          item.addEventListener('touchend', toggleFaq, { passive: false });
         }
       });
 
