@@ -2308,6 +2308,25 @@
     }
 
     /* ============================================
+       TABLET/MOBILE GRID OVERRIDES (900px and below)
+       ============================================ */
+    @media (max-width: 900px) {
+      /* Force single column for feature cards on tablets */
+      .why-cards-grid,
+      .why-cards-grid[style],
+      [style*="grid-template-columns: repeat(4"] {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      /* Testimonials single column */
+      [style*="minmax(340px"],
+      [style*="repeat(auto-fit"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* ============================================
        COMPREHENSIVE MOBILE STYLES (768px and below)
        ============================================ */
     @media (max-width: 768px) {
@@ -2369,12 +2388,25 @@
       }
 
       /* Why Imisofts Cards Grid - Force Single Column */
-      .why-cards-grid {
+      .why-cards-grid,
+      .why-cards-grid[style],
+      div.why-cards-grid,
+      [style*="grid-template-columns: repeat(4"] {
         grid-template-columns: 1fr !important;
         gap: 16px !important;
+        display: grid !important;
       }
-      .why-card {
+      .why-card,
+      .why-card[style] {
         padding: 24px 20px !important;
+        width: 100% !important;
+      }
+
+      /* Testimonials Grid - Force Single Column */
+      [style*="minmax(340px"],
+      [style*="grid-template-columns: repeat(auto-fit"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
       }
 
       /* FAQ Grid */
@@ -3505,13 +3537,17 @@
           grid-template-columns: repeat(2, 1fr) !important;
         }
       }
-      @media (max-width: 768px) {
-        .why-cards-grid {
+      @media (max-width: 900px) {
+        .why-cards-grid,
+        .why-cards-grid[style] {
           grid-template-columns: 1fr !important;
           gap: 16px !important;
         }
-        .why-card {
+        .why-card,
+        .why-card[style] {
           padding: 24px 20px !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
         }
       }
     </style>
