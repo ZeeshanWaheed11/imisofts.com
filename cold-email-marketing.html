@@ -4622,33 +4622,36 @@
           content.style.maxHeight = '0px';
         }
 
-        // Toggle function
-        const toggleFaq = (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          const isExpanded = item.getAttribute('aria-expanded') === 'true';
-          faqItems.forEach(other => {
-            if (other !== item) {
-              other.setAttribute('aria-expanded', 'false');
-              const otherContent = other.querySelector('.faq-content');
-              if (otherContent) {
-                otherContent.style.maxHeight = '0px';
+        if (button && content) {
+          // Single click handler - works on both desktop and mobile
+          const handleClick = function(e) {
+            e.stopPropagation();
+            const isExpanded = item.getAttribute('aria-expanded') === 'true';
+
+            // Close all other items
+            faqItems.forEach(other => {
+              if (other !== item) {
+                other.setAttribute('aria-expanded', 'false');
+                const otherContent = other.querySelector('.faq-content');
+                if (otherContent) {
+                  otherContent.style.maxHeight = '0px';
+                }
               }
+            });
+
+            // Toggle current item
+            item.setAttribute('aria-expanded', String(!isExpanded));
+            content.style.maxHeight = !isExpanded ? content.scrollHeight + 'px' : '0px';
+          };
+
+          // Click on button or anywhere on the item (except content)
+          item.style.cursor = 'pointer';
+          item.addEventListener('click', function(e) {
+            // Only trigger if not clicking inside the expanded content
+            if (!e.target.closest('.faq-content')) {
+              handleClick(e);
             }
           });
-          item.setAttribute('aria-expanded', String(!isExpanded));
-          if (!isExpanded) {
-            content.style.maxHeight = content.scrollHeight + 'px';
-          } else {
-            content.style.maxHeight = '0px';
-          }
-        };
-
-        if (button && content) {
-          // Click for desktop
-          button.addEventListener('click', toggleFaq);
-          // Touch for mobile - add to item itself as well
-          item.addEventListener('touchend', toggleFaq, { passive: false });
         }
       });
 
