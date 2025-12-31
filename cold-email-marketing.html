@@ -1373,17 +1373,6 @@
       box-shadow: 0 24px 46px rgba(15, 23, 42, 0.12);
     }
 
-    /* Disable hover effects on touch devices */
-    @media (hover: none) and (pointer: coarse) {
-      .faq-item:hover {
-        transform: none;
-        box-shadow: 0 18px 32px rgba(15, 23, 42, 0.08);
-      }
-      .faq-item {
-        cursor: pointer;
-      }
-    }
-
     .faq-item[aria-expanded='true'] {
       border-color: rgba(244, 84, 7, 0.38);
       background: linear-gradient(135deg, rgba(244, 84, 7, 0.12) 0%, #ffffff 100%);
@@ -1400,10 +1389,6 @@
       gap: 16px;
       cursor: pointer;
       color: #101828;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-      user-select: none;
-      -webkit-user-select: none;
     }
 
     .faq-button__text {
@@ -4621,12 +4606,9 @@
         if (content) {
           content.style.maxHeight = '0px';
         }
-
         if (button && content) {
-          button.onclick = function() {
+          button.addEventListener('click', () => {
             const isExpanded = item.getAttribute('aria-expanded') === 'true';
-
-            // Close all other items
             faqItems.forEach(other => {
               if (other !== item) {
                 other.setAttribute('aria-expanded', 'false');
@@ -4636,16 +4618,13 @@
                 }
               }
             });
-
-            // Toggle current item
-            if (isExpanded) {
-              item.setAttribute('aria-expanded', 'false');
-              content.style.maxHeight = '0px';
-            } else {
-              item.setAttribute('aria-expanded', 'true');
+            item.setAttribute('aria-expanded', String(!isExpanded));
+            if (!isExpanded) {
               content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+              content.style.maxHeight = '0px';
             }
-          };
+          });
         }
       });
 
