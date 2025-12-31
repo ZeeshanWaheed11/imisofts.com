@@ -4623,9 +4623,7 @@
         }
 
         if (button && content) {
-          // Single click handler - works on both desktop and mobile
-          const handleClick = function(e) {
-            e.stopPropagation();
+          button.onclick = function() {
             const isExpanded = item.getAttribute('aria-expanded') === 'true';
 
             // Close all other items
@@ -4640,18 +4638,14 @@
             });
 
             // Toggle current item
-            item.setAttribute('aria-expanded', String(!isExpanded));
-            content.style.maxHeight = !isExpanded ? content.scrollHeight + 'px' : '0px';
-          };
-
-          // Click on button or anywhere on the item (except content)
-          item.style.cursor = 'pointer';
-          item.addEventListener('click', function(e) {
-            // Only trigger if not clicking inside the expanded content
-            if (!e.target.closest('.faq-content')) {
-              handleClick(e);
+            if (isExpanded) {
+              item.setAttribute('aria-expanded', 'false');
+              content.style.maxHeight = '0px';
+            } else {
+              item.setAttribute('aria-expanded', 'true');
+              content.style.maxHeight = content.scrollHeight + 'px';
             }
-          });
+          };
         }
       });
 
