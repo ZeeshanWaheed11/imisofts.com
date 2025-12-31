@@ -861,7 +861,58 @@
         transform: translateY(0);
       }
     }
-    
+
+    /* Timeline Animation Styles */
+    .process-desktop {
+      display: block;
+    }
+
+    .process-mobile {
+      display: none;
+    }
+
+    .cold-email-step {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .cold-email-step:nth-child(2) { animation-delay: 0.1s; }
+    .cold-email-step:nth-child(3) { animation-delay: 0.3s; }
+    .cold-email-step:nth-child(4) { animation-delay: 0.5s; }
+    .cold-email-step:nth-child(5) { animation-delay: 0.7s; }
+
+    .cold-email-step:hover > div:first-child {
+      transform: scale(1.1);
+    }
+
+    .cold-email-mobile-line {
+      position: relative;
+    }
+
+    .cold-email-mobile-line::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2px;
+      height: 0;
+      background: #F45407;
+      animation: growLine 2s ease-out forwards;
+    }
+
+    @keyframes growLine {
+      to { height: 100%; }
+    }
+
+    .cold-email-mobile-step {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .cold-email-mobile-step:nth-child(2) { animation-delay: 0.1s; }
+    .cold-email-mobile-step:nth-child(3) { animation-delay: 0.3s; }
+    .cold-email-mobile-step:nth-child(4) { animation-delay: 0.5s; }
+    .cold-email-mobile-step:nth-child(5) { animation-delay: 0.7s; }
+
     @keyframes slideInLeft {
       0% {
         opacity: 0;
@@ -1844,7 +1895,15 @@
       .container {
         padding: 0 16px;
       }
-      
+
+      .process-desktop {
+        display: none;
+      }
+
+      .process-mobile {
+        display: block;
+      }
+
       .faq__wrapper {
         padding: 32px 24px;
         gap: 28px;
@@ -3338,29 +3397,85 @@
         <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto;">We handle the technical heavy lifting. You focus on closing deals.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto;">
-        <div style="text-align: center; position: relative;">
-          <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; font-weight: 500;">1</div>
-          <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">Tell Us Your Goals</h3>
-          <p style="font-size: 14px; color: #666; line-height: 1.6;">How many emails per day? Which platform? We design infrastructure to match your outreach volume.</p>
-        </div>
+      <!-- Desktop Timeline -->
+      <div class="process-desktop">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; position: relative;">
+          <!-- Timeline Line -->
+          <div style="position: absolute; top: 32px; left: 10%; right: 10%; height: 2px; background: #ffd4c4; z-index: 0;">
+            <div class="cold-email-timeline-progress" style="position: absolute; left: 0; top: 0; height: 100%; width: 0; background: #F45407; transition: width 2s ease-out;"></div>
+          </div>
 
-        <div style="text-align: center; position: relative;">
-          <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; font-weight: 500;">2</div>
-          <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">We Build Everything</h3>
-          <p style="font-size: 14px; color: #666; line-height: 1.6;">Domains purchased, DNS configured, mailboxes created, SPF/DKIM/DMARC aligned. Zero work for you.</p>
-        </div>
+          <div class="cold-email-step" style="text-align: center; position: relative; z-index: 1; opacity: 0;">
+            <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; font-weight: 500; box-shadow: 0 0 0 4px #fff, 0 0 0 5px #F45407; transition: transform 0.3s ease;">1</div>
+            <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">Tell Us Your Goals</h3>
+            <p style="font-size: 14px; color: #666; line-height: 1.6;">How many emails per day? Which platform? We design infrastructure to match your outreach volume.</p>
+          </div>
 
-        <div style="text-align: center; position: relative;">
-          <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; font-weight: 500;">3</div>
-          <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">14-Day Warm-Up</h3>
-          <p style="font-size: 14px; color: #666; line-height: 1.6;">Automated warming builds sender reputation before you send a single cold email. No burned domains.</p>
-        </div>
+          <div class="cold-email-step" style="text-align: center; position: relative; z-index: 1; opacity: 0;">
+            <div style="width: 64px; height: 64px; background: #fff; border: 2px solid #F45407; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #F45407; font-size: 24px; font-weight: 500; box-shadow: 0 0 0 4px #fff; transition: transform 0.3s ease;">2</div>
+            <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">We Build Everything</h3>
+            <p style="font-size: 14px; color: #666; line-height: 1.6;">Domains purchased, DNS configured, mailboxes created, SPF/DKIM/DMARC aligned. Zero work for you.</p>
+          </div>
 
-        <div style="text-align: center; position: relative;">
-          <div style="width: 64px; height: 64px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 24px; font-weight: 500;">4</div>
-          <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">Connect & Send</h3>
-          <p style="font-size: 14px; color: #666; line-height: 1.6;">Plug your inboxes into Instantly, Smartlead, or Apollo. Start campaigns with 95%+ inbox placement.</p>
+          <div class="cold-email-step" style="text-align: center; position: relative; z-index: 1; opacity: 0;">
+            <div style="width: 64px; height: 64px; background: #fff; border: 2px solid #F45407; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #F45407; font-size: 24px; font-weight: 500; box-shadow: 0 0 0 4px #fff; transition: transform 0.3s ease;">3</div>
+            <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">14-Day Warm-Up</h3>
+            <p style="font-size: 14px; color: #666; line-height: 1.6;">Automated warming builds sender reputation before you send a single cold email. No burned domains.</p>
+          </div>
+
+          <div class="cold-email-step" style="text-align: center; position: relative; z-index: 1; opacity: 0;">
+            <div style="width: 64px; height: 64px; background: #fff; border: 2px solid #F45407; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #F45407; font-size: 24px; font-weight: 500; box-shadow: 0 0 0 4px #fff; transition: transform 0.3s ease;">4</div>
+            <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">Connect & Send</h3>
+            <p style="font-size: 14px; color: #666; line-height: 1.6;">Plug your inboxes into Instantly, Smartlead, or Apollo. Start campaigns with 95%+ inbox placement.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Timeline -->
+      <div class="process-mobile">
+        <div style="position: relative; padding-left: 40px;">
+          <!-- Vertical Timeline Line -->
+          <div class="cold-email-mobile-line" style="position: absolute; left: 23px; top: 24px; bottom: 24px; width: 2px; background: #ffd4c4;"></div>
+
+          <div class="cold-email-mobile-step" style="position: relative; margin-bottom: 32px;">
+            <div style="position: absolute; left: -17px; width: 48px; height: 48px; background: linear-gradient(135deg, #F45407, #ff6b28); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px #fff; z-index: 2;">
+              <span style="font-size: 20px; font-weight: 500; color: white;">1</span>
+            </div>
+            <div style="margin-left: 48px;">
+              <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">Tell Us Your Goals</h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.6;">How many emails per day? Which platform? We design infrastructure to match your outreach volume.</p>
+            </div>
+          </div>
+
+          <div class="cold-email-mobile-step" style="position: relative; margin-bottom: 32px;">
+            <div style="position: absolute; left: -17px; width: 48px; height: 48px; background: #fff; border: 2px solid #F45407; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px #fff; z-index: 2;">
+              <span style="font-size: 20px; font-weight: 500; color: #F45407;">2</span>
+            </div>
+            <div style="margin-left: 48px;">
+              <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">We Build Everything</h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.6;">Domains purchased, DNS configured, mailboxes created, SPF/DKIM/DMARC aligned. Zero work for you.</p>
+            </div>
+          </div>
+
+          <div class="cold-email-mobile-step" style="position: relative; margin-bottom: 32px;">
+            <div style="position: absolute; left: -17px; width: 48px; height: 48px; background: #fff; border: 2px solid #F45407; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px #fff; z-index: 2;">
+              <span style="font-size: 20px; font-weight: 500; color: #F45407;">3</span>
+            </div>
+            <div style="margin-left: 48px;">
+              <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">14-Day Warm-Up</h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.6;">Automated warming builds sender reputation before you send a single cold email. No burned domains.</p>
+            </div>
+          </div>
+
+          <div class="cold-email-mobile-step" style="position: relative;">
+            <div style="position: absolute; left: -17px; width: 48px; height: 48px; background: #fff; border: 2px solid #F45407; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 4px #fff; z-index: 2;">
+              <span style="font-size: 20px; font-weight: 500; color: #F45407;">4</span>
+            </div>
+            <div style="margin-left: 48px;">
+              <h3 style="font-size: 18px; font-weight: 500; margin-bottom: 8px;">Connect & Send</h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.6;">Plug your inboxes into Instantly, Smartlead, or Apollo. Start campaigns with 95%+ inbox placement.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -4576,6 +4691,14 @@
           content.style.maxHeight = content.scrollHeight + 'px';
         });
       });
+
+      // Timeline progress bar animation
+      var timelineProgress = document.querySelector('.cold-email-timeline-progress');
+      if (timelineProgress) {
+        setTimeout(function() {
+          timelineProgress.style.width = '25%';
+        }, 500);
+      }
     });
 
     // Newsletter Form Handler
