@@ -1694,10 +1694,15 @@
 
     @media (max-width: 768px) {
 
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
+
       .container {
-
         padding: 0 16px;
-
+        max-width: 100%;
+        overflow-x: hidden;
       }
 
  
@@ -1833,6 +1838,25 @@
 
       .hero-grid div > div[style*="display: flex"][style*="gap: 16px"] a {
         text-align: center !important;
+        justify-content: center !important;
+      }
+
+      /* Mobile: GHL Banner */
+      section[style*="linear-gradient(135deg, #1a1a1a"] .container > div {
+        flex-direction: column !important;
+        text-align: center !important;
+      }
+
+      section[style*="linear-gradient(135deg, #1a1a1a"] h3 {
+        font-size: 24px !important;
+      }
+
+      section[style*="linear-gradient(135deg, #1a1a1a"] p {
+        max-width: 100% !important;
+      }
+
+      section[style*="linear-gradient(135deg, #1a1a1a"] a {
+        width: 100% !important;
         justify-content: center !important;
       }
 
@@ -2146,9 +2170,19 @@
 
                 </a>
 
-              </div>
+                <a href="/gohighlevel-services" class="dropdown-item current-page">
+                  <div class="dropdown-item-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                  </div>
+                  <div class="dropdown-item-content">
+                    <div class="dropdown-item-title">GoHighLevel Services</div>
+                    <div class="dropdown-item-desc">GHL automation, AI voice agents & A2P verification</div>
+                  </div>
+                </a>
 
- 
+              </div>
 
               <div class="dropdown-promo">
 
@@ -2405,7 +2439,7 @@
             </a>
             <a href="https://www.gohighlevel.com/?fp_ref=zeeshanwaheed" target="_blank" rel="noopener" style="padding: 14px 28px; background: #1a1a1a; color: white; border-radius: 10px; font-weight: 500; text-decoration: none; font-size: 16px; display: inline-flex; align-items: center; gap: 8px;">
               Try GHL Free for 14 Days
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
             </a>
           </div>
 
@@ -3726,12 +3760,11 @@
             <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
 
             <li><a href="/lead-generation">Lead Generation</a></li>
+            <li><a href="/gohighlevel-services">GoHighLevel Services</a></li>
 
           </ul>
 
         </div>
-
- 
 
         <!-- Company Column -->
 
@@ -3823,7 +3856,7 @@
 
         <div class="footer-copyright">
 
-          © 2025 imisofts. All rights reserved.
+          © 2026 imisofts. All rights reserved.
 
         </div>
 
