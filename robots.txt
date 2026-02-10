@@ -1,38 +1,87 @@
 # robots.txt for imisofts.com
+# Last updated: 2026-02-10
 
-# Allow all web crawlers
+# Default: Allow all web crawlers
 User-agent: *
 Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
+Disallow: /WEBSITE_AUDIT_REPORT.txt
+Disallow: /SECURITY_VALIDATION.md
+Crawl-delay: 1
 
-# Allow specific important pages
-Allow: /lead-generation
-Allow: /ai-automation
-Allow: /digital-marketing
-Allow: /web-development
-Allow: /cold-email-marketing
-Allow: /ecommerce
-Allow: /crm-development
-Allow: /shopify-apps
-Allow: /ai-mobile-apps
-Allow: /about
-Allow: /contact
-Allow: /case-studies
-Allow: /faq
-Allow: /blog
-
-# Disallow admin and private areas
-Disallow: /admin-*
+# AI Search Engine Crawlers - Explicitly allowed for AI discoverability
+User-agent: GPTBot
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
 Disallow: /client-dashboard
 Disallow: /client-login
 
-# Disallow files that shouldn't be crawled
-Disallow: /*.txt$
-Disallow: /*.log$
-Disallow: /WEBSITE_AUDIT_REPORT.txt
-Disallow: /SECURITY_VALIDATION.md
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
 
-# Crawl delay (be nice to search engines)
-Crawl-delay: 1
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
+
+User-agent: Bytespider
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /client-dashboard
+Disallow: /client-login
 
 # Sitemap location
 Sitemap: https://imisofts.com/sitemap.xml
