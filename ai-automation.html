@@ -473,15 +473,34 @@
     }
 
     .mega-item {
-      padding: 16px 18px;
+      padding: 14px 16px;
       border-radius: 10px;
       text-decoration: none;
       transition: background 0.2s ease;
-      display: block;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
     }
 
     .mega-item:hover {
       background: #f9fafb;
+    }
+
+    .mega-item-icon {
+      width: 20px;
+      height: 20px;
+      padding: 8px;
+      box-sizing: content-box;
+      background: #f3f4f6;
+      border-radius: 10px;
+      color: #6b7280;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .mega-item:hover .mega-item-icon {
+      background: #F45407;
+      color: white;
     }
 
     .mega-item-title {
@@ -1294,72 +1313,87 @@
                   <div class="mega-panel active" id="panel-growth">
                     <div class="mega-grid">
                       <a href="/cold-email-marketing" class="mega-item">
-                        <div class="mega-item-title">Cold Email Marketing</div>
-                        <div class="mega-item-desc">Infrastructure &amp; campaigns that land in inbox</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Marketing</div>
+                        <div class="mega-item-desc">Infrastructure &amp; campaigns that land in inbox</div></div>
                       </a>
                       <a href="/lead-generation" class="mega-item">
-                        <div class="mega-item-title">Lead Generation</div>
-                        <div class="mega-item-desc">40-100+ qualified B2B appointments monthly</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div><div class="mega-item-title">Lead Generation</div>
+                        <div class="mega-item-desc">40-100+ qualified B2B appointments monthly</div></div>
                       </a>
                       <a href="/digital-marketing" class="mega-item">
-                        <div class="mega-item-title">Digital Marketing</div>
-                        <div class="mega-item-desc">Performance marketing that drives ROI</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Digital Marketing</div>
+                        <div class="mega-item-desc">Performance marketing that drives ROI</div></div>
                       </a>
                       <a href="/ai-automation" class="mega-item">
-                        <div class="mega-item-title">AI Automation</div>
-                        <div class="mega-item-desc">Intelligent workflows that work 24/7</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Automation</div>
+                        <div class="mega-item-desc">Intelligent workflows that work 24/7</div></div>
                       </a>
                       <a href="/gohighlevel-services" class="mega-item">
-                        <div class="mega-item-title">GoHighLevel Services</div>
-                        <div class="mega-item-desc">GHL automation &amp; AI voice agents</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Services</div>
+                        <div class="mega-item-desc">GHL automation &amp; AI voice agents</div></div>
                       </a>
                     </div>
                   </div>
                   <div class="mega-panel" id="panel-development">
                     <div class="mega-grid">
                       <a href="/web-development" class="mega-item">
-                        <div class="mega-item-title">Web Development</div>
-                        <div class="mega-item-desc">Fast, modern websites &amp; web apps</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        <div><div class="mega-item-title">Web Development</div>
+                        <div class="mega-item-desc">Fast, modern websites &amp; web apps</div></div>
                       </a>
                       <a href="/ecommerce" class="mega-item">
-                        <div class="mega-item-title">E-commerce</div>
-                        <div class="mega-item-desc">Shopify stores that convert at 4.2%</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <div><div class="mega-item-title">E-commerce</div>
+                        <div class="mega-item-desc">Shopify stores that convert at 4.2%</div></div>
                       </a>
                       <a href="/crm-development" class="mega-item">
-                        <div class="mega-item-title">CRM Development</div>
-                        <div class="mega-item-desc">HubSpot, Salesforce &amp; custom CRM</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        <div><div class="mega-item-title">CRM Development</div>
+                        <div class="mega-item-desc">HubSpot, Salesforce &amp; custom CRM</div></div>
                       </a>
                       <a href="/shopify-apps" class="mega-item">
-                        <div class="mega-item-title">Shopify Apps</div>
-                        <div class="mega-item-desc">Certified Shopify app development</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        <div><div class="mega-item-title">Shopify Apps</div>
+                        <div class="mega-item-desc">Certified Shopify app development</div></div>
                       </a>
                       <a href="/ai-mobile-apps" class="mega-item">
-                        <div class="mega-item-title">AI Mobile Apps</div>
-                        <div class="mega-item-desc">Intelligent mobile apps in 3-10 weeks</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Mobile Apps</div>
+                        <div class="mega-item-desc">Intelligent mobile apps in 3-10 weeks</div></div>
                       </a>
                     </div>
                   </div>
                   <div class="mega-panel" id="panel-specialist">
                     <div class="mega-grid">
                       <a href="/hire-cold-email-expert" class="mega-item">
-                        <div class="mega-item-title">Cold Email Expert</div>
-                        <div class="mega-item-desc">Deliverability &amp; campaign specialists</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Expert</div>
+                        <div class="mega-item-desc">Deliverability &amp; campaign specialists</div></div>
                       </a>
                       <a href="/hire-gohighlevel-developer" class="mega-item">
-                        <div class="mega-item-title">GoHighLevel Developer</div>
-                        <div class="mega-item-desc">Certified GHL automation experts</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Developer</div>
+                        <div class="mega-item-desc">Certified GHL automation experts</div></div>
                       </a>
                       <a href="/hire-n8n-developer" class="mega-item">
-                        <div class="mega-item-title">n8n Developer</div>
-                        <div class="mega-item-desc">Workflow automation engineers</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <div><div class="mega-item-title">n8n Developer</div>
+                        <div class="mega-item-desc">Workflow automation engineers</div></div>
                       </a>
                       <a href="/hire-ai-engineer" class="mega-item">
-                        <div class="mega-item-title">AI Engineer</div>
-                        <div class="mega-item-desc">LLM &amp; machine learning specialists</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <div><div class="mega-item-title">AI Engineer</div>
+                        <div class="mega-item-desc">LLM &amp; machine learning specialists</div></div>
                       </a>
                       <a href="/hire-shopify-expert" class="mega-item">
-                        <div class="mega-item-title">Shopify Expert</div>
-                        <div class="mega-item-desc">Store &amp; app development pros</div>
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <div><div class="mega-item-title">Shopify Expert</div>
+                        <div class="mega-item-desc">Store &amp; app development pros</div></div>
                       </a>
                     </div>
                   </div>
