@@ -233,6 +233,7 @@
       padding: 20px 0;
       display: flex;
       flex-direction: column;
+      background: #fefcfb;
     }
 
     .mega-tab {
@@ -251,7 +252,7 @@
 
     .mega-tab:hover,
     .mega-tab.active {
-      background: #f9fafb;
+      background: linear-gradient(135deg, #fff7f3 0%, #fff0ea 100%);
       color: #1a1a1a;
       border-left-color: #F45407;
     }
@@ -259,7 +260,7 @@
     .mega-tab-icon {
       width: 22px;
       height: 22px;
-      color: #94a3b8;
+      color: #c9a08a;
       flex-shrink: 0;
       transition: color 0.2s ease;
     }
@@ -287,7 +288,8 @@
     .mega-cta-card {
       margin: auto 16px 0;
       padding: 20px;
-      border: 1px solid #e5e7eb;
+      background: linear-gradient(135deg, #FFF5F0 0%, #FFEDE5 100%);
+      border: 1px solid #ffd9c7;
       border-radius: 12px;
     }
 
@@ -310,17 +312,19 @@
       align-items: center;
       gap: 8px;
       padding: 10px 20px;
-      background: #F45407;
+      background: linear-gradient(135deg, #F45407 0%, #ff6b28 100%);
       color: white;
       border-radius: 8px;
       text-decoration: none;
       font-size: 13px;
       font-weight: 600;
-      transition: background 0.2s ease;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(244, 84, 7, 0.25);
     }
 
     .mega-cta-btn:hover {
-      background: #d94a06;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(244, 84, 7, 0.35);
     }
 
     .mega-cta-btn svg {
@@ -362,7 +366,7 @@
     }
 
     .mega-item:hover {
-      background: #f9fafb;
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
     }
 
     .mega-item-icon {
@@ -370,9 +374,9 @@
       height: 20px;
       padding: 8px;
       box-sizing: content-box;
-      background: #f3f4f6;
+      background: linear-gradient(135deg, #fff4ef 0%, #ffe8dd 100%);
       border-radius: 10px;
-      color: #6b7280;
+      color: #F45407;
       flex-shrink: 0;
       transition: all 0.2s ease;
     }
@@ -404,7 +408,7 @@
     .mega-bottom {
       margin-top: auto;
       padding: 14px 32px;
-      background: #f9fafb;
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
       border-top: 1px solid #f0f0f0;
     }
 
