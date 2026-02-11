@@ -214,6 +214,7 @@
       justify-content: space-between;
       align-items: center;
       height: 72px;
+      position: relative;
     }
     
     .nav-logo-wrapper {
@@ -248,6 +249,10 @@
     
     /* Services Dropdown */
     .nav-dropdown {
+      position: static;
+    }
+
+    #industriesDropdown {
       position: relative;
     }
 
@@ -268,29 +273,53 @@
       transform: rotate(180deg);
     }
 
+    /* Mega-menu panel — fills nav-container width */
     .nav-dropdown-menu {
       position: absolute;
-      top: calc(100% + 20px);
-      left: 50%;
-      transform: translateX(-50%);
+      top: 100%;
+      left: 0;
+      right: 0;
       background: white;
       border-radius: 16px;
       box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
       padding: 0;
-      min-width: 1200px;
       opacity: 0;
       visibility: hidden;
-      transform: translateX(-50%) translateY(-10px);
+      transform: translateY(-8px);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      z-index: 1000;
+      margin-top: 4px;
+    }
+
+    /* Invisible bridge so hover stays active across the gap */
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0;
+      right: 0;
+      height: 20px;
     }
 
     .nav-dropdown:hover .nav-dropdown-menu {
       opacity: 1;
       visibility: visible;
-      transform: translateX(-50%) translateY(0);
+      transform: translateY(0);
+    }
+
+    /* Industries dropdown — narrow, centered on trigger */
+    .nav-dropdown-menu--narrow {
+      left: 50% !important;
+      right: auto !important;
+      min-width: 380px !important;
+      transform: translateX(-50%) translateY(-8px) !important;
+    }
+
+    #industriesDropdown:hover .nav-dropdown-menu--narrow {
+      transform: translateX(-50%) translateY(0) !important;
     }
 
     /* Mega-Menu Column Layout */
@@ -379,7 +408,7 @@
       overflow: hidden;
     }
 
-    .dropdown-promo::before {
+    .dropdown-promo::after {
       content: '';
       position: absolute;
       top: -50%;
@@ -500,11 +529,6 @@
       gap: 14px;
     }
 
-    /* Industries dropdown - narrower */
-    .nav-dropdown-menu--narrow {
-      min-width: 380px !important;
-    }
-
     .dropdown-simple {
       padding: 16px 12px;
     }
@@ -517,6 +541,16 @@
 
     .mobile-section-content.active {
       display: block;
+    }
+
+    /* Mega-menu responsive */
+    @media (max-width: 1100px) {
+      .dropdown-columns {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .dropdown-promo {
+        display: none;
+      }
     }
 
     /* CTA Button */
