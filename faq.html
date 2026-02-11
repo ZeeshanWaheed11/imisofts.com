@@ -280,95 +280,152 @@
     .nav-dropdown {
       position: relative;
     }
-    
+
     .nav-dropdown-toggle {
       display: flex;
       align-items: center;
       gap: 6px;
       cursor: pointer;
     }
-    
+
     .nav-dropdown-toggle svg {
       width: 16px;
       height: 16px;
       transition: transform 0.3s ease;
     }
-    
-    .nav-dropdown.active .nav-dropdown-toggle svg {
+
+    .nav-dropdown:hover .nav-dropdown-toggle svg {
       transform: rotate(180deg);
     }
-    
+
     .nav-dropdown-menu {
       position: absolute;
       top: calc(100% + 20px);
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(20px);
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-      padding: 8px;
-      min-width: 320px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.05);
+      padding: 0;
+      min-width: 1100px;
       opacity: 0;
       visibility: hidden;
       transform: translateX(-50%) translateY(-10px);
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
-    
-    .nav-dropdown.active .nav-dropdown-menu {
+
+    .nav-dropdown:hover .nav-dropdown-menu {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
     }
-    
-    .dropdown-item {
+
+    /* New dropdown column layout */
+    .dropdown-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      padding: 24px 28px;
+    }
+
+    .dropdown-col {
+      padding: 0 16px;
+    }
+
+    .dropdown-col:not(:last-child) {
+      border-right: 1px solid #f0f0f0;
+    }
+
+    .dropdown-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999;
+      padding: 8px 12px 12px;
+    }
+
+    .dropdown-link {
       display: flex;
       align-items: flex-start;
-      gap: 16px;
-      padding: 16px;
-      border-radius: 12px;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
       text-decoration: none;
       transition: all 0.2s ease;
     }
-    
-    .dropdown-item:hover {
-      background: rgba(244, 84, 7, 0.08);
+
+    .dropdown-link:hover {
+      background: #f8f9fa;
     }
-    
-    .dropdown-item-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, #F45407, #ff6b28);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    
-    .dropdown-item-icon svg {
+
+    .dropdown-link svg {
       width: 20px;
       height: 20px;
-      color: white;
+      color: #F45407;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
-    
-    .dropdown-item-content {
-      flex: 1;
-    }
-    
-    .dropdown-item-title {
-      font-size: 15px;
+
+    .dropdown-link-title {
+      font-size: 14px;
       font-weight: 500;
       color: #1a1a1a;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
-    
-    .dropdown-item-desc {
-      font-size: 13px;
-      color: #666;
+
+    .dropdown-link:hover .dropdown-link-title {
+      color: #F45407;
+    }
+
+    .dropdown-link-desc {
+      font-size: 12px;
+      color: #999;
       line-height: 1.4;
     }
-    
+
+    .dropdown-bottom-bar {
+      padding: 16px 28px;
+      background: linear-gradient(135deg, #fff8f5 0%, #ffede8 100%);
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .dropdown-bottom-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #F45407;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .dropdown-bottom-link:hover {
+      color: #ff6b28;
+    }
+
+    /* Industries dropdown - narrower */
+    .nav-dropdown-menu--narrow {
+      min-width: 380px !important;
+    }
+
+    .dropdown-simple {
+      padding: 16px 12px;
+    }
+
+    /* Mobile section toggle */
+    .mobile-section-content {
+      display: none;
+      padding-left: 16px;
+    }
+
+    .mobile-section-content.active {
+      display: block;
+    }
+
     /* CTA Button */
     .nav-cta {
       padding: 10px 20px;
@@ -442,6 +499,21 @@
       font-weight: 500;
     }
     
+    .mobile-service-link {
+      display: block;
+      padding: 12px 16px 12px 32px;
+      color: #666;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+
+    .mobile-service-link:hover {
+      background: rgba(244, 84, 7, 0.08);
+      color: #F45407;
+    }
+
     .mobile-cta {
       display: block;
       padding: 14px 24px;
