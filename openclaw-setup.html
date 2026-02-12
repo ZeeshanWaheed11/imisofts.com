@@ -1302,55 +1302,166 @@
       flex-shrink: 0;
     }
 
-    /* FAQ */
-    .faq-list {
-      max-width: 800px;
+    /* FAQ Section */
+    .faq-section {
+      position: relative;
+      background: linear-gradient(135deg, #fff5f0 0%, #f3f7ff 100%);
+      overflow: hidden;
+    }
+
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      inset: -120px auto auto -120px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(244, 84, 7, 0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .faq__wrapper {
+      position: relative;
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 48px 56px;
+      box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
+      border: none;
+      display: grid;
+      gap: 40px;
+    }
+
+    .faq__header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      background: rgba(244, 84, 7, 0.12);
+      color: #F45407;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .faq__header h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #101828;
+      margin: 0;
+    }
+
+    .faq__header p {
+      font-size: 1.05rem;
+      color: #475467;
       margin: 0 auto;
     }
 
-    .faq-item {
-      border-bottom: 1px solid #f0f0f0;
+    .faq__columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
     }
 
-    .faq-question {
+    .faq__column {
+      display: grid;
+      gap: 18px;
+    }
+
+    .faq-item {
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.05) 0%, rgba(255, 255, 255, 0.94) 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(244, 84, 7, 0.12);
+      padding: 22px 26px;
+      box-shadow: 0 18px 32px rgba(15, 23, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 46px rgba(15, 23, 42, 0.12);
+    }
+
+    .faq-item[aria-expanded='true'] {
+      border-color: rgba(244, 84, 7, 0.38);
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.12) 0%, #ffffff 100%);
+    }
+
+    .faq-button {
+      width: 100%;
+      padding: 0;
+      background: transparent;
+      border: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
+      gap: 16px;
       cursor: pointer;
-      font-size: 16px;
-      font-weight: 600;
-      color: #1a1a1a;
+      color: #101828;
     }
 
-    .faq-question svg {
-      width: 20px;
-      height: 20px;
-      color: #999;
-      transition: transform 0.3s ease;
+    .faq-button__text {
+      font-size: 1.05rem;
+      font-weight: 500;
+      text-align: left;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .faq-button__icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(244, 84, 7, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, transform 0.3s ease;
       flex-shrink: 0;
     }
 
-    .faq-item.active .faq-question svg {
-      transform: rotate(180deg);
+    .faq-button__icon svg {
+      width: 16px;
+      height: 16px;
       color: #F45407;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    .faq-answer {
+    .faq-item[aria-expanded='true'] .faq-button__icon {
+      background: #F45407;
+      transform: rotate(45deg);
+    }
+
+    .faq-item[aria-expanded='true'] .faq-button__icon svg {
+      color: #ffffff;
+    }
+
+    .faq-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.35s ease;
+      transition: max-height 0.35s ease, opacity 0.35s ease;
+      opacity: 0;
+      padding-right: 4px;
     }
 
-    .faq-item.active .faq-answer {
-      max-height: 300px;
+    .faq-item[aria-expanded='true'] .faq-content {
+      opacity: 1;
+      margin-top: 14px;
     }
 
-    .faq-answer p {
-      padding: 0 0 20px;
-      font-size: 15px;
-      color: #555;
-      line-height: 1.7;
+    .faq-content p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: #475467;
+      line-height: 1.6;
     }
 
     /* CTA Section */
@@ -1669,6 +1780,28 @@
         gap: 24px;
       }
 
+      .faq__wrapper {
+        padding: 32px 24px;
+        gap: 28px;
+      }
+
+      .faq__header h2 {
+        font-size: 1.9rem;
+      }
+
+      .faq__header p {
+        font-size: 1rem;
+      }
+
+      .faq__columns {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .faq__column {
+        gap: 16px;
+      }
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -1701,6 +1834,33 @@
 
       .result-stats {
         grid-template-columns: 1fr;
+      }
+
+      .faq__wrapper {
+        padding: 28px 20px;
+        border-radius: 24px;
+      }
+
+      .faq__columns {
+        gap: 16px;
+      }
+
+      .faq-item {
+        padding: 18px 20px;
+      }
+
+      .faq-button__text {
+        font-size: 1rem;
+      }
+
+      .faq-button__icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .faq-button__icon svg {
+        width: 14px;
+        height: 14px;
       }
     }
   
@@ -2433,35 +2593,103 @@
   </section>
 
   <!-- FAQ -->
-  <section class="section-padding" style="background: #f9fafb;">
+  <section class="faq-section section-padding">
     <div class="container">
-      <div class="section-header">
-        <h2>Frequently Asked Questions</h2>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What is OpenClaw? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>OpenClaw is an open-source AI agent orchestration framework with over 185,000 GitHub stars. It connects to any LLM (GPT-4, Claude, Llama, Mistral) and lets you build autonomous AI agents that perform real tasks &mdash; answering customer questions, automating workflows, researching topics, managing sales pipelines, and more. It runs locally on your Mac Studio for maximum privacy and zero API costs.</p></div>
+      <div class="faq__wrapper">
+        <div class="faq__header">
+          <span class="faq__eyebrow">Common Questions</span>
+          <h2>OpenClaw Setup &mdash; Answered</h2>
+          <p>Everything you need to know about deploying an AI agent on your Mac Studio.</p>
         </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Why run OpenClaw on a Mac Studio? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>Mac Studio with Apple Silicon (M2 Ultra/M4 Max) provides the most powerful local AI inference available. Running locally means your data never leaves your office, you pay zero ongoing API fees, and you get sub-second response times. The unified memory architecture lets you run 70B+ parameter models that would require expensive cloud GPU instances.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What tasks can OpenClaw handle? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>OpenClaw is highly versatile. Common use cases include customer support automation, sales lead qualification, research and content generation, document analysis, workflow automation, appointment scheduling, internal knowledge base Q&amp;A, code review, data entry, and email triage. With 100+ built-in AgentSkills and 3,000+ community skills, it can be configured for virtually any task.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do I need technical knowledge to use OpenClaw? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>Not after our setup. We handle all the technical configuration &mdash; installing dependencies, setting up the LLM backend, configuring channels, training the agent, and creating documentation. You interact with your agent through familiar interfaces like Slack, WhatsApp, or a web chat widget. We also provide training so your team can manage and update the agent independently.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How long does the setup take? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>Standard setup takes 5 business days. This includes installation, LLM configuration, channel setup, custom training with your data, testing, and handover. Enterprise setups with multiple channels, custom integrations, and advanced security typically take 7-10 business days.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Can I use cloud LLMs instead of local models? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>Yes. OpenClaw supports both local and cloud LLMs. We can configure it to use GPT-4, Claude, or any API-based model alongside local inference. Many clients use a hybrid approach &mdash; local models for routine tasks (zero cost) and cloud models for complex reasoning (pay-per-use). We set up the routing logic so the right model handles the right task.</p></div>
+        <div class="faq__columns">
+          <div class="faq__column">
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">What is OpenClaw?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>OpenClaw is an open-source AI agent orchestration framework with over 185,000 GitHub stars. It connects to any LLM (GPT-4, Claude, Llama, Mistral) and lets you build autonomous AI agents that perform real tasks &mdash; answering customer questions, automating workflows, researching topics, managing sales pipelines, and more. It runs locally on your Mac Studio for maximum privacy and zero API costs.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">Why run OpenClaw on a Mac Studio?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Mac Studio with Apple Silicon (M2 Ultra/M4 Max) provides the most powerful local AI inference available. Running locally means your data never leaves your office, you pay zero ongoing API fees, and you get sub-second response times. The unified memory architecture lets you run 70B+ parameter models that would require expensive cloud GPU instances.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">What tasks can OpenClaw handle?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>OpenClaw is highly versatile. Common use cases include customer support automation, sales lead qualification, research and content generation, document analysis, workflow automation, appointment scheduling, internal knowledge base Q&amp;A, code review, data entry, and email triage. With 100+ built-in AgentSkills and 3,000+ community skills, it can be configured for virtually any task.</p>
+              </div>
+            </article>
+          </div>
+          <div class="faq__column">
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">Do I need technical knowledge to use OpenClaw?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Not after our setup. We handle all the technical configuration &mdash; installing dependencies, setting up the LLM backend, configuring channels, training the agent, and creating documentation. You interact with your agent through familiar interfaces like Slack, WhatsApp, or a web chat widget. We also provide training so your team can manage and update the agent independently.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">How long does the setup take?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Standard setup takes 5 business days. This includes installation, LLM configuration, channel setup, custom training with your data, testing, and handover. Enterprise setups with multiple channels, custom integrations, and advanced security typically take 7-10 business days.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">Can I use cloud LLMs instead of local models?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Yes. OpenClaw supports both local and cloud LLMs. We can configure it to use GPT-4, Claude, or any API-based model alongside local inference. Many clients use a hybrid approach &mdash; local models for routine tasks (zero cost) and cloud models for complex reasoning (pay-per-use). We set up the routing logic so the right model handles the right task.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </div>
@@ -2729,6 +2957,47 @@
       content.classList.toggle('active');
       span.textContent = content.classList.contains('active') ? '\u2212' : '+';
     }
+
+    // FAQ Toggle Function
+    function toggleFAQItem(button) {
+      const item = button.closest('.faq-item');
+      const content = item.querySelector('.faq-content');
+      const isExpanded = item.getAttribute('aria-expanded') === 'true';
+
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(function(other) {
+        if (other !== item) {
+          other.setAttribute('aria-expanded', 'false');
+          var otherContent = other.querySelector('.faq-content');
+          if (otherContent) {
+            otherContent.style.maxHeight = '0px';
+          }
+        }
+      });
+
+      // Toggle current item
+      item.setAttribute('aria-expanded', String(!isExpanded));
+      if (!isExpanded) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = '0px';
+      }
+    }
+
+    // Initialize FAQ on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set initial max-height to 0 for all FAQ content
+      document.querySelectorAll('.faq-content').forEach(function(content) {
+        content.style.maxHeight = '0px';
+      });
+
+      // Recalculate heights on resize
+      window.addEventListener('resize', function() {
+        document.querySelectorAll('.faq-item[aria-expanded="true"] .faq-content').forEach(function(content) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        });
+      });
+    });
 
     // Newsletter Form Handler
     document.getElementById('newsletterForm').addEventListener('submit', async function(e) {

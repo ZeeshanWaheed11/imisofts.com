@@ -1303,55 +1303,166 @@
       color: #22c55e;
     }
 
-    /* FAQ */
-    .faq-list {
-      max-width: 800px;
+    /* FAQ Section */
+    .faq-section {
+      position: relative;
+      background: linear-gradient(135deg, #fff5f0 0%, #f3f7ff 100%);
+      overflow: hidden;
+    }
+
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      inset: -120px auto auto -120px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(244, 84, 7, 0.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .faq__wrapper {
+      position: relative;
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 48px 56px;
+      box-shadow: 0 40px 80px rgba(15, 23, 42, 0.12);
+      border: none;
+      display: grid;
+      gap: 40px;
+    }
+
+    .faq__header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 16px;
+      background: rgba(244, 84, 7, 0.12);
+      color: #F45407;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .faq__header h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #101828;
+      margin: 0;
+    }
+
+    .faq__header p {
+      font-size: 1.05rem;
+      color: #475467;
       margin: 0 auto;
     }
 
-    .faq-item {
-      border-bottom: 1px solid #f0f0f0;
+    .faq__columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
     }
 
-    .faq-question {
+    .faq__column {
+      display: grid;
+      gap: 18px;
+    }
+
+    .faq-item {
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.05) 0%, rgba(255, 255, 255, 0.94) 100%);
+      border-radius: 18px;
+      border: 1px solid rgba(244, 84, 7, 0.12);
+      padding: 22px 26px;
+      box-shadow: 0 18px 32px rgba(15, 23, 42, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 46px rgba(15, 23, 42, 0.12);
+    }
+
+    .faq-item[aria-expanded='true'] {
+      border-color: rgba(244, 84, 7, 0.38);
+      background: linear-gradient(135deg, rgba(244, 84, 7, 0.12) 0%, #ffffff 100%);
+    }
+
+    .faq-button {
+      width: 100%;
+      padding: 0;
+      background: transparent;
+      border: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
+      gap: 16px;
       cursor: pointer;
-      font-size: 16px;
-      font-weight: 600;
-      color: #1a1a1a;
+      color: #101828;
     }
 
-    .faq-question svg {
-      width: 20px;
-      height: 20px;
-      color: #999;
-      transition: transform 0.3s ease;
+    .faq-button__text {
+      font-size: 1.05rem;
+      font-weight: 500;
+      text-align: left;
+      line-height: 1.4;
+      flex: 1;
+    }
+
+    .faq-button__icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(244, 84, 7, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, transform 0.3s ease;
       flex-shrink: 0;
     }
 
-    .faq-item.active .faq-question svg {
-      transform: rotate(180deg);
+    .faq-button__icon svg {
+      width: 16px;
+      height: 16px;
       color: #F45407;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
 
-    .faq-answer {
+    .faq-item[aria-expanded='true'] .faq-button__icon {
+      background: #F45407;
+      transform: rotate(45deg);
+    }
+
+    .faq-item[aria-expanded='true'] .faq-button__icon svg {
+      color: #ffffff;
+    }
+
+    .faq-content {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.35s ease;
+      transition: max-height 0.35s ease, opacity 0.35s ease;
+      opacity: 0;
+      padding-right: 4px;
     }
 
-    .faq-item.active .faq-answer {
-      max-height: 300px;
+    .faq-item[aria-expanded='true'] .faq-content {
+      opacity: 1;
+      margin-top: 14px;
     }
 
-    .faq-answer p {
-      padding: 0 0 20px;
-      font-size: 15px;
-      color: #555;
-      line-height: 1.7;
+    .faq-content p {
+      margin: 0;
+      font-size: 0.96rem;
+      color: #475467;
+      line-height: 1.6;
     }
 
     /* CTA Section */
@@ -1707,6 +1818,28 @@
         gap: 24px;
       }
 
+      .faq__wrapper {
+        padding: 32px 24px;
+        gap: 28px;
+      }
+
+      .faq__header h2 {
+        font-size: 1.9rem;
+      }
+
+      .faq__header p {
+        font-size: 1rem;
+      }
+
+      .faq__columns {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .faq__column {
+        gap: 16px;
+      }
+
       .footer-grid {
         grid-template-columns: 1fr;
         gap: 32px;
@@ -1739,6 +1872,33 @@
 
       .result-stats {
         grid-template-columns: 1fr;
+      }
+
+      .faq__wrapper {
+        padding: 28px 20px;
+        border-radius: 24px;
+      }
+
+      .faq__columns {
+        gap: 16px;
+      }
+
+      .faq-item {
+        padding: 18px 20px;
+      }
+
+      .faq-button__text {
+        font-size: 1rem;
+      }
+
+      .faq-button__icon {
+        width: 30px;
+        height: 30px;
+      }
+
+      .faq-button__icon svg {
+        width: 14px;
+        height: 14px;
       }
     }
   
@@ -2475,43 +2635,131 @@
   </section>
 
   <!-- FAQ -->
-  <section class="section-padding">
+  <section class="faq-section section-padding">
     <div class="container">
-      <div class="section-header">
-        <h2>Frequently Asked Questions</h2>
-      </div>
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What kind of SaaS can you build in 2 weeks? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>We build focused, revenue-ready SaaS products &mdash; CRM tools, booking platforms, dashboards, marketplaces, AI wrappers, workflow automation tools, and more. The key is starting with a well-scoped MVP that solves one core problem exceptionally well. Complex enterprise platforms may take longer, but we'll tell you upfront during the free discovery call.</p></div>
+      <div class="faq__wrapper">
+        <div class="faq__header">
+          <span class="faq__eyebrow">Common Questions</span>
+          <h2>Everything You Need to Know</h2>
+          <p>Straight answers about our SaaS launch process, pricing, and what to expect.</p>
         </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do I own the source code? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>100%. You own every line of code from day one. We deploy to your infrastructure, push to your GitHub repository, and hand over all credentials. No vendor lock-in, no proprietary frameworks, no hostage situations. Your code is yours forever.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What tech stack do you use? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>Modern, battle-tested technologies: Next.js or React for the frontend, Node.js or Python for the backend, PostgreSQL for the database, Stripe for payments, and AWS or Vercel for deployment. We choose the best stack for your specific product &mdash; no one-size-fits-all templates.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What if my SaaS idea is complex? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>We scope every project during a free discovery call. If your idea needs more than 2 weeks, we'll tell you honestly and propose a phased approach: launch the core MVP in 2 weeks, validate with real users, then iterate. The goal is always to get to market fast and let real customer feedback guide what you build next.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">How do you get my first paying customer? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>We define your Ideal Customer Profile (ICP), scrape a targeted list of 1,000+ verified contacts, set up cold email infrastructure with dedicated domains and mailboxes, write multi-touch outbound sequences, and run campaigns until you close your first deal. We've been running cold email at scale for years &mdash; this is what we do.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What's included in post-launch support? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>30 days of active support covering bug fixes, performance optimization, and minor feature adjustments. We also monitor your outbound campaigns and optimize sequences based on reply rates and conversion data. After 30 days, you can extend support on a monthly retainer.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">What if I'm not satisfied? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>If we don't deliver a working, deployed SaaS product within 2 weeks of project kickoff, you get a full refund. No questions asked. We've never had to issue one because we don't take on projects we can't deliver.</p></div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">Do you sign an NDA? <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-          <div class="faq-answer"><p>Absolutely. We sign a mutual NDA before any discovery call. Your idea stays completely confidential. We never build competing products or share your business information with anyone, ever.</p></div>
+        <div class="faq__columns">
+          <div class="faq__column">
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">What kind of SaaS can you build in 2 weeks?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>We build focused, revenue-ready SaaS products &mdash; CRM tools, booking platforms, dashboards, marketplaces, AI wrappers, workflow automation tools, and more. The key is starting with a well-scoped MVP that solves one core problem exceptionally well. Complex enterprise platforms may take longer, but we'll tell you upfront during the free discovery call.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">Do I own the source code?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>100%. You own every line of code from day one. We deploy to your infrastructure, push to your GitHub repository, and hand over all credentials. No vendor lock-in, no proprietary frameworks, no hostage situations. Your code is yours forever.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">What tech stack do you use?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Modern, battle-tested technologies: Next.js or React for the frontend, Node.js or Python for the backend, PostgreSQL for the database, Stripe for payments, and AWS or Vercel for deployment. We choose the best stack for your specific product &mdash; no one-size-fits-all templates.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">What if my SaaS idea is complex?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>We scope every project during a free discovery call. If your idea needs more than 2 weeks, we'll tell you honestly and propose a phased approach: launch the core MVP in 2 weeks, validate with real users, then iterate. The goal is always to get to market fast and let real customer feedback guide what you build next.</p>
+              </div>
+            </article>
+          </div>
+          <div class="faq__column">
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">How do you get my first paying customer?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>We define your Ideal Customer Profile (ICP), scrape a targeted list of 1,000+ verified contacts, set up cold email infrastructure with dedicated domains and mailboxes, write multi-touch outbound sequences, and run campaigns until you close your first deal. We've been running cold email at scale for years &mdash; this is what we do.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">What's included in post-launch support?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>30 days of active support covering bug fixes, performance optimization, and minor feature adjustments. We also monitor your outbound campaigns and optimize sequences based on reply rates and conversion data. After 30 days, you can extend support on a monthly retainer.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">What if I'm not satisfied?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>If we don't deliver a working, deployed SaaS product within 2 weeks of project kickoff, you get a full refund. No questions asked. We've never had to issue one because we don't take on projects we can't deliver.</p>
+              </div>
+            </article>
+            <article class="faq-item" aria-expanded="false">
+              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
+                <span class="faq-button__text">Do you sign an NDA?</span>
+                <span class="faq-button__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"/>
+                    <path d="M12 5v14"/>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content">
+                <p>Absolutely. We sign a mutual NDA before any discovery call. Your idea stays completely confidential. We never build competing products or share your business information with anyone, ever.</p>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </div>
@@ -2779,6 +3027,47 @@
       content.classList.toggle('active');
       span.textContent = content.classList.contains('active') ? '\u2212' : '+';
     }
+
+    // FAQ Toggle Function
+    function toggleFAQItem(button) {
+      const item = button.closest('.faq-item');
+      const content = item.querySelector('.faq-content');
+      const isExpanded = item.getAttribute('aria-expanded') === 'true';
+
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(function(other) {
+        if (other !== item) {
+          other.setAttribute('aria-expanded', 'false');
+          var otherContent = other.querySelector('.faq-content');
+          if (otherContent) {
+            otherContent.style.maxHeight = '0px';
+          }
+        }
+      });
+
+      // Toggle current item
+      item.setAttribute('aria-expanded', String(!isExpanded));
+      if (!isExpanded) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = '0px';
+      }
+    }
+
+    // Initialize FAQ on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Set initial max-height to 0 for all FAQ content
+      document.querySelectorAll('.faq-content').forEach(function(content) {
+        content.style.maxHeight = '0px';
+      });
+
+      // Recalculate heights on resize
+      window.addEventListener('resize', function() {
+        document.querySelectorAll('.faq-item[aria-expanded="true"] .faq-content').forEach(function(content) {
+          content.style.maxHeight = content.scrollHeight + 'px';
+        });
+      });
+    });
 
     // Newsletter Form Handler
     document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
