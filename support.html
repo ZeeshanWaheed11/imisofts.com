@@ -35,6 +35,52 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Support Center",
+    "description": "Get support for your imisofts services. Find answers in our knowledge base, submit a ticket, or schedule a call with our support team.",
+    "url": "https://imisofts.com/support",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "imisofts",
+      "url": "https://imisofts.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "imisofts",
+      "url": "https://imisofts.com",
+      "logo": "https://imisofts.com/logo.svg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@imisofts.com",
+        "availableLanguage": ["English"]
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://imisofts.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Support",
+          "item": "https://imisofts.com/support"
+        }
+      ]
+    }
+  }
+  </script>
+
   <style>
     * {
       margin: 0;
@@ -1028,7 +1074,9 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar" id="navbar">
+  <header>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-container">
         <a href="/" class="nav-logo-wrapper">
@@ -1305,6 +1353,9 @@
       </div>
     </div>
   </nav>
+  </header>
+
+  <main>
 
   <!-- Hero Section -->
   <section class="hero-section">
@@ -1463,7 +1514,9 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  </main>
+
+  <footer class="footer" role="contentinfo" aria-label="Site footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">

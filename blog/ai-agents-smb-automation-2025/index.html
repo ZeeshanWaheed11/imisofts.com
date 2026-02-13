@@ -826,7 +826,9 @@
   <div class="reading-progress" id="reading-progress"></div>
   
   <!-- ============= NAVBAR ============= -->
-  <nav class="navbar" id="navbar">
+  <header>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-container">
         <!-- Logo -->
@@ -1053,6 +1055,9 @@
       </div>
     </div>
   </nav>
+  </header>
+
+  <main>
 
   <!-- Blog Hero Section -->
   <div class="blog-hero">
@@ -1063,7 +1068,7 @@
       <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 16px 0 24px 0;">
         <a href="/author/zeeshan-waheed/" style="display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">
           <img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed.jpg?v=1757588956" alt="Zeeshan Waheed" 
-               width="24" height="24" style="border-radius: 50%; object-fit: cover;">
+               width="24" height="24" style="border-radius: 50%; object-fit: cover;" loading="lazy">
           <span>By <strong>Zeeshan Waheed</strong></span>
         </a>
       </div>
@@ -1241,7 +1246,9 @@
   </div>
 
   <!-- ============= FOOTER ============= -->
-  <footer class="footer">
+  </main>
+
+  <footer class="footer" role="contentinfo" aria-label="Site footer">
     <div class="container">
       <div class="footer-grid">
         <!-- Brand Column -->
