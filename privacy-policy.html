@@ -26,7 +26,47 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy",
+    "description": "Privacy Policy for imisofts - Learn how we collect, use, and protect your personal information when using our AI automation and digital services.",
+    "url": "https://imisofts.com/privacy-policy",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "imisofts",
+      "url": "https://imisofts.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "imisofts",
+      "url": "https://imisofts.com",
+      "logo": "https://imisofts.com/logo.svg"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://imisofts.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Privacy Policy",
+          "item": "https://imisofts.com/privacy-policy"
+        }
+      ]
+    }
+  }
+  </script>
+
   <style>
     /* Reset and Base Styles */
     * {
@@ -885,7 +925,9 @@
 
 <body>
   <!-- ============= NAVBAR ============= -->
-  <nav class="navbar" id="navbar">
+  <header>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <div class="nav-container">
         <a href="/" class="nav-logo-wrapper">
@@ -1162,6 +1204,7 @@
       </div>
     </div>
   </nav>
+  </header>
 
   <main>
     <!-- Privacy Policy Hero -->
@@ -1256,7 +1299,7 @@
   </main>
 
   <!-- ============= FOOTER ============= -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo" aria-label="Site footer">
     <div class="container">
       <div class="footer-grid">
         <!-- Brand Column -->
