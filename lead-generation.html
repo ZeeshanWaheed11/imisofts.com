@@ -1264,9 +1264,17 @@
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr 1.3fr;
-      gap: 28px;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 32px 48px;
       margin-bottom: 60px;
+    }
+
+    .footer-brand {
+      grid-row: span 2;
+    }
+
+    .footer-newsletter-col {
+      grid-column: span 2;
     }
     .footer-brand p { font-size: 15px; line-height: 1.6; margin-bottom: 24px; color: #999; }
     .footer-social { display: flex; gap: 12px; }
@@ -1364,6 +1372,13 @@
       .faq-columns { grid-template-columns: 1fr; }
       .faq-wrapper { padding: 32px 24px; }
       .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-brand {
+        grid-row: span 1 !important;
+      }
+
+      .footer-newsletter-col {
+        grid-column: span 1 !important;
+      }
       .footer-bottom { flex-direction: column; text-align: center; }
       .section-padding { padding: 60px 0; }
       .btn-primary, .btn-secondary { width: 100%; }
@@ -1376,6 +1391,22 @@
       .hero-lead { font-size: 1rem; }
       .hero-body { font-size: 0.95rem; }
     }
+      @media (min-width: 769px) and (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 32px !important;
+      }
+
+      .footer-brand {
+        grid-row: span 1 !important;
+        grid-column: span 3 !important;
+      }
+
+      .footer-newsletter-col {
+        grid-column: span 2 !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2386,7 +2417,7 @@
           </ul>
         </div>
 
-        <!-- Company & Resources Column -->
+        <!-- Company Column -->
         <div class="footer-column">
           <h4>Company</h4>
           <ul class="footer-links">
@@ -2397,7 +2428,11 @@
             <li><a href="/contact">Contact</a></li>
             <li><a href="https://app.imisofts.com/login">Sign In</a></li>
           </ul>
-          <h4 style="margin-top: 20px;">Resources</h4>
+        </div>
+
+        <!-- Resources Column -->
+        <div class="footer-column">
+          <h4>Resources</h4>
           <ul class="footer-links">
             <li><a href="/free-audit">Free Audit</a></li>
             <li><a href="/faq">FAQ</a></li>
