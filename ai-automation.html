@@ -931,8 +931,8 @@
     
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
-      gap: 48px;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr 1.3fr;
+      gap: 28px;
       margin-bottom: 60px;
     }
     
@@ -1316,7 +1316,12 @@
     @media (min-width: 769px) and (max-width: 1024px) {
       .grid-4 {
         grid-template-columns: repeat(2, 1fr);
+
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 32px !important;
       }
+    }
     }
   </style>
 </head>
@@ -2601,26 +2606,57 @@
           </div>
         </div>
         
-        <!-- Services Column -->
+        <!-- Growth Column -->
         <div class="footer-column">
-          <h4>Services</h4>
+          <h4>Growth</h4>
           <ul class="footer-links">
-            <li><a href="/ai-automation">AI Automation</a></li>
-            <li><a href="/digital-marketing">Digital Marketing</a></li>
             <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
-            <li><a href="/ecommerce">E-commerce</a></li>
-            <li><a href="/web-development">Web Development</a></li>
-            <li><a href="/crm-development">CRM Systems</a></li>
-            <li><a href="/shopify-apps">Shopify Apps</a></li>
-            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
             <li><a href="/lead-generation">Lead Generation</a></li>
+            <li><a href="/digital-marketing">Digital Marketing</a></li>
+            <li><a href="/ai-automation">AI Automation</a></li>
             <li><a href="/gohighlevel-services">GoHighLevel Services</a></li>
-            <li><a href="/launch-your-saas">Launch Your SaaS</a></li>
             <li><a href="/openclaw-setup">OpenClaw Setup</a></li>
           </ul>
         </div>
 
-        <!-- Company Column -->
+        <!-- Development Column -->
+        <div class="footer-column">
+          <h4>Development</h4>
+          <ul class="footer-links">
+            <li><a href="/web-development">Web Development</a></li>
+            <li><a href="/ecommerce">E-commerce</a></li>
+            <li><a href="/crm-development">CRM Development</a></li>
+            <li><a href="/shopify-apps">Shopify Apps</a></li>
+            <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+            <li><a href="/launch-your-saas">Launch Your SaaS</a></li>
+          </ul>
+        </div>
+
+        <!-- Hire a Specialist Column -->
+        <div class="footer-column">
+          <h4>Hire a Specialist</h4>
+          <ul class="footer-links">
+            <li><a href="/hire-cold-email-expert">Cold Email Expert</a></li>
+            <li><a href="/hire-gohighlevel-developer">GoHighLevel Developer</a></li>
+            <li><a href="/hire-n8n-developer">n8n Developer</a></li>
+            <li><a href="/hire-ai-engineer">AI Engineer</a></li>
+            <li><a href="/hire-shopify-expert">Shopify Expert</a></li>
+          </ul>
+        </div>
+
+        <!-- Industries Column -->
+        <div class="footer-column">
+          <h4>Industries</h4>
+          <ul class="footer-links">
+            <li><a href="/cold-email-saas">Cold Email for SaaS</a></li>
+            <li><a href="/lead-generation-agencies">Lead Gen for Agencies</a></li>
+            <li><a href="/ai-automation-ecommerce">AI for E-commerce</a></li>
+            <li><a href="/cold-email-recruiters">Email for Recruiters</a></li>
+            <li><a href="/gohighlevel-real-estate">GHL for Real Estate</a></li>
+          </ul>
+        </div>
+
+        <!-- Company & Resources Column -->
         <div class="footer-column">
           <h4>Company</h4>
           <ul class="footer-links">
@@ -2631,11 +2667,7 @@
             <li><a href="/contact">Contact</a></li>
             <li><a href="https://app.imisofts.com/login">Sign In</a></li>
           </ul>
-        </div>
-
-        <!-- Resources Column -->
-        <div class="footer-column">
-          <h4>Resources</h4>
+          <h4 style="margin-top: 20px;">Resources</h4>
           <ul class="footer-links">
             <li><a href="/free-audit">Free Audit</a></li>
             <li><a href="/faq">FAQ</a></li>
