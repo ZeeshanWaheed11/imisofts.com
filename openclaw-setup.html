@@ -1568,22 +1568,71 @@
       padding: 80px 0 40px;
     }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-      gap: 32px 48px;
-      margin-bottom: 60px;
+    
+
+    
+
+    
+
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 48px;
     }
 
     .footer-brand {
-      grid-row: span 2;
+      flex-shrink: 0;
+      max-width: 340px;
     }
 
-    .footer-newsletter-col {
-      grid-column: span 2;
+    .footer-cta {
+      max-width: 420px;
     }
 
-    .footer-brand p {
+    .footer-cta h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .footer-cta > p {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 16px;
+    }
+
+    .footer-contact-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .footer-contact-row a,
+    .footer-contact-row span {
+      color: #999;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-contact-row a:hover {
+      color: #F45407;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px;
+      padding-bottom: 48px;
+    }
+
+        .footer-brand p {
       font-size: 15px;
       line-height: 1.6;
       margin-bottom: 24px;
@@ -1809,20 +1858,7 @@
       .faq__column {
         gap: 16px;
       }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .footer-brand {
-        grid-row: span 1 !important;
-      }
-
-      .footer-newsletter-col {
-        grid-column: span 1 !important;
-      }
-
-      .footer-bottom {
+.footer-bottom {
         flex-direction: column;
         gap: 20px;
       }
@@ -1835,6 +1871,29 @@
       .final-cta {
         padding: 48px 0;
       }
+      .footer-top {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      .footer-brand {
+        max-width: 100%;
+      }
+
+      .footer-cta {
+        max-width: 100%;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+      }
+
+      .footer-contact-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+
     }
 
     @media (max-width: 480px) {
@@ -1982,21 +2041,12 @@
       }
     }
       @media (min-width: 769px) and (max-width: 1024px) {
-      .footer-grid {
+      .footer-links-grid {
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 32px !important;
+        gap: 28px !important;
       }
 
-      .footer-brand {
-        grid-row: span 1 !important;
-        grid-column: span 3 !important;
-      }
-
-      .footer-newsletter-col {
-        grid-column: span 2 !important;
-      }
     }
-
   </style>
 </head>
 <body>
@@ -2761,53 +2811,60 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer" role="contentinfo" aria-label="Site footer">
+    <footer class="footer" role="contentinfo" aria-label="Site footer">
     <div class="container">
-      <div class="footer-grid">
-        <!-- Brand Column -->
+
+      <!-- Footer Top: Brand + Newsletter -->
+      <div class="footer-top">
         <div class="footer-brand">
-          <!-- Logo for dark background -->
           <div style="margin-bottom: 24px;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" width="260" height="74" role="img" aria-label="imisofts logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" width="220" height="62" role="img" aria-label="imisofts logo">
               <g fill="#F45407">
                 <circle cx="48" cy="170" r="18"/>
                 <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
                 <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
               </g>
               <g transform="translate(200,188)">
-                <text x="0" y="0"
-                      font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto"
-                      font-weight="700" font-size="96" letter-spacing="-0.5"
-                      fill="#FFFFFF">imisofts</text>
+                <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#FFFFFF">imisofts</text>
               </g>
             </svg>
           </div>
           <p>From idea to revenue in 30 days. We ship AI automation, performance marketing, and web development that actually works.</p>
           <div class="footer-social">
             <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
-              <svg fill="currentColor" viewBox="0 0 24 24" role="img">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-              </svg>
+              <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
             <a href="https://twitter.com/imisofts" aria-label="Twitter">
-              <svg fill="currentColor" viewBox="0 0 24 24" role="img">
-                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-              </svg>
+              <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
             </a>
             <a href="https://instagram.com/imisofts" aria-label="Instagram">
-              <svg fill="currentColor" viewBox="0 0 24 24" role="img">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/>
-              </svg>
+              <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/></svg>
             </a>
             <a href="https://github.com/imisofts" aria-label="GitHub">
-              <svg fill="currentColor" viewBox="0 0 24 24" role="img">
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-              </svg>
+              <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
             </a>
           </div>
         </div>
+        <div class="footer-cta">
+          <div class="footer-newsletter">
+            <h4>Stay Updated</h4>
+            <p>Get the latest on AI automation and growth strategies</p>
+            <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/mrbylkvp" method="POST">
+              <input type="email" name="newsletter_email" class="newsletter-input" placeholder="Enter your email" required>
+              <input type="hidden" name="_subject" value="New Newsletter Subscription">
+              <button type="submit" class="newsletter-btn" id="newsletterBtn">Subscribe</button>
+            </form>
+            <div id="newsletterMessage" style="margin-top: 12px; padding: 10px; border-radius: 6px; display: none; text-align: center; font-size: 14px; font-weight: 500;"></div>
+          </div>
+          <div class="footer-contact-row">
+            <a href="mailto:growth@imisofts.com">growth@imisofts.com</a>
+            <span>+971 52 432 0369</span>
+          </div>
+        </div>
+      </div>
 
-        <!-- Growth Column -->
+      <!-- Footer Links -->
+      <div class="footer-links-grid">
         <div class="footer-column">
           <h4>Growth</h4>
           <ul class="footer-links">
@@ -2819,8 +2876,6 @@
             <li><a href="/openclaw-setup">OpenClaw Setup</a></li>
           </ul>
         </div>
-
-        <!-- Development Column -->
         <div class="footer-column">
           <h4>Development</h4>
           <ul class="footer-links">
@@ -2832,8 +2887,6 @@
             <li><a href="/launch-your-saas">Launch Your SaaS</a></li>
           </ul>
         </div>
-
-        <!-- Hire a Specialist Column -->
         <div class="footer-column">
           <h4>Hire a Specialist</h4>
           <ul class="footer-links">
@@ -2844,8 +2897,6 @@
             <li><a href="/hire-shopify-expert">Shopify Expert</a></li>
           </ul>
         </div>
-
-        <!-- Industries Column -->
         <div class="footer-column">
           <h4>Industries</h4>
           <ul class="footer-links">
@@ -2856,8 +2907,6 @@
             <li><a href="/gohighlevel-real-estate">GHL for Real Estate</a></li>
           </ul>
         </div>
-
-        <!-- Company Column -->
         <div class="footer-column">
           <h4>Company</h4>
           <ul class="footer-links">
@@ -2869,8 +2918,6 @@
             <li><a href="https://app.imisofts.com/login">Sign In</a></li>
           </ul>
         </div>
-
-        <!-- Resources Column -->
         <div class="footer-column">
           <h4>Resources</h4>
           <ul class="footer-links">
@@ -2879,25 +2926,6 @@
             <li><a href="/support">Support</a></li>
             <li><a href="/api-docs">API Docs</a></li>
           </ul>
-        </div>
-
-        <!-- Newsletter Column -->
-        <div class="footer-column">
-          <div class="footer-newsletter">
-            <h4>Stay Updated</h4>
-            <p>Get the latest on AI automation and growth strategies</p>
-            <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/mrbylkvp" method="POST">
-              <input type="email" name="newsletter_email" class="newsletter-input" placeholder="Enter your email" required>
-              <input type="hidden" name="_subject" value="New Newsletter Subscription">
-              <button type="submit" class="newsletter-btn" id="newsletterBtn">Subscribe</button>
-            </form>
-            <div id="newsletterMessage" style="margin-top: 12px; padding: 10px; border-radius: 6px; display: none; text-align: center; font-size: 14px; font-weight: 500;"></div>
-          </div>
-          <div style="margin-top: 24px;">
-            <p style="font-size: 14px; color: #999; margin-bottom: 8px;">Contact us directly:</p>
-            <p style="font-size: 15px; color: white;">growth@imisofts.com</p>
-            <p style="font-size: 15px; color: white;">+971 52 432 0369</p>
-          </div>
         </div>
       </div>
 
