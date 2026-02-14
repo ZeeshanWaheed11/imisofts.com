@@ -2965,113 +2965,6 @@
 
     }
 
-    /* Package Carousel */
-    .pkg-carousel {
-      position: relative;
-      padding: 0 52px;
-    }
-
-    .pkg-carousel-track {
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      padding: 16px 4px;
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    .pkg-carousel-track::-webkit-scrollbar {
-      display: none;
-    }
-
-    .pkg-card {
-      flex: 0 0 calc(33.333% - 16px);
-      scroll-snap-align: start;
-      min-width: 300px;
-      background: white;
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid #e5e5e5;
-      display: flex;
-      flex-direction: column;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .pkg-card:hover {
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-    }
-
-    .pkg-card--featured {
-      border: 2px solid #F45407;
-    }
-
-    .pkg-card--dark {
-      background: linear-gradient(135deg, #0f172a, #1f2937);
-      border-color: transparent;
-    }
-
-    .pkg-card--dark:hover {
-      box-shadow: 0 8px 32px rgba(15,23,42,0.3);
-    }
-
-    .pkg-carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-60%);
-      z-index: 10;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: white;
-      border: 1px solid #e5e5e5;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      padding: 0;
-    }
-
-    .pkg-carousel-prev { left: 0; }
-    .pkg-carousel-next { right: 0; }
-
-    .pkg-carousel-btn:hover {
-      background: #F45407;
-      border-color: #F45407;
-      box-shadow: 0 4px 16px rgba(244,84,7,0.3);
-    }
-
-    .pkg-carousel-btn:hover svg {
-      stroke: white;
-    }
-
-    .pkg-carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 32px;
-    }
-
-    .pkg-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #d1d5db;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      padding: 0;
-    }
-
-    .pkg-dot.active {
-      background: #F45407;
-      width: 24px;
-      border-radius: 4px;
-    }
-
     /* Comparison table scroll */
     .comparison-table-wrapper {
       overflow-x: auto;
@@ -3094,28 +2987,6 @@
       background: #f9fafb;
     }
 
-    @media (max-width: 768px) {
-      .pkg-carousel {
-        padding: 0;
-      }
-      .pkg-card {
-        flex: 0 0 100%;
-        min-width: unset;
-      }
-      .pkg-carousel-btn {
-        display: none;
-      }
-    }
-
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .pkg-carousel {
-        padding: 0 52px;
-      }
-      .pkg-card {
-        flex: 0 0 calc(50% - 12px);
-        min-width: unset;
-      }
-    }
   </style>
 </head>
 <body>
@@ -4307,225 +4178,387 @@
               <polyline points="12 6 12 12 16 14"/>
             </svg>
           </div>
-          <span style="font-size: 14px; font-weight: 600; color: #92400e;">Only accepting <strong style="color: #b45309;">3 new clients</strong> in January 2026</span>
+          <span style="font-size: 14px; font-weight: 600; color: #92400e;">Only accepting <strong style="color: #b45309;">3 new clients</strong> in February 2026</span>
         </div>
       </div>
 
       <!-- Infrastructure Packages -->
-      <div class="pkg-carousel">
-        <button class="pkg-carousel-btn pkg-carousel-prev" onclick="scrollPkgCarousel(-1)" aria-label="Previous packages">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-        </button>
-
-        <div class="pkg-carousel-track" id="pkgTrack">
-
-          <!-- 1. Starter -->
-          <div class="pkg-card">
-            <div style="flex-grow: 1;">
-              <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Starter</h3>
-              <div style="margin: 16px 0;">
-                <span style="font-size: 32px; font-weight: 500; color: #F45407;">$489</span>
-                <span style="font-size: 16px; color: #666;">/year</span>
-              </div>
-              <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500;">Reliable infrastructure for early-stage campaigns.</p>
-              <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 10 domains &amp; 50 professional inboxes</p>
-              <div style="margin-bottom: 24px;">
-                <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
-                <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>10 sending domains with 50 warmed inboxes</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>DNS authentication (SPF, DKIM, DMARC) handled</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>IP rotation &amp; reputation safeguards</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>14-day automated warm-up protocol</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Instantly/Smartlead integration and QA</span></li>
-                  <li style="display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Monthly deliverability health snapshot</span></li>
-                </ul>
-              </div>
-              <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;"><strong>Best for:</strong> Agencies testing cold email with healthy sender reputation</p>
+      <div id="infrastructure-packages" class="grid grid-3" style="gap: 32px; padding-top: 16px;">
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5; display: flex; flex-direction: column;">
+          <div style="flex-grow: 1;">
+            <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Starter</h3>
+            <div style="margin: 16px 0;">
+              <span style="font-size: 32px; font-weight: 500; color: #F45407;">$489</span>
+              <span style="font-size: 16px; color: #666;">/year</span>
             </div>
-            <a href="https://pay.ziina.com/imisoft/_z7AN9HyY" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;" target="_blank">Get Started</a>
+            <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500;">Reliable infrastructure for early-stage campaigns.</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 10 domains &amp; 50 professional inboxes</p>
+
+            <div style="margin-bottom: 24px;">
+              <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
+              <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>10 sending domains with 50 warmed inboxes</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>DNS authentication (SPF, DKIM, DMARC) handled</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>IP rotation &amp; reputation safeguards</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>14-day automated warm-up protocol</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Instantly/Smartlead integration and QA</span>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Monthly deliverability health snapshot</span>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+              <strong>Best for:</strong> Agencies testing cold email with healthy sender reputation
+            </p>
           </div>
 
-          <!-- 2. Professional -->
-          <div class="pkg-card pkg-card--featured">
-            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px;">BEST VALUE</div>
-            <div style="flex-grow: 1;">
-              <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Professional</h3>
-              <div style="margin: 16px 0;">
-                <span style="font-size: 32px; font-weight: 500; color: #F45407;">$1,225</span>
-                <span style="font-size: 16px; color: #666;">/year</span>
-              </div>
-              <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500;">Scaled infrastructure with redundancy &amp; monitoring.</p>
-              <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 25 domains &amp; 125 professional inboxes</p>
-              <div style="margin-bottom: 24px;">
-                <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
-                <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>25 sending domains with geo &amp; risk segmentation</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Dedicated tracking &amp; bounce handling infrastructure</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Multi-provider routing (Google, Microsoft, custom)</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Automated warm-up with blacklist monitoring</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Monthly deliverability review with analyst</span></li>
-                  <li style="display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Priority Slack support during business hours</span></li>
-                </ul>
-              </div>
-              <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;"><strong>Best for:</strong> Agencies &amp; SaaS teams scaling outbound volume responsibly</p>
-            </div>
-            <a href="https://pay.ziina.com/imisoft/KpYeBB4m5" style="display: block; text-align: center; padding: 12px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;" target="_blank">Get Started</a>
-          </div>
-
-          <!-- 3. Enterprise -->
-          <div class="pkg-card pkg-card--dark" style="position: relative;">
-            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: white; color: #0f172a; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px;">ENTERPRISE</div>
-            <div style="flex-grow: 1;">
-              <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px; color: white;">Enterprise</h3>
-              <div style="margin: 16px 0;">
-                <span style="font-size: 32px; font-weight: 500; color: white;">$2,450</span>
-                <span style="font-size: 16px; color: rgba(255,255,255,0.8);">/year</span>
-              </div>
-              <p style="font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 8px; font-weight: 500;">Dedicated infrastructure for high-volume outbound.</p>
-              <p style="font-size: 12px; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Includes 50 domains &amp; 250 professional inboxes</p>
-              <div style="margin-bottom: 24px;">
-                <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: white;">What you get:</p>
-                <ul style="font-size: 14px; color: rgba(255,255,255,0.85); list-style: none; padding: 0;">
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>50 domains with automated scaling playbooks</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Dedicated server cluster &amp; custom routing rules</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Advanced warming schedules &amp; IP warming</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Deliverability command center &amp; dashboards</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>24/7 priority escalation &amp; remediation</span></li>
-                  <li style="display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Quarterly strategy workshops &amp; training</span></li>
-                </ul>
-              </div>
-              <p style="font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.25);"><strong>Best for:</strong> Enterprise sales teams needing bulletproof deliverability at volume</p>
-            </div>
-            <a href="https://pay.ziina.com/imisoft/-LLRAX4Sj" style="display: block; text-align: center; padding: 12px; background: white; color: #0f172a; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;" target="_blank">Get Started</a>
-          </div>
-
-          <!-- 4. Scale (100 domains) -->
-          <div class="pkg-card">
-            <div style="flex-grow: 1;">
-              <div style="display: inline-block; background: #eff6ff; color: #2563eb; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px;">100 DOMAINS</div>
-              <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Scale</h3>
-              <div style="margin: 16px 0;">
-                <span style="font-size: 32px; font-weight: 500; color: #F45407;">$4,500</span>
-                <span style="font-size: 16px; color: #666;">/year</span>
-              </div>
-              <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500;">Multi-brand infrastructure with dedicated resources.</p>
-              <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 100 domains &amp; 500 professional inboxes</p>
-              <div style="margin-bottom: 24px;">
-                <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
-                <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>100 sending domains with 500 warmed inboxes</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Multi-brand domain segmentation &amp; isolation</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Dedicated server cluster &amp; custom routing</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Advanced warming with automated rotation</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Real-time deliverability command center</span></li>
-                  <li style="display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Dedicated account manager &amp; Slack support</span></li>
-                </ul>
-              </div>
-              <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;"><strong>Best for:</strong> Growing teams with multiple products or regional campaigns</p>
-            </div>
-            <a href="/contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;">Contact Sales</a>
-          </div>
-
-          <!-- 5. Scale Pro (200 domains) -->
-          <div class="pkg-card pkg-card--featured" style="position: relative;">
-            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px;">POPULAR</div>
-            <div style="flex-grow: 1;">
-              <div style="display: inline-block; background: #fef3c7; color: #b45309; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px;">200 DOMAINS</div>
-              <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Scale Pro</h3>
-              <div style="margin: 16px 0;">
-                <span style="font-size: 32px; font-weight: 500; color: #F45407;">$7,999</span>
-                <span style="font-size: 16px; color: #666;">/year</span>
-              </div>
-              <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500;">Multi-geo architecture with full automation.</p>
-              <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 200 domains &amp; 1,000 professional inboxes</p>
-              <div style="margin-bottom: 24px;">
-                <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
-                <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>200 sending domains with 1,000 warmed inboxes</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Multi-geo domain architecture &amp; routing</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Distributed server clusters across regions</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Automated domain health rotation &amp; recovery</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Custom API integrations &amp; webhook alerts</span></li>
-                  <li style="display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>24/7 priority support with SLA guarantees</span></li>
-                </ul>
-              </div>
-              <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;"><strong>Best for:</strong> Mid-market companies running multi-brand outbound at scale</p>
-            </div>
-            <a href="/contact" style="display: block; text-align: center; padding: 12px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;">Contact Sales</a>
-          </div>
-
-          <!-- 6. Agency (300 domains) -->
-          <div class="pkg-card">
-            <div style="flex-grow: 1;">
-              <div style="display: inline-block; background: #ecfdf5; color: #059669; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px;">300 DOMAINS</div>
-              <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Agency</h3>
-              <div style="margin: 16px 0;">
-                <span style="font-size: 32px; font-weight: 500; color: #F45407;">$10,499</span>
-                <span style="font-size: 16px; color: #666;">/year</span>
-              </div>
-              <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500;">Multi-client infrastructure with white-label option.</p>
-              <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 300 domains &amp; 1,500 professional inboxes</p>
-              <div style="margin-bottom: 24px;">
-                <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
-                <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>300 sending domains with 1,500 warmed inboxes</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Multi-client domain isolation &amp; management</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>White-label infrastructure available</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Automated scaling &amp; rotation playbooks</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Dedicated deliverability team assigned</span></li>
-                  <li style="display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Monthly strategy sessions &amp; reviews</span></li>
-                </ul>
-              </div>
-              <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;"><strong>Best for:</strong> Agencies managing cold email for multiple clients</p>
-            </div>
-            <a href="/contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;">Contact Sales</a>
-          </div>
-
-          <!-- 7. Agency Pro (500 domains) -->
-          <div class="pkg-card pkg-card--dark" style="position: relative;">
-            <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #F45407, #ff6b28); color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px;">MAX VOLUME</div>
-            <div style="flex-grow: 1;">
-              <div style="display: inline-block; background: rgba(244,84,7,0.15); color: #F45407; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px;">500 DOMAINS</div>
-              <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px; color: white;">Agency Pro</h3>
-              <div style="margin: 16px 0;">
-                <span style="font-size: 32px; font-weight: 500; color: white;">$13,999</span>
-                <span style="font-size: 16px; color: rgba(255,255,255,0.8);">/year</span>
-              </div>
-              <p style="font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 8px; font-weight: 500;">Full-scale infrastructure with dedicated engineering.</p>
-              <p style="font-size: 12px; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Includes 500 domains &amp; 2,500 professional inboxes</p>
-              <div style="margin-bottom: 24px;">
-                <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: white;">What you get:</p>
-                <ul style="font-size: 14px; color: rgba(255,255,255,0.85); list-style: none; padding: 0;">
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>500 sending domains with 2,500 warmed inboxes</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Full multi-client, multi-brand architecture</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Custom SLA &amp; uptime guarantees</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Dedicated infrastructure &amp; engineering team</span></li>
-                  <li style="margin-bottom: 10px; display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Real-time analytics pipeline &amp; API access</span></li>
-                  <li style="display: flex; align-items: flex-start;"><span style="color: #10b981; margin-right: 8px;">&#10003;</span><span>Executive quarterly business reviews</span></li>
-                </ul>
-              </div>
-              <p style="font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.25);"><strong>Best for:</strong> Large agencies &amp; enterprises needing maximum volume infrastructure</p>
-            </div>
-            <a href="/contact" style="display: block; text-align: center; padding: 12px; background: white; color: #0f172a; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;">Contact Sales</a>
-          </div>
-
+          <a href="https://pay.ziina.com/imisoft/_z7AN9HyY" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;" target="_blank">
+            Get Started
+          </a>
         </div>
 
-        <button class="pkg-carousel-btn pkg-carousel-next" onclick="scrollPkgCarousel(1)" aria-label="Next packages">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
+        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative; display: flex; flex-direction: column;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px;">
+            BEST VALUE
+          </div>
+          <div style="flex-grow: 1;">
+            <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Professional</h3>
+            <div style="margin: 16px 0;">
+              <span style="font-size: 32px; font-weight: 500; color: #F45407;">$1,225</span>
+              <span style="font-size: 16px; color: #666;">/year</span>
+            </div>
+            <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500;">Scaled infrastructure with redundancy &amp; monitoring.</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 25 domains &amp; 125 professional inboxes</p>
 
-        <!-- Dots -->
-        <div class="pkg-carousel-dots" id="pkgDots">
-          <button class="pkg-dot active" onclick="scrollToPkg(0)"></button>
-          <button class="pkg-dot" onclick="scrollToPkg(1)"></button>
-          <button class="pkg-dot" onclick="scrollToPkg(2)"></button>
-          <button class="pkg-dot" onclick="scrollToPkg(3)"></button>
-          <button class="pkg-dot" onclick="scrollToPkg(4)"></button>
-          <button class="pkg-dot" onclick="scrollToPkg(5)"></button>
-          <button class="pkg-dot" onclick="scrollToPkg(6)"></button>
+            <div style="margin-bottom: 24px;">
+              <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
+              <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>25 sending domains with geo &amp; risk segmentation</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Dedicated tracking &amp; bounce handling infrastructure</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Multi-provider routing (Google, Microsoft, custom)</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Automated warm-up with blacklist monitoring</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Monthly deliverability review with analyst</span>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Priority Slack support during business hours</span>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+              <strong>Best for:</strong> Agencies &amp; SaaS teams scaling outbound volume responsibly
+            </p>
+          </div>
+
+          <a href="https://pay.ziina.com/imisoft/KpYeBB4m5" style="display: block; text-align: center; padding: 12px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;" target="_blank">
+            Get Started
+          </a>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #0f172a, #1f2937); color: white; padding: 32px; border-radius: 16px; display: flex; flex-direction: column; position: relative;">
+          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: white; color: #0f172a; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px;">
+            ENTERPRISE
+          </div>
+          <div style="flex-grow: 1;">
+            <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Enterprise</h3>
+            <div style="margin: 16px 0;">
+              <span style="font-size: 32px; font-weight: 500; color: white;">$2,450+</span>
+              <span style="font-size: 16px; color: rgba(255,255,255,0.8);">/year</span>
+            </div>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 8px; font-weight: 500;">Custom infrastructure for large-scale, multi-brand outbound.</p>
+            <p style="font-size: 12px; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Includes 50+ domains &amp; 250+ professional inboxes</p>
+
+            <div style="margin-bottom: 24px;">
+              <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: white;">What you get:</p>
+              <ul style="font-size: 14px; color: rgba(255,255,255,0.85); list-style: none; padding: 0;">
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>50+ domains with automated scaling playbooks</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Dedicated server cluster &amp; custom routing rules</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Advanced warming schedules &amp; IP warming</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Deliverability command center &amp; dashboards</span>
+                </li>
+                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>24/7 priority escalation &amp; remediation</span>
+                </li>
+                <li style="display: flex; align-items: flex-start;">
+                  <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                  <span>Quarterly strategy workshops &amp; training</span>
+                </li>
+              </ul>
+            </div>
+
+            <p style="font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.25);">
+              <strong>Best for:</strong> Enterprise sales teams needing bulletproof deliverability at volume
+            </p>
+          </div>
+
+          <a href="https://pay.ziina.com/imisoft/-LLRAX4Sj" style="display: block; text-align: center; padding: 12px; background: white; color: #0f172a; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;" target="_blank">
+            Get Started
+          </a>
         </div>
       </div>
+
+      <!-- High-Volume Packages Carousel -->
+      <div style="margin-top: 64px; text-align: center;">
+        <span style="display: inline-block; background: rgba(244, 84, 7, 0.1); color: #F45407; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 500; margin-bottom: 16px;">High-Volume Plans</span>
+        <h3 style="font-size: 28px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">Need More Scale?</h3>
+        <p style="font-size: 16px; color: #666; max-width: 500px; margin: 0 auto;">Enterprise-grade email infrastructure for teams sending at serious volume.</p>
+      </div>
+
+      <div id="pkg-carousel" style="position: relative; max-width: 480px; margin: 32px auto 0;">
+        <div style="overflow: hidden; border-radius: 16px;">
+          <div id="pkg-carousel-track" style="display: flex; transition: transform 0.4s ease;">
+
+            <!-- Slide 1: Scale — 100 Domains -->
+            <div class="carousel-pkg-slide" style="min-width: 100%; box-sizing: border-box;">
+              <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5; display: flex; flex-direction: column;">
+                <div style="flex-grow: 1;">
+                  <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Scale</h3>
+                  <div style="margin: 16px 0;">
+                    <span style="font-size: 32px; font-weight: 500; color: #F45407;">$4,900</span>
+                    <span style="font-size: 16px; color: #666;">/year</span>
+                  </div>
+                  <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500;">High-volume infrastructure for scaling teams.</p>
+                  <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 100 domains &amp; 500 professional inboxes</p>
+
+                  <div style="margin-bottom: 24px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
+                    <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>100 sending domains with 500 warmed inboxes</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Multi-provider routing (Google, Microsoft, custom)</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Full DNS authentication (SPF, DKIM, DMARC)</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Geo &amp; risk domain segmentation</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Automated warm-up with blacklist monitoring</span>
+                      </li>
+                      <li style="display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Weekly deliverability reviews with analyst</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+                    <strong>Best for:</strong> Growing teams scaling cold outbound to 10,000+ emails/day
+                  </p>
+                </div>
+                <a href="#contact" style="display: block; text-align: center; padding: 12px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;">
+                  Get Started
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 2: Agency — 300 Domains -->
+            <div class="carousel-pkg-slide" style="min-width: 100%; box-sizing: border-box;">
+              <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative; display: flex; flex-direction: column;">
+                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px;">
+                  MOST POPULAR
+                </div>
+                <div style="flex-grow: 1;">
+                  <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Agency</h3>
+                  <div style="margin: 16px 0;">
+                    <span style="font-size: 32px; font-weight: 500; color: #F45407;">$14,700</span>
+                    <span style="font-size: 16px; color: #666;">/year</span>
+                  </div>
+                  <p style="font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500;">Massive infrastructure with dedicated management.</p>
+                  <p style="font-size: 12px; color: #666; margin-bottom: 24px;">Includes 300 domains &amp; 1,500 professional inboxes</p>
+
+                  <div style="margin-bottom: 24px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: #1a1a1a;">What you get:</p>
+                    <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>300 sending domains with 1,500 warmed inboxes</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Dedicated server cluster &amp; custom routing rules</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Advanced warming schedules &amp; IP warming</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Multi-brand domain architecture</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Deliverability command center &amp; dashboards</span>
+                      </li>
+                      <li style="display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Bi-weekly strategy reviews &amp; priority support</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
+                    <strong>Best for:</strong> Agencies &amp; teams sending 30,000+ emails/day across multiple campaigns
+                  </p>
+                </div>
+                <a href="#contact" style="display: block; text-align: center; padding: 12px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;">
+                  Get Started
+                </a>
+              </div>
+            </div>
+
+            <!-- Slide 3: Ultimate — 500 Domains -->
+            <div class="carousel-pkg-slide" style="min-width: 100%; box-sizing: border-box;">
+              <div style="background: linear-gradient(135deg, #0f172a, #1f2937); color: white; padding: 32px; border-radius: 16px; display: flex; flex-direction: column; position: relative;">
+                <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: white; color: #0f172a; padding: 4px 16px; border-radius: 50px; font-size: 12px; font-weight: 500; letter-spacing: 0.5px;">
+                  ULTIMATE
+                </div>
+                <div style="flex-grow: 1;">
+                  <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 8px;">Ultimate</h3>
+                  <div style="margin: 16px 0;">
+                    <span style="font-size: 32px; font-weight: 500; color: white;">$24,500</span>
+                    <span style="font-size: 16px; color: rgba(255,255,255,0.8);">/year</span>
+                  </div>
+                  <p style="font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 8px; font-weight: 500;">Full white-glove infrastructure at maximum scale.</p>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.75); margin-bottom: 24px;">Includes 500 domains &amp; 2,500 professional inboxes</p>
+
+                  <div style="margin-bottom: 24px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: white;">What you get:</p>
+                    <ul style="font-size: 14px; color: rgba(255,255,255,0.85); list-style: none; padding: 0;">
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>500 sending domains with 2,500 warmed inboxes</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Full white-glove infrastructure management</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Dedicated deliverability engineer assigned</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Custom routing architecture &amp; failover systems</span>
+                      </li>
+                      <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Real-time monitoring &amp; instant remediation</span>
+                      </li>
+                      <li style="display: flex; align-items: flex-start;">
+                        <span style="color: #10b981; margin-right: 8px;">&#10003;</span>
+                        <span>Quarterly strategy workshops &amp; executive reporting</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <p style="font-size: 13px; color: rgba(255,255,255,0.75); margin-bottom: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.25);">
+                    <strong>Best for:</strong> Enterprise operations running massive multi-brand outbound at scale
+                  </p>
+                </div>
+                <a href="#contact" style="display: block; text-align: center; padding: 12px; background: white; color: #0f172a; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;">
+                  Get Started
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Carousel Navigation Arrows -->
+        <button onclick="movePkgCarousel(-1)" aria-label="Previous package" style="position: absolute; top: 50%; left: -20px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: white; border: 1px solid #e5e5e5; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 2; transition: all 0.2s ease;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button onclick="movePkgCarousel(1)" aria-label="Next package" style="position: absolute; top: 50%; right: -20px; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: white; border: 1px solid #e5e5e5; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 2; transition: all 0.2s ease;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <!-- Carousel Dot Indicators -->
+        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 24px;">
+          <button class="pkg-dot pkg-dot-active" onclick="goToPkgSlide(0)" aria-label="Go to Scale package" style="width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.3s ease; background: #F45407;"></button>
+          <button class="pkg-dot" onclick="goToPkgSlide(1)" aria-label="Go to Agency package" style="width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.3s ease; background: #d1d5db;"></button>
+          <button class="pkg-dot" onclick="goToPkgSlide(2)" aria-label="Go to Ultimate package" style="width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer; transition: all 0.3s ease; background: #d1d5db;"></button>
+        </div>
+      </div>
+
+      <style>
+        #pkg-carousel button[onclick^="movePkgCarousel"]:hover {
+          background: #F45407 !important;
+          border-color: #F45407 !important;
+        }
+        #pkg-carousel button[onclick^="movePkgCarousel"]:hover svg {
+          stroke: white;
+        }
+        @media (max-width: 560px) {
+          #pkg-carousel {
+            max-width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+          }
+          #pkg-carousel button[onclick^="movePkgCarousel"] {
+            width: 36px !important;
+            height: 36px !important;
+          }
+          #pkg-carousel button[onclick^="movePkgCarousel"]:first-of-type {
+            left: -4px !important;
+          }
+          #pkg-carousel button[onclick^="movePkgCarousel"]:last-of-type {
+            right: -4px !important;
+          }
+        }
+      </style>
 
     </div>
   </section>
@@ -5459,13 +5492,11 @@
       // Recommend package based on domains
       let pkg = 'Starter';
       if (domains > 300) {
-        pkg = 'Agency Pro (500)';
-      } else if (domains > 200) {
-        pkg = 'Agency (300)';
+        pkg = 'Ultimate';
       } else if (domains > 100) {
-        pkg = 'Scale Pro (200)';
+        pkg = 'Agency';
       } else if (domains > 50) {
-        pkg = 'Scale (100)';
+        pkg = 'Scale';
       } else if (domains > 25) {
         pkg = 'Enterprise';
       } else if (domains > 10) {
@@ -5477,52 +5508,62 @@
     // Initialize calculator on page load
     document.addEventListener('DOMContentLoaded', calculateInfrastructure);
 
-    // Package Carousel
-    function scrollPkgCarousel(direction) {
-      var track = document.getElementById('pkgTrack');
-      if (!track) return;
-      var cards = track.querySelectorAll('.pkg-card');
-      if (!cards.length) return;
-      var gap = 24;
-      var cardWidth = cards[0].offsetWidth + gap;
-      track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+    // --- Package Carousel ---
+    var pkgCurrentSlide = 0;
+    var pkgTotalSlides = 3;
+
+    function movePkgCarousel(direction) {
+      pkgCurrentSlide += direction;
+      if (pkgCurrentSlide < 0) pkgCurrentSlide = pkgTotalSlides - 1;
+      if (pkgCurrentSlide >= pkgTotalSlides) pkgCurrentSlide = 0;
+      updatePkgCarousel();
     }
 
-    function scrollToPkg(index) {
-      var track = document.getElementById('pkgTrack');
-      if (!track) return;
-      var cards = track.querySelectorAll('.pkg-card');
-      if (!cards[index]) return;
-      var gap = 24;
-      var cardWidth = cards[0].offsetWidth + gap;
-      track.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+    function goToPkgSlide(index) {
+      pkgCurrentSlide = index;
+      updatePkgCarousel();
     }
 
-    function updatePkgDots() {
-      var track = document.getElementById('pkgTrack');
+    function updatePkgCarousel() {
+      var track = document.getElementById('pkg-carousel-track');
+      if (track) {
+        track.style.transform = 'translateX(-' + (pkgCurrentSlide * 100) + '%)';
+      }
       var dots = document.querySelectorAll('.pkg-dot');
-      if (!track || !dots.length) return;
-      var cards = track.querySelectorAll('.pkg-card');
-      if (!cards.length) return;
-      var gap = 24;
-      var cardWidth = cards[0].offsetWidth + gap;
-      var activeIndex = Math.round(track.scrollLeft / cardWidth);
       dots.forEach(function(dot, i) {
-        if (i === activeIndex) {
-          dot.classList.add('active');
+        if (i === pkgCurrentSlide) {
+          dot.style.background = '#F45407';
+          dot.classList.add('pkg-dot-active');
         } else {
-          dot.classList.remove('active');
+          dot.style.background = '#d1d5db';
+          dot.classList.remove('pkg-dot-active');
         }
       });
     }
 
-    (function initCarousel() {
-      var track = document.getElementById('pkgTrack');
-      if (track) {
-        track.addEventListener('scroll', updatePkgDots);
-      }
+    // Touch/swipe support for package carousel
+    (function() {
+      var carousel = document.getElementById('pkg-carousel');
+      if (!carousel) return;
+      var startX = 0;
+      var endX = 0;
+      carousel.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+      carousel.addEventListener('touchmove', function(e) {
+        endX = e.touches[0].clientX;
+      }, { passive: true });
+      carousel.addEventListener('touchend', function() {
+        var diff = startX - endX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            movePkgCarousel(1);
+          } else {
+            movePkgCarousel(-1);
+          }
+        }
+      });
     })();
-
 
     // FAQ Toggle Function
     function toggleFAQItem(button) {
@@ -5733,15 +5774,20 @@
         if (panel) panel.classList.add('active');
       });
     });
-    // Sticky CTA bar logic
+    // Sticky CTA bar logic — show on scroll up, hide on scroll down
     const stickyCTA = document.getElementById('stickyCTA');
+    let lastScrollY = 0;
 
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < 400) {
+        stickyCTA.style.bottom = '-120px';
+      } else if (currentScrollY < lastScrollY) {
         stickyCTA.style.bottom = '0';
       } else {
         stickyCTA.style.bottom = '-120px';
       }
+      lastScrollY = currentScrollY;
     });
   </script>
 
