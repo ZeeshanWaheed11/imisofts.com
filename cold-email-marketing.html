@@ -4387,19 +4387,14 @@
           justify-content: center;
           gap: 8px;
           margin-top: 16px;
-          animation: swipeHintFade 4s ease-in-out forwards;
+          animation: swipeHintNudge 2s ease-in-out infinite;
         }
         @media (max-width: 768px) {
           .pkg-swipe-hint { display: flex; }
         }
-        @keyframes swipeHintFade {
-          0% { opacity: 0; transform: translateX(0); }
-          10% { opacity: 1; transform: translateX(0); }
-          30% { opacity: 1; transform: translateX(10px); }
-          50% { opacity: 1; transform: translateX(0); }
-          70% { opacity: 1; transform: translateX(10px); }
-          85% { opacity: 1; transform: translateX(0); }
-          100% { opacity: 0; transform: translateX(0); }
+        @keyframes swipeHintNudge {
+          0%, 100% { transform: translateX(0); }
+          50% { transform: translateX(8px); }
         }
       </style>
 
@@ -5375,11 +5370,6 @@
       var track = document.getElementById('pkg-carousel-track');
       if (track) {
         track.addEventListener('scroll', updatePkgArrows);
-        track.addEventListener('scroll', function hideSwipeHint() {
-          var hint = document.getElementById('pkg-swipe-hint');
-          if (hint) hint.style.display = 'none';
-          track.removeEventListener('scroll', hideSwipeHint);
-        });
         setTimeout(updatePkgArrows, 100);
       }
     })();
