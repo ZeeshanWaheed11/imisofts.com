@@ -2740,27 +2740,119 @@
       }
     }
 
+    /* ============================================
+       COMPREHENSIVE TABLET STYLES (769px - 1024px)
+       ============================================ */
     @media (min-width: 769px) and (max-width: 1024px) {
-      .grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-}
-    }
-    }
-    
-    /* Tablet Styles */
-    @media (min-width: 769px) and (max-width: 1024px) {
+
+      /* Grid overrides — 4-column → 2-column */
+      .grid-4,
+      [style*="grid-template-columns: repeat(4, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+      }
+
+      /* 3-column → 2-column */
+      [style*="grid-template-columns: repeat(3, 1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+
+      /* Hero section — keep single column but tighter */
+      .hero-saas {
+        padding: 80px 0 56px !important;
+      }
+
+      .hero-saas__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 100%;
+      }
+
+      /* Container breathing room */
+      .container {
+        padding: 0 24px !important;
+      }
+
+      /* Section padding */
+      .section-padding {
+        padding: 64px 0 !important;
+      }
+
+      /* Partner logos */
       .partner-logos-scroll {
         gap: 50px;
         animation-duration: 25s;
       }
-      
-      .partner-logo {
-        min-width: 120px;
+      .partner-logo { min-width: 120px; }
+      .partner-logo img { max-height: 45px; max-width: 120px; }
+
+      /* CTA / Audit section — stack on tablet */
+      #audit .container > div {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
       }
-      
-      .partner-logo img {
-        max-height: 45px;
-        max-width: 120px;
+
+      /* Audit section — 2-column form grid stays but with smaller gap */
+      [style*="grid-template-columns: 1fr 1fr"][style*="gap: 60px"] {
+        gap: 40px !important;
+      }
+
+      /* Value prop section — stack */
+      [style*="grid-template-columns: 1fr 1fr"][style*="gap: 48px"] {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
+      /* Large padding boxes — tighten */
+      [style*="padding: 60px"] {
+        padding: 40px 32px !important;
+      }
+
+      /* Flex rows with large gaps — wrap */
+      [style*="display: flex"][style*="gap: 48px"],
+      [style*="display: flex"][style*="gap: 60px"] {
+        flex-wrap: wrap !important;
+        gap: 24px !important;
+      }
+
+      /* Bottom stats flex — wrap */
+      [style*="display: flex"][style*="justify-content: center"][style*="gap: 48px"] {
+        flex-wrap: wrap !important;
+        gap: 24px !important;
+      }
+
+      /* Comparison table — scrollable with sticky first column */
+      .comparison-table-wrapper {
+        padding: 20px !important;
+        border-radius: 16px !important;
+      }
+
+      /* FAQ — single column on tablet */
+      .faq__columns {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+      }
+
+      .faq__wrapper {
+        padding: 36px 32px !important;
+      }
+
+      /* Footer — 3 columns instead of 6 */
+      .footer-links-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 24px !important;
+      }
+
+      /* Typography scaling */
+      h1 { font-size: 36px !important; }
+      h2 { font-size: 32px !important; }
+      [style*="font-size: 48px"] { font-size: 32px !important; }
+      [style*="font-size: 42px"] { font-size: 30px !important; }
+      [style*="font-size: 36px"] { font-size: 28px !important; }
+
+      /* Remove scale transforms on comparison cards */
+      [style*="transform: scale"] {
+        transform: none !important;
       }
     }
     
@@ -2773,18 +2865,18 @@
        TABLET/MOBILE GRID OVERRIDES (900px and below)
        ============================================ */
     @media (max-width: 900px) {
-      /* Force single column for feature cards on tablets */
+      /* Force 2-column for feature cards, 1-col handled by 768px */
       .why-cards-grid,
       .why-cards-grid[style],
       [style*="grid-template-columns: repeat(4"] {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 16px !important;
       }
 
-      /* Testimonials single column */
+      /* Testimonials — 2 column on small tablets */
       [style*="minmax(340px"],
       [style*="repeat(auto-fit"] {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: repeat(2, 1fr) !important;
       }
     }
 
@@ -4209,7 +4301,7 @@
               </div>
               <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;"><strong>Best for:</strong> Agencies testing cold email with healthy sender reputation</p>
             </div>
-            <a href="https://pay.ziina.com/imisoft/_z7AN9HyY" style="display: block; text-align: center; padding: 12px; background: #ebebeb; color: #999; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;" target="_blank">Get Started</a>
+            <a href="https://pay.ziina.com/imisoft/_z7AN9HyY" style="display: block; text-align: center; padding: 12px; background: white; color: #1a1a1a; border: 1.5px solid #d0d0d0; border-radius: 8px; font-weight: 500; text-decoration: none; margin-top: auto;" target="_blank">Get Started</a>
           </div>
 
           <!-- 2. Professional -->
