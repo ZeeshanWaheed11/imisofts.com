@@ -1030,69 +1030,6 @@
       max-width: 420px;
     }
 
-    .footer-newsletter {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      padding: 28px;
-      border-radius: 16px;
-    }
-
-    .footer-newsletter h4 {
-      font-size: 16px;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 8px;
-    }
-
-    .footer-newsletter p {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 16px;
-    }
-
-    .newsletter-form {
-      display: flex;
-      gap: 8px;
-    }
-
-    .newsletter-input {
-      flex: 1;
-      padding: 12px 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      color: white;
-      font-size: 14px;
-      transition: border-color 0.3s ease;
-    }
-
-    .newsletter-input:focus {
-      outline: none;
-      border-color: rgba(244,84,7,0.5);
-    }
-
-    .newsletter-input::placeholder {
-      color: rgba(255,255,255,0.3);
-    }
-
-    .newsletter-btn {
-      padding: 12px 24px;
-      background: linear-gradient(135deg, #F45407, #ff6b28);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 12px rgba(244,84,7,0.2);
-    }
-
-    .newsletter-btn:hover {
-      box-shadow: 0 4px 20px rgba(244,84,7,0.35);
-      transform: translateY(-1px);
-    }
-
     .footer-contact-row {
       display: flex;
       gap: 24px;
@@ -1198,10 +1135,6 @@
 .footer-bottom {
         flex-direction: column;
         text-align: center;
-      }
-      
-      .newsletter-form {
-        flex-direction: column;
       }
       .footer-top {
         flex-direction: column;
@@ -1762,17 +1695,7 @@
             </div>
           </div>
           <div class="footer-cta">
-            <div class="footer-newsletter">
-              <h4>Stay Updated</h4>
-              <p>Get the latest on AI automation and growth strategies</p>
-              <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/mrbylkvp" method="POST">
-                <input type="email" name="newsletter_email" class="newsletter-input" placeholder="Enter your email" required>
-                <input type="hidden" name="_subject" value="New Newsletter Subscription">
-                <button type="submit" class="newsletter-btn" id="newsletterBtn">Subscribe</button>
-              </form>
-              <div id="newsletterMessage" style="margin-top: 12px; padding: 10px; border-radius: 6px; display: none; text-align: center; font-size: 14px; font-weight: 500;"></div>
-            </div>
-            <div class="footer-contact-row">
+<div class="footer-contact-row">
               <a href="mailto:growth@imisofts.com">growth@imisofts.com</a>
               <span>+971 52 432 0369</span>
             </div>
@@ -1807,43 +1730,6 @@
         if (panel) panel.classList.add('active');
       });
     });
-
-    
-(function addFormTrackingMeta(){
-      function attachMeta(){
-        var forms = document.querySelectorAll('form[action*="formspree.io"]');
-        forms.forEach(function(form, index){
-          var identifier = form.getAttribute('data-form-name');
-          if (!identifier) {
-            var idAttr = form.getAttribute('id');
-            if (idAttr) {
-              identifier = idAttr + ' — ' + document.title;
-            } else {
-              identifier = document.title + ' — form #' + (index + 1);
-            }
-          }
-          if (!form.querySelector('input[name="page_url"]')) {
-            var pageInput = document.createElement('input');
-            pageInput.type = 'hidden';
-            pageInput.name = 'page_url';
-            pageInput.value = window.location.href;
-            form.appendChild(pageInput);
-          }
-          if (!form.querySelector('input[name="form_name"]')) {
-            var nameInput = document.createElement('input');
-            nameInput.type = 'hidden';
-            nameInput.name = 'form_name';
-            nameInput.value = identifier;
-            form.appendChild(nameInput);
-          }
-        });
-      }
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', attachMeta);
-      } else {
-        attachMeta();
-      }
-    })();
 
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -1895,53 +1781,6 @@
         document.body.classList.remove('mobile-menu-open');
       });
     });
-    
-    // Newsletter form handling
-    const newsletterForm = document.getElementById('newsletterForm');
-    const newsletterBtn = document.getElementById('newsletterBtn');
-    const newsletterMessage = document.getElementById('newsletterMessage');
-    
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Show loading state
-        newsletterBtn.textContent = 'Subscribing...';
-        newsletterBtn.disabled = true;
-        
-        // Submit form
-        fetch(newsletterForm.action, {
-          method: 'POST',
-          body: new FormData(newsletterForm),
-          headers: {
-            'Accept': 'application/json'
-          }
-        }).then(response => {
-          if (response.ok) {
-            newsletterMessage.style.display = 'block';
-            newsletterMessage.style.background = 'rgba(16, 185, 129, 0.2)';
-            newsletterMessage.style.color = '#10b981';
-            newsletterMessage.textContent = 'Successfully subscribed!';
-            newsletterForm.reset();
-          } else {
-            throw new Error('Network response was not ok');
-          }
-        }).catch(error => {
-          newsletterMessage.style.display = 'block';
-          newsletterMessage.style.background = 'rgba(244, 63, 94, 0.2)';
-          newsletterMessage.style.color = '#f43f5e';
-          newsletterMessage.textContent = 'Something went wrong. Please try again.';
-        }).finally(() => {
-          newsletterBtn.textContent = 'Subscribe';
-          newsletterBtn.disabled = false;
-          
-          // Hide message after 5 seconds
-          setTimeout(() => {
-            newsletterMessage.style.display = 'none';
-          }, 5000);
-        });
-      });
-    }
   </script>
   <!-- Cal floating-popup embed code begins -->
   <script type="text/javascript">
