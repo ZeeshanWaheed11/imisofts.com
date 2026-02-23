@@ -351,7 +351,17 @@
     .mobile-cta { display: block; padding: 16px 24px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; text-align: center; border-radius: 12px; font-weight: 600; font-size: 16px; text-decoration: none; margin: 24px 16px 0; box-shadow: 0 4px 15px rgba(244,84,7,0.3); }
     .mobile-cta:active { transform: scale(0.98); }
     body.mobile-menu-open { overflow: hidden; }
-    @media (max-width: 768px) { .navbar { background: rgba(255,255,255,0.98) !important; backdrop-filter: blur(10px) !important; height: 72px; } .nav-menu { display: none; } .mobile-menu-toggle { display: block; } }
+    @media (max-width: 768px) {
+      .navbar {
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        height: 72px;
+      }
+      
+      .container {
+        padding: 0 16px;
+      }
+       .navbar { background: rgba(255,255,255,0.98) !important; backdrop-filter: blur(10px) !important; height: 72px; } .nav-menu { display: none; } .mobile-menu-toggle { display: block; } }
 
     /* ============= AUTHOR PAGE STYLES ============= */
     .author-hero { position: relative; margin-top: 72px; padding: 80px 0 60px; background: linear-gradient(160deg, #0a0a0a 0%, #1a1008 40%, #1c0d02 70%, #0a0a0a 100%); overflow: hidden; color: white; }
