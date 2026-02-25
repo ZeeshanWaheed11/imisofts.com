@@ -14,7 +14,6 @@ NEW_NAVBAR_CSS = '''    /* ============= NAVBAR STYLES ============= */
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
       transition: all 0.3s ease;
     }
 
