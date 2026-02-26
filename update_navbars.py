@@ -11,10 +11,9 @@ NEW_NAVBAR_CSS = '''    /* ============= NAVBAR STYLES ============= */
       left: 0;
       right: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
       transition: all 0.3s ease;
     }
 
