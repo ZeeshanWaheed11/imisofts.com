@@ -1443,8 +1443,23 @@
       }
       
       .pricing-grid {
-        grid-template-columns: 1fr !important;
-        gap: 24px !important;
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px !important;
+        padding-bottom: 16px;
+        scrollbar-width: none;
+      }
+
+      .pricing-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .pricing-grid > div {
+        min-width: 85vw;
+        flex-shrink: 0;
+        scroll-snap-align: center;
       }
       
       .footer-cta-banner {
