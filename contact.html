@@ -1928,43 +1928,6 @@
       });
     });
     
-    // Form submission handling.then(response => {
-        if (response.ok) {
-          // Success message
-          formMessage.style.display = 'block';
-          formMessage.style.backgroundColor = '#d4edda';
-          formMessage.style.color = '#155724';
-          formMessage.style.border = '1px solid #c3e6cb';
-          formMessage.innerHTML = '✓ Thank you! Your message has been sent successfully. We\'ll get back to you within 2 hours.';
-          
-          // Reset form
-          form.reset();
-          
-          // Scroll to message
-          formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          throw new Error('Form submission failed');
-        }
-      })
-      .catch(error => {
-        // Error message
-        formMessage.style.display = 'block';
-        formMessage.style.backgroundColor = '#f8d7da';
-        formMessage.style.color = '#721c24';
-        formMessage.style.border = '1px solid #f5c6cb';
-        formMessage.innerHTML = '✗ Sorry, there was an error sending your message. Please try again or contact us directly at growth@imisofts.com';
-      })
-      .finally(() => {
-        // Reset button
-        submitButton.innerHTML = originalButtonText;
-        submitButton.disabled = false;
-        
-        // Hide message after 10 seconds
-        setTimeout(() => {
-          formMessage.style.display = 'none';
-        }, 10000);
-      });
-    });
   </script>
   
   <!-- Cal floating-popup embed code begins -->
