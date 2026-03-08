@@ -5304,7 +5304,15 @@
       if (!cards.length) return;
       var gap = 24;
       var cardWidth = cards[0].offsetWidth + gap;
-      track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
+      var currentIndex = Math.round(track.scrollLeft / cardWidth);
+      var targetIndex = Math.max(0, Math.min(cards.length - 1, currentIndex + direction));
+      // Temporarily disable scroll-snap to prevent it from fighting the programmatic scroll
+      track.style.scrollSnapType = 'none';
+      track.scrollTo({ left: targetIndex * cardWidth, behavior: 'smooth' });
+      // Re-enable scroll-snap after the animation completes
+      setTimeout(function() {
+        track.style.scrollSnapType = 'x mandatory';
+      }, 500);
     }
 
     function updatePkgArrows() {
