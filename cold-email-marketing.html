@@ -4194,7 +4194,8 @@
 
       <!-- Infrastructure Packages — 3-visible carousel -->
       <div id="pkg-carousel" style="position: relative; padding-top: 16px;">
-        <div id="pkg-carousel-track" style="display: flex; gap: 24px; overflow: hidden; padding: 16px 4px;">
+        <div style="overflow: hidden; padding: 16px 4px;">
+          <div id="pkg-carousel-track" style="display: flex; gap: 24px; transition: transform 0.4s ease;">
 
           <!-- 1. Starter -->
           <div class="pkg-card" style="flex: 0 0 calc(33.333% - 16px); min-width: 300px; background: linear-gradient(160deg, #fafafa 0%, #f5f5f5 100%); padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5; display: flex; flex-direction: column; box-sizing: border-box;">
@@ -4357,6 +4358,7 @@
             <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" style="display: block; text-align: center; padding: 12px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 8px; font-weight: 500; text-decoration: none;">Contact Us</a>
           </div>
 
+          </div>
         </div>
 
         <!-- Left Arrow (hidden at start) -->
@@ -5295,7 +5297,7 @@
     // Initialize calculator on page load
     document.addEventListener('DOMContentLoaded', calculateInfrastructure);
 
-    // --- Package Carousel (transform-based, 3 visible) ---
+    // --- Package Carousel (transform on track, viewport clips) ---
     (function initPkgCarousel() {
       var track = document.getElementById('pkg-carousel-track');
       var prevBtn = document.getElementById('pkg-prev');
@@ -5303,73 +5305,69 @@
       if (!track || !prevBtn || !nextBtn) return;
 
       var cards = track.querySelectorAll('.pkg-card');
-      var currentOffset = 0;
+      if (!cards.length) return;
+      var currentIndex = 0; // index of the first visible card
       var gap = 24;
 
+      function getVisibleCount() {
+        var w = window.innerWidth;
+        if (w <= 768) return 1;
+        if (w <= 1024) return 2;
+        return 3;
+      }
+
       function getCardWidth() {
-        if (!cards.length) return 0;
         return cards[0].offsetWidth + gap;
       }
 
-      function getMaxOffset() {
-        if (!cards.length) return 0;
-        var totalWidth = (cards[0].offsetWidth * cards.length) + (gap * (cards.length - 1));
-        var visibleWidth = track.offsetWidth;
-        return Math.max(0, totalWidth - visibleWidth);
+      function maxIndex() {
+        return Math.max(0, cards.length - getVisibleCount());
       }
 
       function updateArrows() {
-        prevBtn.style.display = currentOffset > 10 ? 'flex' : 'none';
-        nextBtn.style.display = currentOffset < getMaxOffset() - 10 ? 'flex' : 'none';
+        prevBtn.style.display = currentIndex > 0 ? 'flex' : 'none';
+        nextBtn.style.display = currentIndex < maxIndex() ? 'flex' : 'none';
       }
 
-      function slideTo(offset) {
-        currentOffset = Math.max(0, Math.min(offset, getMaxOffset()));
-        // Move all cards using transform
-        for (var i = 0; i < cards.length; i++) {
-          cards[i].style.transform = 'translateX(' + (-currentOffset) + 'px)';
-          cards[i].style.transition = 'transform 0.4s ease';
-        }
+      function slideTo(index) {
+        currentIndex = Math.max(0, Math.min(index, maxIndex()));
+        track.style.transform = 'translateX(-' + (currentIndex * getCardWidth()) + 'px)';
         updateArrows();
       }
 
       nextBtn.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        slideTo(currentOffset + getCardWidth());
+        slideTo(currentIndex + 1);
       });
 
       prevBtn.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
-        slideTo(currentOffset - getCardWidth());
+        slideTo(currentIndex - 1);
       });
 
-      // Handle resize
       window.addEventListener('resize', function() {
-        if (currentOffset > getMaxOffset()) {
-          slideTo(getMaxOffset());
-        }
-        updateArrows();
+        slideTo(currentIndex);
       });
 
-      // Touch/swipe support
+      // Touch/swipe support on the viewport
+      var viewport = track.parentElement;
       var touchStartX = 0;
       var touchDiff = 0;
-      track.addEventListener('touchstart', function(e) {
+      viewport.addEventListener('touchstart', function(e) {
         touchStartX = e.touches[0].clientX;
       }, { passive: true });
-      track.addEventListener('touchmove', function(e) {
+      viewport.addEventListener('touchmove', function(e) {
         touchDiff = touchStartX - e.touches[0].clientX;
       }, { passive: true });
-      track.addEventListener('touchend', function() {
+      viewport.addEventListener('touchend', function() {
         if (Math.abs(touchDiff) > 50) {
-          slideTo(currentOffset + (touchDiff > 0 ? getCardWidth() : -getCardWidth()));
+          slideTo(currentIndex + (touchDiff > 0 ? 1 : -1));
         }
         touchDiff = 0;
       });
 
-      // Initial arrow state
       updateArrows();
     })();
 
