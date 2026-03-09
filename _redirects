@@ -1,0 +1,262 @@
+# =============================================================================
+# Netlify Redirects for imisofts.com
+# Purpose: Eliminate 404 crawl waste, return 410 for junk, normalize URLs
+# Last updated: 2026-03-09
+# =============================================================================
+
+# ---------------------------------------------------------------------------
+# 1. WordPress / CMS probe URLs → 410 Gone
+#    Bots constantly probe for WP installations. 410 tells Google to
+#    permanently de-index these URLs.
+# ---------------------------------------------------------------------------
+/wp-admin                      /404.html  410
+/wp-admin/*                    /404.html  410
+/wp-login.php                  /404.html  410
+/wp-login                      /404.html  410
+/wp-content/*                  /404.html  410
+/wp-includes/*                 /404.html  410
+/wp-json/*                     /404.html  410
+/wp-cron.php                   /404.html  410
+/xmlrpc.php                    /404.html  410
+/wp-config.php                 /404.html  410
+/wp-settings.php               /404.html  410
+/wp-mail.php                   /404.html  410
+/wp-signup.php                 /404.html  410
+/wp-trackback.php              /404.html  410
+/wp-comments-post.php          /404.html  410
+/wp-blog-header.php            /404.html  410
+/wp-load.php                   /404.html  410
+/wp-links-opml.php             /404.html  410
+/wp-activate.php               /404.html  410
+/wordpress/*                   /404.html  410
+/wp/*                          /404.html  410
+
+# ---------------------------------------------------------------------------
+# 2. Common CMS / framework probes → 410 Gone
+# ---------------------------------------------------------------------------
+/administrator/*               /404.html  410
+/admin                         /404.html  410
+/admin/*                       /404.html  410
+/phpmyadmin/*                  /404.html  410
+/pma/*                         /404.html  410
+/mysql/*                       /404.html  410
+/myadmin/*                     /404.html  410
+/joomla/*                      /404.html  410
+/drupal/*                      /404.html  410
+/typo3/*                       /404.html  410
+/magento/*                     /404.html  410
+/cms/*                         /404.html  410
+
+# ---------------------------------------------------------------------------
+# 3. Security / config file probes → 410 Gone
+# ---------------------------------------------------------------------------
+/.env                          /404.html  410
+/.env.*                        /404.html  410
+/.git/*                        /404.html  410
+/.gitignore                    /404.html  410
+/.htaccess                     /404.html  410
+/.htpasswd                     /404.html  410
+/.svn/*                        /404.html  410
+/.DS_Store                     /404.html  410
+/config.php                    /404.html  410
+/configuration.php             /404.html  410
+/config.yml                    /404.html  410
+/config.json                   /404.html  410
+/config/*                      /404.html  410
+/composer.json                 /404.html  410
+/composer.lock                 /404.html  410
+/package.json                  /404.html  410
+/package-lock.json             /404.html  410
+/Gruntfile.js                  /404.html  410
+/gulpfile.js                   /404.html  410
+/webpack.config.js             /404.html  410
+/Makefile                      /404.html  410
+/Dockerfile                    /404.html  410
+/docker-compose.yml            /404.html  410
+/Vagrantfile                   /404.html  410
+/.dockerignore                 /404.html  410
+
+# ---------------------------------------------------------------------------
+# 4. Server / infrastructure probes → 410 Gone
+# ---------------------------------------------------------------------------
+/server-status                 /404.html  410
+/server-info                   /404.html  410
+/cpanel/*                      /404.html  410
+/cgi-bin/*                     /404.html  410
+/vendor/*                      /404.html  410
+/node_modules/*                /404.html  410
+/bower_components/*            /404.html  410
+/backup/*                      /404.html  410
+/backups/*                     /404.html  410
+/temp/*                        /404.html  410
+/tmp/*                         /404.html  410
+/cache/*                       /404.html  410
+/logs/*                        /404.html  410
+/log/*                         /404.html  410
+/debug/*                       /404.html  410
+
+# ---------------------------------------------------------------------------
+# 5. Common exploit / scanner paths → 410 Gone
+# ---------------------------------------------------------------------------
+/shell.php                     /404.html  410
+/cmd.php                       /404.html  410
+/eval.php                      /404.html  410
+/c99.php                       /404.html  410
+/r57.php                       /404.html  410
+/webshell.*                    /404.html  410
+/backdoor.*                    /404.html  410
+/test.php                      /404.html  410
+/info.php                      /404.html  410
+/phpinfo.php                   /404.html  410
+/php.ini                       /404.html  410
+/install.php                   /404.html  410
+/setup.php                     /404.html  410
+/upgrade.php                   /404.html  410
+/license.txt                   /404.html  410
+/readme.html                   /404.html  410
+/readme.txt                    /404.html  410
+/changelog.txt                 /404.html  410
+/CHANGELOG.md                  /404.html  410
+/README.md                     /404.html  410
+/LICENSE                       /404.html  410
+/INSTALL                       /404.html  410
+
+# ---------------------------------------------------------------------------
+# 6. API / feed scanner probes → 410 Gone
+# ---------------------------------------------------------------------------
+/api/v1/*                      /404.html  410
+/api/v2/*                      /404.html  410
+/api/users/*                   /404.html  410
+/api/login                     /404.html  410
+/graphql                       /404.html  410
+/rest/*                        /404.html  410
+/jsonapi/*                     /404.html  410
+/.well-known/security.txt      /404.html  410
+
+# ---------------------------------------------------------------------------
+# 7. File extension probes → 410 Gone
+# ---------------------------------------------------------------------------
+/*.sql                         /404.html  410
+/*.bak                         /404.html  410
+/*.old                         /404.html  410
+/*.orig                        /404.html  410
+/*.save                        /404.html  410
+/*.swp                         /404.html  410
+/*.zip                         /404.html  410
+/*.tar.gz                      /404.html  410
+/*.rar                         /404.html  410
+/*.7z                          /404.html  410
+/*.log                         /404.html  410
+/*.asp                         /404.html  410
+/*.aspx                        /404.html  410
+/*.jsp                         /404.html  410
+/*.cgi                         /404.html  410
+
+# ---------------------------------------------------------------------------
+# 8. Trailing slash normalization → 301 redirect
+#    Prevents duplicate content from /page vs /page/
+#    (Blog posts and author pages intentionally use trailing slashes,
+#     so we only normalize root-level pages)
+# ---------------------------------------------------------------------------
+/about/                        /about                301
+/contact/                      /contact              301
+/careers/                      /careers              301
+/pricing/                      /pricing              301
+/services/                     /                     301
+/faq/                          /faq                  301
+/support/                      /support              301
+/products/                     /products             301
+/ecommerce/                    /ecommerce            301
+/case-studies/                 /case-studies          301
+/lead-generation/              /lead-generation       301
+/cold-email-marketing/         /cold-email-marketing  301
+/ai-automation/                /ai-automation         301
+/web-development/              /web-development       301
+/digital-marketing/            /digital-marketing     301
+/crm-development/              /crm-development       301
+/shopify-apps/                 /shopify-apps          301
+/ai-mobile-apps/               /ai-mobile-apps        301
+/gohighlevel-services/         /gohighlevel-services  301
+/api-docs/                     /api-docs              301
+/free-audit/                   /free-audit            301
+/shopify-app-reviews/          /shopify-app-reviews   301
+/privacy-policy/               /privacy-policy        301
+/terms-of-service/             /terms-of-service      301
+/cookie-policy/                /cookie-policy         301
+/cold-email-saas/              /cold-email-saas       301
+/lead-generation-agencies/     /lead-generation-agencies  301
+/ai-automation-ecommerce/      /ai-automation-ecommerce   301
+/cold-email-recruiters/        /cold-email-recruiters     301
+/gohighlevel-real-estate/      /gohighlevel-real-estate   301
+/launch-your-saas/             /launch-your-saas          301
+/openclaw-setup/               /openclaw-setup            301
+/hire-cold-email-expert/       /hire-cold-email-expert     301
+/hire-gohighlevel-developer/   /hire-gohighlevel-developer 301
+/hire-n8n-developer/           /hire-n8n-developer         301
+/hire-ai-engineer/             /hire-ai-engineer           301
+/hire-shopify-expert/          /hire-shopify-expert        301
+
+# ---------------------------------------------------------------------------
+# 9. Common mistyped / old URL patterns → 301 to best match
+# ---------------------------------------------------------------------------
+/home                          /                     301
+/index                         /                     301
+/index.html                    /                     301
+/index.php                     /                     301
+/main                          /                     301
+/services                      /                     301
+/service                       /                     301
+/service/*                     /                     301
+/blogs                         /blog                 301
+/blogs/*                       /blog                 301
+/articles                      /blog                 301
+/articles/*                    /blog                 301
+/news                          /blog                 301
+/news/*                        /blog                 301
+/portfolio                     /case-studies         301
+/work                          /case-studies         301
+/our-work                      /case-studies         301
+/projects                      /case-studies         301
+/about-us                      /about                301
+/aboutus                       /about                301
+/team                          /about                301
+/our-team                      /about                301
+/contact-us                    /contact              301
+/contactus                     /contact              301
+/get-in-touch                  /contact              301
+/enquiry                       /contact              301
+/inquiry                       /contact              301
+/quote                         /free-audit           301
+/get-quote                     /free-audit           301
+/free-consultation             /free-audit           301
+/consultation                  /free-audit           301
+/jobs                          /careers              301
+/join                          /careers              301
+/join-us                       /careers              301
+/openings                      /careers              301
+/help                          /support              301
+/faq-page                      /faq                  301
+/faqs                          /faq                  301
+/price                         /pricing              301
+/plans                         /pricing              301
+/packages                      /pricing              301
+
+# ---------------------------------------------------------------------------
+# 10. Internal/private pages — block from crawlers via 404
+#     (These are already disallowed in robots.txt)
+# ---------------------------------------------------------------------------
+# Note: admin-login, admin-dashboard, client-login, client-dashboard
+# are real pages but should not be indexed. robots.txt handles this.
+
+# ---------------------------------------------------------------------------
+# 11. Audit/report files — 410 Gone (should not be public)
+# ---------------------------------------------------------------------------
+/WEBSITE_AUDIT_REPORT.txt      /404.html  410
+/SECURITY_VALIDATION.md        /404.html  410
+/SEO_AUDIT_REPORT_2026.md      /404.html  410
+/SEO_PLANNING_REPORT.md        /404.html  410
+/CURRENT_STATE_ASSESSMENT.md   /404.html  410
+/DASHBOARD_REQUIREMENTS.md     /404.html  410
+/SPP_EMAIL_INFRASTRUCTURE_DETAILED.md  /404.html  410
+/SPP_SERVICE_DESCRIPTIONS.md   /404.html  410
+/SPP_SETUP_GUIDE.md            /404.html  410
