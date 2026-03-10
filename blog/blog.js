@@ -3,40 +3,30 @@
 (function() {
   'use strict';
 
-  // ===== TOC Active State Highlighting =====
+  // ===== TOC Active State Highlighting (Intersection Observer) =====
   function initTOC() {
     var tocLinks = document.querySelectorAll('.toc-list a, .mobile-toc-content .toc-list a');
-    if (!tocLinks.length) return;
+    var sections = document.querySelectorAll('article h2[id]');
+    if (!tocLinks.length || !sections.length) return;
 
-    var headings = [];
-    tocLinks.forEach(function(link) {
-      var id = link.getAttribute('href');
-      if (id && id.startsWith('#')) {
-        var el = document.getElementById(id.substring(1));
-        if (el) headings.push({ el: el, link: link });
-      }
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(function(link) { link.classList.remove('active'); });
+          var id = entry.target.getAttribute('id');
+          var activeLink = document.querySelector('.toc-list a[href="#' + id + '"]');
+          if (activeLink) activeLink.classList.add('active');
+          // Also highlight in mobile TOC
+          var mobileLink = document.querySelector('.mobile-toc-content .toc-list a[href="#' + id + '"]');
+          if (mobileLink) mobileLink.classList.add('active');
+        }
+      });
+    }, {
+      rootMargin: '-80px 0px -80% 0px',
+      threshold: 0
     });
 
-    var ticking = false;
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function() {
-        var scrollPos = window.scrollY + 120;
-        var current = null;
-        for (var i = 0; i < headings.length; i++) {
-          if (headings[i].el.offsetTop <= scrollPos) {
-            current = headings[i];
-          }
-        }
-        tocLinks.forEach(function(l) { l.classList.remove('active'); });
-        if (current) current.link.classList.add('active');
-        ticking = false;
-      });
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    sections.forEach(function(section) { observer.observe(section); });
   }
 
   // ===== Smooth Scroll for Anchor Links =====
