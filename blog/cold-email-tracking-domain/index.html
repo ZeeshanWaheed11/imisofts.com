@@ -1731,9 +1731,9 @@ Table of Contents
 
 <div class="blog-content-layout">
 <article class="article-content">
-<p>Email tracking seems simple: click a link, see who opened your email. But behind that innocent "open tracking" is one of the most critical deliverability decisions you'll make in cold email infrastructure.</p>
+<p>Email tracking seems simple: click a link, see who opened your email. But behind that innocent &quot;open tracking&quot; is one of the most critical deliverability decisions you&#x27;ll make in cold email infrastructure.</p>
 <p>We see this mistake constantly: teams use shared tracking domains provided by their email platform. Within 3-4 weeks, the shared tracking domain gets blacklisted, and suddenly all their emails stop opening properly. Even worse, ISPs flag emails from accounts using that tracking domain as suspicious.</p>
-<p>At imisofts, we've analyzed this issue across 200+ client accounts. Custom CNAME tracking domains outperform shared ones by 23-40% in open rates and inbox placement. Here's why.</p>
+<p>At imisofts, we&#x27;ve analyzed this issue across 200+ client accounts. Custom CNAME tracking domains outperform shared ones by 23-40% in open rates and inbox placement. Here&#x27;s why.</p>
 <h2 id="what-is-a-cold-email-tracking-domain">What Is a Cold Email Tracking Domain?</h2>
 <p>When you send a cold email from tools like <a href="https://instantly.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">Instantly</a>, <a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead</a>, <a href="https://get.apollo.io/u5ocuv7me9t2" target="_blank" rel="noopener noreferrer sponsored">Apollo</a>, or Clay, those platforms need to track opens. They do this by:</p>
 <ol>
@@ -1742,19 +1742,19 @@ Table of Contents
 <li>Recording when the pixel is downloaded (open event)</li>
 <li>Logging the IP address and user data</li>
 </ol>
-<p>That domain hosting the tracking pixel is your "tracking domain."</p>
+<p>That domain hosting the tracking pixel is your &quot;tracking domain.&quot;</p>
 <p>There are two approaches:</p>
 <h3 id="shared-tracking-domains-the-problem">Shared Tracking Domains (The Problem)</h3>
 <p>Platforms like Instantly and SmartLead operate shared tracking domains. This means:</p>
 <ul>
 <li>Thousands of customers send opens through <code>track.instantly.com</code></li>
-<li>One user's spam complaint flags the entire domain</li>
+<li>One user&#x27;s spam complaint flags the entire domain</li>
 <li>ISPs block IP ranges associated with <code>track.instantly.com</code></li>
 <li>Your emails get caught in collateral damage</li>
 </ul>
-<p>We've documented cases where a shared tracking domain's reputation deteriorated so severely that 34% of emails from accounts using it went to spam, even though the sending domain was pristine.</p>
+<p>We&#x27;ve documented cases where a shared tracking domain&#x27;s reputation deteriorated so severely that 34% of emails from accounts using it went to spam, even though the sending domain was pristine.</p>
 <h3 id="custom-cname-tracking-domains-the-solution">Custom CNAME Tracking Domains (The Solution)</h3>
-<p>A CNAME (Canonical Name) record is a DNS configuration that lets you point your own subdomain to Instantly's tracking infrastructure without losing ownership of the domain.</p>
+<p>A CNAME (Canonical Name) record is a DNS configuration that lets you point your own subdomain to Instantly&#x27;s tracking infrastructure without losing ownership of the domain.</p>
 <p>Example:</p>
 <ul>
 <li>Your domain: <code>clientacquisition.io</code></li>
@@ -1771,7 +1771,7 @@ Table of Contents
 <li>ISPs see legitimate sending patterns (opens, clicks, replies)</li>
 <li>Gmail, Outlook, Yahoo track domain reputation separately</li>
 </ul>
-<p>With a shared tracking domain, one bad actor in Instantly's customer base damages everyone.</p>
+<p>With a shared tracking domain, one bad actor in Instantly&#x27;s customer base damages everyone.</p>
 <h3 id="isp-filtering-logic">ISP Filtering Logic</h3>
 <p>Email providers use several signals to filter:</p>
 <ol>
@@ -1786,13 +1786,13 @@ Table of Contents
 <ul>
 <li>Their sending domain was pristine (sub-3% bounce rate)</li>
 <li>Their content quality was unchanged</li>
-<li>Instantly's shared tracking domain had been flagged by ISPs</li>
+<li>Instantly&#x27;s shared tracking domain had been flagged by ISPs</li>
 </ul>
 <p>Solution: We migrated them to a custom CNAME tracking domain within their own <code>podcasts.io</code> domain. Open rates recovered to 16% within 2 weeks.</p>
 <p>Cost of the fix: 10 minutes for DNS setup.</p>
 <h2 id="how-to-set-up-cname-tracking-step-by-step">How to Set Up CNAME Tracking: Step-by-Step</h2>
 <h3 id="step-1-create-your-tracking-subdomain">Step 1: Create Your Tracking Subdomain</h3>
-<p>You don't need a new domain. Create a subdomain on your existing cold email domain or a dedicated tracking domain:</p>
+<p>You don&#x27;t need a new domain. Create a subdomain on your existing cold email domain or a dedicated tracking domain:</p>
 <ul>
 <li>Option A: <code>click.yourdomain.io</code></li>
 <li>Option B: <code>open.yourdomain.io</code></li>
@@ -1803,7 +1803,7 @@ Table of Contents
 <p><code>`</code></p>
 <p>Subdomain: click</p>
 <p>Type: CNAME</p>
-<p>Value: track.instantly.com (or your platform's tracking domain)</p>
+<p>Value: track.instantly.com (or your platform&#x27;s tracking domain)</p>
 <p>TTL: 3600</p>
 <p><code>`</code></p>
 <p>For Instantly, the CNAME target is <code>track.instantly.com</code>.</p>
@@ -1811,7 +1811,7 @@ Table of Contents
 <h3 id="step-3-verify-in-your-platform">Step 3: Verify in Your Platform</h3>
 <p>In your Instantly account, go to Settings → Tracking Domain and enter <code>click.yourdomain.io</code>. The platform will verify the CNAME record is active.</p>
 <h3 id="step-4-update-your-email-campaigns">Step 4: Update Your Email Campaigns</h3>
-<p>Any new campaigns will use the custom tracking domain immediately. Existing campaigns continue with the old tracking domain (don't retroactively change—it breaks historical data).</p>
+<p>Any new campaigns will use the custom tracking domain immediately. Existing campaigns continue with the old tracking domain (don&#x27;t retroactively change—it breaks historical data).</p>
 <h2 id="the-dns-stack-for-cold-email">The DNS Stack for Cold Email</h2>
 <p>A proper cold email infrastructure requires multiple DNS records:</p>
 <p><code>`</code></p>
@@ -1860,13 +1860,13 @@ Table of Contents
 <p><strong>Mistake 1: Using a Subdomain on Your Sending Domain</strong></p>
 <p>If your sending domain gets blacklisted, your tracking subdomain is also blocked. Use a separate domain for tracking when possible.</p>
 <p><strong>Mistake 2: Not Verifying CNAME Active</strong></p>
-<p>Platforms show "CNAME verified" but it hasn't propagated yet. Wait 24-48 hours and verify with: <code>nslookup click.yourdomain.io</code></p>
+<p>Platforms show &quot;CNAME verified&quot; but it hasn&#x27;t propagated yet. Wait 24-48 hours and verify with: <code>nslookup click.yourdomain.io</code></p>
 <p><strong>Mistake 3: Mixing Tracking Domains</strong></p>
 <p>Using different CNAME targets for different campaigns. Stick with one tracking domain per platform to build reputation.</p>
 <p><strong>Mistake 4: Creating Too Many Subdomains</strong></p>
 <p>Each subdomain is another reputation factor. Use 1-2 tracking subdomains maximum per cold email domain.</p>
 <p><strong>Mistake 5: Pointing CNAME to Wrong Target</strong></p>
-<p>Different platforms have different targets. Instantly is <code>track.instantly.com</code>. SmartLead tracking varies by region. Verify with your platform's docs.</p>
+<p>Different platforms have different targets. Instantly is <code>track.instantly.com</code>. SmartLead tracking varies by region. Verify with your platform&#x27;s docs.</p>
 <h2 id="tracking-domain-email-server-infrastructure">Tracking Domain + Email Server Infrastructure</h2>
 <p>A complete imisofts setup includes:</p>
 <ul>
@@ -1880,20 +1880,20 @@ Table of Contents
 <h2 id="when-to-use-custom-cname-tracking">When to Use Custom CNAME Tracking</h2>
 <p><strong>Use custom CNAME tracking if:</strong></p>
 <ul>
-<li>You're sending over 200 emails/day</li>
-<li>You're running campaigns for more than 2 weeks</li>
+<li>You&#x27;re sending over 200 emails/day</li>
+<li>You&#x27;re running campaigns for more than 2 weeks</li>
 <li>You care about accurate open rate reporting</li>
 <li>Inbox placement is your priority</li>
 </ul>
 <p><strong>Shared tracking is acceptable if:</strong></p>
 <ul>
-<li>You're in proof-of-concept phase (under 100 emails/day)</li>
-<li>You're testing with a single campaign</li>
+<li>You&#x27;re in proof-of-concept phase (under 100 emails/day)</li>
+<li>You&#x27;re testing with a single campaign</li>
 <li>You plan to migrate to CNAME within 2-4 weeks</li>
 </ul>
 <h2 id="the-bottom-line-cname-tracking-is-non-negotiable-at-scale">The Bottom Line: CNAME Tracking Is Non-Negotiable at Scale</h2>
-<p>Setting up a custom CNAME tracking domain takes 10 minutes and improves inbox placement by 20%+. It's one of the easiest wins in cold email infrastructure.</p>
-<p>If you're using shared tracking domains and seeing declining open rates after 4+ weeks, CNAME migration is your next step.</p>
+<p>Setting up a custom CNAME tracking domain takes 10 minutes and improves inbox placement by 20%+. It&#x27;s one of the easiest wins in cold email infrastructure.</p>
+<p>If you&#x27;re using shared tracking domains and seeing declining open rates after 4+ weeks, CNAME migration is your next step.</p>
 <p>At imisofts, CNAME tracking domain setup is included in all packages above Micro. We handle DNS configuration during your initial setup to ensure proper propagation and verification.</p>
 <p>The 10 minutes you spend setting up CNAME tracking today saves you 30 days of troubleshooting a flagged shared domain later.</p>
 <section class="faq-section">

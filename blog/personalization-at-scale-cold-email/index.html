@@ -1735,34 +1735,34 @@ Table of Contents
 <p>At imisofts, we have helped clients increase their reply rates from 1% to 3%+ by implementing a personalization framework across their campaigns. This guide covers the exact system.</p>
 <h2 id="the-personalization-framework">The Personalization Framework</h2>
 <p>There are three levels of personalization in cold email:</p>
-<p><strong>Level 1: Basic variable substitution</strong> inserts the recipient's name, company, and job title into the email. "Hi {{firstName}}" feels better than "Hi there," but it is not enough to drive high reply rates.</p>
-<p><strong>Level 2: Profile-based personalization</strong> does research on the specific recipient — their LinkedIn profile, recent company news, job history — and inserts a one or two sentence reference to something unique about them. "I noticed you recently joined Acme as VP of Marketing" or "Acme just launched a new AI product in Q1."</p>
-<p><strong>Level 3: Value-based personalization</strong> goes deeper — understanding the recipient's specific pain point based on their role, company, and industry, then tailoring the entire email to address that pain point. "For marketing leaders at growth-stage B2B SaaS companies managing 5+ marketing tools, we have found that email integration complexity is the #1 operational challenge."</p>
+<p><strong>Level 1: Basic variable substitution</strong> inserts the recipient&#x27;s name, company, and job title into the email. &quot;Hi {{firstName}}&quot; feels better than &quot;Hi there,&quot; but it is not enough to drive high reply rates.</p>
+<p><strong>Level 2: Profile-based personalization</strong> does research on the specific recipient — their LinkedIn profile, recent company news, job history — and inserts a one or two sentence reference to something unique about them. &quot;I noticed you recently joined Acme as VP of Marketing&quot; or &quot;Acme just launched a new AI product in Q1.&quot;</p>
+<p><strong>Level 3: Value-based personalization</strong> goes deeper — understanding the recipient&#x27;s specific pain point based on their role, company, and industry, then tailoring the entire email to address that pain point. &quot;For marketing leaders at growth-stage B2B SaaS companies managing 5+ marketing tools, we have found that email integration complexity is the #1 operational challenge.&quot;</p>
 <p>Most cold email campaigns operate at Level 1. High-performing campaigns operate at Level 2 or 3. The difference in reply rates is significant.</p>
 <h2 id="tools-for-scale-personalization">Tools for Scale Personalization</h2>
 <p><strong>AlwaysConvert.ai</strong> is our primary personalization tool. AlwaysConvert connects to your <a href="https://instantly.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">Instantly</a> or <a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead</a> account and uses AI to automatically generate personalized research and messaging for each recipient based on their profile.</p>
-<p>Here is how it works: You provide a base email template with a {{personalizedLine}} variable. AlwaysConvert scans each recipient's LinkedIn profile and company data, then generates a unique personalized line for that recipient — a recent job change, company milestone, technology they use, or other relevant detail.</p>
+<p>Here is how it works: You provide a base email template with a {{personalizedLine}} variable. AlwaysConvert scans each recipient&#x27;s LinkedIn profile and company data, then generates a unique personalized line for that recipient — a recent job change, company milestone, technology they use, or other relevant detail.</p>
 <p>For example, your base template might be:</p>
-<p>"Hi {{firstName}},</p>
+<p>&quot;Hi {{firstName}},</p>
 <p>I came across your profile and noticed {{personalizedLine}}. Because of that, I thought you might be interested in how we help {{jobTitle}} at {{companySize}} companies with {{painPoint}}.</p>
-<p>[rest of email]"</p>
+<p>[rest of email]&quot;</p>
 <p>AlwaysConvert replaces that {{personalizedLine}} variable with something like:</p>
 <ul>
-<li>"you recently joined Acme Media as VP of Marketing"</li>
-<li>"Acme just raised a Series B round, which means they are scaling their team"</li>
-<li>"your company is using HubSpot, Salesforce, and Klaviyo — 3 separate platforms"</li>
+<li>&quot;you recently joined Acme Media as VP of Marketing&quot;</li>
+<li>&quot;Acme just raised a Series B round, which means they are scaling their team&quot;</li>
+<li>&quot;your company is using HubSpot, Salesforce, and Klaviyo — 3 separate platforms&quot;</li>
 </ul>
 <p>Each recipient gets a unique personalized line. The email feels written for them, even though it was sent to 5,000 people.</p>
 <p><strong>Spintax for deliverability</strong> is a technique we use to vary email content while maintaining personalization. Spintax uses syntax like {option1|option2|option3} that randomly selects one option for each email.</p>
 <p>For example:</p>
-<p>"I came across your profile and noticed {{personalizedLine}}. Because of that, I {thought|figured|believed} you might be interested in how we help {{jobTitle}} at {{companySize}} companies {manage|handle|scale} {{painPoint}}."</p>
+<p>&quot;I came across your profile and noticed {{personalizedLine}}. Because of that, I {thought|figured|believed} you might be interested in how we help {{jobTitle}} at {{companySize}} companies {manage|handle|scale} {{painPoint}}.&quot;</p>
 <p>Each email gets randomly varied word choices, which improves deliverability because spam filters flag emails that are identical to thousands of other emails. Spintax makes each email slightly different while keeping the core message the same.</p>
 <p><strong>Custom variables</strong> let you insert any data field from your lead list into the email. Beyond first name and company, you can insert:</p>
 <ul>
-<li>Recent funding amount: "Congratulations on your {{fundingAmount}} Series A"</li>
-<li>Technology stack: "I noticed you use {{primaryTechnology}}"</li>
-<li>Employee growth: "Acme grew from {{previousHeadcount}} to {{currentHeadcount}} employees this year"</li>
-<li>Industry: "As a {{industry}} company..."</li>
+<li>Recent funding amount: &quot;Congratulations on your {{fundingAmount}} Series A&quot;</li>
+<li>Technology stack: &quot;I noticed you use {{primaryTechnology}}&quot;</li>
+<li>Employee growth: &quot;Acme grew from {{previousHeadcount}} to {{currentHeadcount}} employees this year&quot;</li>
+<li>Industry: &quot;As a {{industry}} company...&quot;</li>
 </ul>
 <p>The more data you have, the more personalization you can do.</p>
 <h2 id="building-a-personalization-data-stack">Building a Personalization Data Stack</h2>
@@ -1778,13 +1778,13 @@ Table of Contents
 <h3 id="step-1-build-your-core-template">Step 1: Build Your Core Template</h3>
 <p>Write a base email template that is strong on positioning and value proposition, but generic on personalization. The template should flow naturally and not read like it has variables everywhere.</p>
 <p>Example:</p>
-<p>"Hi {{firstName}},</p>
+<p>&quot;Hi {{firstName}},</p>
 <p>I came across your profile and noticed {{personalizedLine}}.</p>
 <p>Because of that, I thought you might be interested in how we help {{jobTitle}} at {{companySize}} companies improve {{painPoint}}.</p>
 <p>[Social proof or insight specific to their role]</p>
 <p>Most {{jobTitle}} we work with are managing {{commonChallenge}}, which is why {{ourSolution}} has become essential.</p>
 <p>Would you have 15 minutes for a quick call to see if this applies to your situation?</p>
-<p>[Signature]"</p>
+<p>[Signature]&quot;</p>
 <p>Notice that the core pitch is strong but the personalization is minimal — just enough to feel relevant without being obvious.</p>
 <h3 id="step-2-identify-personalization-opportunities">Step 2: Identify Personalization Opportunities</h3>
 <p>Map out where you can insert:</p>
@@ -1814,7 +1814,7 @@ Table of Contents
 <p>In Instantly, you can upload your lead list with custom variables, then create email sequences that insert those variables. Set up a field like {{personalizedLine}} and populate it with AlwaysConvert data before upload.</p>
 <p>In SmartLead, use similar approaches with their custom variable system.</p>
 <h3 id="step-6-monitor-and-iterate">Step 6: Monitor and Iterate</h3>
-<p>Track which personalization elements drive the highest reply rates. If "I noticed you recently got promoted" drives 4% reply rate but "I noticed your company is hiring" drives 2%, use more of the promotion angle. A/B test personalization approaches over time.</p>
+<p>Track which personalization elements drive the highest reply rates. If &quot;I noticed you recently got promoted&quot; drives 4% reply rate but &quot;I noticed your company is hiring&quot; drives 2%, use more of the promotion angle. A/B test personalization approaches over time.</p>
 <h2 id="real-results-from-personalization">Real Results from Personalization</h2>
 <p>One of our clients implemented AlwaysConvert-based personalization across their campaigns targeting 5,000 marketing leaders:</p>
 <ul>
@@ -1824,7 +1824,7 @@ Table of Contents
 <li>After role-specific versions: 2.4% reply rate</li>
 </ul>
 <p>The progression shows that personalization compounds. Each layer of sophistication increased replies. Most of this increase came from the {{personalizedLine}} variable alone.</p>
-<p>Another client, an agency targeting VP of Sales, achieved 3.2% reply rate by implementing deep profile research — every email mentioned something specific about the recipient's LinkedIn profile combined with recent company funding or hiring data.</p>
+<p>Another client, an agency targeting VP of Sales, achieved 3.2% reply rate by implementing deep profile research — every email mentioned something specific about the recipient&#x27;s LinkedIn profile combined with recent company funding or hiring data.</p>
 <h2 id="scaling-personalization-without-manual-work">Scaling Personalization Without Manual Work</h2>
 <p>The key is automating as much as possible:</p>
 <ol>

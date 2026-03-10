@@ -1735,13 +1735,13 @@ Table of Contents
 
 <div class="blog-content-layout">
 <article class="article-content">
-<p>Here's a question that confuses most cold email teams: "If I'm only sending cold emails (not receiving), do I need MX records?"</p>
-<p>The answer is: Yes, and here's why.</p>
-<p>Email providers check MX records as a legitimacy signal. If your domain has no MX record, Gmail assumes you don't have a mail server. That looks suspicious. Cold email from a domain with no mail infrastructure gets filtered more aggressively.</p>
+<p>Here&#x27;s a question that confuses most cold email teams: &quot;If I&#x27;m only sending cold emails (not receiving), do I need MX records?&quot;</p>
+<p>The answer is: Yes, and here&#x27;s why.</p>
+<p>Email providers check MX records as a legitimacy signal. If your domain has no MX record, Gmail assumes you don&#x27;t have a mail server. That looks suspicious. Cold email from a domain with no mail infrastructure gets filtered more aggressively.</p>
 <p>At imisofts, we configure MX records on all client domains, even outbound-only ones. This single change improves inbox placement by 8-12%.</p>
 <p>Let me explain the technical side, then the practical setup.</p>
 <h2 id="what-is-an-mx-record">What Is an MX Record?</h2>
-<p>MX stands for "Mail eXchange." It's a DNS record that tells the world: "If you want to send email to this domain, send it to THIS mail server."</p>
+<p>MX stands for &quot;Mail eXchange.&quot; It&#x27;s a DNS record that tells the world: &quot;If you want to send email to this domain, send it to THIS mail server.&quot;</p>
 <p>Example:</p>
 <ul>
 <li>Domain: clientacquisition.io</li>
@@ -1759,35 +1759,35 @@ Table of Contents
 <li>If that fails, try mail2.clientacquisition.io (priority 20)</li>
 </ol>
 <h2 id="why-email-providers-check-mx-records">Why Email Providers Check MX Records</h2>
-<p>When Gmail receives an email claiming to be from "yourname@clientacquisition.io", it checks:</p>
+<p>When Gmail receives an email claiming to be from &quot;yourname@clientacquisition.io&quot;, it checks:</p>
 <ol>
-<li>"Does clientacquisition.io have an MX record?"</li>
-<li>"Is that MX record pointing to a real mail server?"</li>
-<li>"Does that mail server accept incoming mail?"</li>
+<li>&quot;Does clientacquisition.io have an MX record?&quot;</li>
+<li>&quot;Is that MX record pointing to a real mail server?&quot;</li>
+<li>&quot;Does that mail server accept incoming mail?&quot;</li>
 </ol>
 <p>If any of these fail, Gmail gets suspicious:</p>
 <p><strong>Scenario 1: No MX Record</strong></p>
 <ul>
 <li>Domain: clientacquisition.io</li>
 <li>MX record: (none)</li>
-<li>Gmail thinks: "This domain has no mail infrastructure. Why are emails coming from here?"</li>
+<li>Gmail thinks: &quot;This domain has no mail infrastructure. Why are emails coming from here?&quot;</li>
 <li>Result: Stricter filtering, higher spam folder placement</li>
 </ul>
 <p><strong>Scenario 2: Valid MX Record</strong></p>
 <ul>
 <li>Domain: clientacquisition.io</li>
 <li>MX record: mail.clientacquisition.io</li>
-<li>Gmail thinks: "This domain has legitimate mail infrastructure. This looks real."</li>
+<li>Gmail thinks: &quot;This domain has legitimate mail infrastructure. This looks real.&quot;</li>
 <li>Result: More lenient filtering, better inbox placement</li>
 </ul>
 <p>This is reputation math. Domains with legitimate mail infrastructure look more trustworthy.</p>
 <h2 id="mx-records-for-outbound-only-domains">MX Records for Outbound-Only Domains</h2>
-<p>Here's where cold email teams get confused: "I'm only sending from this domain. I don't receive emails. Do I need MX records?"</p>
+<p>Here&#x27;s where cold email teams get confused: &quot;I&#x27;m only sending from this domain. I don&#x27;t receive emails. Do I need MX records?&quot;</p>
 <p><strong>Short answer:</strong> Yes, add them anyway.</p>
 <p><strong>Why:</strong> Email providers use MX record presence as a legitimacy signal. It costs nothing to add and improves deliverability by 8-12%.</p>
-<p><strong>How:</strong> Add an MX record pointing to any mail server. It doesn't have to be operational for inbound email. The presence of the record signals legitimacy.</p>
+<p><strong>How:</strong> Add an MX record pointing to any mail server. It doesn&#x27;t have to be operational for inbound email. The presence of the record signals legitimacy.</p>
 <h2 id="the-imisofts-mx-configuration">The imisofts MX Configuration</h2>
-<p>For clients using imisofts private server infrastructure, here's the standard setup:</p>
+<p>For clients using imisofts private server infrastructure, here&#x27;s the standard setup:</p>
 <h3 id="for-sending-domains">For Sending Domains</h3>
 <p><strong>Option 1: No Inbound Email (Most Common)</strong></p>
 <p><code>`</code></p>
@@ -1798,7 +1798,7 @@ Table of Contents
 <p><code>`</code></p>
 <p>clientacquisition.io MX 10 mail.clientacquisition.io</p>
 <p><code>`</code></p>
-<p>If you're running your own mail server, point to your server.</p>
+<p>If you&#x27;re running your own mail server, point to your server.</p>
 <p><strong>Option 3: Google Workspace Backup</strong></p>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 10 aspmx.l.google.com</p>
@@ -1806,7 +1806,7 @@ Table of Contents
 <p>clientacquisition.io MX 30 alt2.aspmx.l.google.com</p>
 <p><code>`</code></p>
 <p>This sets up Google as your inbound mail receiver (for handling replies). Your emails still send from imisofts infrastructure.</p>
-<p><strong>We recommend Option 1</strong> for most cold email teams. It's simple, works, and improves deliverability.</p>
+<p><strong>We recommend Option 1</strong> for most cold email teams. It&#x27;s simple, works, and improves deliverability.</p>
 <h2 id="complete-dns-configuration-for-cold-email">Complete DNS Configuration for Cold Email</h2>
 <p>A properly configured cold email domain needs these records:</p>
 <h3 id="1-a-record-points-domain-to-ip">1. A Record (Points domain to IP)</h3>
@@ -1819,15 +1819,15 @@ Table of Contents
 <p><code>`</code></p>
 <h3 id="3-spf-record-sender-authentication">3. SPF Record (Sender authentication)</h3>
 <p><code>`</code></p>
-<p>clientacquisition.io TXT "v=spf1 ip4:192.0.2.100 include:sendgrid.net ~all"</p>
+<p>clientacquisition.io TXT &quot;v=spf1 ip4:192.0.2.100 include:sendgrid.net ~all&quot;</p>
 <p><code>`</code></p>
 <h3 id="4-dkim-record-email-signature">4. DKIM Record (Email signature)</h3>
 <p><code>`</code></p>
-<p>default._domainkey.clientacquisition.io TXT "v=DKIM1; k=rsa; p=MIGfMA0GCS..."</p>
+<p>default._domainkey.clientacquisition.io TXT &quot;v=DKIM1; k=rsa; p=MIGfMA0GCS...&quot;</p>
 <p><code>`</code></p>
 <h3 id="5-dmarc-record-policy">5. DMARC Record (Policy)</h3>
 <p><code>`</code></p>
-<p>_dmarc.clientacquisition.io TXT "v=DMARC1; p=reject; rua=mailto:dmarc@clientacquisition.io"</p>
+<p>_dmarc.clientacquisition.io TXT &quot;v=DMARC1; p=reject; rua=mailto:dmarc@clientacquisition.io&quot;</p>
 <p><code>`</code></p>
 <h3 id="6-cname-record-tracking-domain-optional">6. CNAME Record (Tracking domain - optional)</h3>
 <p><code>`</code></p>
@@ -1838,7 +1838,7 @@ Table of Contents
 <h3 id="step-1-log-into-your-domain-registrar">Step 1: Log into Your Domain Registrar</h3>
 <p>Examples: GoDaddy, Namecheap, Route 53, Google Domains</p>
 <h3 id="step-2-find-dns-mx-settings">Step 2: Find DNS/MX Settings</h3>
-<p>Usually under "DNS Management" or "Advanced Settings"</p>
+<p>Usually under &quot;DNS Management&quot; or &quot;Advanced Settings&quot;</p>
 <h3 id="step-3-add-mx-record">Step 3: Add MX Record</h3>
 <p><strong>Add new record:</strong></p>
 <ul>
@@ -1857,10 +1857,10 @@ Table of Contents
 <p><code>`</code></p>
 <p>clientacquisition.io mail exchanger = 10 mail.imisofts.com</p>
 <p><code>`</code></p>
-<p>If it shows immediately: Great, you're done.</p>
+<p>If it shows immediately: Great, you&#x27;re done.</p>
 <p>If it shows old records: Wait 24-48 hours for DNS propagation.</p>
 <h3 id="step-5-update-other-platforms">Step 5: Update Other Platforms</h3>
-<p>If you're using the domain with <a href="https://instantly.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">Instantly</a>, <a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead</a>, <a href="https://get.apollo.io/u5ocuv7me9t2" target="_blank" rel="noopener noreferrer sponsored">Apollo</a>, or Clay, inform them of the new MX record. Most auto-detect after 24 hours.</p>
+<p>If you&#x27;re using the domain with <a href="https://instantly.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">Instantly</a>, <a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead</a>, <a href="https://get.apollo.io/u5ocuv7me9t2" target="_blank" rel="noopener noreferrer sponsored">Apollo</a>, or Clay, inform them of the new MX record. Most auto-detect after 24 hours.</p>
 <h2 id="mx-record-priority-when-you-have-multiple-servers">MX Record Priority: When You Have Multiple Servers</h2>
 <p>For enterprise setups, use multiple MX records with different priorities:</p>
 <p><strong>High-traffic configuration:</strong></p>
@@ -1875,13 +1875,13 @@ Table of Contents
 <li>If mail1 is down, try mail2 (priority 10)</li>
 <li>If both down, try mail3 (priority 15)</li>
 </ol>
-<p>For most cold email teams, <strong>one MX record is sufficient.</strong> Don't over-complicate it.</p>
+<p>For most cold email teams, <strong>one MX record is sufficient.</strong> Don&#x27;t over-complicate it.</p>
 <h2 id="common-mx-record-mistakes">Common MX Record Mistakes</h2>
 <p><strong>Mistake 1: Pointing to Non-Existent Server</strong></p>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 10 mail.fake-server.com</p>
 <p><code>`</code></p>
-<p>If mail.fake-server.com doesn't exist, email providers flag this as suspicious. Always point to a real server.</p>
+<p>If mail.fake-server.com doesn&#x27;t exist, email providers flag this as suspicious. Always point to a real server.</p>
 <p><strong>Mistake 2: Wrong Priority Numbers</strong></p>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 100 mail1.imisofts.com</p>
@@ -1892,14 +1892,14 @@ Table of Contents
 <p><code>`</code></p>
 <p>subdomain.clientacquisition.io MX 10 mail.imisofts.com</p>
 <p><code>`</code></p>
-<p>If you're sending from subdomain.clientacquisition.io, also add MX to parent domain:</p>
+<p>If you&#x27;re sending from subdomain.clientacquisition.io, also add MX to parent domain:</p>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 10 mail.imisofts.com</p>
 <p><code>`</code></p>
 <p><strong>Mistake 4: Forgetting MX After Adding A Record</strong></p>
-<p>Domains need both A record (IP address) AND MX record (mail server). Don't skip MX.</p>
+<p>Domains need both A record (IP address) AND MX record (mail server). Don&#x27;t skip MX.</p>
 <p><strong>Mistake 5: Not Verifying After Setup</strong></p>
-<p>Add MX record, assume it's working. Actually verify with nslookup or your registrar's tool.</p>
+<p>Add MX record, assume it&#x27;s working. Actually verify with nslookup or your registrar&#x27;s tool.</p>
 <h2 id="mx-record-impact-on-deliverability">MX Record Impact on Deliverability</h2>
 <p>Based on 847 imisofts client campaigns:</p>
 <p><strong>Domains WITHOUT MX record:</strong></p>
@@ -1915,7 +1915,7 @@ Table of Contents
 <li>Spam folder placement: 16%</li>
 </ul>
 <p><strong>Improvement: +12% inbox placement, -1.3% bounce rate</strong></p>
-<p>That's significant. MX record presence alone improves deliverability by 12%.</p>
+<p>That&#x27;s significant. MX record presence alone improves deliverability by 12%.</p>
 <h2 id="when-to-update-mx-records">When to Update MX Records</h2>
 <p><strong>Update MX when:</strong></p>
 <ul>
@@ -1924,14 +1924,14 @@ Table of Contents
 <li>You add backup mail servers</li>
 <li>You switch from shared to dedicated infrastructure</li>
 </ul>
-<p><strong>Don't update MX when:</strong></p>
+<p><strong>Don&#x27;t update MX when:</strong></p>
 <ul>
-<li>You're just changing tracking domains (that's CNAME, not MX)</li>
-<li>You're updating SPF or DKIM (different records)</li>
-<li>You're warming a new domain (warmup doesn't require MX changes)</li>
+<li>You&#x27;re just changing tracking domains (that&#x27;s CNAME, not MX)</li>
+<li>You&#x27;re updating SPF or DKIM (different records)</li>
+<li>You&#x27;re warming a new domain (warmup doesn&#x27;t require MX changes)</li>
 </ul>
 <h2 id="monitoring-mx-records-health-checks">Monitoring MX Records: Health Checks</h2>
-<p>Once you've set up MX records, monitor them quarterly:</p>
+<p>Once you&#x27;ve set up MX records, monitor them quarterly:</p>
 <p><code>`</code></p>
 <p>nslookup -type=MX clientacquisition.io</p>
 <p><code>`</code></p>
@@ -1943,8 +1943,8 @@ Table of Contents
 </ol>
 <p>If MX record points to wrong server, update it immediately. This affects email deliverability.</p>
 <h2 id="the-bottom-line-mx-records-are-non-negotiable">The Bottom Line: MX Records Are Non-Negotiable</h2>
-<p>Adding MX records to cold email domains is a 10-minute task that improves deliverability by 12%. It's one of the easiest wins in cold email infrastructure.</p>
-<p>At imisofts, we configure MX records for all client domains during onboarding. It's included in setup at no extra cost.</p>
+<p>Adding MX records to cold email domains is a 10-minute task that improves deliverability by 12%. It&#x27;s one of the easiest wins in cold email infrastructure.</p>
+<p>At imisofts, we configure MX records for all client domains during onboarding. It&#x27;s included in setup at no extra cost.</p>
 <p>When you sign up at https://imisofts.com/cold-email-marketing#packages, our team handles MX configuration. You just point your domain to us.</p>
 <p>Your DNS stack (A, MX, SPF, DKIM, DMARC, CNAME) is the foundation of cold email. Get it right, and everything else scales easily.</p>
 <section class="faq-section">

@@ -1725,12 +1725,12 @@ Table of Contents
 <p>If you have 10 domains with 5 inboxes each (50 inboxes total) in a pool, and your campaign sends 1,000 emails per day, each inbox sends approximately 20 emails. The platform distributes sends throughout the day based on your sending schedule settings.</p>
 <p>The rotation is not perfectly even — platforms add randomization so the sending pattern does not look algorithmic. This randomization is actually beneficial because perfectly uniform sending at exactly 20 emails per inbox per day could itself look automated.</p>
 <h2 id="inbox-naming-and-configuration">Inbox naming and configuration</h2>
-<p>Each inbox on a domain needs to look like a real person's email account. We use professional first-name and last-name variations.</p>
+<p>Each inbox on a domain needs to look like a real person&#x27;s email account. We use professional first-name and last-name variations.</p>
 <p>For a domain like acmetech.co with 5 inboxes, the setup might be alex@acmetech.co, alex.johnson@acmetech.co, a.johnson@acmetech.co, ajohnson@acmetech.co, and johnson@acmetech.co.</p>
 <p>Every inbox gets a display name, a professional signature, and a profile photo where applicable. These details matter because receiving servers and recipients both check sender information as part of their spam and trust assessment.</p>
 <h2 id="pool-isolation-by-campaign">Pool isolation by campaign</h2>
 <p>If you are running multiple campaigns — say one targeting AI startups and another targeting commercial cleaning companies — we recommend creating separate pools for each campaign.</p>
-<p>Pool isolation means that if one campaign has higher bounce rates or lower engagement, it does not affect the deliverability of your other campaigns. Each pool's inboxes carry their own reputation independently.</p>
+<p>Pool isolation means that if one campaign has higher bounce rates or lower engagement, it does not affect the deliverability of your other campaigns. Each pool&#x27;s inboxes carry their own reputation independently.</p>
 <p>We built this approach for a client running 4 different campaigns (cleaning services, event planning, logistics, and law firm AI) on a Custom Micro package with limited infrastructure. Even with only 3 domains and 15 inboxes, we allocated specific inboxes to each campaign to maintain isolation.</p>
 <h2 id="monitoring-inbox-health">Monitoring inbox health</h2>
 <p>Not all inboxes in a pool will perform equally. Over time, some inboxes may develop better or worse reputations based on the specific recipients they sent to and the engagement they received.</p>
