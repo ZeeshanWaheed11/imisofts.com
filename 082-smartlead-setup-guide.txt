@@ -1,0 +1,333 @@
+---
+TITLE: SmartLead Setup Guide: From Account Creation to First Campaign
+META_DESCRIPTION: SmartLead configuration tutorial. Inbox connection, Supersearch, warmup, sending settings. 100,000+ businesses use SmartLead for B2B cold email.
+URL_SLUG: /blog/smartlead-setup-guide
+PRIMARY_KEYWORD: SmartLead setup guide tutorial
+SECONDARY_KEYWORDS: email campaign platform, inbox connection, cold email tool
+CATEGORY: Platform Guides & Tutorials
+WORD_COUNT_TARGET: 1700
+SCHEMA_TYPE: Article
+AUTHOR: Zeeshan Waheed
+DATE: 2026-03-10
+---
+# SmartLead Setup Guide: From Account Creation to First Campaign
+
+SmartLead is the #2 cold email platform (after Instantly). 100,000+ businesses use it for B2B outreach.
+
+This guide covers: account creation, inbox connection, Supersearch list building, warmup configuration, and first campaign launch.
+
+## Part 1: Account Creation & Inbox Connection
+
+### Step 1: Create SmartLead Account
+
+1. Visit smartlead.ai
+2. Sign up (email, password, company name)
+3. Verify email
+4. Complete profile
+5. Choose plan (Starter $49/mo, Pro $99/mo, Enterprise custom)
+
+### Step 2: Connect Email Inbox
+
+SmartLead requires SMTP access to your email account.
+
+**For Gmail:**
+1. Dashboard → Inboxes → Add Inbox
+2. Select Gmail
+3. Log in with Google account
+4. Grant permissions (SmartLead needs read/send access)
+5. Verify connection
+6. Test send (SmartLead sends test to itself)
+
+**For Outlook:**
+1. Dashboard → Inboxes → Add Inbox
+2. Select Outlook
+3. Log in with Microsoft account
+4. Grant permissions
+5. Verify connection
+
+**Best Practice:** Use company domain Gmail or Outlook (not personal email).
+
+### Step 3: Add Custom Sending Domain (Optional but Recommended)
+
+Using custom domain improves deliverability:
+
+1. Inboxes → Add Custom Domain
+2. Enter domain (e.g., campaign.company.com)
+3. SmartLead provides DKIM/SPF/DMARC records
+4. Add records to domain registrar
+5. Wait 24-48 hours for DNS propagation
+6. Verify in SmartLead
+
+**Same as Instantly:** DKIM/SPF/DMARC critical for inbox placement.
+
+## Part 2: Supersearch (SmartLead's List Building Tool)
+
+SmartLead's Supersearch finds decision-makers automatically.
+
+### How Supersearch Works
+
+1. Dashboard → Supersearch
+2. Enter criteria:
+   - Industry (e.g., SaaS)
+   - Company size (10-500 employees)
+   - Decision-maker title (e.g., VP Growth)
+   - Location (UK, Germany, etc.)
+3. SmartLead scrapes web + databases
+4. Returns 5,000-50,000 contacts per search
+5. Download as CSV or export to campaign
+
+### Supersearch Example: UK SaaS VPs
+
+1. Supersearch → Create Search
+2. Criteria:
+   - Industry: Software / SaaS
+   - Company Size: 10-500 employees
+   - Title: VP Growth OR Head of Sales
+   - Country: UK
+   - Verification: Verified emails only
+3. Click "Search"
+4. Results: 8,500 contacts (typically)
+5. Export to campaign
+
+### Supersearch Filters (Advanced)
+
+- **Technologies Used:** Find companies using specific tech (HubSpot, Salesforce, etc.)
+- **Recent Funding:** Companies that raised funding recently (more likely to buy)
+- **Employee Growth:** Companies hiring (expansion = budget)
+- **Revenue Range:** Filter by estimated revenue (enterprise vs. SMB)
+
+## Part 3: Warmup Configuration
+
+SmartLead calls it "Inbox Warm-Up." Same concept as Instantly.
+
+### Enable Warmup
+
+1. Settings → Warmup
+2. Enable "Inbox Warm-Up"
+3. Set schedule:
+   - Week 1: 25-50 emails/day
+   - Week 2: 50-100 emails/day
+   - Week 3: 100-150 emails/day
+4. Save
+
+### How It Works
+
+SmartLead sends to warmup addresses (other inboxes) that open + click. ISPs see: legitimate engagement → increase sender reputation.
+
+**Duration:** Minimum 2-3 weeks. Don't skip.
+
+## Part 4: Campaign Creation
+
+### Step 1: Create Campaign
+
+1. Dashboard → Campaigns → New Campaign
+2. Name (e.g., "UK SaaS Q1 2026")
+3. Select inbox/domain
+4. Upload CSV or select Supersearch results
+5. Map columns: First Name, Last Name, Email
+6. Continue
+
+### Step 2: Write Email Sequence
+
+SmartLead supports 5+ emails per sequence (more than Instantly).
+
+**Recommended 4-Email Sequence:**
+
+**Email 1 (Day 1):**
+```
+Subject: [Company]: 34% faster customer onboarding?
+Body: Hi [First Name], I noticed [Company] growing in [Market]. We helped [similar company] reduce onboarding time by 34%. Open to a quick chat?
+```
+
+**Email 2 (Day 4):**
+```
+Subject: Case study from [similar company]
+Body: Following up on my previous message. Here's a real case study showing the results.
+```
+
+**Email 3 (Day 8):**
+```
+Subject: Final thought
+Body: One more reason this might make sense for your team. [Brief value prop]
+```
+
+**Email 4 (Day 15):**
+```
+Subject: Closing conversation
+Body: Looks like this isn't the right time. No hard feelings. Reach out if situation changes.
+```
+
+### Step 3: Configure Sending Schedule
+
+1. Campaign Settings → Sending
+2. Daily limit: 50-100 emails (start conservative)
+3. Sending hours: 9 AM - 5 PM
+4. Days: Monday - Friday
+5. Timezone: Recipient's timezone (if available)
+6. Save
+
+**Pro Feature (SmartLead):** Timezone auto-detection. Sends 10 AM in recipient's timezone automatically.
+
+### Step 4: Set Reply Tracking
+
+1. Campaign Settings → Replies
+2. Enable "Auto-Forward Replies"
+3. Set email address (where replies go)
+4. Save
+
+**Benefit:** Replies automatically forwarded to your inbox (don't miss responses).
+
+## Part 5: Monitoring & Optimization
+
+### Dashboard Metrics
+
+- **Sent:** Total emails dispatched
+- **Open Rate:** Percentage who opened (target 15-25%)
+- **Click Rate:** Percentage who clicked (target 8-15%)
+- **Reply Rate:** Percentage who responded (target 3-8%)
+- **Bounce Rate:** Keep <5%
+- **Spam Rate:** Keep <0.5%
+
+### Real-Time Optimization
+
+**If Open Rate Low (<10%):**
+- Subject lines weak (try A/B testing)
+- Warmup not complete (wait longer)
+- Check spam folder (domain reputation issue)
+
+**If Click Rate Low (<5%):**
+- Email body unclear
+- CTA weak (not specific)
+- Cut email to <75 words
+
+**If Reply Rate Low (<2%):**
+- Target wrong (not right decision-maker)
+- Personalization weak
+- Offer unclear
+
+**If Bounce Rate High (>5%):**
+- List quality bad
+- Verify emails before sending (use Superse arch's "Verified Only" filter)
+
+## Part 6: Advanced Features (Unique to SmartLead)
+
+### AI Email Generation
+
+SmartLead's AI writes emails automatically:
+
+1. Campaign Settings → AI Email Writer
+2. Input: Prospect info, company, pain point
+3. SmartLead generates subject + body
+4. Edit as needed
+5. Use in campaign
+
+**Note:** AI emails are decent starting point, but manual personalization outperforms 2-3x.
+
+### Multi-Inbox Rotation
+
+Send from multiple inboxes simultaneously:
+
+1. Add 3-5 inboxes
+2. Create single campaign
+3. SmartLead distributes sends across inboxes
+4. Effect: Looks like different teams sending (better reputation)
+
+### Local Number Integration
+
+SmartLead can add local phone numbers to email footer:
+
+1. Settings → Phone Numbers
+2. Add phone numbers per country
+3. Emails show local number (builds trust in that market)
+
+## Part 7: Comparing Instantly vs SmartLead
+
+| Feature | Instantly | SmartLead |
+|---|---|---|
+| Setup Complexity | Easy | Easy |
+| Email Deliverability | Excellent | Excellent |
+| Warmup Configuration | Native | Native |
+| A/B Testing | Yes | Yes |
+| List Building | No (use Apollo) | Yes (Supersearch) |
+| AI Email Writing | No | Yes |
+| Multi-Inbox Rotation | Yes | Yes |
+| Timezone Intelligence | Basic | Advanced |
+| Price | $49-199/mo | $49-199/mo |
+| Best For | High-volume | All-in-one |
+
+**Bottom Line:** Instantly better for deliverability + scale. SmartLead better for all-in-one (includes list building).
+
+## Part 8: Troubleshooting
+
+**Problem: Emails not sending**
+- Check inbox connection (verify status)
+- Verify warmup not limiting volume
+- Check daily limit setting
+
+**Problem: Low open rate**
+- Wait for warmup to complete
+- A/B test subject lines
+- Check domain reputation (DKIM/SPF/DMARC)
+
+**Problem: High bounce rate**
+- Use Supersearch's "Verified Only" filter
+- Verify list with Hunter.io before upload
+- Check email quality
+
+**Problem: Flagged as spam**
+- Slow warmup (reduce to 25/day)
+- Improve subject lines (less clickbaity)
+- Wait 2-3 weeks before scaling again
+
+## Campaign Checklist
+
+- ✅ Account created
+- ✅ Inbox(es) connected
+- ✅ Custom domain added (optional)
+- ✅ DKIM/SPF/DMARC configured
+- ✅ Warmup enabled (2-3 weeks)
+- ✅ List created (Supersearch or CSV upload)
+- ✅ 4-email sequence written
+- ✅ Sending schedule configured
+- ✅ Reply forwarding enabled
+- ✅ A/B testing plan set
+- ✅ Monitoring dashboard ready
+
+SmartLead is easier than Instantly for all-in-one campaigns (has built-in list building). For serious scale, both platforms excel. Choose based on your workflow.
+---
+---
+FAQ_SCHEMA:
+Q: Which is better: Instantly or SmartLead?
+A: Both excellent. Instantly slightly better for deliverability + scale. SmartLead better for all-in-one (includes list building). Use whichever matches your workflow.
+Q: What's Supersearch?
+A: SmartLead's built-in list building tool. Enter criteria (industry, title, country) and it returns 5,000-50,000 verified contacts. Much faster than manual scraping.
+Q: How long warmup?
+A: Minimum 2-3 weeks. Week 1: 25-50/day. Week 2: 50-100/day. Week 3: 100-150/day. Don't skip.
+Q: Can I use AI email writing?
+A: SmartLead's AI generates decent starting templates. But manual personalization outperforms by 2-3x. Use AI as first draft, edit heavily.
+Q: Multi-inbox rotation: what's the benefit?
+A: Sends from different emails look like different teams. ISPs see more variety = better reputation. Allows scaling 3-5x per account.
+
+---
+INTERNAL_LINKS:
+- Instantly Setup Guide -> https://imisofts.com/blog/instantly-setup-guide
+- Apollo Search Filters -> https://imisofts.com/blog/apollo-search-filters
+- Cold Email Packages -> https://imisofts.com/cold-email-marketing#packages
+- GDPR Compliance Guide -> https://imisofts.com/blog/gdpr-cold-email-compliance
+- Cold Email Localization -> https://imisofts.com/blog/cold-email-localization
+
+---
+EXTERNAL_LINKS:
+- SmartLead Platform -> https://smartlead.ai/
+- Apollo Database -> https://www.apolloio.com/
+- Hunter.io Email Verification -> https://hunter.io/
+- DKIM/SPF/DMARC Guide -> https://dmarcian.com/
+
+---
+IMAGE_ALT_SUGGESTIONS:
+- SmartLead dashboard: campaigns, deliverability, reply tracking
+- Supersearch filter options: industry, title, company size, country
+- Inbox connection: Gmail, Outlook, custom domain DKIM/SPF setup
+- Email sequence builder with 4-email template and timing
+- Multi-inbox rotation: 3-5 inboxes distributing sends across days
+

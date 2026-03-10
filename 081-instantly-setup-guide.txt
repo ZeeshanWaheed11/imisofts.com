@@ -1,0 +1,358 @@
+---
+TITLE: Instantly Setup Guide: Configure Campaigns for Maximum Deliverability
+META_DESCRIPTION: Complete Instantly tutorial. Account connection, warmup config, pool rotation, sending schedules, DKIM/SPF/DMARC for EU compliance and maximum inbox placement.
+URL_SLUG: /blog/instantly-setup-guide
+PRIMARY_KEYWORD: Instantly setup guide
+SECONDARY_KEYWORDS: email deliverability, warmup configuration, DKIM SPF DMARC
+CATEGORY: Platform Guides & Tutorials
+WORD_COUNT_TARGET: 2000
+SCHEMA_TYPE: Article
+AUTHOR: Zeeshan Waheed
+DATE: 2026-03-10
+---
+# Instantly Setup Guide: Configure Campaigns for Maximum Deliverability
+
+Instantly is the #1 email platform for cold email. But most users configure it wrong, destroying deliverability before campaigns start.
+
+This guide walks through proper setup: account connection, warmup, pool rotation, sending schedules, and compliance for European markets.
+
+## Part 1: Initial Account Setup
+
+### Step 1: Create Instantly Account
+
+1. Go to Instantly.ai
+2. Create account (email + password)
+3. Verify email
+4. Complete profile (company name, role)
+5. Choose plan (Starter €49/mo for testing, Pro €99/mo for scaling)
+
+### Step 2: Connect Email Account
+
+1. Dashboard → Integrations → Email Account
+2. Select provider (Gmail, Outlook, etc.)
+3. Grant permissions (Instantly needs SMTP access)
+4. Confirm connection
+5. Test send (Instantly sends test email to itself)
+
+### Step 3: Add Sending Domain(s)
+
+**Critical:** Use custom domain (not Gmail/Outlook account). This protects your primary email and improves deliverability.
+
+1. Domains → Add New Domain
+2. Enter domain (e.g., campaign.company.com)
+3. Instantly provides DKIM/SPF/DMARC records
+4. Add records to your domain registrar (Namecheap, GoDaddy, etc.)
+5. Wait 24-48 hours for DNS propagation
+6. Verify domain in Instantly
+
+**DKIM/SPF/DMARC Setup (Critical for Deliverability):**
+- **DKIM (DomainKeys Identified Mail):** Digitally signs emails (proves authenticity)
+- **SPF (Sender Policy Framework):** Authorizes IPs to send from domain
+- **DMARC (Domain-based Message Authentication):** Policy on how to handle failures
+
+Your domain registrar should have fields for these. Instantly provides exact values to paste.
+
+### Step 4: Configure Sending IP Pool
+
+Instantly manages IPs, but you can configure rotation:
+
+1. Settings → IP Rotation
+2. Select "Auto Rotate" (recommended)
+3. Set rotation frequency (every 50 emails, every 100 emails)
+4. Save
+
+**Why rotate?** ISPs track sending patterns. Rotation makes it look like emails come from different sources (more authentic).
+
+## Part 2: Warmup Configuration (Critical for Deliverability)
+
+**Warmup Purpose:** Build sender reputation BEFORE aggressive sending.
+
+Think of it like this: New domains have zero reputation. ISPs are suspicious. Warmup proves you're legitimate.
+
+### Warmup Schedule (Recommended)
+
+**Week 1:** 25-50 emails/day to engaged contacts
+**Week 2:** 50-100 emails/day to warm leads
+**Week 3:** 100-150 emails/day to broader list
+**Week 4+:** 150-300 emails/day (domain now warm)
+
+### How to Configure Warmup in Instantly
+
+1. Campaigns → Warmup Settings
+2. Enable "Warmup Mode"
+3. Set daily warmup limit (start at 50)
+4. Select "Warmup Engagement" (Instantly sends to warmup addresses that open + click)
+5. Save
+
+**Warmup Works Because:**
+- Open rate = positive signal (ISP sees: recipient engaged)
+- Click rate = positive signal (ISP sees: not spam)
+- Buildup = gradual reputation increase
+
+### Manual Warmup (If Warmup Mode Not Enough)
+
+1. Create CSV of 100-200 emails you own or control:
+   - Your team members
+   - Partners who agreed
+   - Client emails (who know cold email is coming)
+2. Send 1 email per person during warmup period
+3. Ask them to open + click
+4. Track opens/clicks
+5. After 2 weeks, domain reputation high enough for cold email
+
+## Part 3: Campaign Configuration
+
+### Step 1: Create Campaign
+
+1. Campaigns → New Campaign
+2. Name (e.g., "UK SaaS Q1 2026")
+3. Select sending domain
+4. Upload CSV (First Name, Last Name, Email, Custom Variable 1, etc.)
+5. Map columns in Instantly
+6. Continue
+
+### Step 2: Write Email Sequence (4 Emails Recommended)
+
+**Email 1 (Day 1):**
+```
+Subject: [Company]: [Metric]?
+Body: Hi [First Name], I noticed [Company] growing in [Market]. We helped [similar company] achieve [result]. Open to 15 minutes next week?
+```
+
+**Email 2 (Day 4):**
+```
+Subject: Quick question...
+Body: Still thinking about our previous message? Here's a case study that might help.
+```
+
+**Email 3 (Day 8):**
+```
+Subject: Final thought
+Body: Last chance to chat about [specific value]. Let me know if you're interested.
+```
+
+**Email 4 (Day 15+) - If Still No Response:**
+```
+Subject: Closing out...
+Body: Taking you off list. No hard feelings. Cheers!
+```
+
+### Step 3: Configure Sending Schedule
+
+1. Campaign Settings → Sending Schedule
+2. Daily limit: 50-100 emails (start conservative)
+3. Sending hours: 9 AM - 5 PM (business hours for recipient timezone)
+4. Days: Monday - Friday (most people check work email M-F)
+5. Save
+
+**Why these hours?** Cold emails sent during business hours get higher open rates (people actually checking email).
+
+### Step 4: Set Reply Tracking
+
+1. Campaign Settings → Reply Handling
+2. Enable "Auto-Forward Replies" to your email
+3. Set reply threshold (automatically move to "responded" bucket after 1 reply)
+4. Save
+
+**This ensures:** You don't miss responses buried in Instantly interface.
+
+## Part 4: Advanced Configuration
+
+### Setting Up A/B Testing
+
+1. Create Campaign
+2. Add 2 subject lines (for A/B test)
+3. Segment list: 50% get Subject A, 50% get Subject B
+4. Send simultaneously
+5. Track opens/clicks by subject
+6. After 500 emails, identify winner
+7. Use winner for remaining list
+
+### Pool Rotation Strategy
+
+1. Create 3-5 campaigns (same list, different domains)
+2. Set each to send at different hours
+3. Rotate between domains
+4. Net effect: Looks like different teams sending (improves deliverability)
+
+Example:
+- Campaign 1 (campaign.com): 50 emails 9 AM
+- Campaign 2 (outreach.com): 50 emails 11 AM
+- Campaign 3 (connect.com): 50 emails 2 PM
+- Campaign 4 (reach.com): 50 emails 4 PM
+
+### Smart Send (For International Campaigns)
+
+1. Campaign Settings → Smart Send
+2. Enable "Recipient Timezone"
+3. Select sending hour (e.g., 10 AM)
+4. Instantly sends 10 AM in RECIPIENT'S timezone, not yours
+5. Save
+
+**Benefit:** Email arrives during recipient's business hours regardless of their timezone.
+
+## Part 5: Compliance Configuration (European Markets)
+
+### GDPR Compliance
+
+1. Campaign Settings → Compliance
+2. Enable "GDPR Compliant Mode"
+3. Requires:
+   - Clear unsubscribe link (mandatory)
+   - Sender address visible
+   - Clear sender identification
+4. Save
+
+### Unsubscribe Link Setup
+
+1. Campaign Settings → Unsubscribe
+2. Enable "Unsubscribe Link"
+3. Make sure link appears in email footer
+4. Test unsubscribe flow (click link, verify removal)
+5. Maintain suppression list (never email unsubscribed contacts again)
+
+## Part 6: Monitoring & Optimization
+
+### Dashboard Metrics to Track
+
+- **Open Rate:** Target 15-25% (problem if <10%)
+- **Click Rate:** Target 8-15% (problem if <5%)
+- **Response Rate:** Target 3-8% (problem if <2%)
+- **Bounce Rate:** Keep <5% (problem if >10%)
+- **Complaint Rate:** Keep <0.1% (ISP will blacklist you if >1%)
+
+### Optimization Actions
+
+**If Open Rate Low (<10%):**
+- Subject lines weak (too generic)
+- Sending time wrong (not business hours)
+- Domain reputation low (need more warmup)
+- Action: A/B test subject lines, check domain warmup status
+
+**If Click Rate Low (<5%):**
+- Email body weak (no curiosity/urgency)
+- CTA unclear (not asking specific question)
+- Email too long (cut to 75-100 words)
+- Action: Simplify message, clearer CTA
+
+**If Response Rate Low (<2%):**
+- Target list wrong (not right decision-maker)
+- Personalization weak (too generic)
+- Offer unclear (what are you actually selling?)
+- Action: Re-segment list, re-personalize, clarify value prop
+
+**If Bounce Rate High (>5%):**
+- List quality bad (invalid emails)
+- Domain reputation damage (too aggressive sending)
+- Action: Use Hunter.io to verify emails, slow domain warmup
+
+**If Complaint Rate High (>0.1%):**
+- Email perceived as spam
+- Sending to wrong audience
+- Subject line deceptive
+- Action: Improve subject lines, target right audience, slow warmup
+
+## Part 7: Scaling
+
+### When to Scale Sending Volume
+
+**Safe to 2x volume if:**
+- Bounce rate stable <5%
+- Complaint rate stable <0.1%
+- Open rate stable 15%+
+- Domain not flagged by ISP
+
+**Process:**
+1. Increase daily limit from 50 to 100
+2. Monitor metrics for 3-5 days
+3. If stable, increase to 150
+4. Repeat until reaching 300-400 daily (max sustainable)
+
+### When to Add New Domain
+
+After first domain sends 10,000+ emails and proves stability:
+1. Register 2nd domain
+2. Warm for 2-3 weeks
+3. Send same campaign from 2nd domain
+4. Repeat with 3rd domain
+
+**Why multiple domains?** Spreads reputation across domains, prevents single ISP blacklist from destroying campaigns.
+
+## Part 8: Troubleshooting
+
+**Problem: Low Open Rates**
+- Check domain warmup (is it complete?)
+- Verify DKIM/SPF/DMARC setup
+- Check ISP blacklists (mxtoolbox.com)
+- A/B test subject lines
+
+**Problem: High Bounce Rate**
+- Verify email list quality (use Hunter.io)
+- Check domain reputation (might be flagged)
+- Slow warmup (domain reputation recovering)
+
+**Problem: Complaints/Spam Folder**
+- Subject line too clickbaity?
+- Sending to disengaged list?
+- Too many emails too fast?
+- Reduce volume, slow warmup
+
+**Problem: Campaign Not Sending**
+- Domain not verified (check Status)
+- Daily limit reached (increase limit)
+- Recipient email invalid (check bounce rate)
+- DKIM/SPF/DMARC misconfigured (verify in domain registrar)
+
+## Configuration Checklist
+
+- ✅ Email account connected
+- ✅ Custom domain added
+- ✅ DKIM/SPF/DMARC configured
+- ✅ Warmup enabled (minimum 2 weeks)
+- ✅ IP rotation enabled
+- ✅ Campaign created
+- ✅ 4-email sequence written
+- ✅ Sending schedule set (business hours)
+- ✅ Unsubscribe link tested
+- ✅ A/B testing configured
+- ✅ Monitoring dashboard set up
+- ✅ Compliance settings enabled
+
+Once all checkboxes complete, you're ready to send with confidence.
+---
+---
+FAQ_SCHEMA:
+Q: How long should warmup take?
+A: Minimum 2-3 weeks. Week 1: 25-50/day. Week 2: 50-100/day. Week 3: 100-150/day. Rushing warmup destroys deliverability.
+Q: What's DKIM/SPF/DMARC?
+A: DKIM = digital signature (proves email from you). SPF = authorizes IPs (tells ISP which servers can send from domain). DMARC = policy (what ISP does if DKIM/SPF fail). All 3 required for best deliverability.
+Q: What's a good open rate?
+A: 15-25% is target. Below 10% = problem. Check warmup status, domain reputation, subject lines.
+Q: When can I increase sending volume?
+A: Only if bounce <5%, complaints <0.1%, open rate stable 15%+. Increase gradually: 50→100→150→200. Never jump 10x.
+Q: What if I get flagged for spam?
+A: Domain reputation damaged. Response: Pause campaign, slow warmup to 25/day, wait 2-3 weeks, ramp slowly. May need new domain.
+
+---
+INTERNAL_LINKS:
+- European Cold Email Regulations -> https://imisofts.com/blog/gdpr-cold-email-compliance
+- Cold Email Localization -> https://imisofts.com/blog/cold-email-localization
+- SmartLead Setup Guide -> https://imisofts.com/blog/smartlead-setup-guide
+- Apollo Search Filters -> https://imisofts.com/blog/apollo-search-filters
+- Cold Email Packages -> https://imisofts.com/cold-email-marketing#packages
+
+---
+EXTERNAL_LINKS:
+- Instantly Platform -> https://instantly.ai/
+- MXToolbox - Check Domain Reputation -> https://mxtoolbox.com/
+- DKIM/SPF/DMARC Explained -> https://dmarcian.com/
+- Hunter.io - Email Verification -> https://hunter.io/
+
+---
+IMAGE_ALT_SUGGESTIONS:
+- Instantly dashboard: campaigns, analytics, deliverability metrics
+- DKIM/SPF/DMARC setup process in domain registrar
+- Warmup schedule: Week 1 (25-50/day) through Week 4 (150-300/day)
+- Campaign creation: email sequence configuration with 4-email structure
+- Advanced: A/B testing, pool rotation, smart send by recipient timezone
+

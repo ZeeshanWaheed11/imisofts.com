@@ -1,0 +1,269 @@
+---
+TITLE: Instantly Pool Rotation: How to Set Up Multi-Inbox Sending
+META_DESCRIPTION: Technical guide: creating sender pools, grouping by domain/campaign, daily limits per inbox, safety rules.
+URL_SLUG: /blog/instantly-pool-rotation-setup
+PRIMARY_KEYWORD: instantly pool rotation
+SECONDARY_KEYWORDS: sender pool setup, multi-inbox sending, email pool rotation
+CATEGORY: Platform Guides & Tutorials
+WORD_COUNT_TARGET: 1900
+SCHEMA_TYPE: Article
+AUTHOR: Zeeshan Waheed
+DATE: 2026-03-10
+---
+
+# Instantly Pool Rotation: How to Set Up Multi-Inbox Sending
+
+Pool rotation is your insurance policy against domain burnout. When you send from 50 inboxes instead of 1, you distribute risk. If one inbox gets flagged, 49 others keep working. That's the math behind scaling cold email.
+
+Here's exactly how we set it up in Instantly.
+
+## What is Pool Rotation?
+
+Pool rotation distributes campaign sends across multiple inboxes (sender pool). Instead of sending 5,000 emails from one inbox (risky), you send 100 from 50 inboxes (safe).
+
+Gmail monitors inbox-level behavior. If one inbox sends 5,000 emails suddenly, it triggers review. But if 50 inboxes each send 100 emails, Gmail sees normal behavior spread across accounts.
+
+**Pool rotation math:**
+- 1 inbox × 5,000 sends = FLAGGED (manual review)
+- 50 inboxes × 100 sends each = SAFE (consistent, distributed)
+
+This is why enterprises manage 200-1,400 inboxes. It's not overkill—it's necessary infrastructure.
+
+## Setting Up Sender Pools in Instantly
+
+Navigate to **Settings > Inboxes > Pools**.
+
+**Step 1: Create a New Pool**
+- Click "Create Pool"
+- Name: "Startup_Outreach_Pool_1" (be specific)
+- Description: "50 G Suite inboxes for SaaS startup targeting"
+- Strategy: Round Robin (sends in rotation 1→2→3→...→50→1)
+
+**Step 2: Add Inboxes to the Pool**
+- Select 50 authenticated inboxes (or however many you have)
+- Verify all have completed 14-day warmup
+- Check daily limits (set to 100 max per inbox)
+
+**Step 3: Configure Daily Limits**
+- Pool daily limit: 5,000 (50 inboxes × 100/day)
+- Per-inbox limit: 100/day (auto-calculated)
+- Override individual limits: NO (respect warmup schedules)
+
+**Step 4: Enable Rotation Strategy**
+- Rotation Type: Round Robin (most common)
+- Alternative: Random (slight variation, also safe)
+- Alternative: Sequential (use if testing single domain reliability)
+
+Once configured, every campaign using this pool will distribute sends across 50 inboxes automatically.
+
+## Pool Organization Best Practices
+
+**Organization by Domain:**
+- Pool 1: company1.com (50 inboxes on company1.com domain)
+- Pool 2: company2.com (50 inboxes on company2.com domain)
+- Each domain gets its own pool = better reputation management
+
+**Organization by Campaign:**
+- Pool 1: SaaS Cold Email Campaign (targeting tech founders)
+- Pool 2: Enterprise Sales Campaign (targeting VP Sales)
+- Separating campaigns prevents Gmail from associating different content with one pool
+
+**Organization by Vertical:**
+- Pool 1: SaaS Outreach (software companies)
+- Pool 2: E-commerce Outreach (online retailers)
+- Different industries = different sending patterns = separate pools
+
+My recommendation: Organize by domain first, then by campaign. One domain = one vertical = one pool.
+
+## Daily Limits Per Inbox
+
+These are hard rules. Break them and Gmail investigates.
+
+**Setup after 14-day warmup:**
+- Micro inboxes: 25 sends/day max
+- Standard inboxes: 50 sends/day max
+- Premium inboxes: 100 sends/day max
+- Enterprise inboxes: 150-200 sends/day max (domain dependent)
+
+**Conservative approach (recommended for agencies):**
+- Set all inboxes to 75 sends/day max
+- Monitor for 2 weeks
+- Increase to 100/day if zero spam complaints
+
+**Aggressive approach (for established brands):**
+- Set to 150/day if domain reputation is strong
+- Risk: If one inbox gets flagged, entire pool loses credibility
+
+I recommend conservative. Recovery from a flagged inbox takes 30 days. Better to scale slowly and safely.
+
+## Sending Schedules (Critical Detail)
+
+Pool rotation only works if sends are staggered. If all 50 inboxes send at 9 AM, Gmail sees a spike. Stagger them instead.
+
+**In Instantly Campaign Settings:**
+- Enable: "Stagger Sends Across Inboxes"
+- Gap between sends: 5-15 minutes (randomized)
+- This spreads 5,000 sends over 12-24 hours instead of an hour
+
+**Example:**
+- Inbox 1: 9:00-9:05 AM (100 sends)
+- Inbox 2: 9:15-9:20 AM (100 sends)
+- Inbox 3: 9:30-9:35 AM (100 sends)
+- ...continuing through all 50 inboxes
+
+Result: 5,000 emails sent, but spread naturally over the day. Gmail sees normal behavior.
+
+## Safety Rules (Non-Negotiable)
+
+**Rule 1: Never exceed pool daily limit by more than 5%**
+- Pool limit: 5,000
+- Maximum: 5,250
+- Exceeding this triggers review
+
+**Rule 2: Rotate domains frequently**
+- If Pool 1 (company1.com) sends 5,000/day for 30 days, domain burns out
+- After 2 weeks: Introduce Pool 2 (company2.com) for 50% of sends
+- After 4 weeks: Alternate pools daily (Pool 1 on Mon/Wed/Fri, Pool 2 on Tue/Thu)
+
+**Rule 3: Monitor bounce rates per pool**
+- If Pool 1 bounce rate exceeds 5%, pause it
+- Investigate: List quality? Domain reputation? Warmup incomplete?
+- Fix before resuming
+
+**Rule 4: Separate new inboxes from established ones**
+- New inboxes (0-14 days warmup): Separate pool
+- Established inboxes (90+ days): Separate pool
+- Mixing them confuses Gmail's algorithms
+
+**Rule 5: One inbox = one campaign maximum during ramp**
+- During days 1-30 post-warmup, use each inbox for one campaign only
+- After 30 days, can blend 2-3 related campaigns on same inbox
+- Unrelated campaigns = different pool
+
+## Monitoring Pool Health
+
+Check these metrics weekly:
+
+**Metrics to Watch:**
+1. **Bounce Rate (per pool):** Should be <3%. If >5%, something's wrong.
+2. **Spam Complaint Rate:** Should be <0.3%. If >0.5%, pause immediately.
+3. **Inbox Placement (per pool):** Check Google Postmaster. Should be 90%+.
+4. **Reply Rate:** Should be 3%+ (if below, list quality is bad, not pool issue).
+5. **Unsubscribe Rate:** Should be <0.1% (if higher, copy is bad).
+
+**In Instantly Dashboard:**
+- View: "Pools" section
+- Click pool name → see detailed metrics
+- Export data for spreadsheet tracking
+
+**Red Flag Alert:**
+- Any pool with <80% inbox placement should be paused immediately
+- Investigate domain reputation (Google Postmaster Tools)
+- Check DNS authentication (SPF, DKIM, DMARC)
+- If domain is blacklisted, retire it
+
+## Common Mistakes With Pool Rotation
+
+**Mistake 1: Mixing new and old inboxes in one pool.** New inboxes are warming up. Established inboxes are scaling. Different behavior patterns confuse Gmail. Separate them.
+
+**Mistake 2: Exceeding daily limits "just once."** Gmail doesn't forgive overages. One spike and the entire pool loses trust.
+
+**Mistake 3: Running unrelated campaigns from one pool.** SaaS email + real estate email + B2C email from the same 50 inboxes = confused reputation. Separate by vertical.
+
+**Mistake 4: Not staggering sends.** All 50 inboxes sending at 9 AM = suspicious spike. Stagger by 5-15 minutes.
+
+**Mistake 5: Not rotating domains.** Sending 5,000/day from company1.com for 60 days straight burns it out. Rotate domains weekly.
+
+## Pool Rotation at Scale
+
+For 250+ inboxes (enterprise operations):
+
+**Setup:**
+- Domain 1: 50 inboxes (Pool 1)
+- Domain 2: 50 inboxes (Pool 2)
+- Domain 3: 50 inboxes (Pool 3)
+- Domain 4: 50 inboxes (Pool 4)
+- Domain 5: 50 inboxes (Pool 5)
+
+**Daily capacity:**
+- Each pool: 5,000/day (50 inboxes × 100/day)
+- Total: 25,000/day from 250 inboxes
+
+**Rotation strategy:**
+- Week 1: Pools 1-2 active (10,000/day from 2 domains)
+- Week 2: Pools 1-3 active (15,000/day from 3 domains)
+- Week 3: Pools 1-4 active (20,000/day from 4 domains)
+- Week 4: All pools active (25,000/day from 5 domains)
+
+This prevents domain burnout while ramping volume safely.
+
+## Domain Retirement
+
+Domains have lifecycles. At some point, retire them.
+
+**Signs a domain needs retirement:**
+- 60+ days of consistent 5,000/day sends
+- Inbox placement drops below 80%
+- Bounce rate rises above 5%
+- Multiple emails landing in spam (check Postmaster)
+
+**Retirement process:**
+1. Reduce sends to 500/day (week 1)
+2. Reduce to 100/day (week 2)
+3. Stop all sends (week 3)
+4. Keep the domain alive for 30 days (don't completely abandon it)
+5. After 30 days inactive, you can retire it permanently
+
+**Lifespan:**
+- High-volume domains: 60-90 days before retirement
+- Moderate-volume domains: 120-180 days
+- Low-volume domains: 180+ days (can last years)
+
+## Final Framework
+
+1. **Create pools by domain** (not campaign)
+2. **Add 50 inboxes per pool** minimum
+3. **Set per-inbox limit to 100/day** (conservative)
+4. **Stagger sends 5-15 minutes apart**
+5. **Monitor bounce rate weekly** (flag if >5%)
+6. **Rotate domains every 2-4 weeks**
+7. **Retire domains after 60-90 days** at scale
+
+This structure handles 5,000-25,000 emails/day safely. For higher volumes, just add more pools (and domains).
+
+---
+
+FAQ_SCHEMA:
+Q: How many inboxes should I put in one pool?
+A: 50 minimum. This distributes risk across 50 accounts instead of 1. Each inbox sends 100/day max, for 5,000/day total. Larger pools are safer.
+
+Q: What rotation strategy should I use—round robin or random?
+A: Round robin. It's predictable and safe. Random is fine too, but round robin is slightly more efficient for load balancing.
+
+Q: How often should I rotate domains?
+A: Every 2-4 weeks at scale. Send from Domain 1 for 2 weeks, then introduce Domain 2. After 4 weeks, alternate daily. This prevents burning out any single domain.
+
+Q: What if one inbox in my pool gets flagged by Gmail?
+A: Remove it from the pool immediately. Troubleshoot: check warmup completion, bounce rate, spam complaints. If permanent damage, retire the inbox.
+
+Q: Can I use the same inbox for multiple campaigns in one pool?
+A: After day 30 post-warmup, yes. You can run 2-3 related campaigns on the same inbox. Unrelated campaigns should use different pools.
+
+---
+
+INTERNAL_LINKS:
+- Instantly Warmup Settings -> /blog/instantly-warmup-settings
+- Cold Email Mistakes -> /blog/cold-email-mistakes
+- Scale Cold Email to 5,000/Day -> /blog/scale-cold-email-5000-per-day
+- Cold Email Deliverability Audit -> /blog/cold-email-deliverability-audit
+
+EXTERNAL_LINKS:
+- Google Postmaster Tools -> https://postmaster.google.com
+- Instantly Pool Documentation -> https://instantly.ai/docs/pools
+- SPF DKIM DMARC Setup -> https://support.google.com/a/answer/33786
+
+IMAGE_ALT_SUGGESTIONS:
+- Pool rotation visualization across 50 inboxes
+- Daily send limits chart by inbox type
+- Domain rotation schedule example
+- Google Postmaster metrics dashboard

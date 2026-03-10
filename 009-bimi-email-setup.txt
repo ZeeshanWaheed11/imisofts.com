@@ -1,0 +1,93 @@
+---
+TITLE: BIMI Setup for Cold Email: Display Your Logo in the Inbox
+META_DESCRIPTION: Set up BIMI to show your brand logo next to cold emails in the inbox. Boost open rates and trust with this advanced email authentication protocol.
+URL_SLUG: /blog/bimi-email-setup
+PRIMARY_KEYWORD: BIMI email setup
+SECONDARY_KEYWORDS: BIMI record cold email, brand indicator email, email logo inbox
+CATEGORY: Cold Email Infrastructure
+WORD_COUNT_TARGET: 1500
+SCHEMA_TYPE: HowTo
+AUTHOR: Zeeshan Waheed
+DATE: 2026-03-10
+---
+
+# BIMI Setup for Cold Email: Display Your Logo in the Inbox
+
+BIMI — Brand Indicators for Message Identification — is the protocol that puts your company logo next to your emails in the recipient's inbox. It is the visual cherry on top of a properly authenticated email infrastructure.
+
+For cold email, BIMI serves a specific purpose: it makes your emails look legitimate and recognizable in a sea of unknown senders. When a prospect sees a branded logo next to your email instead of a generic initial or avatar, trust increases and open rates follow.
+
+At imisofts, we offer BIMI setup as an optional add-on to our infrastructure packages. Here is how it works and whether it makes sense for your campaigns.
+
+## What BIMI does
+
+BIMI displays your brand logo (your company logo or a relevant brand image) next to your emails in supporting email clients. Gmail, Yahoo, and Apple Mail all support BIMI.
+
+When a recipient sees your email in their inbox, instead of a generic colored circle with an initial, they see your actual brand logo. This visual indicator signals legitimacy and brand recognition.
+
+BIMI works on top of your existing authentication stack. It requires a valid DMARC policy at p=quarantine or p=reject, which means your SPF and DKIM must already be passing. BIMI is the final layer — it rewards you for having a properly authenticated setup.
+
+## Prerequisites for BIMI
+
+BIMI has specific prerequisites that make it an advanced feature, not a starting point.
+
+Your DMARC policy must be at p=quarantine or p=reject. A p=none policy does not qualify for BIMI. This means your SPF and DKIM must be fully configured and consistently passing authentication checks.
+
+You need a Verified Mark Certificate (VMC) from an authorized certificate authority. This is a digital certificate that verifies your ownership of the brand logo. VMCs are issued by DigiCert and Entrust, and typically cost $1,000 to $1,500 per year.
+
+Your logo must be in SVG Tiny PS format — a specific SVG format required by the BIMI standard. Standard SVG files will not work. The logo should be square, simple, and recognizable at small sizes.
+
+## Setting up BIMI
+
+Once prerequisites are met, BIMI setup involves adding a single DNS TXT record.
+
+The record goes to the hostname default._bimi.yourdomain.com with a value that points to your logo file and VMC certificate.
+
+The format is: v=BIMI1; l=https://yourdomain.com/path/to/logo.svg; a=https://yourdomain.com/path/to/vmc.pem
+
+The logo SVG file and VMC certificate need to be hosted at publicly accessible URLs. We typically host them on the same server as the email infrastructure.
+
+After adding the DNS record, email clients that support BIMI will begin displaying your logo next to emails from that domain. It can take a few days for the change to propagate and start appearing.
+
+## Is BIMI worth it for cold email?
+
+This depends on your campaign volume, brand maturity, and budget.
+
+BIMI makes the most sense for clients running high-volume campaigns (25+ domains) where brand recognition matters. If you are sending 2,500+ emails per day to the same market over months, having your logo visible in every inbox builds cumulative brand awareness.
+
+For smaller operations (under 10 domains), the $1,000 to $1,500 annual VMC cost may not justify the incremental open rate improvement. The cost per domain for the certificate can be significant when spread across only a few domains.
+
+At imisofts, we recommend BIMI for Professional and Enterprise package clients who have established brands and plan sustained, long-term cold email campaigns. For Starter and Micro clients, the priority should be getting the core infrastructure — DNS, warmup, and rotation — performing before adding advanced features.
+
+## Conclusion
+
+BIMI is the most advanced layer of email authentication, and it rewards properly configured infrastructure with visible brand presence in the inbox. It is not where you start, but where you graduate to once your core deliverability is solid.
+
+If you are interested in BIMI as part of your infrastructure, reach out through [imisofts.com/cold-email-marketing#packages](https://imisofts.com/cold-email-marketing#packages). We handle VMC procurement, logo formatting, and DNS configuration as part of the add-on.
+
+---
+FAQ_SCHEMA:
+Q: What is BIMI and how does it work for cold email?
+A: BIMI (Brand Indicators for Message Identification) displays your company logo next to your emails in the inbox. It works on top of SPF, DKIM, and DMARC authentication, requiring a DMARC policy of at least p=quarantine.
+
+Q: How much does BIMI setup cost?
+A: The main cost is the Verified Mark Certificate (VMC), which runs $1,000-$1,500 per year from authorized providers like DigiCert or Entrust. DNS record configuration is straightforward once you have the certificate.
+
+Q: Which email clients support BIMI?
+A: Gmail, Yahoo Mail, and Apple Mail all support BIMI. Microsoft Outlook support is still limited. Since Gmail is the largest email provider, BIMI provides significant visibility for B2B cold email campaigns.
+---
+
+INTERNAL_LINKS:
+- [DMARC setup guide] -> /blog/spf-dkim-dmarc-cold-email-setup
+- [cold email deliverability] -> /blog/cold-email-deliverability
+- [cold email infrastructure setup] -> /blog/cold-email-infrastructure-setup
+- [infrastructure packages] -> https://imisofts.com/cold-email-marketing#packages
+
+EXTERNAL_LINKS:
+- [BIMI Group official site] -> https://bimigroup.org
+- [DigiCert VMC certificates] -> https://www.digicert.com
+
+IMAGE_ALT_SUGGESTIONS:
+- Before and after inbox screenshot showing email without BIMI logo vs with BIMI logo
+- BIMI authentication stack diagram showing SPF, DKIM, DMARC, and BIMI layers
+- BIMI DNS record configuration example
