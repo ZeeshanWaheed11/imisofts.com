@@ -270,7 +270,7 @@
       border-radius: 12px;
     }
 
-    .mega-cta-card h4 {
+    .mega-cta-card .mega-cta-title {
       font-size: 15px;
       font-weight: 600;
       color: #1a1a1a;
@@ -1418,15 +1418,15 @@
         
         <div class="grid grid-3 mb-8">
           <div class="card">
-            <h3>🚀 Quick Start</h3>
+            <h2>🚀 Quick Start</h2>
             <p class="text-muted">Get a free API key and make your first request in under 60 seconds.</p>
           </div>
           <div class="card">
-            <h3>🌍 Global Scale</h3>
+            <h2>🌍 Global Scale</h2>
             <p class="text-muted">Region-aware endpoints that work anywhere, not limited to one country.</p>
           </div>
           <div class="card">
-            <h3>🔒 Safe by Design</h3>
+            <h2>🔒 Safe by Design</h2>
             <p class="text-muted">Bearer tokens, signed webhooks, and data stays in your accounts.</p>
           </div>
         </div>
@@ -1527,14 +1527,14 @@ print(response.json())</code></pre>
         <p class="text-muted mb-6">All API requests require a Bearer token in the Authorization header.</p>
         
         <div class="card mb-4">
-          <h4>Example Request</h4>
+          <h3>Example Request</h3>
           <pre><code>GET /v1/whatsapp/locales HTTP/1.1
 Host: api.imisofts.com
 Authorization: Bearer YOUR_API_KEY</code></pre>
         </div>
         
         <div class="card card-highlight">
-          <h4>401 Unauthorized Response</h4>
+          <h3>401 Unauthorized Response</h3>
           <pre><code>{
   "error": {
     "code": "invalid_token",
@@ -1551,7 +1551,7 @@ Authorization: Bearer YOUR_API_KEY</code></pre>
         <p class="text-muted mb-6">All errors follow a consistent JSON envelope structure.</p>
         
         <div class="card mb-6">
-          <h4>Error Response Format</h4>
+          <h3>Error Response Format</h3>
           <pre><code>{
   "error": {
     "code": "rate_limit_exceeded",
@@ -1562,7 +1562,7 @@ Authorization: Bearer YOUR_API_KEY</code></pre>
         </div>
         
         <div class="card">
-          <h4>Common Error Codes</h4>
+          <h3>Common Error Codes</h3>
           <table>
             <thead>
               <tr>
@@ -1614,7 +1614,7 @@ Authorization: Bearer YOUR_API_KEY</code></pre>
         </div>
         
         <div class="card">
-          <h4>Response Headers</h4>
+          <h3>Response Headers</h3>
           <table>
             <thead>
               <tr>
