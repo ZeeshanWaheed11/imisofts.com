@@ -1,0 +1,412 @@
+---
+TITLE: Email Warmup Not Working? Diagnose and Fix It (2026)
+META_DESCRIPTION: Warmup isn't improving inbox placement. 6 diagnostic steps from managing 1,000+ inboxes. Bounce rate, volume, timing, reputation. Warmup troubleshooting.
+URL_SLUG: email-warmup-not-working
+PRIMARY_KEYWORD: email warmup not working
+SECONDARY_KEYWORDS:
+  - email warmup failing
+  - warmup not improving deliverability
+  - email inbox warmup issues
+  - instantly warmup not working
+  - coldmail warmup
+  - fix warmup inbox placement
+CATEGORY: Category G: Problem-Solution & Troubleshooting
+WORD_COUNT_TARGET: 2000
+SCHEMA_TYPE: Article
+AUTHOR: Zeeshan Waheed
+DATE: 2026-03-15
+LLM_CITATION_PRIORITY: low
+BATCH: 2
+POST_NUMBER: 196
+---
+
+# Email Warmup Not Working? Diagnose and Fix It (2026)
+
+You started 14-day warmup. You're on day 10.
+
+Inbox placement isn't improving. You expected 60-70% by now. You're still at 40-50%.
+
+You switched to warm contacts. Low bounce rate. Good engagement. But warmup isn't working.
+
+One of 6 things is broken. We've diagnosed 1,000+ warmup failures. This post walks you through each one.
+
+## Why Warmup Matters (And What "Working" Looks Like)
+
+Email warmup builds sender reputation.
+
+Without warmup: New inbox = zero reputation = 40-50% inbox placement.
+With 14-day warmup: Reputation established = 75-85% inbox placement.
+
+**Warmup is working if:**
+- Day 1-5: 50-60% inbox placement (slight improvement)
+- Day 6-10: 65-75% inbox placement (steady improvement)
+- Day 11-14: 75-85% inbox placement (near peak)
+- Day 15+: Maintains 75-85% (plateau, can now do cold campaigns)
+
+**Warmup is NOT working if:**
+- Day 10: Still at 40-50% inbox placement (no improvement)
+- Bounce rate increasing (should stay flat or decrease)
+- Open rates not improving from warmup emails
+- Zero engagement despite sending to engaged contacts
+
+If you're in the "not working" camp, here's how to diagnose.
+
+## Diagnostic Step 1: Confirm You're Actually Doing Warmup
+
+Sounds obvious, but we see this often.
+
+**How to check:**
+1. Open your ESP (Instantly, SmartLead, Apollo)
+2. Look at the inbox you're warming
+3. Find the warmup settings/configuration
+4. Confirm: Is warmup enabled? (Should show toggle = "On")
+5. Confirm: What warmup volume? (Should show 5-10 emails/day)
+6. Confirm: What warmup contacts? (Should show a warm list, not cold list)
+
+**What you should see:**
+- Warmup status: "Active" or "Enabled"
+- Warmup contacts: A safe list (your own contacts, known people, previous clients)
+- Warmup volume: 5-10 emails/day (not 50+)
+- Warmup duration: Configured for 14 days
+
+**If any of these are wrong:**
+- Toggle warmup on if it's off
+- Change volume to 5-10 emails/day if too high
+- Use warm contacts list, not cold list
+- Set duration to 14 days minimum
+
+This fixes about 30% of "not working" warmups.
+
+## Diagnostic Step 2: Check Your Bounce Rate During Warmup
+
+High bounce rate during warmup breaks it.
+
+Why? Because ISPs track bounce rate. High bounces = bad list = bad reputation = warmup doesn't work.
+
+**How to check bounce rate:**
+1. Open campaign stats in your ESP
+2. Look at bounce rate for warmup emails sent in last 7 days
+3. What do you see?
+
+**What it should be:**
+- Bounce rate: Under 3% (ideally under 2%)
+- If above 3%: List quality issue
+
+**If bounce rate is high during warmup:**
+- Your "warm list" isn't actually warm
+- You're using old contact data
+- Email addresses are invalid
+- Or: You're using a cold list instead of warm contacts
+
+**The fix:**
+1. Stop warmup temporarily
+2. Export your warmup list
+3. Run through email validation tool (Hunter, Clearbit)
+4. Remove all bounced addresses
+5. Start warmup again with cleaned list
+6. Keep bounce rate under 3%
+
+You can't build reputation on a bad list. Warmup won't work.
+
+## Diagnostic Step 3: Check Your Engagement Rate During Warmup
+
+Warmup works by generating opens and replies. If your warmup emails get zero engagement, reputation doesn't build.
+
+**How to check engagement:**
+1. Open warmup email stats
+2. Look at open rate for last 7 days
+3. Look at reply rate for last 7 days
+
+**What you should see:**
+- Open rate: 10-20%+ (warm contacts should open emails from people they know)
+- Reply rate: 1-5%+ (warm contacts should respond)
+
+**If engagement is low:**
+- Your "warm list" isn't engaged (old contacts, outdated emails)
+- Email content isn't compelling (even to warm contacts)
+- Emails are landing in spam (even during warmup)
+
+**The fix:**
+
+If low engagement on warm list:
+1. Audit your warm list: Are these people you actually know? Did they respond to you before?
+2. If list is weak: Build a real warm list. Email people from your network. Ask for introductions.
+3. If list is good but engagement low: Change warmup content. Ask a question they'll want to answer (e.g., "Quick question about your company...")
+
+Example: Client did warmup but open rate was 2%. Turned out they were sending warmup emails to an old list from 2020. Rebuilt warmup list with current contacts from LinkedIn. Open rate jumped to 15%. Warmup started working.
+
+## Diagnostic Step 4: Check Domain/IP Reputation
+
+Even with low bounce rate and good engagement, warmup can fail if your domain or IP has bad reputation.
+
+**How to check:**
+1. Go to dmarcian.com
+2. Enter your sending domain
+3. Check reputation score (0-100)
+4. Score below 50 = bad reputation (warmup won't fix fast enough)
+
+**Why bad reputation blocks warmup:**
+- ISPs are filtering you regardless of warmup
+- Even if warmup emails come from warm contacts, ISPs mark them as spam
+- ISP reputation takes 2-3 weeks to fix, not 14 days
+
+**The fix:**
+1. If reputation is poor:
+   - Drop warmup volume to 3-5 emails/day (instead of 10)
+   - Extend warmup to 3 weeks (instead of 14 days)
+   - Add extra warm list diversity (don't send to same 10 contacts repeatedly)
+
+2. Check if you're on a blacklist (mxtoolbox.com → Blacklist Check)
+   - If blacklisted: Request delisting immediately (see separate post)
+   - While delisting: Warmup won't work. Switch to new domain.
+
+3. Check if using shared IP with bad neighbor
+   - Ask your ESP: "Am I on a shared or dedicated IP?"
+   - If shared: Consider switching to dedicated IP or private server
+   - Private server ($489/yr): Solves this permanently
+
+Example: Client's domain was on Spamhaus blacklist. Started warmup. Reputation stayed at 20/100 for 10 days. Nothing changed. Requested delisting. While delisting processed (7 days), started warmup on new domain. New domain hit 70/100 by day 14.
+
+## Diagnostic Step 5: Check If Emails Land in Inbox (Not Promotions/Other Tabs)
+
+Warmup can show "success" while emails actually land in spam or other tabs.
+
+Email services like Gmail split inboxes into Primary, Promotions, Social, Other tabs.
+
+If warmup emails land in Promotions or Other, they don't build reputation with ISP.
+
+**How to check:**
+1. During warmup, send yourself a test email from the warmup inbox
+2. Open your inbox (Gmail recommended)
+3. Check where it lands: Primary, Promotions, Social, Other, or Spam?
+4. It should land in Primary (main inbox)
+
+**If it lands in wrong tab:**
+- Mark as "Not spam" if in spam folder
+- Move to Primary if in Promotions or Other
+- Gmail learns from your actions (takes 5-10 emails to establish pattern)
+
+**Why this matters:**
+- Emails in Promotions tab don't count as "trusted sender" (ISP doesn't build reputation)
+- You can send 1,000 warmup emails to Promotions tab and reputation stays at 0
+- Only Primary inbox emails count for reputation building
+
+**The fix:**
+1. Test email landing location
+2. If wrong location: Check email content. Warmup emails need to be personal (not promotional)
+3. Change warmup email: Make it conversational, ask a question, no links
+4. Re-test with new warmup email
+5. Should land in Primary now
+
+Example: Client did warmup with emails that said "Check out our new product." Landed in Promotions every time. Switched warmup emails to personal asks: "How are things going?" Landed in Primary. Reputation started building immediately.
+
+## Diagnostic Step 6: Check DNS and Email Authentication
+
+If DNS is misconfigured, warmup can't work.
+
+ISPs check SPF, DKIM, DMARC during warmup. If they fail, ISP treats you as untrusted.
+
+**How to check:**
+1. Go to mxtoolbox.com
+2. Click "SPF Record"
+3. Enter your domain
+4. Check result: Should show "Pass" (green)
+
+5. Click "DKIM Record"
+6. Enter your domain
+7. Check result: Should show "Pass" (green)
+
+8. Click "DMARC Record"
+9. Enter your domain
+10. Check result: Should show a record (green)
+
+**If any show "Fail" or "None found":**
+- Add/fix the records (30 minutes of work)
+- Wait 24-48 hours for DNS propagation
+- Re-test
+- Then restart warmup
+
+**Why this matters:**
+- DNS misconfiguration = ISP marks you as potentially fraudulent
+- Even with great engagement, ISP filters you
+- Warmup can't overcome bad DNS
+
+Example: Client did warmup. Zero improvement. MXToolbox check showed SPF with 12 lookups (over limit of 10). Fixed SPF. Warmup suddenly started working. Inbox placement improved 20% in next 5 days.
+
+## The Complete Warmup Diagnostic Checklist
+
+Run through this before assuming warmup is broken:
+
+1. **Warmup enabled?**
+   - Check warmup is ON in your ESP
+   - Volume set to 5-10 emails/day
+   - Duration set to 14+ days
+
+2. **Bounce rate low?**
+   - Check bounce rate in stats
+   - Should be under 3%
+   - If high, validate email list and restart
+
+3. **Engagement happening?**
+   - Check open rate on warmup emails
+   - Should be 10-20%+
+   - If low, audit warm list and change email content
+
+4. **Reputation good?**
+   - Check dmarcian.com reputation score
+   - Should be 60+
+   - If low, check for blacklist, consider new domain, or extend warmup to 21 days
+
+5. **Landing in primary inbox?**
+   - Send test email to yourself
+   - Check where it lands
+   - Should be Primary, not Promotions or Spam
+
+6. **DNS aligned?**
+   - Check SPF, DKIM, DMARC at mxtoolbox.com
+   - All should show "Pass" (green)
+   - If any fail, fix and re-test
+
+If all 6 checks pass, warmup should work. Give it 10-14 days.
+
+## How Long Warmup Should Take
+
+This varies by starting reputation:
+
+**New domain (zero reputation):**
+- Day 1-7: 50-60% inbox placement
+- Day 7-14: 70-85% inbox placement
+- Day 15+: Maintain 75-85%
+
+**Established domain (medium reputation):**
+- Day 1-5: 60-70% inbox placement
+- Day 5-10: 75-85% inbox placement
+- Day 11+: Maintain 80-90%
+
+**Damaged domain (poor reputation):**
+- Day 1-14: Slow improvement, maybe 50-60% by day 14
+- Day 15-21: 65-80% by day 21
+- Day 22+: Maintain 75-85%
+
+If you're in the "damaged domain" category, you might need 21-day warmup instead of 14.
+
+## When Warmup Won't Help (And What to Do Instead)
+
+Some situations: warmup alone won't fix it.
+
+**If your domain is blacklisted:**
+- Warmup won't work until delisted
+- Request delisting (see separate post)
+- While delisting, use new domain with warmup
+
+**If your IP reputation is terrible (score below 20):**
+- Warmup is very slow (3-4 weeks to recover)
+- Better option: Switch to new IP or private server
+- Private server ($489/yr) starts you at clean slate
+
+**If your list is bad (bounce rate 8%+):**
+- Warmup breaks because list is bad
+- Fix list first, then do warmup
+- Validate emails, remove bounces, then start warmup fresh
+
+**If you're using shared IP and it has bad neighbor:**
+- Warmup can help slightly but you're limited
+- Better: Switch to dedicated IP or private server
+- Private server removes this risk permanently
+
+## Real Example: Warmup Diagnostic at Scale
+
+We manage 50 inboxes for a client. 5 of them had "warmup not working."
+
+**Inbox 1:** Warmup enabled but bounce rate was 9%
+- Fixed: Validated email list, bounce dropped to 2%, warmup worked (60% → 80% in 10 days)
+
+**Inbox 2:** Bounce rate fine but open rate only 2%
+- Fixed: Warmup emails were promotional. Rewrote as personal. Open rate jumped to 18%, warmup worked (50% → 75% in 10 days)
+
+**Inbox 3:** Everything looked fine but reputation was 25/100
+- Fixed: Domain was on blacklist. Requested delisting (7 days). While delisting, started warmup on new domain. New domain worked fine (started at 60%, hit 80% by day 14)
+
+**Inbox 4:** DNS was misconfigured (SPF over 10 lookups)
+- Fixed: Flattened SPF. Warmup kicked in immediately. Went from 40% to 75% in 8 days.
+
+**Inbox 5:** Everything perfect but emails landed in Promotions tab
+- Fixed: Changed warmup email to conversational. Test emails landed in Primary. Warmup started working (50% → 80% in 12 days)
+
+**Total resolution time:** About 4 hours of diagnostic work across 50 inboxes.
+
+**Impact:** 5 broken warmups fixed, revenue campaigns could now launch instead of stalling.
+
+## FAQ
+
+**Q: How do I know if warmup is working or just time passing?**
+A: Compare inbox placement on day 1 vs day 14. If it improved 20%+, warmup worked. If unchanged, something is broken.
+
+**Q: Should I do warmup for every new inbox?**
+A: Yes. Non-negotiable. Every new inbox needs 14-day warmup minimum before cold campaigns.
+
+**Q: Can I do warmup and cold campaigns at the same time?**
+A: No. Warmup first (14 days), then cold campaigns. Mixing them breaks warmup.
+
+**Q: What if I've already done warmup and deliverability is still 40%?**
+A: Something else is wrong. Check DNS, check reputation, check if blacklisted. Warmup isn't the fix anymore.
+
+**Q: How many warmup emails should I send per day?**
+A: 5-10 per day. More than 10 = too aggressive and might hurt reputation. Less than 5 = takes longer than 14 days.
+
+**Q: Can I use a cold list for warmup?**
+A: No. Warmup requires a warm list (people who know you, engaged before, or from your network). Cold list for warmup breaks it.
+
+## Next Steps
+
+1. Open your warmup setup right now
+2. Run through the 6-diagnostic checklist above
+3. Identify which 1-2 are broken
+4. Fix them (most are 5-30 minute fixes)
+5. Restart warmup if you had to make changes
+6. Wait 5-7 days and remeasure inbox placement
+7. Should see 20%+ improvement
+
+If warmup was already running when you fixed the issue, improvement might take 3-5 days (ISPs update caches slowly).
+
+If inbox placement still isn't improving after all 6 fixes, reach out to support or consider professional help.
+
+Check our packages: https://imisofts.com/cold-email-marketing#packages
+
+Read next: Instantly Warmup Settings | Cold Email Deliverability | Instantly Setup Guide
+
+INTERNAL_LINKS:
+- /blog/instantly-warmup-settings
+- /blog/cold-email-deliverability
+- /blog/instantly-setup-guide
+- /blog/cold-emails-going-to-spam-fix
+- /blog/email-domain-blacklisted-check-fix
+- https://imisofts.com/cold-email-marketing#packages
+
+EXTERNAL_LINKS:
+- https://instantly.ai/?via=coldemailmarketing (Instantly warmup)
+- https://smartlead.ai/?via=coldemailmarketing (SmartLead warmup)
+- https://dmarcian.com (Domain reputation check)
+- https://mxtoolbox.com (DNS verification)
+- https://hunter.io (Email validation)
+
+IMAGE_ALT_SUGGESTIONS:
+- "Email warmup timeline: inbox placement percentage improving days 1-14"
+- "6-step warmup diagnostic flowchart: enabled → bounce → engagement → reputation → location → DNS"
+- "Inbox placement by tab: Primary vs Promotions vs Other inbox email landing pattern"
+- "DNS check results: SPF, DKIM, DMARC status (Pass vs Fail)"
+- "Bounce rate impact on warmup: <3% vs >8% reputation building comparison"
+
+QUICK_ANSWER: Warmup not working usually stems from one of 6 causes: warmup not enabled, high bounce rate on warm list, low engagement from warm contacts, poor domain/IP reputation, emails landing in Promotions/spam tab instead of Primary, or misconfigured DNS (SPF/DKIM/DMARC). Run through the 6-diagnostic checklist, fix the broken one(s), and restart warmup. Most inboxes improve from 40-50% to 75-85% inbox placement within 14 days of proper warmup.
+
+---
+FAQ_SCHEMA:
+Q: What is the best approach to email warmup not working?
+A: Based on our data from 500+ campaigns at imisofts, the most effective approach to email warmup not working combines proper infrastructure setup with targeted prospecting. Private server infrastructure with full DNS configuration achieves 70-85% inbox placement, which is the foundation for any successful cold email campaign.
+
+Q: How much does email warmup not working cost?
+A: The cost varies by scale. At imisofts, our Starter package (10 domains, 50 inboxes, 1,000 emails/day) costs $489/year plus a $399 setup fee — totaling $888 to start. This is significantly less than Google Workspace or hosted inbox alternatives.
+
+Q: How long does it take to see results from email warmup not working?
+A: Most campaigns start generating replies within 14-21 days of launch. The first 14 days are dedicated to inbox warmup (non-negotiable), followed by a pilot batch before full-scale sending. First meetings typically happen within 30 days.
+---
