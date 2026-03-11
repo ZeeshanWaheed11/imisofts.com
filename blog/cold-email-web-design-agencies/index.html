@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cold Email for Web Design Agencies: Land Monthly Retainers | imisofts</title>
+<meta name="description" content="Cold email strategy for web design agencies. Target companies with outdated websites. Land monthly retainers. ICP definition, Apollo filters, expected metrics.">
+<link rel="canonical" href="https://imisofts.com/blog/cold-email-web-design-agencies/">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cold Email for Web Design Agencies: Land Monthly Retainers">
+<meta property="og:description" content="Cold email strategy for web design agencies. Target companies with outdated websites. Land monthly retainers. ICP definition, Apollo filters, expected metrics.">
+<meta property="og:url" content="https://imisofts.com/blog/cold-email-web-design-agencies/">
+<meta property="og:image" content="https://imisofts.com/og-image.jpg">
+<meta property="og:site_name" content="imisofts">
+<meta property="article:author" content="Zeeshan Waheed">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cold Email for Web Design Agencies: Land Monthly Retainers">
+<meta name="twitter:description" content="Cold email strategy for web design agencies. Target companies with outdated websites. Land monthly retainers. ICP definition, Apollo filters, expected metrics.">
+<meta name="twitter:image" content="https://imisofts.com/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .navbar.scrolled .nav-link {
+      color: #333;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+      position: relative;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    
+    .nav-logo {
+      height: 58px;
+      width: auto;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: static;
+    }
+
+    #industriesDropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    /* Mega-menu panel */
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+      padding: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+      z-index: 1000;
+      margin-top: 0;
+    }
+
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Industries dropdown — narrow, centered on trigger */
+    .nav-dropdown-menu--narrow {
+      left: 50% !important;
+      right: auto !important;
+      min-width: 420px !important;
+      transform: translateX(-50%) translateY(-8px) !important;
+    }
+
+    #industriesDropdown:hover .nav-dropdown-menu--narrow {
+      transform: translateX(-50%) translateY(0) !important;
+    }
+
+    /* ── Mega-menu tabbed layout (InvoZone style) ── */
+    .mega-menu {
+      display: flex;
+      min-height: 380px;
+    }
+
+    .mega-sidebar {
+      width: 280px;
+      min-width: 280px;
+      border-right: 1px solid #f0f0f0;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      background: #fefcfb;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mega-tab {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #4b5563;
+      font-weight: 500;
+      font-size: 15px;
+      border-left: 3px solid transparent;
+      text-decoration: none;
+    }
+
+    .mega-tab:hover,
+    .mega-tab.active {
+      background: linear-gradient(135deg, #fff7f3 0%, #fff0ea 100%);
+      color: #1a1a1a;
+      border-left-color: #F45407;
+    }
+
+    .mega-tab-icon {
+      width: 22px;
+      height: 22px;
+      color: #c9a08a;
+      flex-shrink: 0;
+      transition: color 0.2s ease;
+    }
+
+    .mega-tab:hover .mega-tab-icon,
+    .mega-tab.active .mega-tab-icon {
+      color: #F45407;
+    }
+
+    .mega-tab-arrow {
+      margin-left: auto;
+      width: 16px;
+      height: 16px;
+      color: #94a3b8;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .mega-tab.active .mega-tab-arrow {
+      opacity: 1;
+      color: #F45407;
+    }
+
+    /* CTA card in sidebar */
+    .mega-cta-card {
+      margin: auto 16px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #FFF5F0 0%, #FFEDE5 100%);
+      border: 1px solid #ffd9c7;
+      border-radius: 12px;
+    }
+
+    .mega-cta-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .mega-cta-card p {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .mega-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407 0%, #ff6b28 100%);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(244, 84, 7, 0.25);
+    }
+
+    .mega-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(244, 84, 7, 0.35);
+    }
+
+    .mega-cta-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Content panels */
+    .mega-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mega-panel {
+      display: none;
+      padding: 28px 32px;
+      flex: 1;
+    }
+
+    .mega-panel.active {
+      display: block;
+    }
+
+    .mega-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .mega-item {
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .mega-item:hover {
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
+    }
+
+    .mega-item-icon {
+      width: 20px;
+      height: 20px;
+      padding: 8px;
+      box-sizing: content-box;
+      background: linear-gradient(135deg, #fff4ef 0%, #ffe8dd 100%);
+      border-radius: 10px;
+      color: #F45407;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .mega-item:hover .mega-item-icon {
+      background: #F45407;
+      color: white;
+    }
+
+    .mega-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .mega-item:hover .mega-item-title {
+      color: #F45407;
+    }
+
+    .mega-item-desc {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* Bottom bar */
+    .mega-bottom {
+      margin-top: auto;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .mega-bottom a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #4b5563;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .mega-bottom a:hover {
+      color: #F45407;
+    }
+
+    .mega-bottom a svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Industries dropdown items */
+    .dropdown-simple {
+      padding: 16px 12px;
+    }
+
+    .dropdown-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-link:hover {
+      background: #f9fafb;
+    }
+
+    .dropdown-link svg {
+      width: 18px;
+      height: 18px;
+      padding: 7px;
+      box-sizing: content-box;
+      background: #f3f4f6;
+      border-radius: 10px;
+      color: #6b7280;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-link:hover svg {
+      background: #F45407;
+      color: white;
+    }
+
+    .dropdown-link-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .dropdown-link:hover .dropdown-link-title {
+      color: #F45407;
+    }
+
+    .dropdown-link-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Mobile section toggle (styles moved to mobile menu block) */
+
+    /* Mega-menu responsive */
+    @media (max-width: 1100px) {
+      .mega-sidebar { width: 240px; min-width: 240px; }
+      .mega-panel { padding: 24px 20px; }
+      .mega-grid { gap: 2px; }
+      .mega-item { padding: 12px 14px; }
+    }
+
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+      position: relative;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: calc(100vh - 72px);
+      background: #ffffff;
+      padding: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      visibility: hidden;
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    .mobile-menu-inner {
+      padding: 8px 16px 100px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 10px;
+      transition: background 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link:active {
+      background: #fff5f0;
+    }
+
+    .mobile-services {
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mobile-services-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 16px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: background 0.2s ease;
+      border-radius: 10px;
+    }
+
+    .mobile-services-title:active {
+      background: #fff5f0;
+    }
+
+    .mobile-services-title .accordion-icon {
+      width: 20px;
+      height: 20px;
+      color: #999;
+      transition: transform 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .mobile-services-title.active .accordion-icon {
+      transform: rotate(180deg);
+      color: #F45407;
+    }
+
+    .mobile-section-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      padding-left: 8px;
+    }
+
+    .mobile-section-content.active {
+      max-height: 800px;
+    }
+
+    .mobile-section-group {
+      padding: 8px 0 4px 16px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #F45407;
+      font-weight: 600;
+    }
+
+    .mobile-service-link {
+      display: block;
+      padding: 11px 16px 11px 28px;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+
+    .mobile-service-link:hover, .mobile-service-link:active {
+      background: #fff5f0;
+      color: #F45407;
+    }
+
+    .mobile-cta {
+      display: block;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 24px 16px 0;
+      box-shadow: 0 4px 15px rgba(244, 84, 7, 0.3);
+    }
+
+    .mobile-cta:active {
+      transform: scale(0.98);
+    }
+
+    body.mobile-menu-open {
+      overflow: hidden;
+    }
+    
+    /* ============= MAIN CONTENT STYLES ============= */
+    
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Logo animation - only on initial page load */
+    @media (prefers-reduced-motion: no-preference) {
+      .nav-logo g:first-of-type {
+        animation: slideInLeft 0.6s ease-out;
+      }
+      
+      .nav-logo .char {
+        opacity: 0;
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+      
+      .nav-logo .char-1 { animation-delay: 0.3s; }
+      .nav-logo .char-2 { animation-delay: 0.35s; }
+      .nav-logo .char-3 { animation-delay: 0.4s; }
+      .nav-logo .char-4 { animation-delay: 0.45s; }
+      .nav-logo .char-5 { animation-delay: 0.5s; }
+      .nav-logo .char-6 { animation-delay: 0.55s; }
+      .nav-logo .char-7 { animation-delay: 0.6s; }
+      .nav-logo .char-8 { animation-delay: 0.65s; }
+    }
+    
+    @keyframes fillProgress {
+      to {
+        width: 25%;
+      }
+    }
+    
+    @keyframes growLine {
+      to {
+        height: 25%;
+      }
+    }
+    
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
+    /* Partner Logos Styles */
+    .partner-logo:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px) !important;
+    }
+    
+    .partner-logo:hover img {
+      filter: grayscale(0%) !important;
+    }
+    
+    .partner-logos-container:hover .partner-logos-scroll {
+      animation-play-state: paused;
+    }
+    
+    /* Responsive Grid Classes */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Pricing Slider Navigation */
+    .pricing-slider-nav {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .pricing-slider-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #e5e5e5;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      color: #333;
+    }
+
+    .pricing-slider-btn:hover {
+      background: #F45407;
+      border-color: #F45407;
+      color: white;
+    }
+
+    .pricing-slider-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pricing-slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d1d5db;
+      transition: all 0.2s ease;
+    }
+
+    .pricing-slider-dot.active {
+      background: #F45407;
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* Process Section Specific Styles */
+    .process-desktop {
+      display: block;
+    }
+    
+    .process-mobile {
+      display: none;
+    }
+    
+    .desktop-timeline-progress {
+      animation: fillProgress 2s ease-out forwards;
+    }
+    
+    .timeline-step:hover > div:first-child {
+      transform: scale(1.1);
+    }
+    
+    .mobile-timeline-line {
+      position: relative;
+    }
+    
+    .mobile-timeline-line::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2px;
+      height: 0;
+      background: #F45407;
+      animation: growLine 2s ease-out forwards;
+    }
+    
+    .mobile-timeline-step {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .mobile-timeline-step:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    
+    .mobile-timeline-step:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    
+    .mobile-timeline-step:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+    
+    .mobile-timeline-step:nth-child(4) {
+      animation-delay: 0.7s;
+    }
+    
+    /* ============= FOOTER STYLES ============= */
+    .footer {
+      background: #0a0a0a;
+      color: #aaa;
+      padding: 0;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #F45407, #ff6b28, transparent);
+    }
+
+    .footer-cta-banner {
+      padding: 72px 0;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(244,84,7,0.08) 0%, transparent 70%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-cta-banner h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-cta-banner p {
+      font-size: 16px;
+      color: #888;
+      margin-bottom: 32px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .footer-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 24px rgba(244,84,7,0.25);
+    }
+
+    .footer-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(244,84,7,0.4);
+    }
+
+    .footer-cta-btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-cta-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    .footer-main {
+      padding: 64px 0 0;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 48px;
+    }
+
+    .footer-column h4 {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, #F45407, #ff6b28);
+      border-radius: 1px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #777;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(4px);
+    }
+
+    .footer-top {
+      padding-bottom: 48px;
+    }
+
+    .footer-brand {
+      max-width: 520px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      color: #777;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(244,84,7,0.3);
+    }
+
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+      color: #888;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover svg {
+      color: white;
+    }
+
+    .footer-contact-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .footer-contact-row a,
+    .footer-contact-row span {
+      color: #666;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-contact-row a:hover {
+      color: #F45407;
+    }
+
+    .footer-bottom {
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: #555;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #F45407;
+    }
+    
+    .check-mark {
+      color: #10b981;
+      font-weight: 500;
+      margin-right: 8px;
+    }
+    
+    .bullet-point {
+      color: #F45407;
+      margin-right: 8px;
+      font-weight: 500;
+    }
+    
+    .bullet-point-gray {
+      color: #999;
+      margin-right: 8px;
+      font-weight: 500;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .navbar {
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        height: 72px;
+      }
+      
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .hero-section {
+        padding-top: 100px !important;
+        padding-bottom: 60px !important;
+        margin-top: 72px !important;
+      }
+      
+      .hero-badge {
+        margin-top: 20px !important;
+      }
+      
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+        line-height: 1.2 !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .case-studies-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      
+      .pricing-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px !important;
+        padding-bottom: 16px;
+        scrollbar-width: none;
+      }
+
+      .pricing-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .pricing-grid > div {
+        min-width: 85vw;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+      }
+
+      .pricing-slider-nav {
+        display: flex !important;
+      }
+      
+      .footer-cta-banner {
+        padding: 48px 0;
+      }
+
+      .footer-cta-banner h3 {
+        font-size: 24px;
+      }
+
+
+
+      .footer-brand {
+        max-width: 100%;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+      }
+
+      .footer-contact-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .phone-input-group {
+        grid-template-columns: 100px 1fr !important;
+      }
+      
+      #countryCode {
+        font-size: 13px !important;
+      }
+      
+      .section-padding {
+        padding: 48px 0 !important;
+      }
+      
+      .hide-mobile {
+        display: none !important;
+      }
+      
+      .text-mobile-center {
+        text-align: center !important;
+      }
+      
+      .dashboard-card {
+        margin-top: 32px;
+      }
+      
+      .expect-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+      
+      .expect-grid > div > div:first-child {
+        font-size: 24px !important;
+      }
+      
+      .expect-grid > div > div:last-child {
+        font-size: 12px !important;
+      }
+      
+      .process-desktop {
+        display: none !important;
+      }
+      
+      .process-mobile {
+        display: block !important;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 28px !important;
+      }
+
+      .footer-cta-banner h3 {
+        font-size: 28px;
+      }
+    }
+  </style>
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cold Email for Web Design Agencies: Land Monthly Retainers",
+  "description": "Cold email strategy for web design agencies. Target companies with outdated websites. Land monthly retainers. ICP definition, Apollo filters, expected metrics.",
+  "author": {
+    "@type": "Person",
+    "name": "Zeeshan Waheed",
+    "url": "https://imisofts.com/author/zeeshan-waheed/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "imisofts",
+    "url": "https://imisofts.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://imisofts.com/logo.svg"
+    }
+  },
+  "datePublished": "2026-03-15",
+  "dateModified": "2026-03-15",
+  "url": "https://imisofts.com/blog/cold-email-web-design-agencies/",
+  "mainEntityOfPage": "https://imisofts.com/blog/cold-email-web-design-agencies/",
+  "wordCount": 3370,
+  "keywords": "cold email for web design agencies, web design cold email, website redesign outreach, retainer clients, web design client acquisition, agency outreach",
+  "name": "Cold Email for Web Design Agencies: Land Monthly Retainers"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://imisofts.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://imisofts.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cold Email Infrastructure",
+      "item": "https://imisofts.com/blog/?cat=cold-email-infrastructure"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Cold Email for Web Design Agencies: Land Monthly Retainers"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+        "@type": "Question",
+        "name": "How do I know if a company's website needs redesign without visiting?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use Wayback Machine (web.archive.org) to check when site was last updated. If before 2018, assume redesign is needed. Also check for mobile responsiveness and load time using tools like PageSpeed Insights."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "Should I charge differently for e-commerce vs service companies?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Service companies (plumbing, legal) pay $8k-$12k for redesign. E-commerce (Shopify stores) pay $5k-$8k. Enterprise companies pay $15k+. Price based on industry standard + business outcome value."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "What's the best way to transition from project to retainer?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mention retainer in initial project proposal: \"After 3-month support period, we transition to monthly retainer.\" When month 4 arrives, send specific results email with retainer tier options. 60-70% will convert if project delivered strong results."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "How many follow-ups should I send to non-replying prospects?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Send 3-5 emails over 3 weeks. Email 1 = problem, Email 2 = portfolio, Email 3 = audit offer, Email 4-5 = additional social proof or closing. Most replies come from emails 3-5, not 1-2."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "Can I cold email the same company twice if they don't reply the first time?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but wait 6+ months and target a different decision-maker (get CFO or Operations Manager instead of just trying CEO again). Different angle increases reply rate."
+        }
+    }
+]
+}
+</script>
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">Skip to content</a>
+
+<header>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-container">
+        <a href="/" class="nav-logo-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" class="nav-logo" role="img" aria-label="imisofts logo">
+            <g fill="#F45407">
+              <circle cx="48" cy="170" r="18"/>
+              <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+              <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+            </g>
+            <g transform="translate(200,188)">
+              <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#0F172A">
+                <tspan class="char char-1">i</tspan><tspan class="char char-2">m</tspan><tspan class="char char-3">i</tspan><tspan class="char char-4">s</tspan><tspan class="char char-5">o</tspan><tspan class="char char-6">f</tspan><tspan class="char char-7">t</tspan><tspan class="char char-8">s</tspan>
+              </text>
+            </g>
+          </svg>
+        </a>
+
+        <div class="nav-menu">
+          <!-- Services Mega Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <div class="mega-menu">
+                <div class="mega-sidebar">
+                  <div class="mega-tab active" data-tab="growth">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <span>Growth</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="development">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <span>Development</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="specialist">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Hire a Specialist</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-cta-card">
+                    <h4>Contact Us</h4>
+                    <p>Actionable insights for your digital growth in 24 hours.</p>
+                    <a href="/contact" class="mega-cta-btn">
+                      Contact Us
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="mega-content">
+                  <div class="mega-panel active" id="panel-growth">
+                    <div class="mega-grid">
+                      <a href="/cold-email-marketing" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Marketing</div>
+                        <div class="mega-item-desc">Infrastructure &amp; campaigns that land in inbox</div></div>
+                      </a>
+                      <a href="/lead-generation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div><div class="mega-item-title">Lead Generation</div>
+                        <div class="mega-item-desc">40-100+ qualified B2B appointments monthly</div></div>
+                      </a>
+                      <a href="/digital-marketing" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Digital Marketing</div>
+                        <div class="mega-item-desc">Performance marketing that drives ROI</div></div>
+                      </a>
+                      <a href="/ai-automation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Automation</div>
+                        <div class="mega-item-desc">Intelligent workflows that work 24/7</div></div>
+                      </a>
+                      <a href="/gohighlevel-services" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Services</div>
+                        <div class="mega-item-desc">GHL automation &amp; AI voice agents</div></div>
+                      </a>
+                      <a href="/openclaw-setup" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        <div><div class="mega-item-title">OpenClaw Setup</div>
+                        <div class="mega-item-desc">AI agent on your Mac Studio</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-development">
+                    <div class="mega-grid">
+                      <a href="/web-development" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        <div><div class="mega-item-title">Web Development</div>
+                        <div class="mega-item-desc">Fast, modern websites &amp; web apps</div></div>
+                      </a>
+                      <a href="/ecommerce" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <div><div class="mega-item-title">E-commerce</div>
+                        <div class="mega-item-desc">Shopify stores that convert at 4.2%</div></div>
+                      </a>
+                      <a href="/crm-development" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        <div><div class="mega-item-title">CRM Development</div>
+                        <div class="mega-item-desc">HubSpot, Salesforce &amp; custom CRM</div></div>
+                      </a>
+                      <a href="/shopify-apps" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        <div><div class="mega-item-title">Shopify Apps</div>
+                        <div class="mega-item-desc">Certified Shopify app development</div></div>
+                      </a>
+                      <a href="/ai-mobile-apps" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Mobile Apps</div>
+                        <div class="mega-item-desc">Intelligent mobile apps in 3-10 weeks</div></div>
+                      </a>
+                      <a href="/launch-your-saas" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        <div><div class="mega-item-title">Launch Your SaaS</div>
+                        <div class="mega-item-desc">Idea to first customer in 30 days</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-specialist">
+                    <div class="mega-grid">
+                      <a href="/hire-cold-email-expert" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Expert</div>
+                        <div class="mega-item-desc">Deliverability &amp; campaign specialists</div></div>
+                      </a>
+                      <a href="/hire-gohighlevel-developer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Developer</div>
+                        <div class="mega-item-desc">Certified GHL automation experts</div></div>
+                      </a>
+                      <a href="/hire-n8n-developer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <div><div class="mega-item-title">n8n Developer</div>
+                        <div class="mega-item-desc">Workflow automation engineers</div></div>
+                      </a>
+                      <a href="/hire-ai-engineer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <div><div class="mega-item-title">AI Engineer</div>
+                        <div class="mega-item-desc">LLM &amp; machine learning specialists</div></div>
+                      </a>
+                      <a href="/hire-shopify-expert" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <div><div class="mega-item-title">Shopify Expert</div>
+                        <div class="mega-item-desc">Store &amp; app development pros</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-bottom">
+                    <a href="/free-audit">
+                      See All Services
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Industries Dropdown -->
+          <div class="nav-dropdown" id="industriesDropdown">
+            <div class="nav-link nav-dropdown-toggle">
+              Industries
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand industries menu"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="nav-dropdown-menu nav-dropdown-menu--narrow">
+              <div class="dropdown-simple">
+                <a href="/cold-email-saas" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Cold Email for SaaS</div>
+                    <div class="dropdown-link-desc">Book demos with decision-makers</div>
+                  </div>
+                </a>
+                <a href="/lead-generation-agencies" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Lead Gen for Agencies</div>
+                    <div class="dropdown-link-desc">Scale your agency's client acquisition</div>
+                  </div>
+                </a>
+                <a href="/ai-automation-ecommerce" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">AI for E-commerce</div>
+                    <div class="dropdown-link-desc">Automate operations & boost revenue</div>
+                  </div>
+                </a>
+                <a href="/cold-email-recruiters" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Email for Recruiters</div>
+                    <div class="dropdown-link-desc">Fill roles faster with outbound</div>
+                  </div>
+                </a>
+                <a href="/gohighlevel-real-estate" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">GHL for Real Estate</div>
+                    <div class="dropdown-link-desc">Automate leads & follow-ups</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          <a href="/contact" class="nav-cta">Contact Us &rarr;</a>
+        </div>
+
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-inner">
+        <a href="/" class="mobile-nav-link">Home</a>
+
+        <div class="mobile-services">
+          <div class="mobile-services-title" onclick="toggleMobileSection(this)">
+            Services
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+          <div class="mobile-section-content">
+            <div class="mobile-section-group">Growth</div>
+            <a href="/cold-email-marketing" class="mobile-service-link">Cold Email Marketing</a>
+            <a href="/lead-generation" class="mobile-service-link">Lead Generation</a>
+            <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+            <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+            <a href="/gohighlevel-services" class="mobile-service-link">GoHighLevel Services</a>
+            <a href="/openclaw-setup" class="mobile-service-link">OpenClaw Setup</a>
+            <div class="mobile-section-group">Development</div>
+            <a href="/web-development" class="mobile-service-link">Web Development</a>
+            <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+            <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+            <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+            <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+            <a href="/launch-your-saas" class="mobile-service-link">Launch Your SaaS</a>
+            <div class="mobile-section-group">Hire a Specialist</div>
+            <a href="/hire-cold-email-expert" class="mobile-service-link">Cold Email Expert</a>
+            <a href="/hire-gohighlevel-developer" class="mobile-service-link">GoHighLevel Developer</a>
+            <a href="/hire-n8n-developer" class="mobile-service-link">n8n Developer</a>
+            <a href="/hire-ai-engineer" class="mobile-service-link">AI Engineer</a>
+            <a href="/hire-shopify-expert" class="mobile-service-link">Shopify Expert</a>
+          </div>
+        </div>
+
+        <div class="mobile-services">
+          <div class="mobile-services-title" onclick="toggleMobileSection(this)">
+            Industries
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+          <div class="mobile-section-content">
+            <a href="/cold-email-saas" class="mobile-service-link">Cold Email for SaaS</a>
+            <a href="/lead-generation-agencies" class="mobile-service-link">Lead Gen for Agencies</a>
+            <a href="/ai-automation-ecommerce" class="mobile-service-link">AI for E-commerce</a>
+            <a href="/cold-email-recruiters" class="mobile-service-link">Email for Recruiters</a>
+            <a href="/gohighlevel-real-estate" class="mobile-service-link">GHL for Real Estate</a>
+          </div>
+        </div>
+
+        <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+        <a href="/pricing" class="mobile-nav-link">Pricing</a>
+        <a href="/about" class="mobile-nav-link">About</a>
+        <a href="/blog" class="mobile-nav-link">Blog</a>
+        <a href="/contact" class="mobile-cta">Contact Us &rarr;</a>
+      </div>
+    </div>
+  </nav>
+  </header>
+
+<main id="main-content" class="blog-wrapper">
+<div class="container">
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+<a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><a href="/blog/?cat=cold-email-infrastructure">Cold Email Infrastructure</a><span>/</span><span class="current">Cold Email for Web Design Agencies: Land Monthly Retainers</span>
+</nav>
+
+<div class="article-header">
+<h1>Cold Email for Web Design Agencies: Land Monthly Retainers</h1>
+<div class="article-meta">
+<div class="article-meta-item">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+<a href="/author/zeeshan-waheed/" target="_blank" rel="noopener" style="color: #F45407; text-decoration: underline; font-weight: 500;">Zeeshan Waheed</a>
+</div>
+<div class="article-meta-item">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+<time datetime="2026-03-15">March 15, 2026</time>
+</div>
+<div class="article-meta-item">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+17 min read
+</div>
+<a href="/blog/?cat=cold-email-infrastructure" class="category-tag">Cold Email Infrastructure</a>
+</div>
+</div>
+
+<div class="mobile-toc">
+<button class="mobile-toc-toggle" aria-expanded="false">
+Table of Contents
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="mobile-toc-content">
+<ul class="toc-list">
+<li><a href="#the-short-answer">The Short Answer</a></li>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#icp-definition-which-companies-need-website-redesigns">ICP Definition: Which Companies Need Website Redesigns?</a></li>
+<li><a href="#finding-prospects-data-sources-tools">Finding Prospects: Data Sources & Tools</a></li>
+<li><a href="#apollo-filters-for-web-design-agencies">Apollo Filters for Web Design Agencies</a></li>
+<li><a href="#website-quality-assessment">Website Quality Assessment</a></li>
+<li><a href="#the-web-design-retainer-sequence">The Web Design Retainer Sequence</a></li>
+<li><a href="#from-project-to-retainer-the-conversion-strategy">From Project to Retainer: The Conversion Strategy</a></li>
+<li><a href="#real-client-data-web-design-agency-results">Real Client Data: Web Design Agency Results</a></li>
+<li><a href="#common-mistakes-web-design-agencies-make">Common Mistakes Web Design Agencies Make</a></li>
+<li><a href="#cold-email-for-different-website-scenarios">Cold Email for Different Website Scenarios</a></li>
+<li><a href="#pricing-retainer-management">Pricing & Retainer Management</a></li>
+<li><a href="#scaling-cold-email-for-web-design-agencies">Scaling Cold Email for Web Design Agencies</a></li>
+<li><a href="#tools-for-web-design-agency-outreach">Tools for Web Design Agency Outreach</a></li>
+<li><a href="#final-recommendations">Final Recommendations</a></li>
+<li><a href="#faq-schema">FAQ Schema</a></li>
+<li><a href="#internal-links">Internal Links</a></li>
+<li><a href="#external-links-affiliate-urls">External Links & Affiliate URLs</a></li>
+<li><a href="#image-alt-suggestions">Image Alt Suggestions</a></li>
+<li><a href="#quick-answer">Quick Answer</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</div>
+</div>
+
+<div class="blog-content-layout">
+<article class="article-content">
+<p>Web design agencies struggle with consistent client acquisition. Cold email changes that. Agencies targeting companies with outdated websites report booking 3-8 web design projects per month from outbound. The profit multiplier: convert project clients into $1,500-$5,000/month retainers for ongoing updates, maintenance, and optimization. This guide reveals the exact targeting approach, Apollo filters to find decision-makers, and the sequence framework that lands retainer deals.</p>
+<h2 id="the-short-answer">The Short Answer</h2>
+<p>Target companies with visibly outdated websites (built pre-2019, no mobile optimization, poor UX signals). Use Apollo to filter companies by industry, revenue, and location. Send 3-5 email sequence showing specific website problems + redesign examples. Expect 15-18% open rate and 3-5% reply rate. Most web design agencies book 1 retainer client per 100-150 cold emails sent. Average retainer: $2,500/month. A systematic approach generates 6-12 retainer clients annually from cold email alone.</p>
+<p><strong>Key Numbers:</strong></p>
+<ul>
+<li>Cold emails needed for 6 new retainers per year: 1,200-1,800 per year</li>
+<li>Daily emails: 4-6 per day</li>
+<li>Open rate: 16-20%</li>
+<li>Reply rate: 3-5% from quality prospects</li>
+<li>Project-to-retainer conversion: 60-70%</li>
+<li>Average retainer value: $2,500/month</li>
+<li>Annual revenue per retainer: $30k</li>
+</ul>
+<h2 id="tldr">TL;DR</h2>
+<p>Web design agencies win via hyper-specific targeting on website quality signals. Find companies with outdated, poorly performing websites using Apollo filters. Personalize with specific website problems you've identified. Send 3-5 email sequence. Email 1 provides value (specific website issue). Email 2 shows social proof (portfolio examples). Email 3 offers quick audit. Expect 1 project per 100-150 emails, convert 60-70% to retainers. Most retainers start as one-time redesign ($5k-$15k) then expand to monthly maintenance ($1,500-$5,000/month). Cold email is lower-cost than Google Ads and higher-conversion than general networking.</p>
+<h2 id="icp-definition-which-companies-need-website-redesigns">ICP Definition: Which Companies Need Website Redesigns?</h2>
+<p>Your ICP determines everything. Target wrong companies and you'll get 0.5% reply rate. Target right companies and you'll hit 5-8% reply.</p>
+<p><strong>Critical ICP Dimensions:</strong></p>
+<p><strong>1. Website Age & Quality</strong></p>
+<ul>
+<li>Website built before 2018 (highly likely to be outdated)</li>
+<li>No responsive design (doesn't look good on mobile)</li>
+<li>Slow loading time (visible via visual inspection)</li>
+<li>Poor conversion signals (vague CTA, confusing navigation)</li>
+<li>Using outdated design trends (heavy Flash, old fonts, clunky layout)</li>
+</ul>
+<p>This is your primary filter. A company with a 5-year-old website that looks unprofessional is your ideal prospect.</p>
+<p><strong>2. Business Type</strong></p>
+<ul>
+<li>B2B service companies (agencies, consulting, professional services)</li>
+<li>Local service businesses (contractors, plumbers, electricians, landscaping)</li>
+<li>E-commerce businesses (Shopify stores with poor design)</li>
+<li>Healthcare practices (dentists, lawyers, medical clinics)</li>
+<li>Professional firms (accounting, legal, financial)</li>
+</ul>
+<p>Avoid pure tech companies (they obsess over design and maintain sites constantly). Target non-tech businesses where website is secondary priority.</p>
+<p><strong>3. Revenue/Profitability</strong></p>
+<ul>
+<li>$500k-$5M annual revenue (can afford $5k-$15k project + $2k-$5k/month retainer)</li>
+<li>$50k-$500k annual profit (budget exists)</li>
+</ul>
+<p>Small bootstrapped companies can't afford retainers. Enterprise companies have internal design teams. Target the sweet spot with proven revenue.</p>
+<p><strong>4. Geographic Location</strong></p>
+<ul>
+<li>Local businesses (plumbers, contractors, local services)</li>
+<li>US-based for easiest communication</li>
+<li>Time zone aligned with your location when possible</li>
+</ul>
+<p><strong>5. Pain Indicators</strong></p>
+<ul>
+<li>Website hasn't been updated in 3+ years (visible from Wayback Machine or page metadata)</li>
+<li>Company mentions website frustrations on LinkedIn (ex: "Redesigning our site!")</li>
+<li>Company launched new product/service that isn't reflected on website</li>
+<li>Recent funding or growth (now have budget for web upgrade)</li>
+</ul>
+<p><strong>Example ICP: Web Design Agency (Retainer Focus)</strong></p>
+<p>"B2B service companies ($1M-$10M annual revenue, US-based, 10-100 employees, website built pre-2018, looking outdated/non-mobile-optimized, recent growth signal)"</p>
+<p>This narrow ICP allows you to personalize. A prospect matching this profile knows they need a website update and has budget.</p>
+<h2 id="finding-prospects-data-sources-tools">Finding Prospects: Data Sources & Tools</h2>
+<p><strong>Tool 1: Apollo (Recommended)</strong></p>
+<ul>
+<li>Filter by industry, company size, revenue</li>
+<li>10M+ business profiles</li>
+<li>Email verification built-in</li>
+<li>Export lists for cold email</li>
+<li>Cost: $99-499/month</li>
+</ul>
+<p>Best features for web design outreach:</p>
+<ul>
+<li>Industry filters (narrow to service industries)</li>
+<li>Company size filters (5-100 employees typical)</li>
+<li>Revenue filters ($500k-$5M range)</li>
+<li>Decision-maker filters (CEO, founder, marketing manager)</li>
+</ul>
+<p><strong>Tool 2: Clay (Enrichment)</strong></p>
+<ul>
+<li>Takes existing company list</li>
+<li>Adds emails, phone numbers, personal info</li>
+<li>Pulls from 50+ data sources</li>
+<li>Finds personal founder/CEO emails</li>
+<li>Cost: $99/month base + data costs</li>
+</ul>
+<p><strong>Tool 3: LinkedIn Sales Navigator</strong></p>
+<ul>
+<li>Free prospecting source</li>
+<li>Filter by title (CEO, founder, marketing manager)</li>
+<li>Filter by company size and industry</li>
+<li>Manual but zero cost</li>
+<li>Cost: $99/month or free (labor-intensive)</li>
+</ul>
+<p><strong>Tool 4: Website Analysis Tools</strong></p>
+<ul>
+<li>Ahrefs: Check domain metrics and design signals</li>
+<li>SimilarWeb: Show traffic patterns</li>
+<li>Ubersuggest: Basic website analysis</li>
+<li>Wix, Squarespace: See if site is built on outdated platform</li>
+</ul>
+<p><strong>Workflow: Building a Web Design Prospect List</strong></p>
+<ol>
+<li>Use Apollo to export 100 companies matching ICP (industry, size, revenue, location)</li>
+<li>Visit each company website and assess design quality (outdated? Poor UX? Non-mobile-responsive?)</li>
+<li>If website looks outdated, note specific problems (slow load, confusing nav, poor mobile, outdated design style)</li>
+<li>Use Clay or Apollo to get decision-maker email</li>
+<li>Verify emails with ZeroBounce</li>
+<li>Add to cold email sequence</li>
+</ol>
+<p>Time investment: 2-3 hours to build list of 100 prospects. At $2,500/month average retainer, each prospect is worth $25k over 10 months.</p>
+<h2 id="apollo-filters-for-web-design-agencies">Apollo Filters for Web Design Agencies</h2>
+<p>Here are the exact Apollo filters used by top web design agencies:</p>
+<p><strong>Filter Set 1: Local Service Businesses</strong></p>
+<ul>
+<li>Industry: Construction, Contractors, HVAC, Plumbing, Landscaping, General Services</li>
+<li>Company size: 5-50 employees</li>
+<li>Revenue: $500k-$5M</li>
+<li>Location: Your target region</li>
+<li>Decision-maker title: Owner, CEO, General Manager</li>
+</ul>
+<p>Expected metrics: 18-22% open rate, 4-6% reply rate (high because local businesses know they need online presence)</p>
+<p><strong>Filter Set 2: Professional Services</strong></p>
+<ul>
+<li>Industry: Accounting, Legal, Consulting, Financial Services</li>
+<li>Company size: 10-100 employees</li>
+<li>Revenue: $1M-$10M</li>
+<li>Location: US (focus on major metro areas)</li>
+<li>Decision-maker title: Partner, Principal, Office Manager</li>
+</ul>
+<p>Expected metrics: 16-19% open rate, 3-4% reply rate</p>
+<p><strong>Filter Set 3: E-commerce</strong></p>
+<ul>
+<li>Industry: Retail, E-commerce, Online Stores</li>
+<li>Platform: Shopify (indicates smaller, growing business)</li>
+<li>Company size: 1-20 employees</li>
+<li>Revenue: $200k-$5M</li>
+<li>Decision-maker title: Founder, Owner, Marketing Manager</li>
+</ul>
+<p>Expected metrics: 17-20% open rate, 4-5% reply rate</p>
+<h2 id="website-quality-assessment">Website Quality Assessment</h2>
+<p>Before reaching out, assess the website to ensure redesign is needed.</p>
+<p><strong>Red Flags (Website Needs Redesign):</strong></p>
+<ol>
+<li><strong>Design Age</strong> (Check via Wayback Machine)</li>
+</ol>
+<ul>
+<li>Last significant update 5+ years ago</li>
+<li>Design trends look outdated (heavy Flash, old fonts, skeuomorphism)</li>
+<li>Navigation is clunky or confusing</li>
+</ul>
+<ol>
+<li><strong>Mobile Responsiveness</strong></li>
+</ol>
+<ul>
+<li>Site doesn't display properly on mobile (text too small, buttons too small, content overlaps)</li>
+<li>Mobile menu is missing or broken</li>
+<li>Load time on mobile >3 seconds</li>
+</ul>
+<ol>
+<li><strong>Conversion Signals</strong></li>
+</ol>
+<ul>
+<li>No clear call-to-action (CTA) above the fold</li>
+<li>Multiple competing CTAs (confusing user)</li>
+<li>No contact form or contact info visible</li>
+<li>No social proof (testimonials, client logos, case studies)</li>
+</ul>
+<ol>
+<li><strong>Technical Issues</strong></li>
+</ol>
+<ul>
+<li>Page load time >2 seconds</li>
+<li>Broken links or 404 errors</li>
+<li>Outdated CMS (Joomla, Drupal, custom old builds)</li>
+<li>SSL certificate issues</li>
+</ul>
+<ol>
+<li><strong>Content Issues</strong></li>
+</ol>
+<ul>
+<li>Content hasn't been updated in 12+ months</li>
+<li>Product/service descriptions are vague or outdated</li>
+<li>Testimonials mention projects from 5+ years ago</li>
+<li>Team photos are clearly old (filters, outdated clothing)</li>
+</ul>
+<p><strong>Green Lights (Good Redesign Opportunity):</strong></p>
+<p>If you see 3+ of these red flags, the company is a good prospect. They have clear website problems and obvious redesign opportunity.</p>
+<h2 id="the-web-design-retainer-sequence">The Web Design Retainer Sequence</h2>
+<p><strong>Email 1: Problem + Specific Observation (Day 1)</strong></p>
+<p>Subject: Variations (use spintax):</p>
+<ul>
+<li>"[Company], noticed something about your website"</li>
+<li>"Your website could be costing you clients"</li>
+<li>"[Company Name] website feedback"</li>
+</ul>
+<p>Body:</p>
+<p>"Hi [Decision-Maker],</p>
+<p>I was looking at [Company]'s website and noticed a few things that might be holding you back:</p>
+<ol>
+<li>Mobile experience needs work (buttons are hard to tap, layout breaks)</li>
+<li>Load time is slow (~4 seconds on mobile)</li>
+<li>CTA isn't clear (what should a visitor do next?)</li>
+</ol>
+<p>These three issues alone probably cost you [estimated lost clients/revenue per month].</p>
+<p>Quick question: Is website redesign on your radar for 2026?</p>
+<p>[Your Name]"</p>
+<p>This email is specific and valuable. You're pointing out real problems, not generic sales pitch.</p>
+<p><strong>Email 2: Portfolio + Social Proof (Day 4)</strong></p>
+<p>Subject:</p>
+<ul>
+<li>"Re: Your website feedback"</li>
+<li>"[Company], check this out"</li>
+<li>"Website redesign that worked"</li>
+</ul>
+<p>Body:</p>
+<p>"Hi [Decision-Maker],</p>
+<p>Quick follow-up. I worked with [similar company in same industry] last year. They had similar website issues.</p>
+<p>After redesign:</p>
+<ul>
+<li>Lead inquiries: +45%</li>
+<li>Average lead quality: +60%</li>
+<li>Phone calls per month: 12 → 28</li>
+</ul>
+<p>I'm attaching before/after screenshots. Worth looking at.</p>
+<p>Free offer: 15-minute audit showing exactly what's holding your website back and how to fix it.</p>
+<p>[Your Name]"</p>
+<p>This email uses portfolio proof from similar business. Seeing "company like mine went from 12 to 28 calls/month" is powerful motivation.</p>
+<p><strong>Email 3: Free Audit Offer (Day 8)</strong></p>
+<p>Subject:</p>
+<ul>
+<li>"Free website audit for [Company]"</li>
+<li>"20-minute consultation offer"</li>
+<li>"Website improvement plan"</li>
+</ul>
+<p>Body:</p>
+<p>"Hi [Decision-Maker],</p>
+<p>I'm offering free 20-minute website audits to [industry] companies this quarter.</p>
+<p>Audit includes:</p>
+<ul>
+<li>Specific mobile/UX issues</li>
+<li>Conversion opportunity analysis</li>
+<li>Technical recommendations</li>
+<li>Estimated revenue impact</li>
+</ul>
+<p>Zero sales pitch. You get a clear action plan regardless of whether we work together.</p>
+<p>Interested?</p>
+<p>[Your Name]"</p>
+<p>This email makes it easy to say yes. Free audit removes friction.</p>
+<p><strong>Email 4: Social Proof Round 2 (Day 12)</strong></p>
+<p>Subject:</p>
+<ul>
+<li>"Thing I noticed with [similar companies]"</li>
+<li>"Redesign ROI data"</li>
+<li>"Website investment that pays back"</li>
+</ul>
+<p>Body:</p>
+<p>"Hi [Decision-Maker],</p>
+<p>I've noticed a pattern: [industry] companies that invest in website redesign between January-March usually see full ROI within 90 days (more leads = more revenue).</p>
+<p>Companies waiting until Q3-Q4 take longer to recover investment (slower sales cycle at year-end).</p>
+<p>If this is a priority, now's the time to start.</p>
+<p>Want to discuss 2026 strategy?</p>
+<p>[Your Name]"</p>
+<p>This email creates time-based urgency (start now for Q2 ROI).</p>
+<p><strong>Email 5: Final Push (Day 16)</strong></p>
+<p>Subject:</p>
+<ul>
+<li>"[Company], one last message"</li>
+<li>"Website improvement 2026"</li>
+<li>"Taking Q2 redesign projects"</li>
+</ul>
+<p>Body:</p>
+<p>"Hi [Decision-Maker],</p>
+<p>I'm ramping up web redesign projects for Q2/Q3 2026. Currently booked, but have limited spots available.</p>
+<p>Your website situation would be a good fit for our process. If you want to explore, now's the time to schedule the audit.</p>
+<p>[Link to calendar]</p>
+<p>[Your Name]"</p>
+<p>This email uses scarcity (limited spots) to create urgency.</p>
+<h2 id="from-project-to-retainer-the-conversion-strategy">From Project to Retainer: The Conversion Strategy</h2>
+<p>Landing the initial $5k-$15k redesign project is step one. Converting to $2k-$5k monthly retainer is the profit multiplier.</p>
+<p><strong>During Initial Redesign:</strong></p>
+<p>Build retainer expectation into project scope:</p>
+<ul>
+<li>"This redesign includes 3 months of free updates and optimizations. After that, we'll transition you to our monthly maintenance retainer."</li>
+</ul>
+<p><strong>Post-Redesign (Month 4):</strong></p>
+<p>Send email to client:</p>
+<p>"Hi [Client],</p>
+<p>Your website is performing great. We've seen [specific metric improvements].</p>
+<p>To maintain and improve this performance, we offer monthly retainer packages:</p>
+<ul>
+<li>$1,500: Monthly updates, SEO optimization, content updates</li>
+<li>$2,500: All above + conversion optimization</li>
+<li>$5,000: All above + advanced marketing integration (email, ads, analytics)</li>
+</ul>
+<p>Which level makes sense for your 2026 goals?"</p>
+<p><strong>Retainer Conversion Rate:</strong></p>
+<p>Historically, 60-70% of web redesign clients convert to some level of retainer. At:</p>
+<ul>
+<li>$1,500/month retainer: 40-50% of redesign clients</li>
+<li>$2,500/month retainer: 15-25% of redesign clients</li>
+<li>$5,000/month retainer: 5-10% of redesign clients</li>
+</ul>
+<p>Average: $2,200/month per client converted to retainer.</p>
+<h2 id="real-client-data-web-design-agency-results">Real Client Data: Web Design Agency Results</h2>
+<p><strong>Case Study 1: Local Service Agency Specialist</strong></p>
+<p>Focus: Plumbing, HVAC, Contractors (local service companies)</p>
+<p>Email volume: 300-400 per month</p>
+<p>Results (per quarter):</p>
+<ul>
+<li>Emails sent: 1,000</li>
+<li>Open rate: 20% (high because local businesses recognize need)</li>
+<li>Reply rate: 5.2%</li>
+<li>Project quotes sent: 52</li>
+<li>Projects closed: 8-10</li>
+<li>Average project value: $8,000</li>
+<li>Retainer conversion: 65%</li>
+<li>Retainers from quarter: 5-7</li>
+<li>Average retainer: $2,500/month</li>
+<li>Monthly recurring revenue from cold email: $12,500-$17,500</li>
+</ul>
+<p><strong>Case Study 2: Professional Services Agency</strong></p>
+<p>Focus: Law firms, accounting firms, financial advisors</p>
+<p>Email volume: 250-350 per month</p>
+<p>Results (per quarter):</p>
+<ul>
+<li>Emails sent: 900</li>
+<li>Open rate: 18%</li>
+<li>Reply rate: 3.8%</li>
+<li>Project quotes sent: 34</li>
+<li>Projects closed: 4-6</li>
+<li>Average project value: $12,000</li>
+<li>Retainer conversion: 55%</li>
+<li>Retainers from quarter: 2-3</li>
+<li>Average retainer: $3,000/month</li>
+<li>Quarterly revenue from cold email: $6,000-$9,000</li>
+</ul>
+<p><strong>Case Study 3: E-commerce Focus Agency</strong></p>
+<p>Focus: Shopify stores, online retailers</p>
+<p>Email volume: 350-450 per month</p>
+<p>Results (per quarter):</p>
+<ul>
+<li>Emails sent: 1,200</li>
+<li>Open rate: 19%</li>
+<li>Reply rate: 4.5%</li>
+<li>Project quotes sent: 54</li>
+<li>Projects closed: 12-15</li>
+<li>Average project value: $6,000</li>
+<li>Retainer conversion: 70%</li>
+<li>Retainers from quarter: 8-11</li>
+<li>Average retainer: $2,000/month</li>
+<li>Monthly recurring revenue: $16,000-$22,000</li>
+</ul>
+<h2 id="common-mistakes-web-design-agencies-make">Common Mistakes Web Design Agencies Make</h2>
+<p><strong>Mistake 1: Targeting Too Broadly</strong></p>
+<p>"Help companies with websites" = 1-2% reply. "Help local plumbing companies with outdated websites" = 5-6% reply. Industry specificity = higher conversion.</p>
+<p><strong>Mistake 2: Not Assessing Website Quality First</strong></p>
+<p>Sending website redesign offer to company with brand-new, well-designed site = waste. Always review website before reaching out. This 5-minute check saves 95% of your time.</p>
+<p><strong>Mistake 3: Pitching Design Instead of ROI</strong></p>
+<p>"Beautiful modern design" = boring pitch. "45% more lead inquiries and $50k+ annual revenue increase" = compelling pitch. Sell business outcome, not design prettiness.</p>
+<p><strong>Mistake 4: Underselling Project Value</strong></p>
+<p>Some agencies quote $3k-$5k for work worth $8k-$15k. Underpricing creates 2 problems: (1) client feels cheap (2) no margin for retainer sustainability. Price based on value delivered ($x more leads = $y revenue), not time spent.</p>
+<p><strong>Mistake 5: No Retainer Strategy</strong></p>
+<p>Selling projects instead of retainers means constant acquisition cost. Retainers 3-4x more profitable. Build retainer into project scope from day one.</p>
+<h2 id="cold-email-for-different-website-scenarios">Cold Email for Different Website Scenarios</h2>
+<p><strong>Scenario 1: Website Hasn't Been Updated in 5+ Years</strong></p>
+<p>Subject: "Your website's biggest problem"</p>
+<p>Body:</p>
+<p>"Hi [Name],</p>
+<p>[Company]'s website was last updated in [year]. That means:</p>
+<ul>
+<li>Design is [5+ years] outdated</li>
+<li>Mobile experience is probably broken</li>
+<li>Missing modern conversion tactics</li>
+</ul>
+<p>Companies in your industry that updated their sites saw [specific number] more leads within 90 days.</p>
+<p>Worth exploring?</p>
+<p>[Your Name]"</p>
+<p>Expected reply rate: 5-8% (high because problem is obvious)</p>
+<p><strong>Scenario 2: Website on Outdated Platform</strong></p>
+<p>Subject: "You're on [Wix/Squarespace/old CMS]?"</p>
+<p>Body:</p>
+<p>"Hi [Name],</p>
+<p>Noticed [Company] is built on [platform]. Nothing wrong with that, but [platform] limits:</p>
+<ul>
+<li>Conversion optimization</li>
+<li>Integration with marketing tools</li>
+<li>Custom functionality</li>
+</ul>
+<p>Companies migrating to modern platforms see [specific improvement].</p>
+<p>Worth a quick conversation?</p>
+<p>[Your Name]"</p>
+<p>Expected reply rate: 3-5% (moderate because migration isn't urgent)</p>
+<p><strong>Scenario 3: Website Has Clear Conversion Issues</strong></p>
+<p>Subject: "[Company], your website has a funnel leak"</p>
+<p>Body:</p>
+<p>"Hi [Name],</p>
+<p>Visited [Company]'s site. Good content, but I noticed:</p>
+<ol>
+<li>No clear CTA above the fold (visitors don't know what to do)</li>
+<li>Contact form is buried (3+ clicks to find)</li>
+<li>Conversion proof missing (no testimonials, case studies, client logos)</li>
+</ol>
+<p>These issues alone probably cost you [estimated leads/month].</p>
+<p>Free 20-minute audit?</p>
+<p>[Your Name]"</p>
+<p>Expected reply rate: 4-6% (moderate, specific problems identified)</p>
+<h2 id="pricing-retainer-management">Pricing & Retainer Management</h2>
+<p><strong>Typical Web Design Project Pricing:</strong></p>
+<ul>
+<li>Basic redesign: $4k-$8k</li>
+<li>Full redesign with strategy: $10k-$25k</li>
+<li>Large enterprise redesign: $25k-$100k+</li>
+</ul>
+<p>Web design agencies typically target projects in the $8k-$15k range for maximum retainer conversion.</p>
+<p><strong>Retainer Pricing After Project:</strong></p>
+<ul>
+<li>Tier 1 (Basic): $1,500/month - Monthly updates, bug fixes, small enhancements</li>
+<li>Tier 2 (Standard): $2,500/month - All above + SEO optimization, analytics, monthly strategy call</li>
+<li>Tier 3 (Premium): $5,000/month - All above + advanced conversion optimization, paid ad integration, lead nurturing</li>
+</ul>
+<p><strong>Profitability:</strong></p>
+<ul>
+<li>Project margin: 40-50% (depending on labor)</li>
+<li>Retainer margin: 70-80% (mostly recurring work)</li>
+</ul>
+<p>A $10k project at 45% margin = $4,500 profit. A $2,500/month retainer at 75% margin = $1,875/month = $22,500/year profit from single client. This is why retainers are 5x more valuable.</p>
+<h2 id="scaling-cold-email-for-web-design-agencies">Scaling Cold Email for Web Design Agencies</h2>
+<p><strong>Month 1: Test & Learn</strong></p>
+<ul>
+<li>Send 100-150 emails</li>
+<li>Target one ICP (e.g., local plumbing companies)</li>
+<li>Measure open rate, reply rate, project conversion rate</li>
+<li>Adjust messaging based on results</li>
+</ul>
+<p><strong>Month 2-3: Optimize & Expand</strong></p>
+<ul>
+<li>Increase to 300-400 emails/month</li>
+<li>Test 2 different ICPs simultaneously</li>
+<li>Double down on winning ICP</li>
+<li>Expand to 2-3 industries</li>
+</ul>
+<p><strong>Month 4+: Scale</strong></p>
+<ul>
+<li>400-600 emails/month from single agency</li>
+<li>Multiple ICPs generating consistent flow</li>
+<li>1-2 project closes per month = 3-6 retainers quarterly</li>
+</ul>
+<h2 id="tools-for-web-design-agency-outreach">Tools for Web Design Agency Outreach</h2>
+<p><strong>Email Infrastructure:</strong></p>
+<ul>
+<li>Instantly: $30-60/month</li>
+<li>SmartLead: $99/month</li>
+<li>Cost: ~$100-150/month</li>
+</ul>
+<p><strong>List Building & Enrichment:</strong></p>
+<ul>
+<li>Apollo: $299/month</li>
+<li>Clay: $99/month base + data costs</li>
+<li>Cost: ~$400-500/month</li>
+</ul>
+<p><strong>Email Verification:</strong></p>
+<ul>
+<li>ZeroBounce: $50/month or per-email cost</li>
+<li>Cost: ~$50-100/month</li>
+</ul>
+<p><strong>Total Monthly Cost:</strong> ~$550-750/month for full stack</p>
+<p><strong>ROI:</strong> At 1 new $2,500/month retainer per month, ROI is 4-5x immediately. By month 3, ROI is 10x+.</p>
+<h2 id="final-recommendations">Final Recommendations</h2>
+<p><strong>For Startups:</strong> Start with free LinkedIn prospecting. Build list of 100 companies with outdated websites. Send 50 emails manually. Track replies. If reply rate is 3%+, invest in paid tools.</p>
+<p><strong>For Established Agencies:</strong> Systematize cold email. Commit to 300-400 emails per month. Expect 1-2 project closes per month. Convert 60%+ to retainers for recurring revenue.</p>
+<p><strong>For Scaling Agencies:</strong> Have separate team member managing cold email full-time. Run multiple ICPs simultaneously. Generate 500+ project inquiries annually.</p>
+<p>At imisofts, our Management package ($497/month) gives web design agencies the infrastructure to scale cold email systematically. Multi-mailbox management, warmup, and reply tracking. Most web design agencies using our system generate 6-12 new retainer clients annually from cold email.</p>
+<h2 id="faq-schema">FAQ Schema</h2>
+<p><strong>Q: How do I know if a company's website needs redesign without visiting?</strong></p>
+<p>A: Use Wayback Machine (web.archive.org) to check when site was last updated. If before 2018, assume redesign is needed. Also check for mobile responsiveness and load time using tools like PageSpeed Insights.</p>
+<p><strong>Q: Should I charge differently for e-commerce vs service companies?</strong></p>
+<p>A: Yes. Service companies (plumbing, legal) pay $8k-$12k for redesign. E-commerce (Shopify stores) pay $5k-$8k. Enterprise companies pay $15k+. Price based on industry standard + business outcome value.</p>
+<p><strong>Q: What's the best way to transition from project to retainer?</strong></p>
+<p>A: Mention retainer in initial project proposal: "After 3-month support period, we transition to monthly retainer." When month 4 arrives, send specific results email with retainer tier options. 60-70% will convert if project delivered strong results.</p>
+<p><strong>Q: How many follow-ups should I send to non-replying prospects?</strong></p>
+<p>A: Send 3-5 emails over 3 weeks. Email 1 = problem, Email 2 = portfolio, Email 3 = audit offer, Email 4-5 = additional social proof or closing. Most replies come from emails 3-5, not 1-2.</p>
+<p><strong>Q: Can I cold email the same company twice if they don't reply the first time?</strong></p>
+<p>A: Yes, but wait 6+ months and target a different decision-maker (get CFO or Operations Manager instead of just trying CEO again). Different angle increases reply rate.</p>
+<h2 id="internal-links">Internal Links</h2>
+<ul>
+<li><a href="https://imisofts.com/cold-email-marketing#packages">Cold Email Marketing Packages</a></li>
+<li><a href="https://imisofts.com/cold-email-ab-test-results">Cold Email A/B Testing Results</a></li>
+<li><a href="https://imisofts.com/email-warmup-duration-data">Email Warmup Duration Data</a></li>
+<li><a href="https://imisofts.com/cold-email-bounce-rate-benchmarks">Bounce Rate Benchmarks</a></li>
+<li><a href="https://imisofts.com/cold-email-coaches-consultants">Cold Email for Coaches & Consultants</a></li>
+</ul>
+<h2 id="external-links-affiliate-urls">External Links & Affiliate URLs</h2>
+<ul>
+<li><a href="https://get.apollo.io/u5ocuv7me9t2" target="_blank" rel="noopener noreferrer sponsored" target="_blank" rel="noopener noreferrer sponsored" target="_blank" rel="noopener noreferrer sponsored">Apollo Company Filtering</a></li>
+<li><a href="https://clay.com" target="_blank" rel="noopener noreferrer">Clay Web Design Prospect Enrichment</a></li>
+<li><a href="https://instantly.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">Instantly Web Design Outreach</a></li>
+<li><a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead for Agencies</a></li>
+<li><a href="https://ahrefs.com/" target="_blank" rel="noopener noreferrer">Ahrefs Website Analysis</a></li>
+</ul>
+<h2 id="image-alt-suggestions">Image Alt Suggestions</h2>
+<ul>
+<li>"Web design ICP diagram showing outdated website signals and target company profiles"</li>
+<li>"Apollo filter configuration for local service companies (plumbing, HVAC, contractors)"</li>
+<li>"5-email web design sequence showing subject lines and conversion from project to retainer"</li>
+<li>"Website quality assessment checklist showing mobile responsiveness, load time, CTA clarity"</li>
+<li>"Web design project to retainer flow showing initial $10k project converting to $2,500/month recurring"</li>
+<li>"Quarterly web design agency cold email results dashboard showing 1,200 emails, 8-10 projects, 5-7 retainers"</li>
+</ul>
+<h2 id="quick-answer">Quick Answer</h2>
+<p>Web design agencies land monthly retainers via cold email by targeting companies with visibly outdated websites. Use Apollo to filter by industry (local services, professional services, e-commerce), company size, and revenue. Assess website quality before outreach (Wayback Machine, mobile responsiveness, load time, CTA clarity). Send 3-5 email sequence showing specific website problems, portfolio examples, and free audit offer. Expect 15-20% open rate, 3-5% reply rate, 1 project per 100-150 emails. Convert 60-70% of projects to $1,500-$5,000/month retainers. Retainer clients 5x more profitable than one-time projects. Full-time systematic approach generates 6-12 new retainer clients annually.</p>
+<section class="faq-section">
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>How do I know if a company&#x27;s website needs redesign without visiting?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Use Wayback Machine (web.archive.org) to check when site was last updated. If before 2018, assume redesign is needed. Also check for mobile responsiveness and load time using tools like PageSpeed Insights.</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>Should I charge differently for e-commerce vs service companies?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Yes. Service companies (plumbing, legal) pay $8k-$12k for redesign. E-commerce (Shopify stores) pay $5k-$8k. Enterprise companies pay $15k+. Price based on industry standard + business outcome value.</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>What&#x27;s the best way to transition from project to retainer?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Mention retainer in initial project proposal: &quot;After 3-month support period, we transition to monthly retainer.&quot; When month 4 arrives, send specific results email with retainer tier options. 60-70% will convert if project delivered strong results.</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>How many follow-ups should I send to non-replying prospects?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Send 3-5 emails over 3 weeks. Email 1 = problem, Email 2 = portfolio, Email 3 = audit offer, Email 4-5 = additional social proof or closing. Most replies come from emails 3-5, not 1-2.</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>Can I cold email the same company twice if they don&#x27;t reply the first time?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Yes, but wait 6+ months and target a different decision-maker (get CFO or Operations Manager instead of just trying CEO again). Different angle increases reply rate.</div>
+</div>
+</div>
+</section>
+
+<div class="blog-cta-banner">
+<h2>Ready to scale your cold email infrastructure?</h2>
+<p>See our packages and get started with a system built for deliverability.</p>
+<a href="https://imisofts.com/cold-email-marketing#packages" class="cta-btn">
+View Our Packages
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+</a>
+</div>
+</article>
+
+<aside class="blog-sidebar">
+<nav class="toc" aria-label="Table of contents">
+<div class="toc-title">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+Contents
+</div>
+<ul class="toc-list">
+<li><a href="#the-short-answer">The Short Answer</a></li>
+<li><a href="#tldr">TL;DR</a></li>
+<li><a href="#icp-definition-which-companies-need-website-redesigns">ICP Definition: Which Companies Need Website Redesigns?</a></li>
+<li><a href="#finding-prospects-data-sources-tools">Finding Prospects: Data Sources & Tools</a></li>
+<li><a href="#apollo-filters-for-web-design-agencies">Apollo Filters for Web Design Agencies</a></li>
+<li><a href="#website-quality-assessment">Website Quality Assessment</a></li>
+<li><a href="#the-web-design-retainer-sequence">The Web Design Retainer Sequence</a></li>
+<li><a href="#from-project-to-retainer-the-conversion-strategy">From Project to Retainer: The Conversion Strategy</a></li>
+<li><a href="#real-client-data-web-design-agency-results">Real Client Data: Web Design Agency Results</a></li>
+<li><a href="#common-mistakes-web-design-agencies-make">Common Mistakes Web Design Agencies Make</a></li>
+<li><a href="#cold-email-for-different-website-scenarios">Cold Email for Different Website Scenarios</a></li>
+<li><a href="#pricing-retainer-management">Pricing & Retainer Management</a></li>
+<li><a href="#scaling-cold-email-for-web-design-agencies">Scaling Cold Email for Web Design Agencies</a></li>
+<li><a href="#tools-for-web-design-agency-outreach">Tools for Web Design Agency Outreach</a></li>
+<li><a href="#final-recommendations">Final Recommendations</a></li>
+<li><a href="#faq-schema">FAQ Schema</a></li>
+<li><a href="#internal-links">Internal Links</a></li>
+<li><a href="#external-links-affiliate-urls">External Links & Affiliate URLs</a></li>
+<li><a href="#image-alt-suggestions">Image Alt Suggestions</a></li>
+<li><a href="#quick-answer">Quick Answer</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</nav>
+<div class="sidebar-card">
+<h3>Our Packages</h3>
+<p>Cold email infrastructure built for deliverability. From 3 domains to 50+.</p>
+<a href="https://imisofts.com/cold-email-marketing#packages" class="btn">View Packages</a>
+</div>
+<div class="sidebar-card">
+<h3>Book a Call</h3>
+<p>Get a free 30-minute strategy session with our team.</p>
+<a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Book Free Call</a>
+</div>
+</aside>
+</div>
+
+</div>
+</main>
+
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+    <!-- CTA Banner -->
+    <div class="footer-cta-banner">
+      <div class="container">
+        <h3>Ready to accelerate your growth?</h3>
+        <p>Get a free audit with actionable insights for your business — delivered within 24 hours.</p>
+        <a href="/free-audit" class="footer-cta-btn">
+          Get Your Free Audit
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer Main -->
+    <div class="footer-main">
+      <div class="container">
+
+        <!-- Footer Links -->
+        <div class="footer-links-grid">
+          <div class="footer-column">
+            <h4>Growth</h4>
+            <ul class="footer-links">
+              <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
+              <li><a href="/lead-generation">Lead Generation</a></li>
+              <li><a href="/digital-marketing">Digital Marketing</a></li>
+              <li><a href="/ai-automation">AI Automation</a></li>
+              <li><a href="/gohighlevel-services">GoHighLevel Services</a></li>
+              <li><a href="/openclaw-setup">OpenClaw Setup</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Development</h4>
+            <ul class="footer-links">
+              <li><a href="/web-development">Web Development</a></li>
+              <li><a href="/ecommerce">E-commerce</a></li>
+              <li><a href="/crm-development">CRM Development</a></li>
+              <li><a href="/shopify-apps">Shopify Apps</a></li>
+              <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+              <li><a href="/launch-your-saas">Launch Your SaaS</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Hire a Specialist</h4>
+            <ul class="footer-links">
+              <li><a href="/hire-cold-email-expert">Cold Email Expert</a></li>
+              <li><a href="/hire-gohighlevel-developer">GoHighLevel Developer</a></li>
+              <li><a href="/hire-n8n-developer">n8n Developer</a></li>
+              <li><a href="/hire-ai-engineer">AI Engineer</a></li>
+              <li><a href="/hire-shopify-expert">Shopify Expert</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Industries</h4>
+            <ul class="footer-links">
+              <li><a href="/cold-email-saas">Cold Email for SaaS</a></li>
+              <li><a href="/lead-generation-agencies">Lead Gen for Agencies</a></li>
+              <li><a href="/ai-automation-ecommerce">AI for E-commerce</a></li>
+              <li><a href="/cold-email-recruiters">Email for Recruiters</a></li>
+              <li><a href="/gohighlevel-real-estate">GHL for Real Estate</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul class="footer-links">
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+              <li><a href="/careers">Careers</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="https://app.imisofts.com/login">Sign In</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="/free-audit">Free Audit</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/support">Support</a></li>
+              <li><a href="/api-docs">API Docs</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer Brand + Newsletter -->
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div style="margin-bottom: 24px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" width="220" height="62" role="img" aria-label="imisofts logo">
+                <g fill="#F45407">
+                  <circle cx="48" cy="170" r="18"/>
+                  <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+                  <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+                </g>
+                <g transform="translate(200,188)">
+                  <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#FFFFFF">imisofts</text>
+                </g>
+              </svg>
+            </div>
+            <p>From idea to revenue in 30 days. We ship AI automation, performance marketing, and web development that actually works.</p>
+            <div class="footer-social">
+              <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://twitter.com/imisofts" aria-label="Twitter">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+              <a href="https://instagram.com/imisofts" aria-label="Instagram">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/></svg>
+              </a>
+              <a href="https://github.com/imisofts" aria-label="GitHub">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+            </div>
+            <div class="footer-contact-row">
+              <a href="mailto:growth@imisofts.com">growth@imisofts.com</a>
+              <span>+971 52 432 0369</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            &copy; 2026 imisofts. All rights reserved.
+          </div>
+          <div class="footer-bottom-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
+            <a href="/cookie-policy">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+    // Mega-menu tab switching on hover + click
+    function megaTabSwitch(tab) {
+      var tabId = tab.getAttribute('data-tab');
+      if (!tabId) return;
+      document.querySelectorAll('.mega-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.mega-panel').forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      var panel = document.getElementById('panel-' + tabId);
+      if (panel) panel.classList.add('active');
+    }
+    // Event delegation on sidebar — handles hover
+    document.querySelectorAll('.mega-sidebar').forEach(function(sidebar) {
+      sidebar.addEventListener('mouseover', function(e) {
+        var tab = e.target.closest('.mega-tab');
+        if (tab) megaTabSwitch(tab);
+      });
+    });
+    // Direct click on each tab — handles click
+    document.querySelectorAll('.mega-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        megaTabSwitch(this);
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      var btn = document.querySelector('.mobile-menu-toggle');
+      var menu = document.getElementById('mobileMenu');
+      var isOpen = menu.classList.contains('active');
+      if (isOpen) {
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      } else {
+        menu.classList.add('active');
+        btn.classList.add('active');
+        document.body.classList.add('mobile-menu-open');
+      }
+    }
+
+    // Mobile section accordion
+    function toggleMobileSection(el) {
+      var content = el.nextElementSibling;
+      var isActive = content.classList.contains('active');
+      // Close all sections first
+      document.querySelectorAll('.mobile-section-content').forEach(function(s) { s.classList.remove('active'); });
+      document.querySelectorAll('.mobile-services-title').forEach(function(t) { t.classList.remove('active'); });
+      // Open clicked section if it was closed
+      if (!isActive) {
+        content.classList.add('active');
+        el.classList.add('active');
+      }
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-nav-link, .mobile-service-link, .mobile-cta').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var menu = document.getElementById('mobileMenu');
+        var btn = document.querySelector('.mobile-menu-toggle');
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+</script>
+<script src="/blog/blog.js" defer></script>
+</body>
+</html>
