@@ -1,0 +1,2368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cold Emails Not Getting Opens? 8 Fixes for 2026 | imisofts</title>
+<meta name="description" content="Low open rate on cold emails? 8-point diagnostic: subject lines, sender name, DNS, timing, warmup, list quality. Open rate benchmark and fixes.">
+<link rel="canonical" href="https://imisofts.com/blog/cold-emails-not-getting-opens/">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cold Emails Not Getting Opens? 8 Fixes for 2026">
+<meta property="og:description" content="Low open rate on cold emails? 8-point diagnostic: subject lines, sender name, DNS, timing, warmup, list quality. Open rate benchmark and fixes.">
+<meta property="og:url" content="https://imisofts.com/blog/cold-emails-not-getting-opens/">
+<meta property="og:image" content="https://imisofts.com/og-image.jpg">
+<meta property="og:site_name" content="imisofts">
+<meta property="article:author" content="Zeeshan Waheed">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cold Emails Not Getting Opens? 8 Fixes for 2026">
+<meta name="twitter:description" content="Low open rate on cold emails? 8-point diagnostic: subject lines, sender name, DNS, timing, warmup, list quality. Open rate benchmark and fixes.">
+<meta name="twitter:image" content="https://imisofts.com/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .navbar.scrolled .nav-link {
+      color: #333;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+      position: relative;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    
+    .nav-logo {
+      height: 58px;
+      width: auto;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: static;
+    }
+
+    #industriesDropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    /* Mega-menu panel */
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+      padding: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+      z-index: 1000;
+      margin-top: 0;
+    }
+
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Industries dropdown — narrow, centered on trigger */
+    .nav-dropdown-menu--narrow {
+      left: 50% !important;
+      right: auto !important;
+      min-width: 420px !important;
+      transform: translateX(-50%) translateY(-8px) !important;
+    }
+
+    #industriesDropdown:hover .nav-dropdown-menu--narrow {
+      transform: translateX(-50%) translateY(0) !important;
+    }
+
+    /* ── Mega-menu tabbed layout (InvoZone style) ── */
+    .mega-menu {
+      display: flex;
+      min-height: 380px;
+    }
+
+    .mega-sidebar {
+      width: 280px;
+      min-width: 280px;
+      border-right: 1px solid #f0f0f0;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      background: #fefcfb;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mega-tab {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #4b5563;
+      font-weight: 500;
+      font-size: 15px;
+      border-left: 3px solid transparent;
+      text-decoration: none;
+    }
+
+    .mega-tab:hover,
+    .mega-tab.active {
+      background: linear-gradient(135deg, #fff7f3 0%, #fff0ea 100%);
+      color: #1a1a1a;
+      border-left-color: #F45407;
+    }
+
+    .mega-tab-icon {
+      width: 22px;
+      height: 22px;
+      color: #c9a08a;
+      flex-shrink: 0;
+      transition: color 0.2s ease;
+    }
+
+    .mega-tab:hover .mega-tab-icon,
+    .mega-tab.active .mega-tab-icon {
+      color: #F45407;
+    }
+
+    .mega-tab-arrow {
+      margin-left: auto;
+      width: 16px;
+      height: 16px;
+      color: #94a3b8;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .mega-tab.active .mega-tab-arrow {
+      opacity: 1;
+      color: #F45407;
+    }
+
+    /* CTA card in sidebar */
+    .mega-cta-card {
+      margin: auto 16px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #FFF5F0 0%, #FFEDE5 100%);
+      border: 1px solid #ffd9c7;
+      border-radius: 12px;
+    }
+
+    .mega-cta-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .mega-cta-card p {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .mega-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407 0%, #ff6b28 100%);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(244, 84, 7, 0.25);
+    }
+
+    .mega-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(244, 84, 7, 0.35);
+    }
+
+    .mega-cta-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Content panels */
+    .mega-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mega-panel {
+      display: none;
+      padding: 28px 32px;
+      flex: 1;
+    }
+
+    .mega-panel.active {
+      display: block;
+    }
+
+    .mega-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .mega-item {
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .mega-item:hover {
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
+    }
+
+    .mega-item-icon {
+      width: 20px;
+      height: 20px;
+      padding: 8px;
+      box-sizing: content-box;
+      background: linear-gradient(135deg, #fff4ef 0%, #ffe8dd 100%);
+      border-radius: 10px;
+      color: #F45407;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .mega-item:hover .mega-item-icon {
+      background: #F45407;
+      color: white;
+    }
+
+    .mega-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .mega-item:hover .mega-item-title {
+      color: #F45407;
+    }
+
+    .mega-item-desc {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* Bottom bar */
+    .mega-bottom {
+      margin-top: auto;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .mega-bottom a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #4b5563;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .mega-bottom a:hover {
+      color: #F45407;
+    }
+
+    .mega-bottom a svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Industries dropdown items */
+    .dropdown-simple {
+      padding: 16px 12px;
+    }
+
+    .dropdown-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-link:hover {
+      background: #f9fafb;
+    }
+
+    .dropdown-link svg {
+      width: 18px;
+      height: 18px;
+      padding: 7px;
+      box-sizing: content-box;
+      background: #f3f4f6;
+      border-radius: 10px;
+      color: #6b7280;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-link:hover svg {
+      background: #F45407;
+      color: white;
+    }
+
+    .dropdown-link-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .dropdown-link:hover .dropdown-link-title {
+      color: #F45407;
+    }
+
+    .dropdown-link-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Mobile section toggle (styles moved to mobile menu block) */
+
+    /* Mega-menu responsive */
+    @media (max-width: 1100px) {
+      .mega-sidebar { width: 240px; min-width: 240px; }
+      .mega-panel { padding: 24px 20px; }
+      .mega-grid { gap: 2px; }
+      .mega-item { padding: 12px 14px; }
+    }
+
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+      position: relative;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: calc(100vh - 72px);
+      background: #ffffff;
+      padding: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      visibility: hidden;
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    .mobile-menu-inner {
+      padding: 8px 16px 100px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 10px;
+      transition: background 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link:active {
+      background: #fff5f0;
+    }
+
+    .mobile-services {
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mobile-services-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 16px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: background 0.2s ease;
+      border-radius: 10px;
+    }
+
+    .mobile-services-title:active {
+      background: #fff5f0;
+    }
+
+    .mobile-services-title .accordion-icon {
+      width: 20px;
+      height: 20px;
+      color: #999;
+      transition: transform 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .mobile-services-title.active .accordion-icon {
+      transform: rotate(180deg);
+      color: #F45407;
+    }
+
+    .mobile-section-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      padding-left: 8px;
+    }
+
+    .mobile-section-content.active {
+      max-height: 800px;
+    }
+
+    .mobile-section-group {
+      padding: 8px 0 4px 16px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #F45407;
+      font-weight: 600;
+    }
+
+    .mobile-service-link {
+      display: block;
+      padding: 11px 16px 11px 28px;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+
+    .mobile-service-link:hover, .mobile-service-link:active {
+      background: #fff5f0;
+      color: #F45407;
+    }
+
+    .mobile-cta {
+      display: block;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 24px 16px 0;
+      box-shadow: 0 4px 15px rgba(244, 84, 7, 0.3);
+    }
+
+    .mobile-cta:active {
+      transform: scale(0.98);
+    }
+
+    body.mobile-menu-open {
+      overflow: hidden;
+    }
+    
+    /* ============= MAIN CONTENT STYLES ============= */
+    
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Logo animation - only on initial page load */
+    @media (prefers-reduced-motion: no-preference) {
+      .nav-logo g:first-of-type {
+        animation: slideInLeft 0.6s ease-out;
+      }
+      
+      .nav-logo .char {
+        opacity: 0;
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+      
+      .nav-logo .char-1 { animation-delay: 0.3s; }
+      .nav-logo .char-2 { animation-delay: 0.35s; }
+      .nav-logo .char-3 { animation-delay: 0.4s; }
+      .nav-logo .char-4 { animation-delay: 0.45s; }
+      .nav-logo .char-5 { animation-delay: 0.5s; }
+      .nav-logo .char-6 { animation-delay: 0.55s; }
+      .nav-logo .char-7 { animation-delay: 0.6s; }
+      .nav-logo .char-8 { animation-delay: 0.65s; }
+    }
+    
+    @keyframes fillProgress {
+      to {
+        width: 25%;
+      }
+    }
+    
+    @keyframes growLine {
+      to {
+        height: 25%;
+      }
+    }
+    
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
+    /* Partner Logos Styles */
+    .partner-logo:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px) !important;
+    }
+    
+    .partner-logo:hover img {
+      filter: grayscale(0%) !important;
+    }
+    
+    .partner-logos-container:hover .partner-logos-scroll {
+      animation-play-state: paused;
+    }
+    
+    /* Responsive Grid Classes */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Pricing Slider Navigation */
+    .pricing-slider-nav {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .pricing-slider-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #e5e5e5;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      color: #333;
+    }
+
+    .pricing-slider-btn:hover {
+      background: #F45407;
+      border-color: #F45407;
+      color: white;
+    }
+
+    .pricing-slider-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pricing-slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d1d5db;
+      transition: all 0.2s ease;
+    }
+
+    .pricing-slider-dot.active {
+      background: #F45407;
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* Process Section Specific Styles */
+    .process-desktop {
+      display: block;
+    }
+    
+    .process-mobile {
+      display: none;
+    }
+    
+    .desktop-timeline-progress {
+      animation: fillProgress 2s ease-out forwards;
+    }
+    
+    .timeline-step:hover > div:first-child {
+      transform: scale(1.1);
+    }
+    
+    .mobile-timeline-line {
+      position: relative;
+    }
+    
+    .mobile-timeline-line::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2px;
+      height: 0;
+      background: #F45407;
+      animation: growLine 2s ease-out forwards;
+    }
+    
+    .mobile-timeline-step {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .mobile-timeline-step:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    
+    .mobile-timeline-step:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    
+    .mobile-timeline-step:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+    
+    .mobile-timeline-step:nth-child(4) {
+      animation-delay: 0.7s;
+    }
+    
+    /* ============= FOOTER STYLES ============= */
+    .footer {
+      background: #0a0a0a;
+      color: #aaa;
+      padding: 0;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #F45407, #ff6b28, transparent);
+    }
+
+    .footer-cta-banner {
+      padding: 72px 0;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(244,84,7,0.08) 0%, transparent 70%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-cta-banner h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-cta-banner p {
+      font-size: 16px;
+      color: #888;
+      margin-bottom: 32px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .footer-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 24px rgba(244,84,7,0.25);
+    }
+
+    .footer-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(244,84,7,0.4);
+    }
+
+    .footer-cta-btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-cta-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    .footer-main {
+      padding: 64px 0 0;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 48px;
+    }
+
+    .footer-column h4 {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, #F45407, #ff6b28);
+      border-radius: 1px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #777;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(4px);
+    }
+
+    .footer-top {
+      padding-bottom: 48px;
+    }
+
+    .footer-brand {
+      max-width: 520px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      color: #777;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(244,84,7,0.3);
+    }
+
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+      color: #888;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover svg {
+      color: white;
+    }
+
+    .footer-contact-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .footer-contact-row a,
+    .footer-contact-row span {
+      color: #666;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-contact-row a:hover {
+      color: #F45407;
+    }
+
+    .footer-bottom {
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: #555;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #F45407;
+    }
+    
+    .check-mark {
+      color: #10b981;
+      font-weight: 500;
+      margin-right: 8px;
+    }
+    
+    .bullet-point {
+      color: #F45407;
+      margin-right: 8px;
+      font-weight: 500;
+    }
+    
+    .bullet-point-gray {
+      color: #999;
+      margin-right: 8px;
+      font-weight: 500;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .navbar {
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        height: 72px;
+      }
+      
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .hero-section {
+        padding-top: 100px !important;
+        padding-bottom: 60px !important;
+        margin-top: 72px !important;
+      }
+      
+      .hero-badge {
+        margin-top: 20px !important;
+      }
+      
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+        line-height: 1.2 !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .case-studies-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      
+      .pricing-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px !important;
+        padding-bottom: 16px;
+        scrollbar-width: none;
+      }
+
+      .pricing-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .pricing-grid > div {
+        min-width: 85vw;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+      }
+
+      .pricing-slider-nav {
+        display: flex !important;
+      }
+      
+      .footer-cta-banner {
+        padding: 48px 0;
+      }
+
+      .footer-cta-banner h3 {
+        font-size: 24px;
+      }
+
+
+
+      .footer-brand {
+        max-width: 100%;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+      }
+
+      .footer-contact-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .phone-input-group {
+        grid-template-columns: 100px 1fr !important;
+      }
+      
+      #countryCode {
+        font-size: 13px !important;
+      }
+      
+      .section-padding {
+        padding: 48px 0 !important;
+      }
+      
+      .hide-mobile {
+        display: none !important;
+      }
+      
+      .text-mobile-center {
+        text-align: center !important;
+      }
+      
+      .dashboard-card {
+        margin-top: 32px;
+      }
+      
+      .expect-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+      
+      .expect-grid > div > div:first-child {
+        font-size: 24px !important;
+      }
+      
+      .expect-grid > div > div:last-child {
+        font-size: 12px !important;
+      }
+      
+      .process-desktop {
+        display: none !important;
+      }
+      
+      .process-mobile {
+        display: block !important;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 28px !important;
+      }
+
+      .footer-cta-banner h3 {
+        font-size: 28px;
+      }
+    }
+  </style>
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cold Emails Not Getting Opens? 8 Fixes for 2026",
+  "description": "Low open rate on cold emails? 8-point diagnostic: subject lines, sender name, DNS, timing, warmup, list quality. Open rate benchmark and fixes.",
+  "author": {
+    "@type": "Person",
+    "name": "Zeeshan Waheed",
+    "url": "https://imisofts.com/author/zeeshan-waheed/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "imisofts",
+    "url": "https://imisofts.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://imisofts.com/logo.svg"
+    }
+  },
+  "datePublished": "2026-03-15",
+  "dateModified": "2026-03-15",
+  "url": "https://imisofts.com/blog/cold-emails-not-getting-opens/",
+  "mainEntityOfPage": "https://imisofts.com/blog/cold-emails-not-getting-opens/",
+  "wordCount": 2183,
+  "keywords": "cold emails not getting opens, cold email open rate too low, increase cold email open rate, why aren't my emails opening, cold email subject line open rate, improve email open rate, low open rate fix",
+  "name": "Cold Emails Not Getting Opens? 8 Fixes for 2026"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://imisofts.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://imisofts.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cold Email Infrastructure",
+      "item": "https://imisofts.com/blog/?cat=cold-email-infrastructure"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Cold Emails Not Getting Opens? 8 Fixes for 2026"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+        "@type": "Question",
+        "name": "What's the difference between open rate and deliverability?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deliverability = email reaches inbox. Open rate = person opens the email. You can have 100% deliverability and 2% open rate (email reaches inbox but they don't open)."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "Should I measure open rate by clicks or opens?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both matter, but opens are the first gate. If open rate is low, click rate will be low. Fix opens first, then optimize click through."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "Does open rate matter if reply rate is good?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. If you're getting 2% replies, that's what matters. Open rate is just a diagnostic metric. But if opens are 2% and replies are 0.2%, something's broken."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "How long should I test subject lines?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1 week of sending with each subject line. After 1 week, you have 100+ data points and can confidently pick the winner."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "Can I improve open rate without changing anything else?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Maybe 10-20% improvement (like timing optimization). To get 5-10x improvement, you need to fix multiple things (subject + sender + content + follow-up)."
+        }
+    }
+]
+}
+</script>
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">Skip to content</a>
+
+<header>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-container">
+        <a href="/" class="nav-logo-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" class="nav-logo" role="img" aria-label="imisofts logo">
+            <g fill="#F45407">
+              <circle cx="48" cy="170" r="18"/>
+              <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+              <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+            </g>
+            <g transform="translate(200,188)">
+              <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#0F172A">
+                <tspan class="char char-1">i</tspan><tspan class="char char-2">m</tspan><tspan class="char char-3">i</tspan><tspan class="char char-4">s</tspan><tspan class="char char-5">o</tspan><tspan class="char char-6">f</tspan><tspan class="char char-7">t</tspan><tspan class="char char-8">s</tspan>
+              </text>
+            </g>
+          </svg>
+        </a>
+
+        <div class="nav-menu">
+          <!-- Services Mega Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <div class="mega-menu">
+                <div class="mega-sidebar">
+                  <div class="mega-tab active" data-tab="growth">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <span>Growth</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="development">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <span>Development</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="specialist">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Hire a Specialist</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-cta-card">
+                    <h4>Contact Us</h4>
+                    <p>Actionable insights for your digital growth in 24 hours.</p>
+                    <a href="/contact" class="mega-cta-btn">
+                      Contact Us
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="mega-content">
+                  <div class="mega-panel active" id="panel-growth">
+                    <div class="mega-grid">
+                      <a href="/cold-email-marketing" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Marketing</div>
+                        <div class="mega-item-desc">Infrastructure &amp; campaigns that land in inbox</div></div>
+                      </a>
+                      <a href="/lead-generation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div><div class="mega-item-title">Lead Generation</div>
+                        <div class="mega-item-desc">40-100+ qualified B2B appointments monthly</div></div>
+                      </a>
+                      <a href="/digital-marketing" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Digital Marketing</div>
+                        <div class="mega-item-desc">Performance marketing that drives ROI</div></div>
+                      </a>
+                      <a href="/ai-automation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Automation</div>
+                        <div class="mega-item-desc">Intelligent workflows that work 24/7</div></div>
+                      </a>
+                      <a href="/gohighlevel-services" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Services</div>
+                        <div class="mega-item-desc">GHL automation &amp; AI voice agents</div></div>
+                      </a>
+                      <a href="/openclaw-setup" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        <div><div class="mega-item-title">OpenClaw Setup</div>
+                        <div class="mega-item-desc">AI agent on your Mac Studio</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-development">
+                    <div class="mega-grid">
+                      <a href="/web-development" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        <div><div class="mega-item-title">Web Development</div>
+                        <div class="mega-item-desc">Fast, modern websites &amp; web apps</div></div>
+                      </a>
+                      <a href="/ecommerce" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <div><div class="mega-item-title">E-commerce</div>
+                        <div class="mega-item-desc">Shopify stores that convert at 4.2%</div></div>
+                      </a>
+                      <a href="/crm-development" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        <div><div class="mega-item-title">CRM Development</div>
+                        <div class="mega-item-desc">HubSpot, Salesforce &amp; custom CRM</div></div>
+                      </a>
+                      <a href="/shopify-apps" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        <div><div class="mega-item-title">Shopify Apps</div>
+                        <div class="mega-item-desc">Certified Shopify app development</div></div>
+                      </a>
+                      <a href="/ai-mobile-apps" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Mobile Apps</div>
+                        <div class="mega-item-desc">Intelligent mobile apps in 3-10 weeks</div></div>
+                      </a>
+                      <a href="/launch-your-saas" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        <div><div class="mega-item-title">Launch Your SaaS</div>
+                        <div class="mega-item-desc">Idea to first customer in 30 days</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-specialist">
+                    <div class="mega-grid">
+                      <a href="/hire-cold-email-expert" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Expert</div>
+                        <div class="mega-item-desc">Deliverability &amp; campaign specialists</div></div>
+                      </a>
+                      <a href="/hire-gohighlevel-developer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Developer</div>
+                        <div class="mega-item-desc">Certified GHL automation experts</div></div>
+                      </a>
+                      <a href="/hire-n8n-developer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <div><div class="mega-item-title">n8n Developer</div>
+                        <div class="mega-item-desc">Workflow automation engineers</div></div>
+                      </a>
+                      <a href="/hire-ai-engineer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <div><div class="mega-item-title">AI Engineer</div>
+                        <div class="mega-item-desc">LLM &amp; machine learning specialists</div></div>
+                      </a>
+                      <a href="/hire-shopify-expert" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <div><div class="mega-item-title">Shopify Expert</div>
+                        <div class="mega-item-desc">Store &amp; app development pros</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-bottom">
+                    <a href="/free-audit">
+                      See All Services
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Industries Dropdown -->
+          <div class="nav-dropdown" id="industriesDropdown">
+            <div class="nav-link nav-dropdown-toggle">
+              Industries
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand industries menu"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="nav-dropdown-menu nav-dropdown-menu--narrow">
+              <div class="dropdown-simple">
+                <a href="/cold-email-saas" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Cold Email for SaaS</div>
+                    <div class="dropdown-link-desc">Book demos with decision-makers</div>
+                  </div>
+                </a>
+                <a href="/lead-generation-agencies" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Lead Gen for Agencies</div>
+                    <div class="dropdown-link-desc">Scale your agency's client acquisition</div>
+                  </div>
+                </a>
+                <a href="/ai-automation-ecommerce" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">AI for E-commerce</div>
+                    <div class="dropdown-link-desc">Automate operations & boost revenue</div>
+                  </div>
+                </a>
+                <a href="/cold-email-recruiters" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Email for Recruiters</div>
+                    <div class="dropdown-link-desc">Fill roles faster with outbound</div>
+                  </div>
+                </a>
+                <a href="/gohighlevel-real-estate" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">GHL for Real Estate</div>
+                    <div class="dropdown-link-desc">Automate leads & follow-ups</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          <a href="/contact" class="nav-cta">Contact Us &rarr;</a>
+        </div>
+
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-inner">
+        <a href="/" class="mobile-nav-link">Home</a>
+
+        <div class="mobile-services">
+          <div class="mobile-services-title" onclick="toggleMobileSection(this)">
+            Services
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+          <div class="mobile-section-content">
+            <div class="mobile-section-group">Growth</div>
+            <a href="/cold-email-marketing" class="mobile-service-link">Cold Email Marketing</a>
+            <a href="/lead-generation" class="mobile-service-link">Lead Generation</a>
+            <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+            <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+            <a href="/gohighlevel-services" class="mobile-service-link">GoHighLevel Services</a>
+            <a href="/openclaw-setup" class="mobile-service-link">OpenClaw Setup</a>
+            <div class="mobile-section-group">Development</div>
+            <a href="/web-development" class="mobile-service-link">Web Development</a>
+            <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+            <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+            <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+            <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+            <a href="/launch-your-saas" class="mobile-service-link">Launch Your SaaS</a>
+            <div class="mobile-section-group">Hire a Specialist</div>
+            <a href="/hire-cold-email-expert" class="mobile-service-link">Cold Email Expert</a>
+            <a href="/hire-gohighlevel-developer" class="mobile-service-link">GoHighLevel Developer</a>
+            <a href="/hire-n8n-developer" class="mobile-service-link">n8n Developer</a>
+            <a href="/hire-ai-engineer" class="mobile-service-link">AI Engineer</a>
+            <a href="/hire-shopify-expert" class="mobile-service-link">Shopify Expert</a>
+          </div>
+        </div>
+
+        <div class="mobile-services">
+          <div class="mobile-services-title" onclick="toggleMobileSection(this)">
+            Industries
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+          <div class="mobile-section-content">
+            <a href="/cold-email-saas" class="mobile-service-link">Cold Email for SaaS</a>
+            <a href="/lead-generation-agencies" class="mobile-service-link">Lead Gen for Agencies</a>
+            <a href="/ai-automation-ecommerce" class="mobile-service-link">AI for E-commerce</a>
+            <a href="/cold-email-recruiters" class="mobile-service-link">Email for Recruiters</a>
+            <a href="/gohighlevel-real-estate" class="mobile-service-link">GHL for Real Estate</a>
+          </div>
+        </div>
+
+        <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+        <a href="/pricing" class="mobile-nav-link">Pricing</a>
+        <a href="/about" class="mobile-nav-link">About</a>
+        <a href="/blog" class="mobile-nav-link">Blog</a>
+        <a href="/contact" class="mobile-cta">Contact Us &rarr;</a>
+      </div>
+    </div>
+  </nav>
+  </header>
+
+<main id="main-content" class="blog-wrapper">
+<div class="container">
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+<a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><a href="/blog/?cat=cold-email-infrastructure">Cold Email Infrastructure</a><span>/</span><span class="current">Cold Emails Not Getting Opens? 8 Fixes for 2026</span>
+</nav>
+
+<div class="article-header">
+<h1>Cold Emails Not Getting Opens? 8 Fixes for 2026</h1>
+<div class="article-meta">
+<div class="article-meta-item">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+<a href="/author/zeeshan-waheed/" target="_blank" rel="noopener" style="color: #F45407; text-decoration: underline; font-weight: 500;">Zeeshan Waheed</a>
+</div>
+<div class="article-meta-item">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+<time datetime="2026-03-15">March 15, 2026</time>
+</div>
+<div class="article-meta-item">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+11 min read
+</div>
+<a href="/blog/?cat=cold-email-infrastructure" class="category-tag">Cold Email Infrastructure</a>
+</div>
+</div>
+
+<div class="mobile-toc">
+<button class="mobile-toc-toggle" aria-expanded="false">
+Table of Contents
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="mobile-toc-content">
+<ul class="toc-list">
+<li><a href="#whats-a-good-cold-email-open-rate">What's a Good Cold Email Open Rate?</a></li>
+<li><a href="#fix-1-subject-line-is-generic-or-weak">Fix 1: Subject Line Is Generic or Weak</a></li>
+<li><a href="#fix-2-sender-name-is-wrong-or-not-recognizable">Fix 2: Sender Name Is Wrong or Not Recognizable</a></li>
+<li><a href="#fix-3-sending-time-wrong-theyre-offline-when-email-lands">Fix 3: Sending Time Wrong (They're Offline When Email Lands)</a></li>
+<li><a href="#fix-4-email-is-too-long-they-give-up-before-reading">Fix 4: Email Is Too Long (They Give Up Before Reading)</a></li>
+<li><a href="#fix-5-email-content-looks-like-marketing-not-personal">Fix 5: Email Content Looks Like Marketing (Not Personal)</a></li>
+<li><a href="#fix-6-list-quality-theyre-not-your-target-so-they-dont-care">Fix 6: List Quality (They're Not Your Target, So They Don't Care)</a></li>
+<li><a href="#fix-7-dnsdeliverability-issue-email-lands-in-spam-or-promotions-tab">Fix 7: DNS/Deliverability Issue (Email Lands in Spam or Promotions Tab)</a></li>
+<li><a href="#fix-8-no-follow-up-they-saw-first-email-but-forgot-to-open-then-its-too-old">Fix 8: No Follow-up (They Saw First Email But Forgot to Open, Then It's Too Old)</a></li>
+<li><a href="#the-8-fix-diagnostic-checklist">The 8-Fix Diagnostic Checklist</a></li>
+<li><a href="#quick-wins-fastest-fixes">Quick Wins (Fastest Fixes)</a></li>
+<li><a href="#real-data-client-transformations">Real Data: Client Transformations</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</div>
+</div>
+
+<div class="blog-content-layout">
+<article class="article-content">
+<p>You're sending cold emails. Your inbox placement is good (they're landing in inbox). But open rate is under 2%.</p>
+<p>You're sending 100 emails. Only 1 person opens it. The rest? Delete or ignore.</p>
+<p>Industry standard for cold email open rate is 5-8%. Under 2% means something is wrong.</p>
+<p>It's not the list. It's not deliverability. It's something about the email itself that makes people skip it.</p>
+<p>This post shows you the 8 most common causes and how to fix each one.</p>
+<h2 id="whats-a-good-cold-email-open-rate">What's a Good Cold Email Open Rate?</h2>
+<p>Before we diagnose, let's set the benchmark.</p>
+<p><strong>By delivery channel:</strong></p>
+<ul>
+<li>Inbox placement 70%+: Open rate should be 5-10%</li>
+<li>Inbox placement 50-70%: Open rate should be 3-6%</li>
+<li>Inbox placement under 50%: Open rate is meaningless (emails aren't even landing)</li>
+</ul>
+<p><strong>If inbox placement is 70%+ but open rate is under 2%:</strong> One of the 8 fixes below applies.</p>
+<h2 id="fix-1-subject-line-is-generic-or-weak">Fix 1: Subject Line Is Generic or Weak</h2>
+<p>Subject line is the only thing they see before deciding to open.</p>
+<p>Weak subject line = no open.</p>
+<p><strong>Bad subject lines:</strong></p>
+<ul>
+<li>"Quick question" (100 people send this)</li>
+<li>"Follow-up" (not compelling)</li>
+<li>"[Company name]" (they already know who you are)</li>
+<li>"Meeting request" (sounds like spam)</li>
+<li>"Opportunity" (too vague)</li>
+<li>"Check this out" (no specificity)</li>
+</ul>
+<p><strong>Good subject lines:</strong></p>
+<ul>
+<li>First name only: "Sarah" (personal, curious)</li>
+<li>Question specific to them: "Seen your close rate drop?" (relevant problem)</li>
+<li>Pattern interrupt: "Your team averages 60% quota attainment?" (specific insight)</li>
+<li>One number: "3 stages" or "15%" (curiosity)</li>
+<li>Urgent but honest: "For Friday?" (time-specific, not fake urgency)</li>
+</ul>
+<p><strong>Before/after:</strong></p>
+<ul>
+<li>Client changed subject from "Sales coaching opportunity" to "Your sales team's closing rate vs industry average." Open rate jumped 1.2% → 5.8%.</li>
+<li>Client changed from "Follow up" to "Saw your recent hire—congrats." Open rate went 0.8% → 4.2%.</li>
+</ul>
+<p><strong>The fix:</strong></p>
+<ol>
+<li>Write 3 alternative subject lines</li>
+<li>Test each with 50-100 emails</li>
+<li>Track which gets highest open rate</li>
+<li>Keep that one, kill the others</li>
+<li>This 3-subject test takes 1 week</li>
+</ol>
+<h2 id="fix-2-sender-name-is-wrong-or-not-recognizable">Fix 2: Sender Name Is Wrong or Not Recognizable</h2>
+<p>They see sender name before subject line.</p>
+<p>If sender name is weird, generic, or not trustworthy, they delete without reading subject.</p>
+<p><strong>Bad sender names:</strong></p>
+<ul>
+<li>"noreply@company.com" (looks like automated)</li>
+<li>"support@company.com" (looks like support email)</li>
+<li>"sales@company.com" (screams "sales email")</li>
+<li>Full company name: "XYZ Company Inc" (not personal)</li>
+<li>Weird domain: "news-mail@randomdomain.com" (looks like spam)</li>
+</ul>
+<p><strong>Good sender names:</strong></p>
+<ul>
+<li>First name only: "Sarah" (personal)</li>
+<li>First and last name: "Sarah Mitchell" (professional)</li>
+<li>First name + title: "Sarah - Sales Manager" (adds credibility)</li>
+<li>First name + company (optional): "Sarah @ XYZ" (personal but provides context)</li>
+</ul>
+<p><strong>Why it matters:</strong></p>
+<ul>
+<li>They get dozens of cold emails per day</li>
+<li>They're trained to delete emails from "sales," "noreply," "support"</li>
+<li>Personal name = might be worth reading</li>
+<li>Company-wide account = definitely spam</li>
+</ul>
+<p><strong>The fix:</strong></p>
+<ol>
+<li>Change sender name from generic to first name (or first + last name)</li>
+<li>Re-send same email campaign with new sender</li>
+<li>Wait 1 week</li>
+<li>Compare open rates (new first-name sender vs old generic)</li>
+<li>Should see 2-3x improvement</li>
+</ol>
+<p>Example: Client was using "Growth@Company.com" as sender. Open rate 1.2%. Changed to "John Smith" (actual person sending). Open rate jumped to 4.8%.</p>
+<h2 id="fix-3-sending-time-wrong-theyre-offline-when-email-lands">Fix 3: Sending Time Wrong (They're Offline When Email Lands)</h2>
+<p>Email lands while they're sleeping, in a meeting, or offline.</p>
+<p>When they come back, your email is buried 50 emails deep in their inbox.</p>
+<p><strong>When people check email (B2B):</strong></p>
+<ul>
+<li>Tuesday-Thursday: Highest engagement</li>
+<li>Monday: Lower engagement (emails get buried)</li>
+<li>Friday: Afternoon emails ignored (end of week mentality)</li>
+<li>Before 9am: Usually in meetings</li>
+<li>9am-12pm: Peak checking time</li>
+<li>12pm-2pm: Lunch, lower engagement</li>
+<li>2pm-4pm: Second checking window</li>
+<li>After 4pm: Fewer opens (end of day)</li>
+</ul>
+<p><strong>By timezone:</strong></p>
+<ul>
+<li>Send in their morning (9-11am local time)</li>
+<li>If you don't know timezone, 9am is safest (covers multiple zones)</li>
+<li>Avoid 5-9pm (too late, end-of-day cleanup)</li>
+</ul>
+<p><strong>Before/after:</strong></p>
+<ul>
+<li>Client was sending at 2pm Pacific to East Coast prospects (5pm for them). Emails landed, but got buried. Changed to 9am East Coast time. Open rate jumped 0.9% → 3.4%.</li>
+</ul>
+<p><strong>The fix:</strong></p>
+<ol>
+<li>Check your target timezone</li>
+<li>Change send time to 9am-11am in their timezone</li>
+<li>Send only Tuesday-Thursday (Friday afternoon is dead)</li>
+<li>Resend to same list with same subject line but better timing</li>
+<li>Compare open rates</li>
+</ol>
+<h2 id="fix-4-email-is-too-long-they-give-up-before-reading">Fix 4: Email Is Too Long (They Give Up Before Reading)</h2>
+<p>They open it. See a wall of text. Close it.</p>
+<p><strong>Good cold email length:</strong></p>
+<ul>
+<li>3-5 sentences max</li>
+<li>1 short paragraph (not 3)</li>
+<li>Under 100 words ideally</li>
+<li>One point, not multiple</li>
+</ul>
+<p><strong>Bad email length:</strong></p>
+<ul>
+<li>Multiple paragraphs (they won't scroll)</li>
+<li>Anything over 200 words (most people stop reading)</li>
+<li>Lists of features or benefits (they delete long emails)</li>
+<li>Long story (save for follow-up when they're interested)</li>
+</ul>
+<p><strong>The test:</strong></p>
+<ul>
+<li>Copy your email</li>
+<li>Paste into a word counter (wordcounter.net)</li>
+<li>If over 150 words: Too long. Cut it in half.</li>
+</ul>
+<p><strong>Before/after:</strong></p>
+<ul>
+<li>Client had 3-paragraph email about their service. Open rate 1.8%. Rewrote as 1-paragraph version (same message). Open rate jumped to 4.2%.</li>
+</ul>
+<p><strong>The fix:</strong></p>
+<ol>
+<li>Reduce to 1 paragraph</li>
+<li>Cut to 100-150 words max</li>
+<li>Keep 1 point (not multiple)</li>
+<li>Resend shorter version</li>
+<li>Compare open rates</li>
+</ol>
+<p>Short emails get opened. Long emails get deleted.</p>
+<h2 id="fix-5-email-content-looks-like-marketing-not-personal">Fix 5: Email Content Looks Like Marketing (Not Personal)</h2>
+<p>They open, skim for 2 seconds, see it's a pitch, and delete.</p>
+<p>Personal emails get opened and read. Pitchy emails get skimmed and deleted.</p>
+<p><strong>Pitchy content:</strong></p>
+<ul>
+<li>"We help companies..." (marketing speak)</li>
+<li>"Schedule a demo" (too forward)</li>
+<li>"Try our platform" (immediate ask)</li>
+<li>Focus on you (your company, your product, your benefits)</li>
+<li>Multiple links or CTAs</li>
+</ul>
+<p><strong>Personal content:</strong></p>
+<ul>
+<li>"Saw you on LinkedIn..." (acknowledges them)</li>
+<li>Asks a question about their situation</li>
+<li>Specific observation (not generic)</li>
+<li>Focus on them (their problem, their company, their situation)</li>
+<li>No links or 1 link max</li>
+</ul>
+<p><strong>Tone:</strong></p>
+<ul>
+<li>Conversational (like texting a friend)</li>
+<li>Not formal or corporate</li>
+<li>Casual language okay</li>
+<li>Natural punctuation (short sentences fine)</li>
+</ul>
+<p><strong>Before/after:</strong></p>
+<ul>
+<li>Email 1: "We're a sales coaching firm helping teams close 15% more deals. Our platform tracks rep performance, generates insights, and drives quota attainment. Schedule a call?" Open rate 1.1%.</li>
+<li>Email 2 (same offer, different tone): "Saw you manage the sales team at [Company]. Quick question—what's your close rate vs target?" Open rate 4.8%.</li>
+</ul>
+<p><strong>The fix:</strong></p>
+<ol>
+<li>Rewrite your email in conversational tone (as if texting)</li>
+<li>Focus on their situation, not your product</li>
+<li>Ask a question instead of making a pitch</li>
+<li>Remove links and CTAs</li>
+<li>Resend with new version</li>
+<li>Compare open rates</li>
+</ol>
+<h2 id="fix-6-list-quality-theyre-not-your-target-so-they-dont-care">Fix 6: List Quality (They're Not Your Target, So They Don't Care)</h2>
+<p>Email gets opened, but only by people who don't fit your profile.</p>
+<p>Problem is list, not email.</p>
+<p><strong>How to diagnose:</strong></p>
+<ol>
+<li>Look at your opens: Which companies are opening? Which titles?</li>
+<li>Are they your ideal target? (VP Sales opening your sales email, or Account Coordinator opening it?)</li>
+<li>If you're getting opens but from wrong people, list quality is the issue</li>
+</ol>
+<p><strong>The fix:</strong></p>
+<ul>
+<li>This isn't an email fix, it's a list fix</li>
+<li>Narrow your list to exact profile (VP Sales, not Account Coordinator)</li>
+<li>Remove companies that aren't your target size/industry</li>
+<li>Resend narrowed list</li>
+<li>Should see higher open rate (fewer people, but more relevant)</li>
+</ul>
+<p>Example: Client's email got 3% open rate from "Anyone in sales" list. Narrowed list to "VP Sales at B2B SaaS, $10M-100M revenue." Open rate stayed at 2-3%, but opens came from higher-authority people. Campaign converted better (right people, lower volume).</p>
+<h2 id="fix-7-dnsdeliverability-issue-email-lands-in-spam-or-promotions-tab">Fix 7: DNS/Deliverability Issue (Email Lands in Spam or Promotions Tab)</h2>
+<p>Open rate is low because emails aren't landing in inbox.</p>
+<p>They land in spam or promotions tab.</p>
+<p>People don't open emails in those tabs.</p>
+<p><strong>How to diagnose:</strong></p>
+<ol>
+<li>Send yourself a test email from the campaign</li>
+<li>Check which tab it lands in (Primary, Promotions, Spam, Other)</li>
+<li>Should land in Primary</li>
+</ol>
+<p>If it lands elsewhere, fix DNS or content (see earlier posts for detailed instructions).</p>
+<p><strong>The fix:</strong></p>
+<ul>
+<li>Check DNS (SPF, DKIM, DMARC)</li>
+<li>Check domain reputation (dmarcian.com)</li>
+<li>Check subject line for spam trigger words</li>
+<li>Fix whichever is broken</li>
+<li>Wait 24 hours</li>
+<li>Resend</li>
+<li>Should see open rate improve</li>
+</ul>
+<h2 id="fix-8-no-follow-up-they-saw-first-email-but-forgot-to-open-then-its-too-old">Fix 8: No Follow-up (They Saw First Email But Forgot to Open, Then It's Too Old)</h2>
+<p>They see first email, mark as "read later," forget.</p>
+<p>3 days pass. Email is old. They don't open it.</p>
+<p>Solution: Follow-up.</p>
+<p><strong>Follow-up impact on open rate:</strong></p>
+<ul>
+<li>Email 1 (first touch): 3-5% open rate (initial batch)</li>
+<li>Email 2 (day 3): 4-6% open rate (some who missed first, some engage with follow-up)</li>
+<li>Email 3 (day 7): 3-5% open rate (final batch, people who are slow to engage)</li>
+</ul>
+<p><strong>Total campaign open rate:</strong> With 3-touch: 9-16% aggregate, vs 3-5% with single email.</p>
+<p><strong>The fix:</strong></p>
+<ol>
+<li>Don't just send 1 email</li>
+<li>Set up 3-email sequence: Day 1, Day 3, Day 7</li>
+<li>Change subject line each time (different angle, different problem)</li>
+<li>Keep email short and personal (same as first)</li>
+<li>Measure total opens across all 3 emails</li>
+<li>Should get 10-15% total open rate</li>
+</ol>
+<p>Example: Client sent 1 email. 4% open rate from 100 emails = 4 opens. Set up 3-touch sequence. Same 100 people got 3 emails. Total opens: 13-16 (from different people opening different emails). Total open rate: 13-16%.</p>
+<h2 id="the-8-fix-diagnostic-checklist">The 8-Fix Diagnostic Checklist</h2>
+<p>Run through this if your open rate is under 2%:</p>
+<ol>
+<li><strong>Subject line strong?</strong> (First name, specific, curious, not generic)</li>
+<li><strong>Sender name personal?</strong> (First name, not sales@, not noreply@)</li>
+<li><strong>Send time right?</strong> (9-11am their time, Tuesday-Thursday)</li>
+<li><strong>Email short?</strong> (1 paragraph, under 150 words)</li>
+<li><strong>Content personal?</strong> (Focus on them, ask question, not pitchy)</li>
+<li><strong>List right?</strong> (Sends to actual target profile, not broad)</li>
+<li><strong>Deliverability good?</strong> (Lands in Primary inbox, not spam/promotions)</li>
+<li><strong>Follow-up sequence?</strong> (3+ emails, not just 1)</li>
+</ol>
+<h2 id="quick-wins-fastest-fixes">Quick Wins (Fastest Fixes)</h2>
+<p>If you need to improve open rate NOW:</p>
+<p><strong>Immediate (1 hour):</strong></p>
+<ol>
+<li>Change subject line to first name only: "Sarah"</li>
+<li>Change sender name from generic to first name: "John"</li>
+<li>Resend campaign with these changes</li>
+<li>Wait 1 week for data</li>
+</ol>
+<p>Expected improvement: 1-2% → 3-4% open rate (50-100% increase).</p>
+<p><strong>Medium-term (1 week):</strong></p>
+<ol>
+<li>Test 3 alternative subject lines</li>
+<li>Shorten email to 1 paragraph</li>
+<li>Rewrite for conversational tone</li>
+<li>Set up 3-touch follow-up sequence</li>
+</ol>
+<p>Expected improvement: 1-2% → 5-8% open rate (3-5x increase).</p>
+<h2 id="real-data-client-transformations">Real Data: Client Transformations</h2>
+<p><strong>Client A (Recruiting firm):</strong></p>
+<ul>
+<li>Started: 1.8% open rate, generic subject "Available Position"</li>
+<li>Fixed: Personal subject "Sarah—quick question about growth your team," personal sender name</li>
+<li>Result: 5.2% open rate in 2 weeks</li>
+</ul>
+<p><strong>Client B (Sales coaching):</strong></p>
+<ul>
+<li>Started: 2.1% open rate, 3-paragraph email</li>
+<li>Fixed: Shortened to 1 paragraph, changed subject to first name, changed from "Growth Team" to personal sender</li>
+<li>Result: 4.8% open rate in 1 week, plus lower unsubscribe rate (people appreciated personal tone)</li>
+</ul>
+<p><strong>Client C (SaaS lead gen):</strong></p>
+<ul>
+<li>Started: 1.9% open rate, single email only</li>
+<li>Fixed: 3-touch sequence, stronger subjects, timing optimized</li>
+<li>Result: 12% aggregate open rate across all 3 emails (6-touch opens better than 1 email)</li>
+</ul>
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: What's the difference between open rate and deliverability?</strong></p>
+<p>A: Deliverability = email reaches inbox. Open rate = person opens the email. You can have 100% deliverability and 2% open rate (email reaches inbox but they don't open).</p>
+<p><strong>Q: Should I measure open rate by clicks or opens?</strong></p>
+<p>A: Both matter, but opens are the first gate. If open rate is low, click rate will be low. Fix opens first, then optimize click through.</p>
+<p><strong>Q: Does open rate matter if reply rate is good?</strong></p>
+<p>A: No. If you're getting 2% replies, that's what matters. Open rate is just a diagnostic metric. But if opens are 2% and replies are 0.2%, something's broken.</p>
+<p><strong>Q: How long should I test subject lines?</strong></p>
+<p>A: 1 week of sending with each subject line. After 1 week, you have 100+ data points and can confidently pick the winner.</p>
+<p><strong>Q: Can I improve open rate without changing anything else?</strong></p>
+<p>A: Maybe 10-20% improvement (like timing optimization). To get 5-10x improvement, you need to fix multiple things (subject + sender + content + follow-up).</p>
+<h2 id="next-steps">Next Steps</h2>
+<ol>
+<li>Check your current open rate right now</li>
+<li>If under 2%: Run through the 8-fix checklist</li>
+<li>Pick the top 2 that apply to you (usually subject line + sender name)</li>
+<li>Fix those 2 immediately (30 minutes of work)</li>
+<li>Resend campaign or test with 100 emails</li>
+<li>Wait 1 week for data</li>
+<li>Measure open rate improvement</li>
+</ol>
+<p>Most clients see 100-200% improvement (1% → 2-3%) from just subject line and sender name changes.</p>
+<p>Read next: Cold Email Deliverability | Cold Email Reply Rate | Cold Email Spam Filter Avoidance</p>
+<section class="faq-section">
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>What&#x27;s the difference between open rate and deliverability?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Deliverability = email reaches inbox. Open rate = person opens the email. You can have 100% deliverability and 2% open rate (email reaches inbox but they don&#x27;t open).</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>Should I measure open rate by clicks or opens?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Both matter, but opens are the first gate. If open rate is low, click rate will be low. Fix opens first, then optimize click through.</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>Does open rate matter if reply rate is good?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">No. If you&#x27;re getting 2% replies, that&#x27;s what matters. Open rate is just a diagnostic metric. But if opens are 2% and replies are 0.2%, something&#x27;s broken.</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>How long should I test subject lines?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">1 week of sending with each subject line. After 1 week, you have 100+ data points and can confidently pick the winner.</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>Can I improve open rate without changing anything else?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Maybe 10-20% improvement (like timing optimization). To get 5-10x improvement, you need to fix multiple things (subject + sender + content + follow-up).</div>
+</div>
+</div>
+</section>
+
+<div class="blog-cta-banner">
+<h2>Ready to scale your cold email infrastructure?</h2>
+<p>See our packages and get started with a system built for deliverability.</p>
+<a href="https://imisofts.com/cold-email-marketing#packages" class="cta-btn">
+View Our Packages
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+</a>
+</div>
+</article>
+
+<aside class="blog-sidebar">
+<nav class="toc" aria-label="Table of contents">
+<div class="toc-title">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+Contents
+</div>
+<ul class="toc-list">
+<li><a href="#whats-a-good-cold-email-open-rate">What's a Good Cold Email Open Rate?</a></li>
+<li><a href="#fix-1-subject-line-is-generic-or-weak">Fix 1: Subject Line Is Generic or Weak</a></li>
+<li><a href="#fix-2-sender-name-is-wrong-or-not-recognizable">Fix 2: Sender Name Is Wrong or Not Recognizable</a></li>
+<li><a href="#fix-3-sending-time-wrong-theyre-offline-when-email-lands">Fix 3: Sending Time Wrong (They're Offline When Email Lands)</a></li>
+<li><a href="#fix-4-email-is-too-long-they-give-up-before-reading">Fix 4: Email Is Too Long (They Give Up Before Reading)</a></li>
+<li><a href="#fix-5-email-content-looks-like-marketing-not-personal">Fix 5: Email Content Looks Like Marketing (Not Personal)</a></li>
+<li><a href="#fix-6-list-quality-theyre-not-your-target-so-they-dont-care">Fix 6: List Quality (They're Not Your Target, So They Don't Care)</a></li>
+<li><a href="#fix-7-dnsdeliverability-issue-email-lands-in-spam-or-promotions-tab">Fix 7: DNS/Deliverability Issue (Email Lands in Spam or Promotions Tab)</a></li>
+<li><a href="#fix-8-no-follow-up-they-saw-first-email-but-forgot-to-open-then-its-too-old">Fix 8: No Follow-up (They Saw First Email But Forgot to Open, Then It's Too Old)</a></li>
+<li><a href="#the-8-fix-diagnostic-checklist">The 8-Fix Diagnostic Checklist</a></li>
+<li><a href="#quick-wins-fastest-fixes">Quick Wins (Fastest Fixes)</a></li>
+<li><a href="#real-data-client-transformations">Real Data: Client Transformations</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</nav>
+<div class="sidebar-card">
+<h3>Our Packages</h3>
+<p>Cold email infrastructure built for deliverability. From 3 domains to 50+.</p>
+<a href="https://imisofts.com/cold-email-marketing#packages" class="btn">View Packages</a>
+</div>
+<div class="sidebar-card">
+<h3>Book a Call</h3>
+<p>Get a free 30-minute strategy session with our team.</p>
+<a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Book Free Call</a>
+</div>
+</aside>
+</div>
+
+</div>
+</main>
+
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+    <!-- CTA Banner -->
+    <div class="footer-cta-banner">
+      <div class="container">
+        <h3>Ready to accelerate your growth?</h3>
+        <p>Get a free audit with actionable insights for your business — delivered within 24 hours.</p>
+        <a href="/free-audit" class="footer-cta-btn">
+          Get Your Free Audit
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer Main -->
+    <div class="footer-main">
+      <div class="container">
+
+        <!-- Footer Links -->
+        <div class="footer-links-grid">
+          <div class="footer-column">
+            <h4>Growth</h4>
+            <ul class="footer-links">
+              <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
+              <li><a href="/lead-generation">Lead Generation</a></li>
+              <li><a href="/digital-marketing">Digital Marketing</a></li>
+              <li><a href="/ai-automation">AI Automation</a></li>
+              <li><a href="/gohighlevel-services">GoHighLevel Services</a></li>
+              <li><a href="/openclaw-setup">OpenClaw Setup</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Development</h4>
+            <ul class="footer-links">
+              <li><a href="/web-development">Web Development</a></li>
+              <li><a href="/ecommerce">E-commerce</a></li>
+              <li><a href="/crm-development">CRM Development</a></li>
+              <li><a href="/shopify-apps">Shopify Apps</a></li>
+              <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+              <li><a href="/launch-your-saas">Launch Your SaaS</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Hire a Specialist</h4>
+            <ul class="footer-links">
+              <li><a href="/hire-cold-email-expert">Cold Email Expert</a></li>
+              <li><a href="/hire-gohighlevel-developer">GoHighLevel Developer</a></li>
+              <li><a href="/hire-n8n-developer">n8n Developer</a></li>
+              <li><a href="/hire-ai-engineer">AI Engineer</a></li>
+              <li><a href="/hire-shopify-expert">Shopify Expert</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Industries</h4>
+            <ul class="footer-links">
+              <li><a href="/cold-email-saas">Cold Email for SaaS</a></li>
+              <li><a href="/lead-generation-agencies">Lead Gen for Agencies</a></li>
+              <li><a href="/ai-automation-ecommerce">AI for E-commerce</a></li>
+              <li><a href="/cold-email-recruiters">Email for Recruiters</a></li>
+              <li><a href="/gohighlevel-real-estate">GHL for Real Estate</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul class="footer-links">
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+              <li><a href="/careers">Careers</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="https://app.imisofts.com/login">Sign In</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="/free-audit">Free Audit</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/support">Support</a></li>
+              <li><a href="/api-docs">API Docs</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer Brand + Newsletter -->
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div style="margin-bottom: 24px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" width="220" height="62" role="img" aria-label="imisofts logo">
+                <g fill="#F45407">
+                  <circle cx="48" cy="170" r="18"/>
+                  <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+                  <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+                </g>
+                <g transform="translate(200,188)">
+                  <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#FFFFFF">imisofts</text>
+                </g>
+              </svg>
+            </div>
+            <p>From idea to revenue in 30 days. We ship AI automation, performance marketing, and web development that actually works.</p>
+            <div class="footer-social">
+              <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://twitter.com/imisofts" aria-label="Twitter">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+              <a href="https://instagram.com/imisofts" aria-label="Instagram">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/></svg>
+              </a>
+              <a href="https://github.com/imisofts" aria-label="GitHub">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+            </div>
+            <div class="footer-contact-row">
+              <a href="mailto:growth@imisofts.com">growth@imisofts.com</a>
+              <span>+971 52 432 0369</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            &copy; 2026 imisofts. All rights reserved.
+          </div>
+          <div class="footer-bottom-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
+            <a href="/cookie-policy">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+    // Mega-menu tab switching on hover + click
+    function megaTabSwitch(tab) {
+      var tabId = tab.getAttribute('data-tab');
+      if (!tabId) return;
+      document.querySelectorAll('.mega-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.mega-panel').forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      var panel = document.getElementById('panel-' + tabId);
+      if (panel) panel.classList.add('active');
+    }
+    // Event delegation on sidebar — handles hover
+    document.querySelectorAll('.mega-sidebar').forEach(function(sidebar) {
+      sidebar.addEventListener('mouseover', function(e) {
+        var tab = e.target.closest('.mega-tab');
+        if (tab) megaTabSwitch(tab);
+      });
+    });
+    // Direct click on each tab — handles click
+    document.querySelectorAll('.mega-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        megaTabSwitch(this);
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      var btn = document.querySelector('.mobile-menu-toggle');
+      var menu = document.getElementById('mobileMenu');
+      var isOpen = menu.classList.contains('active');
+      if (isOpen) {
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      } else {
+        menu.classList.add('active');
+        btn.classList.add('active');
+        document.body.classList.add('mobile-menu-open');
+      }
+    }
+
+    // Mobile section accordion
+    function toggleMobileSection(el) {
+      var content = el.nextElementSibling;
+      var isActive = content.classList.contains('active');
+      // Close all sections first
+      document.querySelectorAll('.mobile-section-content').forEach(function(s) { s.classList.remove('active'); });
+      document.querySelectorAll('.mobile-services-title').forEach(function(t) { t.classList.remove('active'); });
+      // Open clicked section if it was closed
+      if (!isActive) {
+        content.classList.add('active');
+        el.classList.add('active');
+      }
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-nav-link, .mobile-service-link, .mobile-cta').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var menu = document.getElementById('mobileMenu');
+        var btn = document.querySelector('.mobile-menu-toggle');
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+</script>
+<script src="/blog/blog.js" defer></script>
+</body>
+</html>

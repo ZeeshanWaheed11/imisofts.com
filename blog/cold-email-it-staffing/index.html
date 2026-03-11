@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cold Email for IT Staffing Agencies: Fill Roles 3x Faster | imisofts</title>
+<meta name="description" content="IT staffing cold email strategy for both client-side (hiring managers) and candidate-side outreach. Fill roles faster, source better candidates.">
+<link rel="canonical" href="https://imisofts.com/blog/cold-email-it-staffing/">
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cold Email for IT Staffing Agencies: Fill Roles 3x Faster">
+<meta property="og:description" content="IT staffing cold email strategy for both client-side (hiring managers) and candidate-side outreach. Fill roles faster, source better candidates.">
+<meta property="og:url" content="https://imisofts.com/blog/cold-email-it-staffing/">
+<meta property="og:image" content="https://imisofts.com/og-image.jpg">
+<meta property="og:site_name" content="imisofts">
+<meta property="article:author" content="Zeeshan Waheed">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cold Email for IT Staffing Agencies: Fill Roles 3x Faster">
+<meta name="twitter:description" content="IT staffing cold email strategy for both client-side (hiring managers) and candidate-side outreach. Fill roles faster, source better candidates.">
+<meta name="twitter:image" content="https://imisofts.com/og-image.jpg">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .navbar.scrolled .nav-link {
+      color: #333;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+      position: relative;
+    }
+    
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    
+    .nav-logo {
+      height: 58px;
+      width: auto;
+    }
+    
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: #F45407;
+    }
+    
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: static;
+    }
+
+    #industriesDropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    /* Mega-menu panel */
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+      padding: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+      z-index: 1000;
+      margin-top: 0;
+    }
+
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Industries dropdown — narrow, centered on trigger */
+    .nav-dropdown-menu--narrow {
+      left: 50% !important;
+      right: auto !important;
+      min-width: 420px !important;
+      transform: translateX(-50%) translateY(-8px) !important;
+    }
+
+    #industriesDropdown:hover .nav-dropdown-menu--narrow {
+      transform: translateX(-50%) translateY(0) !important;
+    }
+
+    /* ── Mega-menu tabbed layout (InvoZone style) ── */
+    .mega-menu {
+      display: flex;
+      min-height: 380px;
+    }
+
+    .mega-sidebar {
+      width: 280px;
+      min-width: 280px;
+      border-right: 1px solid #f0f0f0;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      background: #fefcfb;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mega-tab {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #4b5563;
+      font-weight: 500;
+      font-size: 15px;
+      border-left: 3px solid transparent;
+      text-decoration: none;
+    }
+
+    .mega-tab:hover,
+    .mega-tab.active {
+      background: linear-gradient(135deg, #fff7f3 0%, #fff0ea 100%);
+      color: #1a1a1a;
+      border-left-color: #F45407;
+    }
+
+    .mega-tab-icon {
+      width: 22px;
+      height: 22px;
+      color: #c9a08a;
+      flex-shrink: 0;
+      transition: color 0.2s ease;
+    }
+
+    .mega-tab:hover .mega-tab-icon,
+    .mega-tab.active .mega-tab-icon {
+      color: #F45407;
+    }
+
+    .mega-tab-arrow {
+      margin-left: auto;
+      width: 16px;
+      height: 16px;
+      color: #94a3b8;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .mega-tab.active .mega-tab-arrow {
+      opacity: 1;
+      color: #F45407;
+    }
+
+    /* CTA card in sidebar */
+    .mega-cta-card {
+      margin: auto 16px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #FFF5F0 0%, #FFEDE5 100%);
+      border: 1px solid #ffd9c7;
+      border-radius: 12px;
+    }
+
+    .mega-cta-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .mega-cta-card p {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .mega-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407 0%, #ff6b28 100%);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(244, 84, 7, 0.25);
+    }
+
+    .mega-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(244, 84, 7, 0.35);
+    }
+
+    .mega-cta-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Content panels */
+    .mega-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mega-panel {
+      display: none;
+      padding: 28px 32px;
+      flex: 1;
+    }
+
+    .mega-panel.active {
+      display: block;
+    }
+
+    .mega-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .mega-item {
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .mega-item:hover {
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
+    }
+
+    .mega-item-icon {
+      width: 20px;
+      height: 20px;
+      padding: 8px;
+      box-sizing: content-box;
+      background: linear-gradient(135deg, #fff4ef 0%, #ffe8dd 100%);
+      border-radius: 10px;
+      color: #F45407;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .mega-item:hover .mega-item-icon {
+      background: #F45407;
+      color: white;
+    }
+
+    .mega-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .mega-item:hover .mega-item-title {
+      color: #F45407;
+    }
+
+    .mega-item-desc {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* Bottom bar */
+    .mega-bottom {
+      margin-top: auto;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .mega-bottom a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #4b5563;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .mega-bottom a:hover {
+      color: #F45407;
+    }
+
+    .mega-bottom a svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Industries dropdown items */
+    .dropdown-simple {
+      padding: 16px 12px;
+    }
+
+    .dropdown-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-link:hover {
+      background: #f9fafb;
+    }
+
+    .dropdown-link svg {
+      width: 18px;
+      height: 18px;
+      padding: 7px;
+      box-sizing: content-box;
+      background: #f3f4f6;
+      border-radius: 10px;
+      color: #6b7280;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-link:hover svg {
+      background: #F45407;
+      color: white;
+    }
+
+    .dropdown-link-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .dropdown-link:hover .dropdown-link-title {
+      color: #F45407;
+    }
+
+    .dropdown-link-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Mobile section toggle (styles moved to mobile menu block) */
+
+    /* Mega-menu responsive */
+    @media (max-width: 1100px) {
+      .mega-sidebar { width: 240px; min-width: 240px; }
+      .mega-panel { padding: 24px 20px; }
+      .mega-grid { gap: 2px; }
+      .mega-item { padding: 12px 14px; }
+    }
+
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+    
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+      position: relative;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: calc(100vh - 72px);
+      background: #ffffff;
+      padding: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      visibility: hidden;
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    .mobile-menu-inner {
+      padding: 8px 16px 100px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 10px;
+      transition: background 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link:active {
+      background: #fff5f0;
+    }
+
+    .mobile-services {
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mobile-services-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 16px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: background 0.2s ease;
+      border-radius: 10px;
+    }
+
+    .mobile-services-title:active {
+      background: #fff5f0;
+    }
+
+    .mobile-services-title .accordion-icon {
+      width: 20px;
+      height: 20px;
+      color: #999;
+      transition: transform 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .mobile-services-title.active .accordion-icon {
+      transform: rotate(180deg);
+      color: #F45407;
+    }
+
+    .mobile-section-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      padding-left: 8px;
+    }
+
+    .mobile-section-content.active {
+      max-height: 800px;
+    }
+
+    .mobile-section-group {
+      padding: 8px 0 4px 16px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #F45407;
+      font-weight: 600;
+    }
+
+    .mobile-service-link {
+      display: block;
+      padding: 11px 16px 11px 28px;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+
+    .mobile-service-link:hover, .mobile-service-link:active {
+      background: #fff5f0;
+      color: #F45407;
+    }
+
+    .mobile-cta {
+      display: block;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 24px 16px 0;
+      box-shadow: 0 4px 15px rgba(244, 84, 7, 0.3);
+    }
+
+    .mobile-cta:active {
+      transform: scale(0.98);
+    }
+
+    body.mobile-menu-open {
+      overflow: hidden;
+    }
+    
+    /* ============= MAIN CONTENT STYLES ============= */
+    
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Logo animation - only on initial page load */
+    @media (prefers-reduced-motion: no-preference) {
+      .nav-logo g:first-of-type {
+        animation: slideInLeft 0.6s ease-out;
+      }
+      
+      .nav-logo .char {
+        opacity: 0;
+        animation: fadeInUp 0.4s ease-out forwards;
+      }
+      
+      .nav-logo .char-1 { animation-delay: 0.3s; }
+      .nav-logo .char-2 { animation-delay: 0.35s; }
+      .nav-logo .char-3 { animation-delay: 0.4s; }
+      .nav-logo .char-4 { animation-delay: 0.45s; }
+      .nav-logo .char-5 { animation-delay: 0.5s; }
+      .nav-logo .char-6 { animation-delay: 0.55s; }
+      .nav-logo .char-7 { animation-delay: 0.6s; }
+      .nav-logo .char-8 { animation-delay: 0.65s; }
+    }
+    
+    @keyframes fillProgress {
+      to {
+        width: 25%;
+      }
+    }
+    
+    @keyframes growLine {
+      to {
+        height: 25%;
+      }
+    }
+    
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    
+    /* Partner Logos Styles */
+    .partner-logo:hover {
+      opacity: 1 !important;
+      transform: translateY(-2px) !important;
+    }
+    
+    .partner-logo:hover img {
+      filter: grayscale(0%) !important;
+    }
+    
+    .partner-logos-container:hover .partner-logos-scroll {
+      animation-play-state: paused;
+    }
+    
+    /* Responsive Grid Classes */
+    .grid {
+      display: grid;
+    }
+    
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .grid-4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    /* Pricing Slider Navigation */
+    .pricing-slider-nav {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .pricing-slider-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #e5e5e5;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      color: #333;
+    }
+
+    .pricing-slider-btn:hover {
+      background: #F45407;
+      border-color: #F45407;
+      color: white;
+    }
+
+    .pricing-slider-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pricing-slider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d1d5db;
+      transition: all 0.2s ease;
+    }
+
+    .pricing-slider-dot.active {
+      background: #F45407;
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    /* Process Section Specific Styles */
+    .process-desktop {
+      display: block;
+    }
+    
+    .process-mobile {
+      display: none;
+    }
+    
+    .desktop-timeline-progress {
+      animation: fillProgress 2s ease-out forwards;
+    }
+    
+    .timeline-step:hover > div:first-child {
+      transform: scale(1.1);
+    }
+    
+    .mobile-timeline-line {
+      position: relative;
+    }
+    
+    .mobile-timeline-line::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2px;
+      height: 0;
+      background: #F45407;
+      animation: growLine 2s ease-out forwards;
+    }
+    
+    .mobile-timeline-step {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .mobile-timeline-step:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+    
+    .mobile-timeline-step:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    
+    .mobile-timeline-step:nth-child(3) {
+      animation-delay: 0.5s;
+    }
+    
+    .mobile-timeline-step:nth-child(4) {
+      animation-delay: 0.7s;
+    }
+    
+    /* ============= FOOTER STYLES ============= */
+    .footer {
+      background: #0a0a0a;
+      color: #aaa;
+      padding: 0;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #F45407, #ff6b28, transparent);
+    }
+
+    .footer-cta-banner {
+      padding: 72px 0;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(244,84,7,0.08) 0%, transparent 70%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-cta-banner h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-cta-banner p {
+      font-size: 16px;
+      color: #888;
+      margin-bottom: 32px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .footer-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 24px rgba(244,84,7,0.25);
+    }
+
+    .footer-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(244,84,7,0.4);
+    }
+
+    .footer-cta-btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-cta-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    .footer-main {
+      padding: 64px 0 0;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 48px;
+    }
+
+    .footer-column h4 {
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, #F45407, #ff6b28);
+      border-radius: 1px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #777;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(4px);
+    }
+
+    .footer-top {
+      padding-bottom: 48px;
+    }
+
+    .footer-brand {
+      max-width: 520px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      color: #777;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(244,84,7,0.3);
+    }
+
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+      color: #888;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover svg {
+      color: white;
+    }
+
+    .footer-contact-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .footer-contact-row a,
+    .footer-contact-row span {
+      color: #666;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-contact-row a:hover {
+      color: #F45407;
+    }
+
+    .footer-bottom {
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: #555;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #F45407;
+    }
+    
+    .check-mark {
+      color: #10b981;
+      font-weight: 500;
+      margin-right: 8px;
+    }
+    
+    .bullet-point {
+      color: #F45407;
+      margin-right: 8px;
+      font-weight: 500;
+    }
+    
+    .bullet-point-gray {
+      color: #999;
+      margin-right: 8px;
+      font-weight: 500;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+      
+      .navbar {
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        height: 72px;
+      }
+      
+      .nav-menu {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: block;
+      }
+      
+      .hero-section {
+        padding-top: 100px !important;
+        padding-bottom: 60px !important;
+        margin-top: 72px !important;
+      }
+      
+      .hero-badge {
+        margin-top: 20px !important;
+      }
+      
+      .grid-2,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      h1 {
+        font-size: 32px !important;
+        line-height: 1.2 !important;
+      }
+      
+      h2 {
+        font-size: 28px !important;
+      }
+      
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      
+      .services-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .case-studies-grid {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+      }
+      
+      .pricing-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px !important;
+        padding-bottom: 16px;
+        scrollbar-width: none;
+      }
+
+      .pricing-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .pricing-grid > div {
+        min-width: 85vw;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+      }
+
+      .pricing-slider-nav {
+        display: flex !important;
+      }
+      
+      .footer-cta-banner {
+        padding: 48px 0;
+      }
+
+      .footer-cta-banner h3 {
+        font-size: 24px;
+      }
+
+
+
+      .footer-brand {
+        max-width: 100%;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+      }
+
+      .footer-contact-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr !important;
+      }
+      
+      .phone-input-group {
+        grid-template-columns: 100px 1fr !important;
+      }
+      
+      #countryCode {
+        font-size: 13px !important;
+      }
+      
+      .section-padding {
+        padding: 48px 0 !important;
+      }
+      
+      .hide-mobile {
+        display: none !important;
+      }
+      
+      .text-mobile-center {
+        text-align: center !important;
+      }
+      
+      .dashboard-card {
+        margin-top: 32px;
+      }
+      
+      .expect-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+      }
+      
+      .expect-grid > div > div:first-child {
+        font-size: 24px !important;
+      }
+      
+      .expect-grid > div > div:last-child {
+        font-size: 12px !important;
+      }
+      
+      .process-desktop {
+        display: none !important;
+      }
+      
+      .process-mobile {
+        display: block !important;
+      }
+    }
+    
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 28px !important;
+      }
+
+      .footer-cta-banner h3 {
+        font-size: 28px;
+      }
+    }
+  </style>
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cold Email for IT Staffing Agencies: Fill Roles 3x Faster",
+  "description": "IT staffing cold email strategy for both client-side (hiring managers) and candidate-side outreach. Fill roles faster, source better candidates.",
+  "author": {
+    "@type": "Person",
+    "name": "Zeeshan Waheed",
+    "url": "https://imisofts.com/author/zeeshan-waheed/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "imisofts",
+    "url": "https://imisofts.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://imisofts.com/logo.svg"
+    }
+  },
+  "datePublished": "2026-03-11",
+  "dateModified": "2026-03-11",
+  "url": "https://imisofts.com/blog/cold-email-it-staffing/",
+  "mainEntityOfPage": "https://imisofts.com/blog/cold-email-it-staffing/",
+  "wordCount": 2652,
+  "keywords": "",
+  "name": "Cold Email for IT Staffing Agencies: Fill Roles 3x Faster"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://imisofts.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://imisofts.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Industry-Specific Cold Email",
+      "item": "https://imisofts.com/blog/?cat=industry-specific-cold-email"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Cold Email for IT Staffing Agencies: Fill Roles 3x Faster"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+        "@type": "Question",
+        "name": "Should I be transparent about being a recruiter?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Hide it and you lose credibility. Be straightforward: \"I'm a staffing recruiter specializing in [skill]. Have a role in [location]?\""
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "What if a candidate asks for a specific salary and it doesn't match the role?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Be honest. \"The role pays [X]. That's [Y more/less] than your ask. Let's see if the company can stretch. But want to set expectations now.\""
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "Should I use spintax for hiring managers or be more personalized?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "More personalized. Hiring managers see generic emails as noise. Research the company, mention a specific hiring signal, personalize the first message."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "How do I verify a candidate's skill claims?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Phone screen first. Ask technical questions in your domain. Check references. Don't just trust LinkedIn."
+        }
+    },
+    {
+        "@type": "Question",
+        "name": "Should I try to fill multiple roles for one company?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Once a company is a client, they usually have multiple open roles. Get the first one done fast, then propose the second and third."
+        }
+    }
+]
+}
+</script>
+</head>
+<body>
+<a href="#main-content" class="skip-to-content">Skip to content</a>
+
+<header>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-container">
+        <a href="/" class="nav-logo-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" class="nav-logo" role="img" aria-label="imisofts logo">
+            <g fill="#F45407">
+              <circle cx="48" cy="170" r="18"/>
+              <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+              <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+            </g>
+            <g transform="translate(200,188)">
+              <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#0F172A">
+                <tspan class="char char-1">i</tspan><tspan class="char char-2">m</tspan><tspan class="char char-3">i</tspan><tspan class="char char-4">s</tspan><tspan class="char char-5">o</tspan><tspan class="char char-6">f</tspan><tspan class="char char-7">t</tspan><tspan class="char char-8">s</tspan>
+              </text>
+            </g>
+          </svg>
+        </a>
+
+        <div class="nav-menu">
+          <!-- Services Mega Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <div class="mega-menu">
+                <div class="mega-sidebar">
+                  <div class="mega-tab active" data-tab="growth">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <span>Growth</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="development">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <span>Development</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="specialist">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Hire a Specialist</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-cta-card">
+                    <h4>Contact Us</h4>
+                    <p>Actionable insights for your digital growth in 24 hours.</p>
+                    <a href="/contact" class="mega-cta-btn">
+                      Contact Us
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="mega-content">
+                  <div class="mega-panel active" id="panel-growth">
+                    <div class="mega-grid">
+                      <a href="/cold-email-marketing" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Marketing</div>
+                        <div class="mega-item-desc">Infrastructure &amp; campaigns that land in inbox</div></div>
+                      </a>
+                      <a href="/lead-generation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div><div class="mega-item-title">Lead Generation</div>
+                        <div class="mega-item-desc">40-100+ qualified B2B appointments monthly</div></div>
+                      </a>
+                      <a href="/digital-marketing" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Digital Marketing</div>
+                        <div class="mega-item-desc">Performance marketing that drives ROI</div></div>
+                      </a>
+                      <a href="/ai-automation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Automation</div>
+                        <div class="mega-item-desc">Intelligent workflows that work 24/7</div></div>
+                      </a>
+                      <a href="/gohighlevel-services" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Services</div>
+                        <div class="mega-item-desc">GHL automation &amp; AI voice agents</div></div>
+                      </a>
+                      <a href="/openclaw-setup" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        <div><div class="mega-item-title">OpenClaw Setup</div>
+                        <div class="mega-item-desc">AI agent on your Mac Studio</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-development">
+                    <div class="mega-grid">
+                      <a href="/web-development" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        <div><div class="mega-item-title">Web Development</div>
+                        <div class="mega-item-desc">Fast, modern websites &amp; web apps</div></div>
+                      </a>
+                      <a href="/ecommerce" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <div><div class="mega-item-title">E-commerce</div>
+                        <div class="mega-item-desc">Shopify stores that convert at 4.2%</div></div>
+                      </a>
+                      <a href="/crm-development" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        <div><div class="mega-item-title">CRM Development</div>
+                        <div class="mega-item-desc">HubSpot, Salesforce &amp; custom CRM</div></div>
+                      </a>
+                      <a href="/shopify-apps" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        <div><div class="mega-item-title">Shopify Apps</div>
+                        <div class="mega-item-desc">Certified Shopify app development</div></div>
+                      </a>
+                      <a href="/ai-mobile-apps" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Mobile Apps</div>
+                        <div class="mega-item-desc">Intelligent mobile apps in 3-10 weeks</div></div>
+                      </a>
+                      <a href="/launch-your-saas" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        <div><div class="mega-item-title">Launch Your SaaS</div>
+                        <div class="mega-item-desc">Idea to first customer in 30 days</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-specialist">
+                    <div class="mega-grid">
+                      <a href="/hire-cold-email-expert" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Expert</div>
+                        <div class="mega-item-desc">Deliverability &amp; campaign specialists</div></div>
+                      </a>
+                      <a href="/hire-gohighlevel-developer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Developer</div>
+                        <div class="mega-item-desc">Certified GHL automation experts</div></div>
+                      </a>
+                      <a href="/hire-n8n-developer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <div><div class="mega-item-title">n8n Developer</div>
+                        <div class="mega-item-desc">Workflow automation engineers</div></div>
+                      </a>
+                      <a href="/hire-ai-engineer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <div><div class="mega-item-title">AI Engineer</div>
+                        <div class="mega-item-desc">LLM &amp; machine learning specialists</div></div>
+                      </a>
+                      <a href="/hire-shopify-expert" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <div><div class="mega-item-title">Shopify Expert</div>
+                        <div class="mega-item-desc">Store &amp; app development pros</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-bottom">
+                    <a href="/free-audit">
+                      See All Services
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Industries Dropdown -->
+          <div class="nav-dropdown" id="industriesDropdown">
+            <div class="nav-link nav-dropdown-toggle">
+              Industries
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand industries menu"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="nav-dropdown-menu nav-dropdown-menu--narrow">
+              <div class="dropdown-simple">
+                <a href="/cold-email-saas" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Cold Email for SaaS</div>
+                    <div class="dropdown-link-desc">Book demos with decision-makers</div>
+                  </div>
+                </a>
+                <a href="/lead-generation-agencies" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Lead Gen for Agencies</div>
+                    <div class="dropdown-link-desc">Scale your agency's client acquisition</div>
+                  </div>
+                </a>
+                <a href="/ai-automation-ecommerce" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">AI for E-commerce</div>
+                    <div class="dropdown-link-desc">Automate operations & boost revenue</div>
+                  </div>
+                </a>
+                <a href="/cold-email-recruiters" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Email for Recruiters</div>
+                    <div class="dropdown-link-desc">Fill roles faster with outbound</div>
+                  </div>
+                </a>
+                <a href="/gohighlevel-real-estate" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">GHL for Real Estate</div>
+                    <div class="dropdown-link-desc">Automate leads & follow-ups</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          <a href="/contact" class="nav-cta">Contact Us &rarr;</a>
+        </div>
+
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-inner">
+        <a href="/" class="mobile-nav-link">Home</a>
+
+        <div class="mobile-services">
+          <div class="mobile-services-title" onclick="toggleMobileSection(this)">
+            Services
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+          <div class="mobile-section-content">
+            <div class="mobile-section-group">Growth</div>
+            <a href="/cold-email-marketing" class="mobile-service-link">Cold Email Marketing</a>
+            <a href="/lead-generation" class="mobile-service-link">Lead Generation</a>
+            <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+            <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+            <a href="/gohighlevel-services" class="mobile-service-link">GoHighLevel Services</a>
+            <a href="/openclaw-setup" class="mobile-service-link">OpenClaw Setup</a>
+            <div class="mobile-section-group">Development</div>
+            <a href="/web-development" class="mobile-service-link">Web Development</a>
+            <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+            <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+            <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+            <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+            <a href="/launch-your-saas" class="mobile-service-link">Launch Your SaaS</a>
+            <div class="mobile-section-group">Hire a Specialist</div>
+            <a href="/hire-cold-email-expert" class="mobile-service-link">Cold Email Expert</a>
+            <a href="/hire-gohighlevel-developer" class="mobile-service-link">GoHighLevel Developer</a>
+            <a href="/hire-n8n-developer" class="mobile-service-link">n8n Developer</a>
+            <a href="/hire-ai-engineer" class="mobile-service-link">AI Engineer</a>
+            <a href="/hire-shopify-expert" class="mobile-service-link">Shopify Expert</a>
+          </div>
+        </div>
+
+        <div class="mobile-services">
+          <div class="mobile-services-title" onclick="toggleMobileSection(this)">
+            Industries
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+          <div class="mobile-section-content">
+            <a href="/cold-email-saas" class="mobile-service-link">Cold Email for SaaS</a>
+            <a href="/lead-generation-agencies" class="mobile-service-link">Lead Gen for Agencies</a>
+            <a href="/ai-automation-ecommerce" class="mobile-service-link">AI for E-commerce</a>
+            <a href="/cold-email-recruiters" class="mobile-service-link">Email for Recruiters</a>
+            <a href="/gohighlevel-real-estate" class="mobile-service-link">GHL for Real Estate</a>
+          </div>
+        </div>
+
+        <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+        <a href="/pricing" class="mobile-nav-link">Pricing</a>
+        <a href="/about" class="mobile-nav-link">About</a>
+        <a href="/blog" class="mobile-nav-link">Blog</a>
+        <a href="/contact" class="mobile-cta">Contact Us &rarr;</a>
+      </div>
+    </div>
+  </nav>
+  </header>
+
+<main id="main-content" class="blog-wrapper">
+<div class="container">
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+<a href="/">Home</a><span>/</span><a href="/blog/">Blog</a><span>/</span><a href="/blog/?cat=industry-specific-cold-email">Industry-Specific Cold Email</a><span>/</span><span class="current">Cold Email for IT Staffing Agencies: Fill Roles 3x Faster</span>
+</nav>
+
+<div class="article-header">
+<h1>Cold Email for IT Staffing Agencies: Fill Roles 3x Faster</h1>
+<div class="article-meta">
+<div class="article-meta-item">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+<a href="/author/zeeshan-waheed/" target="_blank" rel="noopener" style="color: #F45407; text-decoration: underline; font-weight: 500;">Zeeshan Waheed</a>
+</div>
+<div class="article-meta-item">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+<time datetime="2026-03-11">March 11, 2026</time>
+</div>
+<div class="article-meta-item">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+14 min read
+</div>
+<a href="/blog/?cat=industry-specific-cold-email" class="category-tag">Industry-Specific Cold Email</a>
+</div>
+</div>
+
+<div class="mobile-toc">
+<button class="mobile-toc-toggle" aria-expanded="false">
+Table of Contents
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="mobile-toc-content">
+<ul class="toc-list">
+<li><a href="#the-dual-side-it-staffing-icp">The Dual-Side IT Staffing ICP</a></li>
+<li><a href="#apollo-clay-filters-the-dual-sided-approach">Apollo & Clay Filters: The Dual-Sided Approach</a></li>
+<li><a href="#the-4-email-hiring-manager-sequence-14-days">The 4-Email Hiring Manager Sequence (14 Days)</a></li>
+<li><a href="#the-5-email-candidate-sourcing-sequence-18-days">The 5-Email Candidate Sourcing Sequence (18 Days)</a></li>
+<li><a href="#spintax-variations-by-role-type">Spintax Variations by Role Type</a></li>
+<li><a href="#expected-metrics-double-sided-staffing-pipeline">Expected Metrics: Double-Sided Staffing Pipeline</a></li>
+<li><a href="#real-client-example-dutch-recruitment-firm">Real Client Example: Dutch Recruitment Firm</a></li>
+<li><a href="#why-the-dual-sided-model-wins">Why the Dual-Sided Model Wins</a></li>
+<li><a href="#common-it-staffing-cold-email-mistakes">Common IT Staffing Cold Email Mistakes</a></li>
+<li><a href="#private-server-edge-for-high-volume-staffing">Private Server Edge for High-Volume Staffing</a></li>
+<li><a href="#your-90-day-staffing-pipeline-build">Your 90-Day Staffing Pipeline Build</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#cta-ready-to-scale-your-staffing-pipeline">CTA: Ready to Scale Your Staffing Pipeline?</a></li>
+<li><a href="#internal-links">Internal Links</a></li>
+<li><a href="#external-links-affiliates">External Links & Affiliates</a></li>
+<li><a href="#image-alt-text-suggestions">Image Alt Text Suggestions</a></li>
+<li><a href="#quick-answer">Quick Answer</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</div>
+</div>
+
+<div class="blog-content-layout">
+<article class="article-content">
+<p>IT staffing is a two-sided game. You need hiring managers on one side. You need quality candidates on the other. Most staffing agencies do nothing on the hiring manager side.</p>
+<p>They focus on candidate sourcing, hoping to stumble into a company that needs exactly who they found. That's backwards. The agencies filling roles 3x faster start with the hiring need. They find IT hiring managers, understand their role requirements, source candidates for that specific need, and then present the match.</p>
+<p>This post covers both sides: how to get hiring managers to open their pipeline to you, and how to source better candidates with outreach that actually converts.</p>
+<h2 id="the-dual-side-it-staffing-icp">The Dual-Side IT Staffing ICP</h2>
+<p><strong>Client-side (hiring managers):</strong></p>
+<ul>
+<li>Company size: 50-1,000 employees (have internal hiring but need overflow)</li>
+<li>Annual revenue: $5M-$500M</li>
+<li>Department: IT, Engineering, Operations, Security</li>
+<li>Job titles: VP of Technology, Director of Engineering, IT Manager, Chief Technology Officer, Chief Information Security Officer</li>
+<li>Pain point: 30+ day open roles, difficulty retaining talent, skill gaps (cloud, security, data)</li>
+<li>Hiring velocity: 5+ open roles in the past 6 months (signals ongoing need)</li>
+<li>Budget: $50K-$200K+ per hire (shows value placed on hiring)</li>
+</ul>
+<p><strong>Candidate-side (active/passive candidates):</strong></p>
+<ul>
+<li>Experience level: 3+ years in IT (junior candidates are usually employed, harder to move)</li>
+<li>Specialization: Cloud (AWS, Azure, GCP), Security, DevOps, Data Engineering, Full-Stack</li>
+<li>Current status: Employed but open to opportunities (passive candidates close faster than active)</li>
+<li>Location: Flexible (remote-first mindset, willing to relocate)</li>
+<li>Salary expectations: $80K-$200K+ (mid-market to senior, shows serious income)</li>
+<li>Active signal: Recently updated LinkedIn, follows tech companies, posts about tech</li>
+</ul>
+<h2 id="apollo-clay-filters-the-dual-sided-approach">Apollo & Clay Filters: The Dual-Sided Approach</h2>
+<p><strong>Apollo configuration for hiring managers:</strong></p>
+<p><code></code>`</p>
+<ul>
+<li>Company size: 50-1,000 employees</li>
+<li>Estimated revenue: $5M-$500M</li>
+<li>Industry: Technology, Financial Services, Healthcare, Manufacturing (uses IT heavily)</li>
+<li>Job titles: VP Technology, Director Engineering, CTO, Chief Information Security Officer, IT Manager</li>
+<li>Seniority: Manager+</li>
+<li>Recent funding: Include (growth = hiring)</li>
+<li>Has phone: YES</li>
+</ul>
+<p><code></code>`</p>
+<p><strong>Apollo configuration for IT candidates:</strong></p>
+<p><code></code>`</p>
+<ul>
+<li>Job titles: Cloud Engineer, DevOps Engineer, Security Engineer, Data Engineer, Full-Stack Developer</li>
+<li>Current company: Exclude your previous placements (don't poach your own clients)</li>
+<li>Experience: 3+ years</li>
+<li>Location: [Your operating markets]</li>
+<li>Seniority: Senior individual contributor, Staff level</li>
+<li>Skills: [AWS|Azure|GCP], [Kubernetes|Docker], [Python|Go|Java]</li>
+</ul>
+<p><code></code>`</p>
+<p><strong>Clay enrichment for hiring managers:</strong></p>
+<ul>
+<li>Recent job posts from their company (hiring = pain)</li>
+<li>LinkedIn growth rate (growing = more hiring)</li>
+<li>Recent funding announcements (capital = budget)</li>
+<li>New executives in IT leadership (new leaders = fresh projects)</li>
+<li>Company tech stack (outdated = modernization needs)</li>
+</ul>
+<p><strong>Clay enrichment for candidates:</strong></p>
+<ul>
+<li>LinkedIn post frequency (engagement = responsive)</li>
+<li>Job change likelihood (tenure at current company)</li>
+<li>Salary history (ensures expectations match)</li>
+<li>Geographic relocation openness (LinkedIn location changes)</li>
+<li>Skill endorsements (validates claims in profile)</li>
+</ul>
+<h2 id="the-4-email-hiring-manager-sequence-14-days">The 4-Email Hiring Manager Sequence (14 Days)</h2>
+<p>This sequence moves hiring managers from "I have a vague need" to "I have an open role and want to see candidates."</p>
+<p><strong>Email 1 (Day 0) — The Hiring Signal</strong></p>
+<p>Subject: 3 [IT role type] roles just opened at [similar company]</p>
+<p>Hi [First Name],</p>
+<p>I work with CTOs and IT Directors filling [specific IT role] positions.</p>
+<p>We just helped [comparable company] fill 3 senior-level roles in [skill area] in under 30 days.</p>
+<p>If you have open IT roles (or will soon), we move fast. Worth a conversation?</p>
+<p>[Your name]</p>
+<p><strong>Email 2 (Day 3) — The Speed Play</strong></p>
+<p>Subject: re: 3 [IT role type] roles just opened...</p>
+<p>[First Name],</p>
+<p>Most companies tell us the main problem isn't finding candidates. It's:</p>
+<ul>
+<li>Long hiring timelines (6-12 weeks)</li>
+<li>Candidate quality variance</li>
+<li>Offer decline rates (15-30%)</li>
+</ul>
+<p>We fix the timeline piece. Most of our placements go from "candidate intro" to "offer accepted" in 10-14 days.</p>
+<p>Want to discuss your open IT needs?</p>
+<p>[Your name]</p>
+<p><strong>Email 3 (Day 7) — The Specificity Close</strong></p>
+<p>Subject: What's your most critical IT hire right now?</p>
+<p>Hi [First Name],</p>
+<p>Rather than a generic conversation, let's be specific.</p>
+<p>What's the one IT role you need filled fastest?</p>
+<ul>
+<li>Role title</li>
+<li>Experience level</li>
+<li>Must-haves vs. nice-to-haves</li>
+<li>Timeline</li>
+</ul>
+<p>I can either help fill it or connect you with resources. Either way, want to unblock you.</p>
+<p>[Your name]</p>
+<p><strong>Email 4 (Day 14) — The Final Value</strong></p>
+<p>Subject: [Company Name] just filled their [role type] in 12 days</p>
+<p>[First Name],</p>
+<p>One of our clients just went from "we need to hire" to "candidate accepted offer" in 12 days.</p>
+<p>Not common. But possible with the right approach and network.</p>
+<p>If you have an open IT role (or one opening soon), this could be relevant.</p>
+<p>Free 15-minute call to map it out?</p>
+<p>[Your name]</p>
+<h2 id="the-5-email-candidate-sourcing-sequence-18-days">The 5-Email Candidate Sourcing Sequence (18 Days)</h2>
+<p>This sequence gets passive IT candidates to respond and express interest, even if they're employed and not actively job hunting.</p>
+<p><strong>Email 1 (Day 0) — The Opportunity Hook</strong></p>
+<p>Subject: Cloud role at [type of company] — [salary range]</p>
+<p>Hi [First Name],</p>
+<p>We just got a req for a [specific cloud role] from [type of company].</p>
+<p>Specs:</p>
+<ul>
+<li>[Skill requirement 1]</li>
+<li>[Skill requirement 2]</li>
+<li>Team size: [number]</li>
+<li>Salary: [range]</li>
+<li>Remote: Yes</li>
+</ul>
+<p>Interested?</p>
+<p>[Your name]</p>
+<p><strong>Email 2 (Day 2) — The Role Details</strong></p>
+<p>Subject: More about the [role type] role</p>
+<p>[First Name],</p>
+<p>This isn't a startup trying to give you equity. It's a [company type] with [X revenue] doing [business focus].</p>
+<p>The role reports to [title] who has [relevant background].</p>
+<p>Team is building [project/focus]. Would probably take you 6 months to ramp. Pay bump is [specific amount] from standard [role type] salary.</p>
+<p>Sound interesting?</p>
+<p>[Your name]</p>
+<p><strong>Email 3 (Day 5) — The Candidate Profile Match</strong></p>
+<p>Subject: Why I'm reaching out specifically to you</p>
+<p>Hi [First Name],</p>
+<p>Your background in [specific technology] is exactly what they need.</p>
+<p>Most people in that space are either:</p>
+<ul>
+<li>Too junior (think $60K-$80K roles)</li>
+<li>Too senior and burnt out</li>
+<li>In startup land (equity-only)</li>
+</ul>
+<p>You're in that sweet spot: experienced enough to do the work independently, still growing, clear on compensation.</p>
+<p>Different conversation?</p>
+<p>[Your name]</p>
+<p><strong>Email 4 (Day 10) — The Social Proof</strong></p>
+<p>Subject: Just placed someone from [similar background]</p>
+<p>[First Name],</p>
+<p>Placed someone with a similar background last month. Went from "maybe looking" to "accepted offer, starting in 3 weeks."</p>
+<p>Salary: [relevant range]. Stock: [if applicable]. Benefits: [relevant].</p>
+<p>Your profile is stronger. Worth exploring?</p>
+<p>[Your name]</p>
+<p><strong>Email 5 (Day 18) — The Final Soft Close</strong></p>
+<p>Subject: One last message</p>
+<p>[First Name],</p>
+<p>This is my last email on this role (no more spam, promise).</p>
+<p>But genuinely think it's a fit for your background and where you're at in your career.</p>
+<p>If you want to explore or just talk shop about [technology], here's a calendar link: [link]</p>
+<p>No pressure. But keeping the door open.</p>
+<p>[Your name]</p>
+<h2 id="spintax-variations-by-role-type">Spintax Variations by Role Type</h2>
+<p><strong>For hiring managers (DevOps/Infrastructure):</strong></p>
+<p><code></code>`</p>
+<p>Subject: {DevOps roles|Infrastructure roles} filling {fast|quick} at [Company]</p>
+<p>I work with {{CTOs|IT Directors}} filling {DevOps|Infrastructure|Cloud Engineer} roles.</p>
+<p>We just helped {{[Company]|similar company}} fill {{3|2}} {[role type]} positions in {{under 30 days|2 weeks}}.</p>
+<p>{If you have open IT roles|Need someone with [Skill]}, we move {{fast|quick}}. Worth a call?</p>
+<p><code></code>`</p>
+<p><strong>For candidates (passive/employed):</strong></p>
+<p><code></code>`</p>
+<p>Subject: {{[Role] at [Company]|New [Role Type] opportunity}} - {{[Salary]|Interested?}}</p>
+<p>Hi [First Name],</p>
+<p>{{We just got|Got}} a req for a {[specific role]} from {[company type]}. {{Not startup land|Real company, real pay}}.</p>
+<p>Specs:</p>
+<ul>
+<li>{[Skill 1]|[Skill 2]}</li>
+<li>{{Remote|Hybrid}}: {Yes}</li>
+<li>{{Salary|Pay}}: {[range]}</li>
+</ul>
+<p>{{Interested|Sound good?}}</p>
+<p><code></code>`</p>
+<h2 id="expected-metrics-double-sided-staffing-pipeline">Expected Metrics: Double-Sided Staffing Pipeline</h2>
+<p><strong>Client-side (hiring managers):</strong></p>
+<ul>
+<li>Open rate: 45-55%</li>
+<li>Reply rate: 6-10%</li>
+<li>Meeting rate: 70-80% of replies</li>
+<li>Job orders from calls: 50-60%</li>
+<li>Avg jobs per interested manager: 2-3</li>
+</ul>
+<p><strong>Running on 100 hiring managers/month:</strong></p>
+<ul>
+<li>45-55 opens</li>
+<li>6-10 replies</li>
+<li>4-8 meetings</li>
+<li>2-5 job orders</li>
+<li>4-15 open positions total per month</li>
+</ul>
+<p><strong>Candidate-side (IT professionals):</strong></p>
+<ul>
+<li>Open rate: 50-65% (technical people check email)</li>
+<li>Reply rate: 10-15% (passive candidates respond if opportunity is real)</li>
+<li>Interview rate: 60-70% of replies</li>
+<li>Offer acceptance rate: 70-80% of interviews</li>
+<li>Placement rate: 35-40% of replies (some decline, some don't fit)</li>
+</ul>
+<p><strong>Running on 150 IT candidates/month:</strong></p>
+<ul>
+<li>75-98 opens</li>
+<li>15-23 replies</li>
+<li>9-16 interviews</li>
+<li>6-13 offers</li>
+<li>5-9 placements</li>
+</ul>
+<p><strong>Monthly economics (assuming avg $15K placement fee):</strong></p>
+<ul>
+<li>5-9 placements = $75K-$135K revenue</li>
+<li>Tool costs: $400/mo</li>
+<li>Team cost: $5K-$10K/mo</li>
+<li>Net: $60K-$125K margin per month at scale</li>
+</ul>
+<h2 id="real-client-example-dutch-recruitment-firm">Real Client Example: Dutch Recruitment Firm</h2>
+<p>This Dutch staffing firm specialized in DevOps and Cloud Engineering. They were getting 1-2 placements per month, completely referral-dependent.</p>
+<p>They used this dual-sided approach:</p>
+<ul>
+<li>Hiring manager side: Cold email to Dutch CTOs and IT Directors</li>
+<li>Candidate side: Cold email to DevOps engineers across the Netherlands and remote-first tech companies</li>
+</ul>
+<p>Month 1: 80 hiring manager emails + 100 candidate emails. Results: 5 job orders, 8 qualified candidates.</p>
+<p>Month 2: Scaled to 150 hiring manager emails + 200 candidate emails. Results: 12 job orders, 25 qualified candidates, 4 placements.</p>
+<p>Month 3: 200 hiring manager emails + 300 candidate emails. Results: 20 job orders, 40 qualified candidates, 8 placements.</p>
+<p>By month 3, they were hitting 8 placements per month at €12K placement fee = €96K monthly revenue. They're now the largest DevOps staffing firm in the Netherlands.</p>
+<p>The key: They didn't wait for candidates. They got job orders first. Then sourced candidates specifically for those jobs. That inversion (orders first, then fill) is why they moved faster.</p>
+<h2 id="why-the-dual-sided-model-wins">Why the Dual-Sided Model Wins</h2>
+<p>Most staffing agencies do candidate sourcing only. They build a bench of candidates and hope companies call.</p>
+<p>Smart agencies do order generation first. They build demand with hiring managers. Then they source supply specifically for that demand.</p>
+<p>Why? Because 80% of placements fail because the candidate wasn't a real fit for that specific role. But if you start with the order, you source the exact candidate the manager wants. 95% placement-to-offer rate instead of 60%.</p>
+<p>Plus, when you have the job order in hand, every conversation with a candidate is "I have exactly what you're looking for" not "interested in opportunities?" That's a 5x difference in response rates.</p>
+<h2 id="common-it-staffing-cold-email-mistakes">Common IT Staffing Cold Email Mistakes</h2>
+<p><strong>Mistake 1: Treating candidates like job applications</strong></p>
+<p>"We have an opening" doesn't move passive IT candidates. They get 50 of those emails per week.</p>
+<p>Fix: Lead with specificity: role, company, skill fit, salary. Make them feel personally selected.</p>
+<p><strong>Mistake 2: Not calling out the job order stage</strong></p>
+<p>"We're always looking" is weak. "We have 3 open reqs right now" is strong.</p>
+<p>Fix: Always be honest about whether you have orders now or you're fishing. Candidates know the difference.</p>
+<p><strong>Mistake 3: No urgency on hiring manager side</strong></p>
+<p>"Want to work together?" is too vague.</p>
+<p>Fix: "We have [number] qualified candidates in [skill] waiting. What's your next hire?"</p>
+<p><strong>Mistake 4: Ignoring location friction</strong></p>
+<p>If you're US-based trying to place people in EU or vice versa, tax and visa complexity kills deals.</p>
+<p>Fix: Focus on your operating geographies first. Expand only after you've mastered one market.</p>
+<p><strong>Mistake 5: Not tracking candidate-to-placement conversion</strong></p>
+<p>You placed 50 candidates last year. How many were from cold email? How many closed? What's your actual ROI?</p>
+<p>Fix: Track everything. Know which sourcing channel gives you the best conversion and margin. Double down on that.</p>
+<h2 id="private-server-edge-for-high-volume-staffing">Private Server Edge for High-Volume Staffing</h2>
+<p>Staffing firms send a lot of email. 200-300+ per week isn't uncommon. On Gmail/Workspace, that triggers throttling and spam flags.</p>
+<p>With a private server ($489/year), you get:</p>
+<ul>
+<li>50 warm, verified inboxes</li>
+<li>No Google sending limits</li>
+<li>Full domain reputation control</li>
+<li>Ability to segment by candidate type, region, or role specialization</li>
+<li>No "sent from Gmail" stamp that might hurt your credibility</li>
+</ul>
+<p>At 300 emails per week, Gmail throttling costs you 15-30 emails per week that don't land in inbox. Private server fixes that. Extra 15-30 candidate and manager contacts per week = 60-120 per month = 120-240 extra placements per year.</p>
+<p>$489 investment saves you $1.8M-$3.6M in opportunity cost.</p>
+<h2 id="your-90-day-staffing-pipeline-build">Your 90-Day Staffing Pipeline Build</h2>
+<p><strong>Month 1:</strong></p>
+<ul>
+<li>Choose one specialization (DevOps, Cloud, Security, Data)</li>
+<li>Choose one geography (start local or remote-first)</li>
+<li>Build hiring manager list (50-100 CTOs/IT Directors in your market)</li>
+<li>Build candidate list (100-150 qualified engineers in your specialty)</li>
+<li>Set up Instantly and Apollo</li>
+</ul>
+<p><strong>Month 2:</strong></p>
+<ul>
+<li>Launch hiring manager sequence (4 emails)</li>
+<li>Launch candidate sequence (5 emails)</li>
+<li>Track responses from both sides</li>
+<li>Book discovery calls with interested hiring managers</li>
+<li>Schedule interviews with interested candidates</li>
+</ul>
+<p><strong>Month 3:</strong></p>
+<ul>
+<li>Should have 3-8 job orders from hiring managers</li>
+<li>Should have 10-20 qualified candidates</li>
+<li>Match candidates to jobs</li>
+<li>Run interviews and placements</li>
+<li>Measure: which manager types convert? Which candidate sources?</li>
+</ul>
+<p>By month 3, you should have 2-4 placements. Scale that model for month 4+.</p>
+<h2 id="faq">FAQ</h2>
+<p><strong>Q: Should I be transparent about being a recruiter?</strong></p>
+<p>A: Yes. Hide it and you lose credibility. Be straightforward: "I'm a staffing recruiter specializing in [skill]. Have a role in [location]?"</p>
+<p><strong>Q: What if a candidate asks for a specific salary and it doesn't match the role?</strong></p>
+<p>A: Be honest. "The role pays [X]. That's [Y more/less] than your ask. Let's see if the company can stretch. But want to set expectations now."</p>
+<p><strong>Q: Should I use spintax for hiring managers or be more personalized?</strong></p>
+<p>A: More personalized. Hiring managers see generic emails as noise. Research the company, mention a specific hiring signal, personalize the first message.</p>
+<p><strong>Q: How do I verify a candidate's skill claims?</strong></p>
+<p>A: Phone screen first. Ask technical questions in your domain. Check references. Don't just trust LinkedIn.</p>
+<p><strong>Q: Should I try to fill multiple roles for one company?</strong></p>
+<p>A: Yes. Once a company is a client, they usually have multiple open roles. Get the first one done fast, then propose the second and third.</p>
+<p><strong>Q: How much should I reveal about the job before an interview?</strong></p>
+<p>A: Enough so they know what they're interviewing for. Don't keep it a surprise. Passive candidates won't move for mystery roles.</p>
+<h2 id="cta-ready-to-scale-your-staffing-pipeline">CTA: Ready to Scale Your Staffing Pipeline?</h2>
+<p>You've got the dual-sided model. You've got the sequences. Now you need the infrastructure.</p>
+<p>Our Staffing Agency Package ($489/yr setup + private server + $597/mo management) includes:</p>
+<ul>
+<li>50 warm, segment-able inboxes</li>
+<li>Done-for-you hiring manager and candidate sequences</li>
+<li>Apollo + Clay full integration</li>
+<li>Weekly pipeline reviews and placement optimization</li>
+<li>Direct access to iterate on your best-converting segments</li>
+</ul>
+<p>See our packages: https://imisofts.com/cold-email-marketing#packages</p>
+<p>Book a 20-minute call to map out your first 30 days: [CTA link]</p>
+<h2 id="internal-links">Internal Links</h2>
+<ul>
+<li><a href="https://imisofts.com/blog">Cold Email Outreach Framework: The Complete 2026 Guide</a> (batch 1)</li>
+<li><a href="https://imisofts.com/blog">Cold Email Copywriting: The 5-Email Sequences That Close Deals</a> (batch 1)</li>
+<li><a href="https://imisofts.com/cold-email-consulting-firms">Cold Email for Consulting Firms: Land Enterprise Clients in 2026</a></li>
+<li><a href="https://imisofts.com/cold-email-marketing#packages">All Packages and Pricing</a></li>
+</ul>
+<h2 id="external-links-affiliates">External Links & Affiliates</h2>
+<ul>
+<li>Instantly: https://instantly.ai/?via=coldemailmarketing</li>
+<li>Apollo: https://get.apollo.io/u5ocuv7me9t2</li>
+<li>SmartLead: https://smartlead.ai/?via=coldemailmarketing</li>
+<li>Clay: https://clay.com/</li>
+</ul>
+<h2 id="image-alt-text-suggestions">Image Alt Text Suggestions</h2>
+<ol>
+<li>"Dual-sided Apollo filters: hiring managers 50-1000 employees, candidates 3+ years DevOps/Cloud/Security experience"</li>
+<li>"9-email dual-sided IT staffing sequences for hiring managers and candidates over 32 days"</li>
+<li>"IT staffing metrics: 6-10% hiring manager reply, 10-15% candidate reply, 35-40% candidate placement rate"</li>
+</ol>
+<h2 id="quick-answer">Quick Answer</h2>
+<p>IT staffing cold email works on both sides: hiring manager outreach to generate job orders and candidate outreach to source supply for those orders. Get job orders first, then source candidates specifically for those roles, not the reverse. Target hiring managers at 50-1K employee companies with 4-email sequence focusing on speed (12-30 day placements). Target IT candidates (3+ years experience, passive but open) with 5-email sequence highlighting specific opportunity, company, and salary. Expect 6-10% hiring manager reply, 10-15% candidate reply, and 35-40% of interested candidates converting to placements. At $15K placement fee, 5-9 placements per month = $75K-$135K monthly revenue.</p>
+<section class="faq-section">
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>Should I be transparent about being a recruiter?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Yes. Hide it and you lose credibility. Be straightforward: &quot;I&#x27;m a staffing recruiter specializing in [skill]. Have a role in [location]?&quot;</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>What if a candidate asks for a specific salary and it doesn&#x27;t match the role?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Be honest. &quot;The role pays [X]. That&#x27;s [Y more/less] than your ask. Let&#x27;s see if the company can stretch. But want to set expectations now.&quot;</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>Should I use spintax for hiring managers or be more personalized?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">More personalized. Hiring managers see generic emails as noise. Research the company, mention a specific hiring signal, personalize the first message.</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>How do I verify a candidate&#x27;s skill claims?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Phone screen first. Ask technical questions in your domain. Check references. Don&#x27;t just trust LinkedIn.</div>
+</div>
+</div><div class="faq-item">
+<button class="faq-question" aria-expanded="false">
+<h3>Should I try to fill multiple roles for one company?</h3>
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+</button>
+<div class="faq-answer">
+<div class="faq-answer-inner">Yes. Once a company is a client, they usually have multiple open roles. Get the first one done fast, then propose the second and third.</div>
+</div>
+</div>
+</section>
+
+<div class="blog-cta-banner">
+<h2>Ready to scale your cold email infrastructure?</h2>
+<p>See our packages and get started with a system built for deliverability.</p>
+<a href="https://imisofts.com/cold-email-marketing#packages" class="cta-btn">
+View Our Packages
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+</a>
+</div>
+</article>
+
+<aside class="blog-sidebar">
+<nav class="toc" aria-label="Table of contents">
+<div class="toc-title">
+<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
+Contents
+</div>
+<ul class="toc-list">
+<li><a href="#the-dual-side-it-staffing-icp">The Dual-Side IT Staffing ICP</a></li>
+<li><a href="#apollo-clay-filters-the-dual-sided-approach">Apollo & Clay Filters: The Dual-Sided Approach</a></li>
+<li><a href="#the-4-email-hiring-manager-sequence-14-days">The 4-Email Hiring Manager Sequence (14 Days)</a></li>
+<li><a href="#the-5-email-candidate-sourcing-sequence-18-days">The 5-Email Candidate Sourcing Sequence (18 Days)</a></li>
+<li><a href="#spintax-variations-by-role-type">Spintax Variations by Role Type</a></li>
+<li><a href="#expected-metrics-double-sided-staffing-pipeline">Expected Metrics: Double-Sided Staffing Pipeline</a></li>
+<li><a href="#real-client-example-dutch-recruitment-firm">Real Client Example: Dutch Recruitment Firm</a></li>
+<li><a href="#why-the-dual-sided-model-wins">Why the Dual-Sided Model Wins</a></li>
+<li><a href="#common-it-staffing-cold-email-mistakes">Common IT Staffing Cold Email Mistakes</a></li>
+<li><a href="#private-server-edge-for-high-volume-staffing">Private Server Edge for High-Volume Staffing</a></li>
+<li><a href="#your-90-day-staffing-pipeline-build">Your 90-Day Staffing Pipeline Build</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#cta-ready-to-scale-your-staffing-pipeline">CTA: Ready to Scale Your Staffing Pipeline?</a></li>
+<li><a href="#internal-links">Internal Links</a></li>
+<li><a href="#external-links-affiliates">External Links & Affiliates</a></li>
+<li><a href="#image-alt-text-suggestions">Image Alt Text Suggestions</a></li>
+<li><a href="#quick-answer">Quick Answer</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
+</nav>
+<div class="sidebar-card">
+<h3>Our Packages</h3>
+<p>Cold email infrastructure built for deliverability. From 3 domains to 50+.</p>
+<a href="https://imisofts.com/cold-email-marketing#packages" class="btn">View Packages</a>
+</div>
+<div class="sidebar-card">
+<h3>Book a Call</h3>
+<p>Get a free 30-minute strategy session with our team.</p>
+<a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Book Free Call</a>
+</div>
+</aside>
+</div>
+
+</div>
+</main>
+
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+    <!-- CTA Banner -->
+    <div class="footer-cta-banner">
+      <div class="container">
+        <h3>Ready to accelerate your growth?</h3>
+        <p>Get a free audit with actionable insights for your business — delivered within 24 hours.</p>
+        <a href="/free-audit" class="footer-cta-btn">
+          Get Your Free Audit
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer Main -->
+    <div class="footer-main">
+      <div class="container">
+
+        <!-- Footer Links -->
+        <div class="footer-links-grid">
+          <div class="footer-column">
+            <h4>Growth</h4>
+            <ul class="footer-links">
+              <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
+              <li><a href="/lead-generation">Lead Generation</a></li>
+              <li><a href="/digital-marketing">Digital Marketing</a></li>
+              <li><a href="/ai-automation">AI Automation</a></li>
+              <li><a href="/gohighlevel-services">GoHighLevel Services</a></li>
+              <li><a href="/openclaw-setup">OpenClaw Setup</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Development</h4>
+            <ul class="footer-links">
+              <li><a href="/web-development">Web Development</a></li>
+              <li><a href="/ecommerce">E-commerce</a></li>
+              <li><a href="/crm-development">CRM Development</a></li>
+              <li><a href="/shopify-apps">Shopify Apps</a></li>
+              <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+              <li><a href="/launch-your-saas">Launch Your SaaS</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Hire a Specialist</h4>
+            <ul class="footer-links">
+              <li><a href="/hire-cold-email-expert">Cold Email Expert</a></li>
+              <li><a href="/hire-gohighlevel-developer">GoHighLevel Developer</a></li>
+              <li><a href="/hire-n8n-developer">n8n Developer</a></li>
+              <li><a href="/hire-ai-engineer">AI Engineer</a></li>
+              <li><a href="/hire-shopify-expert">Shopify Expert</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Industries</h4>
+            <ul class="footer-links">
+              <li><a href="/cold-email-saas">Cold Email for SaaS</a></li>
+              <li><a href="/lead-generation-agencies">Lead Gen for Agencies</a></li>
+              <li><a href="/ai-automation-ecommerce">AI for E-commerce</a></li>
+              <li><a href="/cold-email-recruiters">Email for Recruiters</a></li>
+              <li><a href="/gohighlevel-real-estate">GHL for Real Estate</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul class="footer-links">
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+              <li><a href="/careers">Careers</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="https://app.imisofts.com/login">Sign In</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul class="footer-links">
+              <li><a href="/free-audit">Free Audit</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/support">Support</a></li>
+              <li><a href="/api-docs">API Docs</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Footer Brand + Newsletter -->
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div style="margin-bottom: 24px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" width="220" height="62" role="img" aria-label="imisofts logo">
+                <g fill="#F45407">
+                  <circle cx="48" cy="170" r="18"/>
+                  <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+                  <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+                </g>
+                <g transform="translate(200,188)">
+                  <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#FFFFFF">imisofts</text>
+                </g>
+              </svg>
+            </div>
+            <p>From idea to revenue in 30 days. We ship AI automation, performance marketing, and web development that actually works.</p>
+            <div class="footer-social">
+              <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://twitter.com/imisofts" aria-label="Twitter">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+              <a href="https://instagram.com/imisofts" aria-label="Instagram">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/></svg>
+              </a>
+              <a href="https://github.com/imisofts" aria-label="GitHub">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+            </div>
+            <div class="footer-contact-row">
+              <a href="mailto:growth@imisofts.com">growth@imisofts.com</a>
+              <span>+971 52 432 0369</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            &copy; 2026 imisofts. All rights reserved.
+          </div>
+          <div class="footer-bottom-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
+            <a href="/cookie-policy">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script>
+    // Mega-menu tab switching on hover + click
+    function megaTabSwitch(tab) {
+      var tabId = tab.getAttribute('data-tab');
+      if (!tabId) return;
+      document.querySelectorAll('.mega-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.mega-panel').forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      var panel = document.getElementById('panel-' + tabId);
+      if (panel) panel.classList.add('active');
+    }
+    // Event delegation on sidebar — handles hover
+    document.querySelectorAll('.mega-sidebar').forEach(function(sidebar) {
+      sidebar.addEventListener('mouseover', function(e) {
+        var tab = e.target.closest('.mega-tab');
+        if (tab) megaTabSwitch(tab);
+      });
+    });
+    // Direct click on each tab — handles click
+    document.querySelectorAll('.mega-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        megaTabSwitch(this);
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      var btn = document.querySelector('.mobile-menu-toggle');
+      var menu = document.getElementById('mobileMenu');
+      var isOpen = menu.classList.contains('active');
+      if (isOpen) {
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      } else {
+        menu.classList.add('active');
+        btn.classList.add('active');
+        document.body.classList.add('mobile-menu-open');
+      }
+    }
+
+    // Mobile section accordion
+    function toggleMobileSection(el) {
+      var content = el.nextElementSibling;
+      var isActive = content.classList.contains('active');
+      // Close all sections first
+      document.querySelectorAll('.mobile-section-content').forEach(function(s) { s.classList.remove('active'); });
+      document.querySelectorAll('.mobile-services-title').forEach(function(t) { t.classList.remove('active'); });
+      // Open clicked section if it was closed
+      if (!isActive) {
+        content.classList.add('active');
+        el.classList.add('active');
+      }
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-nav-link, .mobile-service-link, .mobile-cta').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var menu = document.getElementById('mobileMenu');
+        var btn = document.querySelector('.mobile-menu-toggle');
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+</script>
+<script src="/blog/blog.js" defer></script>
+</body>
+</html>
