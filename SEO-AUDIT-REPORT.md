@@ -141,6 +141,20 @@ Same as above.
 
 **Recommendation:** Add `CollectionPage` or `Blog` schema to `blog/index.html` with proper Organization publisher info.
 
+### BlogPosting schema missing `image` field (180 of 214 posts):
+Google recommends the `image` property for BlogPosting rich results. Only 16 blog posts (older ones from 2025) include an `image` field — the remaining 180 posts are missing it. This limits eligibility for Google Discover and rich result cards.
+
+### Inconsistent author URLs:
+Most blog posts reference `https://imisofts.com/author/zeeshan-waheed/` but a few use `/about` instead (e.g., `instantly-warmup-settings`, `cold-email-sender-reputation`).
+
+### Missing BreadcrumbList on key pages:
+- `blog.html` — has Blog schema but no breadcrumbs
+- `shopify-app-reviews.html` — no breadcrumbs
+- `index.html` — homepage (optional but recommended)
+- `api-docs.html` — no breadcrumbs
+
+**Recommendation:** Add `image` field to all BlogPosting schemas. Standardize author URLs to `/author/zeeshan-waheed/`. Add BreadcrumbList to remaining pages.
+
 ---
 
 ## 7. Sitemap Coverage
