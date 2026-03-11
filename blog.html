@@ -1462,6 +1462,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
       margin-bottom: 80px;
+      align-items: start;
     }
     
     .blog-card {
@@ -1469,7 +1470,9 @@
       border-radius: 16px;
       overflow: hidden;
       transition: all 0.3s ease;
-
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
     }
     
     .blog-card:hover {
@@ -1486,6 +1489,9 @@
     
     .blog-card-content {
       padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     
     .blog-card-title {
@@ -1511,6 +1517,7 @@
       color: #666;
       line-height: 1.6;
       margin-bottom: 16px;
+      flex: 1;
     }
     
     .blog-card-footer {
