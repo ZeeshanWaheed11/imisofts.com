@@ -781,73 +781,338 @@ Open your Google Search Console property for `imisofts.com`, then use the Claude
 
 ---
 
-## 9. ISSUES FOUND & RECOMMENDATIONS
+## 9. GSC LIVE AUDIT RESULTS (March 12, 2026)
+
+> **The following data was collected directly from Google Search Console on March 12, 2026 using the Claude Chrome Extension.**
+
+---
+
+### 9A. INDEXING STATUS — CRITICAL FINDINGS
+
+| Metric | Value | Status |
+|---|---|---|
+| **Total Indexed Pages** | **29** | CRITICAL |
+| **Total Not Indexed** | **1,640** | CRITICAL |
+| **Indexing Rate** | **11.5% (29 of 252 sitemap URLs)** | CRITICAL |
+| **Sitemap URLs Discovered by Google** | **53 of 252** | CRITICAL |
+| **Total Web Search Clicks** | **61** | LOW |
+
+### 9B. WHY PAGES AREN'T INDEXED (GSC Breakdown)
+
+| Reason | Count | Severity | Notes |
+|---|---|---|---|
+| **Not found (404)** | 1,402 | LOW (spam) | Spam/hack URLs (railery.php, hidey.php, random .htm files) — NOT real pages |
+| **Crawled - currently not indexed** | 207 | CRITICAL | These are REAL blog posts that Google crawled but chose NOT to index |
+| **Alternate page with proper canonical tag** | 13 | OK | Blog pagination (?page=1, ?page=2), UTM params, LinkedIn tracking — expected |
+| **Page with redirect** | 7 | OK | Trailing slash redirects (/contact/, /ai-automation/, etc.) — expected |
+| **Blocked by robots.txt** | 6 | OK | Admin/client pages (admin-login, client-login, etc.) — intentional |
+| **Server error (5xx)** | 0 | PASS | No server errors |
+| **Discovered - currently not indexed** | 0 | PASS | No discovery-only pages |
+
+### 9C. THE 29 INDEXED PAGES (Complete List)
+
+**Core Pages Indexed (26 of 38):**
+| # | URL | Last Crawled |
+|---|---|---|
+| 1 | `/` (homepage) | Mar 10, 2026 |
+| 2 | `/about` | — |
+| 3 | `/contact` | — |
+| 4 | `/ai-automation` | — |
+| 5 | `/ai-mobile-apps` | Mar 8, 2026 |
+| 6 | `/cold-email-marketing` | — |
+| 7 | `/digital-marketing` | — |
+| 8 | `/ecommerce` | Mar 8, 2026 |
+| 9 | `/web-development` | — |
+| 10 | `/lead-generation` | — |
+| 11 | `/crm-development` | — |
+| 12 | `/shopify-apps` | — |
+| 13 | `/case-studies` | — |
+| 14 | `/careers` | — |
+| 15 | `/pricing` | — |
+| 16 | `/faq` | — |
+| 17 | `/support` | — |
+| 18 | `/free-audit` | — |
+| 19 | `/api-docs` | — |
+| 20 | `/launch-your-saas` | — |
+| 21 | `/hire-gohighlevel-developer` | — |
+| 22 | `/privacy-policy` | — |
+| 23 | `/terms-of-service` | — |
+| 24 | `/cookie-policy` | — |
+| 25 | `/author/zeeshan-waheed` | Mar 10, 2026 |
+| 26 | `/blog` (index) | — |
+
+**Blog Posts Indexed (3 of 213 — 1.4% rate):**
+| # | URL |
+|---|---|
+| 27 | `/blog/instantly-vs-smartlead-comparison-2025/` |
+| 28 | `/blog/how-many-domains-cold-email-2026/` |
+| 29 | `/blog/saleshandy-vs-instantly-vs-smartlead-2025/` |
+
+### 9D. CORE PAGES NOT INDEXED (12 of 38)
+
+| URL | Likely Reason |
+|---|---|
+| `/cold-email-saas` | Crawled - not indexed (new page) |
+| `/cold-email-recruiters` | Crawled - not indexed (new page) |
+| `/ai-automation-ecommerce` | Crawled - not indexed (new page) |
+| `/gohighlevel-services` | Crawled - not indexed |
+| `/gohighlevel-real-estate` | Crawled - not indexed (new page) |
+| `/shopify-app-reviews` | Crawled - not indexed |
+| `/lead-generation-agencies` | Crawled - not indexed (new page) |
+| `/openclaw-setup` | Crawled - not indexed (new page) |
+| `/hire-ai-engineer` | Crawled - not indexed (new page) |
+| `/hire-cold-email-expert` | Crawled - not indexed (new page) |
+| `/hire-n8n-developer` | Crawled - not indexed (new page) |
+| `/hire-shopify-expert` | Crawled - not indexed (new page) |
+| `/products` | Crawled - not indexed |
+
+### 9E. BLOG INDEXING CRISIS — 210 of 213 NOT INDEXED
+
+**Only 3 blog posts are indexed.** The remaining 210 blog posts are in "Crawled - currently not indexed" status. This means Google has visited these pages but decided they are not worth indexing.
+
+**Key Finding from URL Inspection:**
+- Blog post `/blog/cold-email-infrastructure-setup/` shows: **"URL is unknown to Google"**
+- Sitemaps: **"No referring sitemaps detected"** — Google is NOT discovering blog posts through the sitemap
+- Referring page: **"None detected"** — No internal linking chain is reaching these posts
+- Indexing was manually requested for this URL during audit
+
+**Root Cause Analysis:**
+1. **Sitemap discovery failure** — Google shows only 53 discovered URLs from a 252-URL sitemap
+2. **Thin/duplicate content signals** — 213 blog posts heavily focused on "cold email" topics may trigger Google's quality filters
+3. **Low domain authority** — With only 61 total clicks, the site lacks enough authority signals for Google to index 200+ pages
+4. **Insufficient internal linking** — Blog posts may lack adequate cross-linking from indexed pages
+5. **Content velocity too high** — Publishing 213 posts on a low-authority domain may signal low quality to Google
+
+### 9F. SITEMAP STATUS
+
+| Check | Result |
+|---|---|
+| Sitemap submitted | Yes — `/sitemap.xml` |
+| Submission date | Mar 9, 2026 |
+| Last read by Google | Mar 9, 2026 |
+| Status | **Success** |
+| URLs discovered | **53** (expected: 252) |
+| Discrepancy | **199 URLs NOT discovered** — Google is only reading ~21% of the sitemap |
+
+**Critical Issue:** The sitemap contains 252 URLs but Google only discovered 53. This is a major crawl budget / sitemap processing issue.
+
+### 9G. CORE WEB VITALS
+
+| Device | Status |
+|---|---|
+| Mobile | **Not enough usage data** (insufficient traffic in last 90 days) |
+| Desktop | **Not enough usage data** (insufficient traffic in last 90 days) |
+
+No CWV data available due to low traffic volume. This is expected for a site with only 61 clicks.
+
+### 9H. HTTPS STATUS
+
+| Check | Result |
+|---|---|
+| Non-HTTPS URLs | 0 |
+| HTTPS URLs | 35 |
+| Status | **PASS — all HTTPS** |
+
+### 9I. ENHANCEMENTS / RICH RESULTS
+
+| Enhancement | Valid | Invalid | Issue |
+|---|---|---|---|
+| **Breadcrumbs** | 31 | 0 | PASS |
+| **FAQ** | 19 | 2 | **"Duplicate field FAQPage"** on 2 pages |
+| **Job Postings** | 3 | 0 | PASS |
+| **Profile Page** | Detected | — | PASS |
+| **Review Snippets** | 1 | 11 | **"Invalid object type for field `<parent_node>`"** — CRITICAL |
+
+**Review Snippets Issue:** 11 pages have invalid review snippet markup. This needs immediate fixing — invalid structured data can hurt indexing signals.
+
+### 9J. SECURITY & MANUAL ACTIONS
+
+| Check | Result |
+|---|---|
+| Manual Actions | **No issues detected** |
+| Security Issues | **No issues detected** |
+
+### 9K. SPAM/HACK URL ANALYSIS
+
+The 1,402 "Not found (404)" URLs are spam/bot-generated paths including:
+- `railery.php?84306286733.htm`
+- `hidey.php?245138720.htm`
+- Random numeric `.htm` files
+
+These are **NOT real site pages**. They are from bot probes/spam attacks. Returning 404 is correct behavior. Consider adding `*.php` and `*.htm` to the `_redirects` file with 410 status to signal permanent removal to Google.
+
+### 9L. HOMEPAGE URL INSPECTION DETAILS
+
+| Field | Value |
+|---|---|
+| Indexing status | **URL is on Google** |
+| Last crawl | Mar 12, 2026, 7:26:36 PM |
+| Crawled as | Googlebot smartphone |
+| Crawl allowed | Yes |
+| Page fetch | Successful |
+| Indexing allowed | Yes |
+| User-declared canonical | `https://imisofts.com/` |
+| Google-selected canonical | Inspected URL (matches) |
+| Sitemaps | **No referring sitemaps detected** |
+| HTTPS | Served over HTTPS |
+
+**Note:** Even the homepage shows "No referring sitemaps detected" — confirming the sitemap discovery problem.
+
+---
+
+## 10. ISSUES FOUND & RECOMMENDATIONS
 
 ### CRITICAL ISSUES
-None found. The site has strong technical SEO foundations.
+
+| # | Issue | Impact | Recommendation |
+|---|---|---|---|
+| 1 | **Only 29 of 252 pages indexed (11.5%)** | 88.5% of content invisible to search | See action plan below |
+| 2 | **207 pages "Crawled - currently not indexed"** | Google crawled but rejected 207 pages | Improve content quality signals, internal linking, backlinks |
+| 3 | **Only 3 of 213 blog posts indexed (1.4%)** | Entire blog strategy is failing in search | Consolidate thin content, improve topical authority |
+| 4 | **Sitemap shows 53 discovered vs 252 submitted** | Google isn't processing full sitemap | Re-submit sitemap, check for XML errors, split into multiple sitemaps |
+| 5 | **"No referring sitemaps detected" on URL inspection** | Sitemap-to-URL association broken | Delete and re-submit sitemap in GSC |
+| 6 | **11 invalid Review Snippet schemas** | Structured data errors hurt trust signals | Fix "Invalid object type for field `<parent_node>`" on all 11 pages |
+| 7 | **2 duplicate FAQPage schema errors** | May prevent FAQ rich results | Fix duplicate FAQPage field on affected pages |
+| 8 | **1,402 spam 404 URLs polluting crawl budget** | Wasted crawl budget on spam URLs | Add `*.php` and `*.htm` patterns to `_redirects` with 410 status |
 
 ### MEDIUM PRIORITY ISSUES
 
 | # | Issue | Impact | Recommendation |
 |---|---|---|---|
-| 1 | Blog index page (/blog/) missing structured data | May miss Blog/CollectionPage rich results | Add Blog or CollectionPage schema to /blog/index.html |
-| 2 | 8 pages missing og:image | Poor social sharing appearance for admin/policy pages | Add og:image to privacy-policy, terms-of-service, cookie-policy, api-docs |
-| 3 | 17 pages using generic og:image | Lower CTR on social shares | Create unique og:image for each service page |
-| 4 | Some blog meta descriptions too short | Lower CTR in SERPs | Audit all blog meta descriptions, ensure 150-160 chars |
+| 9 | 12 core pages not indexed | Key service pages missing from search | Request indexing manually for each via URL Inspection |
+| 10 | Blog index page (/blog/) missing structured data | May miss Blog/CollectionPage rich results | Add Blog or CollectionPage schema to /blog/index.html |
+| 11 | 8 pages missing og:image | Poor social sharing appearance | Add og:image to privacy-policy, terms-of-service, cookie-policy, api-docs |
+| 12 | 17 pages using generic og:image | Lower CTR on social shares | Create unique og:image for each service page |
+| 13 | Some blog meta descriptions too short | Lower CTR in SERPs | Audit all blog meta descriptions, ensure 150-160 chars |
+| 14 | Content cannibalization risk | 213 "cold email" posts may compete | Audit for overlapping topics, consolidate or differentiate |
 
 ### LOW PRIORITY ISSUES
 
 | # | Issue | Impact | Recommendation |
 |---|---|---|---|
-| 5 | Blog posts lack author social links in schema | Minor rich result opportunity | Add sameAs links to BlogPosting author |
-| 6 | Some service pages missing BreadcrumbList | Minor navigation signal | Add BreadcrumbList to all service pages |
-| 7 | No AggregateRating schema on hire pages | Missing star ratings in SERPs | Add review/rating schema if testimonials exist |
-| 8 | RSS feed shows 99 posts, not all 213 | Some posts missing from feed distribution | Update feed.xml to include all posts or latest 50 |
+| 15 | Blog posts lack author social links in schema | Minor rich result opportunity | Add sameAs links to BlogPosting author |
+| 16 | Some service pages missing BreadcrumbList | Minor navigation signal | Add BreadcrumbList to all service pages |
+| 17 | No AggregateRating schema on hire pages | Missing star ratings in SERPs | Add review/rating schema if testimonials exist |
+| 18 | RSS feed shows 99 posts, not all 213 | Some posts missing from feed distribution | Update feed.xml to include all posts or latest 50 |
+| 19 | No Core Web Vitals data | Can't assess page experience | Will resolve naturally as traffic grows |
 
 ---
 
-## 10. ACTION ITEMS CHECKLIST
+## 11. ACTION PLAN — FIXING THE INDEXING CRISIS
 
-### Immediate Actions (Do in GSC)
-- [ ] Submit sitemap (https://imisofts.com/sitemap.xml) if not already submitted
-- [ ] Run URL Inspection on ALL 38 core pages — request indexing for any not indexed
-- [ ] Run URL Inspection on all 28 newest "2026" blog posts — request indexing for any not indexed
-- [ ] Run URL Inspection on all 12 new service pages — request indexing for any not indexed
-- [ ] Check "Pages" report for any "Crawled - currently not indexed" URLs
-- [ ] Check "Pages" report for any "Discovered - currently not indexed" URLs
-- [ ] Check for any "Duplicate, Google chose different canonical" issues
-- [ ] Verify Core Web Vitals are all "Good"
-- [ ] Verify no manual actions or security issues
-- [ ] Check all Enhancement reports for structured data errors
+### Phase 1: Immediate GSC Actions (Do NOW)
 
-### Code Fixes (After GSC Audit)
-- [ ] Add Blog/CollectionPage schema to /blog/index.html
-- [ ] Add og:image to 8 pages missing it (policy pages, api-docs)
-- [ ] Audit and fix any short meta descriptions on blog posts
-- [ ] Update feed.xml with all latest posts
-- [ ] Add BreadcrumbList to service pages missing it
+**Sitemap Fix:**
+- [ ] Delete current sitemap submission in GSC
+- [ ] Re-submit `https://imisofts.com/sitemap.xml` as a fresh submission
+- [ ] Consider splitting sitemap into `sitemap-pages.xml` (38 URLs) and `sitemap-blog.xml` (214 URLs)
+- [ ] Verify sitemap is valid XML with no encoding issues (test at Google's Sitemap Testing tool)
 
-### Monitoring (Ongoing)
-- [ ] Check GSC weekly for new indexing issues
-- [ ] Monitor Core Web Vitals monthly
-- [ ] Re-submit sitemap after every batch of new blog posts
-- [ ] Track "Pages" report for crawl budget issues
-- [ ] Monitor rich results for new structured data errors
+**Manual Indexing Requests (Priority Pages):**
+- [ ] Request indexing for ALL 12 unindexed core pages via URL Inspection:
+  - `/cold-email-saas`
+  - `/cold-email-recruiters`
+  - `/ai-automation-ecommerce`
+  - `/gohighlevel-services`
+  - `/gohighlevel-real-estate`
+  - `/shopify-app-reviews`
+  - `/lead-generation-agencies`
+  - `/openclaw-setup`
+  - `/hire-ai-engineer`
+  - `/hire-cold-email-expert`
+  - `/hire-n8n-developer`
+  - `/hire-shopify-expert`
+  - `/products`
+- [ ] Request indexing for top 20 highest-value blog posts (start with pillar content)
+- [ ] Note: GSC limits indexing requests — spread over multiple days if needed
+
+**Spam URL Cleanup:**
+- [ ] Add `/*.php` and `/*.htm` rules to `_redirects` with 410 status
+- [ ] This will reduce the 1,402 spam 404s polluting crawl budget
+
+### Phase 2: Content & Technical Fixes (This Week)
+
+**Internal Linking Overhaul:**
+- [ ] Add "Related Posts" section to every blog post linking to 3-5 related articles
+- [ ] Add blog post links from core service pages (e.g., `/cold-email-marketing` should link to top cold email blog posts)
+- [ ] Add a "Latest Posts" or "Popular Posts" sidebar/section on the blog index
+- [ ] Ensure every blog post links back to the relevant service page
+- [ ] Create topic cluster pages that link to all posts in each category
+
+**Structured Data Fixes:**
+- [ ] Fix 11 invalid Review Snippet schemas — resolve "Invalid object type for field `<parent_node>`"
+- [ ] Fix 2 duplicate FAQPage schema errors
+- [ ] Add Blog/CollectionPage schema to `/blog/index.html`
+- [ ] Validate all fixes using Google's Rich Results Test
+
+**Content Quality Signals:**
+- [ ] Audit the 207 "Crawled - not indexed" blog posts for:
+  - Thin content (< 800 words) — expand or consolidate
+  - Duplicate/overlapping topics — merge into comprehensive guides
+  - Missing images, tables, or multimedia
+  - Weak E-E-A-T signals (expertise, experience, authority, trust)
+- [ ] Add author bio with credentials to every blog post
+- [ ] Add "Last Updated" dates to show content freshness
+- [ ] Ensure each post has unique, substantial value vs. other posts
+
+### Phase 3: Authority Building (Ongoing)
+
+**Backlink Strategy:**
+- [ ] Build backlinks to top service pages and pillar blog content
+- [ ] Submit to relevant directories (Clutch, G2, ProductHunt for tools)
+- [ ] Guest posting on cold email / B2B marketing blogs
+- [ ] Create linkable assets (data studies, tools, calculators)
+
+**Content Consolidation:**
+- [ ] Identify blog posts covering similar topics and merge them
+- [ ] Example: Multiple "Instantly vs X" posts might be consolidated into one comprehensive comparison hub
+- [ ] Redirect merged URLs to the consolidated page
+- [ ] Goal: Fewer, stronger pages vs. many thin pages
+
+**Social & Brand Signals:**
+- [ ] Share indexed pages on social media to generate engagement signals
+- [ ] Build Google Business Profile if not already done
+- [ ] Encourage reviews and mentions
+
+### Phase 4: Monitoring (Weekly)
+
+- [ ] Check GSC "Pages" report weekly for indexing progress
+- [ ] Track which of the 207 "Crawled - not indexed" pages start getting indexed
+- [ ] Monitor sitemap discovered URL count (target: 252)
+- [ ] Re-request indexing for high-priority pages that remain unindexed after 2 weeks
+- [ ] Monitor structured data errors in Enhancements section
+- [ ] Track search performance (clicks, impressions) as indexing improves
 
 ---
 
-## APPENDIX: QUICK REFERENCE
+## APPENDIX A: QUICK REFERENCE
 
 ### Total URL Count by Type
-| Type | Count |
+| Type | Count | Indexed | Rate |
+|---|---|---|---|
+| Core service/content pages | 37 | 26 | 70.3% |
+| Blog index | 1 | 1 | 100% |
+| Blog posts | 213 | 3 | 1.4% |
+| Author pages | 1 | 1 | 100% |
+| **Total in Sitemap** | **252** | **29** | **11.5%** |
+| Non-indexed internal pages | 5 | 0 | N/A (intentional) |
+| **Total HTML files** | **257** | **29** | — |
+
+### GSC Summary Dashboard
+| Metric | Value |
 |---|---|
-| Core service/content pages | 37 |
-| Blog index | 1 |
-| Blog posts | 213 |
-| Author pages | 1 |
-| **Total in Sitemap** | **252** |
-| Non-indexed internal pages | 5 |
-| **Total HTML files** | **257** |
+| Total Indexed | 29 |
+| Total Not Indexed | 1,640 |
+| Crawled - Not Indexed | 207 |
+| 404 (Spam) | 1,402 |
+| Sitemap URLs Discovered | 53 / 252 |
+| Breadcrumbs Valid | 31 |
+| FAQ Valid | 19 (2 invalid) |
+| Review Snippets Valid | 1 (11 invalid) |
+| Job Postings Valid | 3 |
+| Manual Actions | None |
+| Security Issues | None |
+| Core Web Vitals | No data (low traffic) |
 
 ### Key Files
 | File | Purpose |
@@ -862,6 +1127,22 @@ None found. The site has strong technical SEO foundations.
 
 ---
 
+## APPENDIX B: GSC PROMPTS FOR CONTINUED MONITORING
+
+### Prompt: Weekly Indexing Check
+> Open GSC > Pages report. Compare current indexed count against baseline of 29 (as of March 12, 2026). Report any pages that moved from "Crawled - not indexed" to "Indexed". Flag any new issues.
+
+### Prompt: Blog Indexing Progress
+> Open GSC > Pages report > Filter by `/blog/`. How many blog posts are now indexed vs the baseline of 3? List any newly indexed blog posts. List any that changed status.
+
+### Prompt: Structured Data Error Check
+> Open GSC > Enhancements. Check Review Snippets (baseline: 11 invalid), FAQ (baseline: 2 invalid), and Breadcrumbs (baseline: 0 invalid). Report any changes.
+
+---
+
 *Report generated: March 12, 2026*
-*Total pages audited: 252*
+*GSC data collected: March 12, 2026*
+*Total pages in sitemap: 252*
+*Total pages indexed: 29 (11.5%)*
 *Domain: imisofts.com*
+*Audit performed by: Claude Chrome Extension + Claude Code*
