@@ -25,6 +25,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
           else
-            git commit -m "build: publish news article(s) [skip ci]"
+            git commit -m "build: publish news article(s)"
             git push
           fi
