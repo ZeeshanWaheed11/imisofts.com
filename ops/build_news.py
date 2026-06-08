@@ -17,6 +17,19 @@ CONTENT_DIR = os.path.join(ROOT, 'content', 'news')
 
 def esc(t): return (t or '').replace('&','&amp;')
 
+def submit_indexnow(urls):
+    """Best-effort IndexNow ping so Bing (and ChatGPT retrieval) pick up new/updated pages fast. Never breaks the build."""
+    import urllib.request
+    KEY="8f91c62405dc13875a9db237c23b51f6"
+    urls=list(dict.fromkeys(urls))
+    try:
+        payload=json.dumps({"host":"imisofts.com","key":KEY,"keyLocation":f"https://imisofts.com/{KEY}.txt","urlList":urls}).encode()
+        req=urllib.request.Request("https://api.indexnow.org/indexnow",data=payload,headers={"Content-Type":"application/json; charset=utf-8"},method="POST")
+        with urllib.request.urlopen(req,timeout=20) as r:
+            print("indexnow: submitted %d url(s), HTTP %s"%(len(urls), getattr(r,"status",r.getcode())))
+    except Exception as e:
+        print("indexnow: skipped (%s)"%e)
+
 import datetime as _dtmod
 def human_date(iso):
     return _dtmod.date.fromisoformat(iso[:10]).strftime('%B %-d, %Y')
@@ -152,6 +165,9 @@ def main():
     # ---- blog/index.html cards ----
     subprocess.run([sys.executable, os.path.join(ROOT,'ops','sync_blog_index.py')], check=False)
     print('indexes updated; news-sitemap has %d fresh url(s)'%fresh_count)
+    # ---- IndexNow auto-submit (best-effort; pings Bing -> ChatGPT retrieval) ----
+    inurls=[f'https://imisofts.com/blog/{m["slug"]}/' for m in metas]+['https://imisofts.com/','https://imisofts.com/blog/']
+    submit_indexnow(inurls)
     return 0
 
 if __name__=='__main__':
