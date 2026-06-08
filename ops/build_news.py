@@ -17,6 +17,18 @@ CONTENT_DIR = os.path.join(ROOT, 'content', 'news')
 
 def esc(t): return (t or '').replace('&','&amp;')
 
+import datetime as _dtmod
+def human_date(iso):
+    return _dtmod.date.fromisoformat(iso[:10]).strftime('%B %-d, %Y')
+
+def fix_chrome(s, date_iso):
+    """Heal the visible byline date and the client-count claim. Idempotent."""
+    dp=date_iso[:10]
+    s=re.sub(r'<time datetime="[^"]*">[^<]*</time>', '<time datetime="%s">%s</time>'%(dp, human_date(dp)), s, count=1)
+    s=s.replace('Join 500+ businesses','Join 200+ businesses')
+    s=s.replace('#F45407;">500+</div>','#F45407;">200+</div>')
+    return s
+
 def faq_items_html(faqs):
     out=''
     for q,a in faqs:
@@ -55,6 +67,8 @@ def build_article(meta, tpl):
     body=meta['body']+'\n'+cta_html(meta.get('cta','Want this built for your business?'))+'\n'+faq_section
     i=s.find('<article class="article-content">'); j=s.find('</article>')
     s=s[:i]+'<article class="article-content">\n'+body+'\n'+s[j:]
+    s=fix_chrome(s, DATE)
+    s=re.sub(r'(\d+)\s*min read', '%d min read'%meta.get('read_time',6), s, count=1)
     # validate
     mainpart=s[s.find('<article'):s.find('</article>')]
     assert mainpart.count(chr(8212))==0, f'{slug}: em-dash in body'
@@ -67,6 +81,16 @@ def main():
     if not os.path.exists(TEMPLATE):
         print('ERROR: template missing', TEMPLATE); return 1
     tpl=open(TEMPLATE,encoding='utf-8').read()
+    # Heal byline dates + client-count claim across ALL existing NewsArticle pages (self-healing backfill)
+    for _hf in glob.glob(os.path.join(ROOT,'blog','*','index.html')):
+        try: _h=open(_hf,encoding='utf-8').read()
+        except: continue
+        if '"NewsArticle"' not in _h: continue
+        _m=re.search(r'"datePublished"\s*:\s*"([^"]+)"',_h)
+        if not _m: continue
+        _nh=fix_chrome(_h,_m.group(1))
+        if _nh!=_h:
+            open(_hf,'w',encoding='utf-8').write(_nh); print('healed byline:',_hf)
     metas=[]
     for f in sorted(glob.glob(os.path.join(CONTENT_DIR,'*.json'))):
         meta=json.load(open(f,encoding='utf-8'))
