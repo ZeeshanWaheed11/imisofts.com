@@ -1726,6 +1726,7 @@ Table of Contents
 
 <div class="blog-content-layout">
 <article class="article-content">
+<p class="affiliate-disclosure" style="font-size:14px;line-height:1.6;color:#475569;background:#f8fafc;border-left:3px solid #F45407;padding:11px 15px;border-radius:6px;margin:0 0 22px;"><strong>Affiliate disclosure:</strong> some links in this article are partner links. If you start a paid plan through them, imisofts may earn a commission at no extra cost to you. We only recommend tools we actually use to run client campaigns.</p>
 <p>If your SPF, DKIM, and DMARC records are not configured correctly, your cold emails will land in spam. It is that simple.</p>
 <p>Since February 2024, Gmail and Yahoo have enforced strict email authentication requirements for bulk senders. Microsoft followed with similar enforcement for Outlook in May 2025. The result: emails without proper SPF, DKIM, and DMARC authentication get rejected outright — they do not even make it to the spam folder.</p>
 <p>At imisofts, DNS authentication is the first technical step in every infrastructure build. We configure these records for every domain, every time, with zero exceptions. This guide walks through exactly how we do it.</p>
@@ -1767,7 +1768,7 @@ Table of Contents
 <p>MX records use a specific format with a priority value and mail server hostname. Lower priority numbers indicate the preferred server:</p>
 <p>Priority: 10, Value: mail.yourdomain.com</p>
 <h2 id="tracking-cname">Tracking CNAME</h2>
-<p>The tracking CNAME record enables custom open and click tracking for your cold email campaigns. Without it, your emails use shared tracking domains from <a href="https://instantly.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">Instantly</a> or <a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead</a> — which are used by thousands of senders and frequently flagged by spam filters.</p>
+<p>The tracking CNAME record enables custom open and click tracking for your cold email campaigns. Without it, your emails use shared tracking domains from <a href="https://refer.instantly.ai/oovph6ghwnaa" target="_blank" rel="noopener noreferrer sponsored">Instantly</a> or <a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead</a> — which are used by thousands of senders and frequently flagged by spam filters.</p>
 <p>Add a CNAME record that points a subdomain (like track.yourdomain.com) to your campaign platform&#x27;s tracking server. The specific value depends on your platform — Instantly and SmartLead each have their own tracking server hostnames.</p>
 <p>Custom tracking domains are one of the most overlooked elements of cold email infrastructure. We include them in every build because the deliverability impact is measurable.</p>
 <h2 id="verification-how-to-confirm-everything-works">Verification: how to confirm everything works</h2>
