@@ -1,0 +1,30 @@
+name: Fix affiliate links
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ops/fix_affiliate_links.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Normalize affiliate links across blog
+        run: python3 ops/fix_affiliate_links.py
+      - name: Commit changes
+        run: |
+          git config user.name "imisofts-news-bot"
+          git config user.email "news-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No affiliate changes to commit."
+          else
+            git commit -m "fix: correct Instantly affiliate link + rel=sponsored + affiliate disclosures across blog"
+            git push
+          fi
