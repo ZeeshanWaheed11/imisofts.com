@@ -1,0 +1,28 @@
+name: Fix articles
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'ops/fix_articles.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Normalize article structure (TOC + headings + client count)
+        run: python3 ops/fix_articles.py
+      - name: Commit changes
+        run: |
+          git config user.name "imisofts-news-bot"
+          git config user.email "news-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "no changes"; else
+            git commit -m "fix: populate TOC + real headings + client-count across blog"
+            git push
+          fi
