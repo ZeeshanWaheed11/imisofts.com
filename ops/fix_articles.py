@@ -1,14 +1,8 @@
 #!/usr/bin/env python3
-"""Idempotent article-structure normalizer for imisofts.com blog (shared by the builders).
-- Convert news-style bold-paragraph headings (<p><strong>X</strong></p>) to real <h2 id="slug">.
-- Build the standard Table of Contents (<ul class="toc-list">) from body <h2 id> headings + FAQ.
-- Normalize the client-count claim (500+ businesses -> 200+ businesses; clients stat box).
-- Conservatively replace em dashes in the article body (house style; leaves en-dash ranges).
-Leaves articles that use the older curated <div class="toc"><a class="toc-link"> format untouched.
-Importable: call process(doc)->(doc, changed). Run standalone to backfill all posts.
-"""
-import os, re, sys, glob, html as H
+"""Idempotent article-structure normalizer + pre-publish validator (shared by builders)."""
+import os, re, sys, glob, html as H, json as _json
 DATELINE = re.compile(r'^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\.?$')
+AFF = ['get.apollo.io/u5ocuv7me9t2','refer.instantly.ai/oovph6ghwnaa','gohighlevel.com/?fp_ref=zeeshanwaheed','apify.com?fpr=rc63q','appsumo.8odi']
 def slugify(t):
     t=re.sub(r'<[^>]+>','',t); t=H.unescape(t).lower()
     t=re.sub(r'[^a-z0-9]+','-',t).strip('-'); return (t[:60] or 'section')
@@ -49,6 +43,24 @@ def process(doc):
         nd=set_toc(doc, build_toc_items(body2, has_faq))
         if nd!=doc: doc=nd; changed=True
     return doc, changed
+def validate_article(doc):
+    """Return a list of CRITICAL problems (empty = OK). Used as a pre-publish gate."""
+    p=[]
+    if doc.count('<main')!=1 or doc.count('</main>')!=1: p.append('main tag count != 1')
+    if len(re.findall(r'<h1[ >]',doc))!=1: p.append('h1 count != 1')
+    b=find_body(doc); body=doc[b[0]:b[1]] if b else ''
+    if not body: p.append('no <article> body')
+    if '—' in body or '–' in body: p.append('em/en dash in body')
+    if 'class="faq-section"' not in doc: p.append('no FAQ section')
+    for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>', doc, re.S):
+        try: _json.loads(blk)
+        except Exception: p.append('invalid JSON-LD'); break
+    if 'affiliate-disclosure' in doc and not any(a in doc for a in AFF): p.append('disclosure without affiliate link')
+    if '<ul class="toc-list">' in doc and body:
+        toc=set(a for t in re.findall(r'<ul class="toc-list">(.*?)</ul>',doc,re.S) for a in re.findall(r'href="#([^"]+)"',t))
+        bids=re.findall(r'<h2 id="([^"]+)"', body)
+        if bids and not all(x in toc for x in bids): p.append('TOC missing headings')
+    return p
 def main():
     root=sys.argv[1] if len(sys.argv)>1 else '.'
     n=0

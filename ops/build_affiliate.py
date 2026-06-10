@@ -90,10 +90,13 @@ def build_article(meta, tpl):
     assert mainpart.count('class="faq-item"')==len(faqs), f'{slug}: faq count mismatch'
     assert 'affiliate-disclosure' in s, f'{slug}: disclosure missing'
     if meta.get('affiliate_url'): assert meta['affiliate_url'] in s, f'{slug}: affiliate url missing'
+    _probs=[]
     try:
-        import fix_articles; s=fix_articles.process(s)[0]
+        import fix_articles; s=fix_articles.process(s)[0]; _probs=fix_articles.validate_article(s)
     except Exception as _e:
-        print('toc post-process skipped:', _e)
+        print('post-process skipped:', _e); _probs=[]
+    if _probs:
+        raise AssertionError("%s failed QA: %s" % (slug, "; ".join(_probs)))
     return s
 
 def main():
@@ -101,11 +104,16 @@ def main():
     if not os.path.isdir(CONTENT_DIR): print('no affiliate content dir'); return 0
     tpl=open(TEMPLATE,encoding='utf-8').read(); metas=[]
     for f in sorted(glob.glob(os.path.join(CONTENT_DIR,'*.json'))):
-        meta=json.load(open(f,encoding='utf-8')); metas.append(meta)
+        meta=json.load(open(f,encoding='utf-8'))
         out=os.path.join(ROOT,'blog',meta['slug'],'index.html')
         if (not os.path.exists(out)) or (os.path.getmtime(f)>os.path.getmtime(out)):
+            try:
+                _html=build_article(meta,tpl)
+            except Exception as _qe:
+                print('QA BLOCK %s: %s'%(meta.get('slug','?'), _qe)); continue
             os.makedirs(os.path.dirname(out),exist_ok=True)
-            open(out,'w',encoding='utf-8').write(build_article(meta,tpl)); print('built blog/%s/index.html'%meta['slug'])
+            open(out,'w',encoding='utf-8').write(_html); print('built blog/%s/index.html'%meta['slug'])
+        metas.append(meta)
     if not metas: print('no content files'); return 0
     pj=os.path.join(ROOT,'blog','posts-index.json')
     d=json.load(open(pj,encoding='utf-8')); posts=d if isinstance(d,list) else d['posts']

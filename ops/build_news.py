@@ -89,10 +89,13 @@ def build_article(meta, tpl):
     assert s.count('<main')==1 and s.count('</main>')==1, f'{slug}: main tag issue'
     nfaq=mainpart.count('class="faq-item"')
     assert nfaq==len(faqs), f'{slug}: faq count mismatch {nfaq} vs {len(faqs)}'
+    _probs=[]
     try:
-        import fix_articles; s=fix_articles.process(s)[0]
+        import fix_articles; s=fix_articles.process(s)[0]; _probs=fix_articles.validate_article(s)
     except Exception as _e:
-        print('toc post-process skipped:', _e)
+        print('post-process skipped:', _e); _probs=[]
+    if _probs:
+        raise AssertionError("%s failed QA: %s" % (slug, "; ".join(_probs)))
     return s
 
 def main():
@@ -112,12 +115,16 @@ def main():
     metas=[]
     for f in sorted(glob.glob(os.path.join(CONTENT_DIR,'*.json'))):
         meta=json.load(open(f,encoding='utf-8'))
-        metas.append(meta)
         out=os.path.join(ROOT,'blog',meta['slug'],'index.html')
         if (not os.path.exists(out)) or (os.path.getmtime(f) > os.path.getmtime(out)):
+            try:
+                _html=build_article(meta,tpl)
+            except Exception as _qe:
+                print('QA BLOCK %s: %s'%(meta.get('slug','?'), _qe)); continue
             os.makedirs(os.path.dirname(out),exist_ok=True)
-            open(out,'w',encoding='utf-8').write(build_article(meta,tpl))
+            open(out,'w',encoding='utf-8').write(_html)
             print('built blog/%s/index.html'%meta['slug'])
+        metas.append(meta)
     if not metas:
         print('no content files'); return 0
     # ---- posts-index.json ----
