@@ -1702,6 +1702,30 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#how-to-set-up-domain-redirects-for-cold-email-2026">How to Set Up Domain Redirects for Cold Email (2026)</a></li>
+<li><a href="#step-1-add-your-domain-to-cloudflare">Step 1: Add Your Domain to Cloudflare</a></li>
+<li><a href="#step-2-update-nameservers">Step 2: Update Nameservers</a></li>
+<li><a href="#step-3-create-page-rules-for-redirect">Step 3: Create Page Rules for Redirect</a></li>
+<li><a href="#step-4-set-up-email-records-mx-records">Step 4: Set Up Email Records (MX Records)</a></li>
+<li><a href="#step-5-test-the-redirect">Step 5: Test the Redirect</a></li>
+<li><a href="#step-1-access-domain-settings">Step 1: Access Domain Settings</a></li>
+<li><a href="#step-2-configure-email-records">Step 2: Configure Email Records</a></li>
+<li><a href="#step-3-set-up-url-redirect">Step 3: Set Up URL Redirect</a></li>
+<li><a href="#step-4-test-the-redirect">Step 4: Test the Redirect</a></li>
+<li><a href="#step-1-access-domain-settings-2">Step 1: Access Domain Settings</a></li>
+<li><a href="#step-2-configure-forwarding">Step 2: Configure Forwarding</a></li>
+<li><a href="#step-3-configure-email-records">Step 3: Configure Email Records</a></li>
+<li><a href="#step-4-test">Step 4: Test</a></li>
+<li><a href="#mistake-1-sending-email-without-email-records-mx-spf-dkim">Mistake 1: Sending Email Without Email Records (MX/SPF/DKIM)</a></li>
+<li><a href="#mistake-2-using-same-domain-name-pattern">Mistake 2: Using Same Domain Name Pattern</a></li>
+<li><a href="#mistake-3-high-volume-per-domain-without-warm-up">Mistake 3: High Volume Per Domain Without Warm-Up</a></li>
+<li><a href="#mistake-4-forgetting-to-remove-inactive-domains">Mistake 4: Forgetting to Remove Inactive Domains</a></li>
+<li><a href="#mistake-5-not-testing-redirects-before-launch">Mistake 5: Not Testing Redirects Before Launch</a></li>
+<li><a href="#what-is-a-domain-redirect-for-cold-email">What is a domain redirect for cold email?</a></li>
+<li><a href="#why-do-i-need-multiple-domains-for-cold-email">Why do I need multiple domains for cold email?</a></li>
+<li><a href="#how-do-i-set-up-a-domain-redirect-on-cloudflare">How do I set up a domain redirect on Cloudflare?</a></li>
+<li><a href="#can-i-send-cold-emails-from-redirect-domains">Can I send cold emails from redirect domains?</a></li>
+<li><a href="#how-many-domains-should-i-use-for-a-cold-email-campaign">How many domains should I use for a cold email campaign?</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1747,7 +1771,7 @@ Table of Contents
 <p>For cold email domain pools, <strong>domain forwarding</strong> is easiest; <strong>URL redirects</strong> are more flexible. We recommend URL redirects for most clients because they allow path-specific behavior (e.g., different tracking per domain pool).</p>
 <h3>Step-by-Step Setup on Cloudflare</h3>
 <p>Cloudflare is a popular DNS provider that makes URL redirects simple. Here's the process:</p>
-<p><strong>Step 1: Add Your Domain to Cloudflare</strong></p>
+<h2 id="step-1-add-your-domain-to-cloudflare">Step 1: Add Your Domain to Cloudflare</h2>
 <ol>
 <li>Sign up for Cloudflare (cloudflare.com)</li>
 <li>Click "Add a Domain"</li>
@@ -1755,7 +1779,7 @@ Table of Contents
 <li>Select a plan (free plan is sufficient for domain redirects)</li>
 <li>Cloudflare will scan your existing DNS records</li>
 </ol>
-<p><strong>Step 2: Update Nameservers</strong></p>
+<h2 id="step-2-update-nameservers">Step 2: Update Nameservers</h2>
 <p>After adding your domain, Cloudflare provides new nameservers. You must update your domain registrar (GoDaddy, Namecheap, etc.) to point to Cloudflare's nameservers:</p>
 <ol>
 <li>Log into your registrar account</li>
@@ -1763,7 +1787,7 @@ Table of Contents
 <li>Replace current nameservers with Cloudflare's (Cloudflare provides specific addresses)</li>
 <li>Save changes (this can take 24-48 hours to fully propagate)</li>
 </ol>
-<p><strong>Step 3: Create Page Rules for Redirect</strong></p>
+<h2 id="step-3-create-page-rules-for-redirect">Step 3: Create Page Rules for Redirect</h2>
 <ol>
 <li>In Cloudflare dashboard, go to "Rules" → "Page Rules"</li>
 <li>Click "Create Page Rule"</li>
@@ -1774,7 +1798,7 @@ Table of Contents
 <li>Click "Save and Deploy"</li>
 </ol>
 <p><strong>Example</strong>: If someone visits <code>outreach-pool-1.com/growth-guide</code>, they're redirected to <code>yourbrand.com/growth-guide</code> (preserving <code>/growth-guide</code>). This is critical for landing page tracking.</p>
-<p><strong>Step 4: Set Up Email Records (MX Records)</strong></p>
+<h2 id="step-4-set-up-email-records-mx-records">Step 4: Set Up Email Records (MX Records)</h2>
 <p>If you're sending email from these redirect domains, configure MX (mail exchange) records:</p>
 <ol>
 <li>In Cloudflare, go to "DNS"</li>
@@ -1783,7 +1807,7 @@ Table of Contents
 <li>Add DKIM record: Provided by your email provider</li>
 </ol>
 <p>These records ensure emails sent from <code>outreach@outreach-pool-1.com</code> are authenticated and reach inboxes.</p>
-<p><strong>Step 5: Test the Redirect</strong></p>
+<h2 id="step-5-test-the-redirect">Step 5: Test the Redirect</h2>
 <ol>
 <li>Wait 24-48 hours for nameserver propagation</li>
 <li>Visit <code>outreach-pool-1.com</code> in a browser</li>
@@ -1792,14 +1816,14 @@ Table of Contents
 </ol>
 <h3>Step-by-Step Setup on Namecheap</h3>
 <p>Namecheap is another popular registrar with built-in redirect features.</p>
-<p><strong>Step 1: Access Domain Settings</strong></p>
+<h2 id="step-1-access-domain-settings">Step 1: Access Domain Settings</h2>
 <ol>
 <li>Log into Namecheap account</li>
 <li>Go to "Domain List"</li>
 <li>Click "Manage" for the domain you want to redirect (e.g., <code>outreach-pool-1.com</code>)</li>
 <li>Select "Advanced DNS"</li>
 </ol>
-<p><strong>Step 2: Configure Email Records</strong></p>
+<h2 id="step-2-configure-email-records">Step 2: Configure Email Records</h2>
 <p>If you're sending email from this domain:</p>
 <ol>
 <li>Find "Mail Settings" or "MX Records"</li>
@@ -1807,7 +1831,7 @@ Table of Contents
 <li>Add SPF record: <code>v=spf1 include:mail.yourdomain.com ~all</code></li>
 <li>Add DKIM record: Provided by your email provider (copy the full value)</li>
 </ol>
-<p><strong>Step 3: Set Up URL Redirect</strong></p>
+<h2 id="step-3-set-up-url-redirect">Step 3: Set Up URL Redirect</h2>
 <ol>
 <li>In Namecheap dashboard, go to "Redirect"</li>
 <li>Or, use Namecheap's "Forwarding" feature (Manage → Forwarding)</li>
@@ -1817,14 +1841,14 @@ Table of Contents
 <li>Uncheck "Mask redirect" (so the address bar shows the final destination)</li>
 <li>Click "Save"</li>
 </ol>
-<p><strong>Step 4: Test the Redirect</strong></p>
+<h2 id="step-4-test-the-redirect">Step 4: Test the Redirect</h2>
 <ol>
 <li>Visit <code>outreach-pool-1.com</code> and confirm you're redirected to <code>yourbrand.com</code></li>
 <li>Test email records by checking DNS propagation (use <code>mxtoolbox.com</code> or similar tool)</li>
 </ol>
 <h3>Step-by-Step Setup on GoDaddy</h3>
 <p>GoDaddy provides domain forwarding natively, which is simple but less flexible.</p>
-<p><strong>Step 1: Access Domain Settings</strong></p>
+<h2 id="step-1-access-domain-settings-2">Step 1: Access Domain Settings</h2>
 <ol>
 <li>Log into GoDaddy account</li>
 <li>Go to "My Products"</li>
@@ -1832,7 +1856,7 @@ Table of Contents
 <li>Find the domain you want to redirect (e.g., <code>outreach-pool-1.com</code>)</li>
 <li>Click "Manage" or "DNS"</li>
 </ol>
-<p><strong>Step 2: Configure Forwarding</strong></p>
+<h2 id="step-2-configure-forwarding">Step 2: Configure Forwarding</h2>
 <ol>
 <li>Look for "Forwarding" or "Domain Forwarding"</li>
 <li>Click "Set up domain forwarding"</li>
@@ -1842,7 +1866,7 @@ Table of Contents
 <li>Uncheck "Mask forwarding"</li>
 <li>Click "Apply"</li>
 </ol>
-<p><strong>Step 3: Configure Email Records</strong></p>
+<h2 id="step-3-configure-email-records">Step 3: Configure Email Records</h2>
 <p>If you're sending email from this domain:</p>
 <ol>
 <li>Go to "DNS" tab</li>
@@ -1851,7 +1875,7 @@ Table of Contents
 <li>Add DKIM: Provided by your email provider</li>
 <li>Save changes</li>
 </ol>
-<p><strong>Step 4: Test</strong></p>
+<h2 id="step-4-test">Step 4: Test</h2>
 <ol>
 <li>Visit <code>outreach-pool-1.com</code> and confirm redirect to <code>yourbrand.com</code></li>
 <li>Verify email records propagate (24-48 hours)</li>
@@ -1869,9 +1893,9 @@ Table of Contents
 <p><strong>Consistent Sender Name</strong>: Use the same sender name (e.g., "Sarah") across all domain pool addresses. If one email comes from <code>sarah@outreach-pool-1.com</code> and another from <code>jane@outreach-pool-2.com</code>, it looks like different people sending, which damages trust.</p>
 <p><strong>Monitor Reputation Per Domain</strong>: Track spam complaints, bounces, and engagement per domain. If one domain gets flagged (high complaint rate), pause that domain and investigate. Use SmartLead (https://smartlead.ai/?via=coldemailmarketing) to monitor per-domain metrics.</p>
 <h3>Common Mistakes to Avoid</h3>
-<p><strong>Mistake 1: Sending Email Without Email Records (MX/SPF/DKIM)</strong></p>
+<h2 id="mistake-1-sending-email-without-email-records-mx-spf-dkim">Mistake 1: Sending Email Without Email Records (MX/SPF/DKIM)</h2>
 <p>If you set up domain redirects but don't configure MX, SPF, and DKIM records, emails sent from these domains will fail authentication and hit spam folders. Always configure email records before sending.</p>
-<p><strong>Mistake 2: Using Same Domain Name Pattern</strong></p>
+<h2 id="mistake-2-using-same-domain-name-pattern">Mistake 2: Using Same Domain Name Pattern</h2>
 <p>If your domain pool looks like:</p>
 <ul>
 <li><code>outreach-pool-1.com</code></li>
@@ -1885,11 +1909,11 @@ Table of Contents
 <li><code>pipeline-intelligence.co</code></li>
 </ul>
 <p>Use different TLDs and naming schemes to avoid pattern detection.</p>
-<p><strong>Mistake 3: High Volume Per Domain Without Warm-Up</strong></p>
+<h2 id="mistake-3-high-volume-per-domain-without-warm-up">Mistake 3: High Volume Per Domain Without Warm-Up</h2>
 <p>Sending 5,000 emails from a domain on day 1 (without warm-up) triggers ISP throttling. Always warm up for 5-7 days before ramping to full volume.</p>
-<p><strong>Mistake 4: Forgetting to Remove Inactive Domains</strong></p>
+<h2 id="mistake-4-forgetting-to-remove-inactive-domains">Mistake 4: Forgetting to Remove Inactive Domains</h2>
 <p>If a domain gets flagged (high complaint rate), it damages deliverability for all subsequent campaigns. Keep a list of flagged domains and retire them. We track domain health and rotate new domains into the pool every 30-60 days.</p>
-<p><strong>Mistake 5: Not Testing Redirects Before Launch</strong></p>
+<h2 id="mistake-5-not-testing-redirects-before-launch">Mistake 5: Not Testing Redirects Before Launch</h2>
 <p>Always test each redirect domain in a browser before sending emails. A broken redirect damages brand trust and tracking.</p>
 <h3>Tracking with Domain Redirects</h3>
 <p>To track which domain pool member gets the highest engagement, add UTM parameters to your landing page URL:</p>
@@ -1910,11 +1934,11 @@ Table of Contents
 </ul>
 <p>Our private server infrastructure ($489/year for 50 inboxes) includes domain pool management. Our Management tier ($497/month) includes hands-on domain setup and optimization.</p>
 <h3>FAQ Schema</h3>
-<p><strong>What is a domain redirect for cold email?</strong></p>
+<h2 id="what-is-a-domain-redirect-for-cold-email">What is a domain redirect for cold email?</h2>
 <p>A domain redirect points one domain to another using DNS configuration (301 redirect or domain forwarding). For cold email, redirects allow you to send from a pool of 5-10 domains that all point to your main website. When a prospect clicks a link in your email from <code>outreach-pool-1.com</code>, they land on your real brand site (<code>yourbrand.com</code>) instead of a suspicious redirect URL. This maintains brand consistency and trust.</p>
-<p><strong>Why do I need multiple domains for cold email?</strong></p>
+<h2 id="why-do-i-need-multiple-domains-for-cold-email">Why do I need multiple domains for cold email?</h2>
 <p>Email providers track sender reputation by domain. If you send 10,000 emails from a single domain, ISPs may throttle that domain or flag it as spam. By using a pool of 5-10 domains, you distribute email volume (1,000-2,000 per domain) below throttling thresholds. Domain pools maintain 70-85% inbox placement rates compared to 40-50% for single-domain campaigns.</p>
-<p><strong>How do I set up a domain redirect on Cloudflare?</strong></p>
+<h2 id="how-do-i-set-up-a-domain-redirect-on-cloudflare">How do I set up a domain redirect on Cloudflare?</h2>
 <ol>
 <li>Add your domain to Cloudflare</li>
 <li>Update your registrar's nameservers to Cloudflare's</li>
@@ -1922,9 +1946,9 @@ Table of Contents
 <li>Create a rule: URL pattern <code>yourdomain.com/*</code>, action "Forwarding URL" (301), destination <code>yourbrand.com/$1</code></li>
 <li>Test the redirect by visiting the domain in a browser</li>
 </ol>
-<p><strong>Can I send cold emails from redirect domains?</strong></p>
+<h2 id="can-i-send-cold-emails-from-redirect-domains">Can I send cold emails from redirect domains?</h2>
 <p>Yes, but you must configure email records (MX, SPF, DKIM) first. Simply setting up a redirect doesn't make the domain capable of sending email. You need to add mail exchange records so ISPs recognize emails from these domains as legitimate.</p>
-<p><strong>How many domains should I use for a cold email campaign?</strong></p>
+<h2 id="how-many-domains-should-i-use-for-a-cold-email-campaign">How many domains should I use for a cold email campaign?</h2>
 <p>Use 1-2 domains for campaigns under 1,000 emails, 5 domains for 5,000-10,000 emails, and 10-15 domains for 50,000+ emails. This distributes email volume and ISP reputation impact. More domains = better deliverability, but more setup overhead.</p>
 <h3>Internal Links</h3>
 <ul>
@@ -1965,7 +1989,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">The cost varies by scale. At imisofts, our Starter package (10 domains, 50 inboxes, 1,000 emails/day) costs $489/year plus a $399 setup fee — totaling $888 to start. This is significantly less than Google Workspace or hosted inbox alternatives.</div>
+<div class="faq-answer-inner">The cost varies by scale. At imisofts, our Starter package (10 domains, 50 inboxes, 1,000 emails/day) costs $489/year plus a $399 setup fee, totaling $888 to start. This is significantly less than Google Workspace or hosted inbox alternatives.</div>
 </div>
 </div><div class="faq-item">
 <button class="faq-question" aria-expanded="false">
@@ -1996,6 +2020,30 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#how-to-set-up-domain-redirects-for-cold-email-2026">How to Set Up Domain Redirects for Cold Email (2026)</a></li>
+<li><a href="#step-1-add-your-domain-to-cloudflare">Step 1: Add Your Domain to Cloudflare</a></li>
+<li><a href="#step-2-update-nameservers">Step 2: Update Nameservers</a></li>
+<li><a href="#step-3-create-page-rules-for-redirect">Step 3: Create Page Rules for Redirect</a></li>
+<li><a href="#step-4-set-up-email-records-mx-records">Step 4: Set Up Email Records (MX Records)</a></li>
+<li><a href="#step-5-test-the-redirect">Step 5: Test the Redirect</a></li>
+<li><a href="#step-1-access-domain-settings">Step 1: Access Domain Settings</a></li>
+<li><a href="#step-2-configure-email-records">Step 2: Configure Email Records</a></li>
+<li><a href="#step-3-set-up-url-redirect">Step 3: Set Up URL Redirect</a></li>
+<li><a href="#step-4-test-the-redirect">Step 4: Test the Redirect</a></li>
+<li><a href="#step-1-access-domain-settings-2">Step 1: Access Domain Settings</a></li>
+<li><a href="#step-2-configure-forwarding">Step 2: Configure Forwarding</a></li>
+<li><a href="#step-3-configure-email-records">Step 3: Configure Email Records</a></li>
+<li><a href="#step-4-test">Step 4: Test</a></li>
+<li><a href="#mistake-1-sending-email-without-email-records-mx-spf-dkim">Mistake 1: Sending Email Without Email Records (MX/SPF/DKIM)</a></li>
+<li><a href="#mistake-2-using-same-domain-name-pattern">Mistake 2: Using Same Domain Name Pattern</a></li>
+<li><a href="#mistake-3-high-volume-per-domain-without-warm-up">Mistake 3: High Volume Per Domain Without Warm-Up</a></li>
+<li><a href="#mistake-4-forgetting-to-remove-inactive-domains">Mistake 4: Forgetting to Remove Inactive Domains</a></li>
+<li><a href="#mistake-5-not-testing-redirects-before-launch">Mistake 5: Not Testing Redirects Before Launch</a></li>
+<li><a href="#what-is-a-domain-redirect-for-cold-email">What is a domain redirect for cold email?</a></li>
+<li><a href="#why-do-i-need-multiple-domains-for-cold-email">Why do I need multiple domains for cold email?</a></li>
+<li><a href="#how-do-i-set-up-a-domain-redirect-on-cloudflare">How do I set up a domain redirect on Cloudflare?</a></li>
+<li><a href="#can-i-send-cold-emails-from-redirect-domains">Can I send cold emails from redirect domains?</a></li>
+<li><a href="#how-many-domains-should-i-use-for-a-cold-email-campaign">How many domains should I use for a cold email campaign?</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

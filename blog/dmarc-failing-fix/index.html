@@ -1718,14 +1718,44 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#what-is-dmarc-and-why-it-matters-for-cold-email">What Is DMARC (And Why It Matters for Cold Email)</a></li>
+<li><a href="#why-isps-care">Why ISPs care:</a></li>
 <li><a href="#dmarc-alignment-explained">DMARC Alignment Explained</a></li>
+<li><a href="#example-of-alignment">Example of alignment:</a></li>
 <li><a href="#the-3-requirements-for-dmarc-to-pass">The 3 Requirements for DMARC to Pass</a></li>
+<li><a href="#check-spf">Check SPF:</a></li>
+<li><a href="#what-you-should-see">What you should see:</a></li>
+<li><a href="#if-spf-shows-red">If SPF shows red:</a></li>
+<li><a href="#common-spf-issue-too-many-includes-over-10-lookups">Common SPF issue: Too many includes (over 10 lookups)</a></li>
+<li><a href="#the-fix-for-too-many-spf-includes">The fix for too many SPF includes:</a></li>
+<li><a href="#check-dkim">Check DKIM:</a></li>
+<li><a href="#what-you-should-see-2">What you should see:</a></li>
+<li><a href="#if-dkim-shows-red">If DKIM shows red:</a></li>
+<li><a href="#common-dkim-issue-using-wrong-selector">Common DKIM issue: Using wrong selector</a></li>
+<li><a href="#the-fix">The fix:</a></li>
+<li><a href="#what-alignment-means">What alignment means:</a></li>
+<li><a href="#dkim-alignment">DKIM alignment:</a></li>
+<li><a href="#the-fix-for-alignment">The fix for alignment:</a></li>
 <li><a href="#dmarc-record-setup-final-step">DMARC Record Setup (Final Step)</a></li>
+<li><a href="#what-dmarc-policy-does">What DMARC policy does:</a></li>
+<li><a href="#set-up-dmarc">Set up DMARC:</a></li>
+<li><a href="#what-each-part-means">What each part means:</a></li>
 <li><a href="#the-complete-dmarcspfdkim-checklist">The Complete DMARC/SPF/DKIM Checklist</a></li>
 <li><a href="#real-example-dmarc-fix-at-enterprise-scale">Real Example: DMARC Fix at Enterprise Scale</a></li>
 <li><a href="#troubleshooting-when-alignment-still-fails">Troubleshooting: When Alignment Still Fails</a></li>
+<li><a href="#check-email-headers">Check email headers:</a></li>
+<li><a href="#if-spf-shows-fail">If SPF shows fail:</a></li>
+<li><a href="#if-dkim-shows-fail">If DKIM shows fail:</a></li>
+<li><a href="#if-dmarc-shows-fail-but-spf-and-dkim-pass">If DMARC shows fail but SPF and DKIM pass:</a></li>
+<li><a href="#if-all-pass-but-emails-still-bounce">If all pass but emails still bounce:</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-do-i-need-dmarc-to-send-cold-email">Q: Do I need DMARC to send cold email?</a></li>
+<li><a href="#q-can-i-use-a-subdomain-for-dmarc-spf-dkim">Q: Can I use a subdomain for DMARC/SPF/DKIM?</a></li>
+<li><a href="#q-how-long-after-fixing-does-dmarc-alignment-work">Q: How long after fixing does DMARC alignment work?</a></li>
+<li><a href="#q-should-i-set-dmarc-to-reject-or-quarantine">Q: Should I set DMARC to reject or quarantine?</a></li>
+<li><a href="#q-what-if-i-have-multiple-email-services-sending-from-same-d">Q: What if I have multiple email services sending from same domain?</a></li>
+<li><a href="#q-do-i-need-separate-dkim-for-each-email-service">Q: Do I need separate DKIM for each email service?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1740,7 +1770,7 @@ Table of Contents
 <h2 id="what-is-dmarc-and-why-it-matters-for-cold-email">What Is DMARC (And Why It Matters for Cold Email)</h2>
 <p>DMARC = Domain-based Message Authentication, Reporting & Conformance.</p>
 <p>It's a policy that says: "I own this domain. If an email claims to be from my domain but I didn't send it, here's what you should do with it."</p>
-<p><strong>Why ISPs care:</strong></p>
+<h2 id="why-isps-care">Why ISPs care:</h2>
 <ul>
 <li>Without DMARC: Anyone can send emails claiming to be from your domain (spoofing)</li>
 <li>With DMARC: Only authenticated emails pass (SPF/DKIM pass and align with domain)</li>
@@ -1754,7 +1784,7 @@ Table of Contents
 <li>Email must pass DKIM check (signature is valid)</li>
 <li>And: Both SPF and DKIM must show the same domain as the sender</li>
 </ol>
-<p><strong>Example of alignment:</strong></p>
+<h2 id="example-of-alignment">Example of alignment:</h2>
 <p>Email claims to be from: john@yourdomain.com</p>
 <p>SPF check: yourdomain.com says "my server at IP 203.0.113.5 can send for me" → PASS</p>
 <p>DKIM check: yourdomain.com's DKIM signature validates → PASS</p>
@@ -1769,19 +1799,19 @@ Table of Contents
 <h2 id="the-3-requirements-for-dmarc-to-pass">The 3 Requirements for DMARC to Pass</h2>
 <h3>Requirement 1: SPF Record Must Exist and Authenticate Your Server</h3>
 <p>SPF (Sender Policy Framework) tells ISPs which servers can send from your domain.</p>
-<p><strong>Check SPF:</strong></p>
+<h2 id="check-spf">Check SPF:</h2>
 <ol>
 <li>Go to mxtoolbox.com</li>
 <li>Click "SPF Record"</li>
 <li>Enter your domain</li>
 <li>Check result</li>
 </ol>
-<p><strong>What you should see:</strong></p>
+<h2 id="what-you-should-see">What you should see:</h2>
 <ul>
 <li>Green: "Pass" - SPF record exists and is valid</li>
 <li>Red: "Fail," "Error," or "None found" - SPF is broken</li>
 </ul>
-<p><strong>If SPF shows red:</strong></p>
+<h2 id="if-spf-shows-red">If SPF shows red:</h2>
 <p>You need to add an SPF record to your DNS.</p>
 <ol>
 <li>Log into your domain registrar (GoDaddy, Namecheap, Bluehost, etc)</li>
@@ -1796,32 +1826,32 @@ Table of Contents
 <li>Save and wait 24-48 hours for DNS to propagate</li>
 <li>Re-check at mxtoolbox.com (should now show "Pass")</li>
 </ol>
-<p><strong>Common SPF issue: Too many includes (over 10 lookups)</strong></p>
+<h2 id="common-spf-issue-too-many-includes-over-10-lookups">Common SPF issue: Too many includes (over 10 lookups)</h2>
 <p>If you use 3+ email services, SPF can break due to DNS lookup limits.</p>
 <p>Example: You use HubSpot, Mailchimp, SendGrid, ActiveCampaign, and your email provider.</p>
 <p>SPF record: <code>v=spf1 include:sendgrid include:hubspot include:mailchimp include:activecampaign include:your-mail-server ~all</code></p>
 <p>That's 5 includes. Each include = 1 DNS lookup. But SPF has a limit: 10 lookups maximum.</p>
 <p>If you hit 10+, ISPs reject the entire SPF record.</p>
-<p><strong>The fix for too many SPF includes:</strong></p>
+<h2 id="the-fix-for-too-many-spf-includes">The fix for too many SPF includes:</h2>
 <p>Use SPF flattening. Instead of includes, you list IPs directly.</p>
 <p>This is complex, so contact your domain host and say: "My SPF record has too many includes. Can you flatten it?"</p>
 <p>They'll convert: <code>include:sendgrid</code> → the actual IP addresses SendGrid uses, removing the include.</p>
 <h3>Requirement 2: DKIM Record Must Exist and Validate Email Signature</h3>
 <p>DKIM (DomainKeys Identified Mail) is a cryptographic signature proving the email is legitimate.</p>
 <p>Your email service generates a public key that goes in DNS. When they send emails, they sign them with a private key. ISPs validate the signature using the public key.</p>
-<p><strong>Check DKIM:</strong></p>
+<h2 id="check-dkim">Check DKIM:</h2>
 <ol>
 <li>Go to mxtoolbox.com</li>
 <li>Click "DKIM Record"</li>
 <li>Enter your domain</li>
 <li>Check result</li>
 </ol>
-<p><strong>What you should see:</strong></p>
+<h2 id="what-you-should-see-2">What you should see:</h2>
 <ul>
 <li>Green: DKIM record found with a long public key</li>
 <li>Red: "Error" or "None found" - DKIM missing</li>
 </ul>
-<p><strong>If DKIM shows red:</strong></p>
+<h2 id="if-dkim-shows-red">If DKIM shows red:</h2>
 <ol>
 <li>Log into your email service (Instantly, SmartLead, SendGrid, etc)</li>
 <li>Find DKIM setup instructions (usually under "Domain Configuration" or "Email Authentication")</li>
@@ -1833,11 +1863,11 @@ Table of Contents
 <li>Save and wait 24-48 hours</li>
 <li>Re-check at mxtoolbox.com (should show "Pass")</li>
 </ol>
-<p><strong>Common DKIM issue: Using wrong selector</strong></p>
+<h2 id="common-dkim-issue-using-wrong-selector">Common DKIM issue: Using wrong selector</h2>
 <p>Different email services use different DKIM selectors. If you configure it wrong, the selector name won't match.</p>
 <p>Example: You add DKIM record at "selector1._domainkey" but your service is looking for "default._domainkey."</p>
 <p>DKIM check won't find it because it's looking in the wrong place.</p>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix">The fix:</h2>
 <ol>
 <li>Ask your email service: "What's the exact DKIM selector you use?" (Usually it's "default" or "selector1" or "sm" or something)</li>
 <li>Add the record under that exact name</li>
@@ -1846,7 +1876,7 @@ Table of Contents
 <h3>Requirement 3: SPF and DKIM Must Align with Your Sending Domain</h3>
 <p>This is where most people mess up.</p>
 <p>SPF and DKIM can both pass, but if they don't align with your domain, DMARC fails.</p>
-<p><strong>What alignment means:</strong></p>
+<h2 id="what-alignment-means">What alignment means:</h2>
 <p>SPF alignment: The domain in the SPF "from" address matches your sending domain.</p>
 <p>Example:</p>
 <ul>
@@ -1860,7 +1890,7 @@ Table of Contents
 <li>SPF says: mail.sendingservice.com authorized this server (but only for sendingservice.com, not yourdomain.com)</li>
 <li>Alignment: NO (SPF authorizes sendingservice.com, email is from yourdomain.com)</li>
 </ul>
-<p><strong>DKIM alignment:</strong></p>
+<h2 id="dkim-alignment">DKIM alignment:</h2>
 <p>DKIM signature is signed by yourdomain.com's private key.</p>
 <ul>
 <li>Email from: john@yourdomain.com</li>
@@ -1873,7 +1903,7 @@ Table of Contents
 <li>DKIM signature: Signed with mail.sendingservice.com's private key</li>
 <li>Alignment: NO</li>
 </ul>
-<p><strong>The fix for alignment:</strong></p>
+<h2 id="the-fix-for-alignment">The fix for alignment:</h2>
 <p>For SPF alignment:</p>
 <ul>
 <li>Your SPF record must include your domain: <code>v=spf1 include:yourdomain.com ...</code></li>
@@ -1888,12 +1918,12 @@ Table of Contents
 </ul>
 <h2 id="dmarc-record-setup-final-step">DMARC Record Setup (Final Step)</h2>
 <p>After SPF and DKIM are working, add DMARC policy.</p>
-<p><strong>What DMARC policy does:</strong></p>
+<h2 id="what-dmarc-policy-does">What DMARC policy does:</h2>
 <ul>
 <li>Tells ISPs what to do if alignment fails</li>
 <li>Options: Quarantine (spam folder), Reject (bounce), or Monitor (no action, just report)</li>
 </ul>
-<p><strong>Set up DMARC:</strong></p>
+<h2 id="set-up-dmarc">Set up DMARC:</h2>
 <ol>
 <li>Go to your domain registrar</li>
 <li>Find DNS/DNS Records</li>
@@ -1901,7 +1931,7 @@ Table of Contents
 <li>Use this value (for monitoring/testing):</li>
 </ol>
 <p><code>v=DMARC1; p=quarantine; rua=mailto:your-email@yourdomain.com; ruf=mailto:your-email@yourdomain.com; fo=1</code></p>
-<p><strong>What each part means:</strong></p>
+<h2 id="what-each-part-means">What each part means:</h2>
 <ul>
 <li><code>v=DMARC1</code> - DMARC version</li>
 <li><code>p=quarantine</code> - Policy: quarantine (spam folder) if alignment fails. Use this for testing. After 1 week, you can change to <code>p=reject</code> (bounce)</li>
@@ -1986,7 +2016,7 @@ Table of Contents
 <p>Total time to fix: 4 hours of work across 5 domains.</p>
 <h2 id="troubleshooting-when-alignment-still-fails">Troubleshooting: When Alignment Still Fails</h2>
 <p>If you've done all above and alignment still fails:</p>
-<p><strong>Check email headers:</strong></p>
+<h2 id="check-email-headers">Check email headers:</h2>
 <ol>
 <li>Send test email to yourself</li>
 <li>Open it</li>
@@ -2000,42 +2030,42 @@ Table of Contents
 <li>DKIM: pass or fail?</li>
 <li>DMARC: pass or fail?</li>
 </ul>
-<p><strong>If SPF shows fail:</strong></p>
+<h2 id="if-spf-shows-fail">If SPF shows fail:</h2>
 <ul>
 <li>Your email service's IP is not in SPF record</li>
 <li>Contact your email service: "What IP do I add to SPF?"</li>
 <li>Add that IP to SPF record</li>
 </ul>
-<p><strong>If DKIM shows fail:</strong></p>
+<h2 id="if-dkim-shows-fail">If DKIM shows fail:</h2>
 <ul>
 <li>DKIM record is wrong or missing</li>
 <li>Re-check DKIM setup</li>
 <li>Verify selector name is exact</li>
 </ul>
-<p><strong>If DMARC shows fail but SPF and DKIM pass:</strong></p>
+<h2 id="if-dmarc-shows-fail-but-spf-and-dkim-pass">If DMARC shows fail but SPF and DKIM pass:</h2>
 <ul>
 <li>This is rare</li>
 <li>Usually indicates domain mismatch (email from yourdomain.com but SPF is for subdomain.yourdomain.com)</li>
 <li>Check that all 3 are consistent</li>
 </ul>
-<p><strong>If all pass but emails still bounce:</strong></p>
+<h2 id="if-all-pass-but-emails-still-bounce">If all pass but emails still bounce:</h2>
 <ul>
 <li>DMARC is working, different problem</li>
 <li>Check: Blacklist status, IP reputation, email content</li>
 <li>See other posts in this series</li>
 </ul>
 <h2 id="faq">FAQ</h2>
-<p><strong>Q: Do I need DMARC to send cold email?</strong></p>
+<h2 id="q-do-i-need-dmarc-to-send-cold-email">Q: Do I need DMARC to send cold email?</h2>
 <p>A: SPF and DKIM, yes (non-negotiable). DMARC, no (but highly recommended). ISPs trust SPF/DKIM, less critical on DMARC.</p>
-<p><strong>Q: Can I use a subdomain for DMARC/SPF/DKIM?</strong></p>
+<h2 id="q-can-i-use-a-subdomain-for-dmarc-spf-dkim">Q: Can I use a subdomain for DMARC/SPF/DKIM?</h2>
 <p>A: Yes. mail.yourdomain.com can have its own SPF/DKIM/DMARC. But generally, use your primary domain for cold email.</p>
-<p><strong>Q: How long after fixing does DMARC alignment work?</strong></p>
+<h2 id="q-how-long-after-fixing-does-dmarc-alignment-work">Q: How long after fixing does DMARC alignment work?</h2>
 <p>A: 24-48 hours for DNS propagation. After that, emails should authenticate immediately.</p>
-<p><strong>Q: Should I set DMARC to reject or quarantine?</strong></p>
+<h2 id="q-should-i-set-dmarc-to-reject-or-quarantine">Q: Should I set DMARC to reject or quarantine?</h2>
 <p>A: Start with quarantine. Test for 1 week. Check reports. If alignment is passing 95%+, upgrade to reject.</p>
-<p><strong>Q: What if I have multiple email services sending from same domain?</strong></p>
+<h2 id="q-what-if-i-have-multiple-email-services-sending-from-same-d">Q: What if I have multiple email services sending from same domain?</h2>
 <p>A: All must be listed in SPF. If too many, use SPF flattening. Alternatively, use different subdomains (mail1.yourdomain.com, mail2.yourdomain.com) and set up separate SPF for each.</p>
-<p><strong>Q: Do I need separate DKIM for each email service?</strong></p>
+<h2 id="q-do-i-need-separate-dkim-for-each-email-service">Q: Do I need separate DKIM for each email service?</h2>
 <p>A: Each service has its own DKIM key. Add all of them to your domain DNS under different selectors (selector1, selector2, etc) or ask them which selector to use.</p>
 <h2 id="next-steps">Next Steps</h2>
 <ol>
@@ -2120,14 +2150,44 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#what-is-dmarc-and-why-it-matters-for-cold-email">What Is DMARC (And Why It Matters for Cold Email)</a></li>
+<li><a href="#why-isps-care">Why ISPs care:</a></li>
 <li><a href="#dmarc-alignment-explained">DMARC Alignment Explained</a></li>
+<li><a href="#example-of-alignment">Example of alignment:</a></li>
 <li><a href="#the-3-requirements-for-dmarc-to-pass">The 3 Requirements for DMARC to Pass</a></li>
+<li><a href="#check-spf">Check SPF:</a></li>
+<li><a href="#what-you-should-see">What you should see:</a></li>
+<li><a href="#if-spf-shows-red">If SPF shows red:</a></li>
+<li><a href="#common-spf-issue-too-many-includes-over-10-lookups">Common SPF issue: Too many includes (over 10 lookups)</a></li>
+<li><a href="#the-fix-for-too-many-spf-includes">The fix for too many SPF includes:</a></li>
+<li><a href="#check-dkim">Check DKIM:</a></li>
+<li><a href="#what-you-should-see-2">What you should see:</a></li>
+<li><a href="#if-dkim-shows-red">If DKIM shows red:</a></li>
+<li><a href="#common-dkim-issue-using-wrong-selector">Common DKIM issue: Using wrong selector</a></li>
+<li><a href="#the-fix">The fix:</a></li>
+<li><a href="#what-alignment-means">What alignment means:</a></li>
+<li><a href="#dkim-alignment">DKIM alignment:</a></li>
+<li><a href="#the-fix-for-alignment">The fix for alignment:</a></li>
 <li><a href="#dmarc-record-setup-final-step">DMARC Record Setup (Final Step)</a></li>
+<li><a href="#what-dmarc-policy-does">What DMARC policy does:</a></li>
+<li><a href="#set-up-dmarc">Set up DMARC:</a></li>
+<li><a href="#what-each-part-means">What each part means:</a></li>
 <li><a href="#the-complete-dmarcspfdkim-checklist">The Complete DMARC/SPF/DKIM Checklist</a></li>
 <li><a href="#real-example-dmarc-fix-at-enterprise-scale">Real Example: DMARC Fix at Enterprise Scale</a></li>
 <li><a href="#troubleshooting-when-alignment-still-fails">Troubleshooting: When Alignment Still Fails</a></li>
+<li><a href="#check-email-headers">Check email headers:</a></li>
+<li><a href="#if-spf-shows-fail">If SPF shows fail:</a></li>
+<li><a href="#if-dkim-shows-fail">If DKIM shows fail:</a></li>
+<li><a href="#if-dmarc-shows-fail-but-spf-and-dkim-pass">If DMARC shows fail but SPF and DKIM pass:</a></li>
+<li><a href="#if-all-pass-but-emails-still-bounce">If all pass but emails still bounce:</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-do-i-need-dmarc-to-send-cold-email">Q: Do I need DMARC to send cold email?</a></li>
+<li><a href="#q-can-i-use-a-subdomain-for-dmarc-spf-dkim">Q: Can I use a subdomain for DMARC/SPF/DKIM?</a></li>
+<li><a href="#q-how-long-after-fixing-does-dmarc-alignment-work">Q: How long after fixing does DMARC alignment work?</a></li>
+<li><a href="#q-should-i-set-dmarc-to-reject-or-quarantine">Q: Should I set DMARC to reject or quarantine?</a></li>
+<li><a href="#q-what-if-i-have-multiple-email-services-sending-from-same-d">Q: What if I have multiple email services sending from same domain?</a></li>
+<li><a href="#q-do-i-need-separate-dkim-for-each-email-service">Q: Do I need separate DKIM for each email service?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

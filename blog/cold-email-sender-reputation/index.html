@@ -1716,16 +1716,59 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#how-email-providers-calculate-sender-reputation">How Email Providers Calculate Sender Reputation</a></li>
+<li><a href="#1-low-bounce-rate-most-important">1. Low Bounce Rate (Most Important)</a></li>
+<li><a href="#2-engagement-metrics">2. Engagement Metrics</a></li>
+<li><a href="#3-spam-complaint-rate">3. Spam Complaint Rate</a></li>
+<li><a href="#4-authentication-spf-dkim-dmarc">4. Authentication (SPF, DKIM, DMARC)</a></li>
+<li><a href="#5-domain-age">5. Domain Age</a></li>
+<li><a href="#6-ip-reputation">6. IP Reputation</a></li>
+<li><a href="#7-sending-volume-consistency">7. Sending Volume Consistency</a></li>
+<li><a href="#1-high-bounce-rate-above-5">1. High Bounce Rate (Above 5%)</a></li>
+<li><a href="#2-honeypot-hits">2. Honeypot Hits</a></li>
+<li><a href="#3-spam-complaints">3. Spam Complaints</a></li>
+<li><a href="#4-blacklist-additions">4. Blacklist Additions</a></li>
+<li><a href="#5-missing-authentication">5. Missing Authentication</a></li>
+<li><a href="#6-suspicious-sending-patterns">6. Suspicious Sending Patterns</a></li>
+<li><a href="#7-poor-list-quality">7. Poor List Quality</a></li>
 <li><a href="#reputation-across-email-providers">Reputation Across Email Providers</a></li>
+<li><a href="#most-important-factors">Most important factors:</a></li>
+<li><a href="#reputation-indicators-to-watch">Reputation indicators to watch:</a></li>
+<li><a href="#most-important-factors-2">Most important factors:</a></li>
+<li><a href="#most-important-factors-3">Most important factors:</a></li>
+<li><a href="#factors-they-check">Factors they check:</a></li>
 <li><a href="#real-example-a-reputation-rebuild">Real Example: A Reputation Rebuild</a></li>
+<li><a href="#week-0-2-the-problem">Week 0-2: The Problem</a></li>
+<li><a href="#week-2-4-accelerating-damage">Week 2-4: Accelerating Damage</a></li>
+<li><a href="#investigation">Investigation:</a></li>
+<li><a href="#solution-4-week-rebuild">Solution (4-week rebuild):</a></li>
+<li><a href="#result-week-4-8">Result (Week 4-8):</a></li>
 <li><a href="#google-postmaster-tools-your-reputation-dashboard">Google Postmaster Tools: Your Reputation Dashboard</a></li>
+<li><a href="#setup">Setup:</a></li>
+<li><a href="#key-metrics-to-watch">Key metrics to watch:</a></li>
+<li><a href="#authentication">Authentication:</a></li>
+<li><a href="#domain-reputation">Domain reputation:</a></li>
+<li><a href="#ip-reputation">IP reputation:</a></li>
+<li><a href="#bounce-rate">Bounce rate:</a></li>
+<li><a href="#spam-rate">Spam rate:</a></li>
 <li><a href="#the-30-day-reputation-building-timeline">The 30-Day Reputation Building Timeline</a></li>
+<li><a href="#day-1-2-setup">Day 1-2: Setup</a></li>
+<li><a href="#day-3-7-initial-warmup">Day 3-7: Initial Warmup</a></li>
+<li><a href="#day-8-14-active-warmup">Day 8-14: Active Warmup</a></li>
+<li><a href="#day-15-21-transition-to-cold-email">Day 15-21: Transition to Cold Email</a></li>
+<li><a href="#day-22-30-scale-gradually">Day 22-30: Scale Gradually</a></li>
+<li><a href="#day-31-full-scale">Day 31+: Full Scale</a></li>
 <li><a href="#protecting-your-reputation-weekly-checks">Protecting Your Reputation: Weekly Checks</a></li>
+<li><a href="#every-week-check">Every week, check:</a></li>
 <li><a href="#the-reputation-safeguarding-checklist">The Reputation-Safeguarding Checklist</a></li>
 <li><a href="#reputation-recovery-if-damage-occurs">Reputation Recovery: If Damage Occurs</a></li>
+<li><a href="#immediate-day-1-3">Immediate (Day 1-3):</a></li>
+<li><a href="#short-term-week-1-2">Short-term (Week 1-2):</a></li>
+<li><a href="#medium-term-week-2-4">Medium-term (Week 2-4):</a></li>
+<li><a href="#long-term-week-4">Long-term (Week 4+):</a></li>
+<li><a href="#if-blacklisted">If blacklisted:</a></li>
 <li><a href="#the-bottom-line-reputation-is-currency">The Bottom Line: Reputation Is Currency</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1736,10 +1779,10 @@ Table of Contents
 <p>Sender reputation determines whether your emails land in the inbox or the spam folder. It&#x27;s the invisible algorithm controlling your cold email success.</p>
 <p>At imisofts, we manage reputation for 847 live campaigns. I&#x27;m sharing exactly how it works and how to build it.</p>
 <h2 id="how-email-providers-calculate-sender-reputation">How Email Providers Calculate Sender Reputation</h2>
-<p>Gmail, Outlook, Yahoo, and corporate mail servers all calculate reputation independently. There&#x27;s no universal score—each provider has their own algorithm.</p>
+<p>Gmail, Outlook, Yahoo, and corporate mail servers all calculate reputation independently. There&#x27;s no universal score, each provider has their own algorithm.</p>
 <p>But the inputs are similar:</p>
 <h3 id="positive-reputation-factors">Positive Reputation Factors</h3>
-<p><strong>1. Low Bounce Rate (Most Important)</strong></p>
+<h2 id="1-low-bounce-rate-most-important">1. Low Bounce Rate (Most Important)</h2>
 <ul>
 <li>Bounce rate under 2%: Excellent</li>
 <li>Bounce rate 2-3%: Good</li>
@@ -1748,7 +1791,7 @@ Table of Contents
 </ul>
 <p>Bounce rate is the single strongest signal. It tells Gmail: &quot;This sender has a clean list and knows who they&#x27;re emailing.&quot;</p>
 <p>High bounce rate means you&#x27;re hitting invalid addresses, spam traps, or honeypots. That&#x27;s a red flag.</p>
-<p><strong>2. Engagement Metrics</strong></p>
+<h2 id="2-engagement-metrics">2. Engagement Metrics</h2>
 <ul>
 <li>Open rate (people opening your emails)</li>
 <li>Click rate (people clicking links)</li>
@@ -1756,7 +1799,7 @@ Table of Contents
 </ul>
 <p>Engagement proves your emails are legitimate. Spam isn&#x27;t engaged with. Real, wanted email generates opens, clicks, replies.</p>
 <p>High engagement = high reputation.</p>
-<p><strong>3. Spam Complaint Rate</strong></p>
+<h2 id="3-spam-complaint-rate">3. Spam Complaint Rate</h2>
 <ul>
 <li>Under 0.1% complaint rate: Excellent</li>
 <li>0.1-0.5%: Good</li>
@@ -1764,28 +1807,28 @@ Table of Contents
 <li>Above 1%: Problem</li>
 </ul>
 <p>Spam complaints are weighted heavily. A single complaint damages reputation. Multiple complaints tank it.</p>
-<p><strong>4. Authentication (SPF, DKIM, DMARC)</strong></p>
+<h2 id="4-authentication-spf-dkim-dmarc">4. Authentication (SPF, DKIM, DMARC)</h2>
 <ul>
 <li>SPF record present and valid: Check</li>
 <li>DKIM signature verified: Check</li>
 <li>DMARC policy aligned: Check</li>
 </ul>
 <p>Email providers check authentication first. Missing authentication flags you immediately.</p>
-<p><strong>5. Domain Age</strong></p>
+<h2 id="5-domain-age">5. Domain Age</h2>
 <ul>
 <li>New domains (0-7 days): Low reputation baseline</li>
 <li>Maturing domains (7-30 days): Reputation building</li>
 <li>Established domains (30+ days): Reputation compounding</li>
 </ul>
 <p>New domains start at zero reputation. Older domains start higher.</p>
-<p><strong>6. IP Reputation</strong></p>
+<h2 id="6-ip-reputation">6. IP Reputation</h2>
 <ul>
 <li>New IPs (0-7 days): Low baseline</li>
 <li>Warm IPs (7-30 days): Warming period</li>
 <li>Established IPs (30+ days): Reputation building</li>
 </ul>
 <p>Like domain age, IP age matters. New IPs need warming.</p>
-<p><strong>7. Sending Volume Consistency</strong></p>
+<h2 id="7-sending-volume-consistency">7. Sending Volume Consistency</h2>
 <ul>
 <li>Stable, predictable volume: Good signal</li>
 <li>Sudden spikes (100 emails/day to 1,000): Red flag</li>
@@ -1793,7 +1836,7 @@ Table of Contents
 </ul>
 <p>Consistent volume looks legitimate. Spikes look like hacking/compromise.</p>
 <h3 id="negative-reputation-factors-reputation-killers">Negative Reputation Factors (Reputation Killers)</h3>
-<p><strong>1. High Bounce Rate (Above 5%)</strong></p>
+<h2 id="1-high-bounce-rate-above-5">1. High Bounce Rate (Above 5%)</h2>
 <p>Destroys reputation faster than anything else.</p>
 <p>Causes:</p>
 <ul>
@@ -1802,7 +1845,7 @@ Table of Contents
 <li>Not validating emails before sending</li>
 <li>Outdated contact lists</li>
 </ul>
-<p><strong>2. Honeypot Hits</strong></p>
+<h2 id="2-honeypot-hits">2. Honeypot Hits</h2>
 <p>Spam traps (fake emails) set by ISPs to catch spammers. One hit damages reputation.</p>
 <p>Causes:</p>
 <ul>
@@ -1810,7 +1853,7 @@ Table of Contents
 <li>Sending to purchased lists</li>
 <li>Buying lists that include traps</li>
 </ul>
-<p><strong>3. Spam Complaints</strong></p>
+<h2 id="3-spam-complaints">3. Spam Complaints</h2>
 <p>Users marking you as spam. Each complaint damages reputation.</p>
 <p>Causes:</p>
 <ul>
@@ -1819,7 +1862,7 @@ Table of Contents
 <li>Poor targeting (sending to wrong audience)</li>
 <li>Misleading subject lines</li>
 </ul>
-<p><strong>4. Blacklist Additions</strong></p>
+<h2 id="4-blacklist-additions">4. Blacklist Additions</h2>
 <p>Your domain or IP added to Spamhaus, SURBL, or other blacklists.</p>
 <p>Causes:</p>
 <ul>
@@ -1828,7 +1871,7 @@ Table of Contents
 <li>Spam complaints</li>
 <li>Compromised server security</li>
 </ul>
-<p><strong>5. Missing Authentication</strong></p>
+<h2 id="5-missing-authentication">5. Missing Authentication</h2>
 <p>SPF record broken, DKIM not signing, DMARC in &quot;none&quot; mode.</p>
 <p>Causes:</p>
 <ul>
@@ -1836,7 +1879,7 @@ Table of Contents
 <li>Not setting up authentication at all</li>
 <li>Domain migration without reconfiguration</li>
 </ul>
-<p><strong>6. Suspicious Sending Patterns</strong></p>
+<h2 id="6-suspicious-sending-patterns">6. Suspicious Sending Patterns</h2>
 <p>Sudden volume changes, impossible sending hours, geographic anomalies.</p>
 <p>Causes:</p>
 <ul>
@@ -1844,7 +1887,7 @@ Table of Contents
 <li>Sending across wildly different time zones</li>
 <li>Scheduling errors</li>
 </ul>
-<p><strong>7. Poor List Quality</strong></p>
+<h2 id="7-poor-list-quality">7. Poor List Quality</h2>
 <p>Sending to invalid addresses, spam traps, or purchased lists.</p>
 <p>Causes:</p>
 <ul>
@@ -1854,7 +1897,7 @@ Table of Contents
 </ul>
 <h2 id="reputation-across-email-providers">Reputation Across Email Providers</h2>
 <h3 id="gmail-reputation">Gmail Reputation</h3>
-<p><strong>Most important factors:</strong></p>
+<h2 id="most-important-factors">Most important factors:</h2>
 <ol>
 <li>Bounce rate (heavily weighted)</li>
 <li>Engagement (opens, clicks, replies)</li>
@@ -1863,7 +1906,7 @@ Table of Contents
 </ol>
 <p><strong>Gmail monitoring tool:</strong> Postmaster Tools (postmaster.google.com)</p>
 <p><strong>Recovery time if damaged:</strong> 30-90 days</p>
-<p><strong>Reputation indicators to watch:</strong></p>
+<h2 id="reputation-indicators-to-watch">Reputation indicators to watch:</h2>
 <ul>
 <li>Authentication status (all aligned?)</li>
 <li>Bounce rate (under 2%?)</li>
@@ -1871,7 +1914,7 @@ Table of Contents
 <li>IP reputation (trusted, neutral, bad?)</li>
 </ul>
 <h3 id="outlook-reputation">Outlook Reputation</h3>
-<p><strong>Most important factors:</strong></p>
+<h2 id="most-important-factors-2">Most important factors:</h2>
 <ol>
 <li>Authentication (stricter than Gmail)</li>
 <li>Bounce rate</li>
@@ -1882,7 +1925,7 @@ Table of Contents
 <p><strong>Recovery time if damaged:</strong> 60-120 days (slower than Gmail)</p>
 <p><strong>Key difference:</strong> Outlook is stricter on authentication. Missing DKIM signature = harder to get inboxed.</p>
 <h3 id="yahoo-aol-reputation">Yahoo/AOL Reputation</h3>
-<p><strong>Most important factors:</strong></p>
+<h2 id="most-important-factors-3">Most important factors:</h2>
 <ol>
 <li>Authentication (strictest of all)</li>
 <li>Bounce rate</li>
@@ -1893,7 +1936,7 @@ Table of Contents
 <p><strong>Recovery time if damaged:</strong> 90+ days</p>
 <h3 id="corporate-mail-server-reputation">Corporate Mail Server Reputation</h3>
 <p>Large companies (Microsoft, Google, Apple) have internal mail servers with strict policies.</p>
-<p><strong>Factors they check:</strong></p>
+<h2 id="factors-they-check">Factors they check:</h2>
 <ol>
 <li>Domain reputation (is your domain known?)</li>
 <li>IP reputation (is this IP trustworthy?)</li>
@@ -1905,14 +1948,14 @@ Table of Contents
 <p><strong>Key insight:</strong> Corporate servers often have whitelist/blacklist features. One complaint from a corporate domain = everyone at that company might filter you.</p>
 <h2 id="real-example-a-reputation-rebuild">Real Example: A Reputation Rebuild</h2>
 <p>We had a client whose reputation collapsed. Here&#x27;s what happened:</p>
-<p><strong>Week 0-2: The Problem</strong></p>
+<h2 id="week-0-2-the-problem">Week 0-2: The Problem</h2>
 <ul>
 <li>Campaign starts (100 emails/day)</li>
 <li>Using purchased list (low quality)</li>
 <li>Bounce rate: 8%</li>
 <li>Gmail flags domain as reputation concern</li>
 </ul>
-<p><strong>Week 2-4: Accelerating Damage</strong></p>
+<h2 id="week-2-4-accelerating-damage">Week 2-4: Accelerating Damage</h2>
 <ul>
 <li>Bounce rate climbs to 12% (more invalid emails hit)</li>
 <li>Honeypot email received (from purchased list)</li>
@@ -1920,12 +1963,12 @@ Table of Contents
 <li>Inbox placement drops from 78% to 34%</li>
 <li>Client panics</li>
 </ul>
-<p><strong>Investigation:</strong></p>
+<h2 id="investigation">Investigation:</h2>
 <ul>
 <li>Root cause: Purchased email list with low quality</li>
 <li>Lists have 10-15% invalid addresses + honeypots embedded</li>
 </ul>
-<p><strong>Solution (4-week rebuild):</strong></p>
+<h2 id="solution-4-week-rebuild">Solution (4-week rebuild):</h2>
 <ul>
 <li>Stop sending from damaged domain</li>
 <li>Launch new domain with clean list</li>
@@ -1933,7 +1976,7 @@ Table of Contents
 <li>Validate every email address before sending</li>
 <li>Monitor bounce rate daily (target: under 2%)</li>
 </ul>
-<p><strong>Result (Week 4-8):</strong></p>
+<h2 id="result-week-4-8">Result (Week 4-8):</h2>
 <ul>
 <li>New domain inbox placement: 82%</li>
 <li>Open rate recovered to 16%</li>
@@ -1942,39 +1985,39 @@ Table of Contents
 <p><strong>Lesson:</strong> Reputation damage is mostly preventable. Don&#x27;t buy lists. Validate addresses. Monitor bounces weekly.</p>
 <h2 id="google-postmaster-tools-your-reputation-dashboard">Google Postmaster Tools: Your Reputation Dashboard</h2>
 <p>If you&#x27;re sending to Gmail users, Postmaster Tools is essential.</p>
-<p><strong>Setup:</strong></p>
+<h2 id="setup">Setup:</h2>
 <ol>
 <li>Go to postmaster.google.com</li>
 <li>Verify your domain (DNS record)</li>
 <li>Start monitoring immediately</li>
 </ol>
-<p><strong>Key metrics to watch:</strong></p>
-<p><strong>Authentication:</strong></p>
+<h2 id="key-metrics-to-watch">Key metrics to watch:</h2>
+<h2 id="authentication">Authentication:</h2>
 <ul>
 <li>SPF aligned: Should be 100%</li>
 <li>DKIM signed: Should be 100%</li>
 <li>DMARC aligned: Should be 100%</li>
 <li>Anything below 95%: You have DNS problems</li>
 </ul>
-<p><strong>Domain reputation:</strong></p>
+<h2 id="domain-reputation">Domain reputation:</h2>
 <ul>
 <li>Bad: Gmail doesn&#x27;t trust you (investigate)</li>
 <li>Neutral: Gmail is neutral (normal for new domains)</li>
 <li>Good: Gmail trusts you (goal)</li>
 </ul>
-<p><strong>IP reputation:</strong></p>
+<h2 id="ip-reputation">IP reputation:</h2>
 <ul>
 <li>Bad: Gmail blocks your IP</li>
 <li>Neutral: Gmail is watching</li>
 <li>Good: Gmail trusts your IP</li>
 </ul>
-<p><strong>Bounce rate:</strong></p>
+<h2 id="bounce-rate">Bounce rate:</h2>
 <ul>
 <li>Green (under 3%): Normal</li>
 <li>Yellow (3-5%): Watch list quality</li>
 <li>Red (above 5%): Urgent intervention needed</li>
 </ul>
-<p><strong>Spam rate:</strong></p>
+<h2 id="spam-rate">Spam rate:</h2>
 <ul>
 <li>Green (under 0.1%): Good</li>
 <li>Yellow (0.1-0.5%): Reduce frequency, improve content</li>
@@ -1982,41 +2025,41 @@ Table of Contents
 </ul>
 <p><strong>Check Postmaster daily for first 2 weeks after domain launch, then weekly.</strong></p>
 <h2 id="the-30-day-reputation-building-timeline">The 30-Day Reputation Building Timeline</h2>
-<p><strong>Day 1-2: Setup</strong></p>
+<h2 id="day-1-2-setup">Day 1-2: Setup</h2>
 <ul>
 <li>DNS records configured (SPF, DKIM, DMARC, A, MX)</li>
 <li>Postmaster Tools active</li>
 <li>List validated and cleaned</li>
 </ul>
-<p><strong>Day 3-7: Initial Warmup</strong></p>
+<h2 id="day-3-7-initial-warmup">Day 3-7: Initial Warmup</h2>
 <ul>
 <li>20 warmup emails daily to safe contacts</li>
 <li>Monitor bounce rate (should be near 0%)</li>
 <li>Monitor authentication status (should be 100%)</li>
 <li>Review Postmaster daily</li>
 </ul>
-<p><strong>Day 8-14: Active Warmup</strong></p>
+<h2 id="day-8-14-active-warmup">Day 8-14: Active Warmup</h2>
 <ul>
 <li>50 warmup emails daily</li>
 <li>Start getting opens and replies</li>
 <li>Bounce rate should be under 1%</li>
 <li>Domain reputation shifts from neutral to good</li>
 </ul>
-<p><strong>Day 15-21: Transition to Cold Email</strong></p>
+<h2 id="day-15-21-transition-to-cold-email">Day 15-21: Transition to Cold Email</h2>
 <ul>
 <li>Reduce warmup to 30 emails daily</li>
 <li>Start cold email (50-100 emails/day)</li>
 <li>Monitor bounce rate closely (target: under 2%)</li>
 <li>Keep Postmaster-verified metrics all green</li>
 </ul>
-<p><strong>Day 22-30: Scale Gradually</strong></p>
+<h2 id="day-22-30-scale-gradually">Day 22-30: Scale Gradually</h2>
 <ul>
 <li>Continue mixing warmup (30/day) + cold email (100-150/day)</li>
 <li>Bounce rate should be under 2%</li>
 <li>Engagement (opens, replies) should be positive</li>
 <li>Prepare for 2x volume next week</li>
 </ul>
-<p><strong>Day 31+: Full Scale</strong></p>
+<h2 id="day-31-full-scale">Day 31+: Full Scale</h2>
 <ul>
 <li>Full cold email volume (200-300/day per domain)</li>
 <li>Warmup now background task (20 emails/day)</li>
@@ -2024,7 +2067,7 @@ Table of Contents
 <li>Reputation compounding</li>
 </ul>
 <h2 id="protecting-your-reputation-weekly-checks">Protecting Your Reputation: Weekly Checks</h2>
-<p><strong>Every week, check:</strong></p>
+<h2 id="every-week-check">Every week, check:</h2>
 <ol>
 <li><strong>Bounce rate</strong> (Postmaster Tools or email platform)</li>
 </ol>
@@ -2084,35 +2127,35 @@ Table of Contents
 <p>Missing any of these? Don&#x27;t launch. Your reputation is too valuable.</p>
 <h2 id="reputation-recovery-if-damage-occurs">Reputation Recovery: If Damage Occurs</h2>
 <p>If your reputation gets damaged (bounce rate spikes, domain flagged, blacklisted):</p>
-<p><strong>Immediate (Day 1-3):</strong></p>
+<h2 id="immediate-day-1-3">Immediate (Day 1-3):</h2>
 <ul>
 <li>Pause all campaigns</li>
 <li>Investigate root cause (list quality, authentication issue, honeypot hit?)</li>
 <li>Remove invalid email addresses from list</li>
 <li>Check DNS records (fix any issues)</li>
 </ul>
-<p><strong>Short-term (Week 1-2):</strong></p>
+<h2 id="short-term-week-1-2">Short-term (Week 1-2):</h2>
 <ul>
 <li>Resume with 50% volume</li>
 <li>Monitor bounce rate daily</li>
 <li>Check Postmaster daily</li>
 <li>Only send to verified, engaged contacts</li>
 </ul>
-<p><strong>Medium-term (Week 2-4):</strong></p>
+<h2 id="medium-term-week-2-4">Medium-term (Week 2-4):</h2>
 <ul>
 <li>Gradually increase volume to 75%</li>
 <li>Continue daily monitoring</li>
 <li>Keep bounce rate under 2%</li>
 <li>Wait for domain reputation to improve</li>
 </ul>
-<p><strong>Long-term (Week 4+):</strong></p>
+<h2 id="long-term-week-4">Long-term (Week 4+):</h2>
 <ul>
 <li>Bounce rate should be under 2%</li>
 <li>Domain reputation improving</li>
 <li>Resume normal sending</li>
 <li>Continue monitoring weekly</li>
 </ul>
-<p><strong>If blacklisted:</strong></p>
+<h2 id="if-blacklisted">If blacklisted:</h2>
 <ul>
 <li>Request removal from blacklist (Spamhaus, etc.)</li>
 <li>This takes 30-90 days</li>
@@ -2218,16 +2261,59 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#how-email-providers-calculate-sender-reputation">How Email Providers Calculate Sender Reputation</a></li>
+<li><a href="#1-low-bounce-rate-most-important">1. Low Bounce Rate (Most Important)</a></li>
+<li><a href="#2-engagement-metrics">2. Engagement Metrics</a></li>
+<li><a href="#3-spam-complaint-rate">3. Spam Complaint Rate</a></li>
+<li><a href="#4-authentication-spf-dkim-dmarc">4. Authentication (SPF, DKIM, DMARC)</a></li>
+<li><a href="#5-domain-age">5. Domain Age</a></li>
+<li><a href="#6-ip-reputation">6. IP Reputation</a></li>
+<li><a href="#7-sending-volume-consistency">7. Sending Volume Consistency</a></li>
+<li><a href="#1-high-bounce-rate-above-5">1. High Bounce Rate (Above 5%)</a></li>
+<li><a href="#2-honeypot-hits">2. Honeypot Hits</a></li>
+<li><a href="#3-spam-complaints">3. Spam Complaints</a></li>
+<li><a href="#4-blacklist-additions">4. Blacklist Additions</a></li>
+<li><a href="#5-missing-authentication">5. Missing Authentication</a></li>
+<li><a href="#6-suspicious-sending-patterns">6. Suspicious Sending Patterns</a></li>
+<li><a href="#7-poor-list-quality">7. Poor List Quality</a></li>
 <li><a href="#reputation-across-email-providers">Reputation Across Email Providers</a></li>
+<li><a href="#most-important-factors">Most important factors:</a></li>
+<li><a href="#reputation-indicators-to-watch">Reputation indicators to watch:</a></li>
+<li><a href="#most-important-factors-2">Most important factors:</a></li>
+<li><a href="#most-important-factors-3">Most important factors:</a></li>
+<li><a href="#factors-they-check">Factors they check:</a></li>
 <li><a href="#real-example-a-reputation-rebuild">Real Example: A Reputation Rebuild</a></li>
+<li><a href="#week-0-2-the-problem">Week 0-2: The Problem</a></li>
+<li><a href="#week-2-4-accelerating-damage">Week 2-4: Accelerating Damage</a></li>
+<li><a href="#investigation">Investigation:</a></li>
+<li><a href="#solution-4-week-rebuild">Solution (4-week rebuild):</a></li>
+<li><a href="#result-week-4-8">Result (Week 4-8):</a></li>
 <li><a href="#google-postmaster-tools-your-reputation-dashboard">Google Postmaster Tools: Your Reputation Dashboard</a></li>
+<li><a href="#setup">Setup:</a></li>
+<li><a href="#key-metrics-to-watch">Key metrics to watch:</a></li>
+<li><a href="#authentication">Authentication:</a></li>
+<li><a href="#domain-reputation">Domain reputation:</a></li>
+<li><a href="#ip-reputation">IP reputation:</a></li>
+<li><a href="#bounce-rate">Bounce rate:</a></li>
+<li><a href="#spam-rate">Spam rate:</a></li>
 <li><a href="#the-30-day-reputation-building-timeline">The 30-Day Reputation Building Timeline</a></li>
+<li><a href="#day-1-2-setup">Day 1-2: Setup</a></li>
+<li><a href="#day-3-7-initial-warmup">Day 3-7: Initial Warmup</a></li>
+<li><a href="#day-8-14-active-warmup">Day 8-14: Active Warmup</a></li>
+<li><a href="#day-15-21-transition-to-cold-email">Day 15-21: Transition to Cold Email</a></li>
+<li><a href="#day-22-30-scale-gradually">Day 22-30: Scale Gradually</a></li>
+<li><a href="#day-31-full-scale">Day 31+: Full Scale</a></li>
 <li><a href="#protecting-your-reputation-weekly-checks">Protecting Your Reputation: Weekly Checks</a></li>
+<li><a href="#every-week-check">Every week, check:</a></li>
 <li><a href="#the-reputation-safeguarding-checklist">The Reputation-Safeguarding Checklist</a></li>
 <li><a href="#reputation-recovery-if-damage-occurs">Reputation Recovery: If Damage Occurs</a></li>
+<li><a href="#immediate-day-1-3">Immediate (Day 1-3):</a></li>
+<li><a href="#short-term-week-1-2">Short-term (Week 1-2):</a></li>
+<li><a href="#medium-term-week-2-4">Medium-term (Week 2-4):</a></li>
+<li><a href="#long-term-week-4">Long-term (Week 4+):</a></li>
+<li><a href="#if-blacklisted">If blacklisted:</a></li>
 <li><a href="#the-bottom-line-reputation-is-currency">The Bottom Line: Reputation Is Currency</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

@@ -1718,10 +1718,39 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#the-7-causes-your-emails-hit-spam-and-how-to-know-which-one-is-yours">The 7 Causes Your Emails Hit Spam (and How to Know Which One is Yours)</a></li>
+<li><a href="#how-to-check">How to check:</a></li>
+<li><a href="#what-s-missing">What's missing:</a></li>
+<li><a href="#the-fix">The fix:</a></li>
+<li><a href="#why-it-matters">Why it matters:</a></li>
+<li><a href="#what-warmup-does">What warmup does:</a></li>
+<li><a href="#our-client-data">Our client data:</a></li>
+<li><a href="#the-fix-2">The fix:</a></li>
+<li><a href="#spam-trigger-words">Spam trigger words:</a></li>
+<li><a href="#spam-trigger-formats">Spam trigger formats:</a></li>
+<li><a href="#the-fix-3">The fix:</a></li>
+<li><a href="#the-pattern">The pattern:</a></li>
+<li><a href="#the-fix-4">The fix:</a></li>
+<li><a href="#this-happens-if">This happens if:</a></li>
+<li><a href="#how-to-check-2">How to check:</a></li>
+<li><a href="#the-fix-5">The fix:</a></li>
+<li><a href="#this-is-why-private-servers-win">This is why private servers win:</a></li>
+<li><a href="#how-to-check-if-this-is-your-problem">How to check if this is your problem:</a></li>
+<li><a href="#the-fix-6">The fix:</a></li>
+<li><a href="#how-to-check-3">How to check:</a></li>
+<li><a href="#the-fix-7">The fix:</a></li>
 <li><a href="#combining-fixes-the-fastest-path-forward">Combining Fixes: The Fastest Path Forward</a></li>
+<li><a href="#week-1">Week 1:</a></li>
+<li><a href="#week-2">Week 2:</a></li>
+<li><a href="#week-3">Week 3:</a></li>
 <li><a href="#how-we-fix-this-at-scale">How We Fix This at Scale</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-long-until-my-emails-stop-going-to-spam">Q: How long until my emails stop going to spam?</a></li>
+<li><a href="#q-can-i-fix-spam-folder-emails-by-changing-my-email-service">Q: Can I fix spam folder emails by changing my email service?</a></li>
+<li><a href="#q-is-warmup-really-necessary">Q: Is warmup really necessary?</a></li>
+<li><a href="#q-what-s-the-difference-between-a-bounce-and-spam">Q: What's the difference between a bounce and spam?</a></li>
+<li><a href="#q-can-i-use-gmail-for-cold-email">Q: Can I use Gmail for cold email?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1736,21 +1765,21 @@ Table of Contents
 <h3>1. DNS Misconfigured (Most Common)</h3>
 <p>DNS isn't optional. It's the foundation of deliverability.</p>
 <p>If your DNS isn't set up right, every email you send gets marked as suspicious.</p>
-<p><strong>How to check:</strong></p>
+<h2 id="how-to-check">How to check:</h2>
 <ul>
 <li>Go to mxtoolbox.com</li>
 <li>Enter your sending domain</li>
 <li>Run "MX Lookup," "SPF Record," "DKIM Record," DMARC Record</li>
 <li>If any shows "None found" or a red X, you have a DNS problem</li>
 </ul>
-<p><strong>What's missing:</strong></p>
+<h2 id="what-s-missing">What's missing:</h2>
 <ul>
 <li>SPF record: Tells ISPs which servers can send from your domain</li>
 <li>DKIM record: Digital signature proving you own the domain</li>
 <li>DMARC record: Policy telling ISPs what to do with unauthorized emails</li>
 </ul>
 <p><strong>Common SPF issue:</strong> More than 10 DNS lookups. When you have too many email services (Gmail, HubSpot, Mailchimp, SendGrid), SPF breaks. ISPs reject it.</p>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix">The fix:</h2>
 <ol>
 <li>Log into your domain registrar (GoDaddy, Namecheap, etc)</li>
 <li>Find DNS settings</li>
@@ -1765,27 +1794,27 @@ Table of Contents
 <h3>2. No Warmup (or Warmup Less Than 14 Days)</h3>
 <p>New inboxes have zero reputation. ISPs don't trust them.</p>
 <p>Sending 100 emails on day 1 from a brand new inbox? Spam.</p>
-<p><strong>Why it matters:</strong></p>
+<h2 id="why-it-matters">Why it matters:</h2>
 <ul>
 <li>Gmail, Outlook, Yahoo watch new inboxes for the first 2 weeks</li>
 <li>They measure: response rate, deletion rate, complaint rate</li>
 <li>Low engagement = spam folder</li>
 <li>14 days minimum. Non-negotiable.</li>
 </ul>
-<p><strong>What warmup does:</strong></p>
+<h2 id="what-warmup-does">What warmup does:</h2>
 <ul>
 <li>Sends low volumes to real inboxes (your network, safe lists)</li>
 <li>Generates opens, replies, no bounces</li>
 <li>Builds reputation gradually</li>
 <li>Signals to ISPs: "This inbox is legitimate"</li>
 </ul>
-<p><strong>Our client data:</strong></p>
+<h2 id="our-client-data">Our client data:</h2>
 <ul>
 <li>Without warmup: 40-50% deliverability</li>
 <li>With 14-day warmup: 70-85% deliverability</li>
 <li>Some clients hitting 80% even with cold lists</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-2">The fix:</h2>
 <ol>
 <li>Use Instantly or SmartLead (we recommend both)</li>
 <li>Start with 5 emails/day to warm contacts (existing clients, network)</li>
@@ -1798,14 +1827,14 @@ Table of Contents
 <h3>3. Spammy Content (Your Copy, Not Your Domain)</h3>
 <p>ISPs scan email body for spam signals.</p>
 <p>Even if DNS is perfect and reputation is clean, bad copy triggers spam filters.</p>
-<p><strong>Spam trigger words:</strong></p>
+<h2 id="spam-trigger-words">Spam trigger words:</h2>
 <ul>
 <li>Free, guarantee, no risk, act now, limited time, urgent</li>
 <li>Congratulations, claim, cash, easy money</li>
 <li>Check, verify, update account, confirm identity</li>
 <li>Click here, download, urgent action required</li>
 </ul>
-<p><strong>Spam trigger formats:</strong></p>
+<h2 id="spam-trigger-formats">Spam trigger formats:</h2>
 <ul>
 <li>ALL CAPS in subject line (or body)</li>
 <li>Too many exclamation marks (more than 1-2)</li>
@@ -1814,7 +1843,7 @@ Table of Contents
 <li>Misleading subject lines (subject says one thing, email says another)</li>
 <li>Spoof domains (From: name@yourcompany.com but domain doesn't match)</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-3">The fix:</h2>
 <ol>
 <li>Remove urgency language. Replace "Act now" with "Let me know your thoughts"</li>
 <li>Remove all caps from subject lines. Title case only</li>
@@ -1827,13 +1856,13 @@ Table of Contents
 <h3>4. Sending Too Fast (Volume)</h3>
 <p>Blasting 500 emails in 1 hour from a new domain? Red flag.</p>
 <p>ISPs track sending velocity. Sudden spikes = spam.</p>
-<p><strong>The pattern:</strong></p>
+<h2 id="the-pattern">The pattern:</h2>
 <ul>
 <li>Day 1: 10 emails sent</li>
 <li>Day 2: 500 emails sent</li>
 <li>Result: Spam folder</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-4">The fix:</h2>
 <ol>
 <li>Ramp volume gradually during warmup (mentioned above)</li>
 <li>Space sending over time. Don't send all 100 emails in the first hour</li>
@@ -1845,21 +1874,21 @@ Table of Contents
 <p>Spreading volume looks natural. ISPs see steady engagement. They trust it.</p>
 <h3>5. Bad Sender Reputation (IP or Domain)</h3>
 <p>Even if you're following all the rules, your IP might be tainted.</p>
-<p><strong>This happens if:</strong></p>
+<h2 id="this-happens-if">This happens if:</h2>
 <ul>
 <li>You bought a domain used by spammers in the past</li>
 <li>Your shared IP is sending spam (not your fault, but it affects you)</li>
 <li>Previous owner of the IP had bad reputation</li>
 <li>You're using a free email provider (Gmail, Yahoo) that has shared IP</li>
 </ul>
-<p><strong>How to check:</strong></p>
+<h2 id="how-to-check-2">How to check:</h2>
 <ul>
 <li>Go to mxtoolbox.com → Blacklist Check</li>
 <li>Enter your domain or IP</li>
 <li>If listed on SpamRBL, Spamhaus, SORBS, PBL: you're blacklisted</li>
 <li>Go to dmarcian.com, check reputation score</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-5">The fix:</h2>
 <ol>
 <li>If it's your IP: Contact your ESP (Instantly, SmartLead). They'll help delist.</li>
 <li>If it's the domain: Consider buying a new domain (cheap, $10-15/yr)</li>
@@ -1871,13 +1900,13 @@ Table of Contents
 <p>One healthcare podcast client had 4 domains blacklisted on Google Workspace. Switched to private server. Reply rates jumped 1.5% → 3.5% in first month.</p>
 <h3>6. Shared IP with Bad Neighbor</h3>
 <p>If your email service uses shared IPs, one bad actor ruins it for everyone.</p>
-<p><strong>This is why private servers win:</strong></p>
+<h2 id="this-is-why-private-servers-win">This is why private servers win:</h2>
 <ul>
 <li>Dedicated IP means only you send from it</li>
 <li>No other client can spam from your IP</li>
 <li>Full reputation control</li>
 </ul>
-<p><strong>How to check if this is your problem:</strong></p>
+<h2 id="how-to-check-if-this-is-your-problem">How to check if this is your problem:</h2>
 <ul>
 <li>Send yourself a test email</li>
 <li>Check full headers in Gmail (⋮ → Show original)</li>
@@ -1885,7 +1914,7 @@ Table of Contents
 <li>If you see soft bounces (temporary errors), shared IP reputation might be the cause</li>
 <li>Check email deliverability metrics: If 60-70% land in inbox, shared IP is likely the issue</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-6">The fix:</h2>
 <ol>
 <li>Ask your ESP: "What IP am I sending from?" (Shared or dedicated?)</li>
 <li>If shared and you're doing volume (500+ emails/day): Upgrade to dedicated IP</li>
@@ -1902,14 +1931,14 @@ Table of Contents
 <li>You got put on a spam list by mistake</li>
 <li>Google/Microsoft has it in a spam database</li>
 </ul>
-<p><strong>How to check:</strong></p>
+<h2 id="how-to-check-3">How to check:</h2>
 <ul>
 <li>MXToolbox.com → Blacklist Check → Enter domain</li>
 <li>DomainBigData.com → Reputation check</li>
 <li>dmarcian.com → Check reputation score</li>
 <li>Google domain reputation: Search "site:yourdomain.com" if very few results come up, domain might be flagged</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-7">The fix:</h2>
 <ol>
 <li>If on RBL: Go to the RBL website (e.g., Spamhaus) and request delisting</li>
 <li>Most require you to be off the list for 7 days before your domain is removed</li>
@@ -1920,20 +1949,20 @@ Table of Contents
 <p>We had a client with a 7-year-old domain that was blacklisted. Requested delisting. 10 days later, emails went from spam folder to inbox. Took 3 weeks to restore full reputation, but fixed.</p>
 <h2 id="combining-fixes-the-fastest-path-forward">Combining Fixes: The Fastest Path Forward</h2>
 <p>Don't fix one thing and wait. Fix all of them in parallel:</p>
-<p><strong>Week 1:</strong></p>
+<h2 id="week-1">Week 1:</h2>
 <ul>
 <li>Check DNS (mxtoolbox.com). Add/fix SPF, DKIM, DMARC. (24-48 hours to propagate)</li>
 <li>Check blacklist reputation. Start delisting request if needed.</li>
 <li>Audit your email copy. Remove spam trigger words and formats.</li>
 <li>Set up your email service with warmup sequence (5 emails/day)</li>
 </ul>
-<p><strong>Week 2:</strong></p>
+<h2 id="week-2">Week 2:</h2>
 <ul>
 <li>Complete 14-day warmup if you haven't already</li>
 <li>Monitor bounce rate (should be <3%)</li>
 <li>Increase daily volume by 10-20 emails per day</li>
 </ul>
-<p><strong>Week 3:</strong></p>
+<h2 id="week-3">Week 3:</h2>
 <ul>
 <li>Start cold campaigns (list quality matters, but we'll assume good list)</li>
 <li>Track where emails land (inbox, spam, other)</li>
@@ -1953,15 +1982,15 @@ Table of Contents
 <p>Our enterprise setup costs $2,450/yr. Monthly management is $497/mo.</p>
 <p>For smaller operations (50-200 emails/day), the $489/yr private server setup is enough.</p>
 <h2 id="faq">FAQ</h2>
-<p><strong>Q: How long until my emails stop going to spam?</strong></p>
+<h2 id="q-how-long-until-my-emails-stop-going-to-spam">Q: How long until my emails stop going to spam?</h2>
 <p>A: 3-7 days if it's DNS. 14 days if it's no warmup. If it's a domain blacklist, 1-4 weeks. If it's reputation (bad IP), 2-3 weeks if you follow the fix above.</p>
-<p><strong>Q: Can I fix spam folder emails by changing my email service?</strong></p>
+<h2 id="q-can-i-fix-spam-folder-emails-by-changing-my-email-service">Q: Can I fix spam folder emails by changing my email service?</h2>
 <p>A: Sometimes. If your current service uses poor-reputation shared IPs, switching helps. But usually the problem is DNS or warmup, which follow you to the new service. Fix root cause first.</p>
-<p><strong>Q: Is warmup really necessary?</strong></p>
+<h2 id="q-is-warmup-really-necessary">Q: Is warmup really necessary?</h2>
 <p>A: Yes. Every client who skipped warmup had 40-50% deliverability. Every client who did 14-day warmup hit 70-85%. Non-negotiable for cold email.</p>
-<p><strong>Q: What's the difference between a bounce and spam?</strong></p>
+<h2 id="q-what-s-the-difference-between-a-bounce-and-spam">Q: What's the difference between a bounce and spam?</h2>
 <p>A: Bounce = email rejected before delivery (hard bounce = bad email address, soft bounce = temporary server issue). Spam = email delivered to spam folder. Both hurt reply rates, but spam is more fixable.</p>
-<p><strong>Q: Can I use Gmail for cold email?</strong></p>
+<h2 id="q-can-i-use-gmail-for-cold-email">Q: Can I use Gmail for cold email?</h2>
 <p>A: Technically yes. Practically no. Gmail has shared IPs, poor reputation for outbound (optimized for personal email), and rate limits (500 emails/day max). Private server beats it 10:1.</p>
 <h2 id="next-steps">Next Steps</h2>
 <ol>
@@ -1972,7 +2001,7 @@ Table of Contents
 <li>Audit your copy for spam trigger words.</li>
 <li>Wait 3 weeks. Track results.</li>
 </ol>
-<p>If you need hands-on help with all of this—especially if you're running 1,000+ inboxes or multi-domain campaigns—we've fixed this for 100+ clients. Check our packages: https://imisofts.com/cold-email-marketing#packages</p>
+<p>If you need hands-on help with all of this, especially if you're running 1,000+ inboxes or multi-domain campaigns, we've fixed this for 100+ clients. Check our packages: https://imisofts.com/cold-email-marketing#packages</p>
 <p>Read next: Cold Email Spam Filter Avoidance Strategies | Cold Email Sender Reputation | Cold Email Bounce Rate</p>
 <section class="faq-section">
 <h2 id="faq">Frequently Asked Questions</h2>
@@ -2037,10 +2066,39 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#the-7-causes-your-emails-hit-spam-and-how-to-know-which-one-is-yours">The 7 Causes Your Emails Hit Spam (and How to Know Which One is Yours)</a></li>
+<li><a href="#how-to-check">How to check:</a></li>
+<li><a href="#what-s-missing">What's missing:</a></li>
+<li><a href="#the-fix">The fix:</a></li>
+<li><a href="#why-it-matters">Why it matters:</a></li>
+<li><a href="#what-warmup-does">What warmup does:</a></li>
+<li><a href="#our-client-data">Our client data:</a></li>
+<li><a href="#the-fix-2">The fix:</a></li>
+<li><a href="#spam-trigger-words">Spam trigger words:</a></li>
+<li><a href="#spam-trigger-formats">Spam trigger formats:</a></li>
+<li><a href="#the-fix-3">The fix:</a></li>
+<li><a href="#the-pattern">The pattern:</a></li>
+<li><a href="#the-fix-4">The fix:</a></li>
+<li><a href="#this-happens-if">This happens if:</a></li>
+<li><a href="#how-to-check-2">How to check:</a></li>
+<li><a href="#the-fix-5">The fix:</a></li>
+<li><a href="#this-is-why-private-servers-win">This is why private servers win:</a></li>
+<li><a href="#how-to-check-if-this-is-your-problem">How to check if this is your problem:</a></li>
+<li><a href="#the-fix-6">The fix:</a></li>
+<li><a href="#how-to-check-3">How to check:</a></li>
+<li><a href="#the-fix-7">The fix:</a></li>
 <li><a href="#combining-fixes-the-fastest-path-forward">Combining Fixes: The Fastest Path Forward</a></li>
+<li><a href="#week-1">Week 1:</a></li>
+<li><a href="#week-2">Week 2:</a></li>
+<li><a href="#week-3">Week 3:</a></li>
 <li><a href="#how-we-fix-this-at-scale">How We Fix This at Scale</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-long-until-my-emails-stop-going-to-spam">Q: How long until my emails stop going to spam?</a></li>
+<li><a href="#q-can-i-fix-spam-folder-emails-by-changing-my-email-service">Q: Can I fix spam folder emails by changing my email service?</a></li>
+<li><a href="#q-is-warmup-really-necessary">Q: Is warmup really necessary?</a></li>
+<li><a href="#q-what-s-the-difference-between-a-bounce-and-spam">Q: What's the difference between a bounce and spam?</a></li>
+<li><a href="#q-can-i-use-gmail-for-cold-email">Q: Can I use Gmail for cold email?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

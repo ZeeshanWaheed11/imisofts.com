@@ -1719,7 +1719,7 @@ Table of Contents
 <li><a href="#the-complete-dns-record-checklist">The complete DNS record checklist</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1728,10 +1728,10 @@ Table of Contents
 <article class="article-content">
 <p class="affiliate-disclosure" style="font-size:14px;line-height:1.6;color:#475569;background:#f8fafc;border-left:3px solid #F45407;padding:11px 15px;border-radius:6px;margin:0 0 22px;"><strong>Affiliate disclosure:</strong> some links in this article are partner links. If you start a paid plan through them, imisofts may earn a commission at no extra cost to you. We only recommend tools we actually use to run client campaigns.</p>
 <p>If your SPF, DKIM, and DMARC records are not configured correctly, your cold emails will land in spam. It is that simple.</p>
-<p>Since February 2024, Gmail and Yahoo have enforced strict email authentication requirements for bulk senders. Microsoft followed with similar enforcement for Outlook in May 2025. The result: emails without proper SPF, DKIM, and DMARC authentication get rejected outright — they do not even make it to the spam folder.</p>
+<p>Since February 2024, Gmail and Yahoo have enforced strict email authentication requirements for bulk senders. Microsoft followed with similar enforcement for Outlook in May 2025. The result: emails without proper SPF, DKIM, and DMARC authentication get rejected outright, they do not even make it to the spam folder.</p>
 <p>At imisofts, DNS authentication is the first technical step in every infrastructure build. We configure these records for every domain, every time, with zero exceptions. This guide walks through exactly how we do it.</p>
 <h2 id="why-email-authentication-matters-for-cold-email">Why email authentication matters for cold email</h2>
-<p>Email authentication serves two purposes. First, it tells receiving mail servers that your emails are legitimate — that they actually come from your domain and have not been spoofed or tampered with. Second, it protects your sender reputation by preventing others from sending emails pretending to be you.</p>
+<p>Email authentication serves two purposes. First, it tells receiving mail servers that your emails are legitimate, that they actually come from your domain and have not been spoofed or tampered with. Second, it protects your sender reputation by preventing others from sending emails pretending to be you.</p>
 <p>For cold email specifically, authentication is the price of admission. Without it, your emails are treated as suspicious by default. With it, you clear the first and most important hurdle to inbox placement.</p>
 <p>The authentication stack has three core protocols: SPF, DKIM, and DMARC. Each serves a different function, and all three need to work together.</p>
 <h2 id="spf-sender-policy-framework">SPF: Sender Policy Framework</h2>
@@ -1745,10 +1745,10 @@ Table of Contents
 <h2 id="dkim-domainkeys-identified-mail">DKIM: DomainKeys Identified Mail</h2>
 <p>DKIM adds a cryptographic signature to every email sent from your domain. The receiving server checks this signature against a public key stored in your DNS to verify the email has not been altered in transit.</p>
 <p>DKIM setup involves two steps. First, generate a DKIM key pair in your email platform or server. This creates a private key (used to sign outgoing emails) and a public key (published in your DNS for verification). Second, add the public key as a TXT record in your DNS.</p>
-<p>The DKIM DNS record goes to a specific hostname format: selector._domainkey.yourdomain.com. The &quot;selector&quot; is a name you choose or that your email platform assigns — it identifies which key to use for verification.</p>
+<p>The DKIM DNS record goes to a specific hostname format: selector._domainkey.yourdomain.com. The &quot;selector&quot; is a name you choose or that your email platform assigns, it identifies which key to use for verification.</p>
 <p>The record value looks like this:</p>
 <p>v=DKIM1; k=rsa; p=YOUR_PUBLIC_KEY_STRING_HERE</p>
-<p>The public key is a long string of characters generated during key pair creation. Your email platform or server will provide this value — you copy it directly into the DNS record.</p>
+<p>The public key is a long string of characters generated during key pair creation. Your email platform or server will provide this value, you copy it directly into the DNS record.</p>
 <p>After adding the DKIM record, enable DKIM signing on your email server so every outgoing email gets signed automatically.</p>
 <h2 id="dmarc-domain-based-message-authentication">DMARC: Domain-based Message Authentication</h2>
 <p>DMARC ties SPF and DKIM together. It tells receiving servers what to do with emails that fail SPF or DKIM checks and provides a reporting mechanism so you can monitor authentication results.</p>
@@ -1764,12 +1764,12 @@ Table of Contents
 <blockquote><p><strong>What we have seen:</strong> Many cold email setups skip DMARC entirely or leave it at &quot;p=none&quot; forever. Moving to &quot;p=quarantine&quot; or &quot;p=reject&quot; actually improves deliverability because it signals to email providers that you take authentication seriously.</p></blockquote>
 <h2 id="mx-records">MX records</h2>
 <p>MX records tell the internet where to deliver incoming mail for your domain. Even though cold email domains are primarily for outbound, receiving servers check MX records as part of their validation.</p>
-<p>A domain without MX records looks suspicious — it suggests the domain was set up solely for sending, which is a spam signal. Configure MX records to point to your private server so the domain can both send and receive.</p>
+<p>A domain without MX records looks suspicious, it suggests the domain was set up solely for sending, which is a spam signal. Configure MX records to point to your private server so the domain can both send and receive.</p>
 <p>MX records use a specific format with a priority value and mail server hostname. Lower priority numbers indicate the preferred server:</p>
 <p>Priority: 10, Value: mail.yourdomain.com</p>
 <h2 id="tracking-cname">Tracking CNAME</h2>
-<p>The tracking CNAME record enables custom open and click tracking for your cold email campaigns. Without it, your emails use shared tracking domains from <a href="https://refer.instantly.ai/oovph6ghwnaa" target="_blank" rel="noopener noreferrer sponsored">Instantly</a> or <a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead</a> — which are used by thousands of senders and frequently flagged by spam filters.</p>
-<p>Add a CNAME record that points a subdomain (like track.yourdomain.com) to your campaign platform&#x27;s tracking server. The specific value depends on your platform — Instantly and SmartLead each have their own tracking server hostnames.</p>
+<p>The tracking CNAME record enables custom open and click tracking for your cold email campaigns. Without it, your emails use shared tracking domains from <a href="https://refer.instantly.ai/oovph6ghwnaa" target="_blank" rel="noopener noreferrer sponsored">Instantly</a> or <a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead</a>, which are used by thousands of senders and frequently flagged by spam filters.</p>
+<p>Add a CNAME record that points a subdomain (like track.yourdomain.com) to your campaign platform&#x27;s tracking server. The specific value depends on your platform, Instantly and SmartLead each have their own tracking server hostnames.</p>
 <p>Custom tracking domains are one of the most overlooked elements of cold email infrastructure. We include them in every build because the deliverability impact is measurable.</p>
 <h2 id="verification-how-to-confirm-everything-works">Verification: how to confirm everything works</h2>
 <p>After configuring all DNS records, you need to verify that everything is working before starting warmup.</p>
@@ -1780,11 +1780,11 @@ Table of Contents
 <h2 id="google-postmaster-tools-setup">Google Postmaster Tools setup</h2>
 <p>After DNS authentication is verified, we set up Google Postmaster Tools for every domain. This gives you direct visibility into how Gmail views your sender reputation.</p>
 <p>Google Postmaster shows your domain reputation (high, medium, low, bad), spam rate (should stay below 0.3%), authentication results (SPF, DKIM, DMARC pass rates), and delivery errors.</p>
-<p>Setting up Postmaster requires adding a TXT verification record to your DNS — one more record to add, but it gives you monitoring that is invaluable for catching issues before they become catastrophic.</p>
+<p>Setting up Postmaster requires adding a TXT verification record to your DNS, one more record to add, but it gives you monitoring that is invaluable for catching issues before they become catastrophic.</p>
 <h2 id="the-complete-dns-record-checklist">The complete DNS record checklist</h2>
 <p>For every cold email domain, we configure these records:</p>
 <p>One SPF TXT record at @ authorizing your sending server. One DKIM TXT record at selector._domainkey with your public key. One DMARC TXT record at _dmarc with your policy. At least one MX record pointing to your mail server. One CNAME record for custom email tracking. One TXT record for Google Postmaster verification.</p>
-<p>Six records per domain. For a client running 25 domains, that is 150 DNS records configured and verified. This is why most teams outsource infrastructure — the technical overhead is substantial but critical.</p>
+<p>Six records per domain. For a client running 25 domains, that is 150 DNS records configured and verified. This is why most teams outsource infrastructure, the technical overhead is substantial but critical.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>SPF, DKIM, and DMARC setup is the non-negotiable foundation of cold email deliverability. Since Gmail, Yahoo, and Outlook began enforcing strict authentication in 2024 and 2025, improperly configured domains get rejected outright.</p>
 <p>At imisofts, we configure the complete DNS authentication stack for every domain in every infrastructure package. If you want your records done right the first time, check out our packages at <a href="https://imisofts.com/cold-email-marketing#packages">imisofts.com/cold-email-marketing#packages</a>.</p>
@@ -1857,7 +1857,7 @@ Contents
 <li><a href="#the-complete-dns-record-checklist">The complete DNS record checklist</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

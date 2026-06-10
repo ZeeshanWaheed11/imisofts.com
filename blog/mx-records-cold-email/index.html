@@ -1718,18 +1718,36 @@ Table of Contents
 <ul class="toc-list">
 <li><a href="#what-is-an-mx-record">What Is an MX Record?</a></li>
 <li><a href="#why-email-providers-check-mx-records">Why Email Providers Check MX Records</a></li>
+<li><a href="#scenario-1-no-mx-record">Scenario 1: No MX Record</a></li>
+<li><a href="#scenario-2-valid-mx-record">Scenario 2: Valid MX Record</a></li>
 <li><a href="#mx-records-for-outbound-only-domains">MX Records for Outbound-Only Domains</a></li>
 <li><a href="#the-imisofts-mx-configuration">The imisofts MX Configuration</a></li>
+<li><a href="#option-1-no-inbound-email-most-common">Option 1: No Inbound Email (Most Common)</a></li>
+<li><a href="#option-2-your-own-mail-server">Option 2: Your Own Mail Server</a></li>
+<li><a href="#option-3-google-workspace-backup">Option 3: Google Workspace Backup</a></li>
 <li><a href="#complete-dns-configuration-for-cold-email">Complete DNS Configuration for Cold Email</a></li>
 <li><a href="#setting-up-mx-records-step-by-step">Setting Up MX Records: Step-by-Step</a></li>
+<li><a href="#add-new-record">Add new record:</a></li>
+<li><a href="#save-the-record">Save the record</a></li>
 <li><a href="#mx-record-priority-when-you-have-multiple-servers">MX Record Priority: When You Have Multiple Servers</a></li>
+<li><a href="#high-traffic-configuration">High-traffic configuration:</a></li>
 <li><a href="#common-mx-record-mistakes">Common MX Record Mistakes</a></li>
+<li><a href="#mistake-1-pointing-to-non-existent-server">Mistake 1: Pointing to Non-Existent Server</a></li>
+<li><a href="#mistake-2-wrong-priority-numbers">Mistake 2: Wrong Priority Numbers</a></li>
+<li><a href="#mistake-3-using-subdomain-without-parent-mx">Mistake 3: Using Subdomain Without Parent MX</a></li>
+<li><a href="#mistake-4-forgetting-mx-after-adding-a-record">Mistake 4: Forgetting MX After Adding A Record</a></li>
+<li><a href="#mistake-5-not-verifying-after-setup">Mistake 5: Not Verifying After Setup</a></li>
 <li><a href="#mx-record-impact-on-deliverability">MX Record Impact on Deliverability</a></li>
+<li><a href="#domains-without-mx-record">Domains WITHOUT MX record:</a></li>
+<li><a href="#domains-with-mx-record">Domains WITH MX record:</a></li>
+<li><a href="#improvement-12-inbox-placement-1-3-bounce-rate">Improvement: +12% inbox placement, -1.3% bounce rate</a></li>
 <li><a href="#when-to-update-mx-records">When to Update MX Records</a></li>
+<li><a href="#update-mx-when">Update MX when:</a></li>
+<li><a href="#don-t-update-mx-when">Don&#x27;t update MX when:</a></li>
 <li><a href="#monitoring-mx-records-health-checks">Monitoring MX Records: Health Checks</a></li>
 <li><a href="#the-bottom-line-mx-records-are-non-negotiable">The Bottom Line: MX Records Are Non-Negotiable</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1768,14 +1786,14 @@ Table of Contents
 <li>&quot;Does that mail server accept incoming mail?&quot;</li>
 </ol>
 <p>If any of these fail, Gmail gets suspicious:</p>
-<p><strong>Scenario 1: No MX Record</strong></p>
+<h2 id="scenario-1-no-mx-record">Scenario 1: No MX Record</h2>
 <ul>
 <li>Domain: clientacquisition.io</li>
 <li>MX record: (none)</li>
 <li>Gmail thinks: &quot;This domain has no mail infrastructure. Why are emails coming from here?&quot;</li>
 <li>Result: Stricter filtering, higher spam folder placement</li>
 </ul>
-<p><strong>Scenario 2: Valid MX Record</strong></p>
+<h2 id="scenario-2-valid-mx-record">Scenario 2: Valid MX Record</h2>
 <ul>
 <li>Domain: clientacquisition.io</li>
 <li>MX record: mail.clientacquisition.io</li>
@@ -1791,17 +1809,17 @@ Table of Contents
 <h2 id="the-imisofts-mx-configuration">The imisofts MX Configuration</h2>
 <p>For clients using imisofts private server infrastructure, here&#x27;s the standard setup:</p>
 <h3 id="for-sending-domains">For Sending Domains</h3>
-<p><strong>Option 1: No Inbound Email (Most Common)</strong></p>
+<h2 id="option-1-no-inbound-email-most-common">Option 1: No Inbound Email (Most Common)</h2>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 10 mail.imisofts.com</p>
 <p><code>`</code></p>
 <p>This MX record points to imisofts mail infrastructure. If someone replies to your cold email, it goes to mail.imisofts.com. You can set up email forwarding or monitoring there.</p>
-<p><strong>Option 2: Your Own Mail Server</strong></p>
+<h2 id="option-2-your-own-mail-server">Option 2: Your Own Mail Server</h2>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 10 mail.clientacquisition.io</p>
 <p><code>`</code></p>
 <p>If you&#x27;re running your own mail server, point to your server.</p>
-<p><strong>Option 3: Google Workspace Backup</strong></p>
+<h2 id="option-3-google-workspace-backup">Option 3: Google Workspace Backup</h2>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 10 aspmx.l.google.com</p>
 <p>clientacquisition.io MX 20 alt1.aspmx.l.google.com</p>
@@ -1842,14 +1860,14 @@ Table of Contents
 <h3 id="step-2-find-dns-mx-settings">Step 2: Find DNS/MX Settings</h3>
 <p>Usually under &quot;DNS Management&quot; or &quot;Advanced Settings&quot;</p>
 <h3 id="step-3-add-mx-record">Step 3: Add MX Record</h3>
-<p><strong>Add new record:</strong></p>
+<h2 id="add-new-record">Add new record:</h2>
 <ul>
 <li>Type: MX</li>
 <li>Name: @ (or leave blank, depending on registrar)</li>
 <li>Mail server: mail.imisofts.com</li>
 <li>Priority: 10</li>
 </ul>
-<p><strong>Save the record</strong></p>
+<h2 id="save-the-record">Save the record</h2>
 <h3 id="step-4-verify-mx-record-active">Step 4: Verify MX Record Active</h3>
 <p>Use command line or online tools to verify:</p>
 <p><code>`</code></p>
@@ -1865,7 +1883,7 @@ Table of Contents
 <p>If you&#x27;re using the domain with <a href="https://refer.instantly.ai/oovph6ghwnaa" target="_blank" rel="noopener noreferrer sponsored">Instantly</a>, <a href="https://smartlead.ai/?via=coldemailmarketing" target="_blank" rel="noopener noreferrer sponsored">SmartLead</a>, <a href="https://get.apollo.io/u5ocuv7me9t2" target="_blank" rel="noopener noreferrer sponsored">Apollo</a>, or Clay, inform them of the new MX record. Most auto-detect after 24 hours.</p>
 <h2 id="mx-record-priority-when-you-have-multiple-servers">MX Record Priority: When You Have Multiple Servers</h2>
 <p>For enterprise setups, use multiple MX records with different priorities:</p>
-<p><strong>High-traffic configuration:</strong></p>
+<h2 id="high-traffic-configuration">High-traffic configuration:</h2>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 5 mail1.imisofts.com</p>
 <p>clientacquisition.io MX 10 mail2.imisofts.com</p>
@@ -1879,18 +1897,18 @@ Table of Contents
 </ol>
 <p>For most cold email teams, <strong>one MX record is sufficient.</strong> Don&#x27;t over-complicate it.</p>
 <h2 id="common-mx-record-mistakes">Common MX Record Mistakes</h2>
-<p><strong>Mistake 1: Pointing to Non-Existent Server</strong></p>
+<h2 id="mistake-1-pointing-to-non-existent-server">Mistake 1: Pointing to Non-Existent Server</h2>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 10 mail.fake-server.com</p>
 <p><code>`</code></p>
 <p>If mail.fake-server.com doesn&#x27;t exist, email providers flag this as suspicious. Always point to a real server.</p>
-<p><strong>Mistake 2: Wrong Priority Numbers</strong></p>
+<h2 id="mistake-2-wrong-priority-numbers">Mistake 2: Wrong Priority Numbers</h2>
 <p><code>`</code></p>
 <p>clientacquisition.io MX 100 mail1.imisofts.com</p>
 <p>clientacquisition.io MX 10 mail2.imisofts.com</p>
 <p><code>`</code></p>
 <p>Mail2 will be tried first (lower number = higher priority). Make sure this is intentional.</p>
-<p><strong>Mistake 3: Using Subdomain Without Parent MX</strong></p>
+<h2 id="mistake-3-using-subdomain-without-parent-mx">Mistake 3: Using Subdomain Without Parent MX</h2>
 <p><code>`</code></p>
 <p>subdomain.clientacquisition.io MX 10 mail.imisofts.com</p>
 <p><code>`</code></p>
@@ -1898,35 +1916,35 @@ Table of Contents
 <p><code>`</code></p>
 <p>clientacquisition.io MX 10 mail.imisofts.com</p>
 <p><code>`</code></p>
-<p><strong>Mistake 4: Forgetting MX After Adding A Record</strong></p>
+<h2 id="mistake-4-forgetting-mx-after-adding-a-record">Mistake 4: Forgetting MX After Adding A Record</h2>
 <p>Domains need both A record (IP address) AND MX record (mail server). Don&#x27;t skip MX.</p>
-<p><strong>Mistake 5: Not Verifying After Setup</strong></p>
+<h2 id="mistake-5-not-verifying-after-setup">Mistake 5: Not Verifying After Setup</h2>
 <p>Add MX record, assume it&#x27;s working. Actually verify with nslookup or your registrar&#x27;s tool.</p>
 <h2 id="mx-record-impact-on-deliverability">MX Record Impact on Deliverability</h2>
 <p>Based on 847 imisofts client campaigns:</p>
-<p><strong>Domains WITHOUT MX record:</strong></p>
+<h2 id="domains-without-mx-record">Domains WITHOUT MX record:</h2>
 <ul>
 <li>Inbox placement: 72%</li>
 <li>Bounce rate: 4.1%</li>
 <li>Spam folder placement: 28%</li>
 </ul>
-<p><strong>Domains WITH MX record:</strong></p>
+<h2 id="domains-with-mx-record">Domains WITH MX record:</h2>
 <ul>
 <li>Inbox placement: 84%</li>
 <li>Bounce rate: 2.8%</li>
 <li>Spam folder placement: 16%</li>
 </ul>
-<p><strong>Improvement: +12% inbox placement, -1.3% bounce rate</strong></p>
+<h2 id="improvement-12-inbox-placement-1-3-bounce-rate">Improvement: +12% inbox placement, -1.3% bounce rate</h2>
 <p>That&#x27;s significant. MX record presence alone improves deliverability by 12%.</p>
 <h2 id="when-to-update-mx-records">When to Update MX Records</h2>
-<p><strong>Update MX when:</strong></p>
+<h2 id="update-mx-when">Update MX when:</h2>
 <ul>
 <li>You change email service providers</li>
 <li>You migrate to imisofts private server infrastructure</li>
 <li>You add backup mail servers</li>
 <li>You switch from shared to dedicated infrastructure</li>
 </ul>
-<p><strong>Don&#x27;t update MX when:</strong></p>
+<h2 id="don-t-update-mx-when">Don&#x27;t update MX when:</h2>
 <ul>
 <li>You&#x27;re just changing tracking domains (that&#x27;s CNAME, not MX)</li>
 <li>You&#x27;re updating SPF or DKIM (different records)</li>
@@ -2018,18 +2036,36 @@ Contents
 <ul class="toc-list">
 <li><a href="#what-is-an-mx-record">What Is an MX Record?</a></li>
 <li><a href="#why-email-providers-check-mx-records">Why Email Providers Check MX Records</a></li>
+<li><a href="#scenario-1-no-mx-record">Scenario 1: No MX Record</a></li>
+<li><a href="#scenario-2-valid-mx-record">Scenario 2: Valid MX Record</a></li>
 <li><a href="#mx-records-for-outbound-only-domains">MX Records for Outbound-Only Domains</a></li>
 <li><a href="#the-imisofts-mx-configuration">The imisofts MX Configuration</a></li>
+<li><a href="#option-1-no-inbound-email-most-common">Option 1: No Inbound Email (Most Common)</a></li>
+<li><a href="#option-2-your-own-mail-server">Option 2: Your Own Mail Server</a></li>
+<li><a href="#option-3-google-workspace-backup">Option 3: Google Workspace Backup</a></li>
 <li><a href="#complete-dns-configuration-for-cold-email">Complete DNS Configuration for Cold Email</a></li>
 <li><a href="#setting-up-mx-records-step-by-step">Setting Up MX Records: Step-by-Step</a></li>
+<li><a href="#add-new-record">Add new record:</a></li>
+<li><a href="#save-the-record">Save the record</a></li>
 <li><a href="#mx-record-priority-when-you-have-multiple-servers">MX Record Priority: When You Have Multiple Servers</a></li>
+<li><a href="#high-traffic-configuration">High-traffic configuration:</a></li>
 <li><a href="#common-mx-record-mistakes">Common MX Record Mistakes</a></li>
+<li><a href="#mistake-1-pointing-to-non-existent-server">Mistake 1: Pointing to Non-Existent Server</a></li>
+<li><a href="#mistake-2-wrong-priority-numbers">Mistake 2: Wrong Priority Numbers</a></li>
+<li><a href="#mistake-3-using-subdomain-without-parent-mx">Mistake 3: Using Subdomain Without Parent MX</a></li>
+<li><a href="#mistake-4-forgetting-mx-after-adding-a-record">Mistake 4: Forgetting MX After Adding A Record</a></li>
+<li><a href="#mistake-5-not-verifying-after-setup">Mistake 5: Not Verifying After Setup</a></li>
 <li><a href="#mx-record-impact-on-deliverability">MX Record Impact on Deliverability</a></li>
+<li><a href="#domains-without-mx-record">Domains WITHOUT MX record:</a></li>
+<li><a href="#domains-with-mx-record">Domains WITH MX record:</a></li>
+<li><a href="#improvement-12-inbox-placement-1-3-bounce-rate">Improvement: +12% inbox placement, -1.3% bounce rate</a></li>
 <li><a href="#when-to-update-mx-records">When to Update MX Records</a></li>
+<li><a href="#update-mx-when">Update MX when:</a></li>
+<li><a href="#don-t-update-mx-when">Don&#x27;t update MX when:</a></li>
 <li><a href="#monitoring-mx-records-health-checks">Monitoring MX Records: Health Checks</a></li>
 <li><a href="#the-bottom-line-mx-records-are-non-negotiable">The Bottom Line: MX Records Are Non-Negotiable</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

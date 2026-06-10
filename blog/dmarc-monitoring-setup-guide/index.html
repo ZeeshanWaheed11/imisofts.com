@@ -1701,6 +1701,45 @@ Table of Contents
 </button>
 <div class="mobile-toc-content">
 <ul class="toc-list">
+<li><a href="#prerequisites-spf-and-dkim-must-be-ready-first">Prerequisites: SPF and DKIM Must Be Ready First</a></li>
+<li><a href="#step-1-understand-dmarc-policy-options">Step 1: Understand DMARC Policy Options</a></li>
+<li><a href="#p-none">p=none</a></li>
+<li><a href="#p-quarantine">p=quarantine</a></li>
+<li><a href="#p-reject">p=reject</a></li>
+<li><a href="#recommendation-for-cold-email">Recommendation for cold email:</a></li>
+<li><a href="#step-2-create-dmarc-record-in-dns">Step 2: Create DMARC Record in DNS</a></li>
+<li><a href="#for-p-none-monitoring-only-week-1">For p=none (monitoring only, week 1):</a></li>
+<li><a href="#for-p-quarantine-enforcement-week-2-3">For p=quarantine (enforcement, week 2-3):</a></li>
+<li><a href="#for-p-reject-maximum-enforcement-week-4">For p=reject (maximum enforcement, week 4+):</a></li>
+<li><a href="#step-3-verify-dmarc-record-is-live">Step 3: Verify DMARC Record is Live</a></li>
+<li><a href="#step-4-set-up-dmarc-report-monitoring">Step 4: Set Up DMARC Report Monitoring</a></li>
+<li><a href="#option-a-google-postmaster-tools-free-gmail-only">Option A: Google Postmaster Tools (Free, Gmail Only)</a></li>
+<li><a href="#option-b-postmark-sendgrid-dmarc-dashboard-free-tier">Option B: Postmark / SendGrid DMARC Dashboard (Free Tier)</a></li>
+<li><a href="#option-c-dedicated-dmarc-monitoring-paid">Option C: Dedicated DMARC Monitoring (Paid)</a></li>
+<li><a href="#step-5-interpret-dmarc-reports">Step 5: Interpret DMARC Reports</a></li>
+<li><a href="#dmarc-alignment-95-is-good">DMARC Alignment: >95% is good</a></li>
+<li><a href="#forensic-reports-ruf">Forensic Reports (RUF)</a></li>
+<li><a href="#step-6-troubleshooting-dmarc-issues">Step 6: Troubleshooting DMARC Issues</a></li>
+<li><a href="#issue-spf-mismatch">Issue: SPF Mismatch</a></li>
+<li><a href="#issue-dkim-signature-missing">Issue: DKIM Signature Missing</a></li>
+<li><a href="#step-7-monitor-continuously-ongoing">Step 7: Monitor Continuously (Ongoing)</a></li>
+<li><a href="#weekly-checklist">Weekly Checklist:</a></li>
+<li><a href="#monthly-checklist">Monthly Checklist:</a></li>
+<li><a href="#when-to-escalate-policy-from-p-none-to-p-quarantine">When to Escalate Policy from p=none to p=quarantine:</a></li>
+<li><a href="#when-to-escalate-from-p-quarantine-to-p-reject">When to Escalate from p=quarantine to p=reject:</a></li>
+<li><a href="#complete-dmarc-setup-example">Complete DMARC Setup Example</a></li>
+<li><a href="#week-1-initial-setup-p-none">Week 1: Initial Setup (p=none)</a></li>
+<li><a href="#week-2-move-to-quarantine-p-quarantine">Week 2: Move to Quarantine (p=quarantine)</a></li>
+<li><a href="#week-3-4-monitor-and-stabilize">Week 3-4: Monitor and Stabilize</a></li>
+<li><a href="#week-4-move-to-reject-p-reject">Week 4+: Move to Reject (p=reject)</a></li>
+<li><a href="#faq-2">FAQ</a></li>
+<li><a href="#do-i-need-dmarc-if-i-have-spf-and-dkim">Do I need DMARC if I have SPF and DKIM?</a></li>
+<li><a href="#what-s-the-difference-between-aggregate-and-forensic-reports">What's the difference between aggregate and forensic reports?</a></li>
+<li><a href="#should-i-start-with-p-none-or-p-quarantine">Should I start with p=none or p=quarantine?</a></li>
+<li><a href="#what-if-my-alignment-is-stuck-at-90">What if my alignment is stuck at 90%?</a></li>
+<li><a href="#how-long-until-i-can-move-to-p-reject">How long until I can move to p=reject?</a></li>
+<li><a href="#what-happens-if-i-skip-dmarc">What happens if I skip DMARC?</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1710,7 +1749,7 @@ Table of Contents
 <article class="article-content">
 <p>How to Set Up DMARC Monitoring: Step-by-Step Guide (2026)</p>
 <p>DMARC is the last mile of email authentication. SPF and DKIM do the heavy lifting, but DMARC ties them together and shows you what's happening. We configure DMARC for every client. This guide covers setup and monitoring.</p>
-<p><strong>Prerequisites: SPF and DKIM Must Be Ready First</strong></p>
+<h2 id="prerequisites-spf-and-dkim-must-be-ready-first">Prerequisites: SPF and DKIM Must Be Ready First</h2>
 <p>DMARC requires SPF and DKIM to be working already. If you haven't set those up:</p>
 <ol>
 <li>Go to mxtoolbox.com</li>
@@ -1719,34 +1758,34 @@ Table of Contents
 </ol>
 <p>If either is red/yellow, set them up first. Come back to DMARC after both are valid.</p>
 <p>Assuming SPF and DKIM are valid, let's add DMARC.</p>
-<p><strong>Step 1: Understand DMARC Policy Options</strong></p>
+<h2 id="step-1-understand-dmarc-policy-options">Step 1: Understand DMARC Policy Options</h2>
 <p>DMARC policy tells email providers what to do with emails that fail SPF/DKIM authentication.</p>
 <p>Three policy options:</p>
-<p><strong>p=none</strong></p>
+<h2 id="p-none">p=none</h2>
 <ul>
 <li>Policy: "Monitor only, don't enforce"</li>
 <li>Action on failure: Email is delivered anyway (no action)</li>
 <li>Use case: Testing/monitoring phase</li>
 <li>Risk: Low (doesn't affect delivery)</li>
 </ul>
-<p><strong>p=quarantine</strong></p>
+<h2 id="p-quarantine">p=quarantine</h2>
 <ul>
 <li>Policy: "Suspicious emails go to spam folder"</li>
 <li>Action on failure: Email goes to spam folder (not deleted, can be recovered)</li>
 <li>Use case: Recommended for cold email (safer while testing)</li>
 <li>Risk: Medium (some legitimate emails may be quarantined)</li>
 </ul>
-<p><strong>p=reject</strong></p>
+<h2 id="p-reject">p=reject</h2>
 <ul>
 <li>Policy: "Reject emails that fail authentication"</li>
 <li>Action on failure: Email is rejected (bounced back to sender)</li>
 <li>Use case: Maximum security (for established domains with perfect authentication)</li>
 <li>Risk: High (legitimate emails rejected, hard to recover)</li>
 </ul>
-<p><strong>Recommendation for cold email:</strong></p>
+<h2 id="recommendation-for-cold-email">Recommendation for cold email:</h2>
 <p>Start with p=none (1 week), move to p=quarantine (2 weeks), then p=reject (permanent).</p>
 <p>This gives you time to test and catch problems before blocking legitimate emails.</p>
-<p><strong>Step 2: Create DMARC Record in DNS</strong></p>
+<h2 id="step-2-create-dmarc-record-in-dns">Step 2: Create DMARC Record in DNS</h2>
 <ol>
 <li>Log into your domain registrar (GoDaddy, Namecheap, Domain.com, etc.)</li>
 <li>Find DNS settings / DNS management</li>
@@ -1756,11 +1795,11 @@ Table of Contents
 <li>Name field: _dmarc</li>
 <li>Value field: (copy-paste from below based on your policy)</li>
 </ol>
-<p><strong>For p=none (monitoring only, week 1):</strong></p>
+<h2 id="for-p-none-monitoring-only-week-1">For p=none (monitoring only, week 1):</h2>
 <p>v=DMARC1; p=none; rua=mailto:admin@yourdomain.com; ruf=mailto:admin@yourdomain.com</p>
-<p><strong>For p=quarantine (enforcement, week 2-3):</strong></p>
+<h2 id="for-p-quarantine-enforcement-week-2-3">For p=quarantine (enforcement, week 2-3):</h2>
 <p>v=DMARC1; p=quarantine; rua=mailto:admin@yourdomain.com; ruf=mailto:admin@yourdomain.com</p>
-<p><strong>For p=reject (maximum enforcement, week 4+):</strong></p>
+<h2 id="for-p-reject-maximum-enforcement-week-4">For p=reject (maximum enforcement, week 4+):</h2>
 <p>v=DMARC1; p=reject; rua=mailto:admin@yourdomain.com; ruf=mailto:admin@yourdomain.com</p>
 <p>Field explanation:</p>
 <ul>
@@ -1773,7 +1812,7 @@ Table of Contents
 <li>Save the record</li>
 <li>Wait 24-48 hours for DNS propagation</li>
 </ol>
-<p><strong>Step 3: Verify DMARC Record is Live</strong></p>
+<h2 id="step-3-verify-dmarc-record-is-live">Step 3: Verify DMARC Record is Live</h2>
 <ol>
 <li>Go to mxtoolbox.com</li>
 <li>Find "DMARC Check" tool</li>
@@ -1791,9 +1830,9 @@ Table of Contents
 <li>Double-check you saved the record correctly (exact spelling, no typos)</li>
 <li>Try different DNS checker (dnschecker.org)</li>
 </ul>
-<p><strong>Step 4: Set Up DMARC Report Monitoring</strong></p>
+<h2 id="step-4-set-up-dmarc-report-monitoring">Step 4: Set Up DMARC Report Monitoring</h2>
 <p>DMARC sends you reports automatically. You need a place to receive and interpret them.</p>
-<p><strong>Option A: Google Postmaster Tools (Free, Gmail Only)</strong></p>
+<h2 id="option-a-google-postmaster-tools-free-gmail-only">Option A: Google Postmaster Tools (Free, Gmail Only)</h2>
 <p>If you're using Gmail:</p>
 <ol>
 <li>Go to postmaster.google.com</li>
@@ -1809,7 +1848,7 @@ Table of Contents
 <li>Domain reputation</li>
 </ul>
 <p>This is free and great for Gmail senders.</p>
-<p><strong>Option B: Postmark / SendGrid DMARC Dashboard (Free Tier)</strong></p>
+<h2 id="option-b-postmark-sendgrid-dmarc-dashboard-free-tier">Option B: Postmark / SendGrid DMARC Dashboard (Free Tier)</h2>
 <p>If using other email providers:</p>
 <ol>
 <li>Log into your email provider (Postmark, SendGrid, Brevo, etc.)</li>
@@ -1823,7 +1862,7 @@ Table of Contents
 <li>Aligned/misaligned results</li>
 <li>Actionable issues</li>
 </ul>
-<p><strong>Option C: Dedicated DMARC Monitoring (Paid)</strong></p>
+<h2 id="option-c-dedicated-dmarc-monitoring-paid">Option C: Dedicated DMARC Monitoring (Paid)</h2>
 <p>For serious monitoring, use tools like:</p>
 <ul>
 <li>Valimail</li>
@@ -1839,7 +1878,7 @@ Table of Contents
 <li>Help troubleshoot failures</li>
 </ul>
 <p>Cost: $50-500/month depending on domain count</p>
-<p><strong>Step 5: Interpret DMARC Reports</strong></p>
+<h2 id="step-5-interpret-dmarc-reports">Step 5: Interpret DMARC Reports</h2>
 <p>DMARC reports arrive weekly via email at the address you set (admin@yourdomain.com).</p>
 <p>Weekly aggregate report shows:</p>
 <ul>
@@ -1849,7 +1888,7 @@ Table of Contents
 <li>DMARC alignment: 98%</li>
 </ul>
 <p>What each metric means:</p>
-<p><strong>DMARC Alignment: >95% is good</strong></p>
+<h2 id="dmarc-alignment-95-is-good">DMARC Alignment: >95% is good</h2>
 <ul>
 <li>Alignment: Email passed both SPF and DKIM and they matched the "From" domain</li>
 <li>Misalignment: Email failed or didn't match properly</li>
@@ -1863,7 +1902,7 @@ Table of Contents
 </ol>
 <p>Example with subdomain alignment:</p>
 <p>v=DMARC1; p=quarantine; subdomain_policy=quarantine; rua=mailto:admin@yourdomain.com</p>
-<p><strong>Forensic Reports (RUF)</strong></p>
+<h2 id="forensic-reports-ruf">Forensic Reports (RUF)</h2>
 <ul>
 <li>Shows detailed info on emails that failed authentication</li>
 <li>Arrives with each failure (can be frequent)</li>
@@ -1876,7 +1915,7 @@ Table of Contents
 <p>Reason: Email came from IP 199.x.x.x, but SPF only authorizes 150.x.x.x</p>
 <p>Solution: Add 199.x.x.x to SPF record</p>
 <p><code></code>`</p>
-<p><strong>Step 6: Troubleshooting DMARC Issues</strong></p>
+<h2 id="step-6-troubleshooting-dmarc-issues">Step 6: Troubleshooting DMARC Issues</h2>
 <p><strong>Issue: Low DMARC Alignment (<90%)</strong></p>
 <p>Cause: A third-party tool is sending from your domain but not properly configured.</p>
 <p>Example tools:</p>
@@ -1901,7 +1940,7 @@ Table of Contents
 <ol>
 <li>Save SPF, wait 24 hours, monitor DMARC alignment again</li>
 </ol>
-<p><strong>Issue: SPF Mismatch</strong></p>
+<h2 id="issue-spf-mismatch">Issue: SPF Mismatch</h2>
 <p>Cause: Email is from subdomain (hello@mail.yourdomain.com) but SPF is only on main domain (yourdomain.com).</p>
 <p>Solution:</p>
 <ul>
@@ -1910,7 +1949,7 @@ Table of Contents
 <li>Create separate SPF on mail.yourdomain.com</li>
 <li>Create separate DKIM selector for subdomain</li>
 </ul>
-<p><strong>Issue: DKIM Signature Missing</strong></p>
+<h2 id="issue-dkim-signature-missing">Issue: DKIM Signature Missing</h2>
 <p>Cause: Email provider not signing with DKIM.</p>
 <p>Solution:</p>
 <ol>
@@ -1919,9 +1958,9 @@ Table of Contents
 <li>Verify DKIM public key is in DNS (run DKIM check on mxtoolbox)</li>
 <li>Ask provider for help (this is provider-specific)</li>
 </ol>
-<p><strong>Step 7: Monitor Continuously (Ongoing)</strong></p>
+<h2 id="step-7-monitor-continuously-ongoing">Step 7: Monitor Continuously (Ongoing)</h2>
 <p>After setup, monitor weekly:</p>
-<p><strong>Weekly Checklist:</strong></p>
+<h2 id="weekly-checklist">Weekly Checklist:</h2>
 <ul>
 <li>[ ] Check DMARC alignment (should stay >95%)</li>
 <li>[ ] Review DMARC aggregate report</li>
@@ -1929,13 +1968,13 @@ Table of Contents
 <li>[ ] Update SPF if new tools detected</li>
 <li>[ ] Monitor email deliverability (should stay 75-85% inbox)</li>
 </ul>
-<p><strong>Monthly Checklist:</strong></p>
+<h2 id="monthly-checklist">Monthly Checklist:</h2>
 <ul>
 <li>[ ] Review month's DMARC trends</li>
 <li>[ ] Check if any authentication score declined</li>
 <li>[ ] Update security policies if needed</li>
 </ul>
-<p><strong>When to Escalate Policy from p=none to p=quarantine:</strong></p>
+<h2 id="when-to-escalate-policy-from-p-none-to-p-quarantine">When to Escalate Policy from p=none to p=quarantine:</h2>
 <p>After 1 week on p=none, check:</p>
 <ul>
 <li>[ ] DMARC alignment >95%</li>
@@ -1944,7 +1983,7 @@ Table of Contents
 <li>[ ] No complaints from legitimate senders</li>
 </ul>
 <p>If all check, move to p=quarantine.</p>
-<p><strong>When to Escalate from p=quarantine to p=reject:</strong></p>
+<h2 id="when-to-escalate-from-p-quarantine-to-p-reject">When to Escalate from p=quarantine to p=reject:</h2>
 <p>After 2 weeks on p=quarantine, check:</p>
 <ul>
 <li>[ ] DMARC alignment >98%</li>
@@ -1953,8 +1992,8 @@ Table of Contents
 <li>[ ] No known third-party tools being used</li>
 </ul>
 <p>If all check, move to p=reject (maximum security).</p>
-<p><strong>Complete DMARC Setup Example</strong></p>
-<p><strong>Week 1: Initial Setup (p=none)</strong></p>
+<h2 id="complete-dmarc-setup-example">Complete DMARC Setup Example</h2>
+<h2 id="week-1-initial-setup-p-none">Week 1: Initial Setup (p=none)</h2>
 <ol>
 <li>Create DMARC record with p=none</li>
 <li>Monitor alignment (watch for issues)</li>
@@ -1962,7 +2001,7 @@ Table of Contents
 <li>Fix SPF/DKIM issues discovered</li>
 </ol>
 <p>Expected alignment: 80-90%</p>
-<p><strong>Week 2: Move to Quarantine (p=quarantine)</strong></p>
+<h2 id="week-2-move-to-quarantine-p-quarantine">Week 2: Move to Quarantine (p=quarantine)</h2>
 <ol>
 <li>Edit DMARC record, change p=none to p=quarantine</li>
 <li>Continue monitoring alignment</li>
@@ -1970,31 +2009,31 @@ Table of Contents
 <li>Fine-tune authentication issues</li>
 </ol>
 <p>Expected alignment: 92-95%</p>
-<p><strong>Week 3-4: Monitor and Stabilize</strong></p>
+<h2 id="week-3-4-monitor-and-stabilize">Week 3-4: Monitor and Stabilize</h2>
 <ol>
 <li>Keep p=quarantine active</li>
 <li>Let alignment stabilize at >95%</li>
 <li>Address any remaining issues</li>
 </ol>
-<p><strong>Week 4+: Move to Reject (p=reject)</strong></p>
+<h2 id="week-4-move-to-reject-p-reject">Week 4+: Move to Reject (p=reject)</h2>
 <ol>
 <li>Edit DMARC record, change p=quarantine to p=reject</li>
 <li>Permanent enforcement (failed emails are rejected)</li>
 <li>Continue monitoring monthly</li>
 <li>Maintain >98% alignment</li>
 </ol>
-<p><strong>FAQ</strong></p>
-<p><strong>Do I need DMARC if I have SPF and DKIM?</strong></p>
+<h2 id="faq-2">FAQ</h2>
+<h2 id="do-i-need-dmarc-if-i-have-spf-and-dkim">Do I need DMARC if I have SPF and DKIM?</h2>
 <p>Technically no, but practically yes. DMARC is the last piece that makes reputation score stick. Without it, ISPs are less confident in authentication.</p>
-<p><strong>What's the difference between aggregate and forensic reports?</strong></p>
+<h2 id="what-s-the-difference-between-aggregate-and-forensic-reports">What's the difference between aggregate and forensic reports?</h2>
 <p>Aggregate (RUA): Weekly summary of all authentication results. Forensic (RUF): Detailed info on each failure. Both useful but forensic is noisier.</p>
-<p><strong>Should I start with p=none or p=quarantine?</strong></p>
+<h2 id="should-i-start-with-p-none-or-p-quarantine">Should I start with p=none or p=quarantine?</h2>
 <p>Always start with p=none. This gives you time to test without blocking legitimate email.</p>
-<p><strong>What if my alignment is stuck at 90%?</strong></p>
+<h2 id="what-if-my-alignment-is-stuck-at-90">What if my alignment is stuck at 90%?</h2>
 <p>Check for third-party tools using your domain. Get their IPs/servers and add to SPF. Also check for subdomains being used (require separate SPF/DKIM).</p>
-<p><strong>How long until I can move to p=reject?</strong></p>
+<h2 id="how-long-until-i-can-move-to-p-reject">How long until I can move to p=reject?</h2>
 <p>Minimum 3-4 weeks: 1 week p=none (test), 2 weeks p=quarantine (monitor), then p=reject. Don't rush.</p>
-<p><strong>What happens if I skip DMARC?</strong></p>
+<h2 id="what-happens-if-i-skip-dmarc">What happens if I skip DMARC?</h2>
 <p>Email deliverability drops 10-15%. Not critical for small sending, but hurts at scale.</p>
 <section class="faq-section">
 <h2 id="faq">Frequently Asked Questions</h2>
@@ -2012,7 +2051,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">The cost varies by scale. At imisofts, our Starter package (10 domains, 50 inboxes, 1,000 emails/day) costs $489/year plus a $399 setup fee — totaling $888 to start. This is significantly less than Google Workspace or hosted inbox alternatives.</div>
+<div class="faq-answer-inner">The cost varies by scale. At imisofts, our Starter package (10 domains, 50 inboxes, 1,000 emails/day) costs $489/year plus a $399 setup fee, totaling $888 to start. This is significantly less than Google Workspace or hosted inbox alternatives.</div>
 </div>
 </div><div class="faq-item">
 <button class="faq-question" aria-expanded="false">
@@ -2042,6 +2081,45 @@ View Our Packages
 Contents
 </div>
 <ul class="toc-list">
+<li><a href="#prerequisites-spf-and-dkim-must-be-ready-first">Prerequisites: SPF and DKIM Must Be Ready First</a></li>
+<li><a href="#step-1-understand-dmarc-policy-options">Step 1: Understand DMARC Policy Options</a></li>
+<li><a href="#p-none">p=none</a></li>
+<li><a href="#p-quarantine">p=quarantine</a></li>
+<li><a href="#p-reject">p=reject</a></li>
+<li><a href="#recommendation-for-cold-email">Recommendation for cold email:</a></li>
+<li><a href="#step-2-create-dmarc-record-in-dns">Step 2: Create DMARC Record in DNS</a></li>
+<li><a href="#for-p-none-monitoring-only-week-1">For p=none (monitoring only, week 1):</a></li>
+<li><a href="#for-p-quarantine-enforcement-week-2-3">For p=quarantine (enforcement, week 2-3):</a></li>
+<li><a href="#for-p-reject-maximum-enforcement-week-4">For p=reject (maximum enforcement, week 4+):</a></li>
+<li><a href="#step-3-verify-dmarc-record-is-live">Step 3: Verify DMARC Record is Live</a></li>
+<li><a href="#step-4-set-up-dmarc-report-monitoring">Step 4: Set Up DMARC Report Monitoring</a></li>
+<li><a href="#option-a-google-postmaster-tools-free-gmail-only">Option A: Google Postmaster Tools (Free, Gmail Only)</a></li>
+<li><a href="#option-b-postmark-sendgrid-dmarc-dashboard-free-tier">Option B: Postmark / SendGrid DMARC Dashboard (Free Tier)</a></li>
+<li><a href="#option-c-dedicated-dmarc-monitoring-paid">Option C: Dedicated DMARC Monitoring (Paid)</a></li>
+<li><a href="#step-5-interpret-dmarc-reports">Step 5: Interpret DMARC Reports</a></li>
+<li><a href="#dmarc-alignment-95-is-good">DMARC Alignment: >95% is good</a></li>
+<li><a href="#forensic-reports-ruf">Forensic Reports (RUF)</a></li>
+<li><a href="#step-6-troubleshooting-dmarc-issues">Step 6: Troubleshooting DMARC Issues</a></li>
+<li><a href="#issue-spf-mismatch">Issue: SPF Mismatch</a></li>
+<li><a href="#issue-dkim-signature-missing">Issue: DKIM Signature Missing</a></li>
+<li><a href="#step-7-monitor-continuously-ongoing">Step 7: Monitor Continuously (Ongoing)</a></li>
+<li><a href="#weekly-checklist">Weekly Checklist:</a></li>
+<li><a href="#monthly-checklist">Monthly Checklist:</a></li>
+<li><a href="#when-to-escalate-policy-from-p-none-to-p-quarantine">When to Escalate Policy from p=none to p=quarantine:</a></li>
+<li><a href="#when-to-escalate-from-p-quarantine-to-p-reject">When to Escalate from p=quarantine to p=reject:</a></li>
+<li><a href="#complete-dmarc-setup-example">Complete DMARC Setup Example</a></li>
+<li><a href="#week-1-initial-setup-p-none">Week 1: Initial Setup (p=none)</a></li>
+<li><a href="#week-2-move-to-quarantine-p-quarantine">Week 2: Move to Quarantine (p=quarantine)</a></li>
+<li><a href="#week-3-4-monitor-and-stabilize">Week 3-4: Monitor and Stabilize</a></li>
+<li><a href="#week-4-move-to-reject-p-reject">Week 4+: Move to Reject (p=reject)</a></li>
+<li><a href="#faq-2">FAQ</a></li>
+<li><a href="#do-i-need-dmarc-if-i-have-spf-and-dkim">Do I need DMARC if I have SPF and DKIM?</a></li>
+<li><a href="#what-s-the-difference-between-aggregate-and-forensic-reports">What's the difference between aggregate and forensic reports?</a></li>
+<li><a href="#should-i-start-with-p-none-or-p-quarantine">Should I start with p=none or p=quarantine?</a></li>
+<li><a href="#what-if-my-alignment-is-stuck-at-90">What if my alignment is stuck at 90%?</a></li>
+<li><a href="#how-long-until-i-can-move-to-p-reject">How long until I can move to p=reject?</a></li>
+<li><a href="#what-happens-if-i-skip-dmarc">What happens if I skip DMARC?</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

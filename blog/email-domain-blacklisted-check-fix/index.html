@@ -1718,16 +1718,42 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#what-is-a-domain-blacklist-and-why-it-matters">What Is a Domain Blacklist? And Why It Matters.</a></li>
+<li><a href="#common-blacklists">Common blacklists:</a></li>
+<li><a href="#why-this-matters-for-cold-email">Why this matters for cold email:</a></li>
 <li><a href="#how-to-check-if-your-domain-is-blacklisted">How to Check If Your Domain Is Blacklisted</a></li>
+<li><a href="#what-to-look-for">What to look for:</a></li>
+<li><a href="#what-to-look-for-2">What to look for:</a></li>
+<li><a href="#what-to-look-for-3">What to look for:</a></li>
 <li><a href="#why-domains-get-blacklisted">Why Domains Get Blacklisted</a></li>
 <li><a href="#the-6-step-delisting-process">The 6-Step Delisting Process</a></li>
+<li><a href="#if-previous-owner-spammed">If previous owner spammed:</a></li>
+<li><a href="#if-you-hit-spam-traps">If you hit spam traps:</a></li>
+<li><a href="#if-dns-was-misaligned">If DNS was misaligned:</a></li>
+<li><a href="#if-ip-was-bad">If IP was bad:</a></li>
+<li><a href="#what-to-write-in-what-you-ve-done-to-fix-it">What to write in "What you've done to fix it":</a></li>
 <li><a href="#template-email-for-delisting-requests">Template Email for Delisting Requests</a></li>
+<li><a href="#body">Body:</a></li>
 <li><a href="#preventing-re-blacklisting">Preventing Re-blacklisting</a></li>
+<li><a href="#best-practices">Best practices:</a></li>
 <li><a href="#what-if-the-delisting-is-rejected">What If the Delisting Is Rejected?</a></li>
+<li><a href="#why">Why:</a></li>
+<li><a href="#next-steps-2">Next steps:</a></li>
 <li><a href="#real-client-example-the-healthcare-podcast-case">Real Client Example: The Healthcare Podcast Case</a></li>
+<li><a href="#their-situation">Their situation:</a></li>
+<li><a href="#what-we-did">What we did:</a></li>
+<li><a href="#result">Result:</a></li>
 <li><a href="#when-to-rebuild-vs-buy-new-domain">When to Rebuild vs Buy New Domain</a></li>
+<li><a href="#rebuild-if">Rebuild if:</a></li>
+<li><a href="#buy-new-domain-if">Buy new domain if:</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-long-does-delisting-take">Q: How long does delisting take?</a></li>
+<li><a href="#q-can-i-send-emails-while-blacklisted">Q: Can I send emails while blacklisted?</a></li>
+<li><a href="#q-will-my-domain-recover-fully-after-delisting">Q: Will my domain recover fully after delisting?</a></li>
+<li><a href="#q-is-it-better-to-buy-a-new-domain">Q: Is it better to buy a new domain?</a></li>
+<li><a href="#q-can-i-delist-an-ip-instead-of-a-domain">Q: Can I delist an IP instead of a domain?</a></li>
+<li><a href="#q-what-if-i-share-the-ip-with-other-senders-shared-ip">Q: What if I share the IP with other senders (shared IP)?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1743,7 +1769,7 @@ Table of Contents
 <h2 id="what-is-a-domain-blacklist-and-why-it-matters">What Is a Domain Blacklist? And Why It Matters.</h2>
 <p>A blacklist is a database maintained by ISPs, spam filtering companies, and security organizations.</p>
 <p>If your domain is on it, emails get rejected or marked as spam automatically.</p>
-<p><strong>Common blacklists:</strong></p>
+<h2 id="common-blacklists">Common blacklists:</h2>
 <ul>
 <li>Spamhaus RBL (most trusted, used by Gmail, Outlook)</li>
 <li>SORBS (deprecated but still used by some ISPs)</li>
@@ -1753,7 +1779,7 @@ Table of Contents
 <li>URIBL (tracks URLs in emails, not sender domains)</li>
 </ul>
 <p>When you send an email, the ISP checks: "Is this domain on any blacklist?" If yes, email bounces or goes to spam.</p>
-<p><strong>Why this matters for cold email:</strong></p>
+<h2 id="why-this-matters-for-cold-email">Why this matters for cold email:</h2>
 <ul>
 <li>One blacklist can tank your deliverability from 75% to 5%</li>
 <li>Some blacklists block 10 million ISP accounts combined</li>
@@ -1770,7 +1796,7 @@ Table of Contents
 <li>Click "Check Blacklist"</li>
 <li>Wait 60 seconds for results</li>
 </ol>
-<p><strong>What to look for:</strong></p>
+<h2 id="what-to-look-for">What to look for:</h2>
 <ul>
 <li>Green circle = Not listed</li>
 <li>Red X = Listed on a blacklist</li>
@@ -1784,7 +1810,7 @@ Table of Contents
 <li>Enter your domain</li>
 <li>Get a score (0-100, higher is better)</li>
 </ol>
-<p><strong>What to look for:</strong></p>
+<h2 id="what-to-look-for-2">What to look for:</h2>
 <ul>
 <li>Score under 50 = High risk of blacklisting or reputation issues</li>
 <li>Score 50-80 = Moderate reputation, some ISP filtering</li>
@@ -1801,7 +1827,7 @@ Table of Contents
 <li>Check "Delivery" section: what percentage of emails land in inbox vs spam</li>
 </ol>
 <p>This shows you Google's opinion of your domain specifically.</p>
-<p><strong>What to look for:</strong></p>
+<h2 id="what-to-look-for-3">What to look for:</h2>
 <ul>
 <li>"Authentication passed" on SPF, DKIM, DMARC</li>
 <li>Reputation = "Good" or "High"</li>
@@ -1856,25 +1882,25 @@ Table of Contents
 <p>You might be on multiple blacklists. Each needs individual delisting.</p>
 <h3>Step 2: Stop the Problem Behavior</h3>
 <p>Before requesting delisting, fix whatever caused it.</p>
-<p><strong>If previous owner spammed:</strong></p>
+<h2 id="if-previous-owner-spammed">If previous owner spammed:</h2>
 <ul>
 <li>You're getting delisted simply because time passed and they stopped</li>
 <li>You don't need to do anything here</li>
 <li>Just request delisting (step 3)</li>
 </ul>
-<p><strong>If you hit spam traps:</strong></p>
+<h2 id="if-you-hit-spam-traps">If you hit spam traps:</h2>
 <ul>
 <li>Stop sending to addresses that haven't engaged</li>
 <li>Implement list cleaning (remove bounces, non-engaged after 90 days)</li>
 <li>Only send to warm or opted-in contacts</li>
 </ul>
-<p><strong>If DNS was misaligned:</strong></p>
+<h2 id="if-dns-was-misaligned">If DNS was misaligned:</h2>
 <ul>
 <li>Fix SPF, DKIM, DMARC (covered in previous post)</li>
 <li>Once fixed, propagate (24-48 hours)</li>
 <li>Then request delisting</li>
 </ul>
-<p><strong>If IP was bad:</strong></p>
+<h2 id="if-ip-was-bad">If IP was bad:</h2>
 <ul>
 <li>Switch to new IP or dedicated IP</li>
 <li>Or migrate to private server ($489/yr for 50 inboxes)</li>
@@ -1896,7 +1922,7 @@ Table of Contents
 <ol>
 <li>Submit</li>
 </ol>
-<p><strong>What to write in "What you've done to fix it":</strong></p>
+<h2 id="what-to-write-in-what-you-ve-done-to-fix-it">What to write in "What you've done to fix it":</h2>
 <ul>
 <li>If previous owner: "Previous owner was removed and domain is now clean. We are implementing strict list hygiene protocols."</li>
 <li>If spam traps: "We have audited our mailing list and removed all non-engaged contacts. We now only email warm contacts and opted-in recipients."</li>
@@ -1930,7 +1956,7 @@ Table of Contents
 <h2 id="template-email-for-delisting-requests">Template Email for Delisting Requests</h2>
 <p>Use this template when submitting delisting requests (adjust for each blacklist):</p>
 <p><strong>Subject:</strong> Delisting Request for [yourdomain.com]</p>
-<p><strong>Body:</strong></p>
+<h2 id="body">Body:</h2>
 <p>Hello,</p>
 <p>I am writing to request the removal of [yourdomain.com] from your blacklist.</p>
 <p>Our domain was previously listed due to [select one: previous owner spam / spam trap hits / DNS misalignment / security compromise]. We have since resolved this issue:</p>
@@ -1949,7 +1975,7 @@ Table of Contents
 <p>Send this via the blacklist's removal form. Don't email it directly unless they request email submission.</p>
 <h2 id="preventing-re-blacklisting">Preventing Re-blacklisting</h2>
 <p>Once you're delisted, avoid getting listed again.</p>
-<p><strong>Best practices:</strong></p>
+<h2 id="best-practices">Best practices:</h2>
 <ol>
 <li>Only email warm contacts or opted-in recipients</li>
 <li>Keep bounce rate under 3%</li>
@@ -1965,29 +1991,29 @@ Table of Contents
 <p>Private server ($489/yr) includes all deliverability protections. No shared IP = no bad neighbors. No blacklist reputation from other users affecting you.</p>
 <h2 id="what-if-the-delisting-is-rejected">What If the Delisting Is Rejected?</h2>
 <p>Sometimes blacklists reject removal requests.</p>
-<p><strong>Why:</strong></p>
+<h2 id="why">Why:</h2>
 <ul>
 <li>You didn't actually fix the problem</li>
 <li>You're still on a spam trap list</li>
 <li>The blacklist requires your ISP to request delisting (not you)</li>
 </ul>
-<p><strong>Next steps:</strong></p>
+<h2 id="next-steps-2">Next steps:</h2>
 <ol>
 <li>Wait 2-4 weeks, then resubmit (blacklist operators re-evaluate periodically)</li>
-<li>Hire a professional email consultant (we handle this—see packages below)</li>
+<li>Hire a professional email consultant (we handle this, see packages below)</li>
 <li>Switch to a new domain (nuclear option, but sometimes fastest)</li>
 <li>Switch to private server with new domain (guaranteed clean reputation)</li>
 </ol>
 <h2 id="real-client-example-the-healthcare-podcast-case">Real Client Example: The Healthcare Podcast Case</h2>
-<p>One client—a healthcare podcast company—had 4 domains blacklisted on Google Workspace.</p>
-<p><strong>Their situation:</strong></p>
+<p>One client, a healthcare podcast company, had 4 domains blacklisted on Google Workspace.</p>
+<h2 id="their-situation">Their situation:</h2>
 <ul>
 <li>Bought 4 domains from marketplace</li>
 <li>All had previous spam history</li>
 <li>Reply rate: 1.5% with their system</li>
 <li>Switched to imisofts: 0.3% with blacklisted domains</li>
 </ul>
-<p><strong>What we did:</strong></p>
+<h2 id="what-we-did">What we did:</h2>
 <ol>
 <li>Ran MXToolbox check on all 4 domains</li>
 <li>Found all 4 on Spamhaus RBL</li>
@@ -1996,20 +2022,20 @@ Table of Contents
 <li>Set up 14-day warmup on new domains</li>
 <li>Launched fresh campaigns</li>
 </ol>
-<p><strong>Result:</strong></p>
+<h2 id="result">Result:</h2>
 <ul>
 <li>Old domains: eventually delisted (took 3 weeks), but only got to 2-3% reply (reputation damage lingers)</li>
 <li>New domains on private server: 3.5% reply in week 1, 4-5% by week 4</li>
 <li>Lesson: New domain on clean private server beats trying to recover old domain</li>
 </ul>
 <h2 id="when-to-rebuild-vs-buy-new-domain">When to Rebuild vs Buy New Domain</h2>
-<p><strong>Rebuild if:</strong></p>
+<h2 id="rebuild-if">Rebuild if:</h2>
 <ul>
 <li>Domain is 2+ years old (more valuable)</li>
 <li>Delisting approved quickly (under 1 week)</li>
 <li>You've verified you fixed the problem</li>
 </ul>
-<p><strong>Buy new domain if:</strong></p>
+<h2 id="buy-new-domain-if">Buy new domain if:</h2>
 <ul>
 <li>Domain is newer (less valuable, $10-15/yr)</li>
 <li>Delisting takes 3+ weeks</li>
@@ -2019,17 +2045,17 @@ Table of Contents
 </ul>
 <p>New domain on private server will outperform an old domain with damaged reputation. That's our experience across 100+ clients.</p>
 <h2 id="faq">FAQ</h2>
-<p><strong>Q: How long does delisting take?</strong></p>
+<h2 id="q-how-long-does-delisting-take">Q: How long does delisting take?</h2>
 <p>A: 3-10 days for Spamhaus. 1-7 days for others. Some take 2-3 weeks. Plan for 2 weeks worst case.</p>
-<p><strong>Q: Can I send emails while blacklisted?</strong></p>
+<h2 id="q-can-i-send-emails-while-blacklisted">Q: Can I send emails while blacklisted?</h2>
 <p>A: Technically yes. But 70-90% will bounce or go to spam. Not worth it.</p>
-<p><strong>Q: Will my domain recover fully after delisting?</strong></p>
+<h2 id="q-will-my-domain-recover-fully-after-delisting">Q: Will my domain recover fully after delisting?</h2>
 <p>A: Yes, reputation recovers. But if the domain sent spam for months before delisting, trust is damaged. Takes 2-4 weeks of clean behavior to fully restore.</p>
-<p><strong>Q: Is it better to buy a new domain?</strong></p>
+<h2 id="q-is-it-better-to-buy-a-new-domain">Q: Is it better to buy a new domain?</h2>
 <p>A: If the domain is new, yes. New domain + private server + 14-day warmup = 75%+ inbox placement in week 1. Old domain delisting + 14-day warmup = 50-60% week 1. Choose your situation.</p>
-<p><strong>Q: Can I delist an IP instead of a domain?</strong></p>
+<h2 id="q-can-i-delist-an-ip-instead-of-a-domain">Q: Can I delist an IP instead of a domain?</h2>
 <p>A: Yes, same process. Go to the blacklist, find IP removal, submit request. Takes same time.</p>
-<p><strong>Q: What if I share the IP with other senders (shared IP)?</strong></p>
+<h2 id="q-what-if-i-share-the-ip-with-other-senders-shared-ip">Q: What if I share the IP with other senders (shared IP)?</h2>
 <p>A: You can't control their behavior. If they get blacklisted, you all get blacklisted. This is why private server is better. Dedicated IP = you control reputation fully.</p>
 <h2 id="next-steps">Next Steps</h2>
 <ol>
@@ -2107,16 +2133,42 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#what-is-a-domain-blacklist-and-why-it-matters">What Is a Domain Blacklist? And Why It Matters.</a></li>
+<li><a href="#common-blacklists">Common blacklists:</a></li>
+<li><a href="#why-this-matters-for-cold-email">Why this matters for cold email:</a></li>
 <li><a href="#how-to-check-if-your-domain-is-blacklisted">How to Check If Your Domain Is Blacklisted</a></li>
+<li><a href="#what-to-look-for">What to look for:</a></li>
+<li><a href="#what-to-look-for-2">What to look for:</a></li>
+<li><a href="#what-to-look-for-3">What to look for:</a></li>
 <li><a href="#why-domains-get-blacklisted">Why Domains Get Blacklisted</a></li>
 <li><a href="#the-6-step-delisting-process">The 6-Step Delisting Process</a></li>
+<li><a href="#if-previous-owner-spammed">If previous owner spammed:</a></li>
+<li><a href="#if-you-hit-spam-traps">If you hit spam traps:</a></li>
+<li><a href="#if-dns-was-misaligned">If DNS was misaligned:</a></li>
+<li><a href="#if-ip-was-bad">If IP was bad:</a></li>
+<li><a href="#what-to-write-in-what-you-ve-done-to-fix-it">What to write in "What you've done to fix it":</a></li>
 <li><a href="#template-email-for-delisting-requests">Template Email for Delisting Requests</a></li>
+<li><a href="#body">Body:</a></li>
 <li><a href="#preventing-re-blacklisting">Preventing Re-blacklisting</a></li>
+<li><a href="#best-practices">Best practices:</a></li>
 <li><a href="#what-if-the-delisting-is-rejected">What If the Delisting Is Rejected?</a></li>
+<li><a href="#why">Why:</a></li>
+<li><a href="#next-steps-2">Next steps:</a></li>
 <li><a href="#real-client-example-the-healthcare-podcast-case">Real Client Example: The Healthcare Podcast Case</a></li>
+<li><a href="#their-situation">Their situation:</a></li>
+<li><a href="#what-we-did">What we did:</a></li>
+<li><a href="#result">Result:</a></li>
 <li><a href="#when-to-rebuild-vs-buy-new-domain">When to Rebuild vs Buy New Domain</a></li>
+<li><a href="#rebuild-if">Rebuild if:</a></li>
+<li><a href="#buy-new-domain-if">Buy new domain if:</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-long-does-delisting-take">Q: How long does delisting take?</a></li>
+<li><a href="#q-can-i-send-emails-while-blacklisted">Q: Can I send emails while blacklisted?</a></li>
+<li><a href="#q-will-my-domain-recover-fully-after-delisting">Q: Will my domain recover fully after delisting?</a></li>
+<li><a href="#q-is-it-better-to-buy-a-new-domain">Q: Is it better to buy a new domain?</a></li>
+<li><a href="#q-can-i-delist-an-ip-instead-of-a-domain">Q: Can I delist an IP instead of a domain?</a></li>
+<li><a href="#q-what-if-i-share-the-ip-with-other-senders-shared-ip">Q: What if I share the IP with other senders (shared IP)?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

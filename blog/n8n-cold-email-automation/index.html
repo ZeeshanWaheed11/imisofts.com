@@ -1716,15 +1716,34 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#real-example-montblack-inc-johan">Real Example: MontBlack Inc (Johan)</a></li>
+<li><a href="#step-3-zoominfo-lookup">Step 3: ZoomInfo Lookup</a></li>
+<li><a href="#step-5-email-creation">Step 5: Email Creation</a></li>
+<li><a href="#step-6-close-crm-entry">Step 6: Close CRM Entry</a></li>
 <li><a href="#benefits-of-n8n-automation">Benefits of n8n Automation</a></li>
 <li><a href="#how-to-build-an-n8n-cold-email-workflow">How to Build an n8n Cold Email Workflow</a></li>
+<li><a href="#option-a-self-hosted-free">Option A: Self-Hosted (Free)</a></li>
+<li><a href="#option-b-n8n-cloud-10-50-month">Option B: n8n Cloud ($10-50/month)</a></li>
+<li><a href="#start-with-n8n-cloud-for-testing">Start with n8n Cloud for testing.</a></li>
+<li><a href="#step-1-trigger">Step 1: Trigger</a></li>
+<li><a href="#step-2-conditional-logic">Step 2: Conditional Logic</a></li>
+<li><a href="#step-3-research-api-calls">Step 3: Research (API Calls)</a></li>
+<li><a href="#step-4-ai-email-generation">Step 4: AI Email Generation</a></li>
+<li><a href="#step-5-crm-entry">Step 5: CRM Entry</a></li>
+<li><a href="#step-6-email-sending">Step 6: Email Sending</a></li>
+<li><a href="#step-7-logging">Step 7: Logging</a></li>
+<li><a href="#one-time-setup">One-Time Setup:</a></li>
+<li><a href="#monthly-costs">Monthly Costs:</a></li>
+<li><a href="#cost-per-email-generated">Cost per Email Generated:</a></li>
+<li><a href="#roi">ROI:</a></li>
 <li><a href="#popular-n8n-cold-email-workflows">Popular n8n + Cold Email Workflows</a></li>
 <li><a href="#tools-to-integrate">Tools to Integrate</a></li>
 <li><a href="#when-to-use-n8n-vs-manual">When to Use n8n vs Manual</a></li>
+<li><a href="#use-manual-when">Use Manual When:</a></li>
+<li><a href="#use-n8n-automation-when">Use n8n Automation When:</a></li>
 <li><a href="#common-mistakes">Common Mistakes</a></li>
 <li><a href="#your-n8n-action-plan">Your n8n Action Plan</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1748,7 +1767,7 @@ Table of Contents
 <li>Seller name → Manual lookup (who are these people?)</li>
 <li>Get company name, estimated revenue, location</li>
 </ul>
-<p><strong>Step 3: ZoomInfo Lookup</strong></p>
+<h2 id="step-3-zoominfo-lookup">Step 3: ZoomInfo Lookup</h2>
 <ul>
 <li>Company name → ZoomInfo API call</li>
 <li>Returns: decision-makers, email addresses, company size, industry</li>
@@ -1759,13 +1778,13 @@ Table of Contents
 <li>Estimate revenue (Keepa estimates ~$10-50K monthly per product)</li>
 <li>Assess target buyer profile</li>
 </ul>
-<p><strong>Step 5: Email Creation</strong></p>
+<h2 id="step-5-email-creation">Step 5: Email Creation</h2>
 <ul>
 <li>n8n uses AI (OpenAI API) to write personalized email</li>
 <li>Input: Seller name, company, estimated revenue, product category</li>
 <li>Output: Custom email for this specific Amazon seller</li>
 </ul>
-<p><strong>Step 6: Close CRM Entry</strong></p>
+<h2 id="step-6-close-crm-entry">Step 6: Close CRM Entry</h2>
 <ul>
 <li>Create new contact in Close CRM</li>
 <li>Fields: name, email, company, estimated revenue, product focus</li>
@@ -1807,69 +1826,69 @@ Table of Contents
 </ul>
 <h2 id="how-to-build-an-n8n-cold-email-workflow">How to Build an n8n Cold Email Workflow</h2>
 <h3 id="1-set-up-n8n-instance">1. Set Up n8n Instance</h3>
-<p><strong>Option A: Self-Hosted (Free)</strong></p>
+<h2 id="option-a-self-hosted-free">Option A: Self-Hosted (Free)</h2>
 <ul>
 <li>Docker install on your server</li>
 <li>Full control, unlimited automations</li>
 <li>Technical setup required</li>
 </ul>
-<p><strong>Option B: n8n Cloud ($10-50/month)</strong></p>
+<h2 id="option-b-n8n-cloud-10-50-month">Option B: n8n Cloud ($10-50/month)</h2>
 <ul>
 <li>No setup needed</li>
 <li>Managed hosting</li>
 <li>Limited workflows on free tier</li>
 </ul>
-<p><strong>Start with n8n Cloud for testing.</strong></p>
+<h2 id="start-with-n8n-cloud-for-testing">Start with n8n Cloud for testing.</h2>
 <h3 id="2-create-workflow-step-by-step">2. Create Workflow (Step by Step)</h3>
-<p><strong>Step 1: Trigger</strong></p>
+<h2 id="step-1-trigger">Step 1: Trigger</h2>
 <ul>
 <li>Trigger: When new row added to Google Sheet</li>
 <li>OR: On schedule (daily at 9 AM)</li>
 <li>Pulls prospect data (name, company, email from Apollo/ZoomInfo)</li>
 </ul>
-<p><strong>Step 2: Conditional Logic</strong></p>
+<h2 id="step-2-conditional-logic">Step 2: Conditional Logic</h2>
 <ul>
 <li>If company size &lt;10: skip (too small)</li>
 <li>If email invalid: skip</li>
 <li>Otherwise: proceed to research</li>
 </ul>
-<p><strong>Step 3: Research (API Calls)</strong></p>
+<h2 id="step-3-research-api-calls">Step 3: Research (API Calls)</h2>
 <ul>
 <li>ZoomInfo API: Get company data</li>
 <li>Apollo API: Verify email + get additional info</li>
 <li>Combine data into single object</li>
 </ul>
-<p><strong>Step 4: AI Email Generation</strong></p>
+<h2 id="step-4-ai-email-generation">Step 4: AI Email Generation</h2>
 <ul>
 <li>Call OpenAI API</li>
 <li>Input: Company name, decision-maker name, company size, industry</li>
 <li>Output: Personalized subject line + body</li>
 </ul>
-<p><strong>Step 5: CRM Entry</strong></p>
+<h2 id="step-5-crm-entry">Step 5: CRM Entry</h2>
 <ul>
 <li>Create contact in Close CRM</li>
 <li>Fields: name, email, company, research data</li>
 <li>Assign to sales rep</li>
 </ul>
-<p><strong>Step 6: Email Sending</strong></p>
+<h2 id="step-6-email-sending">Step 6: Email Sending</h2>
 <ul>
 <li>Call Instantly API</li>
 <li>Schedule email delivery</li>
 <li>Track sending</li>
 </ul>
-<p><strong>Step 7: Logging</strong></p>
+<h2 id="step-7-logging">Step 7: Logging</h2>
 <ul>
 <li>Log results to Google Sheet</li>
 <li>Track opens/clicks/responses</li>
 <li>Daily reporting</li>
 </ul>
 <h3 id="3-cost-breakdown">3: Cost Breakdown</h3>
-<p><strong>One-Time Setup:</strong></p>
+<h2 id="one-time-setup">One-Time Setup:</h2>
 <ul>
 <li>n8n workflow build: $1,500-2,500 (Upwork freelancer)</li>
 <li>API keys setup: $0 (just get them from each platform)</li>
 </ul>
-<p><strong>Monthly Costs:</strong></p>
+<h2 id="monthly-costs">Monthly Costs:</h2>
 <ul>
 <li>n8n Cloud: $20/mo</li>
 <li>OpenAI API (email writing): $10-20/mo</li>
@@ -1877,13 +1896,13 @@ Table of Contents
 <li>Close CRM: $29/mo (free tier fine for starting)</li>
 <li><strong>Total: ~$160-170/mo</strong></li>
 </ul>
-<p><strong>Cost per Email Generated:</strong></p>
+<h2 id="cost-per-email-generated">Cost per Email Generated:</h2>
 <ul>
 <li>1,000 emails/month</li>
 <li>$170 monthly cost</li>
 <li>$0.17 per email</li>
 </ul>
-<p><strong>ROI:</strong></p>
+<h2 id="roi">ROI:</h2>
 <ul>
 <li>1,000 emails → 20-30 responses (2-3%)</li>
 <li>20 responses → 2-5 customers</li>
@@ -1957,13 +1976,13 @@ Table of Contents
 <li><strong>Database:</strong> PostgreSQL (for custom data storage)</li>
 </ul>
 <h2 id="when-to-use-n8n-vs-manual">When to Use n8n vs Manual</h2>
-<p><strong>Use Manual When:</strong></p>
+<h2 id="use-manual-when">Use Manual When:</h2>
 <ul>
 <li>&lt;100 emails/month (not worth automation setup)</li>
 <li>Highly personalized (each email is custom research)</li>
 <li>Testing new angle (need fast iteration)</li>
 </ul>
-<p><strong>Use n8n Automation When:</strong></p>
+<h2 id="use-n8n-automation-when">Use n8n Automation When:</h2>
 <ul>
 <li>&gt;500 emails/month (ROI breaks even)</li>
 <li>Repetitive process (same steps for each prospect)</li>
@@ -2081,15 +2100,34 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#real-example-montblack-inc-johan">Real Example: MontBlack Inc (Johan)</a></li>
+<li><a href="#step-3-zoominfo-lookup">Step 3: ZoomInfo Lookup</a></li>
+<li><a href="#step-5-email-creation">Step 5: Email Creation</a></li>
+<li><a href="#step-6-close-crm-entry">Step 6: Close CRM Entry</a></li>
 <li><a href="#benefits-of-n8n-automation">Benefits of n8n Automation</a></li>
 <li><a href="#how-to-build-an-n8n-cold-email-workflow">How to Build an n8n Cold Email Workflow</a></li>
+<li><a href="#option-a-self-hosted-free">Option A: Self-Hosted (Free)</a></li>
+<li><a href="#option-b-n8n-cloud-10-50-month">Option B: n8n Cloud ($10-50/month)</a></li>
+<li><a href="#start-with-n8n-cloud-for-testing">Start with n8n Cloud for testing.</a></li>
+<li><a href="#step-1-trigger">Step 1: Trigger</a></li>
+<li><a href="#step-2-conditional-logic">Step 2: Conditional Logic</a></li>
+<li><a href="#step-3-research-api-calls">Step 3: Research (API Calls)</a></li>
+<li><a href="#step-4-ai-email-generation">Step 4: AI Email Generation</a></li>
+<li><a href="#step-5-crm-entry">Step 5: CRM Entry</a></li>
+<li><a href="#step-6-email-sending">Step 6: Email Sending</a></li>
+<li><a href="#step-7-logging">Step 7: Logging</a></li>
+<li><a href="#one-time-setup">One-Time Setup:</a></li>
+<li><a href="#monthly-costs">Monthly Costs:</a></li>
+<li><a href="#cost-per-email-generated">Cost per Email Generated:</a></li>
+<li><a href="#roi">ROI:</a></li>
 <li><a href="#popular-n8n-cold-email-workflows">Popular n8n + Cold Email Workflows</a></li>
 <li><a href="#tools-to-integrate">Tools to Integrate</a></li>
 <li><a href="#when-to-use-n8n-vs-manual">When to Use n8n vs Manual</a></li>
+<li><a href="#use-manual-when">Use Manual When:</a></li>
+<li><a href="#use-n8n-automation-when">Use n8n Automation When:</a></li>
 <li><a href="#common-mistakes">Common Mistakes</a></li>
 <li><a href="#your-n8n-action-plan">Your n8n Action Plan</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

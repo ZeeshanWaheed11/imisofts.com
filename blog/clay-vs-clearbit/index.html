@@ -1720,16 +1720,29 @@ Table of Contents
 <li><a href="#quick-summary-table">Quick Summary Table</a></li>
 <li><a href="#the-core-difference">The Core Difference</a></li>
 <li><a href="#data-richness-clearbits-depth-advantage">Data Richness: Clearbit's Depth Advantage</a></li>
+<li><a href="#clearbit-s-standard-fields">Clearbit's standard fields:</a></li>
+<li><a href="#clay-s-standard-fields">Clay's standard fields:</a></li>
 <li><a href="#enrichment-speed-clearbit-dominates">Enrichment Speed: Clearbit Dominates</a></li>
 <li><a href="#cost-structure-clay-wins-at-scale">Cost Structure: Clay Wins at Scale</a></li>
+<li><a href="#clearbit-pricing">Clearbit pricing:</a></li>
+<li><a href="#clay-pricing">Clay pricing:</a></li>
 <li><a href="#enrichment-depth-data-points-per-contact">Enrichment Depth: Data Points Per Contact</a></li>
+<li><a href="#clearbit-s-waterfall">Clearbit's waterfall:</a></li>
+<li><a href="#clay-s-waterfall">Clay's waterfall:</a></li>
 <li><a href="#api-flexibility-clays-custom-source-win">API Flexibility: Clay's Custom Source Win</a></li>
+<li><a href="#clay-custom-sources-include">Clay custom sources include:</a></li>
+<li><a href="#clearbit-sources">Clearbit sources:</a></li>
 <li><a href="#data-freshness-trade-offs">Data Freshness: Trade-offs</a></li>
 <li><a href="#api-rate-limits-clays-throughput-wins">API Rate Limits: Clay's Throughput Wins</a></li>
 <li><a href="#workflow-automation-clay-native-clearbit-via-zapier">Workflow Automation: Clay Native, Clearbit via Zapier</a></li>
 <li><a href="#real-campaign-test-clay-vs-clearbit">Real Campaign Test: Clay vs Clearbit</a></li>
+<li><a href="#clay-workflow">Clay workflow:</a></li>
+<li><a href="#clearbit-workflow">Clearbit workflow:</a></li>
 <li><a href="#verdict-pick-by-workflow-need">Verdict: Pick by Workflow Need</a></li>
+<li><a href="#choose-clay-if">Choose Clay if:</a></li>
+<li><a href="#choose-clearbit-if">Choose Clearbit if:</a></li>
 <li><a href="#our-recommendation">Our Recommendation</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1802,7 +1815,7 @@ Table of Contents
 <p>For cold email, we use Clay because we layer enrichment into multi-step workflows. Find contact → enrich with Clay → segment by industry → assign to rotating inbox → send via Instantly. Clearbit is faster per call, but Clay's workflow integration saves development time and costs less at volume.</p>
 <h2 id="data-richness-clearbits-depth-advantage">Data Richness: Clearbit's Depth Advantage</h2>
 <p>Clearbit returns 300+ data points per contact. Clay returns 200+ by default (can be configured higher).</p>
-<p><strong>Clearbit's standard fields:</strong></p>
+<h2 id="clearbit-s-standard-fields">Clearbit's standard fields:</h2>
 <ul>
 <li>Full contact profile (name, title, email, phone, LinkedIn URL, location)</li>
 <li>Company details (size, revenue, industry, location, web traffic)</li>
@@ -1811,7 +1824,7 @@ Table of Contents
 <li>Industry-specific fields (15+ vertical-specific attributes)</li>
 <li>Firmographic data (growth rate, funding status, hiring signals)</li>
 </ul>
-<p><strong>Clay's standard fields:</strong></p>
+<h2 id="clay-s-standard-fields">Clay's standard fields:</h2>
 <ul>
 <li>Contact core data (name, title, email, phone)</li>
 <li>Company enrichment (size, revenue, industry)</li>
@@ -1820,24 +1833,24 @@ Table of Contents
 <li>Enrichment history (tracking what succeeded/failed)</li>
 <li>Workflow-applied tags and segments</li>
 </ul>
-<p>Clearbit's data depth is 40% richer. For enterprise sales teams doing account-based marketing, that richness matters. For cold email operations, Clay's 200+ points are sufficient—you don't need 300.</p>
+<p>Clearbit's data depth is 40% richer. For enterprise sales teams doing account-based marketing, that richness matters. For cold email operations, Clay's 200+ points are sufficient, you don't need 300.</p>
 <h2 id="enrichment-speed-clearbit-dominates">Enrichment Speed: Clearbit Dominates</h2>
 <p>Clearbit's API response time: <500ms average.</p>
 <p>Clay's enrichment latency: 1-2 minutes (subject to workflow queue).</p>
 <p>This matters differently depending on use case.</p>
 <p><strong>Real-time lookups (web app):</strong> Clearbit wins. A prospect visits your website, you want their company data in 500ms to personalize the chat window. Clearbit delivers. Clay's 1-2 minute queue is too slow.</p>
 <p><strong>Batch enrichment (cold email):</strong> Clay wins. You're enriching 10,000 prospects offline for campaign launch. You don't need results in 500ms. You need them in 2 minutes, and Clay's batching costs 70% less.</p>
-<p>Our AI inventory startup needed real-time enrichment to power their Loom video personalization. Clearbit's 500ms speed was essential—a 10-second delay broke their video generation workflow. Clearbit solved it.</p>
+<p>Our AI inventory startup needed real-time enrichment to power their Loom video personalization. Clearbit's 500ms speed was essential, a 10-second delay broke their video generation workflow. Clearbit solved it.</p>
 <p>Our Dutch recruitment firm enriched 3,000 prospect batches weekly for outreach campaigns. They used Clay. Overnight enrichment, $229/month cost, done. Clearbit would've cost $1,200/month for the same 30,000 monthly enrichments.</p>
 <h2 id="cost-structure-clay-wins-at-scale">Cost Structure: Clay Wins at Scale</h2>
 <p>This is where decisions shift.</p>
-<p><strong>Clearbit pricing:</strong></p>
+<h2 id="clearbit-pricing">Clearbit pricing:</h2>
 <ul>
 <li>Starter: $120/month (10,000 API calls/month)</li>
 <li>Standard: $1,200/month (500,000 API calls/month)</li>
 <li>Enterprise: Custom (1M+ calls/month)</li>
 </ul>
-<p><strong>Clay pricing:</strong></p>
+<h2 id="clay-pricing">Clay pricing:</h2>
 <ul>
 <li>Starter: $99/month (2,000 enrichments/month)</li>
 <li>Growth: $229/month (20,000 enrichments/month)</li>
@@ -1862,14 +1875,14 @@ Table of Contents
 <p>Clay's pricing follows consumption linearly. Clearbit's pricing jumps in tiers. At scale, Clay is 60% cheaper.</p>
 <p>For our clients running 25-domain private server infrastructure with 175 inboxes, that cost difference is material. We're enriching 50,000-100,000 prospects monthly across campaigns. Clay costs $300-500. Clearbit costs $1,200. That's $800-900/month difference. Over 12 months, Clay saves $9,600-10,800 per infrastructure client.</p>
 <h2 id="enrichment-depth-data-points-per-contact">Enrichment Depth: Data Points Per Contact</h2>
-<p>Both platforms use waterfall enrichment—primary source, then fallbacks.</p>
-<p><strong>Clearbit's waterfall:</strong></p>
+<p>Both platforms use waterfall enrichment, primary source, then fallbacks.</p>
+<h2 id="clearbit-s-waterfall">Clearbit's waterfall:</h2>
 <ol>
 <li>Direct database match (300+ points)</li>
 <li>Third-party data (if primary fails)</li>
 <li>API returns null (vs. estimated values)</li>
 </ol>
-<p><strong>Clay's waterfall:</strong></p>
+<h2 id="clay-s-waterfall">Clay's waterfall:</h2>
 <ol>
 <li>Primary source (Clearbit API + native data)</li>
 <li>Custom sources (Hunter.io, Phantombuster, custom APIs)</li>
@@ -1881,7 +1894,7 @@ Table of Contents
 <p>Clearbit covers these 10 fields perfectly. Clay covers them equally. The 290+ remaining fields matter for enterprise CRM integration, not cold email.</p>
 <h2 id="api-flexibility-clays-custom-source-win">API Flexibility: Clay's Custom Source Win</h2>
 <p>Clay lets you map custom data sources. Clearbit doesn't.</p>
-<p><strong>Clay custom sources include:</strong></p>
+<h2 id="clay-custom-sources-include">Clay custom sources include:</h2>
 <ul>
 <li>Hunter.io (email verification secondary source)</li>
 <li>Apify (web scraping for custom data)</li>
@@ -1890,12 +1903,12 @@ Table of Contents
 <li>HTTP API calls (any endpoint)</li>
 <li>Google Sheets (custom lookup tables)</li>
 </ul>
-<p><strong>Clearbit sources:</strong></p>
+<h2 id="clearbit-sources">Clearbit sources:</h2>
 <ul>
 <li>First-party database (only)</li>
 <li>Limited third-party integrations (Salesforce, HubSpot)</li>
 </ul>
-<p>At imisofts, we layer Hunter.io into Clay workflows for email verification when Apollo/RocketReach confidence is low. We build custom n8n logic to tag prospects by company growth signals. Clearbit can't do that—you'd need a separate data stack.</p>
+<p>At imisofts, we layer Hunter.io into Clay workflows for email verification when Apollo/RocketReach confidence is low. We build custom n8n logic to tag prospects by company growth signals. Clearbit can't do that, you'd need a separate data stack.</p>
 <p>For cold email infrastructure, this flexibility is valuable. We match prospects against custom company lists, apply business logic (industry filters, location rules), then segment them to specific domain/inbox combinations. Clay's workflow layer enables this. Clearbit is single-function (lookup contact → return data).</p>
 <h2 id="data-freshness-trade-offs">Data Freshness: Trade-offs</h2>
 <p>Clearbit: Real-time (data refreshes constantly in their database).</p>
@@ -1904,7 +1917,7 @@ Table of Contents
 <p><strong>Real scenario:</strong> Decision-maker changes jobs. They're no longer CMO at Company A, now CMO at Company B.</p>
 <p>Clearbit catches this in real-time via job change feeds and LinkedIn triggers.</p>
 <p>Clay catches this on next batch enrichment (up to 48 hours).</p>
-<p>For cold email, that 48-hour lag is acceptable. Job change intent signals matter more than realtime freshness. You're not calling them the same day they switch jobs anyway—your campaigns run multi-week sequences.</p>
+<p>For cold email, that 48-hour lag is acceptable. Job change intent signals matter more than realtime freshness. You're not calling them the same day they switch jobs anyway, your campaigns run multi-week sequences.</p>
 <p>For sales teams hunting decision-maker changes for account-based marketing, Clearbit's real-time might justify higher cost. For outbound cold email, Clay's 48-hour freshness is sufficient.</p>
 <h2 id="api-rate-limits-clays-throughput-wins">API Rate Limits: Clay's Throughput Wins</h2>
 <p>Clay: 5,000 requests/minute (300,000/hour).</p>
@@ -1913,11 +1926,11 @@ Table of Contents
 <p>Our healthcare podcast client enriched 20,000 prospects monthly. With Clearbit's 600 req/min rate limits, enrichment took 33 minutes. With Clay's 5,000 req/min limits, same enrichment took 4 minutes. That's 29-minute time difference per enrichment cycle. For agile campaigns, that responsiveness adds up.</p>
 <h2 id="workflow-automation-clay-native-clearbit-via-zapier">Workflow Automation: Clay Native, Clearbit via Zapier</h2>
 <p>Clay has native workflow automation. You build multi-step processes directly: Enrich → Segment → Filter → Send.</p>
-<p>Clearbit requires Zapier or custom development for workflow logic. This adds cost and latency—Zapier charges $19-99/month extra, adds queuing delays.</p>
+<p>Clearbit requires Zapier or custom development for workflow logic. This adds cost and latency, Zapier charges $19-99/month extra, adds queuing delays.</p>
 <p>For our private server infrastructure, Clay's native workflows save time and money. We build once, update sources as needed, campaigns run on schedule. No Zapier overhead.</p>
 <h2 id="real-campaign-test-clay-vs-clearbit">Real Campaign Test: Clay vs Clearbit</h2>
 <p>We ran identical 5,000-prospect cold email campaigns using Clay and Clearbit enrichment.</p>
-<p><strong>Clay workflow:</strong></p>
+<h2 id="clay-workflow">Clay workflow:</h2>
 <ul>
 <li>Enrichment cost: $50 (5K prospects at Clay pricing)</li>
 <li>Enrichment time: 8 minutes</li>
@@ -1925,7 +1938,7 @@ Table of Contents
 <li>Workflow steps: 4 (enrich → segment by company size → filter by location → tag by vertical)</li>
 <li>Campaign execution: Same-day</li>
 </ul>
-<p><strong>Clearbit workflow:</strong></p>
+<h2 id="clearbit-workflow">Clearbit workflow:</h2>
 <ul>
 <li>Enrichment cost: $600 (5K prospects at Clearbit pricing)</li>
 <li>Enrichment time: 2 minutes (real-time per call)</li>
@@ -1941,7 +1954,7 @@ Table of Contents
 <p>Marginal difference in outcomes. Massive difference in cost ($550 savings per campaign with Clay).</p>
 <p>At 4 campaigns monthly, Clay saves $2,200/month vs Clearbit.</p>
 <h2 id="verdict-pick-by-workflow-need">Verdict: Pick by Workflow Need</h2>
-<p><strong>Choose Clay if:</strong></p>
+<h2 id="choose-clay-if">Choose Clay if:</h2>
 <ul>
 <li>Cold email is primary use case</li>
 <li>Batch enrichment at scale (10k+/month)</li>
@@ -1949,7 +1962,7 @@ Table of Contents
 <li>You want workflow automation native</li>
 <li>Multiple enrichment sources needed</li>
 </ul>
-<p><strong>Choose Clearbit if:</strong></p>
+<h2 id="choose-clearbit-if">Choose Clearbit if:</h2>
 <ul>
 <li>Real-time lookups (web app, chat bot)</li>
 <li>Data richness is priority (300+ points)</li>
@@ -1965,7 +1978,7 @@ Table of Contents
 <h2 id="faq">Frequently Asked Questions</h2>
 <div class="faq-item">
 <button class="faq-question" aria-expanded="false">
-<h3>Which tool enriches more data points—Clay or Clearbit?</h3>
+<h3>Which tool enriches more data points, Clay or Clearbit?</h3>
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
@@ -2001,7 +2014,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">Yes. Use Clearbit&#x27;s API for real-time web lookups. Use Clay&#x27;s workflows for batch cold email enrichment. This balances speed and cost—you pay for Clearbit&#x27;s 500ms speed only when you need it.</div>
+<div class="faq-answer-inner">Yes. Use Clearbit&#x27;s API for real-time web lookups. Use Clay&#x27;s workflows for batch cold email enrichment. This balances speed and cost, you pay for Clearbit&#x27;s 500ms speed only when you need it.</div>
 </div>
 </div>
 </section>
@@ -2026,16 +2039,29 @@ Contents
 <li><a href="#quick-summary-table">Quick Summary Table</a></li>
 <li><a href="#the-core-difference">The Core Difference</a></li>
 <li><a href="#data-richness-clearbits-depth-advantage">Data Richness: Clearbit's Depth Advantage</a></li>
+<li><a href="#clearbit-s-standard-fields">Clearbit's standard fields:</a></li>
+<li><a href="#clay-s-standard-fields">Clay's standard fields:</a></li>
 <li><a href="#enrichment-speed-clearbit-dominates">Enrichment Speed: Clearbit Dominates</a></li>
 <li><a href="#cost-structure-clay-wins-at-scale">Cost Structure: Clay Wins at Scale</a></li>
+<li><a href="#clearbit-pricing">Clearbit pricing:</a></li>
+<li><a href="#clay-pricing">Clay pricing:</a></li>
 <li><a href="#enrichment-depth-data-points-per-contact">Enrichment Depth: Data Points Per Contact</a></li>
+<li><a href="#clearbit-s-waterfall">Clearbit's waterfall:</a></li>
+<li><a href="#clay-s-waterfall">Clay's waterfall:</a></li>
 <li><a href="#api-flexibility-clays-custom-source-win">API Flexibility: Clay's Custom Source Win</a></li>
+<li><a href="#clay-custom-sources-include">Clay custom sources include:</a></li>
+<li><a href="#clearbit-sources">Clearbit sources:</a></li>
 <li><a href="#data-freshness-trade-offs">Data Freshness: Trade-offs</a></li>
 <li><a href="#api-rate-limits-clays-throughput-wins">API Rate Limits: Clay's Throughput Wins</a></li>
 <li><a href="#workflow-automation-clay-native-clearbit-via-zapier">Workflow Automation: Clay Native, Clearbit via Zapier</a></li>
 <li><a href="#real-campaign-test-clay-vs-clearbit">Real Campaign Test: Clay vs Clearbit</a></li>
+<li><a href="#clay-workflow">Clay workflow:</a></li>
+<li><a href="#clearbit-workflow">Clearbit workflow:</a></li>
 <li><a href="#verdict-pick-by-workflow-need">Verdict: Pick by Workflow Need</a></li>
+<li><a href="#choose-clay-if">Choose Clay if:</a></li>
+<li><a href="#choose-clearbit-if">Choose Clearbit if:</a></li>
 <li><a href="#our-recommendation">Our Recommendation</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

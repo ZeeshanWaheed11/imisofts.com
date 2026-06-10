@@ -1715,7 +1715,7 @@ Table of Contents
 <li><a href="#recovery-when-deliverability-drops">Recovery when deliverability drops</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1723,21 +1723,21 @@ Table of Contents
 <div class="blog-content-layout">
 <article class="article-content">
 <p class="affiliate-disclosure" style="font-size:14px;line-height:1.6;color:#475569;background:#f8fafc;border-left:3px solid #F45407;padding:11px 15px;border-radius:6px;margin:0 0 22px;"><strong>Affiliate disclosure:</strong> some links in this article are partner links. If you start a paid plan through them, imisofts may earn a commission at no extra cost to you. We only recommend tools we actually use to run client campaigns.</p>
-<p>Cold email deliverability is the single metric that determines whether your outbound campaigns succeed or fail. You can have the best copy in the world, the most targeted lead list, and a compelling offer — but if your emails land in spam, none of it matters.</p>
-<p>At imisofts, we target 70 to 85% inbox placement for every client campaign. That is not a theoretical number — it is what we consistently achieve with proper infrastructure, warmup, and sending discipline. This guide covers every factor that affects deliverability and how to optimize each one.</p>
+<p>Cold email deliverability is the single metric that determines whether your outbound campaigns succeed or fail. You can have the best copy in the world, the most targeted lead list, and a compelling offer, but if your emails land in spam, none of it matters.</p>
+<p>At imisofts, we target 70 to 85% inbox placement for every client campaign. That is not a theoretical number, it is what we consistently achieve with proper infrastructure, warmup, and sending discipline. This guide covers every factor that affects deliverability and how to optimize each one.</p>
 <h2 id="what-deliverability-actually-means">What deliverability actually means</h2>
 <p>Deliverability is the percentage of your sent emails that reach the recipient&#x27;s primary inbox (not spam, not promotions, not blocked). It is different from delivery rate, which simply measures whether the email was accepted by the receiving server.</p>
-<p>An email can be &quot;delivered&quot; to a server but still end up in spam. True deliverability measures inbox placement — did the recipient actually see your email in their primary inbox.</p>
+<p>An email can be &quot;delivered&quot; to a server but still end up in spam. True deliverability measures inbox placement, did the recipient actually see your email in their primary inbox.</p>
 <p>Industry benchmarks for cold email deliverability range from 50 to 85%. The average sits around 60 to 70%. Top performers consistently hit 80%+. Data from 2025 shows that up to 17% of cold emails never reach the inbox at all.</p>
 <h2 id="the-deliverability-stack">The deliverability stack</h2>
-<p>Deliverability is not one thing — it is the sum of multiple factors working together. We break it into five layers.</p>
-<p><strong>Layer 1: Authentication.</strong> SPF, DKIM, DMARC, MX records, and tracking CNAME must be properly configured. Since Gmail and Yahoo began enforcing authentication in February 2024, and Microsoft followed in May 2025, non-compliant emails get rejected outright. This is the foundation — nothing else matters if authentication fails.</p>
+<p>Deliverability is not one thing, it is the sum of multiple factors working together. We break it into five layers.</p>
+<p><strong>Layer 1: Authentication.</strong> SPF, DKIM, DMARC, MX records, and tracking CNAME must be properly configured. Since Gmail and Yahoo began enforcing authentication in February 2024, and Microsoft followed in May 2025, non-compliant emails get rejected outright. This is the foundation, nothing else matters if authentication fails.</p>
 <p><strong>Layer 2: Infrastructure quality.</strong> Private server with dedicated IPs versus shared IPs on Google Workspace or Outlook. Dedicated IPs mean your reputation is yours alone. Shared IPs mean other senders can damage your deliverability without you knowing.</p>
-<p><strong>Layer 3: Warmup and reputation.</strong> Minimum 14 days of warmup before any campaign sends. Warmup generates positive engagement signals — opens, replies, marking emails as important — that build your sender reputation from neutral to positive.</p>
+<p><strong>Layer 3: Warmup and reputation.</strong> Minimum 14 days of warmup before any campaign sends. Warmup generates positive engagement signals, opens, replies, marking emails as important, that build your sender reputation from neutral to positive.</p>
 <p><strong>Layer 4: Sending discipline.</strong> Staying within safe sending limits (20-30 emails per inbox per day), maintaining proper inbox rotation, and following consistent sending schedules. Erratic sending patterns trigger spam filters.</p>
 <p><strong>Layer 5: Content quality.</strong> Plain-text emails without HTML, no spam trigger words, short paragraphs, direct language, and genuine value in every message. The content of your emails affects deliverability because email providers scan for spam-like patterns.</p>
 <h2 id="bounce-rate-the-3-hard-line">Bounce rate: the 3% hard line</h2>
-<p>Bounce rate is the deliverability metric that can destroy your infrastructure fastest. A bounce means the email address you sent to does not exist — the receiving server rejects the message and sends back an error.</p>
+<p>Bounce rate is the deliverability metric that can destroy your infrastructure fastest. A bounce means the email address you sent to does not exist, the receiving server rejects the message and sends back an error.</p>
 <p>High bounce rates tell email providers that you are sending to unverified, low-quality lists. This is one of the strongest spam signals and can tank your sender reputation in days.</p>
 <p>At imisofts, we enforce a strict under-3% bounce rate across all campaigns. Most of our campaigns run at 1 to 2% bounce rates because we verify every lead list before loading it into the campaign platform.</p>
 <p>For an AI sales coaching platform client, we scraped 3,000 leads targeting VP and Director of Sales at companies with 11 to 200 employees. Every email was verified before the campaign launched. Bounce rate stayed at 1.2% across the entire campaign.</p>
@@ -1753,15 +1753,15 @@ Table of Contents
 <p>Spam complaint rate should stay under 0.3%. Gmail and Yahoo both use this threshold. Exceeding it triggers deliverability penalties.</p>
 <p>Open rate should be between 50 and 80%. Low open rates can indicate spam folder placement. High open rates indicate primary inbox delivery.</p>
 <p>Reply rate should be between 1 and 3%. Replies are the strongest positive signal for deliverability because they indicate genuine engagement.</p>
-<p>Inbox placement rate target is 70 to 85%. This is the ultimate metric — the percentage of emails reaching the primary inbox.</p>
+<p>Inbox placement rate target is 70 to 85%. This is the ultimate metric, the percentage of emails reaching the primary inbox.</p>
 <h2 id="recovery-when-deliverability-drops">Recovery when deliverability drops</h2>
 <p>Deliverability drops happen. The question is how quickly you identify the issue and correct it.</p>
-<p>If open rates drop suddenly (by 20%+ in a day or two), check DNS authentication first. A DNS change or propagation issue can break SPF or DKIM without warning. Then check if warmup is still running — accidental warmup pauses cause rapid reputation decay.</p>
+<p>If open rates drop suddenly (by 20%+ in a day or two), check DNS authentication first. A DNS change or propagation issue can break SPF or DKIM without warning. Then check if warmup is still running, accidental warmup pauses cause rapid reputation decay.</p>
 <p>If bounce rates spike, pause the campaign and re-verify remaining leads. Remove any leads that bounced and investigate whether the data source is providing clean contacts.</p>
 <p>If Google Postmaster shows reputation dropping from High to Medium or Low, reduce daily sending volume by 50%, increase warmup email volume, and let reputation recover for 1 to 2 weeks before returning to normal volume.</p>
 <p>We had a business lending client who came to us with existing Outlook inboxes showing 40 to 50% deliverability. The recovery involved migrating to private server infrastructure, running full 14-day warmup, and gradually reintroducing campaign sends at reduced volume. Within 4 weeks, deliverability was consistently above 75%.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Cold email deliverability is not luck. It is the result of proper infrastructure, disciplined sending, and continuous monitoring. Every layer — authentication, server quality, warmup, sending limits, and content — contributes to whether your emails reach the inbox.</p>
+<p>Cold email deliverability is not luck. It is the result of proper infrastructure, disciplined sending, and continuous monitoring. Every layer, authentication, server quality, warmup, sending limits, and content, contributes to whether your emails reach the inbox.</p>
 <p>At imisofts, deliverability is built into everything we do. From DNS configuration to ongoing campaign management, every decision is made with inbox placement in mind. See our infrastructure packages at <a href="https://imisofts.com/cold-email-marketing#packages">imisofts.com/cold-email-marketing#packages</a>.</p>
 <section class="faq-section">
 <h2 id="faq">Frequently Asked Questions</h2>
@@ -1829,7 +1829,7 @@ Contents
 <li><a href="#recovery-when-deliverability-drops">Recovery when deliverability drops</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

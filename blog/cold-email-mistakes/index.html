@@ -1716,20 +1716,32 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#mistake-1-wrong-dns-setup-spf-dkim-dmarc">Mistake 1: Wrong DNS Setup (SPF/DKIM/DMARC)</a></li>
+<li><a href="#fix">Fix:</a></li>
 <li><a href="#mistake-2-using-html-email-templates">Mistake 2: Using HTML Email Templates</a></li>
+<li><a href="#fix-2">Fix:</a></li>
 <li><a href="#mistake-3-pitching-too-hard-in-email-1">Mistake 3: Pitching Too Hard in Email 1</a></li>
+<li><a href="#fix-3">Fix:</a></li>
 <li><a href="#mistake-4-skipping-warmup-or-shortening-it">Mistake 4: Skipping Warmup (or Shortening It)</a></li>
+<li><a href="#fix-4">Fix:</a></li>
 <li><a href="#mistake-5-no-cname-tracking-domain">Mistake 5: No CNAME Tracking Domain</a></li>
+<li><a href="#fix-5">Fix:</a></li>
 <li><a href="#mistake-6-exceeding-daily-send-limits">Mistake 6: Exceeding Daily Send Limits</a></li>
+<li><a href="#fix-6">Fix:</a></li>
 <li><a href="#mistake-7-using-unverified-email-lists">Mistake 7: Using Unverified Email Lists</a></li>
+<li><a href="#fix-7">Fix:</a></li>
 <li><a href="#mistake-8-sending-from-shared-ip-shared-inbox">Mistake 8: Sending from Shared IP / Shared Inbox</a></li>
+<li><a href="#fix-8">Fix:</a></li>
 <li><a href="#mistake-9-no-pool-rotation-all-sends-from-one-inbox">Mistake 9: No Pool Rotation (All Sends from One Inbox)</a></li>
+<li><a href="#fix-9">Fix:</a></li>
 <li><a href="#mistake-10-spam-trigger-words-in-subject-line-copy">Mistake 10: Spam Trigger Words in Subject Line/Copy</a></li>
+<li><a href="#fix-10">Fix:</a></li>
 <li><a href="#mistake-11-no-a-b-testing">Mistake 11: No A/B Testing</a></li>
+<li><a href="#fix-11">Fix:</a></li>
 <li><a href="#mistake-12-ignoring-google-postmaster-tools">Mistake 12: Ignoring Google Postmaster Tools</a></li>
+<li><a href="#fix-12">Fix:</a></li>
 <li><a href="#the-real-lesson">The Real Lesson</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1737,12 +1749,12 @@ Table of Contents
 <div class="blog-content-layout">
 <article class="article-content">
 <p class="affiliate-disclosure" style="font-size:14px;line-height:1.6;color:#475569;background:#f8fafc;border-left:3px solid #F45407;padding:11px 15px;border-radius:6px;margin:0 0 22px;"><strong>Affiliate disclosure:</strong> some links in this article are partner links. If you start a paid plan through them, imisofts may earn a commission at no extra cost to you. We only recommend tools we actually use to run client campaigns.</p>
-<p>I see the same mistakes repeatedly. Agencies waste 6 months, burn domains, then call us to fix it. Here are the 12 mistakes—and how to avoid them.</p>
+<p>I see the same mistakes repeatedly. Agencies waste 6 months, burn domains, then call us to fix it. Here are the 12 mistakes, and how to avoid them.</p>
 <h2 id="mistake-1-wrong-dns-setup-spf-dkim-dmarc">Mistake 1: Wrong DNS Setup (SPF/DKIM/DMARC)</h2>
 <p><strong>What happens:</strong> Emails hit spam folder because Gmail can&#x27;t verify sender authenticity.</p>
 <p><strong>Why it kills you:</strong> Gmail sees &quot;suspicious sender.&quot; Even perfect copy gets spam-foldered.</p>
 <p><strong>Real example:</strong> Client had SPF record pointing to wrong provider. Result: 80% spam placement for 30 days before we caught it.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix">Fix:</h2>
 <ul>
 <li>Add SPF: <code>include:_spf.google.com</code> and <code>include:sendingservice.net</code></li>
 <li>Add DKIM: Generate keys, publish records</li>
@@ -1754,7 +1766,7 @@ Table of Contents
 <p><strong>What happens:</strong> Complex HTML templates get flagged as suspicious. Plain text emails get higher inbox placement.</p>
 <p><strong>Why it kills you:</strong> Gmail prefers simple emails. HTML = higher spam score.</p>
 <p><strong>Real example:</strong> Client switched from custom HTML template to plain text. Reply rate jumped from 1.8% to 3.4% overnight.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-2">Fix:</h2>
 <ul>
 <li>Use plain text emails only</li>
 <li>One paragraph, conversational tone</li>
@@ -1766,7 +1778,7 @@ Table of Contents
 <p><strong>What happens:</strong> You try to sell in first email. Recipient ignores.</p>
 <p><strong>Why it kills you:</strong> Cold email is about starting conversation, not closing deal.</p>
 <p><strong>Real example:</strong> Client sent 5-sentence pitch about software features. Reply rate: 0.8%. We changed to asking &quot;Are you responsible for [pain point] at [company]?&quot; Reply rate: 4.2%.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-3">Fix:</h2>
 <ul>
 <li>Email 1: Get them to reply (ask question, add value)</li>
 <li>Email 2: Clarify fit</li>
@@ -1778,7 +1790,7 @@ Table of Contents
 <p><strong>What happens:</strong> Send to 5,000 people on day 1. Gmail flags inbox. Emails go to spam for 2 weeks.</p>
 <p><strong>Why it kills you:</strong> Gmail monitors inbox behavior. Sudden volume spike = bot behavior.</p>
 <p><strong>Real example:</strong> Client &quot;borrowed&quot; warmed-up inbox from another campaign. Didn&#x27;t warmup first. Gmail disabled the account for 14 days.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-4">Fix:</h2>
 <ul>
 <li>Never skip 14-day warmup</li>
 <li>No exceptions</li>
@@ -1789,7 +1801,7 @@ Table of Contents
 <p><strong>What happens:</strong> Tracking domain is generic (track.instantlyapp.com instead of click.yourdomain.com). Gmail doesn&#x27;t trust it.</p>
 <p><strong>Why it kills you:</strong> Gmail sees external tracking domain. Flags as phishing. Spam folder.</p>
 <p><strong>Real example:</strong> Client forgot to configure CNAME. Google Postmaster showed &quot;tracking domain not authenticated.&quot; Inbox placement was 45%. After fixing CNAME: 91%.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-5">Fix:</h2>
 <ul>
 <li>Create CNAME record: click.yourdomain.com → tracking.instantly.app</li>
 <li>Verify in Instantly</li>
@@ -1801,7 +1813,7 @@ Table of Contents
 <p><strong>What happens:</strong> Gmail sees erratic sending pattern. Manual review triggered. Account flagged.</p>
 <p><strong>Why it kills you:</strong> Gmail&#x27;s algorithm detects sudden spikes. One violation = 2-week review.</p>
 <p><strong>Real example:</strong> Client had 50/day limit but sent 75 one day to &quot;finish list.&quot; Gmail investigated. Account disabled for 14 days.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-6">Fix:</h2>
 <ul>
 <li>Set hard daily limit in Instantly</li>
 <li>Never exceed by more than 5%</li>
@@ -1812,7 +1824,7 @@ Table of Contents
 <p><strong>What happens:</strong> 10-15% of emails bounce (invalid addresses). Bounce rate signals to Gmail that you&#x27;re spamming.</p>
 <p><strong>Why it kills you:</strong> High bounce rate (&gt;5%) damages domain reputation permanently.</p>
 <p><strong>Real example:</strong> Client used <a href="https://get.apollo.io/u5ocuv7me9t2" target="_blank" rel="noopener noreferrer sponsored">Apollo</a> export without verification. 12% bounce rate. Domain burned out after 2 weeks.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-7">Fix:</h2>
 <ul>
 <li>Always verify emails before uploading</li>
 <li>Use Hunter or RocketReach batch verification</li>
@@ -1824,7 +1836,7 @@ Table of Contents
 <p><strong>What happens:</strong> Other users abuse shared email account. Your domain gets blacklisted.</p>
 <p><strong>Why it kills you:</strong> Shared IPs/inboxes are common spam sources. Gmail assumes worst intent.</p>
 <p><strong>Real example:</strong> Client used Google Workspace shared inbox (sales@company.com). Another user sent spam from it. Google disabled account and marked domain as spam source.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-8">Fix:</h2>
 <ul>
 <li>Use individual inboxes only (not shared)</li>
 <li>One person per inbox</li>
@@ -1835,7 +1847,7 @@ Table of Contents
 <p><strong>What happens:</strong> One inbox sends 5,000/day. Gmail notices. Domain burns out in 14 days.</p>
 <p><strong>Why it kills you:</strong> Gmail tracks per-inbox behavior. Single inbox spiking = bot behavior.</p>
 <p><strong>Real example:</strong> Client concentrated all sends on one inbox. Domain reputation tanked after week 1. Took 60 days to recover.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-9">Fix:</h2>
 <ul>
 <li>Use 50+ inboxes for 5,000/day sending</li>
 <li>Distribute sends evenly across pool</li>
@@ -1846,7 +1858,7 @@ Table of Contents
 <p><strong>What happens:</strong> Email hits spam filter before human reads it.</p>
 <p><strong>Why it kills you:</strong> Gmail&#x27;s algorithms detect common spam words. Automated filters catch it.</p>
 <p><strong>Real example:</strong> Subject: &quot;URGENT: Make $5000/week NOW!!!&quot; Spam rate: 95%. Changed to &quot;Quick question about [company name]&quot; Spam rate: 0.1%.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-10">Fix:</h2>
 <ul>
 <li>Avoid: FREE, URGENT, CLICK HERE, LIMITED TIME, Act now, Guarantee, Risk-free</li>
 <li>Use conversational language</li>
@@ -1858,7 +1870,7 @@ Table of Contents
 <p><strong>What happens:</strong> You send the same email to 10,000 people. 1% reply. Never know if it&#x27;s the email or the list.</p>
 <p><strong>Why it kills you:</strong> You can&#x27;t improve what you don&#x27;t measure. Bad copy stays bad.</p>
 <p><strong>Real example:</strong> Client ran same email for 3 months (1.2% reply). We A/B tested subject lines. Reply rate improved to 3.8% in 2 weeks.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-11">Fix:</h2>
 <ul>
 <li>Test subject lines (big impact)</li>
 <li>Test email length (short vs long)</li>
@@ -1870,7 +1882,7 @@ Table of Contents
 <p><strong>What happens:</strong> Domain reputation declines, but you don&#x27;t know it. Too late by the time you notice low placement.</p>
 <p><strong>Why it kills you:</strong> Postmaster alerts you to problems before they&#x27;re critical. Ignoring it = flying blind.</p>
 <p><strong>Real example:</strong> Client never checked Postmaster. Domain got &quot;bad reputation&quot; flagged. Didn&#x27;t notice until placement dropped to 25%. By then, domain was burned.</p>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-12">Fix:</h2>
 <ul>
 <li>Check Postmaster weekly</li>
 <li>Review: Bounce rate, spam complaints, placement %</li>
@@ -1957,20 +1969,32 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#mistake-1-wrong-dns-setup-spf-dkim-dmarc">Mistake 1: Wrong DNS Setup (SPF/DKIM/DMARC)</a></li>
+<li><a href="#fix">Fix:</a></li>
 <li><a href="#mistake-2-using-html-email-templates">Mistake 2: Using HTML Email Templates</a></li>
+<li><a href="#fix-2">Fix:</a></li>
 <li><a href="#mistake-3-pitching-too-hard-in-email-1">Mistake 3: Pitching Too Hard in Email 1</a></li>
+<li><a href="#fix-3">Fix:</a></li>
 <li><a href="#mistake-4-skipping-warmup-or-shortening-it">Mistake 4: Skipping Warmup (or Shortening It)</a></li>
+<li><a href="#fix-4">Fix:</a></li>
 <li><a href="#mistake-5-no-cname-tracking-domain">Mistake 5: No CNAME Tracking Domain</a></li>
+<li><a href="#fix-5">Fix:</a></li>
 <li><a href="#mistake-6-exceeding-daily-send-limits">Mistake 6: Exceeding Daily Send Limits</a></li>
+<li><a href="#fix-6">Fix:</a></li>
 <li><a href="#mistake-7-using-unverified-email-lists">Mistake 7: Using Unverified Email Lists</a></li>
+<li><a href="#fix-7">Fix:</a></li>
 <li><a href="#mistake-8-sending-from-shared-ip-shared-inbox">Mistake 8: Sending from Shared IP / Shared Inbox</a></li>
+<li><a href="#fix-8">Fix:</a></li>
 <li><a href="#mistake-9-no-pool-rotation-all-sends-from-one-inbox">Mistake 9: No Pool Rotation (All Sends from One Inbox)</a></li>
+<li><a href="#fix-9">Fix:</a></li>
 <li><a href="#mistake-10-spam-trigger-words-in-subject-line-copy">Mistake 10: Spam Trigger Words in Subject Line/Copy</a></li>
+<li><a href="#fix-10">Fix:</a></li>
 <li><a href="#mistake-11-no-a-b-testing">Mistake 11: No A/B Testing</a></li>
+<li><a href="#fix-11">Fix:</a></li>
 <li><a href="#mistake-12-ignoring-google-postmaster-tools">Mistake 12: Ignoring Google Postmaster Tools</a></li>
+<li><a href="#fix-12">Fix:</a></li>
 <li><a href="#the-real-lesson">The Real Lesson</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

@@ -1718,16 +1718,33 @@ Table of Contents
 <li><a href="#what-is-a-dedicated-ip">What Is a Dedicated IP?</a></li>
 <li><a href="#the-reputation-isolation-problem">The Reputation Isolation Problem</a></li>
 <li><a href="#real-numbers-shared-ip-vs-dedicated-ip-performance">Real Numbers: Shared IP vs Dedicated IP Performance</a></li>
+<li><a href="#shared-ip-performance-google-workspace">Shared IP Performance (Google Workspace):</a></li>
+<li><a href="#dedicated-ip-performance-imisofts-private-server">Dedicated IP Performance (imisofts Private Server):</a></li>
 <li><a href="#why-google-workspace-uses-shared-ips">Why Google Workspace Uses Shared IPs</a></li>
 <li><a href="#when-shared-ips-get-flagged-the-case-study">When Shared IPs Get Flagged: The Case Study</a></li>
 <li><a href="#the-anatomy-of-an-ip-reputation-score">The Anatomy of an IP Reputation Score</a></li>
+<li><a href="#positive-signals">Positive Signals:</a></li>
+<li><a href="#negative-signals">Negative Signals:</a></li>
 <li><a href="#dedicated-ip-infrastructure-at-imisofts">Dedicated IP Infrastructure at imisofts</a></li>
+<li><a href="#domain-level">Domain Level:</a></li>
+<li><a href="#account-level">Account Level:</a></li>
+<li><a href="#example-imisofts-enterprise-setup">Example imisofts Enterprise Setup:</a></li>
 <li><a href="#the-cost-dedicated-vs-shared">The Cost: Dedicated vs Shared</a></li>
+<li><a href="#google-workspace-shared-ip">Google Workspace (Shared IP):</a></li>
+<li><a href="#imisofts-dedicated-ip">imisofts (Dedicated IP):</a></li>
+<li><a href="#cost-per-ip">Cost per IP:</a></li>
 <li><a href="#when-to-use-dedicated-ip">When to Use Dedicated IP</a></li>
+<li><a href="#use-dedicated-ip-infrastructure-if">Use dedicated IP infrastructure if:</a></li>
+<li><a href="#shared-ip-is-acceptable-if">Shared IP is acceptable if:</a></li>
 <li><a href="#common-mistakes-with-dedicated-ips">Common Mistakes with Dedicated IPs</a></li>
+<li><a href="#mistake-1-expecting-immediate-reputation">Mistake 1: Expecting Immediate Reputation</a></li>
+<li><a href="#mistake-2-warming-too-aggressively">Mistake 2: Warming Too Aggressively</a></li>
+<li><a href="#mistake-3-mixing-dedicated-and-shared">Mistake 3: Mixing Dedicated and Shared</a></li>
+<li><a href="#mistake-4-over-provisioning-ips">Mistake 4: Over-provisioning IPs</a></li>
+<li><a href="#mistake-5-ignoring-ip-warmup">Mistake 5: Ignoring IP Warmup</a></li>
 <li><a href="#the-bottom-line-dedicated-ip-is-essential-at-scale">The Bottom Line: Dedicated IP Is Essential at Scale</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1764,7 +1781,7 @@ Table of Contents
 </ol>
 <h2 id="real-numbers-shared-ip-vs-dedicated-ip-performance">Real Numbers: Shared IP vs Dedicated IP Performance</h2>
 <p>From 847 imisofts client campaigns tracking this metric:</p>
-<p><strong>Shared IP Performance (Google Workspace):</strong></p>
+<h2 id="shared-ip-performance-google-workspace">Shared IP Performance (Google Workspace):</h2>
 <ul>
 <li>Average inbox placement: 68%</li>
 <li>Average open rate: 12%</li>
@@ -1772,7 +1789,7 @@ Table of Contents
 <li>Reputation recovery time: 90 days</li>
 <li>Blacklist risk: 34% of teams experience this yearly</li>
 </ul>
-<p><strong>Dedicated IP Performance (imisofts Private Server):</strong></p>
+<h2 id="dedicated-ip-performance-imisofts-private-server">Dedicated IP Performance (imisofts Private Server):</h2>
 <ul>
 <li>Average inbox placement: 84%</li>
 <li>Average open rate: 16%</li>
@@ -1788,7 +1805,7 @@ Table of Contents
 <li><strong>Simplicity for users:</strong> Users don&#x27;t manage IP reputation (Google does)</li>
 <li><strong>Default for business:</strong> Gmail is designed for business email, not cold email</li>
 </ol>
-<p>But for cold email—where you&#x27;re sending to hundreds of cold prospects—shared IPs are a liability.</p>
+<p>But for cold email, where you&#x27;re sending to hundreds of cold prospects, shared IPs are a liability.</p>
 <h2 id="when-shared-ips-get-flagged-the-case-study">When Shared IPs Get Flagged: The Case Study</h2>
 <p>We documented one client&#x27;s experience in detail:</p>
 <p><strong>Week 1-2:</strong> Normal performance (18% open rate)</p>
@@ -1817,7 +1834,7 @@ Table of Contents
 <p>The cost of that single shared IP mistake: $35,000 in lost pipeline (estimated based on campaign ROI).</p>
 <h2 id="the-anatomy-of-an-ip-reputation-score">The Anatomy of an IP Reputation Score</h2>
 <p>Email providers track IP reputation across several signals:</p>
-<p><strong>Positive Signals:</strong></p>
+<h2 id="positive-signals">Positive Signals:</h2>
 <ul>
 <li>Low bounce rates (under 3%)</li>
 <li>High engagement (opens, clicks, replies)</li>
@@ -1825,7 +1842,7 @@ Table of Contents
 <li>Consistent sending volume</li>
 <li>Long-term sending history</li>
 </ul>
-<p><strong>Negative Signals:</strong></p>
+<h2 id="negative-signals">Negative Signals:</h2>
 <ul>
 <li>High bounce rates (over 5%)</li>
 <li>Spam complaints</li>
@@ -1837,20 +1854,20 @@ Table of Contents
 <p>With a dedicated IP, you control all signals.</p>
 <h2 id="dedicated-ip-infrastructure-at-imisofts">Dedicated IP Infrastructure at imisofts</h2>
 <p>Here&#x27;s how we structure dedicated IP infrastructure:</p>
-<p><strong>Domain Level:</strong></p>
+<h2 id="domain-level">Domain Level:</h2>
 <ul>
 <li>Each domain gets its own IP address (or IP addresses for larger domains)</li>
 <li>SPF record points to that specific IP</li>
 <li>DKIM record aligns with that IP</li>
 <li>Reputation builds independently</li>
 </ul>
-<p><strong>Account Level:</strong></p>
+<h2 id="account-level">Account Level:</h2>
 <ul>
 <li>Multiple domains share server infrastructure (efficiency)</li>
 <li>But each domain has separate IPs (isolation)</li>
 <li>Backup IPs for failover (reliability)</li>
 </ul>
-<p><strong>Example imisofts Enterprise Setup:</strong></p>
+<h2 id="example-imisofts-enterprise-setup">Example imisofts Enterprise Setup:</h2>
 <ul>
 <li>6 domains × 1 dedicated IP each = 6 dedicated IPs</li>
 <li>Backup IPs: 2 (total 8 IPs on infrastructure)</li>
@@ -1858,26 +1875,26 @@ Table of Contents
 <li>One domain flagged = 5 others unaffected</li>
 </ul>
 <h2 id="the-cost-dedicated-vs-shared">The Cost: Dedicated vs Shared</h2>
-<p><strong>Google Workspace (Shared IP):</strong></p>
+<h2 id="google-workspace-shared-ip">Google Workspace (Shared IP):</h2>
 <ul>
 <li>Cost: $1,500-3,500/month for 250 inboxes</li>
 <li>IPs: 1-2 shared across all customers</li>
 <li>Reputation risk: Very high</li>
 </ul>
-<p><strong>imisofts (Dedicated IP):</strong></p>
+<h2 id="imisofts-dedicated-ip">imisofts (Dedicated IP):</h2>
 <ul>
 <li>Cost: $199-2,450/year total</li>
 <li>IPs: 1-6 dedicated (matching number of domains)</li>
 <li>Reputation risk: Very low</li>
 </ul>
-<p><strong>Cost per IP:</strong></p>
+<h2 id="cost-per-ip">Cost per IP:</h2>
 <ul>
 <li>Google Workspace: $750,000-1,750,000 per dedicated IP (calculated across customer base)</li>
 <li>imisofts: $325-410 per dedicated IP</li>
 </ul>
 <p>You get dedicated IPs for a fraction of the cost.</p>
 <h2 id="when-to-use-dedicated-ip">When to Use Dedicated IP</h2>
-<p><strong>Use dedicated IP infrastructure if:</strong></p>
+<h2 id="use-dedicated-ip-infrastructure-if">Use dedicated IP infrastructure if:</h2>
 <ul>
 <li>You&#x27;re sending 200+ emails/day</li>
 <li>You&#x27;re running cold email campaigns (not internal business email)</li>
@@ -1885,7 +1902,7 @@ Table of Contents
 <li>You&#x27;re concerned about reputation isolation</li>
 <li>You want to scale multiple domains</li>
 </ul>
-<p><strong>Shared IP is acceptable if:</strong></p>
+<h2 id="shared-ip-is-acceptable-if">Shared IP is acceptable if:</h2>
 <ul>
 <li>You&#x27;re sending under 50 emails/day</li>
 <li>You&#x27;re internal business email (not cold outreach)</li>
@@ -1893,15 +1910,15 @@ Table of Contents
 <li>You plan to migrate to dedicated IP within 2-4 weeks</li>
 </ul>
 <h2 id="common-mistakes-with-dedicated-ips">Common Mistakes with Dedicated IPs</h2>
-<p><strong>Mistake 1: Expecting Immediate Reputation</strong></p>
+<h2 id="mistake-1-expecting-immediate-reputation">Mistake 1: Expecting Immediate Reputation</h2>
 <p>New dedicated IPs have zero reputation history. First 2 weeks: expect 5-8% bounce rate. By week 4: should be under 3%.</p>
-<p><strong>Mistake 2: Warming Too Aggressively</strong></p>
+<h2 id="mistake-2-warming-too-aggressively">Mistake 2: Warming Too Aggressively</h2>
 <p>Sending 500 warmup emails on day 1 of a new IP looks suspicious. Warmup should be gradual: days 1-3 (20 emails), days 4-7 (50 emails), days 8-14 (100+ emails).</p>
-<p><strong>Mistake 3: Mixing Dedicated and Shared</strong></p>
+<h2 id="mistake-3-mixing-dedicated-and-shared">Mistake 3: Mixing Dedicated and Shared</h2>
 <p>Using one dedicated IP and one shared IP creates confusion. Stick with dedicated infrastructure fully.</p>
-<p><strong>Mistake 4: Over-provisioning IPs</strong></p>
+<h2 id="mistake-4-over-provisioning-ips">Mistake 4: Over-provisioning IPs</h2>
 <p>You don&#x27;t need 10 IPs if you&#x27;re sending 500 emails/day. 1-2 dedicated IPs per 500 emails/day is optimal.</p>
-<p><strong>Mistake 5: Ignoring IP Warmup</strong></p>
+<h2 id="mistake-5-ignoring-ip-warmup">Mistake 5: Ignoring IP Warmup</h2>
 <p>Warming a domain is not the same as warming an IP. Your dedicated IP also needs warmup period (14 days minimum) to build reputation.</p>
 <h2 id="the-bottom-line-dedicated-ip-is-essential-at-scale">The Bottom Line: Dedicated IP Is Essential at Scale</h2>
 <p>If you&#x27;re serious about cold email:</p>
@@ -1985,16 +2002,33 @@ Contents
 <li><a href="#what-is-a-dedicated-ip">What Is a Dedicated IP?</a></li>
 <li><a href="#the-reputation-isolation-problem">The Reputation Isolation Problem</a></li>
 <li><a href="#real-numbers-shared-ip-vs-dedicated-ip-performance">Real Numbers: Shared IP vs Dedicated IP Performance</a></li>
+<li><a href="#shared-ip-performance-google-workspace">Shared IP Performance (Google Workspace):</a></li>
+<li><a href="#dedicated-ip-performance-imisofts-private-server">Dedicated IP Performance (imisofts Private Server):</a></li>
 <li><a href="#why-google-workspace-uses-shared-ips">Why Google Workspace Uses Shared IPs</a></li>
 <li><a href="#when-shared-ips-get-flagged-the-case-study">When Shared IPs Get Flagged: The Case Study</a></li>
 <li><a href="#the-anatomy-of-an-ip-reputation-score">The Anatomy of an IP Reputation Score</a></li>
+<li><a href="#positive-signals">Positive Signals:</a></li>
+<li><a href="#negative-signals">Negative Signals:</a></li>
 <li><a href="#dedicated-ip-infrastructure-at-imisofts">Dedicated IP Infrastructure at imisofts</a></li>
+<li><a href="#domain-level">Domain Level:</a></li>
+<li><a href="#account-level">Account Level:</a></li>
+<li><a href="#example-imisofts-enterprise-setup">Example imisofts Enterprise Setup:</a></li>
 <li><a href="#the-cost-dedicated-vs-shared">The Cost: Dedicated vs Shared</a></li>
+<li><a href="#google-workspace-shared-ip">Google Workspace (Shared IP):</a></li>
+<li><a href="#imisofts-dedicated-ip">imisofts (Dedicated IP):</a></li>
+<li><a href="#cost-per-ip">Cost per IP:</a></li>
 <li><a href="#when-to-use-dedicated-ip">When to Use Dedicated IP</a></li>
+<li><a href="#use-dedicated-ip-infrastructure-if">Use dedicated IP infrastructure if:</a></li>
+<li><a href="#shared-ip-is-acceptable-if">Shared IP is acceptable if:</a></li>
 <li><a href="#common-mistakes-with-dedicated-ips">Common Mistakes with Dedicated IPs</a></li>
+<li><a href="#mistake-1-expecting-immediate-reputation">Mistake 1: Expecting Immediate Reputation</a></li>
+<li><a href="#mistake-2-warming-too-aggressively">Mistake 2: Warming Too Aggressively</a></li>
+<li><a href="#mistake-3-mixing-dedicated-and-shared">Mistake 3: Mixing Dedicated and Shared</a></li>
+<li><a href="#mistake-4-over-provisioning-ips">Mistake 4: Over-provisioning IPs</a></li>
+<li><a href="#mistake-5-ignoring-ip-warmup">Mistake 5: Ignoring IP Warmup</a></li>
 <li><a href="#the-bottom-line-dedicated-ip-is-essential-at-scale">The Bottom Line: Dedicated IP Is Essential at Scale</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

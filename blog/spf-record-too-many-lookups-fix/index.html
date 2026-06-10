@@ -1721,13 +1721,39 @@ Table of Contents
 <li><a href="#why-this-happens-multiple-email-services">Why This Happens (Multiple Email Services)</a></li>
 <li><a href="#how-to-diagnose-check-your-spf-lookup-count">How to Diagnose: Check Your SPF Lookup Count</a></li>
 <li><a href="#fix-1-remove-unnecessary-email-services-from-spf">Fix 1: Remove Unnecessary Email Services from SPF</a></li>
+<li><a href="#how-to-identify-unused-services">How to identify unused services:</a></li>
+<li><a href="#example">Example:</a></li>
+<li><a href="#the-fix">The fix:</a></li>
+<li><a href="#example-before-after">Example before/after:</a></li>
 <li><a href="#fix-2-spf-flattening-complex-usually-requires-professional-help">Fix 2: SPF Flattening (Complex, Usually Requires Professional Help)</a></li>
+<li><a href="#why-this-matters">Why this matters:</a></li>
+<li><a href="#example-2">Example:</a></li>
+<li><a href="#downside-of-flattening">Downside of flattening:</a></li>
+<li><a href="#why-not-flatten-everything">Why not flatten everything:</a></li>
+<li><a href="#when-to-flatten">When to flatten:</a></li>
+<li><a href="#how-to-flatten-involves-your-domain-host">How to flatten (involves your domain host):</a></li>
 <li><a href="#fix-3-consolidate-email-services-recommended">Fix 3: Consolidate Email Services (Recommended)</a></li>
+<li><a href="#example-consolidation">Example consolidation:</a></li>
+<li><a href="#this-is-the-easiest-fix">This is the easiest fix.</a></li>
+<li><a href="#audit-your-email-services">Audit your email services:</a></li>
 <li><a href="#spf-best-practices-prevent-the-problem">SPF Best Practices (Prevent the Problem)</a></li>
+<li><a href="#rules">Rules:</a></li>
+<li><a href="#maintenance">Maintenance:</a></li>
 <li><a href="#real-example-spf-flattening-at-scale">Real Example: SPF Flattening at Scale</a></li>
 <li><a href="#troubleshooting-spf-still-failing-after-fixes">Troubleshooting: SPF Still Failing After Fixes</a></li>
+<li><a href="#check-1-wait-for-dns-propagation">Check 1: Wait for DNS propagation</a></li>
+<li><a href="#check-2-syntax-error">Check 2: Syntax error</a></li>
+<li><a href="#check-3-mixed-flattened-and-non-flattened">Check 3: Mixed flattened and non-flattened</a></li>
+<li><a href="#check-4-wrong-domain">Check 4: Wrong domain</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-many-lookups-is-acceptable">Q: How many lookups is acceptable?</a></li>
+<li><a href="#q-do-all-isps-enforce-the-10-lookup-limit">Q: Do all ISPs enforce the 10-lookup limit?</a></li>
+<li><a href="#q-if-i-flatten-spf-do-i-still-need-regular-updates">Q: If I flatten SPF, do I still need regular updates?</a></li>
+<li><a href="#q-is-spf-flattening-permanent-or-temporary">Q: Is SPF flattening permanent or temporary?</a></li>
+<li><a href="#q-what-if-i-use-an-email-service-that-doesn-t-publish-ips">Q: What if I use an email service that doesn't publish IPs?</a></li>
+<li><a href="#q-can-i-use-a-subdomain-for-spf-to-avoid-the-limit">Q: Can I use a subdomain for SPF to avoid the limit?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1797,20 +1823,20 @@ Table of Contents
 <p>This tells you which service is consuming the most lookups.</p>
 <h2 id="fix-1-remove-unnecessary-email-services-from-spf">Fix 1: Remove Unnecessary Email Services from SPF</h2>
 <p>If you have 8 email services but only 2 are actively sending, remove the unused ones.</p>
-<p><strong>How to identify unused services:</strong></p>
+<h2 id="how-to-identify-unused-services">How to identify unused services:</h2>
 <ol>
 <li>Check your SPF record</li>
 <li>Ask yourself: Which services actually send email from yourdomain.com?</li>
 <li>Remove any that don't (or shouldn't)</li>
 </ol>
-<p><strong>Example:</strong></p>
+<h2 id="example">Example:</h2>
 <ul>
 <li>Using HubSpot CRM: Keep in SPF</li>
 <li>Using Mailchimp newsletter but didn't send in 6 months: Remove</li>
 <li>Using Zapier to send notifications: Keep</li>
 <li>Using old email service that's deprecated: Remove</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix">The fix:</h2>
 <ol>
 <li>Log into your domain registrar</li>
 <li>Find DNS/DNS Records</li>
@@ -1820,7 +1846,7 @@ Table of Contents
 <li>Wait 24 hours</li>
 <li>Re-check at mxtoolbox.com</li>
 </ol>
-<p><strong>Example before/after:</strong></p>
+<h2 id="example-before-after">Example before/after:</h2>
 <p>Before (12 lookups):</p>
 <p><code></code>`</p>
 <p>v=spf1 include:sendgrid.net include:hubspot.com include:mailchimp.com</p>
@@ -1838,12 +1864,12 @@ Table of Contents
 <h2 id="fix-2-spf-flattening-complex-usually-requires-professional-help">Fix 2: SPF Flattening (Complex, Usually Requires Professional Help)</h2>
 <p>If you have many email services and can't remove any, you need SPF flattening.</p>
 <p>Flattening replaces <code>include:service.com</code> with the actual IP addresses that service uses.</p>
-<p><strong>Why this matters:</strong></p>
+<h2 id="why-this-matters">Why this matters:</h2>
 <ul>
 <li><code>include:sendgrid.net</code> = 1-2 lookups (depends on sendgrid's SPF structure)</li>
 <li>Flattened = list of IPs with no includes = 0 additional lookups</li>
 </ul>
-<p><strong>Example:</strong></p>
+<h2 id="example-2">Example:</h2>
 <p>Before (flattening):</p>
 <p><code></code>`</p>
 <p>v=spf1 include:sendgrid.net include:hubspot.com ~all</p>
@@ -1853,25 +1879,25 @@ Table of Contents
 <p>v=spf1 ip4:192.0.2.1 ip4:192.0.2.2 ip4:192.0.2.3 ~all</p>
 <p><code></code>`</p>
 <p>The IPs are SendGrid's and HubSpot's actual sending IPs.</p>
-<p><strong>Downside of flattening:</strong></p>
+<h2 id="downside-of-flattening">Downside of flattening:</h2>
 <ul>
 <li>When SendGrid adds new IPs, you have to update your SPF manually</li>
 <li>Your domain host needs to do this, it's not automatic</li>
 <li>Requires quarterly or annual maintenance</li>
 </ul>
-<p><strong>Why not flatten everything:</strong></p>
+<h2 id="why-not-flatten-everything">Why not flatten everything:</h2>
 <ul>
 <li>Too many IPs to list</li>
 <li>SPF record has size limits</li>
 <li>Becomes hard to manage</li>
 </ul>
-<p><strong>When to flatten:</strong></p>
+<h2 id="when-to-flatten">When to flatten:</h2>
 <ul>
 <li>You have 1-2 high-volume email services</li>
 <li>You have control over those IPs (they're stable)</li>
 <li>You can maintain it quarterly</li>
 </ul>
-<p><strong>How to flatten (involves your domain host):</strong></p>
+<h2 id="how-to-flatten-involves-your-domain-host">How to flatten (involves your domain host):</h2>
 <ol>
 <li>Contact your domain registrar (GoDaddy, Namecheap, etc)</li>
 <li>Say: "I need SPF flattening for my domain. I have too many includes."</li>
@@ -1887,15 +1913,15 @@ Table of Contents
 <h2 id="fix-3-consolidate-email-services-recommended">Fix 3: Consolidate Email Services (Recommended)</h2>
 <p>Use fewer email services.</p>
 <p>Instead of 8, use 3-4.</p>
-<p><strong>Example consolidation:</strong></p>
+<h2 id="example-consolidation">Example consolidation:</h2>
 <ul>
 <li>Use Instantly (cold email) + HubSpot (CRM) + SendGrid (transactional)</li>
 <li>Remove: Mailchimp (use HubSpot newsletter), Zapier (use HubSpot automation)</li>
 <li>Result: Lookups drop from 12 to 6</li>
 </ul>
-<p><strong>This is the easiest fix.</strong></p>
+<h2 id="this-is-the-easiest-fix">This is the easiest fix.</h2>
 <p>Many companies use redundant services without realizing it.</p>
-<p><strong>Audit your email services:</strong></p>
+<h2 id="audit-your-email-services">Audit your email services:</h2>
 <ol>
 <li>List every service that sends email from your domain</li>
 <li>Ask: Is this necessary?</li>
@@ -1905,7 +1931,7 @@ Table of Contents
 </ol>
 <h2 id="spf-best-practices-prevent-the-problem">SPF Best Practices (Prevent the Problem)</h2>
 <p>Once you fix SPF, keep it under 10 lookups:</p>
-<p><strong>Rules:</strong></p>
+<h2 id="rules">Rules:</h2>
 <ol>
 <li>Use 3-4 primary email services max</li>
 <li>If adding new service, remove old one first</li>
@@ -1913,7 +1939,7 @@ Table of Contents
 <li>Monitor SPF monthly (use mxtoolbox.com)</li>
 <li>Document which services you have and why</li>
 </ol>
-<p><strong>Maintenance:</strong></p>
+<h2 id="maintenance">Maintenance:</h2>
 <ul>
 <li>Monthly: Check SPF at mxtoolbox.com</li>
 <li>Quarterly: Audit email services (still need them all?)</li>
@@ -1944,39 +1970,39 @@ Table of Contents
 <p>Total time: 20 hours of work (mostly consolidation planning, flattening, and testing).</p>
 <h2 id="troubleshooting-spf-still-failing-after-fixes">Troubleshooting: SPF Still Failing After Fixes</h2>
 <p>If SPF still shows fail after removing services or flattening:</p>
-<p><strong>Check 1: Wait for DNS propagation</strong></p>
+<h2 id="check-1-wait-for-dns-propagation">Check 1: Wait for DNS propagation</h2>
 <ul>
 <li>Changes take 24-48 hours to fully propagate</li>
 <li>Wait 2 days, then re-check</li>
 </ul>
-<p><strong>Check 2: Syntax error</strong></p>
+<h2 id="check-2-syntax-error">Check 2: Syntax error</h2>
 <ul>
 <li>Go to mxtoolbox.com and look for the error message</li>
 <li>If it says "Invalid syntax," your SPF record has a typo</li>
 <li>Correct the record in your domain registrar</li>
 </ul>
-<p><strong>Check 3: Mixed flattened and non-flattened</strong></p>
+<h2 id="check-3-mixed-flattened-and-non-flattened">Check 3: Mixed flattened and non-flattened</h2>
 <ul>
 <li>Don't mix IP lists and includes in one record (causes confusion)</li>
 <li>Either flatten everything or use includes, not both</li>
 </ul>
-<p><strong>Check 4: Wrong domain</strong></p>
+<h2 id="check-4-wrong-domain">Check 4: Wrong domain</h2>
 <ul>
 <li>Make sure you're checking the right domain</li>
 <li>If using subdomain (mail.yourdomain.com), check that domain, not main domain</li>
 </ul>
 <h2 id="faq">FAQ</h2>
-<p><strong>Q: How many lookups is acceptable?</strong></p>
+<h2 id="q-how-many-lookups-is-acceptable">Q: How many lookups is acceptable?</h2>
 <p>A: Under 10. Ideally under 8 (gives you headroom to add 1-2 more services later).</p>
-<p><strong>Q: Do all ISPs enforce the 10-lookup limit?</strong></p>
+<h2 id="q-do-all-isps-enforce-the-10-lookup-limit">Q: Do all ISPs enforce the 10-lookup limit?</h2>
 <p>A: Yes. It's in the SPF specification. Every ISP that checks SPF respects this limit.</p>
-<p><strong>Q: If I flatten SPF, do I still need regular updates?</strong></p>
+<h2 id="q-if-i-flatten-spf-do-i-still-need-regular-updates">Q: If I flatten SPF, do I still need regular updates?</h2>
 <p>A: Yes. When email services add new sending IPs (e.g., new data center), you update your SPF with new IPs. Your domain host handles this.</p>
-<p><strong>Q: Is SPF flattening permanent or temporary?</strong></p>
+<h2 id="q-is-spf-flattening-permanent-or-temporary">Q: Is SPF flattening permanent or temporary?</h2>
 <p>A: Permanent. Once flattened, you maintain the flattened record. You can unflatten it later if you want.</p>
-<p><strong>Q: What if I use an email service that doesn't publish IPs?</strong></p>
+<h2 id="q-what-if-i-use-an-email-service-that-doesn-t-publish-ips">Q: What if I use an email service that doesn't publish IPs?</h2>
 <p>A: They should include instructions. If they don't, contact their support. All legitimate email services provide SPF includes or flattened IP lists.</p>
-<p><strong>Q: Can I use a subdomain for SPF to avoid the limit?</strong></p>
+<h2 id="q-can-i-use-a-subdomain-for-spf-to-avoid-the-limit">Q: Can I use a subdomain for SPF to avoid the limit?</h2>
 <p>A: Yes. Use mail.yourdomain.com with its own SPF. You'll have main domain SPF + mail subdomain SPF (separate records, separate lookup limits).</p>
 <h2 id="next-steps">Next Steps</h2>
 <ol>
@@ -2072,13 +2098,39 @@ Contents
 <li><a href="#why-this-happens-multiple-email-services">Why This Happens (Multiple Email Services)</a></li>
 <li><a href="#how-to-diagnose-check-your-spf-lookup-count">How to Diagnose: Check Your SPF Lookup Count</a></li>
 <li><a href="#fix-1-remove-unnecessary-email-services-from-spf">Fix 1: Remove Unnecessary Email Services from SPF</a></li>
+<li><a href="#how-to-identify-unused-services">How to identify unused services:</a></li>
+<li><a href="#example">Example:</a></li>
+<li><a href="#the-fix">The fix:</a></li>
+<li><a href="#example-before-after">Example before/after:</a></li>
 <li><a href="#fix-2-spf-flattening-complex-usually-requires-professional-help">Fix 2: SPF Flattening (Complex, Usually Requires Professional Help)</a></li>
+<li><a href="#why-this-matters">Why this matters:</a></li>
+<li><a href="#example-2">Example:</a></li>
+<li><a href="#downside-of-flattening">Downside of flattening:</a></li>
+<li><a href="#why-not-flatten-everything">Why not flatten everything:</a></li>
+<li><a href="#when-to-flatten">When to flatten:</a></li>
+<li><a href="#how-to-flatten-involves-your-domain-host">How to flatten (involves your domain host):</a></li>
 <li><a href="#fix-3-consolidate-email-services-recommended">Fix 3: Consolidate Email Services (Recommended)</a></li>
+<li><a href="#example-consolidation">Example consolidation:</a></li>
+<li><a href="#this-is-the-easiest-fix">This is the easiest fix.</a></li>
+<li><a href="#audit-your-email-services">Audit your email services:</a></li>
 <li><a href="#spf-best-practices-prevent-the-problem">SPF Best Practices (Prevent the Problem)</a></li>
+<li><a href="#rules">Rules:</a></li>
+<li><a href="#maintenance">Maintenance:</a></li>
 <li><a href="#real-example-spf-flattening-at-scale">Real Example: SPF Flattening at Scale</a></li>
 <li><a href="#troubleshooting-spf-still-failing-after-fixes">Troubleshooting: SPF Still Failing After Fixes</a></li>
+<li><a href="#check-1-wait-for-dns-propagation">Check 1: Wait for DNS propagation</a></li>
+<li><a href="#check-2-syntax-error">Check 2: Syntax error</a></li>
+<li><a href="#check-3-mixed-flattened-and-non-flattened">Check 3: Mixed flattened and non-flattened</a></li>
+<li><a href="#check-4-wrong-domain">Check 4: Wrong domain</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-many-lookups-is-acceptable">Q: How many lookups is acceptable?</a></li>
+<li><a href="#q-do-all-isps-enforce-the-10-lookup-limit">Q: Do all ISPs enforce the 10-lookup limit?</a></li>
+<li><a href="#q-if-i-flatten-spf-do-i-still-need-regular-updates">Q: If I flatten SPF, do I still need regular updates?</a></li>
+<li><a href="#q-is-spf-flattening-permanent-or-temporary">Q: Is SPF flattening permanent or temporary?</a></li>
+<li><a href="#q-what-if-i-use-an-email-service-that-doesn-t-publish-ips">Q: What if I use an email service that doesn't publish IPs?</a></li>
+<li><a href="#q-can-i-use-a-subdomain-for-spf-to-avoid-the-limit">Q: Can I use a subdomain for SPF to avoid the limit?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

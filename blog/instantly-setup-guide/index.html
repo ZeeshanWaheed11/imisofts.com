@@ -1716,16 +1716,33 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#part-1-initial-account-setup">Part 1: Initial Account Setup</a></li>
+<li><a href="#dkim-spf-dmarc-setup-critical-for-deliverability">DKIM/SPF/DMARC Setup (Critical for Deliverability):</a></li>
 <li><a href="#part-2-warmup-configuration-critical-for-deliverability">Part 2: Warmup Configuration (Critical for Deliverability)</a></li>
+<li><a href="#warmup-works-because">Warmup Works Because:</a></li>
 <li><a href="#part-3-campaign-configuration">Part 3: Campaign Configuration</a></li>
+<li><a href="#email-1-day-1">Email 1 (Day 1):</a></li>
+<li><a href="#email-2-day-4">Email 2 (Day 4):</a></li>
+<li><a href="#email-3-day-8">Email 3 (Day 8):</a></li>
+<li><a href="#email-4-day-15-if-still-no-response">Email 4 (Day 15+) - If Still No Response:</a></li>
 <li><a href="#part-4-advanced-configuration">Part 4: Advanced Configuration</a></li>
 <li><a href="#part-5-compliance-configuration-european-markets">Part 5: Compliance Configuration (European Markets)</a></li>
 <li><a href="#part-6-monitoring-optimization">Part 6: Monitoring &amp; Optimization</a></li>
+<li><a href="#if-open-rate-low-10">If Open Rate Low (&lt;10%):</a></li>
+<li><a href="#if-click-rate-low-5">If Click Rate Low (&lt;5%):</a></li>
+<li><a href="#if-response-rate-low-2">If Response Rate Low (&lt;2%):</a></li>
+<li><a href="#if-bounce-rate-high-5">If Bounce Rate High (&gt;5%):</a></li>
+<li><a href="#if-complaint-rate-high-0-1">If Complaint Rate High (&gt;0.1%):</a></li>
 <li><a href="#part-7-scaling">Part 7: Scaling</a></li>
+<li><a href="#safe-to-2x-volume-if">Safe to 2x volume if:</a></li>
+<li><a href="#process">Process:</a></li>
 <li><a href="#part-8-troubleshooting">Part 8: Troubleshooting</a></li>
+<li><a href="#problem-low-open-rates">Problem: Low Open Rates</a></li>
+<li><a href="#problem-high-bounce-rate">Problem: High Bounce Rate</a></li>
+<li><a href="#problem-complaints-spam-folder">Problem: Complaints/Spam Folder</a></li>
+<li><a href="#problem-campaign-not-sending">Problem: Campaign Not Sending</a></li>
 <li><a href="#configuration-checklist">Configuration Checklist</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1762,7 +1779,7 @@ Table of Contents
 <li>Wait 24-48 hours for DNS propagation</li>
 <li>Verify domain in Instantly</li>
 </ol>
-<p><strong>DKIM/SPF/DMARC Setup (Critical for Deliverability):</strong></p>
+<h2 id="dkim-spf-dmarc-setup-critical-for-deliverability">DKIM/SPF/DMARC Setup (Critical for Deliverability):</h2>
 <ul>
 <li><strong>DKIM (DomainKeys Identified Mail):</strong> Digitally signs emails (proves authenticity)</li>
 <li><strong>SPF (Sender Policy Framework):</strong> Authorizes IPs to send from domain</li>
@@ -1794,7 +1811,7 @@ Table of Contents
 <li>Select &quot;Warmup Engagement&quot; (Instantly sends to warmup addresses that open + click)</li>
 <li>Save</li>
 </ol>
-<p><strong>Warmup Works Because:</strong></p>
+<h2 id="warmup-works-because">Warmup Works Because:</h2>
 <ul>
 <li>Open rate = positive signal (ISP sees: recipient engaged)</li>
 <li>Click rate = positive signal (ISP sees: not spam)</li>
@@ -1826,22 +1843,22 @@ Table of Contents
 <li>Continue</li>
 </ol>
 <h3 id="step-2-write-email-sequence-4-emails-recommended">Step 2: Write Email Sequence (4 Emails Recommended)</h3>
-<p><strong>Email 1 (Day 1):</strong></p>
+<h2 id="email-1-day-1">Email 1 (Day 1):</h2>
 <p><code>`</code></p>
 <p>Subject: [Company]: [Metric]?</p>
 <p>Body: Hi [First Name], I noticed [Company] growing in [Market]. We helped [similar company] achieve [result]. Open to 15 minutes next week?</p>
 <p><code>`</code></p>
-<p><strong>Email 2 (Day 4):</strong></p>
+<h2 id="email-2-day-4">Email 2 (Day 4):</h2>
 <p><code>`</code></p>
 <p>Subject: Quick question...</p>
 <p>Body: Still thinking about our previous message? Here&#x27;s a case study that might help.</p>
 <p><code>`</code></p>
-<p><strong>Email 3 (Day 8):</strong></p>
+<h2 id="email-3-day-8">Email 3 (Day 8):</h2>
 <p><code>`</code></p>
 <p>Subject: Final thought</p>
 <p>Body: Last chance to chat about [specific value]. Let me know if you&#x27;re interested.</p>
 <p><code>`</code></p>
-<p><strong>Email 4 (Day 15+) - If Still No Response:</strong></p>
+<h2 id="email-4-day-15-if-still-no-response">Email 4 (Day 15+) - If Still No Response:</h2>
 <p><code>`</code></p>
 <p>Subject: Closing out...</p>
 <p>Body: Taking you off list. No hard feelings. Cheers!</p>
@@ -1930,34 +1947,34 @@ Table of Contents
 <li><strong>Complaint Rate:</strong> Keep &lt;0.1% (ISP will blacklist you if &gt;1%)</li>
 </ul>
 <h3 id="optimization-actions">Optimization Actions</h3>
-<p><strong>If Open Rate Low (&lt;10%):</strong></p>
+<h2 id="if-open-rate-low-10">If Open Rate Low (&lt;10%):</h2>
 <ul>
 <li>Subject lines weak (too generic)</li>
 <li>Sending time wrong (not business hours)</li>
 <li>Domain reputation low (need more warmup)</li>
 <li>Action: A/B test subject lines, check domain warmup status</li>
 </ul>
-<p><strong>If Click Rate Low (&lt;5%):</strong></p>
+<h2 id="if-click-rate-low-5">If Click Rate Low (&lt;5%):</h2>
 <ul>
 <li>Email body weak (no curiosity/urgency)</li>
 <li>CTA unclear (not asking specific question)</li>
 <li>Email too long (cut to 75-100 words)</li>
 <li>Action: Simplify message, clearer CTA</li>
 </ul>
-<p><strong>If Response Rate Low (&lt;2%):</strong></p>
+<h2 id="if-response-rate-low-2">If Response Rate Low (&lt;2%):</h2>
 <ul>
 <li>Target list wrong (not right decision-maker)</li>
 <li>Personalization weak (too generic)</li>
 <li>Offer unclear (what are you actually selling?)</li>
 <li>Action: Re-segment list, re-personalize, clarify value prop</li>
 </ul>
-<p><strong>If Bounce Rate High (&gt;5%):</strong></p>
+<h2 id="if-bounce-rate-high-5">If Bounce Rate High (&gt;5%):</h2>
 <ul>
 <li>List quality bad (invalid emails)</li>
 <li>Domain reputation damage (too aggressive sending)</li>
 <li>Action: Use Hunter.io to verify emails, slow domain warmup</li>
 </ul>
-<p><strong>If Complaint Rate High (&gt;0.1%):</strong></p>
+<h2 id="if-complaint-rate-high-0-1">If Complaint Rate High (&gt;0.1%):</h2>
 <ul>
 <li>Email perceived as spam</li>
 <li>Sending to wrong audience</li>
@@ -1966,14 +1983,14 @@ Table of Contents
 </ul>
 <h2 id="part-7-scaling">Part 7: Scaling</h2>
 <h3 id="when-to-scale-sending-volume">When to Scale Sending Volume</h3>
-<p><strong>Safe to 2x volume if:</strong></p>
+<h2 id="safe-to-2x-volume-if">Safe to 2x volume if:</h2>
 <ul>
 <li>Bounce rate stable &lt;5%</li>
 <li>Complaint rate stable &lt;0.1%</li>
 <li>Open rate stable 15%+</li>
 <li>Domain not flagged by ISP</li>
 </ul>
-<p><strong>Process:</strong></p>
+<h2 id="process">Process:</h2>
 <ol>
 <li>Increase daily limit from 50 to 100</li>
 <li>Monitor metrics for 3-5 days</li>
@@ -1990,27 +2007,27 @@ Table of Contents
 </ol>
 <p><strong>Why multiple domains?</strong> Spreads reputation across domains, prevents single ISP blacklist from destroying campaigns.</p>
 <h2 id="part-8-troubleshooting">Part 8: Troubleshooting</h2>
-<p><strong>Problem: Low Open Rates</strong></p>
+<h2 id="problem-low-open-rates">Problem: Low Open Rates</h2>
 <ul>
 <li>Check domain warmup (is it complete?)</li>
 <li>Verify DKIM/SPF/DMARC setup</li>
 <li>Check ISP blacklists (mxtoolbox.com)</li>
 <li>A/B test subject lines</li>
 </ul>
-<p><strong>Problem: High Bounce Rate</strong></p>
+<h2 id="problem-high-bounce-rate">Problem: High Bounce Rate</h2>
 <ul>
 <li>Verify email list quality (use Hunter.io)</li>
 <li>Check domain reputation (might be flagged)</li>
 <li>Slow warmup (domain reputation recovering)</li>
 </ul>
-<p><strong>Problem: Complaints/Spam Folder</strong></p>
+<h2 id="problem-complaints-spam-folder">Problem: Complaints/Spam Folder</h2>
 <ul>
 <li>Subject line too clickbaity?</li>
 <li>Sending to disengaged list?</li>
 <li>Too many emails too fast?</li>
 <li>Reduce volume, slow warmup</li>
 </ul>
-<p><strong>Problem: Campaign Not Sending</strong></p>
+<h2 id="problem-campaign-not-sending">Problem: Campaign Not Sending</h2>
 <ul>
 <li>Domain not verified (check Status)</li>
 <li>Daily limit reached (increase limit)</li>
@@ -2102,16 +2119,33 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#part-1-initial-account-setup">Part 1: Initial Account Setup</a></li>
+<li><a href="#dkim-spf-dmarc-setup-critical-for-deliverability">DKIM/SPF/DMARC Setup (Critical for Deliverability):</a></li>
 <li><a href="#part-2-warmup-configuration-critical-for-deliverability">Part 2: Warmup Configuration (Critical for Deliverability)</a></li>
+<li><a href="#warmup-works-because">Warmup Works Because:</a></li>
 <li><a href="#part-3-campaign-configuration">Part 3: Campaign Configuration</a></li>
+<li><a href="#email-1-day-1">Email 1 (Day 1):</a></li>
+<li><a href="#email-2-day-4">Email 2 (Day 4):</a></li>
+<li><a href="#email-3-day-8">Email 3 (Day 8):</a></li>
+<li><a href="#email-4-day-15-if-still-no-response">Email 4 (Day 15+) - If Still No Response:</a></li>
 <li><a href="#part-4-advanced-configuration">Part 4: Advanced Configuration</a></li>
 <li><a href="#part-5-compliance-configuration-european-markets">Part 5: Compliance Configuration (European Markets)</a></li>
 <li><a href="#part-6-monitoring-optimization">Part 6: Monitoring &amp; Optimization</a></li>
+<li><a href="#if-open-rate-low-10">If Open Rate Low (&lt;10%):</a></li>
+<li><a href="#if-click-rate-low-5">If Click Rate Low (&lt;5%):</a></li>
+<li><a href="#if-response-rate-low-2">If Response Rate Low (&lt;2%):</a></li>
+<li><a href="#if-bounce-rate-high-5">If Bounce Rate High (&gt;5%):</a></li>
+<li><a href="#if-complaint-rate-high-0-1">If Complaint Rate High (&gt;0.1%):</a></li>
 <li><a href="#part-7-scaling">Part 7: Scaling</a></li>
+<li><a href="#safe-to-2x-volume-if">Safe to 2x volume if:</a></li>
+<li><a href="#process">Process:</a></li>
 <li><a href="#part-8-troubleshooting">Part 8: Troubleshooting</a></li>
+<li><a href="#problem-low-open-rates">Problem: Low Open Rates</a></li>
+<li><a href="#problem-high-bounce-rate">Problem: High Bounce Rate</a></li>
+<li><a href="#problem-complaints-spam-folder">Problem: Complaints/Spam Folder</a></li>
+<li><a href="#problem-campaign-not-sending">Problem: Campaign Not Sending</a></li>
 <li><a href="#configuration-checklist">Configuration Checklist</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

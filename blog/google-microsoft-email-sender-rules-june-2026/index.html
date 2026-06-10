@@ -1731,6 +1731,10 @@ Table of Contents
 </button>
 <div class="mobile-toc-content">
 <ul class="toc-list">
+<li><a href="#what-changed-a-timeline-of-the-crackdown">What changed: a timeline of the crackdown</a></li>
+<li><a href="#the-numbers-that-decide-inbox-placement-in-june-2026">The numbers that decide inbox placement in June 2026</a></li>
+<li><a href="#what-this-means-for-cold-email-teams">What this means for cold email teams</a></li>
+<li><a href="#the-june-2026-compliance-checklist">The June 2026 compliance checklist</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1738,21 +1742,21 @@ Table of Contents
 
 <div class="blog-content-layout">
 <article class="article-content">
-<p><strong>June 6, 2026</strong> — The era of warning shots for bulk email senders is over. Google now permanently rejects non-compliant bulk mail instead of temporarily deferring it, Microsoft has brought Outlook, Hotmail and Live under the same authentication regime, and Gmail&#8217;s Postmaster Tools has replaced reputation grades with hard pass/fail compliance checks. Here is what changed, what is enforced as of this month, and what every B2B outbound team needs to verify this week.</p>
-<p><strong>What changed: a timeline of the crackdown</strong></p>
+<p><strong>June 6, 2026</strong>, The era of warning shots for bulk email senders is over. Google now permanently rejects non-compliant bulk mail instead of temporarily deferring it, Microsoft has brought Outlook, Hotmail and Live under the same authentication regime, and Gmail&#8217;s Postmaster Tools has replaced reputation grades with hard pass/fail compliance checks. Here is what changed, what is enforced as of this month, and what every B2B outbound team needs to verify this week.</p>
+<h2 id="what-changed-a-timeline-of-the-crackdown">What changed: a timeline of the crackdown</h2>
 <ol>
-<li><strong>May 2025 — Microsoft joins the 5,000/day rule.</strong> Outlook.com, Hotmail and Live.com now require SPF, DKIM and DMARC for senders exceeding 5,000 messages per day, mirroring the Gmail/Yahoo requirements introduced in 2024.</li>
-<li><strong>September 30, 2025 — Postmaster Tools v2.</strong> Google retired the familiar High/Medium/Low sender-reputation grades. The new dashboard shows binary compliance: you either pass authentication, spam-rate and unsubscribe requirements, or you fail.</li>
-<li><strong>November 2025 — enforcement escalates.</strong> Google moved from temporary delivery delays to permanent rejections for bulk senders that fail authentication. A missing DMARC record is no longer a soft penalty; it is a bounced campaign.</li>
-<li><strong>2026 — Microsoft expands ARC.</strong> Authenticated Received Chain preserves authentication results through forwarders and mailing-list intermediaries, closing the loophole where forwarded mail lost its SPF/DKIM alignment.</li>
+<li><strong>May 2025, Microsoft joins the 5,000/day rule.</strong> Outlook.com, Hotmail and Live.com now require SPF, DKIM and DMARC for senders exceeding 5,000 messages per day, mirroring the Gmail/Yahoo requirements introduced in 2024.</li>
+<li><strong>September 30, 2025, Postmaster Tools v2.</strong> Google retired the familiar High/Medium/Low sender-reputation grades. The new dashboard shows binary compliance: you either pass authentication, spam-rate and unsubscribe requirements, or you fail.</li>
+<li><strong>November 2025, enforcement escalates.</strong> Google moved from temporary delivery delays to permanent rejections for bulk senders that fail authentication. A missing DMARC record is no longer a soft penalty; it is a bounced campaign.</li>
+<li><strong>2026, Microsoft expands ARC.</strong> Authenticated Received Chain preserves authentication results through forwarders and mailing-list intermediaries, closing the loophole where forwarded mail lost its SPF/DKIM alignment.</li>
 </ol>
-<p><strong>The numbers that decide inbox placement in June 2026</strong></p>
-<p>The thresholds themselves have not moved — enforcement has. Spam complaint rate must stay below 0.3% (Google recommends under 0.1% for reliable placement). SPF, DKIM and DMARC are mandatory at 5,000+ daily messages to any major provider. One-click unsubscribe (RFC 8058) is required on commercial bulk mail. What is new is the consequence: in the infrastructure we manage for clients, authentication failures that produced delayed delivery in 2025 now come back as hard rejections.</p>
-<p><strong>What this means for cold email teams</strong></p>
-<p>Counterintuitively, the crackdown is good news for legitimate senders. Permanent rejection of unauthenticated mail removes the noisiest competitors from the inbox. Teams running proper infrastructure — dedicated sending domains, full DNS authentication, conservative volumes per inbox, real list verification — report steadier placement than before the changes. The senders being washed out are the ones blasting from misconfigured domains.</p>
-<p><strong>The June 2026 compliance checklist</strong></p>
+<h2 id="the-numbers-that-decide-inbox-placement-in-june-2026">The numbers that decide inbox placement in June 2026</h2>
+<p>The thresholds themselves have not moved, enforcement has. Spam complaint rate must stay below 0.3% (Google recommends under 0.1% for reliable placement). SPF, DKIM and DMARC are mandatory at 5,000+ daily messages to any major provider. One-click unsubscribe (RFC 8058) is required on commercial bulk mail. What is new is the consequence: in the infrastructure we manage for clients, authentication failures that produced delayed delivery in 2025 now come back as hard rejections.</p>
+<h2 id="what-this-means-for-cold-email-teams">What this means for cold email teams</h2>
+<p>Counterintuitively, the crackdown is good news for legitimate senders. Permanent rejection of unauthenticated mail removes the noisiest competitors from the inbox. Teams running proper infrastructure, dedicated sending domains, full DNS authentication, conservative volumes per inbox, real list verification, report steadier placement than before the changes. The senders being washed out are the ones blasting from misconfigured domains.</p>
+<h2 id="the-june-2026-compliance-checklist">The June 2026 compliance checklist</h2>
 <ol>
-<li>Verify SPF, DKIM and DMARC on every sending domain — including secondary and tracking domains. A DMARC policy of at least <strong>p=none</strong> with monitoring is the floor; move to <strong>p=quarantine</strong> once reports are clean.</li>
+<li>Verify SPF, DKIM and DMARC on every sending domain, including secondary and tracking domains. A DMARC policy of at least <strong>p=none</strong> with monitoring is the floor; move to <strong>p=quarantine</strong> once reports are clean.</li>
 <li>Check Postmaster Tools v2 for every primary domain. Anything other than a pass on authentication, spam rate and unsubscribe is now an emergency, not a backlog item.</li>
 <li>Keep spam complaints under 0.1%. Tighten targeting before increasing volume.</li>
 <li>Confirm one-click unsubscribe headers are present on bulk commercial sends.</li>
@@ -1761,14 +1765,14 @@ Table of Contents
 <p>For the full technical setup, see our guides to <a href="/blog/spf-dkim-dmarc-cold-email-setup/">SPF, DKIM and DMARC configuration</a>, <a href="/blog/cold-email-domain-warmup-2026/">domain warm-up in 2026</a>, and <a href="/blog/google-postmaster-tools-cold-email/">using Google Postmaster Tools</a>. If you would rather have compliant infrastructure built for you, that is exactly what our <a href="/cold-email-marketing">cold email infrastructure service</a> does.</p>
 <div class="blog-cta-banner">
 <h2>Is your sending infrastructure compliant?</h2>
-<p>We audit authentication, spam rates and inbox placement across your domains — and fix what fails. Results in 24 hours.</p>
+<p>We audit authentication, spam rates and inbox placement across your domains, and fix what fails. Results in 24 hours.</p>
 <a class="cta-btn" href="/free-audit">Get Your Free Deliverability Audit &rarr;</a>
 </div>
 <section class="faq-section" id="faq">
 <h2>Frequently Asked Questions</h2>
 <div class="faq-item">
 <button class="faq-question">Do the 2026 sender rules apply if I send fewer than 5,000 emails a day?<span>+</span></button>
-<div class="faq-answer"><div class="faq-answer-inner"><p>The strict authentication mandate triggers at 5,000+ daily messages per provider, but Gmail and Outlook score authentication for all senders. In practice, SPF, DKIM and DMARC are table stakes at any volume in 2026 — smaller senders without them simply land in spam rather than being rejected.</p></div></div>
+<div class="faq-answer"><div class="faq-answer-inner"><p>The strict authentication mandate triggers at 5,000+ daily messages per provider, but Gmail and Outlook score authentication for all senders. In practice, SPF, DKIM and DMARC are table stakes at any volume in 2026, smaller senders without them simply land in spam rather than being rejected.</p></div></div>
 </div>
 <div class="faq-item">
 <button class="faq-question">What happens now if my domain has no DMARC record?<span>+</span></button>
@@ -1776,7 +1780,7 @@ Table of Contents
 </div>
 <div class="faq-item">
 <button class="faq-question">Is cold email still viable under the 2026 rules?<span>+</span></button>
-<div class="faq-answer"><div class="faq-answer-inner"><p>Yes — arguably more viable for compliant senders. The rules target unauthenticated bulk volume, not targeted B2B outreach. Properly authenticated infrastructure with conservative per-inbox volumes and sub-0.1% complaint rates continues to reach the inbox, with less competition from non-compliant senders.</p></div></div>
+<div class="faq-answer"><div class="faq-answer-inner"><p>Yes, arguably more viable for compliant senders. The rules target unauthenticated bulk volume, not targeted B2B outreach. Properly authenticated infrastructure with conservative per-inbox volumes and sub-0.1% complaint rates continues to reach the inbox, with less competition from non-compliant senders.</p></div></div>
 </div>
 <div class="faq-item"><button class="faq-question">What is Postmaster Tools v2?<span>+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>It is Google's updated sender dashboard that replaced the old High, Medium and Low reputation grades on September 30, 2025. It now shows binary pass or fail compliance on authentication, spam rate, and unsubscribe, so you either meet the bar or you do not.</p></div></div></div><div class="faq-item"><button class="faq-question">Do the rules apply to transactional and one-to-one email?<span>+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>The strict bulk thresholds target high-volume senders, but full authentication with SPF, DKIM and DMARC is now effectively expected for all business email. Transactional and personal mail still benefit from complete authentication to stay out of spam.</p></div></div></div><div class="faq-item"><button class="faq-question">How do I check if my domain is compliant?<span>+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>Verify SPF, DKIM and DMARC on every sending domain, then check Postmaster Tools v2 for a pass on authentication, spam rate and unsubscribe. Anything other than a pass needs immediate attention before you send at volume.</p></div></div></div>
 </section>
@@ -1789,6 +1793,10 @@ Table of Contents
 Contents
 </div>
 <ul class="toc-list">
+<li><a href="#what-changed-a-timeline-of-the-crackdown">What changed: a timeline of the crackdown</a></li>
+<li><a href="#the-numbers-that-decide-inbox-placement-in-june-2026">The numbers that decide inbox placement in June 2026</a></li>
+<li><a href="#what-this-means-for-cold-email-teams">What this means for cold email teams</a></li>
+<li><a href="#the-june-2026-compliance-checklist">The June 2026 compliance checklist</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

@@ -1716,16 +1716,33 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#what-does-diy-email-server-setup-require">What Does DIY Email Server Setup Require?</a></li>
+<li><a href="#option-a-self-hosted-physical-server">Option A: Self-hosted (Physical Server)</a></li>
+<li><a href="#option-b-cloud-vps-virtual-private-server">Option B: Cloud VPS (Virtual Private Server)</a></li>
+<li><a href="#option-c-dedicated-server">Option C: Dedicated Server</a></li>
+<li><a href="#open-source-options-free">Open-source options (free):</a></li>
+<li><a href="#commercial-options">Commercial options:</a></li>
+<li><a href="#you-need-to-configure">You need to configure:</a></li>
+<li><a href="#you-need">You need:</a></li>
+<li><a href="#critical-tasks">Critical tasks:</a></li>
 <li><a href="#the-complete-diy-cost-analysis">The Complete DIY Cost Analysis</a></li>
 <li><a href="#the-managed-service-approach-imisofts-example">The Managed Service Approach (imisofts Example)</a></li>
 <li><a href="#the-real-cost-comparison">The Real Cost Comparison</a></li>
+<li><a href="#managed-service-is-15-60x-cheaper-when-you-factor-in-your-ti">Managed service is 15-60x cheaper when you factor in your time.</a></li>
 <li><a href="#when-diy-makes-sense">When DIY Makes Sense</a></li>
+<li><a href="#if-none-of-these-apply-don-t-diy">If none of these apply, don&#x27;t DIY.</a></li>
 <li><a href="#common-diy-mistakes">Common DIY Mistakes</a></li>
+<li><a href="#mistake-1-underestimating-setup-time">Mistake 1: Underestimating Setup Time</a></li>
+<li><a href="#mistake-2-ignoring-reputation-management">Mistake 2: Ignoring Reputation Management</a></li>
+<li><a href="#mistake-3-misconfiguring-dns">Mistake 3: Misconfiguring DNS</a></li>
+<li><a href="#mistake-4-underestimating-security-responsibility">Mistake 4: Underestimating Security Responsibility</a></li>
+<li><a href="#mistake-5-not-monitoring-ip-reputation">Mistake 5: Not Monitoring IP Reputation</a></li>
 <li><a href="#the-question-can-you-actually-do-this">The Question: Can You Actually Do This?</a></li>
 <li><a href="#the-managed-service-advantage-beyond-cost">The Managed Service Advantage (Beyond Cost)</a></li>
 <li><a href="#the-verdict-diy-vs-managed">The Verdict: DIY vs Managed</a></li>
+<li><a href="#build-your-own-email-server-if">Build your own email server if:</a></li>
+<li><a href="#hire-experts-use-imisofts-or-similar-if">Hire experts (use imisofts or similar) if:</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1738,14 +1755,14 @@ Table of Contents
 <p>At imisofts, we choose the managed service route for our clients. But I&#x27;ll explain the trade-offs objectively.</p>
 <h2 id="what-does-diy-email-server-setup-require">What Does DIY Email Server Setup Require?</h2>
 <h3 id="1-server-infrastructure">1. Server Infrastructure</h3>
-<p><strong>Option A: Self-hosted (Physical Server)</strong></p>
+<h2 id="option-a-self-hosted-physical-server">Option A: Self-hosted (Physical Server)</h2>
 <ul>
 <li>Buy physical server hardware: $1,000-5,000</li>
 <li>Host it in your office: Power, cooling, internet</li>
 <li>Maintain it yourself (hardware failures, replacement)</li>
 <li>Yearly hardware cost: $500-2,000 (upgrades, repairs)</li>
 </ul>
-<p><strong>Option B: Cloud VPS (Virtual Private Server)</strong></p>
+<h2 id="option-b-cloud-vps-virtual-private-server">Option B: Cloud VPS (Virtual Private Server)</h2>
 <ul>
 <li>AWS, DigitalOcean, Linode, Vultr</li>
 <li>Cost: $100-500/month depending on capacity</li>
@@ -1753,7 +1770,7 @@ Table of Contents
 <li>Scalable (add servers as needed)</li>
 <li>More reliable than physical servers</li>
 </ul>
-<p><strong>Option C: Dedicated Server</strong></p>
+<h2 id="option-c-dedicated-server">Option C: Dedicated Server</h2>
 <ul>
 <li>Rented physical server at data center</li>
 <li>Cost: $300-1,500/month</li>
@@ -1763,20 +1780,20 @@ Table of Contents
 <p><strong>Cost for 1-year setup:</strong> $1,200-6,000 (VPS), $3,600-18,000 (dedicated)</p>
 <h3 id="2-email-server-software">2. Email Server Software</h3>
 <p>You need software to actually send/receive email.</p>
-<p><strong>Open-source options (free):</strong></p>
+<h2 id="open-source-options-free">Open-source options (free):</h2>
 <ul>
 <li>Postfix (most popular for cold email)</li>
 <li>Exim</li>
 <li>Sendmail</li>
 </ul>
-<p><strong>Commercial options:</strong></p>
+<h2 id="commercial-options">Commercial options:</h2>
 <ul>
 <li>cPanel/WHM: $500-1,500/year</li>
 <li>Plesk: $300-1,000/year</li>
 </ul>
 <p><strong>Cost:</strong> $0-1,500/year (free software + optional control panel)</p>
 <h3 id="3-dns-configuration-your-responsibility">3. DNS Configuration (Your Responsibility)</h3>
-<p><strong>You need to configure:</strong></p>
+<h2 id="you-need-to-configure">You need to configure:</h2>
 <ul>
 <li>A records (point domain to IP)</li>
 <li>MX records (mail server config)</li>
@@ -1789,7 +1806,7 @@ Table of Contents
 <p><strong>Complexity:</strong> Medium (6-8 hours of learning + setup)</p>
 <p><strong>Cost:</strong> Free (but requires knowledge)</p>
 <h3 id="4-ip-reputation-management">4. IP Reputation Management</h3>
-<p><strong>You need:</strong></p>
+<h2 id="you-need">You need:</h2>
 <ul>
 <li>A dedicated IP (cost included in VPS/server)</li>
 <li>IP warmup process (manual, takes 14 days)</li>
@@ -1799,7 +1816,7 @@ Table of Contents
 <p><strong>Cost:</strong> $0-500/month for monitoring tools</p>
 <p><strong>Complexity:</strong> High (ongoing reputation management)</p>
 <h3 id="5-deliverability-management">5. Deliverability Management</h3>
-<p><strong>Critical tasks:</strong></p>
+<h2 id="critical-tasks">Critical tasks:</h2>
 <ul>
 <li>Monitor bounce rates (manual daily check)</li>
 <li>Adjust sending based on reputation</li>
@@ -1868,7 +1885,7 @@ Table of Contents
 <p>| <strong>Total Year 1 Cost</strong> | <strong>$15,400-51,500</strong> | <strong>$17,800-57,500</strong> | <strong>$489-2,950</strong> |</p>
 <p>| <strong>Total Annual Cost</strong> | <strong>$14,400-45,500</strong> | <strong>$16,800-57,500</strong> | <strong>$489-3,447</strong> |</p>
 <p>| <strong>Cost Per Email</strong> | <strong>$0.039-0.125</strong> | <strong>$0.046-0.158</strong> | <strong>$0.0013-0.0094</strong> |</p>
-<p><strong>Managed service is 15-60x cheaper when you factor in your time.</strong></p>
+<h2 id="managed-service-is-15-60x-cheaper-when-you-factor-in-your-ti">Managed service is 15-60x cheaper when you factor in your time.</h2>
 <h2 id="when-diy-makes-sense">When DIY Makes Sense</h2>
 <p>DIY email server is worth it IF:</p>
 <ol>
@@ -1878,17 +1895,17 @@ Table of Contents
 <li><strong>Your team enjoys infrastructure work</strong> (some engineers love this)</li>
 <li><strong>You&#x27;re building a white-label email service</strong> (reselling infrastructure)</li>
 </ol>
-<p><strong>If none of these apply, don&#x27;t DIY.</strong></p>
+<h2 id="if-none-of-these-apply-don-t-diy">If none of these apply, don&#x27;t DIY.</h2>
 <h2 id="common-diy-mistakes">Common DIY Mistakes</h2>
-<p><strong>Mistake 1: Underestimating Setup Time</strong></p>
+<h2 id="mistake-1-underestimating-setup-time">Mistake 1: Underestimating Setup Time</h2>
 <p>&quot;I&#x27;ll set up email server in a weekend.&quot; Reality: 40-100 hours if you know what you&#x27;re doing, 200+ if you&#x27;re learning.</p>
-<p><strong>Mistake 2: Ignoring Reputation Management</strong></p>
+<h2 id="mistake-2-ignoring-reputation-management">Mistake 2: Ignoring Reputation Management</h2>
 <p>Set it up, assume it works. Reality: Daily monitoring, weekly adjustments, monthly optimization needed.</p>
-<p><strong>Mistake 3: Misconfiguring DNS</strong></p>
+<h2 id="mistake-3-misconfiguring-dns">Mistake 3: Misconfiguring DNS</h2>
 <p>SPF, DKIM, DMARC mistakes lead to 50%+ bounce rate. Recovery: 2-4 weeks of troubleshooting.</p>
-<p><strong>Mistake 4: Underestimating Security Responsibility</strong></p>
+<h2 id="mistake-4-underestimating-security-responsibility">Mistake 4: Underestimating Security Responsibility</h2>
 <p>Your email server is a target. One compromise = spam sender status = domain blacklisted. Securing server = additional expertise needed.</p>
-<p><strong>Mistake 5: Not Monitoring IP Reputation</strong></p>
+<h2 id="mistake-5-not-monitoring-ip-reputation">Mistake 5: Not Monitoring IP Reputation</h2>
 <p>IP gets on blacklist. You don&#x27;t notice for 3 days. Meanwhile, 40% emails go to spam. Recovery time: 30-90 days.</p>
 <h2 id="the-question-can-you-actually-do-this">The Question: Can You Actually Do This?</h2>
 <p>Honest assessment:</p>
@@ -1905,14 +1922,14 @@ Table of Contents
 <p><strong>Compliance:</strong> We handle regulatory requirements, GDPR, CAN-SPAM compliance</p>
 <p><strong>Deliverability:</strong> 84% inbox placement baseline (vs 60-70% for DIY setups)</p>
 <h2 id="the-verdict-diy-vs-managed">The Verdict: DIY vs Managed</h2>
-<p><strong>Build your own email server if:</strong></p>
+<h2 id="build-your-own-email-server-if">Build your own email server if:</h2>
 <ul>
 <li>You have DevOps/SysAdmin experience</li>
 <li>You&#x27;re sending 10,000+ emails/day</li>
 <li>You have a dedicated ops team</li>
 <li>You&#x27;re building infrastructure for others (white-label)</li>
 </ul>
-<p><strong>Hire experts (use imisofts or similar) if:</strong></p>
+<h2 id="hire-experts-use-imisofts-or-similar-if">Hire experts (use imisofts or similar) if:</h2>
 <ul>
 <li>You want to focus on campaigns, not infrastructure</li>
 <li>You&#x27;re under 5,000 emails/day</li>
@@ -1991,16 +2008,33 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#what-does-diy-email-server-setup-require">What Does DIY Email Server Setup Require?</a></li>
+<li><a href="#option-a-self-hosted-physical-server">Option A: Self-hosted (Physical Server)</a></li>
+<li><a href="#option-b-cloud-vps-virtual-private-server">Option B: Cloud VPS (Virtual Private Server)</a></li>
+<li><a href="#option-c-dedicated-server">Option C: Dedicated Server</a></li>
+<li><a href="#open-source-options-free">Open-source options (free):</a></li>
+<li><a href="#commercial-options">Commercial options:</a></li>
+<li><a href="#you-need-to-configure">You need to configure:</a></li>
+<li><a href="#you-need">You need:</a></li>
+<li><a href="#critical-tasks">Critical tasks:</a></li>
 <li><a href="#the-complete-diy-cost-analysis">The Complete DIY Cost Analysis</a></li>
 <li><a href="#the-managed-service-approach-imisofts-example">The Managed Service Approach (imisofts Example)</a></li>
 <li><a href="#the-real-cost-comparison">The Real Cost Comparison</a></li>
+<li><a href="#managed-service-is-15-60x-cheaper-when-you-factor-in-your-ti">Managed service is 15-60x cheaper when you factor in your time.</a></li>
 <li><a href="#when-diy-makes-sense">When DIY Makes Sense</a></li>
+<li><a href="#if-none-of-these-apply-don-t-diy">If none of these apply, don&#x27;t DIY.</a></li>
 <li><a href="#common-diy-mistakes">Common DIY Mistakes</a></li>
+<li><a href="#mistake-1-underestimating-setup-time">Mistake 1: Underestimating Setup Time</a></li>
+<li><a href="#mistake-2-ignoring-reputation-management">Mistake 2: Ignoring Reputation Management</a></li>
+<li><a href="#mistake-3-misconfiguring-dns">Mistake 3: Misconfiguring DNS</a></li>
+<li><a href="#mistake-4-underestimating-security-responsibility">Mistake 4: Underestimating Security Responsibility</a></li>
+<li><a href="#mistake-5-not-monitoring-ip-reputation">Mistake 5: Not Monitoring IP Reputation</a></li>
 <li><a href="#the-question-can-you-actually-do-this">The Question: Can You Actually Do This?</a></li>
 <li><a href="#the-managed-service-advantage-beyond-cost">The Managed Service Advantage (Beyond Cost)</a></li>
 <li><a href="#the-verdict-diy-vs-managed">The Verdict: DIY vs Managed</a></li>
+<li><a href="#build-your-own-email-server-if">Build your own email server if:</a></li>
+<li><a href="#hire-experts-use-imisofts-or-similar-if">Hire experts (use imisofts or similar) if:</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

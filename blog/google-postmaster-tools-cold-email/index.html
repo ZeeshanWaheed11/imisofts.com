@@ -1707,32 +1707,32 @@ Table of Contents
 <li><a href="#connecting-postmaster-insights-to-campaign-decisions">Connecting Postmaster insights to campaign decisions</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
 
 <div class="blog-content-layout">
 <article class="article-content">
-<p>Google Postmaster Tools is the only free, direct-from-Google way to see how Gmail views your sending reputation. If Gmail processes a significant portion of your cold email recipients — and it does for most B2B campaigns — Postmaster is not optional. It is essential.</p>
-<p>At imisofts, we set up Google Postmaster for every domain in every infrastructure build. It gives us early warning on reputation drops, spam rate spikes, and authentication failures — usually days before we would notice the problem through campaign metrics alone.</p>
+<p>Google Postmaster Tools is the only free, direct-from-Google way to see how Gmail views your sending reputation. If Gmail processes a significant portion of your cold email recipients, and it does for most B2B campaigns, Postmaster is not optional. It is essential.</p>
+<p>At imisofts, we set up Google Postmaster for every domain in every infrastructure build. It gives us early warning on reputation drops, spam rate spikes, and authentication failures, usually days before we would notice the problem through campaign metrics alone.</p>
 <h2 id="what-google-postmaster-shows-you">What Google Postmaster shows you</h2>
 <p>Postmaster provides five critical dashboards for each verified domain.</p>
 <p><strong>Domain reputation</strong> is ranked as High, Medium, Low, or Bad. High reputation means Gmail trusts your domain and delivers your emails to the inbox. Bad reputation means most of your emails are going to spam or getting blocked entirely.</p>
-<p><strong>Spam rate</strong> shows the percentage of your emails that recipients marked as spam. Gmail enforces a 0.3% threshold — exceeding this triggers deliverability penalties. We aim to keep spam rates at 0.1% or below.</p>
+<p><strong>Spam rate</strong> shows the percentage of your emails that recipients marked as spam. Gmail enforces a 0.3% threshold, exceeding this triggers deliverability penalties. We aim to keep spam rates at 0.1% or below.</p>
 <p><strong>Authentication</strong> displays pass rates for SPF, DKIM, and DMARC. All three should show 100% pass rates. Any failures indicate DNS configuration problems that need immediate attention.</p>
-<p><strong>Encryption</strong> shows the percentage of emails sent with TLS encryption. This should be 100% — all modern email servers support TLS, and our private server infrastructure enforces it.</p>
+<p><strong>Encryption</strong> shows the percentage of emails sent with TLS encryption. This should be 100%, all modern email servers support TLS, and our private server infrastructure enforces it.</p>
 <p><strong>Delivery errors</strong> tracks the percentage of emails rejected by Gmail, categorized by error type. Common errors include rate-limiting (sending too fast) and suspected spam content.</p>
 <h2 id="setting-up-google-postmaster">Setting up Google Postmaster</h2>
 <p>Setup requires adding a DNS verification record to each domain you want to monitor.</p>
 <p>Go to postmaster.google.com and sign in with a Google account. Click &quot;Add&quot; and enter your domain name. Google will provide a TXT record value for DNS verification. Add this TXT record to your domain&#x27;s DNS settings. Return to Postmaster and click &quot;Verify.&quot; Once DNS propagation completes (usually within a few hours), the domain shows as verified.</p>
 <p>We add this verification record as part of our standard DNS authentication stack, right alongside SPF, DKIM, DMARC, MX, and tracking CNAME records.</p>
-<p><strong>Important note:</strong> Postmaster data only appears once your domain is sending sufficient volume to Gmail addresses. New domains in warmup may show &quot;Not enough data&quot; for the first week or two. This is normal — data populates as your sending volume increases.</p>
+<p><strong>Important note:</strong> Postmaster data only appears once your domain is sending sufficient volume to Gmail addresses. New domains in warmup may show &quot;Not enough data&quot; for the first week or two. This is normal, data populates as your sending volume increases.</p>
 <h2 id="how-to-read-the-reputation-dashboard">How to read the reputation dashboard</h2>
 <p>Domain reputation is the single most important metric in Postmaster. Here is what each level means for your cold email campaigns.</p>
-<p><strong>High reputation</strong> means Gmail trusts your domain. Your emails should be landing in the primary inbox consistently. This is your target — maintain it by following best practices.</p>
+<p><strong>High reputation</strong> means Gmail trusts your domain. Your emails should be landing in the primary inbox consistently. This is your target, maintain it by following best practices.</p>
 <p><strong>Medium reputation</strong> means Gmail sees some risk but is not blocking your emails. Some may go to spam. Investigate recent sending patterns, check for bounce rate spikes, and ensure warmup is running.</p>
-<p><strong>Low reputation</strong> means a significant portion of your emails are going to spam. Reduce sending volume immediately, increase warmup, and investigate the root cause — it is usually high bounce rates, spam complaints, or authentication failures.</p>
+<p><strong>Low reputation</strong> means a significant portion of your emails are going to spam. Reduce sending volume immediately, increase warmup, and investigate the root cause, it is usually high bounce rates, spam complaints, or authentication failures.</p>
 <p><strong>Bad reputation</strong> means Gmail is actively blocking or spam-filing most of your emails. Stop cold campaign sends, run warmup only for 1 to 2 weeks, fix the underlying issue, and slowly reintroduce campaign sends at reduced volume.</p>
 <blockquote><p><strong>What we have seen:</strong> We caught a reputation drop from High to Medium for a client&#x27;s domain just 2 days after it started. The cause was a batch of unverified leads with a 4% bounce rate. We paused the campaign, re-verified the remaining list, and resumed with clean data. Reputation recovered to High within a week. Without Postmaster monitoring, we would not have caught it until open rates had already tanked.</p></blockquote>
 <h2 id="weekly-monitoring-routine">Weekly monitoring routine</h2>
@@ -1741,9 +1741,9 @@ Table of Contents
 <p>This monitoring is part of our monthly campaign management service. Clients on our $497 per month management plan get weekly Postmaster reviews along with campaign optimization, lead sourcing, and copy iteration.</p>
 <h2 id="connecting-postmaster-insights-to-campaign-decisions">Connecting Postmaster insights to campaign decisions</h2>
 <p>Postmaster data should directly inform your campaign strategy.</p>
-<p>If reputation drops, reduce volume before it gets worse. If spam rate increases, review recent email copy for spam trigger words and check if you changed anything in your sequences. If authentication fails, check DNS records immediately — a DNS provider update or record change can break authentication without warning. If delivery errors spike, check your sending rate settings and reduce if needed.</p>
+<p>If reputation drops, reduce volume before it gets worse. If spam rate increases, review recent email copy for spam trigger words and check if you changed anything in your sequences. If authentication fails, check DNS records immediately, a DNS provider update or record change can break authentication without warning. If delivery errors spike, check your sending rate settings and reduce if needed.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Google Postmaster Tools is free, takes minutes to set up, and provides the only direct view of how Gmail treats your sending domains. For cold email, ignoring Postmaster is like driving without a dashboard — you will not know something is wrong until it is too late.</p>
+<p>Google Postmaster Tools is free, takes minutes to set up, and provides the only direct view of how Gmail treats your sending domains. For cold email, ignoring Postmaster is like driving without a dashboard, you will not know something is wrong until it is too late.</p>
 <p>We include Google Postmaster setup and monitoring in every infrastructure package at <a href="https://imisofts.com/cold-email-marketing#packages">imisofts.com/cold-email-marketing#packages</a>.</p>
 <section class="faq-section">
 <h2 id="faq">Frequently Asked Questions</h2>
@@ -1801,7 +1801,7 @@ Contents
 <li><a href="#connecting-postmaster-insights-to-campaign-decisions">Connecting Postmaster insights to campaign decisions</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

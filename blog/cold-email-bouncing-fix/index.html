@@ -1718,14 +1718,57 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#hard-bounce-vs-soft-bounce-whats-the-difference">Hard Bounce vs Soft Bounce: What's the Difference?</a></li>
+<li><a href="#what-happens">What happens:</a></li>
+<li><a href="#cause">Cause:</a></li>
+<li><a href="#impact">Impact:</a></li>
+<li><a href="#fix">Fix:</a></li>
+<li><a href="#what-happens-2">What happens:</a></li>
+<li><a href="#cause-2">Cause:</a></li>
+<li><a href="#impact-2">Impact:</a></li>
+<li><a href="#fix-2">Fix:</a></li>
 <li><a href="#step-1-diagnose-your-bounce-rate">Step 1: Diagnose Your Bounce Rate</a></li>
+<li><a href="#what-bounce-rates-mean">What bounce rates mean:</a></li>
 <li><a href="#step-2-fix-hard-bounces-list-quality-issue">Step 2: Fix Hard Bounces (List Quality Issue)</a></li>
+<li><a href="#tools">Tools:</a></li>
+<li><a href="#how">How:</a></li>
+<li><a href="#impact-3">Impact:</a></li>
+<li><a href="#example">Example:</a></li>
+<li><a href="#good-sources">Good sources:</a></li>
+<li><a href="#bad-sources">Bad sources:</a></li>
+<li><a href="#process">Process:</a></li>
+<li><a href="#impact-4">Impact:</a></li>
 <li><a href="#step-3-fix-soft-bounces-infrastructure-issue">Step 3: Fix Soft Bounces (Infrastructure Issue)</a></li>
+<li><a href="#business-funding-firm-example">Business funding firm example:</a></li>
+<li><a href="#how-to-add-dns-if-missing">How to add DNS (if missing):</a></li>
+<li><a href="#why-reputation-gets-bad">Why reputation gets bad:</a></li>
+<li><a href="#how-to-restore-reputation">How to restore reputation:</a></li>
+<li><a href="#timeline">Timeline:</a></li>
+<li><a href="#how-warmup-works">How warmup works:</a></li>
+<li><a href="#impact-on-soft-bounces">Impact on soft bounces:</a></li>
+<li><a href="#timeline-2">Timeline:</a></li>
+<li><a href="#timeline-to-delist">Timeline to delist:</a></li>
 <li><a href="#step-4-ongoing-bounce-management">Step 4: Ongoing Bounce Management</a></li>
+<li><a href="#monthly-checklist">Monthly checklist:</a></li>
+<li><a href="#quarterly">Quarterly:</a></li>
 <li><a href="#real-client-example-business-funding-firm">Real Client Example: Business Funding Firm</a></li>
+<li><a href="#situation">Situation:</a></li>
+<li><a href="#what-we-found">What we found:</a></li>
+<li><a href="#what-we-fixed">What we fixed:</a></li>
+<li><a href="#results">Results:</a></li>
 <li><a href="#bounce-rate-by-infrastructure-quality">Bounce Rate by Infrastructure Quality</a></li>
+<li><a href="#bad-infrastructure-gmail-no-warmup">Bad Infrastructure (Gmail + no warmup):</a></li>
+<li><a href="#average-infrastructure-shared-ip-minimal-warmup">Average Infrastructure (Shared IP + minimal warmup):</a></li>
+<li><a href="#good-infrastructure-dedicated-ip-14-day-warmup-clean-list">Good Infrastructure (Dedicated IP + 14-day warmup + clean list):</a></li>
+<li><a href="#excellent-infrastructure-private-server-warmup-validated-lis">Excellent Infrastructure (Private server + warmup + validated list):</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-is-3-bounce-rate-acceptable">Q: Is 3% bounce rate acceptable?</a></li>
+<li><a href="#q-how-long-does-it-take-to-fix-soft-bounces">Q: How long does it take to fix soft bounces?</a></li>
+<li><a href="#q-should-i-retry-soft-bounces">Q: Should I retry soft bounces?</a></li>
+<li><a href="#q-why-would-i-get-hard-bounces-if-my-list-is-from-hunter-or-">Q: Why would I get hard bounces if my list is from Hunter or Apollo?</a></li>
+<li><a href="#q-do-i-need-dns-to-send-cold-emails">Q: Do I need DNS to send cold emails?</a></li>
+<li><a href="#q-is-it-better-to-fix-list-quality-or-infrastructure-first">Q: Is it better to fix list quality or infrastructure first?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1743,14 +1786,14 @@ Table of Contents
 <h3>Hard Bounce</h3>
 <p><strong>What it is:</strong> Email address doesn't exist. ISP rejects it permanently.</p>
 <p><strong>Message you see:</strong> "User unknown," "Mailbox not found," "Invalid address"</p>
-<p><strong>What happens:</strong></p>
+<h2 id="what-happens">What happens:</h2>
 <ul>
 <li>Email is rejected immediately</li>
 <li>Never reaches inbox</li>
 <li>ISP marks address as invalid</li>
 <li>Future emails to this address will also bounce</li>
 </ul>
-<p><strong>Cause:</strong></p>
+<h2 id="cause">Cause:</h2>
 <ul>
 <li>Wrong email address (typo: jon@gmail.com instead of john@gmail.com)</li>
 <li>Address deleted or abandoned</li>
@@ -1758,12 +1801,12 @@ Table of Contents
 <li>Domain doesn't exist</li>
 <li>Person left company and email was removed</li>
 </ul>
-<p><strong>Impact:</strong></p>
+<h2 id="impact">Impact:</h2>
 <ul>
 <li>Hard bounce doesn't affect your IP reputation much (ISP knows it's a bad address)</li>
 <li>But it costs you a lead and wastes sending capacity</li>
 </ul>
-<p><strong>Fix:</strong></p>
+<h2 id="fix">Fix:</h2>
 <ul>
 <li>Remove from list immediately</li>
 <li>Don't send to this address again</li>
@@ -1772,13 +1815,13 @@ Table of Contents
 <h3>Soft Bounce</h3>
 <p><strong>What it is:</strong> Email server rejected it temporarily. Usually fixable.</p>
 <p><strong>Message you see:</strong> "Mailbox full," "Server temporarily unavailable," "Try again later"</p>
-<p><strong>What happens:</strong></p>
+<h2 id="what-happens-2">What happens:</h2>
 <ul>
 <li>Email rejected but could be delivered later</li>
 <li>ISP might retry on their side</li>
 <li>If too many soft bounces, ISP marks address as bad</li>
 </ul>
-<p><strong>Cause:</strong></p>
+<h2 id="cause-2">Cause:</h2>
 <ul>
 <li>Recipient's mailbox is full</li>
 <li>Recipient's server is temporarily down</li>
@@ -1786,13 +1829,13 @@ Table of Contents
 <li>You're sending too fast to that domain</li>
 <li>ISP is rate-limiting you</li>
 </ul>
-<p><strong>Impact:</strong></p>
+<h2 id="impact-2">Impact:</h2>
 <ul>
 <li>1-2 soft bounces: No problem</li>
 <li>5+ soft bounces from same domain: IP reputation damage</li>
 <li>Soft bounces on 20%+ of your list: Major issue</li>
 </ul>
-<p><strong>Fix:</strong></p>
+<h2 id="fix-2">Fix:</h2>
 <ul>
 <li>Retry soft bounces after 24-48 hours</li>
 <li>If they soft bounce 5+ times: Move to hard bounce (remove)</li>
@@ -1807,7 +1850,7 @@ Table of Contents
 <li>Bounces</li>
 <li>Bounce rate (% of total sent)</li>
 </ul>
-<p><strong>What bounce rates mean:</strong></p>
+<h2 id="what-bounce-rates-mean">What bounce rates mean:</h2>
 <ul>
 <li>Under 2%: Excellent. List quality is good. No infrastructure issue.</li>
 <li>2-3%: Normal. Acceptable. Some bad addresses in any list.</li>
@@ -1838,26 +1881,26 @@ Table of Contents
 <p>If your bounce rate is mostly hard bounces, your list has bad email addresses.</p>
 <h3>Fix 2.1: Validate Your List Before Sending</h3>
 <p>Use an email validation tool to catch bad addresses before you send.</p>
-<p><strong>Tools:</strong></p>
+<h2 id="tools">Tools:</h2>
 <ul>
 <li>Hunter.io Email Verification ($0.01-0.05 per email)</li>
 <li>ZeroBounce ($0.008 per email)</li>
 <li>Clearbit Prospector (included in their platform)</li>
 <li>Apollo email validation (built-in to their tool)</li>
 </ul>
-<p><strong>How:</strong></p>
+<h2 id="how">How:</h2>
 <ol>
 <li>Export your email list (CSV)</li>
 <li>Upload to validation tool</li>
 <li>Tool removes invalid addresses, keeps valid ones</li>
 <li>Use cleaned list for cold campaigns</li>
 </ol>
-<p><strong>Impact:</strong></p>
+<h2 id="impact-3">Impact:</h2>
 <ul>
 <li>Hard bounces typically drop from 8-10% to 1-2%</li>
 <li>Cost: $50-200 for validating 5,000-20,000 emails (worth it)</li>
 </ul>
-<p><strong>Example:</strong></p>
+<h2 id="example">Example:</h2>
 <ul>
 <li>Client sent to 1,000 emails: 120 hard bounced (12%)</li>
 <li>Validated list first: 80 addresses flagged as invalid (removed)</li>
@@ -1866,13 +1909,13 @@ Table of Contents
 </ul>
 <h3>Fix 2.2: Use Better Data Sources</h3>
 <p>If you're buying lists, bad sources = bad bounces.</p>
-<p><strong>Good sources:</strong></p>
+<h2 id="good-sources">Good sources:</h2>
 <ul>
 <li>Hunter.io (real emails, 95%+ valid)</li>
 <li>Apollo.io (real emails, 90%+ valid)</li>
 <li>Clearbit Prospector (real emails, 93%+ valid)</li>
 </ul>
-<p><strong>Bad sources:</strong></p>
+<h2 id="bad-sources">Bad sources:</h2>
 <ul>
 <li>Generic "5M email list" on Fiverr (mostly fake)</li>
 <li>Free lists (no quality control)</li>
@@ -1884,14 +1927,14 @@ Table of Contents
 <h3>Fix 2.3: Remove Old Bounces Regularly</h3>
 <p>Every time you send, mark bounced addresses.</p>
 <p>Don't send to them again.</p>
-<p><strong>Process:</strong></p>
+<h2 id="process">Process:</h2>
 <ol>
 <li>After campaign, export bounces</li>
 <li>Remove from your master list</li>
 <li>Never add them back</li>
 <li>Build a "do not send" list of all hard bounces</li>
 </ol>
-<p><strong>Impact:</strong></p>
+<h2 id="impact-4">Impact:</h2>
 <ul>
 <li>First campaign: 5% bounce rate</li>
 <li>Second campaign (same list, bounces removed): 2% bounce rate</li>
@@ -1916,7 +1959,7 @@ Table of Contents
 <li>DMARC record (should show <code>v=DMARC1...</code>)</li>
 </ul>
 <p>If any shows "None found" or error: Add them immediately.</p>
-<p><strong>Business funding firm example:</strong></p>
+<h2 id="business-funding-firm-example">Business funding firm example:</h2>
 <ul>
 <li>Had 40-50% deliverability (major soft bounces)</li>
 <li>MXToolbox showed: SPF missing, DKIM missing, DMARC missing</li>
@@ -1924,7 +1967,7 @@ Table of Contents
 <li>Deliverability jumped to 75% in 48 hours</li>
 <li>Soft bounces dropped from 40% to 8%</li>
 </ul>
-<p><strong>How to add DNS (if missing):</strong></p>
+<h2 id="how-to-add-dns-if-missing">How to add DNS (if missing):</h2>
 <ol>
 <li>Log into your domain registrar (GoDaddy, Namecheap, etc)</li>
 <li>Find DNS/DNS Records settings</li>
@@ -1941,14 +1984,14 @@ Table of Contents
 <li>Check reputation score</li>
 <li>If below 50: IP reputation is bad</li>
 </ol>
-<p><strong>Why reputation gets bad:</strong></p>
+<h2 id="why-reputation-gets-bad">Why reputation gets bad:</h2>
 <ul>
 <li>Previous owner of IP spammed</li>
 <li>Your campaigns had 10%+ bounce rate (feedback loop)</li>
 <li>You sent too fast initially</li>
 <li>Too many complaints/spam reports</li>
 </ul>
-<p><strong>How to restore reputation:</strong></p>
+<h2 id="how-to-restore-reputation">How to restore reputation:</h2>
 <ol>
 <li>Drop sending volume by 50% for 1 week</li>
 <li>Focus on warm emails (existing contacts, warm list)</li>
@@ -1956,7 +1999,7 @@ Table of Contents
 <li>Maintain low complaint rate (people should want your emails)</li>
 <li>After 1 week, resume normal volume gradually</li>
 </ol>
-<p><strong>Timeline:</strong></p>
+<h2 id="timeline">Timeline:</h2>
 <ul>
 <li>Poor reputation (score 20-40): 2-3 weeks to recover</li>
 <li>Fair reputation (score 40-60): 1-2 weeks to recover</li>
@@ -1965,20 +2008,20 @@ Table of Contents
 <h3>Fix 3.3: Implement 14-Day Warmup</h3>
 <p>New inboxes have zero reputation. ISPs soft bounce initially.</p>
 <p>14-day warmup fixes this.</p>
-<p><strong>How warmup works:</strong></p>
+<h2 id="how-warmup-works">How warmup works:</h2>
 <ol>
 <li>Send 5 emails/day to warm contacts (your network, safe list)</li>
 <li>Generate opens, replies, no bounces</li>
 <li>Build reputation gradually</li>
 <li>After 14 days, start cold campaigns</li>
 </ol>
-<p><strong>Impact on soft bounces:</strong></p>
+<h2 id="impact-on-soft-bounces">Impact on soft bounces:</h2>
 <ul>
 <li>Week 1 (no warmup): 10% soft bounce rate</li>
 <li>Week 2-3 (with warmup): 5% soft bounce rate</li>
 <li>Week 4+ (post-warmup): 1-2% soft bounce rate</li>
 </ul>
-<p><strong>Timeline:</strong></p>
+<h2 id="timeline-2">Timeline:</h2>
 <ul>
 <li>Day 1-14: Warmup only. 5 emails/day.</li>
 <li>Day 15+: Start cold campaigns. 50-100 emails/day (ramp gradually).</li>
@@ -1992,7 +2035,7 @@ Table of Contents
 <li>If blacklisted, request delisting immediately</li>
 </ol>
 <p>If blacklisted, ISPs will soft bounce or reject everything.</p>
-<p><strong>Timeline to delist:</strong></p>
+<h2 id="timeline-to-delist">Timeline to delist:</h2>
 <ul>
 <li>Spamhaus: 3-10 days</li>
 <li>Others: 1-7 days</li>
@@ -2000,7 +2043,7 @@ Table of Contents
 <p>While delisting processes, soft bounces will continue.</p>
 <h2 id="step-4-ongoing-bounce-management">Step 4: Ongoing Bounce Management</h2>
 <p>Once you get bounce rate below 3%, keep it there.</p>
-<p><strong>Monthly checklist:</strong></p>
+<h2 id="monthly-checklist">Monthly checklist:</h2>
 <ul>
 <li>Check bounce rate (should be under 3%)</li>
 <li>Remove all hard bounces from list</li>
@@ -2009,35 +2052,35 @@ Table of Contents
 <li>Check if domain is blacklisted</li>
 <li>Maintain 14-day warmup cycle before major campaigns</li>
 </ul>
-<p><strong>Quarterly:</strong></p>
+<h2 id="quarterly">Quarterly:</h2>
 <ul>
 <li>Validate email list (run through Hunter or ZeroBounce)</li>
 <li>Review list sources (are they still good quality?)</li>
 <li>Update SPF/DKIM/DMARC if adding new email services</li>
 </ul>
 <h2 id="real-client-example-business-funding-firm">Real Client Example: Business Funding Firm</h2>
-<p><strong>Situation:</strong></p>
+<h2 id="situation">Situation:</h2>
 <ul>
 <li>Sending 200 emails/day to prospects</li>
 <li>40-50% deliverability (massive soft bounces)</li>
 <li>Reply rate: 0.3% (because 50% aren't even reaching)</li>
 <li>Thought the problem was copy</li>
 </ul>
-<p><strong>What we found:</strong></p>
+<h2 id="what-we-found">What we found:</h2>
 <ul>
 <li>DNS misconfigured: Missing SPF, DKIM, DMARC</li>
 <li>No warmup being done</li>
 <li>Domain on borderline blacklist (low reputation)</li>
 <li>List quality (old data, 8% hard bounce)</li>
 </ul>
-<p><strong>What we fixed:</strong></p>
+<h2 id="what-we-fixed">What we fixed:</h2>
 <ol>
 <li>Added SPF, DKIM, DMARC (24-48 hours propagation)</li>
 <li>Implemented 14-day warmup</li>
 <li>Cleaned list (removed 16 bad addresses out of 200)</li>
 <li>Started warmup on new domain to rebuild reputation</li>
 </ol>
-<p><strong>Results:</strong></p>
+<h2 id="results">Results:</h2>
 <ul>
 <li>Week 1: Deliverability jumped to 60% (soft bounces reduced)</li>
 <li>Week 2: Deliverability 70%</li>
@@ -2049,25 +2092,25 @@ Table of Contents
 <p><strong>Total impact:</strong> $2,000 spent on infrastructure fix = 6x improvement in leads from same list.</p>
 <h2 id="bounce-rate-by-infrastructure-quality">Bounce Rate by Infrastructure Quality</h2>
 <p>Here's what to expect depending on your setup:</p>
-<p><strong>Bad Infrastructure (Gmail + no warmup):</strong></p>
+<h2 id="bad-infrastructure-gmail-no-warmup">Bad Infrastructure (Gmail + no warmup):</h2>
 <ul>
 <li>Hard bounce: 5-8%</li>
 <li>Soft bounce: 20-30%</li>
 <li>Total bounce: 25-38%</li>
 </ul>
-<p><strong>Average Infrastructure (Shared IP + minimal warmup):</strong></p>
+<h2 id="average-infrastructure-shared-ip-minimal-warmup">Average Infrastructure (Shared IP + minimal warmup):</h2>
 <ul>
 <li>Hard bounce: 3-5%</li>
 <li>Soft bounce: 5-10%</li>
 <li>Total bounce: 8-15%</li>
 </ul>
-<p><strong>Good Infrastructure (Dedicated IP + 14-day warmup + clean list):</strong></p>
+<h2 id="good-infrastructure-dedicated-ip-14-day-warmup-clean-list">Good Infrastructure (Dedicated IP + 14-day warmup + clean list):</h2>
 <ul>
 <li>Hard bounce: 1-2%</li>
 <li>Soft bounce: 1-2%</li>
 <li>Total bounce: 2-4%</li>
 </ul>
-<p><strong>Excellent Infrastructure (Private server + warmup + validated list):</strong></p>
+<h2 id="excellent-infrastructure-private-server-warmup-validated-lis">Excellent Infrastructure (Private server + warmup + validated list):</h2>
 <ul>
 <li>Hard bounce: <1%</li>
 <li>Soft bounce: <1%</li>
@@ -2075,17 +2118,17 @@ Table of Contents
 </ul>
 <p>Private server ($489/yr) gives you the last category. No shared IP, no reputation baggage, full DNS control.</p>
 <h2 id="faq">FAQ</h2>
-<p><strong>Q: Is 3% bounce rate acceptable?</strong></p>
+<h2 id="q-is-3-bounce-rate-acceptable">Q: Is 3% bounce rate acceptable?</h2>
 <p>A: Yes. Industry standard is 2-3%. Under 3% is fine. Over 5% needs fixing.</p>
-<p><strong>Q: How long does it take to fix soft bounces?</strong></p>
+<h2 id="q-how-long-does-it-take-to-fix-soft-bounces">Q: How long does it take to fix soft bounces?</h2>
 <p>A: 24-48 hours if it's DNS. 2-3 weeks if it's IP reputation. Instant if it's blacklist delisting (after they approve).</p>
-<p><strong>Q: Should I retry soft bounces?</strong></p>
+<h2 id="q-should-i-retry-soft-bounces">Q: Should I retry soft bounces?</h2>
 <p>A: Yes. Most ESPs do this automatically. But if a single address soft bounces 5+ times, treat it as a hard bounce (remove from list).</p>
-<p><strong>Q: Why would I get hard bounces if my list is from Hunter or Apollo?</strong></p>
+<h2 id="q-why-would-i-get-hard-bounces-if-my-list-is-from-hunter-or-">Q: Why would I get hard bounces if my list is from Hunter or Apollo?</h2>
 <p>A: Even "verified" lists have 1-2% hard bounce rate. Hunter can't catch emails that were valid when verified but the person left company yesterday. Always expect 1-2% hard bounce even from premium sources.</p>
-<p><strong>Q: Do I need DNS to send cold emails?</strong></p>
+<h2 id="q-do-i-need-dns-to-send-cold-emails">Q: Do I need DNS to send cold emails?</h2>
 <p>A: Yes. SPF, DKIM, DMARC are non-negotiable. Without them, 50%+ of your emails bounce or go to spam.</p>
-<p><strong>Q: Is it better to fix list quality or infrastructure first?</strong></p>
+<h2 id="q-is-it-better-to-fix-list-quality-or-infrastructure-first">Q: Is it better to fix list quality or infrastructure first?</h2>
 <p>A: Fix infrastructure first (DNS + warmup). Then clean list. Because bad infrastructure kills everything, but good list alone won't fix bad infrastructure.</p>
 <h2 id="next-steps">Next Steps</h2>
 <ol>
@@ -2165,14 +2208,57 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#hard-bounce-vs-soft-bounce-whats-the-difference">Hard Bounce vs Soft Bounce: What's the Difference?</a></li>
+<li><a href="#what-happens">What happens:</a></li>
+<li><a href="#cause">Cause:</a></li>
+<li><a href="#impact">Impact:</a></li>
+<li><a href="#fix">Fix:</a></li>
+<li><a href="#what-happens-2">What happens:</a></li>
+<li><a href="#cause-2">Cause:</a></li>
+<li><a href="#impact-2">Impact:</a></li>
+<li><a href="#fix-2">Fix:</a></li>
 <li><a href="#step-1-diagnose-your-bounce-rate">Step 1: Diagnose Your Bounce Rate</a></li>
+<li><a href="#what-bounce-rates-mean">What bounce rates mean:</a></li>
 <li><a href="#step-2-fix-hard-bounces-list-quality-issue">Step 2: Fix Hard Bounces (List Quality Issue)</a></li>
+<li><a href="#tools">Tools:</a></li>
+<li><a href="#how">How:</a></li>
+<li><a href="#impact-3">Impact:</a></li>
+<li><a href="#example">Example:</a></li>
+<li><a href="#good-sources">Good sources:</a></li>
+<li><a href="#bad-sources">Bad sources:</a></li>
+<li><a href="#process">Process:</a></li>
+<li><a href="#impact-4">Impact:</a></li>
 <li><a href="#step-3-fix-soft-bounces-infrastructure-issue">Step 3: Fix Soft Bounces (Infrastructure Issue)</a></li>
+<li><a href="#business-funding-firm-example">Business funding firm example:</a></li>
+<li><a href="#how-to-add-dns-if-missing">How to add DNS (if missing):</a></li>
+<li><a href="#why-reputation-gets-bad">Why reputation gets bad:</a></li>
+<li><a href="#how-to-restore-reputation">How to restore reputation:</a></li>
+<li><a href="#timeline">Timeline:</a></li>
+<li><a href="#how-warmup-works">How warmup works:</a></li>
+<li><a href="#impact-on-soft-bounces">Impact on soft bounces:</a></li>
+<li><a href="#timeline-2">Timeline:</a></li>
+<li><a href="#timeline-to-delist">Timeline to delist:</a></li>
 <li><a href="#step-4-ongoing-bounce-management">Step 4: Ongoing Bounce Management</a></li>
+<li><a href="#monthly-checklist">Monthly checklist:</a></li>
+<li><a href="#quarterly">Quarterly:</a></li>
 <li><a href="#real-client-example-business-funding-firm">Real Client Example: Business Funding Firm</a></li>
+<li><a href="#situation">Situation:</a></li>
+<li><a href="#what-we-found">What we found:</a></li>
+<li><a href="#what-we-fixed">What we fixed:</a></li>
+<li><a href="#results">Results:</a></li>
 <li><a href="#bounce-rate-by-infrastructure-quality">Bounce Rate by Infrastructure Quality</a></li>
+<li><a href="#bad-infrastructure-gmail-no-warmup">Bad Infrastructure (Gmail + no warmup):</a></li>
+<li><a href="#average-infrastructure-shared-ip-minimal-warmup">Average Infrastructure (Shared IP + minimal warmup):</a></li>
+<li><a href="#good-infrastructure-dedicated-ip-14-day-warmup-clean-list">Good Infrastructure (Dedicated IP + 14-day warmup + clean list):</a></li>
+<li><a href="#excellent-infrastructure-private-server-warmup-validated-lis">Excellent Infrastructure (Private server + warmup + validated list):</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-is-3-bounce-rate-acceptable">Q: Is 3% bounce rate acceptable?</a></li>
+<li><a href="#q-how-long-does-it-take-to-fix-soft-bounces">Q: How long does it take to fix soft bounces?</a></li>
+<li><a href="#q-should-i-retry-soft-bounces">Q: Should I retry soft bounces?</a></li>
+<li><a href="#q-why-would-i-get-hard-bounces-if-my-list-is-from-hunter-or-">Q: Why would I get hard bounces if my list is from Hunter or Apollo?</a></li>
+<li><a href="#q-do-i-need-dns-to-send-cold-emails">Q: Do I need DNS to send cold emails?</a></li>
+<li><a href="#q-is-it-better-to-fix-list-quality-or-infrastructure-first">Q: Is it better to fix list quality or infrastructure first?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

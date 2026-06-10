@@ -1720,14 +1720,23 @@ Table of Contents
 <li><a href="#quick-summary-table">Quick Summary Table</a></li>
 <li><a href="#the-core-difference">The Core Difference</a></li>
 <li><a href="#pricing-model-per-inbox-vs-per-user">Pricing Model: Per-Inbox vs Per-User</a></li>
+<li><a href="#instantly-s-model">Instantly's model:</a></li>
+<li><a href="#woodpecker-s-model">Woodpecker's model:</a></li>
 <li><a href="#deliverability-instantly-wins-decisively">Deliverability: Instantly Wins Decisively</a></li>
+<li><a href="#instantly-s-architecture">Instantly's architecture:</a></li>
+<li><a href="#woodpecker-s-architecture">Woodpecker's architecture:</a></li>
 <li><a href="#sending-limits-instantly-unlimited-woodpecker-capped">Sending Limits: Instantly Unlimited, Woodpecker Capped</a></li>
 <li><a href="#warm-up-built-in-vs-third-party">Warm-Up: Built-In vs Third-Party</a></li>
 <li><a href="#private-server-support-instantly-woodpecker">Private Server Support: Instantly > Woodpecker</a></li>
 <li><a href="#multi-threading-both-support-it">Multi-Threading: Both Support It</a></li>
 <li><a href="#real-campaign-results-instantly-vs-woodpecker">Real Campaign Results: Instantly vs Woodpecker</a></li>
+<li><a href="#instantly-setup">Instantly setup:</a></li>
+<li><a href="#woodpecker-setup">Woodpecker setup:</a></li>
 <li><a href="#verdict-pick-by-scale">Verdict: Pick by Scale</a></li>
+<li><a href="#choose-instantly-if">Choose Instantly if:</a></li>
+<li><a href="#choose-woodpecker-if">Choose Woodpecker if:</a></li>
 <li><a href="#our-recommendation">Our Recommendation</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1798,17 +1807,17 @@ Table of Contents
 </tbody></table></div>
 <h2 id="the-core-difference">The Core Difference</h2>
 <p>Instantly is built for infrastructure scaling. You add inboxes (Gmail, Outlook, or private servers), each inbox gets managed independently, warm-up is built-in. Cost scales with infrastructure. Woodpecker is built for simplicity. One user account, one sending queue, basic personalization. Cost is flat regardless of scale.</p>
-<p>At imisofts, we use Instantly exclusively because we manage 175 inboxes across 25 domains for clients. Woodpecker's flat-rate pricing would cost $99/month for unlimited accounts—that's cheap—but Woodpecker caps deliverability at 70% max. Instantly's per-inbox infrastructure reaches 80%+ inbox placement. That 10% difference on 175 inboxes is 2,625 additional emails reaching inbox per campaign.</p>
+<p>At imisofts, we use Instantly exclusively because we manage 175 inboxes across 25 domains for clients. Woodpecker's flat-rate pricing would cost $99/month for unlimited accounts, that's cheap, but Woodpecker caps deliverability at 70% max. Instantly's per-inbox infrastructure reaches 80%+ inbox placement. That 10% difference on 175 inboxes is 2,625 additional emails reaching inbox per campaign.</p>
 <h2 id="pricing-model-per-inbox-vs-per-user">Pricing Model: Per-Inbox vs Per-User</h2>
 <p>This is the fundamental difference.</p>
-<p><strong>Instantly's model:</strong></p>
+<h2 id="instantly-s-model">Instantly's model:</h2>
 <ul>
 <li>$25/month per inbox</li>
 <li>Add 50 inboxes = $1,250/month</li>
 <li>Add 175 inboxes = $4,375/month</li>
 <li>Unlimited campaigns per inbox</li>
 </ul>
-<p><strong>Woodpecker's model:</strong></p>
+<h2 id="woodpecker-s-model">Woodpecker's model:</h2>
 <ul>
 <li>$24/month per user (flattest tier)</li>
 <li>$99/month (Professional, 1 user, unlimited inboxes if you share them)</li>
@@ -1819,12 +1828,12 @@ Table of Contents
 <p>Our AlwaysConvert.ai client needed 175 inboxes to manage 25-domain rotation across 5 sending patterns. Cost comparison:</p>
 <p><strong>Instantly:</strong> 175 inboxes × $25 = $4,375/month</p>
 <p><strong>Woodpecker:</strong> $99/month (flat) + Custom features</p>
-<p>Wait—Woodpecker is $4,276/month cheaper? Why did we recommend Instantly?</p>
+<p>Wait, Woodpecker is $4,276/month cheaper? Why did we recommend Instantly?</p>
 <p>Because that flat $99 cost assumes you share 175 inboxes under one user account. Shared inbox infrastructure = shared domain reputation = 50-60% deliverability. Instantly's 175 separate inboxes each with independent reputation = 75-85% deliverability.</p>
 <p>At 2% reply rate, 75% deliverability is 1,312 conversations. At 50% deliverability, it's 875 conversations. That 437 conversation gap is real pipeline difference. 175 inboxes at $25 each to recover 437 conversations monthly is ROI positive.</p>
 <h2 id="deliverability-instantly-wins-decisively">Deliverability: Instantly Wins Decisively</h2>
 <p>This is where cost justification becomes clear.</p>
-<p><strong>Instantly's architecture:</strong></p>
+<h2 id="instantly-s-architecture">Instantly's architecture:</h2>
 <ul>
 <li>Each inbox gets independent warm-up (builds reputation separately)</li>
 <li>Domain rotation distributes sender reputation across 25 domains</li>
@@ -1832,7 +1841,7 @@ Table of Contents
 <li>Gmail/Outlook/Private server all supported equally</li>
 <li>Advanced inbox management (prevents reputation clustering)</li>
 </ul>
-<p><strong>Woodpecker's architecture:</strong></p>
+<h2 id="woodpecker-s-architecture">Woodpecker's architecture:</h2>
 <ul>
 <li>Single user account (one sender identity)</li>
 <li>One domain reputation (all emails tied to same domain)</li>
@@ -1901,7 +1910,7 @@ Table of Contents
 <p>For cold email effectiveness, multi-threading matters. It's the difference between 10 separate emails (obvious cold email) and a natural email thread (looks like conversation). Both platforms do it. Instantly's implementation is more sophisticated.</p>
 <h2 id="real-campaign-results-instantly-vs-woodpecker">Real Campaign Results: Instantly vs Woodpecker</h2>
 <p>We ran identical 5,000-prospect campaigns on both platforms, same domains, same sequences.</p>
-<p><strong>Instantly setup:</strong></p>
+<h2 id="instantly-setup">Instantly setup:</h2>
 <ul>
 <li>20 inboxes across 5 domains</li>
 <li>Cost: $500/month (20 × $25)</li>
@@ -1911,7 +1920,7 @@ Table of Contents
 <li>Reply rate: 2.1%</li>
 <li>Conversations: 107</li>
 </ul>
-<p><strong>Woodpecker setup:</strong></p>
+<h2 id="woodpecker-setup">Woodpecker setup:</h2>
 <ul>
 <li>1 user account, 1 domain, shared inboxes</li>
 <li>Cost: $99/month (+ $70 Lemwarm = $169)</li>
@@ -1923,12 +1932,12 @@ Table of Contents
 </ul>
 <p>Instantly: 107 conversations at $500 = $4.67 per conversation.</p>
 <p>Woodpecker: 80 conversations at $169 = $2.11 per conversation.</p>
-<p>Wait—Woodpecker is cheaper per conversation? No. This misses the real cost.</p>
+<p>Wait, Woodpecker is cheaper per conversation? No. This misses the real cost.</p>
 <p>For Instantly to be $500/month, you're scaling (20 inboxes). At that scale, you're sending 20,000-50,000 emails monthly. At 2.1% reply rate, that's 420-1,050 conversations monthly. Monthly cost is $500. Per-conversation cost is $0.48-1.19.</p>
 <p>For Woodpecker to be $169/month (with warm-up), you're limited by deliverability and sending caps. You're sending 5,000-10,000 emails monthly. At 1.6% reply rate, that's 80-160 conversations monthly. Monthly cost is $169. Per-conversation cost is $1.06-2.11.</p>
 <p>Instantly costs less per conversation at scale because its deliverability advantage compounds across larger volumes.</p>
 <h2 id="verdict-pick-by-scale">Verdict: Pick by Scale</h2>
-<p><strong>Choose Instantly if:</strong></p>
+<h2 id="choose-instantly-if">Choose Instantly if:</h2>
 <ul>
 <li>Scaling cold email (100k+ emails/month)</li>
 <li>Private server infrastructure is part of setup</li>
@@ -1936,7 +1945,7 @@ Table of Contents
 <li>Deliverability is priority</li>
 <li>Multi-domain rotation required</li>
 </ul>
-<p><strong>Choose Woodpecker if:</strong></p>
+<h2 id="choose-woodpecker-if">Choose Woodpecker if:</h2>
 <ul>
 <li>SMB campaigns (5,000-20,000/month)</li>
 <li>Single domain, simple setup</li>
@@ -1945,7 +1954,7 @@ Table of Contents
 <li>Simplicity over deliverability</li>
 </ul>
 <h2 id="our-recommendation">Our Recommendation</h2>
-<p>At imisofts, we recommend Instantly for infrastructure clients. The per-inbox model aligns with how we build systems. Deliverability at 79% reaches inbox compared to Woodpecker's 61% is the real value—it's 18 percentage points of recovery that multiplies across thousands of emails.</p>
+<p>At imisofts, we recommend Instantly for infrastructure clients. The per-inbox model aligns with how we build systems. Deliverability at 79% reaches inbox compared to Woodpecker's 61% is the real value, it's 18 percentage points of recovery that multiplies across thousands of emails.</p>
 <p>Woodpecker makes sense for indie hackers or freelance SDRs running personal brand campaigns. You don't need 25 domains or 175 inboxes. Simple setup, basic sending limits, low cost. That works.</p>
 <p>For agencies and scaling operations? Instantly is the only choice that makes economic sense at volume.</p>
 <section class="faq-section">
@@ -1980,7 +1989,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">Only if you&#x27;re sending &lt;10,000/month and deliverability doesn&#x27;t matter. For cold email scaling, Instantly&#x27;s ROI is positive—you&#x27;ll hit reply rate targets faster.</div>
+<div class="faq-answer-inner">Only if you&#x27;re sending &lt;10,000/month and deliverability doesn&#x27;t matter. For cold email scaling, Instantly&#x27;s ROI is positive, you&#x27;ll hit reply rate targets faster.</div>
 </div>
 </div><div class="faq-item">
 <button class="faq-question" aria-expanded="false">
@@ -2013,14 +2022,23 @@ Contents
 <li><a href="#quick-summary-table">Quick Summary Table</a></li>
 <li><a href="#the-core-difference">The Core Difference</a></li>
 <li><a href="#pricing-model-per-inbox-vs-per-user">Pricing Model: Per-Inbox vs Per-User</a></li>
+<li><a href="#instantly-s-model">Instantly's model:</a></li>
+<li><a href="#woodpecker-s-model">Woodpecker's model:</a></li>
 <li><a href="#deliverability-instantly-wins-decisively">Deliverability: Instantly Wins Decisively</a></li>
+<li><a href="#instantly-s-architecture">Instantly's architecture:</a></li>
+<li><a href="#woodpecker-s-architecture">Woodpecker's architecture:</a></li>
 <li><a href="#sending-limits-instantly-unlimited-woodpecker-capped">Sending Limits: Instantly Unlimited, Woodpecker Capped</a></li>
 <li><a href="#warm-up-built-in-vs-third-party">Warm-Up: Built-In vs Third-Party</a></li>
 <li><a href="#private-server-support-instantly-woodpecker">Private Server Support: Instantly > Woodpecker</a></li>
 <li><a href="#multi-threading-both-support-it">Multi-Threading: Both Support It</a></li>
 <li><a href="#real-campaign-results-instantly-vs-woodpecker">Real Campaign Results: Instantly vs Woodpecker</a></li>
+<li><a href="#instantly-setup">Instantly setup:</a></li>
+<li><a href="#woodpecker-setup">Woodpecker setup:</a></li>
 <li><a href="#verdict-pick-by-scale">Verdict: Pick by Scale</a></li>
+<li><a href="#choose-instantly-if">Choose Instantly if:</a></li>
+<li><a href="#choose-woodpecker-if">Choose Woodpecker if:</a></li>
 <li><a href="#our-recommendation">Our Recommendation</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

@@ -1718,17 +1718,48 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#what-disconnected-means">What "Disconnected" Means</a></li>
+<li><a href="#why-it-happens">Why it happens:</a></li>
 <li><a href="#cause-1-oauth-token-expired-most-common">Cause 1: OAuth Token Expired (Most Common)</a></li>
+<li><a href="#how-to-diagnose">How to diagnose:</a></li>
+<li><a href="#the-fix-30-seconds">The fix (30 seconds):</a></li>
+<li><a href="#if-the-reconnect-button-doesn-t-appear">If the Reconnect button doesn't appear:</a></li>
 <li><a href="#cause-2-2fa-enabled-on-email-account">Cause 2: 2FA Enabled on Email Account</a></li>
+<li><a href="#how-to-diagnose-2">How to diagnose:</a></li>
+<li><a href="#the-fix-for-gmail-app-password-method">The fix for Gmail (App Password method):</a></li>
+<li><a href="#the-fix-for-outlook-app-password-method">The fix for Outlook (App Password method):</a></li>
 <li><a href="#cause-3-gmailoutlook-blocked-or-suspended-instantly">Cause 3: Gmail/Outlook Blocked or Suspended Instantly</a></li>
+<li><a href="#how-to-diagnose-3">How to diagnose:</a></li>
+<li><a href="#why-it-happens-2">Why it happens:</a></li>
+<li><a href="#the-fix">The fix:</a></li>
+<li><a href="#for-gmail">For Gmail:</a></li>
+<li><a href="#for-outlook">For Outlook:</a></li>
+<li><a href="#if-you-don-t-see-instantly-in-either-list">If you don't see Instantly in either list:</a></li>
 <li><a href="#cause-4-email-account-disabled-or-suspended">Cause 4: Email Account Disabled or Suspended</a></li>
+<li><a href="#how-to-diagnose-4">How to diagnose:</a></li>
+<li><a href="#why-it-happens-3">Why it happens:</a></li>
+<li><a href="#the-fix-2">The fix:</a></li>
+<li><a href="#if-the-account-can-t-be-recovered">If the account can't be recovered:</a></li>
 <li><a href="#cause-5-inbox-hit-bounce-limit">Cause 5: Inbox Hit Bounce Limit</a></li>
+<li><a href="#how-to-diagnose-5">How to diagnose:</a></li>
+<li><a href="#why-it-happens-4">Why it happens:</a></li>
+<li><a href="#the-fix-3">The fix:</a></li>
+<li><a href="#prevention">Prevention:</a></li>
 <li><a href="#the-5-step-reconnection-process-quick-reference">The 5-Step Reconnection Process (Quick Reference)</a></li>
 <li><a href="#preventing-disconnections">Preventing Disconnections</a></li>
+<li><a href="#weekly">Weekly:</a></li>
+<li><a href="#monthly">Monthly:</a></li>
+<li><a href="#quarterly">Quarterly:</a></li>
 <li><a href="#real-example-disconnection-at-scale">Real Example: Disconnection at Scale</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-long-does-reconnection-take">Q: How long does reconnection take?</a></li>
+<li><a href="#q-will-my-campaigns-resume-automatically-after-reconnecting">Q: Will my campaigns resume automatically after reconnecting?</a></li>
+<li><a href="#q-what-if-i-can-t-reconnect-even-after-trying-all-5-fixes">Q: What if I can't reconnect even after trying all 5 fixes?</a></li>
+<li><a href="#q-does-disconnection-affect-my-sender-reputation">Q: Does disconnection affect my sender reputation?</a></li>
+<li><a href="#q-should-i-remove-and-re-add-the-inbox-or-just-reconnect">Q: Should I remove and re-add the inbox or just reconnect?</a></li>
+<li><a href="#q-if-my-inbox-is-disconnected-for-a-week-what-happens">Q: If my inbox is disconnected for a week, what happens?</a></li>
 <li><a href="#common-error-messages-and-fixes">Common Error Messages and Fixes</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1748,7 +1779,7 @@ Table of Contents
 <li>Instantly can't send from that inbox right now</li>
 <li>Campaigns won't run until it's reconnected</li>
 </ol>
-<p><strong>Why it happens:</strong></p>
+<h2 id="why-it-happens">Why it happens:</h2>
 <ul>
 <li>Gmail/Outlook revoked the access token</li>
 <li>Password changed on email account</li>
@@ -1761,14 +1792,14 @@ Table of Contents
 <h2 id="cause-1-oauth-token-expired-most-common">Cause 1: OAuth Token Expired (Most Common)</h2>
 <p>Gmail and Outlook use OAuth to let Instantly access your account.</p>
 <p>This token expires every 30-90 days. Instantly should auto-refresh it. Sometimes it fails.</p>
-<p><strong>How to diagnose:</strong></p>
+<h2 id="how-to-diagnose">How to diagnose:</h2>
 <ol>
 <li>Open Instantly</li>
 <li>Click on the disconnected inbox</li>
 <li>Look for error message (usually shows something like "Authentication failed" or "Unable to refresh token")</li>
 <li>If error mentions "refresh token" or "auth," this is your problem</li>
 </ol>
-<p><strong>The fix (30 seconds):</strong></p>
+<h2 id="the-fix-30-seconds">The fix (30 seconds):</h2>
 <ol>
 <li>Click the disconnected inbox in Instantly</li>
 <li>Find the "Reconnect" or "Reauthorize" button (usually red)</li>
@@ -1778,7 +1809,7 @@ Table of Contents
 <li>You'll be redirected back to Instantly</li>
 <li>Inbox should now show "Connected"</li>
 </ol>
-<p><strong>If the Reconnect button doesn't appear:</strong></p>
+<h2 id="if-the-reconnect-button-doesn-t-appear">If the Reconnect button doesn't appear:</h2>
 <ol>
 <li>Click the three dots (⋮) next to the inbox name</li>
 <li>Look for "Disconnect" or "Remove"</li>
@@ -1790,13 +1821,13 @@ Table of Contents
 <h2 id="cause-2-2fa-enabled-on-email-account">Cause 2: 2FA Enabled on Email Account</h2>
 <p>You enabled 2-factor authentication on your Gmail or Outlook.</p>
 <p>Instantly can't authenticate through OAuth with 2FA enabled. It needs an App Password instead.</p>
-<p><strong>How to diagnose:</strong></p>
+<h2 id="how-to-diagnose-2">How to diagnose:</h2>
 <ul>
 <li>You recently enabled 2FA on the email account</li>
 <li>Error message says "Unable to authenticate" or "Invalid credentials"</li>
 <li>Reconnect button appears but clicking it doesn't work</li>
 </ul>
-<p><strong>The fix for Gmail (App Password method):</strong></p>
+<h2 id="the-fix-for-gmail-app-password-method">The fix for Gmail (App Password method):</h2>
 <ol>
 <li>Go to myaccount.google.com (while signed into the Gmail account)</li>
 <li>Click "Security" in the left menu</li>
@@ -1813,7 +1844,7 @@ Table of Contents
 <li>Approve access</li>
 <li>Inbox reconnects</li>
 </ol>
-<p><strong>The fix for Outlook (App Password method):</strong></p>
+<h2 id="the-fix-for-outlook-app-password-method">The fix for Outlook (App Password method):</h2>
 <ol>
 <li>Go to account.microsoft.com</li>
 <li>Click "Security" in the left menu</li>
@@ -1830,20 +1861,20 @@ Table of Contents
 <p><strong>Pro tip:</strong> Use App Passwords for all 2FA-enabled accounts. They're more secure than Instantly storing your real password, and they allow you to revoke Instantly's access without changing your main password.</p>
 <h2 id="cause-3-gmailoutlook-blocked-or-suspended-instantly">Cause 3: Gmail/Outlook Blocked or Suspended Instantly</h2>
 <p>Google or Microsoft sometimes blocks Instantly access if they detect suspicious activity.</p>
-<p><strong>How to diagnose:</strong></p>
+<h2 id="how-to-diagnose-3">How to diagnose:</h2>
 <ul>
 <li>Error message says "Invalid client" or "Blocked by Google" or "This app couldn't access your account"</li>
 <li>Or: You see a warning email from Google/Microsoft saying a suspicious app tried to access your account</li>
 </ul>
-<p><strong>Why it happens:</strong></p>
+<h2 id="why-it-happens-2">Why it happens:</h2>
 <ul>
 <li>Instantly was testing a new integration</li>
 <li>You're using a free Gmail account with very new Instantly API</li>
 <li>Google flagged the connection as "suspicious"</li>
 <li>You're in a country where Google restricts third-party apps</li>
 </ul>
-<p><strong>The fix:</strong></p>
-<p><strong>For Gmail:</strong></p>
+<h2 id="the-fix">The fix:</h2>
+<h2 id="for-gmail">For Gmail:</h2>
 <ol>
 <li>Go to myaccount.google.com</li>
 <li>Click "Security"</li>
@@ -1854,7 +1885,7 @@ Table of Contents
 <li>Go back to Instantly and reconnect the inbox</li>
 <li>Inbox should work now</li>
 </ol>
-<p><strong>For Outlook:</strong></p>
+<h2 id="for-outlook">For Outlook:</h2>
 <ol>
 <li>Go to account.microsoft.com</li>
 <li>Click "Security"</li>
@@ -1865,7 +1896,7 @@ Table of Contents
 <li>Go back to Instantly and reconnect</li>
 <li>Inbox should work now</li>
 </ol>
-<p><strong>If you don't see Instantly in either list:</strong></p>
+<h2 id="if-you-don-t-see-instantly-in-either-list">If you don't see Instantly in either list:</h2>
 <ul>
 <li>The block is on Instantly's end, not your account</li>
 <li>Contact Instantly support with the error message</li>
@@ -1874,20 +1905,20 @@ Table of Contents
 <h2 id="cause-4-email-account-disabled-or-suspended">Cause 4: Email Account Disabled or Suspended</h2>
 <p>The email account itself is disabled or suspended.</p>
 <p>Gmail/Outlook is blocking login access to the account entirely.</p>
-<p><strong>How to diagnose:</strong></p>
+<h2 id="how-to-diagnose-4">How to diagnose:</h2>
 <ul>
 <li>You can't log into the email account through Gmail.com or Outlook.com either</li>
 <li>Error message says "Account disabled" or "Account suspended" or "Access denied"</li>
 <li>You receive an email from Google/Microsoft saying your account was disabled</li>
 </ul>
-<p><strong>Why it happens:</strong></p>
+<h2 id="why-it-happens-3">Why it happens:</h2>
 <ul>
 <li>Suspicious activity detected</li>
 <li>Terms of service violation</li>
 <li>Account inactivity for 2+ years (Gmail auto-disables)</li>
 <li>You missed a security alert and the account was locked</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-2">The fix:</h2>
 <p>This one requires action on Google/Microsoft's side, not Instantly.</p>
 <ol>
 <li>Try to log into the email account directly (gmail.com or outlook.com)</li>
@@ -1895,7 +1926,7 @@ Table of Contents
 <li>Once you regain account access, go to Instantly</li>
 <li>Reconnect the inbox (it should work now)</li>
 </ol>
-<p><strong>If the account can't be recovered:</strong></p>
+<h2 id="if-the-account-can-t-be-recovered">If the account can't be recovered:</h2>
 <ul>
 <li>You'll need to add a different inbox/email account to Instantly</li>
 <li>Migrate any active campaigns to the new inbox</li>
@@ -1904,21 +1935,21 @@ Table of Contents
 <h2 id="cause-5-inbox-hit-bounce-limit">Cause 5: Inbox Hit Bounce Limit</h2>
 <p>Instantly monitors bounce rate. If an inbox bounces too many emails, Instantly automatically disconnects it.</p>
 <p>This is a safety feature to protect your reputation.</p>
-<p><strong>How to diagnose:</strong></p>
+<h2 id="how-to-diagnose-5">How to diagnose:</h2>
 <ul>
 <li>Inbox shows "Disconnected"</li>
 <li>No error message, just says "Disconnected"</li>
 <li>You've been sending a lot of emails to invalid addresses</li>
 <li>Bounce rate on this inbox is 10%+</li>
 </ul>
-<p><strong>Why it happens:</strong></p>
+<h2 id="why-it-happens-4">Why it happens:</h2>
 <ul>
 <li>Your list quality is bad (hitting spam traps, invalid emails)</li>
 <li>You're sending to very old list (addresses no longer valid)</li>
 <li>Inbox reputation was damaged and ISPs are rejecting everything</li>
 <li>You disabled bounce limits in settings (dangerous)</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-3">The fix:</h2>
 <ol>
 <li>Check your list quality</li>
 <li>Run through email validation tool (Hunter, ZeroBounce)</li>
@@ -1928,7 +1959,7 @@ Table of Contents
 <li>Re-engage warmup with smaller volume (5-10 emails/day) to rebuild reputation</li>
 <li>Once bounce rate drops below 5%, resume normal sending</li>
 </ol>
-<p><strong>Prevention:</strong></p>
+<h2 id="prevention">Prevention:</h2>
 <ul>
 <li>Always validate lists before importing (use Hunter or ZeroBounce)</li>
 <li>Keep bounce rate under 3%</li>
@@ -1982,20 +2013,20 @@ Table of Contents
 </ul>
 <h2 id="preventing-disconnections">Preventing Disconnections</h2>
 <p>The best fix is preventing them:</p>
-<p><strong>Weekly:</strong></p>
+<h2 id="weekly">Weekly:</h2>
 <ul>
 <li>Check Instantly dashboard for any "Disconnected" inboxes</li>
 <li>Reconnect immediately if found</li>
 <li>Review bounce rate (should be under 3%)</li>
 </ul>
-<p><strong>Monthly:</strong></p>
+<h2 id="monthly">Monthly:</h2>
 <ul>
 <li>Check that all inboxes show "Connected"</li>
 <li>Verify sync time is recent (within last 24 hours)</li>
 <li>Review App Password expiration dates</li>
 <li>Confirm 2FA is working on email accounts</li>
 </ul>
-<p><strong>Quarterly:</strong></p>
+<h2 id="quarterly">Quarterly:</h2>
 <ul>
 <li>Update App Passwords if they're older than 90 days</li>
 <li>Review email account security settings</li>
@@ -2019,17 +2050,17 @@ Table of Contents
 <p><strong>Prevention cost:</strong> Weekly 5-minute check would have caught the OAuth one earlier.</p>
 <p>Impact: Each disconnected inbox stops campaigns for 2-4 hours (if not caught immediately). Multiplied across 50 inboxes = lots of lost sending time.</p>
 <h2 id="faq">FAQ</h2>
-<p><strong>Q: How long does reconnection take?</strong></p>
+<h2 id="q-how-long-does-reconnection-take">Q: How long does reconnection take?</h2>
 <p>A: Usually 30 seconds to 5 minutes. OAuth token errors = 30 seconds. 2FA setup = 10 minutes. Account recovery = varies.</p>
-<p><strong>Q: Will my campaigns resume automatically after reconnecting?</strong></p>
+<h2 id="q-will-my-campaigns-resume-automatically-after-reconnecting">Q: Will my campaigns resume automatically after reconnecting?</h2>
 <p>A: Sometimes. If disconnected less than 1 hour, campaigns often resume. If disconnected 24+ hours, they pause and you'll need to manually resume or reschedule them.</p>
-<p><strong>Q: What if I can't reconnect even after trying all 5 fixes?</strong></p>
+<h2 id="q-what-if-i-can-t-reconnect-even-after-trying-all-5-fixes">Q: What if I can't reconnect even after trying all 5 fixes?</h2>
 <p>A: Contact Instantly support. Usually indicates their system has a bug or your account needs a manual reset.</p>
-<p><strong>Q: Does disconnection affect my sender reputation?</strong></p>
+<h2 id="q-does-disconnection-affect-my-sender-reputation">Q: Does disconnection affect my sender reputation?</h2>
 <p>A: Not directly. Disconnection stops emails from sending, so it doesn't hurt reputation. But if you fix it and resume sending immediately, no recovery needed.</p>
-<p><strong>Q: Should I remove and re-add the inbox or just reconnect?</strong></p>
+<h2 id="q-should-i-remove-and-re-add-the-inbox-or-just-reconnect">Q: Should I remove and re-add the inbox or just reconnect?</h2>
 <p>A: Reconnect first (faster). Only remove and re-add if reconnect button doesn't work or you're getting persistent errors after reconnecting.</p>
-<p><strong>Q: If my inbox is disconnected for a week, what happens?</strong></p>
+<h2 id="q-if-my-inbox-is-disconnected-for-a-week-what-happens">Q: If my inbox is disconnected for a week, what happens?</h2>
 <p>A: Nothing bad. Campaigns don't send (they pause). Once reconnected, you can resume. No penalty. But you lose 1 week of campaign time.</p>
 <h2 id="common-error-messages-and-fixes">Common Error Messages and Fixes</h2>
 <p><strong>"Authentication failed"</strong> → Click Reconnect button</p>
@@ -2122,17 +2153,48 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#what-disconnected-means">What "Disconnected" Means</a></li>
+<li><a href="#why-it-happens">Why it happens:</a></li>
 <li><a href="#cause-1-oauth-token-expired-most-common">Cause 1: OAuth Token Expired (Most Common)</a></li>
+<li><a href="#how-to-diagnose">How to diagnose:</a></li>
+<li><a href="#the-fix-30-seconds">The fix (30 seconds):</a></li>
+<li><a href="#if-the-reconnect-button-doesn-t-appear">If the Reconnect button doesn't appear:</a></li>
 <li><a href="#cause-2-2fa-enabled-on-email-account">Cause 2: 2FA Enabled on Email Account</a></li>
+<li><a href="#how-to-diagnose-2">How to diagnose:</a></li>
+<li><a href="#the-fix-for-gmail-app-password-method">The fix for Gmail (App Password method):</a></li>
+<li><a href="#the-fix-for-outlook-app-password-method">The fix for Outlook (App Password method):</a></li>
 <li><a href="#cause-3-gmailoutlook-blocked-or-suspended-instantly">Cause 3: Gmail/Outlook Blocked or Suspended Instantly</a></li>
+<li><a href="#how-to-diagnose-3">How to diagnose:</a></li>
+<li><a href="#why-it-happens-2">Why it happens:</a></li>
+<li><a href="#the-fix">The fix:</a></li>
+<li><a href="#for-gmail">For Gmail:</a></li>
+<li><a href="#for-outlook">For Outlook:</a></li>
+<li><a href="#if-you-don-t-see-instantly-in-either-list">If you don't see Instantly in either list:</a></li>
 <li><a href="#cause-4-email-account-disabled-or-suspended">Cause 4: Email Account Disabled or Suspended</a></li>
+<li><a href="#how-to-diagnose-4">How to diagnose:</a></li>
+<li><a href="#why-it-happens-3">Why it happens:</a></li>
+<li><a href="#the-fix-2">The fix:</a></li>
+<li><a href="#if-the-account-can-t-be-recovered">If the account can't be recovered:</a></li>
 <li><a href="#cause-5-inbox-hit-bounce-limit">Cause 5: Inbox Hit Bounce Limit</a></li>
+<li><a href="#how-to-diagnose-5">How to diagnose:</a></li>
+<li><a href="#why-it-happens-4">Why it happens:</a></li>
+<li><a href="#the-fix-3">The fix:</a></li>
+<li><a href="#prevention">Prevention:</a></li>
 <li><a href="#the-5-step-reconnection-process-quick-reference">The 5-Step Reconnection Process (Quick Reference)</a></li>
 <li><a href="#preventing-disconnections">Preventing Disconnections</a></li>
+<li><a href="#weekly">Weekly:</a></li>
+<li><a href="#monthly">Monthly:</a></li>
+<li><a href="#quarterly">Quarterly:</a></li>
 <li><a href="#real-example-disconnection-at-scale">Real Example: Disconnection at Scale</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-long-does-reconnection-take">Q: How long does reconnection take?</a></li>
+<li><a href="#q-will-my-campaigns-resume-automatically-after-reconnecting">Q: Will my campaigns resume automatically after reconnecting?</a></li>
+<li><a href="#q-what-if-i-can-t-reconnect-even-after-trying-all-5-fixes">Q: What if I can't reconnect even after trying all 5 fixes?</a></li>
+<li><a href="#q-does-disconnection-affect-my-sender-reputation">Q: Does disconnection affect my sender reputation?</a></li>
+<li><a href="#q-should-i-remove-and-re-add-the-inbox-or-just-reconnect">Q: Should I remove and re-add the inbox or just reconnect?</a></li>
+<li><a href="#q-if-my-inbox-is-disconnected-for-a-week-what-happens">Q: If my inbox is disconnected for a week, what happens?</a></li>
 <li><a href="#common-error-messages-and-fixes">Common Error Messages and Fixes</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

@@ -1718,18 +1718,55 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#why-warmup-matters-and-what-working-looks-like">Why Warmup Matters (And What "Working" Looks Like)</a></li>
+<li><a href="#warmup-is-working-if">Warmup is working if:</a></li>
+<li><a href="#warmup-is-not-working-if">Warmup is NOT working if:</a></li>
 <li><a href="#diagnostic-step-1-confirm-youre-actually-doing-warmup">Diagnostic Step 1: Confirm You're Actually Doing Warmup</a></li>
+<li><a href="#how-to-check">How to check:</a></li>
+<li><a href="#what-you-should-see">What you should see:</a></li>
+<li><a href="#if-any-of-these-are-wrong">If any of these are wrong:</a></li>
 <li><a href="#diagnostic-step-2-check-your-bounce-rate-during-warmup">Diagnostic Step 2: Check Your Bounce Rate During Warmup</a></li>
+<li><a href="#how-to-check-bounce-rate">How to check bounce rate:</a></li>
+<li><a href="#what-it-should-be">What it should be:</a></li>
+<li><a href="#if-bounce-rate-is-high-during-warmup">If bounce rate is high during warmup:</a></li>
+<li><a href="#the-fix">The fix:</a></li>
 <li><a href="#diagnostic-step-3-check-your-engagement-rate-during-warmup">Diagnostic Step 3: Check Your Engagement Rate During Warmup</a></li>
+<li><a href="#how-to-check-engagement">How to check engagement:</a></li>
+<li><a href="#what-you-should-see-2">What you should see:</a></li>
+<li><a href="#if-engagement-is-low">If engagement is low:</a></li>
+<li><a href="#the-fix-2">The fix:</a></li>
 <li><a href="#diagnostic-step-4-check-domainip-reputation">Diagnostic Step 4: Check Domain/IP Reputation</a></li>
+<li><a href="#how-to-check-2">How to check:</a></li>
+<li><a href="#why-bad-reputation-blocks-warmup">Why bad reputation blocks warmup:</a></li>
+<li><a href="#the-fix-3">The fix:</a></li>
 <li><a href="#diagnostic-step-5-check-if-emails-land-in-inbox-not-promotionsother-tabs">Diagnostic Step 5: Check If Emails Land in Inbox (Not Promotions/Other Tabs)</a></li>
+<li><a href="#how-to-check-3">How to check:</a></li>
+<li><a href="#if-it-lands-in-wrong-tab">If it lands in wrong tab:</a></li>
+<li><a href="#why-this-matters">Why this matters:</a></li>
+<li><a href="#the-fix-4">The fix:</a></li>
 <li><a href="#diagnostic-step-6-check-dns-and-email-authentication">Diagnostic Step 6: Check DNS and Email Authentication</a></li>
+<li><a href="#how-to-check-4">How to check:</a></li>
+<li><a href="#if-any-show-fail-or-none-found">If any show "Fail" or "None found":</a></li>
+<li><a href="#why-this-matters-2">Why this matters:</a></li>
 <li><a href="#the-complete-warmup-diagnostic-checklist">The Complete Warmup Diagnostic Checklist</a></li>
 <li><a href="#how-long-warmup-should-take">How Long Warmup Should Take</a></li>
+<li><a href="#new-domain-zero-reputation">New domain (zero reputation):</a></li>
+<li><a href="#established-domain-medium-reputation">Established domain (medium reputation):</a></li>
+<li><a href="#damaged-domain-poor-reputation">Damaged domain (poor reputation):</a></li>
 <li><a href="#when-warmup-wont-help-and-what-to-do-instead">When Warmup Won't Help (And What to Do Instead)</a></li>
+<li><a href="#if-your-domain-is-blacklisted">If your domain is blacklisted:</a></li>
+<li><a href="#if-your-ip-reputation-is-terrible-score-below-20">If your IP reputation is terrible (score below 20):</a></li>
+<li><a href="#if-your-list-is-bad-bounce-rate-8">If your list is bad (bounce rate 8%+):</a></li>
+<li><a href="#if-you-re-using-shared-ip-and-it-has-bad-neighbor">If you're using shared IP and it has bad neighbor:</a></li>
 <li><a href="#real-example-warmup-diagnostic-at-scale">Real Example: Warmup Diagnostic at Scale</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-do-i-know-if-warmup-is-working-or-just-time-passing">Q: How do I know if warmup is working or just time passing?</a></li>
+<li><a href="#q-should-i-do-warmup-for-every-new-inbox">Q: Should I do warmup for every new inbox?</a></li>
+<li><a href="#q-can-i-do-warmup-and-cold-campaigns-at-the-same-time">Q: Can I do warmup and cold campaigns at the same time?</a></li>
+<li><a href="#q-what-if-i-ve-already-done-warmup-and-deliverability-is-sti">Q: What if I've already done warmup and deliverability is still 40%?</a></li>
+<li><a href="#q-how-many-warmup-emails-should-i-send-per-day">Q: How many warmup emails should I send per day?</a></li>
+<li><a href="#q-can-i-use-a-cold-list-for-warmup">Q: Can I use a cold list for warmup?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1745,14 +1782,14 @@ Table of Contents
 <p>Email warmup builds sender reputation.</p>
 <p>Without warmup: New inbox = zero reputation = 40-50% inbox placement.</p>
 <p>With 14-day warmup: Reputation established = 75-85% inbox placement.</p>
-<p><strong>Warmup is working if:</strong></p>
+<h2 id="warmup-is-working-if">Warmup is working if:</h2>
 <ul>
 <li>Day 1-5: 50-60% inbox placement (slight improvement)</li>
 <li>Day 6-10: 65-75% inbox placement (steady improvement)</li>
 <li>Day 11-14: 75-85% inbox placement (near peak)</li>
 <li>Day 15+: Maintains 75-85% (plateau, can now do cold campaigns)</li>
 </ul>
-<p><strong>Warmup is NOT working if:</strong></p>
+<h2 id="warmup-is-not-working-if">Warmup is NOT working if:</h2>
 <ul>
 <li>Day 10: Still at 40-50% inbox placement (no improvement)</li>
 <li>Bounce rate increasing (should stay flat or decrease)</li>
@@ -1762,7 +1799,7 @@ Table of Contents
 <p>If you're in the "not working" camp, here's how to diagnose.</p>
 <h2 id="diagnostic-step-1-confirm-youre-actually-doing-warmup">Diagnostic Step 1: Confirm You're Actually Doing Warmup</h2>
 <p>Sounds obvious, but we see this often.</p>
-<p><strong>How to check:</strong></p>
+<h2 id="how-to-check">How to check:</h2>
 <ol>
 <li>Open your ESP (Instantly, SmartLead, Apollo)</li>
 <li>Look at the inbox you're warming</li>
@@ -1771,14 +1808,14 @@ Table of Contents
 <li>Confirm: What warmup volume? (Should show 5-10 emails/day)</li>
 <li>Confirm: What warmup contacts? (Should show a warm list, not cold list)</li>
 </ol>
-<p><strong>What you should see:</strong></p>
+<h2 id="what-you-should-see">What you should see:</h2>
 <ul>
 <li>Warmup status: "Active" or "Enabled"</li>
 <li>Warmup contacts: A safe list (your own contacts, known people, previous clients)</li>
 <li>Warmup volume: 5-10 emails/day (not 50+)</li>
 <li>Warmup duration: Configured for 14 days</li>
 </ul>
-<p><strong>If any of these are wrong:</strong></p>
+<h2 id="if-any-of-these-are-wrong">If any of these are wrong:</h2>
 <ul>
 <li>Toggle warmup on if it's off</li>
 <li>Change volume to 5-10 emails/day if too high</li>
@@ -1789,25 +1826,25 @@ Table of Contents
 <h2 id="diagnostic-step-2-check-your-bounce-rate-during-warmup">Diagnostic Step 2: Check Your Bounce Rate During Warmup</h2>
 <p>High bounce rate during warmup breaks it.</p>
 <p>Why? Because ISPs track bounce rate. High bounces = bad list = bad reputation = warmup doesn't work.</p>
-<p><strong>How to check bounce rate:</strong></p>
+<h2 id="how-to-check-bounce-rate">How to check bounce rate:</h2>
 <ol>
 <li>Open campaign stats in your ESP</li>
 <li>Look at bounce rate for warmup emails sent in last 7 days</li>
 <li>What do you see?</li>
 </ol>
-<p><strong>What it should be:</strong></p>
+<h2 id="what-it-should-be">What it should be:</h2>
 <ul>
 <li>Bounce rate: Under 3% (ideally under 2%)</li>
 <li>If above 3%: List quality issue</li>
 </ul>
-<p><strong>If bounce rate is high during warmup:</strong></p>
+<h2 id="if-bounce-rate-is-high-during-warmup">If bounce rate is high during warmup:</h2>
 <ul>
 <li>Your "warm list" isn't actually warm</li>
 <li>You're using old contact data</li>
 <li>Email addresses are invalid</li>
 <li>Or: You're using a cold list instead of warm contacts</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix">The fix:</h2>
 <ol>
 <li>Stop warmup temporarily</li>
 <li>Export your warmup list</li>
@@ -1819,24 +1856,24 @@ Table of Contents
 <p>You can't build reputation on a bad list. Warmup won't work.</p>
 <h2 id="diagnostic-step-3-check-your-engagement-rate-during-warmup">Diagnostic Step 3: Check Your Engagement Rate During Warmup</h2>
 <p>Warmup works by generating opens and replies. If your warmup emails get zero engagement, reputation doesn't build.</p>
-<p><strong>How to check engagement:</strong></p>
+<h2 id="how-to-check-engagement">How to check engagement:</h2>
 <ol>
 <li>Open warmup email stats</li>
 <li>Look at open rate for last 7 days</li>
 <li>Look at reply rate for last 7 days</li>
 </ol>
-<p><strong>What you should see:</strong></p>
+<h2 id="what-you-should-see-2">What you should see:</h2>
 <ul>
 <li>Open rate: 10-20%+ (warm contacts should open emails from people they know)</li>
 <li>Reply rate: 1-5%+ (warm contacts should respond)</li>
 </ul>
-<p><strong>If engagement is low:</strong></p>
+<h2 id="if-engagement-is-low">If engagement is low:</h2>
 <ul>
 <li>Your "warm list" isn't engaged (old contacts, outdated emails)</li>
 <li>Email content isn't compelling (even to warm contacts)</li>
 <li>Emails are landing in spam (even during warmup)</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-2">The fix:</h2>
 <p>If low engagement on warm list:</p>
 <ol>
 <li>Audit your warm list: Are these people you actually know? Did they respond to you before?</li>
@@ -1846,20 +1883,20 @@ Table of Contents
 <p>Example: Client did warmup but open rate was 2%. Turned out they were sending warmup emails to an old list from 2020. Rebuilt warmup list with current contacts from LinkedIn. Open rate jumped to 15%. Warmup started working.</p>
 <h2 id="diagnostic-step-4-check-domainip-reputation">Diagnostic Step 4: Check Domain/IP Reputation</h2>
 <p>Even with low bounce rate and good engagement, warmup can fail if your domain or IP has bad reputation.</p>
-<p><strong>How to check:</strong></p>
+<h2 id="how-to-check-2">How to check:</h2>
 <ol>
 <li>Go to dmarcian.com</li>
 <li>Enter your sending domain</li>
 <li>Check reputation score (0-100)</li>
 <li>Score below 50 = bad reputation (warmup won't fix fast enough)</li>
 </ol>
-<p><strong>Why bad reputation blocks warmup:</strong></p>
+<h2 id="why-bad-reputation-blocks-warmup">Why bad reputation blocks warmup:</h2>
 <ul>
 <li>ISPs are filtering you regardless of warmup</li>
 <li>Even if warmup emails come from warm contacts, ISPs mark them as spam</li>
 <li>ISP reputation takes 2-3 weeks to fix, not 14 days</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-3">The fix:</h2>
 <ol>
 <li>If reputation is poor:</li>
 </ol>
@@ -1888,26 +1925,26 @@ Table of Contents
 <p>Warmup can show "success" while emails actually land in spam or other tabs.</p>
 <p>Email services like Gmail split inboxes into Primary, Promotions, Social, Other tabs.</p>
 <p>If warmup emails land in Promotions or Other, they don't build reputation with ISP.</p>
-<p><strong>How to check:</strong></p>
+<h2 id="how-to-check-3">How to check:</h2>
 <ol>
 <li>During warmup, send yourself a test email from the warmup inbox</li>
 <li>Open your inbox (Gmail recommended)</li>
 <li>Check where it lands: Primary, Promotions, Social, Other, or Spam?</li>
 <li>It should land in Primary (main inbox)</li>
 </ol>
-<p><strong>If it lands in wrong tab:</strong></p>
+<h2 id="if-it-lands-in-wrong-tab">If it lands in wrong tab:</h2>
 <ul>
 <li>Mark as "Not spam" if in spam folder</li>
 <li>Move to Primary if in Promotions or Other</li>
 <li>Gmail learns from your actions (takes 5-10 emails to establish pattern)</li>
 </ul>
-<p><strong>Why this matters:</strong></p>
+<h2 id="why-this-matters">Why this matters:</h2>
 <ul>
 <li>Emails in Promotions tab don't count as "trusted sender" (ISP doesn't build reputation)</li>
 <li>You can send 1,000 warmup emails to Promotions tab and reputation stays at 0</li>
 <li>Only Primary inbox emails count for reputation building</li>
 </ul>
-<p><strong>The fix:</strong></p>
+<h2 id="the-fix-4">The fix:</h2>
 <ol>
 <li>Test email landing location</li>
 <li>If wrong location: Check email content. Warmup emails need to be personal (not promotional)</li>
@@ -1919,7 +1956,7 @@ Table of Contents
 <h2 id="diagnostic-step-6-check-dns-and-email-authentication">Diagnostic Step 6: Check DNS and Email Authentication</h2>
 <p>If DNS is misconfigured, warmup can't work.</p>
 <p>ISPs check SPF, DKIM, DMARC during warmup. If they fail, ISP treats you as untrusted.</p>
-<p><strong>How to check:</strong></p>
+<h2 id="how-to-check-4">How to check:</h2>
 <ol>
 <li>Go to mxtoolbox.com</li>
 <li>Click "SPF Record"</li>
@@ -1936,14 +1973,14 @@ Table of Contents
 <li>Enter your domain</li>
 <li>Check result: Should show a record (green)</li>
 </ol>
-<p><strong>If any show "Fail" or "None found":</strong></p>
+<h2 id="if-any-show-fail-or-none-found">If any show "Fail" or "None found":</h2>
 <ul>
 <li>Add/fix the records (30 minutes of work)</li>
 <li>Wait 24-48 hours for DNS propagation</li>
 <li>Re-test</li>
 <li>Then restart warmup</li>
 </ul>
-<p><strong>Why this matters:</strong></p>
+<h2 id="why-this-matters-2">Why this matters:</h2>
 <ul>
 <li>DNS misconfiguration = ISP marks you as potentially fraudulent</li>
 <li>Even with great engagement, ISP filters you</li>
@@ -2003,19 +2040,19 @@ Table of Contents
 <p>If all 6 checks pass, warmup should work. Give it 10-14 days.</p>
 <h2 id="how-long-warmup-should-take">How Long Warmup Should Take</h2>
 <p>This varies by starting reputation:</p>
-<p><strong>New domain (zero reputation):</strong></p>
+<h2 id="new-domain-zero-reputation">New domain (zero reputation):</h2>
 <ul>
 <li>Day 1-7: 50-60% inbox placement</li>
 <li>Day 7-14: 70-85% inbox placement</li>
 <li>Day 15+: Maintain 75-85%</li>
 </ul>
-<p><strong>Established domain (medium reputation):</strong></p>
+<h2 id="established-domain-medium-reputation">Established domain (medium reputation):</h2>
 <ul>
 <li>Day 1-5: 60-70% inbox placement</li>
 <li>Day 5-10: 75-85% inbox placement</li>
 <li>Day 11+: Maintain 80-90%</li>
 </ul>
-<p><strong>Damaged domain (poor reputation):</strong></p>
+<h2 id="damaged-domain-poor-reputation">Damaged domain (poor reputation):</h2>
 <ul>
 <li>Day 1-14: Slow improvement, maybe 50-60% by day 14</li>
 <li>Day 15-21: 65-80% by day 21</li>
@@ -2024,25 +2061,25 @@ Table of Contents
 <p>If you're in the "damaged domain" category, you might need 21-day warmup instead of 14.</p>
 <h2 id="when-warmup-wont-help-and-what-to-do-instead">When Warmup Won't Help (And What to Do Instead)</h2>
 <p>Some situations: warmup alone won't fix it.</p>
-<p><strong>If your domain is blacklisted:</strong></p>
+<h2 id="if-your-domain-is-blacklisted">If your domain is blacklisted:</h2>
 <ul>
 <li>Warmup won't work until delisted</li>
 <li>Request delisting (see separate post)</li>
 <li>While delisting, use new domain with warmup</li>
 </ul>
-<p><strong>If your IP reputation is terrible (score below 20):</strong></p>
+<h2 id="if-your-ip-reputation-is-terrible-score-below-20">If your IP reputation is terrible (score below 20):</h2>
 <ul>
 <li>Warmup is very slow (3-4 weeks to recover)</li>
 <li>Better option: Switch to new IP or private server</li>
 <li>Private server ($489/yr) starts you at clean slate</li>
 </ul>
-<p><strong>If your list is bad (bounce rate 8%+):</strong></p>
+<h2 id="if-your-list-is-bad-bounce-rate-8">If your list is bad (bounce rate 8%+):</h2>
 <ul>
 <li>Warmup breaks because list is bad</li>
 <li>Fix list first, then do warmup</li>
 <li>Validate emails, remove bounces, then start warmup fresh</li>
 </ul>
-<p><strong>If you're using shared IP and it has bad neighbor:</strong></p>
+<h2 id="if-you-re-using-shared-ip-and-it-has-bad-neighbor">If you're using shared IP and it has bad neighbor:</h2>
 <ul>
 <li>Warmup can help slightly but you're limited</li>
 <li>Better: Switch to dedicated IP or private server</li>
@@ -2073,17 +2110,17 @@ Table of Contents
 <p><strong>Total resolution time:</strong> About 4 hours of diagnostic work across 50 inboxes.</p>
 <p><strong>Impact:</strong> 5 broken warmups fixed, revenue campaigns could now launch instead of stalling.</p>
 <h2 id="faq">FAQ</h2>
-<p><strong>Q: How do I know if warmup is working or just time passing?</strong></p>
+<h2 id="q-how-do-i-know-if-warmup-is-working-or-just-time-passing">Q: How do I know if warmup is working or just time passing?</h2>
 <p>A: Compare inbox placement on day 1 vs day 14. If it improved 20%+, warmup worked. If unchanged, something is broken.</p>
-<p><strong>Q: Should I do warmup for every new inbox?</strong></p>
+<h2 id="q-should-i-do-warmup-for-every-new-inbox">Q: Should I do warmup for every new inbox?</h2>
 <p>A: Yes. Non-negotiable. Every new inbox needs 14-day warmup minimum before cold campaigns.</p>
-<p><strong>Q: Can I do warmup and cold campaigns at the same time?</strong></p>
+<h2 id="q-can-i-do-warmup-and-cold-campaigns-at-the-same-time">Q: Can I do warmup and cold campaigns at the same time?</h2>
 <p>A: No. Warmup first (14 days), then cold campaigns. Mixing them breaks warmup.</p>
-<p><strong>Q: What if I've already done warmup and deliverability is still 40%?</strong></p>
+<h2 id="q-what-if-i-ve-already-done-warmup-and-deliverability-is-sti">Q: What if I've already done warmup and deliverability is still 40%?</h2>
 <p>A: Something else is wrong. Check DNS, check reputation, check if blacklisted. Warmup isn't the fix anymore.</p>
-<p><strong>Q: How many warmup emails should I send per day?</strong></p>
+<h2 id="q-how-many-warmup-emails-should-i-send-per-day">Q: How many warmup emails should I send per day?</h2>
 <p>A: 5-10 per day. More than 10 = too aggressive and might hurt reputation. Less than 5 = takes longer than 14 days.</p>
-<p><strong>Q: Can I use a cold list for warmup?</strong></p>
+<h2 id="q-can-i-use-a-cold-list-for-warmup">Q: Can I use a cold list for warmup?</h2>
 <p>A: No. Warmup requires a warm list (people who know you, engaged before, or from your network). Cold list for warmup breaks it.</p>
 <h2 id="next-steps">Next Steps</h2>
 <ol>
@@ -2162,18 +2199,55 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#why-warmup-matters-and-what-working-looks-like">Why Warmup Matters (And What "Working" Looks Like)</a></li>
+<li><a href="#warmup-is-working-if">Warmup is working if:</a></li>
+<li><a href="#warmup-is-not-working-if">Warmup is NOT working if:</a></li>
 <li><a href="#diagnostic-step-1-confirm-youre-actually-doing-warmup">Diagnostic Step 1: Confirm You're Actually Doing Warmup</a></li>
+<li><a href="#how-to-check">How to check:</a></li>
+<li><a href="#what-you-should-see">What you should see:</a></li>
+<li><a href="#if-any-of-these-are-wrong">If any of these are wrong:</a></li>
 <li><a href="#diagnostic-step-2-check-your-bounce-rate-during-warmup">Diagnostic Step 2: Check Your Bounce Rate During Warmup</a></li>
+<li><a href="#how-to-check-bounce-rate">How to check bounce rate:</a></li>
+<li><a href="#what-it-should-be">What it should be:</a></li>
+<li><a href="#if-bounce-rate-is-high-during-warmup">If bounce rate is high during warmup:</a></li>
+<li><a href="#the-fix">The fix:</a></li>
 <li><a href="#diagnostic-step-3-check-your-engagement-rate-during-warmup">Diagnostic Step 3: Check Your Engagement Rate During Warmup</a></li>
+<li><a href="#how-to-check-engagement">How to check engagement:</a></li>
+<li><a href="#what-you-should-see-2">What you should see:</a></li>
+<li><a href="#if-engagement-is-low">If engagement is low:</a></li>
+<li><a href="#the-fix-2">The fix:</a></li>
 <li><a href="#diagnostic-step-4-check-domainip-reputation">Diagnostic Step 4: Check Domain/IP Reputation</a></li>
+<li><a href="#how-to-check-2">How to check:</a></li>
+<li><a href="#why-bad-reputation-blocks-warmup">Why bad reputation blocks warmup:</a></li>
+<li><a href="#the-fix-3">The fix:</a></li>
 <li><a href="#diagnostic-step-5-check-if-emails-land-in-inbox-not-promotionsother-tabs">Diagnostic Step 5: Check If Emails Land in Inbox (Not Promotions/Other Tabs)</a></li>
+<li><a href="#how-to-check-3">How to check:</a></li>
+<li><a href="#if-it-lands-in-wrong-tab">If it lands in wrong tab:</a></li>
+<li><a href="#why-this-matters">Why this matters:</a></li>
+<li><a href="#the-fix-4">The fix:</a></li>
 <li><a href="#diagnostic-step-6-check-dns-and-email-authentication">Diagnostic Step 6: Check DNS and Email Authentication</a></li>
+<li><a href="#how-to-check-4">How to check:</a></li>
+<li><a href="#if-any-show-fail-or-none-found">If any show "Fail" or "None found":</a></li>
+<li><a href="#why-this-matters-2">Why this matters:</a></li>
 <li><a href="#the-complete-warmup-diagnostic-checklist">The Complete Warmup Diagnostic Checklist</a></li>
 <li><a href="#how-long-warmup-should-take">How Long Warmup Should Take</a></li>
+<li><a href="#new-domain-zero-reputation">New domain (zero reputation):</a></li>
+<li><a href="#established-domain-medium-reputation">Established domain (medium reputation):</a></li>
+<li><a href="#damaged-domain-poor-reputation">Damaged domain (poor reputation):</a></li>
 <li><a href="#when-warmup-wont-help-and-what-to-do-instead">When Warmup Won't Help (And What to Do Instead)</a></li>
+<li><a href="#if-your-domain-is-blacklisted">If your domain is blacklisted:</a></li>
+<li><a href="#if-your-ip-reputation-is-terrible-score-below-20">If your IP reputation is terrible (score below 20):</a></li>
+<li><a href="#if-your-list-is-bad-bounce-rate-8">If your list is bad (bounce rate 8%+):</a></li>
+<li><a href="#if-you-re-using-shared-ip-and-it-has-bad-neighbor">If you're using shared IP and it has bad neighbor:</a></li>
 <li><a href="#real-example-warmup-diagnostic-at-scale">Real Example: Warmup Diagnostic at Scale</a></li>
 <li><a href="#faq">FAQ</a></li>
+<li><a href="#q-how-do-i-know-if-warmup-is-working-or-just-time-passing">Q: How do I know if warmup is working or just time passing?</a></li>
+<li><a href="#q-should-i-do-warmup-for-every-new-inbox">Q: Should I do warmup for every new inbox?</a></li>
+<li><a href="#q-can-i-do-warmup-and-cold-campaigns-at-the-same-time">Q: Can I do warmup and cold campaigns at the same time?</a></li>
+<li><a href="#q-what-if-i-ve-already-done-warmup-and-deliverability-is-sti">Q: What if I've already done warmup and deliverability is still 40%?</a></li>
+<li><a href="#q-how-many-warmup-emails-should-i-send-per-day">Q: How many warmup emails should I send per day?</a></li>
+<li><a href="#q-can-i-use-a-cold-list-for-warmup">Q: Can I use a cold list for warmup?</a></li>
 <li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

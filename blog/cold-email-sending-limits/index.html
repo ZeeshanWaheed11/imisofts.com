@@ -1716,16 +1716,26 @@ Table of Contents
 <div class="mobile-toc-content">
 <ul class="toc-list">
 <li><a href="#the-hard-numbers-email-sending-limits">The Hard Numbers: Email Sending Limits</a></li>
+<li><a href="#1-domain-5-inboxes-25-emails-per-inbox-125-emails-daily">1 Domain × 5 Inboxes × 25 Emails per Inbox = 125 Emails Daily</a></li>
 <li><a href="#imisofts-package-breakdown-scaling-from-micro-to-enterprise">imisofts Package Breakdown: Scaling from Micro to Enterprise</a></li>
 <li><a href="#why-you-can-t-just-send-more-the-reputation-math">Why You Can&#x27;t Just Send More: The Reputation Math</a></li>
 <li><a href="#safe-scaling-the-step-by-step-process">Safe Scaling: The Step-by-Step Process</a></li>
+<li><a href="#month-1-foundation">Month 1: Foundation</a></li>
+<li><a href="#month-2-validate">Month 2: Validate</a></li>
+<li><a href="#month-3-expand">Month 3: Expand</a></li>
+<li><a href="#month-4-optimize">Month 4+: Optimize</a></li>
 <li><a href="#the-cost-comparison-imisofts-vs-alternatives">The Cost Comparison: imisofts vs. Alternatives</a></li>
 <li><a href="#common-mistakes-we-see">Common Mistakes We See</a></li>
+<li><a href="#mistake-1-ignoring-warmup">Mistake 1: Ignoring Warmup</a></li>
+<li><a href="#mistake-2-one-inbox-for-all-sends">Mistake 2: One Inbox for All Sends</a></li>
+<li><a href="#mistake-3-copying-domain-names">Mistake 3: Copying Domain Names</a></li>
+<li><a href="#mistake-4-neglecting-dmarc">Mistake 4: Neglecting DMARC</a></li>
+<li><a href="#mistake-5-sending-to-unverified-lists">Mistake 5: Sending to Unverified Lists</a></li>
 <li><a href="#the-bottom-line-your-sending-limit-framework">The Bottom Line: Your Sending Limit Framework</a></li>
 <li><a href="#why-imisofts-packages-align-with-real-limits">Why imisofts Packages Align with Real Limits</a></li>
 <li><a href="#next-steps-calculate-your-package">Next Steps: Calculate Your Package</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1753,10 +1763,10 @@ Table of Contents
 <li>One compromised inbox can damage the entire domain reputation</li>
 <li>Inbox warmup needs consistent, natural sending patterns</li>
 </ol>
-<p>If you&#x27;re using a shared inbox for all your cold emails, you&#x27;re concentrating all reputation risk in one place. One spike, one complaint, one spam report—and your entire sending domain gets flagged.</p>
+<p>If you&#x27;re using a shared inbox for all your cold emails, you&#x27;re concentrating all reputation risk in one place. One spike, one complaint, one spam report, and your entire sending domain gets flagged.</p>
 <h3 id="the-scaling-formula-5-inboxes-per-domain">The Scaling Formula: 5 Inboxes Per Domain</h3>
 <p>To scale safely, the formula is straightforward:</p>
-<p><strong>1 Domain × 5 Inboxes × 25 Emails per Inbox = 125 Emails Daily</strong></p>
+<h2 id="1-domain-5-inboxes-25-emails-per-inbox-125-emails-daily">1 Domain × 5 Inboxes × 25 Emails per Inbox = 125 Emails Daily</h2>
 <p>With our best practices:</p>
 <ul>
 <li>5 dedicated inboxes per domain</li>
@@ -1829,7 +1839,7 @@ Table of Contents
 <p>If the pattern continues, your domain gets added to industry blacklists (Spamhaus, SURBL, etc.). Recovery takes 3-6 months.</p>
 <h2 id="safe-scaling-the-step-by-step-process">Safe Scaling: The Step-by-Step Process</h2>
 <p>Here&#x27;s how we recommend scaling sending volume:</p>
-<p><strong>Month 1: Foundation</strong></p>
+<h2 id="month-1-foundation">Month 1: Foundation</h2>
 <ul>
 <li>Launch 1 domain with 3 inboxes</li>
 <li>Send 100 emails/day</li>
@@ -1837,21 +1847,21 @@ Table of Contents
 <li>Monitor bounce rates daily</li>
 <li>Target: Sub-3% bounce rate</li>
 </ul>
-<p><strong>Month 2: Validate</strong></p>
+<h2 id="month-2-validate">Month 2: Validate</h2>
 <ul>
 <li>Maintain domain 1 at 150 emails/day (increase inbox sending by 50)</li>
 <li>Introduce domain 2 with 2 inboxes</li>
 <li>Send 100 emails/day on domain 2</li>
 <li>Warmup domain 2 for 14 days</li>
 </ul>
-<p><strong>Month 3: Expand</strong></p>
+<h2 id="month-3-expand">Month 3: Expand</h2>
 <ul>
 <li>Domain 1: 150 emails/day (established reputation)</li>
 <li>Domain 2: 150 emails/day (completed warmup)</li>
 <li>Domain 3: 50 emails/day (new domain, conservative start)</li>
 <li>Total: 350 emails/day across 3 domains</li>
 </ul>
-<p><strong>Month 4+: Optimize</strong></p>
+<h2 id="month-4-optimize">Month 4+: Optimize</h2>
 <ul>
 <li>Each domain can sustain 200-250 emails/day</li>
 <li>5 domains × 200 emails/day = 1,000 emails/day baseline</li>
@@ -1878,15 +1888,15 @@ Table of Contents
 <li><strong>Advantage</strong>: No shared IP risk, better deliverability, isolated reputation</li>
 </ul>
 <h2 id="common-mistakes-we-see">Common Mistakes We See</h2>
-<p><strong>Mistake 1: Ignoring Warmup</strong></p>
+<h2 id="mistake-1-ignoring-warmup">Mistake 1: Ignoring Warmup</h2>
 <p>Teams skip warmup or cut it short (7 days instead of 14). Result: 40% bounce rate within days.</p>
-<p><strong>Mistake 2: One Inbox for All Sends</strong></p>
+<h2 id="mistake-2-one-inbox-for-all-sends">Mistake 2: One Inbox for All Sends</h2>
 <p>Using a single inbox for all 1,000 daily emails. Gmail limits individual inbox sending to 500/day (enforced limit).</p>
-<p><strong>Mistake 3: Copying Domain Names</strong></p>
+<h2 id="mistake-3-copying-domain-names">Mistake 3: Copying Domain Names</h2>
 <p>Reusing domain names from other campaigns or using obvious patterns (follow-up.com, outreach.com). These get blacklisted faster.</p>
-<p><strong>Mistake 4: Neglecting DMARC</strong></p>
+<h2 id="mistake-4-neglecting-dmarc">Mistake 4: Neglecting DMARC</h2>
 <p>Running DMARC in &quot;none&quot; mode instead of &quot;reject&quot; mode. This allows spoofing and damages your reputation.</p>
-<p><strong>Mistake 5: Sending to Unverified Lists</strong></p>
+<h2 id="mistake-5-sending-to-unverified-lists">Mistake 5: Sending to Unverified Lists</h2>
 <p>Sending to purchased lists or unqualified databases. Each spam complaint destroys reputation points.</p>
 <h2 id="the-bottom-line-your-sending-limit-framework">The Bottom Line: Your Sending Limit Framework</h2>
 <p>Use this framework to calculate your safe sending limit:</p>
@@ -1914,7 +1924,7 @@ Table of Contents
 <li><strong>Professional</strong> ($1,225/yr): Adds management and monitoring</li>
 <li><strong>Enterprise</strong> ($2,450/yr): Full managed service with dedicated support</li>
 </ul>
-<p>Each tier has been tested across 300+ live campaigns in our ecosystem. The limits aren&#x27;t theoretical—they&#x27;re battle-tested.</p>
+<p>Each tier has been tested across 300+ live campaigns in our ecosystem. The limits aren&#x27;t theoretical, they&#x27;re battle-tested.</p>
 <h2 id="next-steps-calculate-your-package">Next Steps: Calculate Your Package</h2>
 <p>Audit your current sending volume. How many emails per day are you actually sending right now? How many domains and inboxes are you using?</p>
 <p>If you&#x27;re under 300 emails/day, Micro works. If you&#x27;re between 300-1,000, Starter is your fit. Beyond 1,000, Professional or Enterprise handles the complexity.</p>
@@ -1988,16 +1998,26 @@ Contents
 </div>
 <ul class="toc-list">
 <li><a href="#the-hard-numbers-email-sending-limits">The Hard Numbers: Email Sending Limits</a></li>
+<li><a href="#1-domain-5-inboxes-25-emails-per-inbox-125-emails-daily">1 Domain × 5 Inboxes × 25 Emails per Inbox = 125 Emails Daily</a></li>
 <li><a href="#imisofts-package-breakdown-scaling-from-micro-to-enterprise">imisofts Package Breakdown: Scaling from Micro to Enterprise</a></li>
 <li><a href="#why-you-can-t-just-send-more-the-reputation-math">Why You Can&#x27;t Just Send More: The Reputation Math</a></li>
 <li><a href="#safe-scaling-the-step-by-step-process">Safe Scaling: The Step-by-Step Process</a></li>
+<li><a href="#month-1-foundation">Month 1: Foundation</a></li>
+<li><a href="#month-2-validate">Month 2: Validate</a></li>
+<li><a href="#month-3-expand">Month 3: Expand</a></li>
+<li><a href="#month-4-optimize">Month 4+: Optimize</a></li>
 <li><a href="#the-cost-comparison-imisofts-vs-alternatives">The Cost Comparison: imisofts vs. Alternatives</a></li>
 <li><a href="#common-mistakes-we-see">Common Mistakes We See</a></li>
+<li><a href="#mistake-1-ignoring-warmup">Mistake 1: Ignoring Warmup</a></li>
+<li><a href="#mistake-2-one-inbox-for-all-sends">Mistake 2: One Inbox for All Sends</a></li>
+<li><a href="#mistake-3-copying-domain-names">Mistake 3: Copying Domain Names</a></li>
+<li><a href="#mistake-4-neglecting-dmarc">Mistake 4: Neglecting DMARC</a></li>
+<li><a href="#mistake-5-sending-to-unverified-lists">Mistake 5: Sending to Unverified Lists</a></li>
 <li><a href="#the-bottom-line-your-sending-limit-framework">The Bottom Line: Your Sending Limit Framework</a></li>
 <li><a href="#why-imisofts-packages-align-with-real-limits">Why imisofts Packages Align with Real Limits</a></li>
 <li><a href="#next-steps-calculate-your-package">Next Steps: Calculate Your Package</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">

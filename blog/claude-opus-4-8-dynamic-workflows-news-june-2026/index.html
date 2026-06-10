@@ -1731,6 +1731,10 @@ Table of Contents
 </button>
 <div class="mobile-toc-content">
 <ul class="toc-list">
+<li><a href="#what-anthropic-shipped">What Anthropic shipped</a></li>
+<li><a href="#what-it-means-for-operators">What it means for operators</a></li>
+<li><a href="#how-to-use-this">How to use this</a></li>
+<li><a href="#the-bottom-line">The bottom line</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1739,23 +1743,23 @@ Table of Contents
 <div class="blog-content-layout">
 <article class="article-content">
 <p><strong>June 6, 2026.</strong> On June 2, Anthropic released Claude Opus 4.8, and the headline is not the benchmark bump. It is that AI agents just got materially better at finishing long, multi-step work without falling apart. For any business sitting on repetitive processes, that is the part that matters.</p>
-<p><strong>What Anthropic shipped</strong></p>
+<h2 id="what-anthropic-shipped">What Anthropic shipped</h2>
 <ol>
 <li><strong>Dynamic workflows.</strong> Claude can now write an orchestration script and run it across many background subagents, useful for jobs too large for one conversation to coordinate, like a codebase-wide audit, a big migration, or a research question that needs cross-checking.</li>
 <li><strong>Managed agents and multi-agent orchestration.</strong> A lead agent delegates to specialist subagents working in parallel on a shared filesystem, each with its own model, prompt, and tools.</li>
 <li><strong>"Dreaming" memory.</strong> A scheduled process reviews past agent sessions, surfaces patterns, and curates memory, so agents improve between runs instead of starting cold every time.</li>
 <li><strong>Faster and cheaper.</strong> Opus 4.8 runs about 2.5 times faster and is four times less likely to miss code flaws than 4.7, at unchanged pricing of $5 per million input and $25 per million output tokens.</li>
 </ol>
-<p><strong>What it means for operators</strong></p>
+<h2 id="what-it-means-for-operators">What it means for operators</h2>
 <p>The failure modes that made agents unreliable for real work, mid-task drift, instruction decay, and tool-use errors, are exactly what Anthropic tuned down. That moves agents from impressive demos to systems you can trust with an actual process. The cost and speed gains matter just as much: automations that were borderline worth it last quarter are now clearly worth building.</p>
-<p><strong>How to use this</strong></p>
+<h2 id="how-to-use-this">How to use this</h2>
 <ol>
 <li>Pick one multi-step process a single prompt could never handle end to end, such as onboarding a client, reconciling invoices, or researching and enriching a lead list, and map it as a workflow.</li>
 <li>Use specialist subagents for each step, one for research, one for data entry, one for quality checks, rather than one do-everything bot.</li>
 <li>Add memory so the agent improves over time instead of repeating the same mistakes.</li>
 </ol>
 <p>This is exactly what we build with <a href="/ai-automation">AI automation</a>. If you want a dedicated owner for it, you can <a href="/hire-ai-engineer">hire an AI engineer</a> through us, or run everything locally with full data control using <a href="/openclaw-setup">OpenClaw</a>.</p>
-<p><strong>The bottom line</strong></p>
+<h2 id="the-bottom-line">The bottom line</h2>
 <p>The models are no longer the bottleneck. Integration is. The teams that win in 2026 are the ones turning these agent capabilities into running systems, not the ones reading about them.</p>
 <div class="blog-cta-banner"><h2>Want agents that actually finish the work?</h2><p>We design, build, and run it for you, integrated with the tools you already use. Free audit in 24 hours.</p><a href="/free-audit" class="cta-btn">Get Your Free Audit <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a></div>
 <section class="faq-section" id="faq">
@@ -1771,6 +1775,10 @@ Table of Contents
 Contents
 </div>
 <ul class="toc-list">
+<li><a href="#what-anthropic-shipped">What Anthropic shipped</a></li>
+<li><a href="#what-it-means-for-operators">What it means for operators</a></li>
+<li><a href="#how-to-use-this">How to use this</a></li>
+<li><a href="#the-bottom-line">The bottom line</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

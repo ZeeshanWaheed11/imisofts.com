@@ -1720,16 +1720,30 @@ Table of Contents
 <li><a href="#quick-summary-table">Quick Summary Table</a></li>
 <li><a href="#the-core-difference">The Core Difference</a></li>
 <li><a href="#architecture-gmail-extension-vs-standalone-infrastructure">Architecture: Gmail Extension vs Standalone Infrastructure</a></li>
+<li><a href="#gmass-gmail-extension">GMass (Gmail extension):</a></li>
+<li><a href="#instantly-standalone">Instantly (standalone):</a></li>
 <li><a href="#cost-at-scale-instant-wins-decisively">Cost at Scale: Instant Wins Decisively</a></li>
+<li><a href="#gmass-pricing">GMass pricing:</a></li>
+<li><a href="#instantly-pricing">Instantly pricing:</a></li>
 <li><a href="#deliverability-the-real-comparison">Deliverability: The Real Comparison</a></li>
+<li><a href="#gmass-deliverability-gmail-based">GMass deliverability (Gmail-based):</a></li>
+<li><a href="#instantly-deliverability-dedicated-inbox-infrastructure">Instantly deliverability (dedicated inbox infrastructure):</a></li>
+<li><a href="#why-the-gap">Why the gap?</a></li>
 <li><a href="#warm-up-instantly-has-it-gmass-doesnt">Warm-Up: Instantly Has It, GMass Doesn't</a></li>
 <li><a href="#gmails-native-limits-hard-cap-at-500day">Gmail's Native Limits: Hard Cap at 500/Day</a></li>
 <li><a href="#private-server-support-instantly-only">Private Server Support: Instantly Only</a></li>
 <li><a href="#email-tracking-instantly-wins">Email Tracking: Instantly Wins</a></li>
+<li><a href="#gmass-tracking">GMass tracking:</a></li>
+<li><a href="#instantly-tracking">Instantly tracking:</a></li>
 <li><a href="#real-smb-campaign-gmass-works-fine">Real SMB Campaign: GMass Works Fine</a></li>
+<li><a href="#gmass-approach">GMass approach:</a></li>
+<li><a href="#but-scale-it">But scale it:</a></li>
 <li><a href="#real-scale-campaign-instantly-required">Real Scale Campaign: Instantly Required</a></li>
 <li><a href="#verdict-size-based-decision">Verdict: Size-Based Decision</a></li>
+<li><a href="#choose-gmass-if">Choose GMass if:</a></li>
+<li><a href="#choose-instantly-if">Choose Instantly if:</a></li>
 <li><a href="#our-recommendation">Our Recommendation</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
@@ -1799,10 +1813,10 @@ Table of Contents
 </tr>
 </tbody></table></div>
 <h2 id="the-core-difference">The Core Difference</h2>
-<p>GMass operates inside Gmail. You compose in Gmail, GMass handles batch sending and tracking. It's elegant simplicity—you don't leave Gmail interface. Instantly is standalone infrastructure. You upload lists, configure sequences, manage inboxes outside Gmail.</p>
+<p>GMass operates inside Gmail. You compose in Gmail, GMass handles batch sending and tracking. It's elegant simplicity, you don't leave Gmail interface. Instantly is standalone infrastructure. You upload lists, configure sequences, manage inboxes outside Gmail.</p>
 <p>For small teams, GMass is attractive. For teams managing 25 domains and 175 inboxes, Instantly is the only real option.</p>
 <h2 id="architecture-gmail-extension-vs-standalone-infrastructure">Architecture: Gmail Extension vs Standalone Infrastructure</h2>
-<p><strong>GMass (Gmail extension):</strong></p>
+<h2 id="gmass-gmail-extension">GMass (Gmail extension):</h2>
 <ul>
 <li>Runs inside Gmail interface</li>
 <li>Sends via your Gmail account</li>
@@ -1810,7 +1824,7 @@ Table of Contents
 <li>No warm-up capability (Gmail controls reputation)</li>
 <li>Single domain per account (your Gmail address)</li>
 </ul>
-<p><strong>Instantly (standalone):</strong></p>
+<h2 id="instantly-standalone">Instantly (standalone):</h2>
 <ul>
 <li>Operates independently from email client</li>
 <li>Connects to Gmail/Outlook/Private SMTP</li>
@@ -1820,16 +1834,16 @@ Table of Contents
 </ul>
 <p>This architectural difference is fundamental.</p>
 <p>If you're sending 200 cold emails/day from one Gmail account, GMass works fine. Gmail's reputation handles it. Warm-up isn't needed because Gmail's existing reputation absorbs the sending.</p>
-<p>If you're sending 5,000 cold emails/day across 25 domains with 175 inboxes, GMass can't help you. Gmail doesn't scale to that volume. You need dedicated infrastructure—Instantly.</p>
+<p>If you're sending 5,000 cold emails/day across 25 domains with 175 inboxes, GMass can't help you. Gmail doesn't scale to that volume. You need dedicated infrastructure, Instantly.</p>
 <h2 id="cost-at-scale-instant-wins-decisively">Cost at Scale: Instant Wins Decisively</h2>
-<p><strong>GMass pricing:</strong></p>
+<h2 id="gmass-pricing">GMass pricing:</h2>
 <ul>
 <li>$12.99/month (basic cold email)</li>
 <li>$29.99/month (advanced features)</li>
 <li>Flat cost regardless of volume</li>
 <li>Unlimited emails per day (technically, but limited by Gmail's 500/day soft cap)</li>
 </ul>
-<p><strong>Instantly pricing:</strong></p>
+<h2 id="instantly-pricing">Instantly pricing:</h2>
 <ul>
 <li>$25/month per inbox</li>
 <li>Scales with infrastructure</li>
@@ -1847,14 +1861,14 @@ Table of Contents
 <p>That's the cost difference. You're paying for infrastructure that scales.</p>
 <h2 id="deliverability-the-real-comparison">Deliverability: The Real Comparison</h2>
 <p>This is where GMass and Instantly diverge in outcomes.</p>
-<p><strong>GMass deliverability (Gmail-based):</strong></p>
+<h2 id="gmass-deliverability-gmail-based">GMass deliverability (Gmail-based):</h2>
 <ul>
 <li>Inbox placement: 55-65%</li>
 <li>Spam folder: 30-40%</li>
 <li>Hard bounce: 3-5%</li>
 <li>Limited by Gmail reputation (you can't control warm-up)</li>
 </ul>
-<p><strong>Instantly deliverability (dedicated inbox infrastructure):</strong></p>
+<h2 id="instantly-deliverability-dedicated-inbox-infrastructure">Instantly deliverability (dedicated inbox infrastructure):</h2>
 <ul>
 <li>Inbox placement: 70-85%</li>
 <li>Spam folder: 12-20%</li>
@@ -1877,8 +1891,8 @@ Table of Contents
 <li>Bounce: 2%</li>
 </ul>
 <p>Instantly recovers 1,600 more emails to inbox (78% vs 62%). That's 16-point deliverability difference.</p>
-<p><strong>Why the gap?</strong></p>
-<p>GMass is limited by Gmail's own sending reputation. Google treats mass sending with skepticism by default. GMass can't warm-up because warm-up requires sending from the same address over time with varied traffic patterns. You can't warm-up cold email—it defeats the purpose (warm-up is to establish reputation for business emails, then you add cold to existing reputation).</p>
+<h2 id="why-the-gap">Why the gap?</h2>
+<p>GMass is limited by Gmail's own sending reputation. Google treats mass sending with skepticism by default. GMass can't warm-up because warm-up requires sending from the same address over time with varied traffic patterns. You can't warm-up cold email, it defeats the purpose (warm-up is to establish reputation for business emails, then you add cold to existing reputation).</p>
 <p>Instantly controls each inbox independently. Each inbox gets warmed up separately. After warm-up, you can send cold email from established reputation. Higher deliverability results.</p>
 <h2 id="warm-up-instantly-has-it-gmass-doesnt">Warm-Up: Instantly Has It, GMass Doesn't</h2>
 <p>GMass doesn't support warm-up because it operates within Gmail. Gmail controls the sending reputation, not GMass.</p>
@@ -1901,14 +1915,14 @@ Table of Contents
 <p>Instantly connects to SendGrid, AWS SES, custom SMTP, or Gmail/Outlook. For clients running our private email infrastructure ($489/yr for 50 inboxes vs $4,500/yr Google Workspace), Instantly is required.</p>
 <p>Private servers are critical for cost optimization and domain control. GMass doesn't fit that architecture.</p>
 <h2 id="email-tracking-instantly-wins">Email Tracking: Instantly Wins</h2>
-<p><strong>GMass tracking:</strong></p>
+<h2 id="gmass-tracking">GMass tracking:</h2>
 <ul>
 <li>Open tracking (pixel-based, basic)</li>
 <li>Click tracking</li>
 <li>Link-level reporting</li>
 <li>Limited A/B testing</li>
 </ul>
-<p><strong>Instantly tracking:</strong></p>
+<h2 id="instantly-tracking">Instantly tracking:</h2>
 <ul>
 <li>Open tracking (advanced, per-email)</li>
 <li>Click tracking (advanced)</li>
@@ -1921,7 +1935,7 @@ Table of Contents
 <h2 id="real-smb-campaign-gmass-works-fine">Real SMB Campaign: GMass Works Fine</h2>
 <p>GMass is viable for small teams. Here's a realistic scenario:</p>
 <p>Freelance SDR sending 300 cold emails/week from personal Gmail.</p>
-<p><strong>GMass approach:</strong></p>
+<h2 id="gmass-approach">GMass approach:</h2>
 <ul>
 <li>Cost: $12.99/month</li>
 <li>Setup: 15 minutes (install extension, upload list)</li>
@@ -1931,17 +1945,17 @@ Table of Contents
 <li>Time to reply: 45 contacts</li>
 </ul>
 <p>This works. $12.99/month is reasonable. Deliverability is acceptable. The SDR gets results.</p>
-<p><strong>But scale it:</strong></p>
+<h2 id="but-scale-it">But scale it:</h2>
 <p>Team of 5 SDRs, each sending 300/week = 1,500/week total. That's 214/day per SDR.</p>
 <p>GMass still works for each SDR individually. But tracking is fragmented. Reporting is per-person, not centralized. If one SDR generates the most replies, is it skill or random variation? Hard to tell with GMass's basic reporting.</p>
 <h2 id="real-scale-campaign-instantly-required">Real Scale Campaign: Instantly Required</h2>
 <p>AlwaysConvert.ai needed 25 domains, 175 inboxes, 50,000 prospects, multi-week sequences.</p>
 <p>GMass approach: Impossible. 175 Gmail accounts (each $25-100/month) = $4,375-17,500/month cost. Fragmented tracking. Zero warm-up. Deliverability would be 45% (shared domain reputation across all accounts weakens individual reputation).</p>
 <p>Instantly approach: 175 inboxes × $25 = $4,375/month. Unified tracking. Per-inbox warm-up. Deliverability 78%. Result: 7,800 emails to inbox per 10,000 sent. At 2% reply, that's 156 conversations per campaign.</p>
-<p>GMass would deliver: 4,500 emails to inbox per 10,000 sent (45% deliverability). At 2% reply, that's 90 conversations—66 fewer conversations from same effort.</p>
+<p>GMass would deliver: 4,500 emails to inbox per 10,000 sent (45% deliverability). At 2% reply, that's 90 conversations, 66 fewer conversations from same effort.</p>
 <p>That 66-conversation gap per campaign × 4 monthly campaigns = 264 lost conversations monthly. At 30% close rate, that's 79 lost deals monthly. Instantly's ROI is obvious.</p>
 <h2 id="verdict-size-based-decision">Verdict: Size-Based Decision</h2>
-<p><strong>Choose GMass if:</strong></p>
+<h2 id="choose-gmass-if">Choose GMass if:</h2>
 <ul>
 <li>Sending <500 emails/day</li>
 <li>Solo SDR or 1-2 person team</li>
@@ -1949,7 +1963,7 @@ Table of Contents
 <li>Gmail-only infrastructure acceptable</li>
 <li>Setup simplicity is priority</li>
 </ul>
-<p><strong>Choose Instantly if:</strong></p>
+<h2 id="choose-instantly-if">Choose Instantly if:</h2>
 <ul>
 <li>Scaling cold email (1,000+ emails/day)</li>
 <li>Multiple inboxes required</li>
@@ -2009,7 +2023,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">Good enough for solo SDRs (300-500/week). Not scalable for teams or volume operations. Consider it a proof-of-concept tool—test cold email viability with GMass, then graduate to Instantly when you scale.</div>
+<div class="faq-answer-inner">Good enough for solo SDRs (300-500/week). Not scalable for teams or volume operations. Consider it a proof-of-concept tool, test cold email viability with GMass, then graduate to Instantly when you scale.</div>
 </div>
 </div>
 </section>
@@ -2034,16 +2048,30 @@ Contents
 <li><a href="#quick-summary-table">Quick Summary Table</a></li>
 <li><a href="#the-core-difference">The Core Difference</a></li>
 <li><a href="#architecture-gmail-extension-vs-standalone-infrastructure">Architecture: Gmail Extension vs Standalone Infrastructure</a></li>
+<li><a href="#gmass-gmail-extension">GMass (Gmail extension):</a></li>
+<li><a href="#instantly-standalone">Instantly (standalone):</a></li>
 <li><a href="#cost-at-scale-instant-wins-decisively">Cost at Scale: Instant Wins Decisively</a></li>
+<li><a href="#gmass-pricing">GMass pricing:</a></li>
+<li><a href="#instantly-pricing">Instantly pricing:</a></li>
 <li><a href="#deliverability-the-real-comparison">Deliverability: The Real Comparison</a></li>
+<li><a href="#gmass-deliverability-gmail-based">GMass deliverability (Gmail-based):</a></li>
+<li><a href="#instantly-deliverability-dedicated-inbox-infrastructure">Instantly deliverability (dedicated inbox infrastructure):</a></li>
+<li><a href="#why-the-gap">Why the gap?</a></li>
 <li><a href="#warm-up-instantly-has-it-gmass-doesnt">Warm-Up: Instantly Has It, GMass Doesn't</a></li>
 <li><a href="#gmails-native-limits-hard-cap-at-500day">Gmail's Native Limits: Hard Cap at 500/Day</a></li>
 <li><a href="#private-server-support-instantly-only">Private Server Support: Instantly Only</a></li>
 <li><a href="#email-tracking-instantly-wins">Email Tracking: Instantly Wins</a></li>
+<li><a href="#gmass-tracking">GMass tracking:</a></li>
+<li><a href="#instantly-tracking">Instantly tracking:</a></li>
 <li><a href="#real-smb-campaign-gmass-works-fine">Real SMB Campaign: GMass Works Fine</a></li>
+<li><a href="#gmass-approach">GMass approach:</a></li>
+<li><a href="#but-scale-it">But scale it:</a></li>
 <li><a href="#real-scale-campaign-instantly-required">Real Scale Campaign: Instantly Required</a></li>
 <li><a href="#verdict-size-based-decision">Verdict: Size-Based Decision</a></li>
+<li><a href="#choose-gmass-if">Choose GMass if:</a></li>
+<li><a href="#choose-instantly-if">Choose Instantly if:</a></li>
 <li><a href="#our-recommendation">Our Recommendation</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>

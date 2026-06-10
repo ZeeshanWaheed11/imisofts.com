@@ -1727,7 +1727,7 @@ Table of Contents
 <li><a href="#common-infrastructure-mistakes-to-avoid">Common infrastructure mistakes to avoid</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -1736,7 +1736,7 @@ Table of Contents
 <article class="article-content">
 <p class="affiliate-disclosure" style="font-size:14px;line-height:1.6;color:#475569;background:#f8fafc;border-left:3px solid #F45407;padding:11px 15px;border-radius:6px;margin:0 0 22px;"><strong>Affiliate disclosure:</strong> some links in this article are partner links. If you start a paid plan through them, imisofts may earn a commission at no extra cost to you. We only recommend tools we actually use to run client campaigns.</p>
 <p>Most cold email campaigns fail before a single message is sent. The reason has nothing to do with copy, targeting, or timing. It comes down to infrastructure.</p>
-<p>Cold email infrastructure setup is the foundation that determines whether your emails land in the primary inbox or get buried in spam. At imisofts, we have built infrastructure for clients across 15+ industries — from AI startups running 175 inboxes across 25 domains to commercial cleaning companies starting with 5 domains and 25 inboxes. This guide covers everything we have learned.</p>
+<p>Cold email infrastructure setup is the foundation that determines whether your emails land in the primary inbox or get buried in spam. At imisofts, we have built infrastructure for clients across 15+ industries, from AI startups running 175 inboxes across 25 domains to commercial cleaning companies starting with 5 domains and 25 inboxes. This guide covers everything we have learned.</p>
 <h2 id="what-is-cold-email-infrastructure">What is cold email infrastructure?</h2>
 <p>Cold email infrastructure is the technical backbone behind your outbound campaigns. It includes the servers that send your emails, the domains those emails come from, the DNS records that authenticate them, and the inboxes that manage replies.</p>
 <p>Think of it like building a house. Your campaign copy is the furniture. Your lead list is the guest list. But the infrastructure is the foundation, walls, plumbing, and electrical. Without it, nothing works.</p>
@@ -1745,30 +1745,30 @@ Table of Contents
 <p>This is the single most important decision you will make for your cold email operations. We have run the numbers across hundreds of client setups, and private server infrastructure wins on every metric.</p>
 <p>Here is the real cost comparison for 50 inboxes:</p>
 <p>Private server infrastructure through imisofts costs approximately $489 per year. Google Workspace at $7.50 per user per month runs about $4,500 per year for the same 50 inboxes. Outlook at a similar per-user rate hits roughly the same $4,500 annual cost.</p>
-<p>But cost is only part of the story. With a private server, you own your domains and inboxes outright. You can move them to any campaign platform — Instantly, SmartLead, or anything else — without losing access. With Google Workspace or Outlook, you are locked into their ecosystem and subject to their terms of service, which explicitly prohibit cold outreach at scale.</p>
+<p>But cost is only part of the story. With a private server, you own your domains and inboxes outright. You can move them to any campaign platform, Instantly, SmartLead, or anything else, without losing access. With Google Workspace or Outlook, you are locked into their ecosystem and subject to their terms of service, which explicitly prohibit cold outreach at scale.</p>
 <p>We had a client, a healthcare podcast host, who was running cold email through Google Workspace with 4 domains. All 4 got blacklisted. His reply rate dropped from 1.5% to 0.3%. When he switched to our private server infrastructure, deliverability recovered within three weeks of warmup.</p>
-<blockquote><p><strong>Pro tip from our operations:</strong> SmartLead and Instantly hosted inboxes at $5 per inbox per month means 250 inboxes would cost $1,250 per month — that is $15,000 per year. Our private infrastructure for the same 250-inbox capacity costs $2,450 per year. That is over $12,000 in annual savings.</p></blockquote>
+<blockquote><p><strong>Pro tip from our operations:</strong> SmartLead and Instantly hosted inboxes at $5 per inbox per month means 250 inboxes would cost $1,250 per month, that is $15,000 per year. Our private infrastructure for the same 250-inbox capacity costs $2,450 per year. That is over $12,000 in annual savings.</p></blockquote>
 <h2 id="step-1-domain-purchasing-strategy">Step 1: Domain purchasing strategy</h2>
-<p>The first step is buying the right domains. We use what we call the identical domain strategy — purchasing domains that are close variations of your primary brand domain.</p>
+<p>The first step is buying the right domains. We use what we call the identical domain strategy, purchasing domains that are close variations of your primary brand domain.</p>
 <p>For example, if your company domain is acmetech.com, you would purchase domains like acmetech.co, acmetech.io, getacmetech.com, tryacmetech.com, and acmetechhq.com.</p>
 <p>The math is straightforward. One domain safely supports 100 emails per day. Each domain should have 5 inboxes, with each inbox sending 20 to 30 emails daily. So if you need to send 1,000 emails per day, you need 10 domains and 50 inboxes.</p>
-<p>We recommend purchasing domains from reputable registrars. Avoid domains that have been previously used for spam — always check the domain history before purchasing. New, clean domains are ideal.</p>
+<p>We recommend purchasing domains from reputable registrars. Avoid domains that have been previously used for spam, always check the domain history before purchasing. New, clean domains are ideal.</p>
 <h2 id="step-2-dns-authentication-stack">Step 2: DNS authentication stack</h2>
 <p>Every domain needs proper DNS authentication before it can send cold emails. This is non-negotiable. Gmail, Outlook, and Yahoo have been enforcing strict authentication requirements since early 2024, and non-compliant emails get rejected outright.</p>
 <p>The complete DNS authentication stack includes five core records.</p>
 <p><strong>SPF (Sender Policy Framework)</strong> tells receiving mail servers which IP addresses are authorized to send email on behalf of your domain. You add a TXT record to your DNS that specifies your sending server IPs.</p>
 <p><strong>DKIM (DomainKeys Identified Mail)</strong> adds a digital signature to every email you send. The receiving server checks this signature against a public key in your DNS to verify the email was not tampered with in transit.</p>
 <p><strong>DMARC (Domain-based Message Authentication)</strong> ties SPF and DKIM together and tells receiving servers what to do with emails that fail authentication. We start with a monitoring policy (p=none) and gradually move to a reject policy (p=reject) once everything is verified.</p>
-<p><strong>MX records</strong> tell the internet where to deliver incoming mail for your domain. Even for outbound-only domains, MX records need to be configured properly — receiving servers check for them as part of their spam filtering.</p>
+<p><strong>MX records</strong> tell the internet where to deliver incoming mail for your domain. Even for outbound-only domains, MX records need to be configured properly, receiving servers check for them as part of their spam filtering.</p>
 <p><strong>Tracking CNAME</strong> is a custom tracking domain that replaces the default shared tracking domain provided by Instantly or SmartLead. Shared tracking domains get flagged by spam filters because hundreds of senders use them. A custom CNAME tied to your domain keeps tracking clean.</p>
-<p>We also set up <strong>Google Postmaster Tools</strong> for every domain to monitor reputation, spam rates, and authentication status. For clients who want maximum brand presence, we offer optional <strong>BIMI setup</strong> — this displays your brand logo next to emails in the inbox.</p>
+<p>We also set up <strong>Google Postmaster Tools</strong> for every domain to monitor reputation, spam rates, and authentication status. For clients who want maximum brand presence, we offer optional <strong>BIMI setup</strong>, this displays your brand logo next to emails in the inbox.</p>
 <h2 id="step-3-inbox-creation-and-configuration">Step 3: Inbox creation and configuration</h2>
 <p>With domains purchased and DNS configured, we create 5 inboxes per domain on the private server.</p>
 <p>Inbox naming follows a professional pattern using first-name, last-name variations. For example, on the domain acmetech.co, we might create alex@acmetech.co, alex.johnson@acmetech.co, a.johnson@acmetech.co, alexj@acmetech.co, and johnson@acmetech.co.</p>
 <p>Each inbox is configured with proper display names, signatures, and profile information. This matters because recipients and email providers look at these details when deciding whether an email is legitimate.</p>
 <h2 id="step-4-email-warmup-14-days-minimum">Step 4: Email warmup (14 days minimum)</h2>
-<p>Warmup is the process of gradually building sender reputation for new inboxes. This is non-negotiable — we require a minimum of 14 days of warmup before any campaign sends.</p>
-<p>During warmup, automated systems send emails between your new inboxes and a network of established inboxes. These emails get opened, replied to, and marked as important — all signals that tell Gmail, Outlook, and Yahoo that your inboxes are legitimate senders.</p>
+<p>Warmup is the process of gradually building sender reputation for new inboxes. This is non-negotiable, we require a minimum of 14 days of warmup before any campaign sends.</p>
+<p>During warmup, automated systems send emails between your new inboxes and a network of established inboxes. These emails get opened, replied to, and marked as important, all signals that tell Gmail, Outlook, and Yahoo that your inboxes are legitimate senders.</p>
 <p>We configure warmup through the campaign platform (Instantly or SmartLead) with these settings: start at 2 to 3 emails per day per inbox, increase by 1 to 2 per day, target 15 to 20 warmup emails per day per inbox by day 14, and keep warmup running even after campaigns launch.</p>
 <blockquote><p><strong>What we have seen:</strong> Clients who skip warmup or cut it short consistently see 40 to 50% deliverability. Clients who complete the full 14-day warmup hit 70 to 85% inbox placement from day one of their campaign.</p></blockquote>
 <h2 id="step-5-pool-rotation-and-campaign-platform-setup">Step 5: Pool rotation and campaign platform setup</h2>
@@ -1782,10 +1782,10 @@ Table of Contents
 <p>Visit <a href="https://imisofts.com/cold-email-marketing#packages">imisofts.com/cold-email-marketing#packages</a> to see the full breakdown and choose the right package for your sending volume.</p>
 <h2 id="common-infrastructure-mistakes-to-avoid">Common infrastructure mistakes to avoid</h2>
 <p>After building infrastructure for clients across dozens of industries, we see the same mistakes repeatedly.</p>
-<p>Using Google Workspace or Outlook for cold email at scale is the most common. These platforms are not designed for outbound at volume and will shut you down. Skipping warmup or doing only 3 to 5 days instead of the minimum 14 is another — there are no shortcuts here. Using shared tracking domains instead of custom CNAMEs gets your emails flagged. Not monitoring Google Postmaster after launch means you miss reputation drops before they become catastrophic. And sending more than 30 emails per inbox per day burns through inboxes faster than you can replace them.</p>
+<p>Using Google Workspace or Outlook for cold email at scale is the most common. These platforms are not designed for outbound at volume and will shut you down. Skipping warmup or doing only 3 to 5 days instead of the minimum 14 is another, there are no shortcuts here. Using shared tracking domains instead of custom CNAMEs gets your emails flagged. Not monitoring Google Postmaster after launch means you miss reputation drops before they become catastrophic. And sending more than 30 emails per inbox per day burns through inboxes faster than you can replace them.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Cold email infrastructure setup is the difference between campaigns that book meetings and campaigns that land in spam. The private server approach gives you ownership, control, and dramatically lower costs compared to Google Workspace, Outlook, or hosted inbox services.</p>
-<p>If you want infrastructure built right — DNS authenticated, warmup completed, pools configured — we handle it end to end. Check out our packages at <a href="https://imisofts.com/cold-email-marketing#packages">imisofts.com/cold-email-marketing#packages</a> or reach out directly.</p>
+<p>If you want infrastructure built right, DNS authenticated, warmup completed, pools configured, we handle it end to end. Check out our packages at <a href="https://imisofts.com/cold-email-marketing#packages">imisofts.com/cold-email-marketing#packages</a> or reach out directly.</p>
 <section class="faq-section">
 <h2 id="faq">Frequently Asked Questions</h2>
 <div class="faq-item">
@@ -1864,7 +1864,7 @@ Contents
 <li><a href="#common-infrastructure-mistakes-to-avoid">Common infrastructure mistakes to avoid</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 <li><a href="#faq">Frequently Asked Questions</a></li>
-
+<li><a href="#faq">Frequently Asked Questions</a></li>
 </ul>
 </nav>
 <div class="sidebar-card">
