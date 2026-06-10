@@ -47,6 +47,15 @@ f'<div class="card-footer">\n<span>{esc(date)}</span>\n<span>{rt} min read</span
 
 def main():
     s = open(IDX, encoding='utf-8').read()
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import fix_blog_grid
+        _heal,_n = fix_blog_grid.fix(s)
+        if _heal != s:
+            s=_heal; open(IDX,'w',encoding='utf-8').write(s)
+            print('grid self-heal: moved %d cards into posts-grid'%_n)
+    except Exception as _e:
+        print('grid self-heal skipped:', _e)
     posts = json.load(open(PJSON, encoding='utf-8'))
     if isinstance(posts, dict): posts = posts.get('posts', [])
     existing = set(re.findall(r'href="/blog/([a-z0-9-]+)/"', s))
