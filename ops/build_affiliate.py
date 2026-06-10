@@ -15,6 +15,7 @@ import datetime as _dtmod
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE = os.path.join(ROOT, 'blog', 'signal-based-outbound-news-june-2026', 'index.html')
 CONTENT_DIR = os.path.join(ROOT, 'content', 'affiliate')
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 DISCLOSURE = ('<p class="affiliate-disclosure" style="font-size:14px;line-height:1.6;'
               'color:#475569;background:#f8fafc;border-left:3px solid #F45407;'
@@ -89,6 +90,10 @@ def build_article(meta, tpl):
     assert mainpart.count('class="faq-item"')==len(faqs), f'{slug}: faq count mismatch'
     assert 'affiliate-disclosure' in s, f'{slug}: disclosure missing'
     if meta.get('affiliate_url'): assert meta['affiliate_url'] in s, f'{slug}: affiliate url missing'
+    try:
+        import fix_articles; s=fix_articles.process(s)[0]
+    except Exception as _e:
+        print('toc post-process skipped:', _e)
     return s
 
 def main():

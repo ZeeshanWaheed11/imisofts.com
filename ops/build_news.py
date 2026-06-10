@@ -14,6 +14,7 @@ import json, re, os, glob, sys, datetime, subprocess
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE = os.path.join(ROOT, 'blog', 'signal-based-outbound-news-june-2026', 'index.html')
 CONTENT_DIR = os.path.join(ROOT, 'content', 'news')
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 def esc(t): return (t or '').replace('&','&amp;')
 
@@ -88,6 +89,10 @@ def build_article(meta, tpl):
     assert s.count('<main')==1 and s.count('</main>')==1, f'{slug}: main tag issue'
     nfaq=mainpart.count('class="faq-item"')
     assert nfaq==len(faqs), f'{slug}: faq count mismatch {nfaq} vs {len(faqs)}'
+    try:
+        import fix_articles; s=fix_articles.process(s)[0]
+    except Exception as _e:
+        print('toc post-process skipped:', _e)
     return s
 
 def main():
