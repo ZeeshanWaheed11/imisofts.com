@@ -1,0 +1,30 @@
+{
+  "slug": "ai-agent-security-identity-news-june-11-2026",
+  "title": "Before You Put AI Agents in Production, Give Them Identities and Audit Logs",
+  "desc": "AI agents need their own identity, least-privilege access, and audit logs. Inside the June 2026 Zscaler and Linx Security launches and how SMBs can apply them.",
+  "keywords": "ai agent security, ai agent identity, agentic ai governance, zscaler ai broker, ai agent audit log, ai automation agency",
+  "date": "2026-06-11",
+  "time": "13:30",
+  "read_time": 3,
+  "word_count": 600,
+  "cta": "Want AI agents deployed with guardrails from day one?",
+  "body": "<p><strong>June 11, 2026.</strong> As businesses move AI agents from demos into daily work, a string of June launches made one point hard to ignore: an agent that can act on your systems is a new kind of user, and it needs the same identity, access limits, and audit trail you would demand of any employee with the keys. Within two days, three security and platform vendors shipped tools built for exactly that.</p><p><strong>What happened</strong></p><ol><li><strong>Zscaler extended Zero Trust to agents (June 9).</strong> At its Zenith Live event the company introduced an AI Broker that sits between agents and the tools they call, governing Model Context Protocol and agent-to-agent traffic, plus an Agent Registry that tracks what each agent is authorized to access. (<a href=\"https://www.globenewswire.com/news-release/2026/06/10/3309619/0/en/Zscaler-Redefines-Zero-Trust-SASE-for-the-AI-Era.html\" target=\"_blank\" rel=\"noopener\">source</a>)</li><li><strong>Linx Security shipped per-call governance (June 10).</strong> Its inline gateway inspects every tool call an agent makes, allows or denies it in real time, and records a full audit log tied to the human or agent identity behind the call.</li><li><strong>Contentstack put a number on the pain.</strong> In its 2026 report, 88 percent of leaders said they wish they had built their data and content foundations before deploying agents, a polite way of saying many shipped agents into messy, ungoverned systems. (<a href=\"https://www.globenewswire.com/news-release/2026/06/09/3308696/0/en/contentstack-introduces-its-agentic-experience-platform-axp-with-agent-os-and-agent-accelerator-to-remove-roadblocks-to-enterprise-ai-roi-and-adoption.html\" target=\"_blank\" rel=\"noopener\">source</a>)</li></ol><p><strong>What it means for operators</strong></p><p>You do not need an enterprise security budget to apply the lesson. The risk with agents is not that they are evil, it is that they are fast and literal: a misconfigured agent can email the wrong list, overwrite records, or spend money in seconds, and if everything ran under one shared login you cannot tell what happened. The fix is the same principle these vendors are selling, scaled to your size.</p><p>Give each agent its own credentials rather than a shared human login, so its actions are logged separately. Grant the least access it needs for its single job, not blanket admin. Keep a human approval step on anything that sends to customers, moves money, or deletes data. And make sure every tool call is logged somewhere you can review, so when something goes wrong you can trace it in minutes, not days. These are configuration choices, not expensive products, and they are what separate an agent you can trust in production from a liability.</p><p>This is the safety half of the same shift we covered in our look at <a href=\"/ai-automation-agency\">agents moving into production</a>. Build the workflow, then govern it. If you want help standing up agents with proper identities, least-privilege access, and audit logging from day one, our team builds <a href=\"/ai-automation\">AI automation</a> that is designed to be supervised, not just impressive in a demo. You can also <a href=\"/hire-ai-engineer\">hire an AI engineer</a> to review an agent setup you already have.</p>",
+  "faqs": [
+    [
+      "Why do AI agents need their own identity?",
+      "Because an agent that acts on your systems is effectively a new user. Giving it distinct credentials, instead of a shared human login, means every action it takes is logged and limitable, so you can see and control what it does."
+    ],
+    [
+      "What is the main security risk with AI agents?",
+      "Speed and literalness. A misconfigured agent can email the wrong people, overwrite records, or spend money in seconds. Without least-privilege access, human approval on risky steps, and audit logs, mistakes are hard to catch or trace."
+    ],
+    [
+      "What did Zscaler and Linx Security announce?",
+      "Zscaler extended Zero Trust to agents with an AI Broker and Agent Registry that govern agent traffic and access on June 9. Linx Security shipped an inline gateway that inspects and logs every agent tool call in real time on June 10."
+    ],
+    [
+      "How do small businesses apply agent security without a big budget?",
+      "Use the same principles at your scale: give each agent its own credentials and least-privilege access, keep a human approval step on sensitive actions, and log every tool call where you can review it. These are configuration choices, not costly products."
+    ]
+  ]
+}
