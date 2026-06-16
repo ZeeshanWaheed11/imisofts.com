@@ -1,0 +1,30 @@
+{
+  "slug": "anthropic-agent-sdk-billing-change-news-june-16-2026",
+  "title": "Anthropic Moves AI Agents Off Flat-Rate Claude Plans: The June 15 Credit Change Explained",
+  "desc": "As of June 15, automated Claude usage (Agent SDK, headless, Claude Code Actions) bills from a separate metered credit, not your flat plan. What to check.",
+  "keywords": "anthropic billing change, claude agent sdk credit, claude code pricing 2026, claude max pricing, ai agent costs, claude api rates",
+  "date": "2026-06-16",
+  "time": "09:10",
+  "read_time": 4,
+  "word_count": 446,
+  "cta": "Want your AI automation costs under control?",
+  "body": "<p><strong>June 16, 2026.</strong> A pricing change from Anthropic took effect yesterday that matters to anyone running automated workflows on Claude, including AI driven outbound, support, and coding agents. As of June 15, 2026, automated and programmatic Claude usage no longer draws from flat rate subscriptions. It bills from a separate, metered credit pool at standard API rates. The move ends a brief era when a team could run heavy automation on a cheap seat and never see the true cost.</p>\n\n<p><strong>What changed</strong></p>\n<ol>\n<li>The Agent SDK, headless Claude commands run with the print flag, Claude Code GitHub Actions, and third party agent apps were removed from the Pro, Max, Team, and Enterprise usage pools.</li>\n<li>Each paid plan now gets a separate monthly dollar credit sized to its fee: about 20 dollars for Pro, 100 dollars for Max 5x, and 200 dollars for Max 20x. The credit is per user, is not pooled across a team, is billed at standard API rates, and does not roll over.</li>\n<li>The credit is opt in. You have to claim it, and Anthropic asked users to do so before the June 15 switch.</li>\n<li>When the credit runs out, automated requests stop unless you have manually enabled overflow billing. There is no automatic fallback to your subscription.</li>\n</ol>\n\n<p>If you only use Claude by hand, on the web, in the app, or by typing commands in the terminal yourself, nothing changes. Your plan, price, and limits are the same.</p>\n\n<p><strong>What it means for operators</strong></p>\n<p>For small teams that quietly wired Claude into scheduled agents, the cost of that automation is now visible and capped by default. That is healthy, because an agent looping on a flat plan could burn enormous compute invisibly, but it means you should check three things this week: whether you claimed the credit, whether your agents run efficiently or poll in wasteful loops, and whether you want overflow billing on so critical jobs do not halt mid run. Budget the credit the way you would any metered utility. This is not a price increase for everyday use, but it is a real change in how automation is metered, and ignoring it is how a small team ends up with either a surprise overflow bill or an agent that quietly stopped running.</p>\n\n<p>This is exactly why we design automations to be efficient, event driven, and model agnostic rather than locked to one vendor's plan. If you are building or already running AI agents, our <a href=\"/ai-automation\">AI automation</a> team can audit your setup for cost and reliability, and you can <a href=\"/hire-ai-engineer\">hire an AI engineer</a> to right size it. For the outbound angle on this change, see our guide to <a href=\"/blog/agent-native-outbound-mcp-sales-stack-news-june-16-2026/\">agent native outbound</a>.</p>",
+  "faqs": [
+    [
+      "What exactly changed on June 15, 2026?",
+      "Automated Claude usage, namely the Agent SDK, headless Claude run with the print flag, Claude Code GitHub Actions, and third party agent apps, moved out of flat subscription pools into a separate metered credit billed at standard API rates."
+    ],
+    [
+      "How much credit does each plan get?",
+      "About 20 dollars for Pro, 100 dollars for Max 5x, and 200 dollars for Max 20x. The credit is per user, is not pooled across a team, is billed at API rates, and does not roll over month to month."
+    ],
+    [
+      "Will my agents stop if the credit runs out?",
+      "Yes. Automated requests stop when the credit is exhausted unless you have manually enabled overflow billing. There is no automatic fallback to your subscription, so claim the credit and decide on overflow before you rely on an agent."
+    ],
+    [
+      "Does this affect normal Claude chat use?",
+      "No. If you use Claude by hand on the web, in the app, or by typing terminal commands yourself, your plan, price, and limits are unchanged. The change targets automated and programmatic usage only."
+    ]
+  ]
+}
