@@ -1,0 +1,30 @@
+{
+  "slug": "anthropic-workload-identity-federation-no-api-keys-news-june-19-2026",
+  "title": "Anthropic Makes Static API Keys Optional With Workload Identity Federation",
+  "desc": "Anthropic made Workload Identity Federation GA on June 17, replacing static Claude API keys with short-lived, scoped credentials from your identity provider.",
+  "keywords": "workload identity federation, claude api keys, wif claude platform, ai agent credentials, service accounts claude, secure ai automation",
+  "date": "2026-06-19",
+  "time": "09:05",
+  "read_time": 4,
+  "word_count": 411,
+  "cta": "Want your AI automations built securely from day one?",
+  "body": "<p><strong>June 19, 2026.</strong> The same week the AI industry standardized how agents reach your tools, Anthropic tackled the other direction: how your own apps and automations authenticate to the model. On June 17 it made Workload Identity Federation (WIF) generally available on the Claude Platform, and the short version is that the static API key, the long secret string that gets pasted into scripts and then leaks out of them, is now optional. Details are on <a href=\"https://claude.com/blog/workload-identity-federation\" target=\"_blank\" rel=\"noopener\">Anthropic's announcement</a>.</p>\n\n<p><strong>What shipped</strong></p>\n<ol>\n<li>WIF replaces static keys with short-lived, scoped credentials issued at the moment of each request.</li>\n<li>It works with any OIDC-compliant identity provider, so a workload authenticates with the identity it already has: an AWS IAM role, a Google Cloud or Kubernetes service account, an Azure managed identity, a GitHub Actions token, or Okta.</li>\n<li>It covers every Claude API endpoint, including the official SDKs and Claude Code.</li>\n<li>New service accounts give each workload its own identity, roles, and audit trail, instead of one shared key sitting behind everything.</li>\n<li>Existing API keys keep working alongside WIF, so you can migrate one automation at a time.</li>\n</ol>\n\n<p><strong>Why it matters for operators</strong></p>\n<p>A leaked key is one of the most common and most expensive ways an AI setup goes wrong. It can be copied out of a repository, a log file, or a screenshot, then used to run up usage on someone else's account. With WIF there is no standing secret to steal, rotate, or forget. For anyone running automations on GitHub Actions, n8n, or a cloud server, this is the secure default. And because every request is tied to a named service account, you finally get a per-automation audit trail instead of guessing which script used the one shared key. It pairs directly with the metered <a href=\"/blog/anthropic-agent-sdk-billing-change-news-june-16-2026/\">agent billing Anthropic introduced in mid June</a>: scoped identities make runaway agent spend far easier to trace and contain. For an agency shipping automations for clients, it is also a trust signal: you can show exactly which service account ran which job, and shut one off without breaking the rest.</p>\n\n<p>This is the kind of foundation we wire in by default on build engagements, from a single <a href=\"/ai-automation\">AI automation</a> to a full <a href=\"/ai-automation-agency\">agency stack</a>. Combined with this week's <a href=\"/blog/mcp-enterprise-managed-auth-ai-agent-identity-news-june-19-2026/\">connector-access standard</a>, both ends of how an AI agent authenticates now have a clean, auditable answer, and it is worth having an <a href=\"/hire-ai-engineer\">AI engineer</a> set it up once rather than leaving keys in a config file.</p>",
+  "faqs": [
+    [
+      "What is Workload Identity Federation on the Claude Platform?",
+      "It is a way to access the Claude API without a static API key. Instead of a long-lived secret, a workload presents the identity it already has, such as an AWS IAM role or a GitHub Actions token, and receives a short-lived, scoped credential issued at request time. It went generally available on June 17, 2026."
+    ],
+    [
+      "Do I have to stop using API keys?",
+      "No. Anthropic kept existing API keys working alongside WIF, so you can move one automation at a time. New builds can start key-free, while older scripts keep running until you migrate them."
+    ],
+    [
+      "What identity providers does it work with?",
+      "Any OIDC-compliant provider, including AWS, Google Cloud, Kubernetes, Azure managed identities, GitHub Actions, and Okta. It covers all Claude API endpoints, including the official SDKs and Claude Code."
+    ],
+    [
+      "Why does this matter for a small team running AI automations?",
+      "Leaked credentials are a leading cause of surprise bills and abuse. Removing the standing secret removes the thing that gets stolen, and per-workload service accounts give you an audit trail, so you can see exactly which automation did what instead of sharing one key across everything."
+    ]
+  ]
+}
