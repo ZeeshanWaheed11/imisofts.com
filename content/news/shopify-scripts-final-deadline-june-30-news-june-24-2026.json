@@ -1,0 +1,30 @@
+{
+  "slug": "shopify-scripts-final-deadline-june-30-news-june-24-2026",
+  "title": "Shopify Scripts Shut Off June 30: Your 6 Day Migration Checklist",
+  "desc": "Shopify Scripts stop executing June 30, 2026 with no grace period. Here is what breaks at checkout and the exact steps to migrate to Functions in time.",
+  "keywords": "shopify scripts deadline, shopify scripts june 30 2026, shopify scripts to functions migration, shopify checkout functions, shopify scripts end of life",
+  "date": "2026-06-24",
+  "time": "11:00",
+  "read_time": 5,
+  "word_count": 600,
+  "cta": "Need your Scripts migrated before June 30?",
+  "body": "<p><strong>June 24, 2026.</strong> Shopify merchants on the Plus plan have six days left to move off Shopify Scripts. On June 30, 2026, all Scripts stop executing, with no grace period, and Shopify has <a href=\"https://changelog.shopify.com/posts/shopify-scripts-deprecation\" target=\"_blank\" rel=\"noopener\">confirmed</a> the deadline will not move again. Editing and publishing Scripts already ended on April 15. If your checkout still runs custom logic through Scripts, that logic does not throw an error on July 1. It simply disappears, and checkout reverts to standard Shopify behavior. We flagged this back when the date was set, in our <a href=\"/blog/shopify-scripts-deprecation-news-june-7-2026/\">June 7 brief</a>. This is the final countdown.</p>\n\n<p><strong>What breaks on July 1</strong></p>\n\n<ol>\n<li>Custom discounts. Tiered, volume, and bundle discount rules written in Scripts stop applying, so customers see standard pricing.</li>\n<li>Shipping logic. Custom rate rules, plus hiding or renaming shipping methods, revert to default.</li>\n<li>Payment gating. Rules that hide or reorder payment methods, including B2B payment filtering, stop running.</li>\n</ol>\n\n<p><strong>The six day checklist</strong></p>\n\n<ol>\n<li>Audit. List every active Script and exactly what it does at checkout.</li>\n<li>Map each Script to a Shopify Function. Discounts, shipping, and payments now run as Functions, available through the Shopify Functions APIs or as apps from the Shopify App Store.</li>\n<li>Build and test in a preview, not in production. Confirm each Function reproduces the old behavior before it goes live.</li>\n<li>Deploy before June 30, then re-test a real checkout end to end across discounts, shipping, and payment options.</li>\n<li>Keep a written record of the old logic so you can rebuild a rule if something is missed.</li>\n</ol>\n\n<p><strong>What it means for operators</strong></p>\n\n<p>If you have a developer, this is a focused week of work. If you do not, do not wait until July 1 to discover which discounts quietly stopped applying or which payment method suddenly appeared at checkout. The wider checkout extensibility timeline, including the broader Summer Editions changes, is covered in our <a href=\"/blog/shopify-summer-26-editions-merchant-playbook-news-june-17-2026/\">June 17 playbook</a>. If you want it handled cleanly before the deadline, you can <a href=\"/hire-shopify-expert\">hire a Shopify expert</a> to audit and migrate your Scripts, or have us build the <a href=\"/shopify-apps\">Shopify apps and Functions</a> that replace them.</p>",
+  "faqs": [
+    [
+      "What exactly happens to Shopify Scripts on June 30, 2026?",
+      "All Scripts stop executing. Any custom discount, shipping, or payment logic running through Scripts is no longer applied and checkout reverts to standard Shopify behavior. There is no grace period and Shopify has confirmed the date will not be extended again."
+    ],
+    [
+      "What replaces Shopify Scripts?",
+      "Shopify Functions. Discounts, shipping, and payment customizations now run as Functions, which you can build with the Shopify Functions APIs or install as apps from the Shopify App Store."
+    ],
+    [
+      "I missed the April 15 date. Can I still edit my Scripts?",
+      "No. Editing and publishing Scripts ended on April 15, 2026. Existing Scripts kept running until June 30, but you cannot change them, so the path forward is to rebuild the logic as Functions."
+    ],
+    [
+      "What happens if I do nothing before the deadline?",
+      "Your custom checkout logic silently stops on June 30. That can mean missing discounts, wrong shipping rates, or payment methods showing that should be hidden, all without an error message, so the impact may not be obvious until orders come in wrong."
+    ]
+  ]
+}
