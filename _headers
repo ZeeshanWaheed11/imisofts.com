@@ -20,3 +20,7 @@
 # Static assets - long cache
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+
+# hreflang between market sites (Google reads Link headers)
+/
+  Link: <https://imisofts.com/>; rel="alternate"; hreflang="en", <https://imisofts.nl/>; rel="alternate"; hreflang="nl-NL", <https://imisofts.de/>; rel="alternate"; hreflang="de-DE", <https://imisofts.com/>; rel="alternate"; hreflang="x-default"
