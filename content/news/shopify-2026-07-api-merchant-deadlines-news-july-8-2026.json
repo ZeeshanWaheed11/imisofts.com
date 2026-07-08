@@ -1,0 +1,30 @@
+{
+  "slug": "shopify-2026-07-api-merchant-deadlines-news-july-8-2026",
+  "title": "Shopify's 2026-07 Release Is Live: Market-Driven Shipping, Draft Order Deposits and Three Deadlines",
+  "desc": "Shopify's 2026-07 wave landed July 1: market-driven shipping preview, native B2B deposits, UCP cart migration, plus Oct 1 and Dec 1 app deadlines. What to do.",
+  "keywords": "shopify 2026-07 api, shopify market driven shipping, shopify draft order deposits, shopify api deadlines 2026, shopify ucp cart mcp, shopify app compatibility",
+  "date": "2026-07-08",
+  "time": "09:50",
+  "read_time": 3,
+  "word_count": 454,
+  "cta": "Keep your store ahead of Shopify's platform calendar",
+  "body": "<p>July 8, 2026. Shopify's quarterly platform wave is live. The 2026-07 API version and a cluster of <a href=\"https://shopify.dev/changelog\">developer changelog entries dated June 30 to July 3</a> shipped the biggest shipping-model change in years, gave Plus merchants native deposits on draft orders, and started a migration that anyone running an agentic storefront should note. Third-party trackers like <a href=\"https://releasebot.io/updates/shopify\">Releasebot</a> logged the same wave. None of it arrives with a banner in your admin, and two of the changes are marked Action Required.</p>\n\n<h2 id=\"what-shipped-in-the-2026-07-wave\">What shipped in the 2026-07 wave</h2>\n\n<ol>\n<li><strong>Market-driven shipping entered feature preview on July 1.</strong> Shipping options reorganize around the markets a merchant sells into instead of legacy delivery profiles. The legacy merchant-owned delivery profile APIs are deprecated for migrated shops, and Shopify flags shipping apps as Action Required: test and upgrade now. Per Shopify's published rollout schedule, merchant migration begins October 1, 2026 and completes by July 1, 2027.</li>\n<li><strong>Draft order deposits went live for Plus.</strong> The Admin GraphQL and Customer Account APIs can now set and display partial upfront payments on draft orders, native deposit workflows for wholesale, custom and made-to-order sales that previously needed an app.</li>\n<li><strong>Sales channel apps got order attribution definitions on June 30,</strong> so multi-channel merchants can finally see which channel actually drove an order with granular, app-defined attribution.</li>\n<li><strong>Agentic carts standardized on UCP.</strong> On June 24 Shopify deprecated its Storefront MCP cart tools in favor of UCP Cart MCP, consolidating agent-driven carts onto the Universal Commerce Protocol standard it co-developed with Google.</li>\n<li><strong>Two deadlines are now on the clock:</strong> checkout and customer-account UI extensions must be upgraded to Polaris web components by October 1, 2026, and returns and subscription apps must authenticate buyers via the Customer Account API by December 1, 2026 to keep Built for Shopify status.</li>\n</ol>\n\n<h2 id=\"what-it-means-for-operators\">What it means for operators</h2>\n\n<p>Quarterly API versions are a platform tax: pay a little attention every quarter or a lot of margin later. The <a href=\"/blog/shopify-scripts-blackout-checkout-recovery-news-july-1-2026/\">Scripts blackout on June 30</a> showed what silent deprecations cost merchants who were not watching, and the market-driven shipping migration is the next one to get ahead of, because misconfigured shipping does not error, it just quotes wrong rates and loses orders.</p>\n\n<p>Three moves this month: audit your installed apps against 2026-07, starting with anything that touches shipping rates; if you are on Plus and take wholesale or custom orders, replace paid deposit workarounds with the native draft order deposits; and if AI-driven selling is on your roadmap, note the UCP consolidation, because it confirms where <a href=\"/blog/agentic-commerce-merchant-readiness-news-june-24-2026/\">agentic commerce</a> plumbing is standardizing. A <a href=\"/hire-shopify-expert\">Shopify expert</a> can run the compatibility audit and migration plan in a day or two, and our <a href=\"/shopify-apps\">Shopify apps team</a> handles the extension upgrades before the October and December deadlines make them urgent.</p>",
+  "faqs": [
+    [
+      "What is Shopify's market-driven shipping?",
+      "A new model, in feature preview since July 1, 2026, that organizes shipping rates and options around the markets a merchant sells into rather than legacy delivery profiles. It comes with a new Admin GraphQL API, deprecates the old merchant-owned delivery profile APIs for migrated shops, and per Shopify's rollout schedule reaches all merchants between October 1, 2026 and July 1, 2027."
+    ],
+    [
+      "I am a merchant, not a developer. Does the 2026-07 release require action from me?",
+      "Indirectly, yes. Your installed apps must support the new APIs, especially anything touching shipping rates, and broken compatibility shows up as wrong quotes or lost orders rather than error messages. Ask your app vendors or a Shopify partner to confirm 2026-07 compatibility, and plan the market-driven shipping migration before the October 2026 rollout begins."
+    ],
+    [
+      "What are draft order deposits and who gets them?",
+      "As of the 2026-07 API version, Shopify Plus merchants can natively request a partial upfront payment on draft orders through the Admin GraphQL API, with customers seeing deposit details via the Customer Account API. It replaces app-based workarounds for wholesale, custom and made-to-order sales that collect a deposit before fulfillment."
+    ],
+    [
+      "What happens if apps miss the October and December deadlines?",
+      "Checkout and customer-account UI extensions not upgraded to Polaris web components by October 1, 2026 face degraded or broken experiences, and returns or subscription apps that do not authenticate via the Customer Account API by December 1, 2026 lose Built for Shopify status. Merchants relying on those apps inherit the breakage, so audit now."
+    ]
+  ]
+}
