@@ -58,6 +58,28 @@ def main():
         print('grid self-heal skipped:', _e)
     posts = json.load(open(PJSON, encoding='utf-8'))
     if isinstance(posts, dict): posts = posts.get('posts', [])
+    # REFRESH PASS (evergreen refreshes only). The insert pass below never touches an
+    # existing card, so a refreshed post used to keep its original card: stale date, stale
+    # title, stranded deep in the grid. Scope: ONLY cards whose date has actually moved,
+    # i.e. a real refresh. Those are re-rendered and re-sorted to the front of the grid.
+    # Everything else is left byte-for-byte alone. Idempotent: no date drift, no rewrite.
+    anchor0 = '<div class="posts-grid" id="postsGrid">\n'
+    refreshed = []
+    for p in posts:
+        slug = p.get('slug'); pdate = str(p.get('date','')).strip()
+        if not slug or not pdate: continue
+        m = re.search(r'<a href="/blog/%s/" class="post-card".*?</a>' % re.escape(slug), s, re.S)
+        if not m: continue
+        cd = re.search(r'<div class="card-footer">\s*<span>([^<]*)</span>', m.group(0))
+        if not cd or cd.group(1).strip() == pdate: continue   # no refresh -> hands off
+        fresh = card(p)
+        s = s[:m.start()] + s[m.end():]
+        if anchor0 not in s: continue
+        s = s.replace(anchor0, anchor0 + fresh + '\n', 1)
+        refreshed.append('%s -> %s' % (slug, pdate))
+    if refreshed:
+        open(IDX,'w',encoding='utf-8').write(s)
+        print('refreshed + re-sorted %d card(s): %s' % (len(refreshed), ', '.join(refreshed)))
     existing = set(re.findall(r'href="/blog/([a-z0-9-]+)/"', s))
     # newest first by date then by list order
     def keyf(p): return (p.get('date',''), )
