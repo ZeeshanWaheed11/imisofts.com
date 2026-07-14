@@ -119,15 +119,37 @@ def main():
     d=json.load(open(pj,encoding='utf-8')); posts=d if isinstance(d,list) else d['posts']
     have={p.get('slug') for p in posts}
     for meta in sorted(metas,key=lambda m:m['date'],reverse=True):
-        if meta['slug'] in have: continue
+        if meta['slug'] in have:
+            # REFRESH: spec already indexed. Keep the card in sync with the spec
+            # (date, title, desc, word count) and re-sort it to the front when the
+            # date moved forward, so a refreshed evergreen post is not stranded.
+            for i,pp in enumerate(posts):
+                if pp.get('slug')!=meta['slug']: continue
+                changed = (pp.get('date')!=meta['date'] or pp.get('title')!=meta['title'] or pp.get('meta_description')!=meta['desc'])
+                if changed:
+                    pp['date']=meta['date']; pp['title']=meta['title']; pp['meta_description']=meta['desc']
+                    pp['word_count']=meta.get('word_count',pp.get('word_count',1500))
+                    pp['read_time']=meta.get('read_time',pp.get('read_time',8))
+                    posts.insert(0,posts.pop(i))
+                    print('refreshed index entry %s -> %s'%(meta['slug'],meta['date']))
+                break
+            continue
         kw=meta.get('keywords',''); CAT=meta.get('category','Reviews')
         posts.insert(0,{"number":0,"filename":f"000-{meta['slug']}.txt","title":meta['title'],"meta_description":meta['desc'],"url_slug":f"/blog/{meta['slug']}","primary_keyword":kw.split(',')[0].strip(),"secondary_keywords":", ".join(k.strip() for k in kw.split(',')[1:]),"category":CAT,"word_count_target":meta.get('word_count',1500),"schema_type":"Article","author":"Zeeshan Waheed","date":meta['date'],"slug":meta['slug'],"word_count":meta.get('word_count',1500),"read_time":meta.get('read_time',8),"has_faq":True,"category_normalized":CAT.lower().replace(' ','-')})
     json.dump(posts if isinstance(d,list) else {**d,'posts':posts},open(pj,'w',encoding='utf-8'),indent=2,ensure_ascii=False)
     sm=open(os.path.join(ROOT,'sitemap.xml')).read(); add=''
     for meta in metas:
         u=f'https://imisofts.com/blog/{meta["slug"]}/'
-        if u not in sm: add+=f'<url>\n<loc>{u}</loc>\n<lastmod>{meta["date"]}</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n'
-    if add: open(os.path.join(ROOT,'sitemap.xml'),'w').write(sm.replace('</urlset>',add+'</urlset>'))
+        if u not in sm:
+            add+=f'<url>\n<loc>{u}</loc>\n<lastmod>{meta["date"]}</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n'
+        else:
+            # REFRESH: keep <lastmod> equal to the spec date (idempotent: no diff
+            # unless the spec date actually moved), so refreshed evergreen posts
+            # send a real freshness signal instead of a stale one.
+            def _bump(m,_d=meta["date"]):
+                return re.sub(r'<lastmod>[^<]*</lastmod>','<lastmod>%s</lastmod>'%_d,m.group(0),count=1)
+            sm=re.sub(r'<url>\s*<loc>'+re.escape(u)+r'</loc>.*?</url>',_bump,sm,count=1,flags=re.S)
+    open(os.path.join(ROOT,'sitemap.xml'),'w').write(sm.replace('</urlset>',add+'</urlset>') if add else sm)
     try:
         ff=open(os.path.join(ROOT,'feed.xml')).read(); m0=re.search(r'<item>.*?</item>',ff,re.S)
         if m0:
