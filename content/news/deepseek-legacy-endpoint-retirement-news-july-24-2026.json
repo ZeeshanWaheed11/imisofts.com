@@ -1,0 +1,30 @@
+{
+  "slug": "deepseek-legacy-endpoint-retirement-news-july-24-2026",
+  "title": "DeepSeek Retires deepseek-chat and deepseek-reasoner Today. Rename Them Wrong and Your Bill Climbs",
+  "desc": "DeepSeek fully retires its legacy deepseek-chat and deepseek-reasoner API names on July 24. Migrate to V4 correctly or you switch on reasoning and pay more.",
+  "keywords": "deepseek api migration, deepseek-chat retired, deepseek-reasoner deprecated, deepseek v4 flash, deepseek v4 pro, deepseek thinking mode cost, july 24 deepseek deadline",
+  "date": "2026-07-24",
+  "time": "09:03",
+  "read_time": 4,
+  "word_count": 620,
+  "cta": "Want your AI integrations audited before a silent change costs you?",
+  "body": "<p><strong>July 24, 2026.</strong> Today at 15:59 UTC, DeepSeek <a href=\"https://api-docs.deepseek.com/news/news260424\" target=\"_blank\" rel=\"noopener\">fully retires</a> two of its most widely used API model names, deepseek-chat and deepseek-reasoner. After the cutoff they are inaccessible, and only the explicit identifiers deepseek-v4-flash and deepseek-v4-pro will answer. If your code, or a tool you depend on, still calls the old names, the fix is a one line change. The wrong one line change quietly raises your bill.</p><p><strong>What happened</strong></p><ol><li>When DeepSeek launched V4 on April 24, 2026, it kept the old names alive for backward compatibility, transparently routing deepseek-chat to V4-Flash in non-thinking mode and deepseek-reasoner to V4-Flash in thinking mode.</li><li>That compatibility shim ends today. From 15:59 UTC, requests to the legacy names fail, and you must call deepseek-v4-flash or deepseek-v4-pro directly.</li><li>The migration is meant to be painless: keep your base_url and change the model field. DeepSeek supports both the OpenAI ChatCompletions and Anthropic API formats, and both V4 models carry a 1M token context window and a Thinking or Non-Thinking switch.</li></ol><p><strong>The catch that costs money</strong></p><p>The old names encoded a choice. deepseek-chat meant non-thinking, and deepseek-reasoner meant thinking. The new name, deepseek-v4-flash, does not decide for you. Depending on how your client library sets defaults, you can end up with reasoning switched on where you never had it before. Thinking mode emits far more output tokens and adds latency, so renaming a high volume deepseek-chat workload to plain deepseek-v4-flash with thinking left on can multiply your token bill without a single change to your prompts. Set the mode on purpose.</p><p><strong>What it means for operators</strong></p><ol><li>Grep your codebase, your automations, and any agent tool config for deepseek-chat and deepseek-reasoner. DeepSeek ships integrations for Claude Code, OpenClaw, and OpenCode, so the old names can be hiding in more than one place.</li><li>Pin the explicit V4 model and set the thinking or non-thinking mode to match what the old name gave you, then watch your token usage for a day to confirm nothing shifted.</li><li>Treat this as the template for every provider. Model aliases get deprecated on a schedule, and a small routing layer plus a quick monthly audit keeps a silent change from becoming a silent cost. That plumbing is part of what our <a href=\"/ai-automation\">AI automation</a> and <a href=\"/hire-ai-engineer\">AI engineering</a> work keeps clean, including when we stand up agent stacks like <a href=\"/openclaw-setup\">OpenClaw</a>.</li></ol>",
+  "faqs": [
+    [
+      "What exactly changes on July 24, 2026?",
+      "At 15:59 UTC, DeepSeek retires the legacy model names deepseek-chat and deepseek-reasoner. After that they are inaccessible, and you must call deepseek-v4-flash or deepseek-v4-pro directly. Your base_url stays the same."
+    ],
+    [
+      "Will my app break if I do nothing?",
+      "Yes. After the cutoff, any request that still uses deepseek-chat or deepseek-reasoner will fail. Update the model name to a V4 identifier before the deadline to avoid an outage."
+    ],
+    [
+      "Why would my bill go up after migrating?",
+      "The old names encoded a mode: deepseek-chat was non-thinking and deepseek-reasoner was thinking. If you rename a non-thinking workload to deepseek-v4-flash and thinking is left on by default, the model emits many more output tokens and adds latency, which raises cost. Set the mode explicitly."
+    ],
+    [
+      "How do I migrate safely?",
+      "Keep your base_url, set the explicit V4 model, and choose the thinking or non-thinking mode that matches your old behavior. Search your code and any agent tool config for the old names, then monitor token usage for a day to confirm nothing changed under you."
+    ]
+  ]
+}
