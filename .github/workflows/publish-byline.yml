@@ -25,6 +25,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
           else
-            git commit -m "build: wire founder byline article(s) [skip ci]"
+            git commit -m "build: wire founder byline article(s)"
             git push
           fi
