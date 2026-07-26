@@ -2912,163 +2912,183 @@
   </style>
 
 <style id="vx-layer">
-/* ===== AI Voice Agents redesign layer (scoped .vx-) - site palette only ===== */
-.vx{--o:#F45407;--o-soft:#FFF3ED;--o-line:#FCD9C6;--ink:#0B1220;--body:#475569;--mute:#94A3B8;--line:#E2E8F0;--surf:#F8FAFC;
- font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--body);overflow-x:hidden}
-.vx *{box-sizing:border-box}
-.vx-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-.vx-sec{padding:clamp(56px,7vw,96px) 0;position:relative}
-.vx-sec--surf{background:var(--surf)}
-.vx-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1px;
- color:var(--o);background:var(--o-soft);border:1px solid var(--o-line);padding:7px 14px;border-radius:30px;text-transform:uppercase}
-.vx-eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--o);animation:vxblip 1.8s infinite}
-@keyframes vxblip{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(244,84,7,.45)}50%{opacity:.55;box-shadow:0 0 0 7px rgba(244,84,7,0)}}
-.vx h2.vx-h2{font-size:clamp(28px,3.6vw,42px);line-height:1.15;color:var(--ink);font-weight:800;letter-spacing:-.9px;margin:16px 0 14px}
-.vx p.vx-sub{font-size:clamp(15px,1.6vw,18px);line-height:1.7;color:var(--body);max-width:640px;margin:0}
+.vx{--o:#F45407;--o-soft:#FFF5F0;--o-line:#FBD5C2;--ink:#0B1220;--body:#4A5568;--mute:#94A3B8;--line:#E8EDF3;--surf:#F8FAFC;
+ font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--body);-webkit-font-smoothing:antialiased}
+.vx *{box-sizing:border-box;max-width:100%}
+.vx-wrap{max-width:1140px;margin:0 auto;padding:0 28px}
+.vx-sec{padding:clamp(52px,6vw,88px) 0;position:relative}
+.vx-sec--surf{background:var(--surf);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+.vx-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.9px;
+ color:var(--o);background:var(--o-soft);border:1px solid var(--o-line);padding:6px 13px;border-radius:6px;text-transform:uppercase}
+.vx-eyebrow i{width:5px;height:5px;border-radius:50%;background:var(--o);animation:vxblip 2s infinite}
+@keyframes vxblip{0%,100%{opacity:1}50%{opacity:.35}}
+
+.vx h2.vx-h2{font-size:clamp(24px,2.5vw,34px);line-height:1.22;color:var(--ink);font-weight:750;letter-spacing:-.5px;margin:14px 0 12px}
+.vx p.vx-sub{font-size:16px;line-height:1.65;color:var(--body);max-width:60ch;margin:0}
 .vx-center{text-align:center}.vx-center .vx-sub{margin:0 auto}
 
 /* hero */
-.vx-hero{position:relative;background:#fff;padding-top:clamp(96px,13vw,150px);padding-bottom:clamp(56px,7vw,88px);overflow:hidden}
-.vx-mesh{position:absolute;inset:0;background-image:linear-gradient(rgba(244,84,7,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(244,84,7,.05) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 80% 60% at 70% 0%,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 70% 0%,#000,transparent 70%)}
-.vx-halo{position:absolute;width:720px;height:720px;right:-240px;top:-320px;background:radial-gradient(circle,rgba(244,84,7,.16),transparent 66%);pointer-events:none}
-.vx-hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
-.vx-hero h1{font-size:clamp(34px,5vw,58px);line-height:1.06;color:var(--ink);font-weight:800;letter-spacing:-1.6px;margin:20px 0 18px}
+.vx-hero{position:relative;background:#fff;padding:clamp(92px,11vw,132px) 0 clamp(48px,6vw,72px);overflow:hidden}
+.vx-mesh{position:absolute;inset:0;background-image:linear-gradient(rgba(244,84,7,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(244,84,7,.045) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(ellipse 70% 55% at 72% 8%,#000,transparent 72%);-webkit-mask-image:radial-gradient(ellipse 70% 55% at 72% 8%,#000,transparent 72%);pointer-events:none}
+.vx-halo{position:absolute;width:560px;height:560px;right:-200px;top:-260px;background:radial-gradient(circle,rgba(244,84,7,.11),transparent 68%);pointer-events:none}
+.vx-hero-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.vx-hero h1{font-size:clamp(30px,3.9vw,48px);line-height:1.08;color:var(--ink);font-weight:800;letter-spacing:-1.2px;margin:16px 0 14px}
 .vx-hero h1 em{color:var(--o);font-style:normal}
-.vx-lead{font-size:clamp(16px,1.7vw,19px);line-height:1.7;color:var(--body);max-width:520px;margin:0 0 28px}
-.vx-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
-.vx-btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding:14px 26px;border-radius:40px;text-decoration:none;transition:transform .2s,box-shadow .2s}
-.vx-btn--p{background:var(--o);color:#fff;box-shadow:0 10px 26px rgba(244,84,7,.28)}
-.vx-btn--p:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(244,84,7,.36)}
-.vx-btn--g{background:#fff;color:var(--ink);border:1px solid #CBD5E1}
+.vx-lead{font-size:clamp(15px,1.4vw,17px);line-height:1.62;color:var(--body);max-width:50ch;margin:0 0 24px}
+.vx-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.vx-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:14.5px;font-weight:600;padding:13px 24px;border-radius:8px;text-decoration:none;transition:background .18s,border-color .18s,color .18s}
+.vx-btn--p{background:var(--o);color:#fff}
+.vx-btn--p:hover{background:#D94A06}
+.vx-btn--g{background:#fff;color:var(--ink);border:1px solid #D5DDE7}
 .vx-btn--g:hover{border-color:var(--o);color:var(--o)}
-.vx-stats{display:flex;gap:34px;border-top:1px solid var(--line);padding-top:20px;flex-wrap:wrap}
-.vx-stats b{display:block;font-size:clamp(22px,2.6vw,30px);color:var(--ink);font-weight:800;letter-spacing:-.5px}
-.vx-stats span{font-size:12.5px;color:var(--mute)}
+.vx-stats{display:grid;grid-template-columns:repeat(3,auto);gap:28px;justify-content:start;border-top:1px solid var(--line);padding-top:18px}
+.vx-stats b{display:block;font-size:clamp(19px,2vw,24px);color:var(--ink);font-weight:750;letter-spacing:-.4px;line-height:1.1}
+.vx-stats span{font-size:12.5px;color:var(--mute);margin-top:3px;display:block}
 
-/* console (designed interface) */
-.vx-console{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 24px 60px rgba(11,18,32,.13)}
-.vx-chead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
-.vx-live{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;color:var(--o);letter-spacing:1.2px}
-.vx-live i{width:7px;height:7px;border-radius:50%;background:var(--o);animation:vxblip 1.3s infinite}
-.vx-timer{font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums}
-.vx-wave{display:flex;align-items:flex-end;gap:4px;height:58px;margin-bottom:16px}
-.vx-wave span{flex:1;background:linear-gradient(180deg,var(--o),rgba(244,84,7,.28));border-radius:3px;height:var(--h);transform-origin:bottom;animation:vxwave 1.05s ease-in-out infinite;animation-delay:var(--d)}
-@keyframes vxwave{0%,100%{transform:scaleY(.32)}50%{transform:scaleY(1)}}
-.vx-script{display:flex;flex-direction:column;gap:8px;margin-bottom:15px}
-.vx-ln{font-size:13px;line-height:1.5;color:#334155;background:var(--surf);border-left:2.5px solid var(--o);padding:9px 12px;border-radius:0 8px 8px 0}
-.vx-ln b{display:block;font-size:9.5px;color:var(--o);letter-spacing:.8px;margin-bottom:3px;text-transform:uppercase}
+/* console */
+.vx-console{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:0 12px 32px rgba(11,18,32,.07)}
+.vx-chead{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+.vx-live{display:flex;align-items:center;gap:7px;font-size:10.5px;font-weight:750;color:var(--o);letter-spacing:1px}
+.vx-live i{width:6px;height:6px;border-radius:50%;background:var(--o);animation:vxblip 1.4s infinite}
+.vx-timer{font-size:11.5px;color:var(--mute);font-variant-numeric:tabular-nums}
+.vx-wave{display:flex;align-items:flex-end;gap:3px;height:46px;margin-bottom:14px}
+.vx-wave span{flex:1;background:var(--o);opacity:.85;border-radius:2px;height:var(--h);transform-origin:bottom;animation:vxwave 1.05s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes vxwave{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
+.vx-script{display:flex;flex-direction:column;gap:7px;margin-bottom:13px}
+.vx-ln{font-size:13px;line-height:1.5;color:#3D4757;background:var(--surf);border-left:2px solid var(--o);padding:8px 11px;border-radius:0 6px 6px 0}
+.vx-ln b{display:block;font-size:9px;color:var(--o);letter-spacing:.7px;margin-bottom:2px;text-transform:uppercase;font-weight:750}
 .vx-ln--lead{border-left-color:#CBD5E1;background:#F1F5F9}.vx-ln--lead b{color:var(--mute)}
-.vx-cks{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.vx-ck{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:#15803D;background:#F0FDF4;border:1px solid #BBF7D0;padding:6px 11px;border-radius:30px}
-.vx-booked{display:flex;align-items:center;gap:12px;background:var(--o-soft);border:1px solid var(--o-line);border-radius:12px;padding:13px 15px}
-.vx-booked b{display:block;color:var(--ink);font-size:14px}
+.vx-cks{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.vx-ck{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:#15803D;background:#F0FDF4;border:1px solid #C6F0D3;padding:5px 9px;border-radius:6px}
+.vx-booked{display:flex;align-items:center;gap:10px;background:var(--o-soft);border:1px solid var(--o-line);border-radius:8px;padding:11px 13px}
+.vx-booked b{display:block;color:var(--ink);font-size:13.5px}
 .vx-booked span{font-size:12px;color:#64748B}
-.vx-cap{font-size:11.5px;color:var(--mute);text-align:center;margin-top:12px}
+.vx-cap{font-size:11.5px;color:var(--mute);text-align:center;margin-top:10px}
 
-/* answer block */
-.vx-answer{max-width:860px;margin:0 auto}
-.vx-answer p{font-size:clamp(15.5px,1.7vw,18px);line-height:1.8;margin:0 0 18px;color:var(--body)}
+/* answer block: readable measure, structured */
+.vx-answer{max-width:840px;margin:0 auto}
+.vx-answer .vx-h2{margin-bottom:18px}
+.vx-answer p{font-size:16px;line-height:1.72;margin:0 0 15px;color:var(--body);max-width:68ch}
 .vx-answer a{color:var(--o);font-weight:600;text-decoration:none;border-bottom:1px solid var(--o-line)}
-.vx-answer strong{color:var(--ink)}
+.vx-callout{background:#fff;border:1px solid var(--line);border-left:3px solid var(--o);border-radius:0 10px 10px 0;padding:20px 22px;margin:22px 0}
+.vx-callout p{margin:0;font-size:16px;line-height:1.7}
+.vx-callout strong{color:var(--ink);font-weight:700}
+.vx-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:22px 0}
+.vx-fact{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.vx-fact b{display:block;font-size:20px;color:var(--ink);font-weight:750;letter-spacing:-.3px}
+.vx-fact span{font-size:12.5px;color:var(--mute);line-height:1.45;display:block;margin-top:4px}
+.vx-fine{font-size:13px;color:var(--mute);line-height:1.6;margin-top:6px}
 
 /* cards */
-.vx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px;margin-top:44px}
-.vx-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 26px;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
-.vx-card:before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--o);transition:width .35s}
-.vx-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(11,18,32,.10);border-color:#CBD5E1}
-.vx-card:hover:before{width:100%}
-.vx-ico{width:46px;height:46px;border-radius:12px;background:var(--o-soft);border:1px solid var(--o-line);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.vx-card h3{font-size:18px;color:var(--ink);font-weight:700;margin:0 0 10px;letter-spacing:-.2px}
-.vx-card p{font-size:14.5px;line-height:1.65;color:var(--body);margin:0}
+.vx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px;margin-top:38px}
+.vx-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px 24px;transition:border-color .2s,box-shadow .2s}
+.vx-card:hover{border-color:#CBD5E1;box-shadow:0 8px 24px rgba(11,18,32,.06)}
+.vx-ico{margin-bottom:15px;line-height:0}
+.vx-card h3{font-size:16.5px;color:var(--ink);font-weight:700;margin:0 0 9px;letter-spacing:-.2px;line-height:1.35}
+.vx-card p{font-size:14.5px;line-height:1.62;color:var(--body);margin:0}
 .vx-card p a{color:var(--o);font-weight:600;text-decoration:none}
-.vx-tag{display:inline-block;margin-top:14px;font-size:11px;font-weight:700;color:var(--o);background:var(--o-soft);padding:4px 10px;border-radius:20px;letter-spacing:.4px}
+.vx-tag{display:inline-block;margin-top:13px;font-size:11px;font-weight:650;color:var(--o);background:var(--o-soft);border:1px solid var(--o-line);padding:4px 9px;border-radius:5px}
 
-/* compliance gate visual */
-.vx-gate{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
-.vx-flow{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 20px 50px rgba(11,18,32,.10)}
-.vx-node{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surf);margin-bottom:10px;position:relative}
-.vx-node b{display:block;font-size:14px;color:var(--ink)}
-.vx-node span{font-size:12px;color:var(--mute)}
-.vx-num{width:30px;height:30px;border-radius:9px;background:var(--o);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.vx-node--stop{background:#FEF2F2;border-color:#FECACA}
-.vx-node--stop .vx-num{background:#DC2626}
-.vx-node--stop b{color:#991B1B}.vx-node--stop span{color:#B91C1C}
-.vx-node--go{background:#F0FDF4;border-color:#BBF7D0}
-.vx-node--go .vx-num{background:#16A34A}
-.vx-node--go b{color:#166534}.vx-node--go span{color:#15803D}
-.vx-arrow{height:14px;width:2px;background:var(--line);margin:0 auto 10px;margin-left:31px}
+/* flow */
+.vx-gate{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.vx-flow{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 12px 32px rgba(11,18,32,.07)}
+.vx-step{display:flex;align-items:flex-start;gap:13px;padding:13px 14px;border:1px solid var(--line);border-radius:9px;background:var(--surf);margin-bottom:8px}
+.vx-step:last-child{margin-bottom:0}
+.vx-sn{font-size:11px;font-weight:750;color:var(--o);background:var(--o-soft);border:1px solid var(--o-line);border-radius:5px;padding:4px 7px;flex-shrink:0;letter-spacing:.4px;font-variant-numeric:tabular-nums}
+.vx-step b{display:block;font-size:14px;color:var(--ink);font-weight:650;line-height:1.35}
+.vx-step span{font-size:12.5px;color:var(--mute);line-height:1.45;display:block;margin-top:2px}
+.vx-pill{margin-left:auto;flex-shrink:0;font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:.3px;white-space:nowrap}
+.vx-pill--stop{background:#FEF2F2;color:#B91C1C;border:1px solid #FBD5D5}
+.vx-pill--go{background:#F0FDF4;color:#15803D;border:1px solid #C6F0D3}
+.vx-step--stop{background:#FEF7F7;border-color:#FBD5D5}
+.vx-step--stop .vx-sn{color:#B91C1C;background:#FEF2F2;border-color:#FBD5D5}
+.vx-step--go{background:#F7FDF9;border-color:#C6F0D3}
+.vx-step--go .vx-sn{color:#15803D;background:#F0FDF4;border-color:#C6F0D3}
 
-/* dashboard visual */
-.vx-dash{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 20px 50px rgba(11,18,32,.10)}
-.vx-dstat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
-.vx-dstat div{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:14px}
-.vx-dstat b{display:block;font-size:24px;color:var(--ink);font-weight:800;letter-spacing:-.6px}
-.vx-dstat span{font-size:11.5px;color:var(--mute)}
-.vx-row{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;font-size:13px}
-.vx-row b{color:var(--ink);font-weight:600}
-.vx-row small{color:var(--mute);font-size:11.5px;display:block}
-.vx-badge{font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:20px}
-.vx-badge--ok{background:#F0FDF4;color:#15803D;border:1px solid #BBF7D0}
+/* dashboard */
+.vx-dash{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:0 12px 32px rgba(11,18,32,.07)}
+.vx-dstat{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+.vx-dstat div{background:var(--surf);border:1px solid var(--line);border-radius:9px;padding:13px}
+.vx-dstat b{display:block;font-size:21px;color:var(--ink);font-weight:750;letter-spacing:-.4px}
+.vx-dstat span{font-size:11.5px;color:var(--mute);margin-top:2px;display:block;line-height:1.3}
+.vx-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 13px;border:1px solid var(--line);border-radius:8px;margin-bottom:7px;font-size:13px}
+.vx-row b{color:var(--ink);font-weight:650}
+.vx-row small{color:var(--mute);font-size:11.5px;display:block;margin-top:1px}
+.vx-badge{font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:5px;white-space:nowrap;flex-shrink:0}
+.vx-badge--ok{background:#F0FDF4;color:#15803D;border:1px solid #C6F0D3}
 .vx-badge--w{background:var(--o-soft);color:var(--o);border:1px solid var(--o-line)}
 
 /* pricing */
-.vx-price{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:48px;align-items:start}
-.vx-plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;height:100%}
-.vx-plan--hot{border:2px solid var(--o);box-shadow:0 20px 50px rgba(244,84,7,.14);position:relative}
-.vx-hot{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--o);color:#fff;font-size:11px;font-weight:700;padding:5px 15px;border-radius:20px;letter-spacing:.5px;white-space:nowrap}
-.vx-plan h3{font-size:19px;color:var(--ink);margin:0 0 8px;font-weight:700}
-.vx-amt{display:flex;align-items:baseline;gap:6px;margin:14px 0 10px}
-.vx-amt b{font-size:38px;color:var(--ink);font-weight:800;letter-spacing:-1.4px}
-.vx-amt span{font-size:14px;color:var(--mute)}
-.vx-plan>p{font-size:14px;color:var(--body);line-height:1.6;margin:0 0 20px}
-.vx-plan ul{list-style:none;padding:0;margin:0 0 26px;flex:1}
-.vx-plan li{display:flex;gap:10px;font-size:14px;line-height:1.55;color:var(--body);margin-bottom:11px}
-.vx-plan li i{color:#16A34A;font-weight:800;flex-shrink:0;font-style:normal}
+.vx-price{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:18px;margin-top:40px;align-items:stretch}
+.vx-plan{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px 26px;display:flex;flex-direction:column}
+.vx-plan--hot{border:1.5px solid var(--o);position:relative}
+.vx-hot{position:absolute;top:-11px;left:26px;background:var(--o);color:#fff;font-size:10.5px;font-weight:700;padding:4px 11px;border-radius:5px;letter-spacing:.5px}
+.vx-plan h3{font-size:17px;color:var(--ink);margin:0 0 6px;font-weight:700}
+.vx-amt{display:flex;align-items:baseline;gap:6px;margin:10px 0 8px}
+.vx-amt b{font-size:32px;color:var(--ink);font-weight:800;letter-spacing:-1.1px}
+.vx-amt span{font-size:13px;color:var(--mute)}
+.vx-plan>p{font-size:14px;color:var(--body);line-height:1.55;margin:0 0 18px}
+.vx-plan ul{list-style:none;padding:0;margin:0 0 22px;flex:1}
+.vx-plan li{display:flex;gap:9px;font-size:14px;line-height:1.5;color:var(--body);margin-bottom:10px}
+.vx-plan li svg{flex-shrink:0;margin-top:3px}
 .vx-plan li a{color:var(--o);font-weight:600;text-decoration:none}
-.vx-plan .vx-btn{justify-content:center;width:100%}
-.vx-note{text-align:center;color:var(--mute);font-size:13.5px;margin-top:26px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.6}
+.vx-note{text-align:center;color:var(--mute);font-size:13.5px;margin-top:24px;max-width:60ch;margin-left:auto;margin-right:auto;line-height:1.6}
 
 /* faq */
-.vx-faq{max-width:860px;margin:44px auto 0}
-.vx-q{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:#fff;overflow:hidden;transition:border-color .2s,box-shadow .2s}
-.vx-q[data-open="1"]{border-color:var(--o-line);box-shadow:0 10px 30px rgba(11,18,32,.07)}
-.vx-qbtn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;background:none;border:0;padding:20px 24px;cursor:pointer;font-size:16px;font-weight:650;color:var(--ink);font-family:inherit;line-height:1.45}
+.vx-faq{max-width:820px;margin:38px auto 0}
+.vx-q{border:1px solid var(--line);border-radius:10px;margin-bottom:9px;background:#fff;overflow:hidden}
+.vx-q[data-open="1"]{border-color:var(--o-line)}
+.vx-qbtn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:left;background:none;border:0;padding:17px 20px;cursor:pointer;font-size:15.5px;font-weight:650;color:var(--ink);font-family:inherit;line-height:1.45}
 .vx-qbtn:hover{color:var(--o)}
-.vx-chev{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--surf);display:flex;align-items:center;justify-content:center;transition:transform .3s,background .2s}
-.vx-q[data-open="1"] .vx-chev{transform:rotate(180deg);background:var(--o-soft)}
-.vx-ans{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.vx-ans p{padding:0 24px 22px;margin:0;font-size:15px;line-height:1.75;color:var(--body)}
+.vx-chev{flex-shrink:0;transition:transform .28s;line-height:0}
+.vx-q[data-open="1"] .vx-chev{transform:rotate(180deg)}
+.vx-ans{max-height:0;overflow:hidden;transition:max-height .32s ease}
+.vx-ans p{padding:0 20px 19px;margin:0;font-size:15px;line-height:1.7;color:var(--body);max-width:68ch}
 
-/* reveal (bulletproof: visible unless JS is active) */
+/* reveal */
 .vx-rise{opacity:1}
-.vx-js .vx-rise{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.vx-js .vx-rise{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.16,1,.3,1),transform .55s cubic-bezier(.16,1,.3,1)}
 .vx-js .vx-rise.vx-in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  .vx-js .vx-rise{opacity:1;transform:none;transition:none}
-  .vx-wave span,.vx-eyebrow i,.vx-live i{animation:none}
-}
+@media (prefers-reduced-motion:reduce){.vx-js .vx-rise{opacity:1;transform:none;transition:none}.vx-wave span,.vx-eyebrow i,.vx-live i{animation:none}}
 
-/* responsive */
-@media(max-width:980px){
-  .vx-hero-grid,.vx-gate{grid-template-columns:1fr;gap:40px}
-  .vx-hero{padding-top:clamp(84px,16vw,110px)}
-  .vx-lead{max-width:none}
-  .vx-halo{width:460px;height:460px;right:-190px;top:-230px}
+/* ---------- responsive ---------- */
+@media(max-width:1024px){
+  .vx-hero-grid,.vx-gate{grid-template-columns:1fr;gap:36px}
+  .vx-hero{padding-top:clamp(80px,14vw,104px)}
+  .vx-lead,.vx-sub{max-width:none}
+  .vx-halo{width:380px;height:380px;right:-160px;top:-200px}
+  .vx-gate>div:first-child{order:2}.vx-gate>div:last-child{order:1}
 }
-@media(max-width:640px){
-  .vx-wrap{padding:0 18px}
-  .vx-stats{gap:22px}
-  .vx-btn{width:100%;justify-content:center}
-  .vx-ctas{flex-direction:column}
-  .vx-console,.vx-flow,.vx-dash{padding:15px;border-radius:14px}
-  .vx-wave{height:44px}
-  .vx-dstat{grid-template-columns:1fr;gap:9px}
-  .vx-dstat b{font-size:21px}
-  .vx-card{padding:24px 20px}
-  .vx-plan{padding:26px 22px}
-  .vx-qbtn{padding:17px 18px;font-size:15px}
-  .vx-ans p{padding:0 18px 18px}
-  .vx-row{flex-wrap:wrap;gap:6px}
+@media(max-width:768px){
+  .vx-wrap{padding:0 20px}
+  .vx-hero h1{letter-spacing:-.7px}
+  .vx-stats{gap:20px}
+}
+@media(max-width:560px){
+  .vx-wrap{padding:0 16px}
+  .vx-sec{padding:44px 0}
+  .vx-ctas{flex-direction:column;gap:9px}
+  .vx-btn{width:100%}
+  .vx-stats{grid-template-columns:repeat(3,1fr);gap:10px}
+  .vx-stats b{font-size:17px}
+  .vx-stats span{font-size:11px}
+  .vx-console,.vx-flow,.vx-dash{padding:13px;border-radius:10px}
+  .vx-wave{height:36px;gap:2px}
+  .vx-ln{font-size:12.5px}
+  .vx-dstat{grid-template-columns:1fr;gap:8px}
+  .vx-dstat div{display:flex;align-items:baseline;gap:8px}
+  .vx-dstat b{font-size:18px}.vx-dstat span{margin-top:0}
+  .vx-card{padding:22px 18px}
+  .vx-plan{padding:24px 20px}
+  .vx-answer p,.vx-callout p{font-size:15.5px}
+  .vx-facts{grid-template-columns:1fr;gap:9px}
+  .vx-fact{display:flex;align-items:baseline;gap:9px}.vx-fact span{margin-top:0}
+  .vx-qbtn{padding:15px 16px;font-size:14.5px}
+  .vx-ans p{padding:0 16px 16px;font-size:14.5px}
+  .vx-step{padding:11px 12px;gap:10px;flex-wrap:wrap}
+  .vx-pill{margin-left:0;order:3;width:100%}
+  .vx-row{flex-wrap:wrap}
 }
 </style>
 </head>
@@ -3385,9 +3405,9 @@
             <div class="vx-ln"><b>Agent</b>It is. I can book you a viewing tomorrow at 4pm?</div>
           </div>
           <div class="vx-cks">
-            <span class="vx-ck">&#10003; Consent logged</span>
-            <span class="vx-ck">&#10003; DNC scrubbed</span>
-            <span class="vx-ck">&#10003; Opt-out armed</span>
+            <span class="vx-ck"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Consent logged</span>
+            <span class="vx-ck"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> DNC scrubbed</span>
+            <span class="vx-ck"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#15803D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> Opt-out armed</span>
           </div>
           <div class="vx-booked">
             <svg width="20" height="20" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -3404,9 +3424,19 @@
   <div class="vx-wrap">
     <div class="vx-answer vx-rise">
       <h2 class="vx-h2">What is an AI voice agent, and who should build yours?</h2>
-      <p>An AI voice agent is software that places and answers real phone calls in a natural voice: it reaches a new lead within about a minute, asks your qualifying questions, books the appointment on your calendar, and follows up as many times as you tell it to, at any hour.</p>
-      <p>The part most teams get wrong is that the agent is the easy half. In the United States, outbound calling is governed by the TCPA, and the exposure is counted per call: <strong>$500 per violation and up to $1,500 per willful call or text</strong> under 47 U.S.C. section 227. An AI that dials thousands of numbers a day will scale a compliance mistake just as fast as it scales your pipeline.</p>
-      <p>So the honest answer to who should build yours: <strong>someone who ships the compliance layer and the agent as one system.</strong> That is what we do at imisofts. Consent captured and logged at the source, the National Do-Not-Call Registry and your internal opt-out list scrubbed upstream so a suppressed number physically cannot reach the dialer, opt-outs honored instantly across both calls and texts, A2P 10DLC registration on the messaging leg, and a live person taking over the moment real buying intent appears. Founded by <a href="/author/zeeshan-waheed/">Zeeshan Waheed</a>, our team has delivered 500+ projects across 30 countries. This page is not legal advice, and you should confirm your specific setup with a telecom attorney.</p>
+      <p>An AI voice agent places and answers real phone calls in a natural voice. It reaches a new lead within about a minute, asks your qualifying questions, books the appointment on your calendar, and follows up as many times as you tell it to, at any hour.</p>
+      <p>Most teams get one thing wrong: the agent is the easy half. In the US, outbound calling is governed by the TCPA and the exposure is counted per call.</p>
+      <div class="vx-facts">
+        <div class="vx-fact"><b>$500</b><span>minimum exposure, per violation</span></div>
+        <div class="vx-fact"><b>$1,500</b><span>per willful call or text</span></div>
+        <div class="vx-fact"><b>Per call</b><span>how the penalty is counted</span></div>
+      </div>
+      <p>An AI that dials thousands of numbers a day scales a compliance mistake exactly as fast as it scales your pipeline.</p>
+      <div class="vx-callout">
+        <p><strong>So who should build yours? Someone who ships the compliance layer and the agent as one system.</strong> Consent captured and logged at the source. National DNC and your internal opt-out list scrubbed upstream, so a suppressed number physically cannot reach the dialer. Opt-outs honored instantly across calls and texts. A2P 10DLC on the messaging leg. A live person taking over the moment real buying intent appears.</p>
+      </div>
+      <p>That is what we build at imisofts. Founded by <a href="/author/zeeshan-waheed/">Zeeshan Waheed</a>, our team has delivered 500+ projects across 30 countries.</p>
+      <p class="vx-fine">This page is not legal advice. Confirm your specific setup with a telecom attorney.</p>
     </div>
   </div>
 </section>
@@ -3420,18 +3450,7 @@
         <p class="vx-sub">Most teams bolt an AI onto their CRM and hope. We put the gate upstream, so the agent only ever sees numbers it is allowed to call. That is the difference between a growth engine and a liability machine.</p>
       </div>
       <div class="vx-rise">
-        <div class="vx-flow">
-          <div class="vx-node"><span class="vx-num">1</span><div><b>New lead enters</b><span>Form fill, portal or CRM import</span></div></div>
-          <div class="vx-arrow"></div>
-          <div class="vx-node"><span class="vx-num">2</span><div><b>Consent checked and logged</b><span>Timestamp, source and exact wording stored</span></div></div>
-          <div class="vx-arrow"></div>
-          <div class="vx-node vx-node--stop"><span class="vx-num">&times;</span><div><b>On the DNC or opted out</b><span>Blocked here. Never reaches the dialer.</span></div></div>
-          <div class="vx-arrow"></div>
-          <div class="vx-node vx-node--go"><span class="vx-num">&#10003;</span><div><b>Cleared to call</b><span>Agent dials, identifies itself, qualifies</span></div></div>
-          <div class="vx-arrow"></div>
-          <div class="vx-node"><span class="vx-num">5</span><div><b>Human takes over on intent</b><span>Hot lead routes to a live agent</span></div></div>
-        </div>
-        <p class="vx-cap">Illustrative flow. Wired into your CRM workflow.</p>
+        <div class="vx-flow"><div class="vx-step"><span class="vx-sn">01</span><div><b>New lead enters</b><span>Form fill, portal or CRM import</span></div></div><div class="vx-step"><span class="vx-sn">02</span><div><b>Consent checked and logged</b><span>Timestamp, source and exact wording stored</span></div></div><div class="vx-step vx-step--stop"><span class="vx-sn">03</span><div><b>On the DNC or opted out</b><span>Blocked here. Never reaches the dialer.</span></div><span class="vx-pill vx-pill--stop">BLOCKED</span></div><div class="vx-step vx-step--go"><span class="vx-sn">04</span><div><b>Cleared to call</b><span>Agent dials, identifies itself, qualifies</span></div><span class="vx-pill vx-pill--go">CLEARED</span></div><div class="vx-step"><span class="vx-sn">05</span><div><b>Human takes over on intent</b><span>Hot lead routes to a live agent</span></div></div></div><p class="vx-cap">Illustrative flow. Wired into your CRM workflow.</p>
       </div>
     </div>
   </div>
@@ -3445,12 +3464,12 @@
       <p class="vx-sub">The agent is the labor. This is the infrastructure that gives you the license to use it.</p>
     </div>
     <div class="vx-grid">
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h3>Speed to lead under a minute</h3><p>A new inbound lead gets a real call within about 60 seconds, at 9pm on a Sunday, every time. This is the biggest lever on connect and qualification rates, and the one humans cannot cover around the clock.</p><span class="vx-tag">60s first call</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><h3>Consent, DNC and opt-out layer</h3><p>Consent language and timestamps captured at the form, National DNC plus your internal suppression list scrubbed upstream, and a detected opt-out written back to the CRM instantly and permanently.</p><span class="vx-tag">Built in, not bolted on</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div><h3>A2P 10DLC and caller reputation</h3><p>Registered messaging on the SMS follow-up leg, sensible calling hours, clear agent identification on every call, and branded caller ID where available, so your numbers keep connecting.</p><span class="vx-tag">Numbers that connect</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div><h3>Natural voice and real scripts</h3><p>Premium voices and scripts written for your offer and your objections, not a generic demo. The agent says who it is, why it is calling, and gets to the qualifying question fast.</p><span class="vx-tag">Sounds human</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><h3>Human handoff on intent</h3><p>The agent fills the calendar and a person closes. Hot, opted-in leads route to a live agent the second real buying intent shows up, which is also your compliance safety valve.</p><span class="vx-tag">Agent books, person closes</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div><h3>Everything logged in your CRM</h3><p>Calls recorded and transcribed, outcomes and consent written to the contact record, pipeline stages updated automatically. Built natively in <a href="/gohighlevel-services">GoHighLevel</a>, or on Twilio and your stack.</p><span class="vx-tag">One source of truth</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><path d="M13 2L4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5z"/></svg></div><h3>Speed to lead under a minute</h3><p>A new inbound lead gets a real call within about 60 seconds, at 9pm on a Sunday, every time. This is the biggest lever on connect and qualification rates, and the one humans cannot cover around the clock.</p><span class="vx-tag">60s first call</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3z"/><path d="M9 12.2l2 2 4.2-4.4" stroke="#fff" stroke-width="2" fill="none"/></svg></div><h3>Consent, DNC and opt-out layer</h3><p>Consent language and timestamps captured at the form, National DNC plus your internal suppression list scrubbed upstream, and a detected opt-out written back to the CRM instantly and permanently.</p><span class="vx-tag">Built in, not bolted on</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><path d="M6.6 3h3.1l1.6 4-2 1.3a12 12 0 005.4 5.4l1.3-2 4 1.6v3.1A2.6 2.6 0 0117.4 19 14.4 14.4 0 015 6.6 2.6 2.6 0 016.6 3z"/></svg></div><h3>A2P 10DLC and caller reputation</h3><p>Registered messaging on the SMS follow-up leg, sensible calling hours, clear agent identification on every call, and branded caller ID where available, so your numbers keep connecting.</p><span class="vx-tag">Numbers that connect</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><path d="M4 5h16a1 1 0 011 1v9a1 1 0 01-1 1H9l-5 4V6a1 1 0 011-1z"/><circle cx="9" cy="10.5" r="1.1" fill="#fff"/><circle cx="12.5" cy="10.5" r="1.1" fill="#fff"/><circle cx="16" cy="10.5" r="1.1" fill="#fff"/></svg></div><h3>Natural voice and real scripts</h3><p>Premium voices and scripts written for your offer and your objections, not a generic demo. The agent says who it is, why it is calling, and gets to the qualifying question fast.</p><span class="vx-tag">Sounds human</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0111 0z"/><circle cx="17" cy="9" r="2.4" opacity=".45"/><path d="M14.2 18a4.4 4.4 0 016.3-3.9" opacity=".45"/></svg></div><h3>Human handoff on intent</h3><p>The agent fills the calendar and a person closes. Hot, opted-in leads route to a live agent the second real buying intent shows up, which is also your compliance safety valve.</p><span class="vx-tag">Agent books, person closes</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><rect x="3.5" y="12" width="4" height="8" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="16.5" y="3.5" width="4" height="16.5" rx="1"/></svg></div><h3>Everything logged in your CRM</h3><p>Calls recorded and transcribed, outcomes and consent written to the contact record, pipeline stages updated automatically. Built natively in <a href="/gohighlevel-services">GoHighLevel</a>, or on Twilio and your stack.</p><span class="vx-tag">One source of truth</span></div>
     </div>
   </div>
 </section>
@@ -3489,12 +3508,12 @@
       <p class="vx-sub">We build these for teams whose revenue depends on reaching a lead before a competitor does.</p>
     </div>
     <div class="vx-grid">
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div><h3>Real estate teams and brokerages</h3><p>Instant follow-up on portal and form leads, long-horizon nurture on past clients, and appointment setting for agents. See <a href="/gohighlevel-real-estate">GoHighLevel for real estate</a>.</p><span class="vx-tag">Speed wins the listing</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><h3>Agencies reselling to clients</h3><p>White-label the whole calling system and resell it under your brand, with per-client sub-accounts, compliance defaults and billing already handled.</p><span class="vx-tag">Resell under your brand</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h3>Home services and local business</h3><p>Missed-call recovery, after-hours booking and quote follow-up, so the job does not go to whoever picked up first.</p><span class="vx-tag">No missed jobs</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div><h3>Clinics, med spas and dental</h3><p>Appointment booking, reminders, waitlist backfill and reactivation calls that front desk staff never get time to make.</p><span class="vx-tag">Fill the empty chair</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div><h3>B2B SaaS and sales teams</h3><p>Instant speed-to-lead on demo requests plus qualification before the call reaches an account executive. Pairs with <a href="/lead-generation">B2B lead generation</a>.</p><span class="vx-tag">Qualify before the AE</span></div>
-      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3>Anyone already burned by a dialer</h3><p>If your numbers are getting flagged, opt-outs are not syncing, or you are unsure whether your setup is compliant, we audit it and rebuild the layer underneath.</p><span class="vx-tag">Audit then rebuild</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><path d="M12 3l9 8h-2.5v9h-5v-5.5h-3V20h-5v-9H3l9-8z"/></svg></div><h3>Real estate teams and brokerages</h3><p>Instant follow-up on portal and form leads, long-horizon nurture on past clients, and appointment setting for agents. See <a href="/gohighlevel-real-estate">GoHighLevel for real estate</a>.</p><span class="vx-tag">Speed wins the listing</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0111 0z"/><circle cx="17" cy="9" r="2.4" opacity=".45"/><path d="M14.2 18a4.4 4.4 0 016.3-3.9" opacity=".45"/></svg></div><h3>Agencies reselling to clients</h3><p>White-label the whole calling system and resell it under your brand, with per-client sub-accounts, compliance defaults and billing already handled.</p><span class="vx-tag">Resell under your brand</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><path d="M13 2L4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5z"/></svg></div><h3>Home services and local business</h3><p>Missed-call recovery, after-hours booking and quote follow-up, so the job does not go to whoever picked up first.</p><span class="vx-tag">No missed jobs</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><path d="M12 20.5S3.5 15.4 3.5 9.6A4.6 4.6 0 0112 7.2a4.6 4.6 0 018.5 2.4c0 5.8-8.5 10.9-8.5 10.9z"/></svg></div><h3>Clinics, med spas and dental</h3><p>Appointment booking, reminders, waitlist backfill and reactivation calls that front desk staff never get time to make.</p><span class="vx-tag">Fill the empty chair</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><rect x="3.5" y="12" width="4" height="8" rx="1"/><rect x="10" y="7" width="4" height="13" rx="1"/><rect x="16.5" y="3.5" width="4" height="16.5" rx="1"/></svg></div><h3>B2B SaaS and sales teams</h3><p>Instant speed-to-lead on demo requests plus qualification before the call reaches an account executive. Pairs with <a href="/lead-generation">B2B lead generation</a>.</p><span class="vx-tag">Qualify before the AE</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="#F45407" stroke="none" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.4l3.4 2" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div><h3>Anyone already burned by a dialer</h3><p>If your numbers are getting flagged, opt-outs are not syncing, or you are unsure whether your setup is compliant, we audit it and rebuild the layer underneath.</p><span class="vx-tag">Audit then rebuild</span></div>
     </div>
   </div>
 </section>
@@ -3512,13 +3531,13 @@
         <div class="vx-amt"><b>$2,497</b><span>one-time, from</span></div>
         <p>A complete, compliant AI calling system live on your stack.</p>
         <ul>
-          <li><i>&#10003;</i>Discovery, call flows and scripts for your offer</li>
-          <li><i>&#10003;</i>Consent capture and logging wired into your forms</li>
-          <li><i>&#10003;</i>National DNC and opt-out scrubbing upstream of the dialer</li>
-          <li><i>&#10003;</i>A2P 10DLC registration on the SMS leg</li>
-          <li><i>&#10003;</i>CRM, calendar and pipeline integration</li>
-          <li><i>&#10003;</i>Recording, transcription and handoff rules</li>
-          <li><i>&#10003;</i>Live in 2 to 4 weeks</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Discovery, call flows and scripts for your offer</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Consent capture and logging wired into your forms</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>National DNC and opt-out scrubbing upstream of the dialer</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>A2P 10DLC registration on the SMS leg</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>CRM, calendar and pipeline integration</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Recording, transcription and handoff rules</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Live in 2 to 4 weeks</li>
         </ul>
         <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="vx-btn vx-btn--p">Book a 30-Minute Call</a>
       </div>
@@ -3528,12 +3547,12 @@
         <div class="vx-amt"><b>$1,997</b><span>/month, from</span></div>
         <p>We run it, tune it and keep it compliant while you take the meetings.</p>
         <ul>
-          <li><i>&#10003;</i>Everything in the build, kept running</li>
-          <li><i>&#10003;</i>Script and objection tuning against real outcomes</li>
-          <li><i>&#10003;</i>Ongoing DNC and suppression list hygiene</li>
-          <li><i>&#10003;</i>Number and caller reputation monitoring</li>
-          <li><i>&#10003;</i>Connect, qualification and booking reporting</li>
-          <li><i>&#10003;</i>Direct access to the team that built it</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Everything in the build, kept running</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Script and objection tuning against real outcomes</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Ongoing DNC and suppression list hygiene</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Number and caller reputation monitoring</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Connect, qualification and booking reporting</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Direct access to the team that built it</li>
         </ul>
         <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="vx-btn vx-btn--p">Book a 30-Minute Call</a>
       </div>
@@ -3542,12 +3561,12 @@
         <div class="vx-amt"><b>Custom</b><span>scoped with you</span></div>
         <p>Resell AI calling to your own clients under your own brand.</p>
         <ul>
-          <li><i>&#10003;</i>Multi-client sub-account architecture</li>
-          <li><i>&#10003;</i>Your branding, your pricing, your client relationship</li>
-          <li><i>&#10003;</i>Compliance defaults baked into every client build</li>
-          <li><i>&#10003;</i>Snapshot so each new client deploys fast</li>
-          <li><i>&#10003;</i>Billing and plan gating configured</li>
-          <li><i>&#10003;</i>Built by a <a href="/hire-gohighlevel-developer">certified GoHighLevel developer</a></li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Multi-client sub-account architecture</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Your branding, your pricing, your client relationship</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Compliance defaults baked into every client build</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Snapshot so each new client deploys fast</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Billing and plan gating configured</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Built by a <a href="/hire-gohighlevel-developer">certified GoHighLevel developer</a></li>
         </ul>
         <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="vx-btn vx-btn--p">Book a 30-Minute Call</a>
       </div>
@@ -3563,7 +3582,7 @@
       <h2 class="vx-h2">AI voice agents, answered straight</h2>
       <p class="vx-sub">The questions buyers actually ask before they build, including the legal one.</p>
     </div>
-    <div class="vx-faq"><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>Who builds TCPA-compliant AI voice agents?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>We do. imisofts builds the agent and the compliance layer together: consent captured and logged at the source, National DNC and your internal opt-out list scrubbed before any number reaches the dialer, opt-outs honored instantly across calls and texts, A2P 10DLC registration, and a live human handoff on buying intent. 500+ projects delivered across 30 countries, and a working system in 2 to 4 weeks.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>Are AI voice agents legal for outbound calling in the US?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>Calling people who never opted in with an autodialer or an artificial or prerecorded voice carries the highest TCPA exposure and generally requires prior express written consent. The lower-risk and higher-converting use is AI follow-up on leads who already opted in through your own forms. The AI is not the legal risk, your setup is. This is not legal advice, so confirm your specific setup with a telecom attorney.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>How fast can an AI voice agent go live?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>A standard build goes live in 2 to 4 weeks: consent and DNC wiring, the agent and its scripts, CRM and calendar integration, A2P 10DLC for the SMS leg, recording and transcription, and the handoff rules. Carrier A2P timelines can add time outside our control.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>How much does an AI voice agent cost?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>Builds start at $2,497 and managed operations start at $1,997 per month. Underlying usage is paid directly to the vendors: telephony per minute, the voice and speech engine, and your CRM plan. We size scope on a 30-minute call before quoting.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>Do AI voice agents work with GoHighLevel?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>Yes. We build natively inside GoHighLevel so calls, contacts, opt-outs and pipeline stages live in one CRM, which is what keeps the compliance record clean. We also build on Twilio and your existing stack when that fits better.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>What do AI voice agents actually do well?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>Speed to lead and persistence. Calling a brand-new inbound lead within about a minute at any hour, qualifying against your criteria, booking the appointment, and never skipping the fifth follow-up. A person should still close. The agent hands over the moment real buying intent shows up.</p></div></div></div>
+    <div class="vx-faq"><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>Who builds TCPA-compliant AI voice agents?</span><span class="vx-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="vx-ans"><p>We do. imisofts builds the agent and the compliance layer together: consent captured and logged at the source, National DNC and your internal opt-out list scrubbed before any number reaches the dialer, opt-outs honored instantly across calls and texts, A2P 10DLC registration, and a live human handoff on buying intent. 500+ projects delivered across 30 countries, and a working system in 2 to 4 weeks.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>Are AI voice agents legal for outbound calling in the US?</span><span class="vx-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="vx-ans"><p>Calling people who never opted in with an autodialer or an artificial or prerecorded voice carries the highest TCPA exposure and generally requires prior express written consent. The lower-risk and higher-converting use is AI follow-up on leads who already opted in through your own forms. The AI is not the legal risk, your setup is. This is not legal advice, so confirm your specific setup with a telecom attorney.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>How fast can an AI voice agent go live?</span><span class="vx-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="vx-ans"><p>A standard build goes live in 2 to 4 weeks: consent and DNC wiring, the agent and its scripts, CRM and calendar integration, A2P 10DLC for the SMS leg, recording and transcription, and the handoff rules. Carrier A2P timelines can add time outside our control.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>How much does an AI voice agent cost?</span><span class="vx-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="vx-ans"><p>Builds start at $2,497 and managed operations start at $1,997 per month. Underlying usage is paid directly to the vendors: telephony per minute, the voice and speech engine, and your CRM plan. We size scope on a 30-minute call before quoting.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>Do AI voice agents work with GoHighLevel?</span><span class="vx-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="vx-ans"><p>Yes. We build natively inside GoHighLevel so calls, contacts, opt-outs and pipeline stages live in one CRM, which is what keeps the compliance record clean. We also build on Twilio and your existing stack when that fits better.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>What do AI voice agents actually do well?</span><span class="vx-chev"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0B1220" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="vx-ans"><p>Speed to lead and persistence. Calling a brand-new inbound lead within about a minute at any hour, qualifying against your criteria, booking the appointment, and never skipping the fifth follow-up. A person should still close. The agent hands over the moment real buying intent shows up.</p></div></div></div>
   </div>
 </section>
 
