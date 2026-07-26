@@ -3148,6 +3148,18 @@
   .vx-stats b{font-size:15.5px;letter-spacing:-.3px}
   .vx-stats span{font-size:10px;margin-top:4px;line-height:1.25}
 }
+
+/* ---------- hero trust line (replaces the stats cards) ---------- */
+.vx-trust{display:inline-flex;align-items:center;gap:10px;font-size:14px;line-height:1.5;color:var(--body);
+ background:var(--surf);border:1px solid var(--line);padding:11px 18px;border-radius:30px;flex-wrap:wrap;margin-top:28px}
+.vx-trust .vx-dot{width:6px;height:6px;border-radius:50%;background:var(--o);flex-shrink:0}
+.vx-trust .vx-sep{color:#CBD5E1;margin:0 2px}
+.vx-trust strong{color:var(--ink);font-weight:650}
+@media(max-width:560px){
+  .vx-trust{font-size:12.5px;padding:10px 14px;gap:8px;margin-top:22px;border-radius:20px}
+  .vx-trust .vx-sep{display:none}
+  .vx-trust br{display:none}
+}
 </style>
 </head>
 <body>
@@ -3506,7 +3518,7 @@
           <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="vx-btn vx-btn--p">Book a 30-Minute Call</a>
           <a href="#vx-pricing" class="vx-btn vx-btn--g">See Pricing</a>
         </div>
-        <div class="vx-stats"><div><b>0.3%</b><span>spam rate ceiling</span></div><div><b>3</b><span>records required</span></div><div><b>14 days</b><span>to first send</span></div></div>
+        <div class="vx-trust"><span class="vx-dot"></span><span><strong>500+ projects</strong> delivered across 30 countries</span><span class="vx-sep">&middot;</span><span>Sending in about 14 days</span></div></div>
       </div>
       <div class="vx-rise"><div class="vx-console"><div class="vx-chead"><span class="vx-live"><i></i>DOMAIN HEALTH</span><span class="vx-timer">All passing</span></div><div class="vx-row"><div><b>SPF</b><small>Sender authorised, single lookup chain</small></div><span class="vx-badge vx-badge--ok">Pass</span></div><div class="vx-row"><div><b>DKIM</b><small>2048-bit key, signature valid</small></div><span class="vx-badge vx-badge--ok">Pass</span></div><div class="vx-row"><div><b>DMARC</b><small>Policy published, reports flowing</small></div><span class="vx-badge vx-badge--ok">Pass</span></div><div class="vx-row"><div><b>One-click unsubscribe</b><small>RFC 8058 header present</small></div><span class="vx-badge vx-badge--ok">Pass</span></div><div class="vx-row"><div><b>Warm-up</b><small>Day 14 of 14, volume ramping</small></div><span class="vx-badge vx-badge--ok">Ready</span></div><div class="vx-row"><div><b>Spam complaint rate</b><small>0.04% against a 0.3% ceiling</small></div><span class="vx-badge vx-badge--ok">Healthy</span></div></div><p class="vx-cap">Illustrative domain health view. Yours is monitored continuously.</p></div>
     </div>

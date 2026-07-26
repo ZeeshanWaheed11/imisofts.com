@@ -3148,6 +3148,18 @@
   .vx-stats b{font-size:15.5px;letter-spacing:-.3px}
   .vx-stats span{font-size:10px;margin-top:4px;line-height:1.25}
 }
+
+/* ---------- hero trust line (replaces the stats cards) ---------- */
+.vx-trust{display:inline-flex;align-items:center;gap:10px;font-size:14px;line-height:1.5;color:var(--body);
+ background:var(--surf);border:1px solid var(--line);padding:11px 18px;border-radius:30px;flex-wrap:wrap;margin-top:28px}
+.vx-trust .vx-dot{width:6px;height:6px;border-radius:50%;background:var(--o);flex-shrink:0}
+.vx-trust .vx-sep{color:#CBD5E1;margin:0 2px}
+.vx-trust strong{color:var(--ink);font-weight:650}
+@media(max-width:560px){
+  .vx-trust{font-size:12.5px;padding:10px 14px;gap:8px;margin-top:22px;border-radius:20px}
+  .vx-trust .vx-sep{display:none}
+  .vx-trust br{display:none}
+}
 </style>
 </head>
 <body>
@@ -3506,7 +3518,7 @@
           <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="vx-btn vx-btn--p">Book a 30-Minute Call</a>
           <a href="#vx-pricing" class="vx-btn vx-btn--g">See Pricing</a>
         </div>
-        <div class="vx-stats"><div><b>&lt;60 sec</b><span>target first contact</span></div><div><b>78%</b><span>close with first responder</span></div><div><b>2-4 wks</b><span>to live</span></div></div>
+        <div class="vx-trust"><span class="vx-dot"></span><span><strong>500+ projects</strong> delivered across 30 countries</span><span class="vx-sep">&middot;</span><span>Live in 2 to 4 weeks</span></div></div>
       </div>
       <div class="vx-rise"><div class="vx-dash"><div class="vx-chead"><span class="vx-live"><i></i>PRODUCER DESK</span><span class="vx-timer">Today</span></div><div class="vx-dstat"><div><b>64</b><span>Leads contacted</span></div><div><b>21</b><span>Qualified</span></div><div><b>12</b><span>Appointments set</span></div></div><div class="vx-row"><div><b>Auto quote request</b><small>Contacted in 38 seconds</small></div><span class="vx-badge vx-badge--ok">Qualified</span></div><div class="vx-row"><div><b>Home bundle enquiry</b><small>Booked with producer, 2pm</small></div><span class="vx-badge vx-badge--ok">Booked</span></div><div class="vx-row"><div><b>On internal opt-out list</b><small>Blocked before dialing</small></div><span class="vx-badge vx-badge--w">Suppressed</span></div><div class="vx-row"><div><b>Renewal due in 30 days</b><small>Outreach sequence started</small></div><span class="vx-badge vx-badge--ok">Running</span></div><div class="vx-row"><div><b>Lapsed policy, 90 days</b><small>Win-back call queued</small></div><span class="vx-badge vx-badge--ok">Queued</span></div></div><p class="vx-cap">Illustrative producer view. Yours runs in your own CRM.</p></div>
     </div>
