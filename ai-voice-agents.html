@@ -3126,6 +3126,21 @@
   .vx-fact b{font-size:21px}
   .vx-facts{gap:8px;margin:18px 0}
 }
+
+/* ---------- hero figures: proper cards, not floating text ---------- */
+.vx-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;border-top:0;padding-top:0;margin-top:30px;max-width:540px}
+.vx-stats>div{background:#fff;border:1px solid var(--line);border-radius:10px;padding:15px 16px 14px 19px;position:relative;overflow:hidden}
+.vx-stats>div::before{content:"";position:absolute;left:0;top:11px;bottom:11px;width:3px;border-radius:0 3px 3px 0;background:var(--o)}
+.vx-stats b{display:block;font-size:clamp(19px,2vw,25px);color:var(--ink);font-weight:800;letter-spacing:-.7px;line-height:1.05;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.vx-stats span{display:block;font-size:11.5px;color:var(--mute);margin-top:6px;line-height:1.32;letter-spacing:.1px}
+@media(max-width:1024px){.vx-stats{max-width:none}}
+@media(max-width:560px){
+  .vx-stats{gap:8px;margin-top:24px}
+  .vx-stats>div{padding:12px 9px 11px 13px;border-radius:8px}
+  .vx-stats>div::before{top:8px;bottom:8px;width:2.5px}
+  .vx-stats b{font-size:15.5px;letter-spacing:-.3px}
+  .vx-stats span{font-size:10px;margin-top:4px;line-height:1.25}
+}
 </style>
 </head>
 <body>
