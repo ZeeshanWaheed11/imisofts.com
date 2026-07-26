@@ -2910,6 +2910,167 @@
     }
 
   </style>
+
+<style id="vx-layer">
+/* ===== AI Voice Agents redesign layer (scoped .vx-) - site palette only ===== */
+.vx{--o:#F45407;--o-soft:#FFF3ED;--o-line:#FCD9C6;--ink:#0B1220;--body:#475569;--mute:#94A3B8;--line:#E2E8F0;--surf:#F8FAFC;
+ font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--body);overflow-x:hidden}
+.vx *{box-sizing:border-box}
+.vx-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.vx-sec{padding:clamp(56px,7vw,96px) 0;position:relative}
+.vx-sec--surf{background:var(--surf)}
+.vx-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:1px;
+ color:var(--o);background:var(--o-soft);border:1px solid var(--o-line);padding:7px 14px;border-radius:30px;text-transform:uppercase}
+.vx-eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--o);animation:vxblip 1.8s infinite}
+@keyframes vxblip{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(244,84,7,.45)}50%{opacity:.55;box-shadow:0 0 0 7px rgba(244,84,7,0)}}
+.vx h2.vx-h2{font-size:clamp(28px,3.6vw,42px);line-height:1.15;color:var(--ink);font-weight:800;letter-spacing:-.9px;margin:16px 0 14px}
+.vx p.vx-sub{font-size:clamp(15px,1.6vw,18px);line-height:1.7;color:var(--body);max-width:640px;margin:0}
+.vx-center{text-align:center}.vx-center .vx-sub{margin:0 auto}
+
+/* hero */
+.vx-hero{position:relative;background:#fff;padding-top:clamp(96px,13vw,150px);padding-bottom:clamp(56px,7vw,88px);overflow:hidden}
+.vx-mesh{position:absolute;inset:0;background-image:linear-gradient(rgba(244,84,7,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(244,84,7,.05) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse 80% 60% at 70% 0%,#000,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 60% at 70% 0%,#000,transparent 70%)}
+.vx-halo{position:absolute;width:720px;height:720px;right:-240px;top:-320px;background:radial-gradient(circle,rgba(244,84,7,.16),transparent 66%);pointer-events:none}
+.vx-hero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:52px;align-items:center}
+.vx-hero h1{font-size:clamp(34px,5vw,58px);line-height:1.06;color:var(--ink);font-weight:800;letter-spacing:-1.6px;margin:20px 0 18px}
+.vx-hero h1 em{color:var(--o);font-style:normal}
+.vx-lead{font-size:clamp(16px,1.7vw,19px);line-height:1.7;color:var(--body);max-width:520px;margin:0 0 28px}
+.vx-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px}
+.vx-btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;padding:14px 26px;border-radius:40px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.vx-btn--p{background:var(--o);color:#fff;box-shadow:0 10px 26px rgba(244,84,7,.28)}
+.vx-btn--p:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(244,84,7,.36)}
+.vx-btn--g{background:#fff;color:var(--ink);border:1px solid #CBD5E1}
+.vx-btn--g:hover{border-color:var(--o);color:var(--o)}
+.vx-stats{display:flex;gap:34px;border-top:1px solid var(--line);padding-top:20px;flex-wrap:wrap}
+.vx-stats b{display:block;font-size:clamp(22px,2.6vw,30px);color:var(--ink);font-weight:800;letter-spacing:-.5px}
+.vx-stats span{font-size:12.5px;color:var(--mute)}
+
+/* console (designed interface) */
+.vx-console{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 24px 60px rgba(11,18,32,.13)}
+.vx-chead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.vx-live{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:800;color:var(--o);letter-spacing:1.2px}
+.vx-live i{width:7px;height:7px;border-radius:50%;background:var(--o);animation:vxblip 1.3s infinite}
+.vx-timer{font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums}
+.vx-wave{display:flex;align-items:flex-end;gap:4px;height:58px;margin-bottom:16px}
+.vx-wave span{flex:1;background:linear-gradient(180deg,var(--o),rgba(244,84,7,.28));border-radius:3px;height:var(--h);transform-origin:bottom;animation:vxwave 1.05s ease-in-out infinite;animation-delay:var(--d)}
+@keyframes vxwave{0%,100%{transform:scaleY(.32)}50%{transform:scaleY(1)}}
+.vx-script{display:flex;flex-direction:column;gap:8px;margin-bottom:15px}
+.vx-ln{font-size:13px;line-height:1.5;color:#334155;background:var(--surf);border-left:2.5px solid var(--o);padding:9px 12px;border-radius:0 8px 8px 0}
+.vx-ln b{display:block;font-size:9.5px;color:var(--o);letter-spacing:.8px;margin-bottom:3px;text-transform:uppercase}
+.vx-ln--lead{border-left-color:#CBD5E1;background:#F1F5F9}.vx-ln--lead b{color:var(--mute)}
+.vx-cks{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.vx-ck{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:#15803D;background:#F0FDF4;border:1px solid #BBF7D0;padding:6px 11px;border-radius:30px}
+.vx-booked{display:flex;align-items:center;gap:12px;background:var(--o-soft);border:1px solid var(--o-line);border-radius:12px;padding:13px 15px}
+.vx-booked b{display:block;color:var(--ink);font-size:14px}
+.vx-booked span{font-size:12px;color:#64748B}
+.vx-cap{font-size:11.5px;color:var(--mute);text-align:center;margin-top:12px}
+
+/* answer block */
+.vx-answer{max-width:860px;margin:0 auto}
+.vx-answer p{font-size:clamp(15.5px,1.7vw,18px);line-height:1.8;margin:0 0 18px;color:var(--body)}
+.vx-answer a{color:var(--o);font-weight:600;text-decoration:none;border-bottom:1px solid var(--o-line)}
+.vx-answer strong{color:var(--ink)}
+
+/* cards */
+.vx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px;margin-top:44px}
+.vx-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 26px;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+.vx-card:before{content:"";position:absolute;left:0;top:0;height:3px;width:0;background:var(--o);transition:width .35s}
+.vx-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(11,18,32,.10);border-color:#CBD5E1}
+.vx-card:hover:before{width:100%}
+.vx-ico{width:46px;height:46px;border-radius:12px;background:var(--o-soft);border:1px solid var(--o-line);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.vx-card h3{font-size:18px;color:var(--ink);font-weight:700;margin:0 0 10px;letter-spacing:-.2px}
+.vx-card p{font-size:14.5px;line-height:1.65;color:var(--body);margin:0}
+.vx-card p a{color:var(--o);font-weight:600;text-decoration:none}
+.vx-tag{display:inline-block;margin-top:14px;font-size:11px;font-weight:700;color:var(--o);background:var(--o-soft);padding:4px 10px;border-radius:20px;letter-spacing:.4px}
+
+/* compliance gate visual */
+.vx-gate{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.vx-flow{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 20px 50px rgba(11,18,32,.10)}
+.vx-node{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surf);margin-bottom:10px;position:relative}
+.vx-node b{display:block;font-size:14px;color:var(--ink)}
+.vx-node span{font-size:12px;color:var(--mute)}
+.vx-num{width:30px;height:30px;border-radius:9px;background:var(--o);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.vx-node--stop{background:#FEF2F2;border-color:#FECACA}
+.vx-node--stop .vx-num{background:#DC2626}
+.vx-node--stop b{color:#991B1B}.vx-node--stop span{color:#B91C1C}
+.vx-node--go{background:#F0FDF4;border-color:#BBF7D0}
+.vx-node--go .vx-num{background:#16A34A}
+.vx-node--go b{color:#166534}.vx-node--go span{color:#15803D}
+.vx-arrow{height:14px;width:2px;background:var(--line);margin:0 auto 10px;margin-left:31px}
+
+/* dashboard visual */
+.vx-dash{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 20px 50px rgba(11,18,32,.10)}
+.vx-dstat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.vx-dstat div{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:14px}
+.vx-dstat b{display:block;font-size:24px;color:var(--ink);font-weight:800;letter-spacing:-.6px}
+.vx-dstat span{font-size:11.5px;color:var(--mute)}
+.vx-row{display:flex;align-items:center;justify-content:space-between;padding:11px 13px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;font-size:13px}
+.vx-row b{color:var(--ink);font-weight:600}
+.vx-row small{color:var(--mute);font-size:11.5px;display:block}
+.vx-badge{font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:20px}
+.vx-badge--ok{background:#F0FDF4;color:#15803D;border:1px solid #BBF7D0}
+.vx-badge--w{background:var(--o-soft);color:var(--o);border:1px solid var(--o-line)}
+
+/* pricing */
+.vx-price{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:48px;align-items:start}
+.vx-plan{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px 28px;display:flex;flex-direction:column;height:100%}
+.vx-plan--hot{border:2px solid var(--o);box-shadow:0 20px 50px rgba(244,84,7,.14);position:relative}
+.vx-hot{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--o);color:#fff;font-size:11px;font-weight:700;padding:5px 15px;border-radius:20px;letter-spacing:.5px;white-space:nowrap}
+.vx-plan h3{font-size:19px;color:var(--ink);margin:0 0 8px;font-weight:700}
+.vx-amt{display:flex;align-items:baseline;gap:6px;margin:14px 0 10px}
+.vx-amt b{font-size:38px;color:var(--ink);font-weight:800;letter-spacing:-1.4px}
+.vx-amt span{font-size:14px;color:var(--mute)}
+.vx-plan>p{font-size:14px;color:var(--body);line-height:1.6;margin:0 0 20px}
+.vx-plan ul{list-style:none;padding:0;margin:0 0 26px;flex:1}
+.vx-plan li{display:flex;gap:10px;font-size:14px;line-height:1.55;color:var(--body);margin-bottom:11px}
+.vx-plan li i{color:#16A34A;font-weight:800;flex-shrink:0;font-style:normal}
+.vx-plan li a{color:var(--o);font-weight:600;text-decoration:none}
+.vx-plan .vx-btn{justify-content:center;width:100%}
+.vx-note{text-align:center;color:var(--mute);font-size:13.5px;margin-top:26px;max-width:640px;margin-left:auto;margin-right:auto;line-height:1.6}
+
+/* faq */
+.vx-faq{max-width:860px;margin:44px auto 0}
+.vx-q{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:#fff;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.vx-q[data-open="1"]{border-color:var(--o-line);box-shadow:0 10px 30px rgba(11,18,32,.07)}
+.vx-qbtn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;background:none;border:0;padding:20px 24px;cursor:pointer;font-size:16px;font-weight:650;color:var(--ink);font-family:inherit;line-height:1.45}
+.vx-qbtn:hover{color:var(--o)}
+.vx-chev{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--surf);display:flex;align-items:center;justify-content:center;transition:transform .3s,background .2s}
+.vx-q[data-open="1"] .vx-chev{transform:rotate(180deg);background:var(--o-soft)}
+.vx-ans{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.vx-ans p{padding:0 24px 22px;margin:0;font-size:15px;line-height:1.75;color:var(--body)}
+
+/* reveal (bulletproof: visible unless JS is active) */
+.vx-rise{opacity:1}
+.vx-js .vx-rise{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.vx-js .vx-rise.vx-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .vx-js .vx-rise{opacity:1;transform:none;transition:none}
+  .vx-wave span,.vx-eyebrow i,.vx-live i{animation:none}
+}
+
+/* responsive */
+@media(max-width:980px){
+  .vx-hero-grid,.vx-gate{grid-template-columns:1fr;gap:40px}
+  .vx-hero{padding-top:clamp(84px,16vw,110px)}
+  .vx-lead{max-width:none}
+  .vx-halo{width:460px;height:460px;right:-190px;top:-230px}
+}
+@media(max-width:640px){
+  .vx-wrap{padding:0 18px}
+  .vx-stats{gap:22px}
+  .vx-btn{width:100%;justify-content:center}
+  .vx-ctas{flex-direction:column}
+  .vx-console,.vx-flow,.vx-dash{padding:15px;border-radius:14px}
+  .vx-wave{height:44px}
+  .vx-dstat{grid-template-columns:1fr;gap:9px}
+  .vx-dstat b{font-size:21px}
+  .vx-card{padding:24px 20px}
+  .vx-plan{padding:26px 22px}
+  .vx-qbtn{padding:17px 18px;font-size:15px}
+  .vx-ans p{padding:0 18px 18px}
+  .vx-row{flex-wrap:wrap;gap:6px}
+}
+</style>
 </head>
 <body>
   
@@ -3194,279 +3355,221 @@
     </div>
   </nav>
   </header>
+<div class="vx">
 
-  <main>
-  
-  <!-- Hero Section -->
-  <section class="hero-saas">
-    <div class="container">
-      <div class="hero-saas__grid">
-        <div class="hero-saas__content">
-          <span class="hero-saas__eyebrow">
-            <span class="hero-saas__eyebrow-dot"></span>
-            AI Voice Agents Built Compliant From Day One
-          </span>
-          <h1 class="hero-saas__headline">
-            Your Leads Get Called in 60 Seconds. <span>Legally.</span>
-          </h1>
-          <p class="hero-saas__lead">We build AI voice agents that call, qualify and follow up with your leads around the clock, with consent capture, DNC scrubbing and opt-out handling built in before the first call is ever placed. Live in 2 to 4 weeks.</p>
-          <div class="hero-saas__cta">
-            <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill--primary">Book a 30-Minute Call</a>
-            <a href="#packages" class="btn-pill btn-pill--ghost">See Pricing</a>
+<section class="vx-hero">
+  <div class="vx-mesh"></div><div class="vx-halo"></div>
+  <div class="vx-wrap">
+    <div class="vx-hero-grid">
+      <div class="vx-rise">
+        <span class="vx-eyebrow"><i></i>AI Voice Agents &middot; Built Compliant</span>
+        <h1>Your Leads Get Called in 60 Seconds. <em>Legally.</em></h1>
+        <p class="vx-lead">We build AI voice agents that call, qualify and follow up with your leads around the clock, with consent capture, DNC scrubbing and opt-out handling wired in before the first call is ever placed.</p>
+        <div class="vx-ctas">
+          <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="vx-btn vx-btn--p">Book a 30-Minute Call</a>
+          <a href="#vx-pricing" class="vx-btn vx-btn--g">See Pricing</a>
+        </div>
+        <div class="vx-stats">
+          <div><b>60s</b><span>typical first call</span></div>
+          <div><b>24/7</b><span>never sleeps</span></div>
+          <div><b>2-4 wks</b><span>to live</span></div>
+        </div>
+      </div>
+      <div class="vx-rise">
+        <div class="vx-console">
+          <div class="vx-chead"><span class="vx-live"><i></i>LIVE CALL</span><span class="vx-timer">00:12</span></div>
+          <div class="vx-wave"><span style="--h:30%;--d:0s"></span><span style="--h:65%;--d:.1s"></span><span style="--h:45%;--d:.2s"></span><span style="--h:85%;--d:.3s"></span><span style="--h:55%;--d:.4s"></span><span style="--h:95%;--d:.5s"></span><span style="--h:40%;--d:.6s"></span><span style="--h:70%;--d:.7s"></span><span style="--h:52%;--d:.8s"></span><span style="--h:88%;--d:.9s"></span><span style="--h:35%;--d:1s"></span><span style="--h:62%;--d:1.1s"></span><span style="--h:92%;--d:1.2s"></span><span style="--h:46%;--d:1.3s"></span><span style="--h:74%;--d:1.4s"></span><span style="--h:38%;--d:1.5s"></span></div>
+          <div class="vx-script">
+            <div class="vx-ln"><b>Agent</b>Hi Sarah, calling about the listing you enquired on.</div>
+            <div class="vx-ln vx-ln--lead"><b>Lead</b>Yes, is it still available?</div>
+            <div class="vx-ln"><b>Agent</b>It is. I can book you a viewing tomorrow at 4pm?</div>
+          </div>
+          <div class="vx-cks">
+            <span class="vx-ck">&#10003; Consent logged</span>
+            <span class="vx-ck">&#10003; DNC scrubbed</span>
+            <span class="vx-ck">&#10003; Opt-out armed</span>
+          </div>
+          <div class="vx-booked">
+            <svg width="20" height="20" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span><b>Appointment booked</b>Tomorrow, 4:00 PM</span>
           </div>
         </div>
+        <p class="vx-cap">Illustrative interface. Your build runs in your own CRM.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section-padding">
-    <div class="container">
-      <div style="max-width: 820px; margin: 0 auto;">
-        <h2 style="font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: #0B1220; margin-bottom: 20px;">What is an AI voice agent, and who should build yours?</h2>
-        <p style="font-size: 18px; line-height: 1.7; color: #334155; margin-bottom: 18px;">An AI voice agent is software that places and answers real phone calls in a natural voice: it reaches a new lead within about a minute, asks your qualifying questions, books the appointment on your calendar, and follows up as many times as you tell it to, at any hour.</p>
-        <p style="font-size: 18px; line-height: 1.7; color: #334155; margin-bottom: 18px;">The part most teams get wrong is that the agent is the easy half. In the United States, outbound calling is governed by the TCPA, and the exposure is counted per call: $500 per violation and up to $1,500 per willful call or text under 47 U.S.C. section 227. An AI that dials thousands of numbers a day will scale a compliance mistake just as fast as it scales your pipeline.</p>
-        <p style="font-size: 18px; line-height: 1.7; color: #334155;">So the honest answer to who should build yours: someone who ships the compliance layer and the agent as one system. That is what we do at imisofts. Consent captured and logged at the source, the National Do-Not-Call Registry and your internal opt-out list scrubbed upstream so a suppressed number physically cannot reach the dialer, opt-outs honored instantly across both calls and texts, A2P 10DLC registration on the messaging leg, and a live person taking over the moment real buying intent appears. Founded by <a href="/author/zeeshan-waheed/" style="color:#F45407;font-weight:600;">Zeeshan Waheed</a>, our team has delivered 500+ projects across 30 countries. This page is not legal advice, and you should confirm your specific setup with a telecom attorney.</p>
+<section class="vx-sec vx-sec--surf">
+  <div class="vx-wrap">
+    <div class="vx-answer vx-rise">
+      <h2 class="vx-h2">What is an AI voice agent, and who should build yours?</h2>
+      <p>An AI voice agent is software that places and answers real phone calls in a natural voice: it reaches a new lead within about a minute, asks your qualifying questions, books the appointment on your calendar, and follows up as many times as you tell it to, at any hour.</p>
+      <p>The part most teams get wrong is that the agent is the easy half. In the United States, outbound calling is governed by the TCPA, and the exposure is counted per call: <strong>$500 per violation and up to $1,500 per willful call or text</strong> under 47 U.S.C. section 227. An AI that dials thousands of numbers a day will scale a compliance mistake just as fast as it scales your pipeline.</p>
+      <p>So the honest answer to who should build yours: <strong>someone who ships the compliance layer and the agent as one system.</strong> That is what we do at imisofts. Consent captured and logged at the source, the National Do-Not-Call Registry and your internal opt-out list scrubbed upstream so a suppressed number physically cannot reach the dialer, opt-outs honored instantly across both calls and texts, A2P 10DLC registration on the messaging leg, and a live person taking over the moment real buying intent appears. Founded by <a href="/author/zeeshan-waheed/">Zeeshan Waheed</a>, our team has delivered 500+ projects across 30 countries. This page is not legal advice, and you should confirm your specific setup with a telecom attorney.</p>
+    </div>
+  </div>
+</section>
+
+<section class="vx-sec">
+  <div class="vx-wrap">
+    <div class="vx-gate">
+      <div class="vx-rise">
+        <span class="vx-eyebrow"><i></i>The compliance layer</span>
+        <h2 class="vx-h2">A suppressed number physically cannot reach the dialer</h2>
+        <p class="vx-sub">Most teams bolt an AI onto their CRM and hope. We put the gate upstream, so the agent only ever sees numbers it is allowed to call. That is the difference between a growth engine and a liability machine.</p>
+      </div>
+      <div class="vx-rise">
+        <div class="vx-flow">
+          <div class="vx-node"><span class="vx-num">1</span><div><b>New lead enters</b><span>Form fill, portal or CRM import</span></div></div>
+          <div class="vx-arrow"></div>
+          <div class="vx-node"><span class="vx-num">2</span><div><b>Consent checked and logged</b><span>Timestamp, source and exact wording stored</span></div></div>
+          <div class="vx-arrow"></div>
+          <div class="vx-node vx-node--stop"><span class="vx-num">&times;</span><div><b>On the DNC or opted out</b><span>Blocked here. Never reaches the dialer.</span></div></div>
+          <div class="vx-arrow"></div>
+          <div class="vx-node vx-node--go"><span class="vx-num">&#10003;</span><div><b>Cleared to call</b><span>Agent dials, identifies itself, qualifies</span></div></div>
+          <div class="vx-arrow"></div>
+          <div class="vx-node"><span class="vx-num">5</span><div><b>Human takes over on intent</b><span>Hot lead routes to a live agent</span></div></div>
+        </div>
+        <p class="vx-cap">Illustrative flow. Wired into your CRM workflow.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section-padding" style="background:#F8FAFC;">
-    <div class="container">
-      <div style="text-align:center;max-width:720px;margin:0 auto 56px;">
-        <h2 style="font-size: clamp(28px, 4vw, 40px); font-weight:700; color:#0B1220; margin-bottom:16px;">What we build into every AI calling system</h2>
-        <p style="font-size:18px;color:#475569;">The agent is the labor. This is the infrastructure that gives you the license to use it.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
-          <h3>Speed to lead under a minute</h3>
-          <p>A new inbound lead gets a real call within about 60 seconds, at 9pm on a Sunday, every time. This is the single biggest lever on connect and qualification rates, and it is the one humans cannot cover around the clock.</p>
-          <div><span>60s</span><span>typical first-call time</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
-          <h3>Consent, DNC and opt-out layer</h3>
-          <p>Consent language and timestamps captured at the form, National DNC plus your internal suppression list scrubbed upstream, and a detected opt-out written back to the CRM instantly and permanently across calls and texts.</p>
-          <div><span>$1,500</span><span>per willful TCPA call</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
-          <h3>A2P 10DLC and caller reputation</h3>
-          <p>Registered messaging on the SMS follow-up leg, sensible calling hours, clear agent identification on every call, and branded caller ID where it is available, so your numbers keep connecting.</p>
-          <div><span>10DLC</span><span>registered messaging</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></div>
-          <h3>Natural voice and real scripts</h3>
-          <p>Premium voices and scripts written for your offer and objections, not a generic demo. The agent states who it is, why it is calling, and gets to the qualifying question fast.</p>
-          <div><span>24/7</span><span>always answering</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
-          <h3>Human handoff on intent</h3>
-          <p>The agent fills the calendar and a person closes. Hot, opted-in leads route to a live agent the second real buying intent shows up, which is also your compliance safety valve.</p>
-          <div><span>Live</span><span>handoff on intent</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg></div>
-          <h3>Everything logged in your CRM</h3>
-          <p>Calls recorded and transcribed, outcomes and consent written to the contact record, pipeline stages updated automatically. Built natively in GoHighLevel, or on Twilio and your existing stack.</p>
-          <div><span>1 CRM</span><span>single source of truth</span></div>
-        </div>
-      </div>
+<section class="vx-sec vx-sec--surf">
+  <div class="vx-wrap">
+    <div class="vx-center vx-rise">
+      <span class="vx-eyebrow"><i></i>What we build</span>
+      <h2 class="vx-h2">Everything in every AI calling system we ship</h2>
+      <p class="vx-sub">The agent is the labor. This is the infrastructure that gives you the license to use it.</p>
     </div>
-  </section>
-
-  <section class="section-padding">
-    <div class="container">
-      <div style="text-align:center;max-width:720px;margin:0 auto 56px;">
-        <h2 style="font-size: clamp(28px, 4vw, 40px); font-weight:700; color:#0B1220; margin-bottom:16px;">Where AI voice agents pay for themselves</h2>
-        <p style="font-size:18px;color:#475569;">We build these for teams whose revenue depends on reaching a lead before a competitor does.</p>
-      </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg></div>
-          <h3>Real estate teams and brokerages</h3>
-          <p>Instant follow-up on portal and form leads, long-horizon nurture on past clients, and appointment setting for agents, wired into your CRM. See <a href="/gohighlevel-real-estate" style="color:#F45407;font-weight:600;">GoHighLevel for real estate</a>.</p>
-          <div><span>Speed</span><span>beats the other agent</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg></div>
-          <h3>Agencies reselling to clients</h3>
-          <p>White-label the whole calling system and resell it under your brand, with per-client sub-accounts, compliance defaults and billing already handled.</p>
-          <div><span>Resell</span><span>under your brand</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg></div>
-          <h3>Home services and local businesses</h3>
-          <p>Missed-call recovery, after-hours booking and quote follow-up, so the job does not go to whoever answered first.</p>
-          <div><span>24/7</span><span>no missed jobs</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg></div>
-          <h3>Clinics, med spas and dental</h3>
-          <p>Appointment booking, reminders, waitlist backfill and reactivation calls that staff never get time to make.</p>
-          <div><span>Backfill</span><span>empty chair recovery</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg></div>
-          <h3>B2B SaaS and sales teams</h3>
-          <p>Instant speed-to-lead on demo requests plus qualification before the call hits an account executive's calendar. Pairs with <a href="/lead-generation" style="color:#F45407;font-weight:600;">B2B lead generation</a>.</p>
-          <div><span>Qualify</span><span>before the AE</span></div>
-        </div>
-        <div class="why-card">
-          <div class="why-card-accent"></div>
-          <div><svg width="28" height="28" fill="none" stroke="#F45407" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg></div>
-          <h3>Anyone already burned by a dialer</h3>
-          <p>If your numbers are getting flagged, your opt-outs are not syncing, or you are unsure whether your current setup is compliant, we audit and rebuild the layer underneath it.</p>
-          <div><span>Audit</span><span>then rebuild</span></div>
-        </div>
-      </div>
+    <div class="vx-grid">
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h3>Speed to lead under a minute</h3><p>A new inbound lead gets a real call within about 60 seconds, at 9pm on a Sunday, every time. This is the biggest lever on connect and qualification rates, and the one humans cannot cover around the clock.</p><span class="vx-tag">60s first call</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><h3>Consent, DNC and opt-out layer</h3><p>Consent language and timestamps captured at the form, National DNC plus your internal suppression list scrubbed upstream, and a detected opt-out written back to the CRM instantly and permanently.</p><span class="vx-tag">Built in, not bolted on</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></div><h3>A2P 10DLC and caller reputation</h3><p>Registered messaging on the SMS follow-up leg, sensible calling hours, clear agent identification on every call, and branded caller ID where available, so your numbers keep connecting.</p><span class="vx-tag">Numbers that connect</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg></div><h3>Natural voice and real scripts</h3><p>Premium voices and scripts written for your offer and your objections, not a generic demo. The agent says who it is, why it is calling, and gets to the qualifying question fast.</p><span class="vx-tag">Sounds human</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><h3>Human handoff on intent</h3><p>The agent fills the calendar and a person closes. Hot, opted-in leads route to a live agent the second real buying intent shows up, which is also your compliance safety valve.</p><span class="vx-tag">Agent books, person closes</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div><h3>Everything logged in your CRM</h3><p>Calls recorded and transcribed, outcomes and consent written to the contact record, pipeline stages updated automatically. Built natively in <a href="/gohighlevel-services">GoHighLevel</a>, or on Twilio and your stack.</p><span class="vx-tag">One source of truth</span></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="packages" class="section-padding" style="background:#F8FAFC;">
-    <div class="container">
-      <div style="text-align:center;max-width:720px;margin:0 auto 56px;">
-        <h2 style="font-size: clamp(28px, 4vw, 40px); font-weight:700; color:#0B1220; margin-bottom:16px;">Pricing</h2>
-        <p style="font-size:18px;color:#475569;">Priced on the outcome, not by the hour. Telephony, voice engine and CRM usage are paid directly to those vendors so you keep the margin and the control.</p>
-      </div>
-      <div class="pkg-grid">
-        <div class="pkg-card">
-          <div>
-            <h3>Voice Agent Build</h3>
-            <div><span>From $2,497</span><span>one-time</span></div>
-            <p>A complete, compliant AI calling system live on your stack.</p>
-            <div>
-              <p>What you get:</p>
-              <ul>
-                <li><span>&#10003;</span><span>Discovery, call flows and scripts written for your offer</span></li>
-                <li><span>&#10003;</span><span>Consent capture and logging wired into your forms</span></li>
-                <li><span>&#10003;</span><span>National DNC and internal opt-out scrubbing upstream of the dialer</span></li>
-                <li><span>&#10003;</span><span>A2P 10DLC registration on the SMS follow-up leg</span></li>
-                <li><span>&#10003;</span><span>CRM, calendar and pipeline integration</span></li>
-                <li><span>&#10003;</span><span>Recording, transcription and human handoff rules</span></li>
-                <li><span>&#10003;</span><span>Live in 2 to 4 weeks</span></li>
-              </ul>
-            </div>
-            <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill--primary" style="width:100%;text-align:center;">Book a 30-Minute Call</a>
+<section class="vx-sec">
+  <div class="vx-wrap">
+    <div class="vx-gate">
+      <div class="vx-rise">
+        <div class="vx-dash">
+          <div class="vx-dstat">
+            <div><b>142</b><span>Calls placed today</span></div>
+            <div><b>38</b><span>Conversations</span></div>
+            <div><b>11</b><span>Appointments booked</span></div>
           </div>
+          <div class="vx-row"><div><b>Sarah M.</b><small>Listing enquiry &middot; 4:02 PM</small></div><span class="vx-badge vx-badge--ok">Booked</span></div>
+          <div class="vx-row"><div><b>James T.</b><small>Website form &middot; 3:47 PM</small></div><span class="vx-badge vx-badge--ok">Qualified</span></div>
+          <div class="vx-row"><div><b>Priya R.</b><small>Past client &middot; 3:31 PM</small></div><span class="vx-badge vx-badge--w">Follow up</span></div>
+          <div class="vx-row"><div><b>Unknown</b><small>On DNC list</small></div><span class="vx-badge vx-badge--w">Suppressed</span></div>
         </div>
-        <div class="pkg-card">
-          <div>
-            <h3>Managed Operations</h3>
-            <div><span>From $1,997</span><span>/month</span></div>
-            <p>We run it, tune it and keep it compliant while you take the meetings.</p>
-            <div>
-              <p>What you get:</p>
-              <ul>
-                <li><span>&#10003;</span><span>Everything in the build, kept running</span></li>
-                <li><span>&#10003;</span><span>Script and objection tuning against real call outcomes</span></li>
-                <li><span>&#10003;</span><span>Ongoing DNC and suppression list hygiene</span></li>
-                <li><span>&#10003;</span><span>Number and caller reputation monitoring</span></li>
-                <li><span>&#10003;</span><span>Connect, qualification and booking reporting</span></li>
-                <li><span>&#10003;</span><span>Direct access to the team that built it</span></li>
-              </ul>
-            </div>
-            <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill--primary" style="width:100%;text-align:center;">Book a 30-Minute Call</a>
-          </div>
-        </div>
-        <div class="pkg-card">
-          <div>
-            <h3>White Label for Agencies</h3>
-            <div><span>Custom</span><span>scoped</span></div>
-            <p>Resell AI calling to your own clients under your brand.</p>
-            <div>
-              <p>What you get:</p>
-              <ul>
-                <li><span>&#10003;</span><span>Multi-client sub-account architecture</span></li>
-                <li><span>&#10003;</span><span>Your branding, your pricing, your client relationship</span></li>
-                <li><span>&#10003;</span><span>Compliance defaults baked into every new client build</span></li>
-                <li><span>&#10003;</span><span>Snapshot so each new client deploys fast</span></li>
-                <li><span>&#10003;</span><span>Billing and plan gating configured</span></li>
-                <li><span>&#10003;</span><span>Built by a <a href="/hire-gohighlevel-developer">certified GoHighLevel developer</a></span></li>
-              </ul>
-            </div>
-            <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="btn-pill btn-pill--primary" style="width:100%;text-align:center;">Book a 30-Minute Call</a>
-          </div>
-        </div>
+        <p class="vx-cap">Illustrative dashboard with sample data.</p>
       </div>
-      <p style="text-align:center;margin-top:32px;color:#64748B;font-size:15px;">Usage billed by the vendors on top: telephony per minute, voice and speech engine, and your CRM plan. We size the exact scope on the call before quoting.</p>
-    </div>
-  </section>
-
-  <section class="section-padding">
-    <div class="container">
-      <div id="faq" class="faq__wrapper">
-        <div class="faq__header">
-          <span class="faq__eyebrow">Common Questions</span>
-          <h2>AI voice agents, answered straight</h2>
-          <p>The questions buyers actually ask us before they build, including the legal one.</p>
-        </div>
-        <div class="faq__columns">
-          <div class="faq__column">
-            <article class="faq-item" aria-expanded="false">
-              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
-                <span class="faq-button__text">Who builds TCPA-compliant AI voice agents?</span>
-                <span class="faq-button__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg></span>
-              </button>
-              <div class="faq-content"><p>We do. imisofts builds the agent and the compliance layer together: consent captured and logged at the source, National DNC and your internal opt-out list scrubbed before any number reaches the dialer, opt-outs honored instantly across calls and texts, A2P 10DLC registration, and a live human handoff on buying intent. 500+ projects delivered across 30 countries, and a working system in 2 to 4 weeks.</p></div>
-            </article>
-            <article class="faq-item" aria-expanded="false">
-              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
-                <span class="faq-button__text">Are AI voice agents legal for outbound calling in the US?</span>
-                <span class="faq-button__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg></span>
-              </button>
-              <div class="faq-content"><p>Calling people who never opted in with an autodialer or an artificial or prerecorded voice carries the highest TCPA exposure and generally requires prior express written consent. The lower-risk and higher-converting use is AI follow-up on leads who already opted in through your own forms. The AI is not the legal risk, your setup is. This is not legal advice, so confirm your specific setup with a telecom attorney.</p></div>
-            </article>
-            <article class="faq-item" aria-expanded="false">
-              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
-                <span class="faq-button__text">How fast can an AI voice agent go live?</span>
-                <span class="faq-button__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg></span>
-              </button>
-              <div class="faq-content"><p>A standard build goes live in 2 to 4 weeks: consent and DNC wiring, the agent and its scripts, CRM and calendar integration, A2P 10DLC for the SMS leg, recording and transcription, and the handoff rules. Carrier A2P timelines can add time outside our control.</p></div>
-            </article>
-          </div>
-          <div class="faq__column">
-            <article class="faq-item" aria-expanded="false">
-              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
-                <span class="faq-button__text">How much does an AI voice agent cost?</span>
-                <span class="faq-button__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg></span>
-              </button>
-              <div class="faq-content"><p>Builds start at $2,497 and managed operations start at $1,997 per month. Underlying usage is paid directly to the vendors: telephony per minute, the voice and speech engine, and your CRM plan. We size scope on a 30-minute call before quoting.</p></div>
-            </article>
-            <article class="faq-item" aria-expanded="false">
-              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
-                <span class="faq-button__text">Do AI voice agents work with GoHighLevel?</span>
-                <span class="faq-button__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg></span>
-              </button>
-              <div class="faq-content"><p>Yes. We build natively inside GoHighLevel so calls, contacts, opt-outs and pipeline stages live in one CRM, which is what keeps the compliance record clean. We also build on Twilio and your existing stack when that fits better.</p></div>
-            </article>
-            <article class="faq-item" aria-expanded="false">
-              <button class="faq-button" type="button" onclick="toggleFAQItem(this)">
-                <span class="faq-button__text">What do AI voice agents actually do well?</span>
-                <span class="faq-button__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg></span>
-              </button>
-              <div class="faq-content"><p>Speed to lead and persistence. Calling a brand-new inbound lead within about a minute at any hour, qualifying against your criteria, booking the appointment, and never skipping the fifth follow-up. A person should still close. The agent hands over the moment real buying intent shows up.</p></div>
-            </article>
-          </div>
-        </div>
+      <div class="vx-rise">
+        <span class="vx-eyebrow"><i></i>What you actually see</span>
+        <h2 class="vx-h2">Every call, outcome and opt-out written back to your CRM</h2>
+        <p class="vx-sub">Recordings, transcripts, qualification outcomes and consent all land on the contact record, and pipeline stages move on their own. You get an operational view of what the agent did overnight, and a clean compliance record if anyone ever asks for one.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="audit" class="section-padding" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); position: relative; overflow: hidden;">
+<section class="vx-sec vx-sec--surf">
+  <div class="vx-wrap">
+    <div class="vx-center vx-rise">
+      <span class="vx-eyebrow"><i></i>Who this is for</span>
+      <h2 class="vx-h2">Where AI voice agents pay for themselves</h2>
+      <p class="vx-sub">We build these for teams whose revenue depends on reaching a lead before a competitor does.</p>
+    </div>
+    <div class="vx-grid">
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg></div><h3>Real estate teams and brokerages</h3><p>Instant follow-up on portal and form leads, long-horizon nurture on past clients, and appointment setting for agents. See <a href="/gohighlevel-real-estate">GoHighLevel for real estate</a>.</p><span class="vx-tag">Speed wins the listing</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div><h3>Agencies reselling to clients</h3><p>White-label the whole calling system and resell it under your brand, with per-client sub-accounts, compliance defaults and billing already handled.</p><span class="vx-tag">Resell under your brand</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div><h3>Home services and local business</h3><p>Missed-call recovery, after-hours booking and quote follow-up, so the job does not go to whoever picked up first.</p><span class="vx-tag">No missed jobs</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg></div><h3>Clinics, med spas and dental</h3><p>Appointment booking, reminders, waitlist backfill and reactivation calls that front desk staff never get time to make.</p><span class="vx-tag">Fill the empty chair</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div><h3>B2B SaaS and sales teams</h3><p>Instant speed-to-lead on demo requests plus qualification before the call reaches an account executive. Pairs with <a href="/lead-generation">B2B lead generation</a>.</p><span class="vx-tag">Qualify before the AE</span></div>
+      <div class="vx-card vx-rise"><div class="vx-ico"><svg width="22" height="22" fill="none" stroke="#F45407" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3>Anyone already burned by a dialer</h3><p>If your numbers are getting flagged, opt-outs are not syncing, or you are unsure whether your setup is compliant, we audit it and rebuild the layer underneath.</p><span class="vx-tag">Audit then rebuild</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="vx-sec" id="vx-pricing">
+  <div class="vx-wrap">
+    <div class="vx-center vx-rise">
+      <span class="vx-eyebrow"><i></i>Pricing</span>
+      <h2 class="vx-h2">Priced on the outcome, not by the hour</h2>
+      <p class="vx-sub">Telephony, voice engine and CRM usage are paid directly to those vendors, so you keep the margin and the control.</p>
+    </div>
+    <div class="vx-price">
+      <div class="vx-plan vx-rise">
+        <h3>Voice Agent Build</h3>
+        <div class="vx-amt"><b>$2,497</b><span>one-time, from</span></div>
+        <p>A complete, compliant AI calling system live on your stack.</p>
+        <ul>
+          <li><i>&#10003;</i>Discovery, call flows and scripts for your offer</li>
+          <li><i>&#10003;</i>Consent capture and logging wired into your forms</li>
+          <li><i>&#10003;</i>National DNC and opt-out scrubbing upstream of the dialer</li>
+          <li><i>&#10003;</i>A2P 10DLC registration on the SMS leg</li>
+          <li><i>&#10003;</i>CRM, calendar and pipeline integration</li>
+          <li><i>&#10003;</i>Recording, transcription and handoff rules</li>
+          <li><i>&#10003;</i>Live in 2 to 4 weeks</li>
+        </ul>
+        <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="vx-btn vx-btn--p">Book a 30-Minute Call</a>
+      </div>
+      <div class="vx-plan vx-plan--hot vx-rise">
+        <span class="vx-hot">MOST POPULAR</span>
+        <h3>Managed Operations</h3>
+        <div class="vx-amt"><b>$1,997</b><span>/month, from</span></div>
+        <p>We run it, tune it and keep it compliant while you take the meetings.</p>
+        <ul>
+          <li><i>&#10003;</i>Everything in the build, kept running</li>
+          <li><i>&#10003;</i>Script and objection tuning against real outcomes</li>
+          <li><i>&#10003;</i>Ongoing DNC and suppression list hygiene</li>
+          <li><i>&#10003;</i>Number and caller reputation monitoring</li>
+          <li><i>&#10003;</i>Connect, qualification and booking reporting</li>
+          <li><i>&#10003;</i>Direct access to the team that built it</li>
+        </ul>
+        <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="vx-btn vx-btn--p">Book a 30-Minute Call</a>
+      </div>
+      <div class="vx-plan vx-rise">
+        <h3>White Label for Agencies</h3>
+        <div class="vx-amt"><b>Custom</b><span>scoped with you</span></div>
+        <p>Resell AI calling to your own clients under your own brand.</p>
+        <ul>
+          <li><i>&#10003;</i>Multi-client sub-account architecture</li>
+          <li><i>&#10003;</i>Your branding, your pricing, your client relationship</li>
+          <li><i>&#10003;</i>Compliance defaults baked into every client build</li>
+          <li><i>&#10003;</i>Snapshot so each new client deploys fast</li>
+          <li><i>&#10003;</i>Billing and plan gating configured</li>
+          <li><i>&#10003;</i>Built by a <a href="/hire-gohighlevel-developer">certified GoHighLevel developer</a></li>
+        </ul>
+        <a href="https://cal.com/zeeshanwaheed/30min" target="_blank" rel="noopener noreferrer" class="vx-btn vx-btn--p">Book a 30-Minute Call</a>
+      </div>
+    </div>
+    <p class="vx-note">Usage is billed by the vendors on top: telephony per minute, the voice and speech engine, and your CRM plan. We size the exact scope on the call before quoting.</p>
+  </div>
+</section>
+
+<section class="vx-sec vx-sec--surf">
+  <div class="vx-wrap">
+    <div class="vx-center vx-rise">
+      <span class="vx-eyebrow"><i></i>Common questions</span>
+      <h2 class="vx-h2">AI voice agents, answered straight</h2>
+      <p class="vx-sub">The questions buyers actually ask before they build, including the legal one.</p>
+    </div>
+    <div class="vx-faq"><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>Who builds TCPA-compliant AI voice agents?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>We do. imisofts builds the agent and the compliance layer together: consent captured and logged at the source, National DNC and your internal opt-out list scrubbed before any number reaches the dialer, opt-outs honored instantly across calls and texts, A2P 10DLC registration, and a live human handoff on buying intent. 500+ projects delivered across 30 countries, and a working system in 2 to 4 weeks.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>Are AI voice agents legal for outbound calling in the US?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>Calling people who never opted in with an autodialer or an artificial or prerecorded voice carries the highest TCPA exposure and generally requires prior express written consent. The lower-risk and higher-converting use is AI follow-up on leads who already opted in through your own forms. The AI is not the legal risk, your setup is. This is not legal advice, so confirm your specific setup with a telecom attorney.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>How fast can an AI voice agent go live?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>A standard build goes live in 2 to 4 weeks: consent and DNC wiring, the agent and its scripts, CRM and calendar integration, A2P 10DLC for the SMS leg, recording and transcription, and the handoff rules. Carrier A2P timelines can add time outside our control.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>How much does an AI voice agent cost?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>Builds start at $2,497 and managed operations start at $1,997 per month. Underlying usage is paid directly to the vendors: telephony per minute, the voice and speech engine, and your CRM plan. We size scope on a 30-minute call before quoting.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>Do AI voice agents work with GoHighLevel?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>Yes. We build natively inside GoHighLevel so calls, contacts, opt-outs and pipeline stages live in one CRM, which is what keeps the compliance record clean. We also build on Twilio and your existing stack when that fits better.</p></div></div><div class="vx-q vx-rise" data-open="0"><button class="vx-qbtn" type="button" aria-expanded="false"><span>What do AI voice agents actually do well?</span><span class="vx-chev"><svg width="13" height="13" fill="none" stroke="#0B1220" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></span></button><div class="vx-ans"><p>Speed to lead and persistence. Calling a brand-new inbound lead within about a minute at any hour, qualifying against your criteria, booking the appointment, and never skipping the fifth follow-up. A person should still close. The agent hands over the moment real buying intent shows up.</p></div></div></div>
+  </div>
+</section>
+
+</div>
+
+<section id="audit" class="section-padding" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); position: relative; overflow: hidden;">
     <!-- Background decoration -->
     <div style="position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(244, 84, 7, 0.15) 0%, transparent 70%); pointer-events: none;"></div>
     <div style="position: absolute; bottom: -30%; left: -10%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(244, 84, 7, 0.1) 0%, transparent 70%); pointer-events: none;"></div>
@@ -3547,7 +3650,7 @@
       </div>
     </div>
   </section>
-  <footer class="footer" role="contentinfo" aria-label="Site footer">
+<footer class="footer" role="contentinfo" aria-label="Site footer">
     <!-- CTA Banner -->
     <div class="footer-cta-banner">
       <div class="container">
@@ -3956,5 +4059,40 @@
     });
   </script>
 
+
+<script>
+(function(){
+  document.documentElement.classList.add('vx-js');
+  function ready(fn){if(document.readyState!=='loading'){fn();}else{document.addEventListener('DOMContentLoaded',fn);}}
+  ready(function(){
+    var items=[].slice.call(document.querySelectorAll('.vx-rise'));
+    function showAll(){items.forEach(function(e){e.classList.add('vx-in');});}
+    if(!('IntersectionObserver' in window)){showAll();}
+    else{
+      var io=new IntersectionObserver(function(en){
+        en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vx-in');io.unobserve(e.target);}});
+      },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+      items.forEach(function(e){io.observe(e);});
+      setTimeout(showAll,2200);
+    }
+    document.querySelectorAll('.vx-q').forEach(function(q){
+      var btn=q.querySelector('.vx-qbtn'), ans=q.querySelector('.vx-ans');
+      btn.addEventListener('click',function(){
+        var open=q.getAttribute('data-open')==='1';
+        document.querySelectorAll('.vx-q[data-open="1"]').forEach(function(o){
+          o.setAttribute('data-open','0');
+          o.querySelector('.vx-ans').style.maxHeight='0px';
+          o.querySelector('.vx-qbtn').setAttribute('aria-expanded','false');
+        });
+        if(!open){
+          q.setAttribute('data-open','1');
+          ans.style.maxHeight=ans.scrollHeight+'px';
+          btn.setAttribute('aria-expanded','true');
+        }
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
