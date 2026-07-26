@@ -3090,6 +3090,42 @@
   .vx-pill{margin-left:0;order:3;width:100%}
   .vx-row{flex-wrap:wrap}
 }
+
+/* ---------- fixes ---------- */
+/* 1. centering: beat the .vx p.vx-sub specificity that was pinning these left */
+.vx .vx-center p.vx-sub{margin-left:auto;margin-right:auto;text-align:center}
+.vx .vx-center{display:flex;flex-direction:column;align-items:center}
+.vx .vx-center>*{max-width:100%}
+.vx .vx-note{margin-left:auto;margin-right:auto;text-align:center}
+
+/* 2. figures: tabular, tighter, clearer hierarchy */
+.vx-stats b,.vx-fact b,.vx-dstat b,.vx-amt b{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.vx-stats{gap:34px}
+.vx-stats b{font-size:clamp(21px,2.1vw,27px);font-weight:800;letter-spacing:-.8px;color:var(--ink)}
+.vx-stats span{font-size:12px;color:var(--mute);letter-spacing:.1px}
+.vx-facts{gap:14px;margin:24px 0}
+.vx-fact{padding:18px 20px;border-radius:10px;background:#fff;border:1px solid var(--line);
+ border-top:2px solid var(--o);position:relative}
+.vx-fact b{font-size:26px;font-weight:800;letter-spacing:-1px;line-height:1.05;color:var(--ink)}
+.vx-fact span{font-size:12.5px;color:var(--mute);margin-top:6px;letter-spacing:.1px}
+.vx-dstat b{font-size:23px;font-weight:800;letter-spacing:-.7px}
+.vx-amt b{letter-spacing:-1.4px;font-weight:800}
+
+/* 3. trim dead vertical space */
+.vx-hero{padding-bottom:clamp(38px,4.4vw,58px)}
+.vx-sec{padding:clamp(46px,5.2vw,74px) 0}
+.vx-grid{margin-top:32px}
+.vx-price{margin-top:34px}
+.vx-faq{margin-top:30px}
+
+@media(max-width:560px){
+  .vx-stats{gap:8px}
+  .vx-stats b{font-size:16px;letter-spacing:-.4px}
+  .vx-stats span{font-size:10.5px;line-height:1.25}
+  .vx-fact{padding:14px 16px}
+  .vx-fact b{font-size:21px}
+  .vx-facts{gap:8px;margin:18px 0}
+}
 </style>
 </head>
 <body>
