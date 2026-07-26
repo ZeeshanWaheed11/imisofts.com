@@ -18,6 +18,18 @@ NEW = [
      "Compliant AI calling that books meetings",
      "AI Voice Agents",
      "M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3zM19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"),
+    ("/gohighlevel-white-label-saas", "White-Label SaaS",
+     "Resell GoHighLevel as your own software",
+     "White-Label SaaS",
+     "M4 7h16M4 12h16M4 17h10M18 15l3 3-3 3"),
+    ("/tcpa-compliant-ai-calling", "TCPA-Compliant Calling",
+     "Consent, DNC and opt-out infrastructure",
+     "TCPA-Compliant Calling",
+     "M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3zM9 12l2 2 4-4"),
+    ("/ai-search-optimization", "AI Search Optimization",
+     "Get named by ChatGPT and AI Overviews",
+     "AI Search Optimization",
+     "M11 4.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM15.8 15.8L21 21"),
 ]
 
 ANCHOR = "/ai-automation"   # clone the entry for this page, insert directly after it
