@@ -56,11 +56,17 @@ def process(path, report):
 
     orig = html
     for slug, title, desc, foot, dpath in NEW:
-        if slug in html:
-            continue  # already wired
+        # Check the NAV markup specifically, not just the slug. A service page contains
+        # its own URL in canonical/og tags, so a plain "slug in html" test made the page
+        # skip itself and end up as the only page missing its own nav entry.
+        in_mega   = '<a href="%s" class="mega-item">' % slug in html
+        in_mobile = '<a href="%s" class="mobile-service-link">' % slug in html
+        in_footer = '<li><a href="%s">' % slug in html
+        if in_mega and in_mobile and in_footer:
+            continue  # fully wired
 
         # 1. desktop mega-menu
-        pos, blk = mega_block(html, slug, title, desc, dpath)
+        pos, blk = (None, None) if in_mega else mega_block(html, slug, title, desc, dpath)
         if pos:
             sep = "\n" + " " * 22
             html = html[:pos] + sep + blk + html[pos:]
@@ -68,7 +74,7 @@ def process(path, report):
 
         # 2. mobile menu
         mob = '<a href="%s" class="mobile-service-link">' % ANCHOR
-        k = html.find(mob)
+        k = -1 if in_mobile else html.find(mob)
         if k != -1:
             end = html.find("</a>", k) + 4
             indent = ""
@@ -81,7 +87,7 @@ def process(path, report):
 
         # 3. footer
         foot_anchor = '<li><a href="%s">' % ANCHOR
-        f = html.find(foot_anchor)
+        f = -1 if in_footer else html.find(foot_anchor)
         if f != -1:
             fend = html.find("</li>", f) + 5
             indent = ""
