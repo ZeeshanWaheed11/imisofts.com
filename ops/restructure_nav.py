@@ -1,37 +1,45 @@
 #!/usr/bin/env python3
-"""Reorganise the navigation so no panel overflows the screen.
+"""Navigation structure and styling.
 
-Before: Services > Growth held 16 items and ran off the bottom of the viewport.
+Services mega-menu, 4 categories, none larger than 6:
+  Growth             cold email, lead gen, digital marketing, email infra, GHL services, white-label SaaS
+  AI & Automation    ai automation, voice agents, TCPA calling, AI search, OpenClaw
+  Development        unchanged
+  Hire a Specialist  unchanged
 
-After:
-  Services mega-menu, 5 categories, none larger than 6
-    Growth            cold email, lead gen, digital marketing, email infrastructure
-    AI & Automation   ai automation, voice agents, TCPA calling, AI search, OpenClaw
-    GoHighLevel       GHL services, white-label SaaS
-    Development       unchanged
-    Hire a Specialist unchanged
-  Industries dropdown gains the 5 AI-calling industry pages and becomes 2 columns.
+Also:
+  - a distinct icon per category (they previously shared the code glyph)
+  - breathing room between the category list and the Contact Us card
+  - the Industries dropdown restyled to match the Services mega-menu
 
-Moves existing markup rather than regenerating it, so styling and icons are preserved.
+Moves existing markup rather than regenerating it, so item icons and copy are preserved.
 Idempotent. Run from repo root: python3 ops/restructure_nav.py
 """
 import os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {".git", ".github", "node_modules", "ops", "content", "assets", "data"}
+MARKER = "nav-cat-fix-3"
 
 PANELS = [
-    ("growth", "Growth", ["/cold-email-marketing", "/lead-generation", "/digital-marketing", "/email-infrastructure"]),
+    ("growth", "Growth", ["/cold-email-marketing", "/lead-generation", "/digital-marketing",
+                          "/email-infrastructure", "/gohighlevel-services", "/gohighlevel-white-label-saas"]),
     ("ai", "AI &amp; Automation", ["/ai-automation", "/ai-voice-agents", "/tcpa-compliant-ai-calling",
                                    "/ai-search-optimization", "/openclaw-setup"]),
-    ("gohighlevel", "GoHighLevel", ["/gohighlevel-services", "/gohighlevel-white-label-saas"]),
     ("development", "Development", ["/web-development", "/ecommerce", "/crm-development",
                                     "/shopify-apps", "/ai-mobile-apps", "/launch-your-saas"]),
     ("specialist", "Hire a Specialist", ["/hire-cold-email-expert", "/hire-gohighlevel-developer",
                                          "/hire-n8n-developer", "/hire-ai-engineer", "/hire-shopify-expert"]),
 ]
 
-# industry pages that move OUT of Services and INTO the Industries dropdown
+# distinct category icon per tab (first svg path inside the tab)
+TAB_ICONS = {
+    "growth":      "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
+    "ai":          "M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2M3 15h2m14-6h2m-2 6h2M7 7h10v10H7zM10.5 10.5h3v3h-3z",
+    "development": "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+    "specialist":  "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
+}
+
 TO_INDUSTRIES = [
     ("/ai-calling-home-services", "AI Calling for Home Services", "Answer every call, book every job",
      "M3 11l9-8 9 8M5 10v10h14V10"),
@@ -45,35 +53,41 @@ TO_INDUSTRIES = [
      "M12 3v18M5 7h14M7 7l-3 7h6l-3-7zM17 7l-3 7h6l-3-7z"),
 ]
 
-NAV_CSS = """<style id="nav-cat-fix">
-/* Industries dropdown: two columns so a longer list still fits on screen */
+NAV_CSS = """<style id="%s">
+/* space between the category list and the Contact Us card */
+.mega-sidebar .mega-cta-card{margin-top:28px}
+.mega-sidebar{display:flex;flex-direction:column}
+.mega-panel,.mega-sidebar{max-height:min(72vh,580px);overflow-y:auto}
+
+/* Industries dropdown styled to match the Services mega-menu */
 .nav-dropdown-menu--narrow{width:auto}
-.dropdown-simple{display:grid;grid-template-columns:1fr 1fr;gap:2px;min-width:640px}
-.mega-panel{max-height:min(70vh,560px);overflow-y:auto}
-.mega-sidebar{max-height:min(70vh,560px);overflow-y:auto}
-@media(max-width:900px){.dropdown-simple{grid-template-columns:1fr;min-width:0}}
+.dropdown-simple{display:grid;grid-template-columns:1fr 1fr;gap:2px;min-width:660px;padding:20px}
+.dropdown-link{padding:14px 16px;border-radius:10px;gap:14px;align-items:flex-start}
+.dropdown-link:hover{background:linear-gradient(135deg,#fff9f6 0%%,#fff4ef 100%%)}
+.dropdown-link svg{width:20px;height:20px;padding:8px;background:linear-gradient(135deg,#fff4ef 0%%,#ffe8dd 100%%);
+ border-radius:10px;color:#F45407;flex-shrink:0}
+.dropdown-link:hover svg{background:#F45407;color:#fff}
+.dropdown-link-title{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:3px}
+.dropdown-link-desc{font-size:13px;color:#6b7280;line-height:1.5}
+@media(max-width:900px){.dropdown-simple{grid-template-columns:1fr;min-width:0;padding:14px}}
 </style>
-"""
+""" % MARKER
 
 
-def mega_blocks(html):
-    """href -> full <a class="mega-item"> block."""
-    out = {}
-    for m in re.finditer(r'<a href="(/[a-z0-9\-]+)" class="mega-item">[\s\S]*?</a>', html):
-        out.setdefault(m.group(1), m.group(0))
-    return out
-
-
-def build_dropdown_link(template, href, title, desc, dpath):
-    blk = template
-    blk = re.sub(r'<a href="[^"]*"', '<a href="%s"' % href, blk, count=1)
-    blk = re.sub(r'(<div class="dropdown-link-title">)[^<]*(</div>)',
-                 lambda m: m.group(1) + title + m.group(2), blk, count=1)
-    blk = re.sub(r'(<div class="dropdown-link-desc">)[^<]*(</div>)',
-                 lambda m: m.group(1) + desc + m.group(2), blk, count=1)
-    blk = re.sub(r'(<path stroke-linecap="round" stroke-linejoin="round" stroke-width="[^"]*" d=")[^"]*(")',
-                 lambda m: m.group(1) + dpath + m.group(2), blk, count=1)
-    return blk
+def match_div(s, start):
+    i, depth = start, 0
+    while i < len(s):
+        o = s.find("<div", i + 1)
+        c = s.find("</div>", i + 1)
+        if c == -1:
+            return -1
+        if o != -1 and o < c:
+            depth += 1; i = o
+        else:
+            if depth == 0:
+                return c + len("</div>")
+            depth -= 1; i = c
+    return -1
 
 
 def process(path, rep):
@@ -81,108 +95,93 @@ def process(path, rep):
         html = open(path, encoding="utf-8").read()
     except (UnicodeDecodeError, OSError):
         return False
-    if 'class="mega-tab' not in html or 'id="panel-growth"' not in html:
+    if 'class="mega-tab' not in html or '<div class="mega-content">' not in html:
         return False
-    if 'id="nav-cat-fix"' in html:
-        return False  # already restructured
+    if 'id="%s"' % MARKER in html:
+        return False
 
     orig = html
-    blocks = mega_blocks(html)
+    # drop any earlier version of our style block
+    html = re.sub(r'<style id="nav-cat-fix[^"]*">[\s\S]*?</style>\s*', '', html)
 
-    # ---------- 1. Industries dropdown ----------
-    dl = re.search(r'<a href="/cold-email-saas" class="dropdown-link">[\s\S]*?</a>', html)
-    if dl:
-        tmpl = dl.group(0)
+    blocks = {}
+    for m in re.finditer(r'<a href="(/[a-z0-9\-]+)" class="mega-item">[\s\S]*?</a>', html):
+        blocks.setdefault(m.group(1), m.group(0))
+
+    # ---------- 1. Industries dropdown gains the industry pages ----------
+    links = list(re.finditer(r'<a href="(/[a-z0-9\-]+)" class="dropdown-link">[\s\S]*?</a>', html))
+    if links:
+        tmpl = links[0].group(0)
+        have = {m.group(1) for m in links}
         add = ""
         for href, title, desc, dpath in TO_INDUSTRIES:
-            if 'href="%s" class="dropdown-link"' % href in html:
+            if href in have:
                 continue
-            add += "\n                " + build_dropdown_link(tmpl, href, title, desc, dpath)
+            blk = re.sub(r'<a href="[^"]*"', '<a href="%s"' % href, tmpl, count=1)
+            blk = re.sub(r'(<div class="dropdown-link-title">)[^<]*(</div>)',
+                         lambda m: m.group(1) + title + m.group(2), blk, count=1)
+            blk = re.sub(r'(<div class="dropdown-link-desc">)[^<]*(</div>)',
+                         lambda m: m.group(1) + desc + m.group(2), blk, count=1)
+            blk = re.sub(r'(<path stroke-linecap="round" stroke-linejoin="round" stroke-width="[^"]*" d=")[^"]*(")',
+                         lambda m: m.group(1) + dpath + m.group(2), blk, count=1)
+            add += "\n                " + blk
         if add:
-            end = dl.end()
-            # append after the LAST existing dropdown-link in that container
-            last = None
-            for m in re.finditer(r'<a href="/[a-z0-9\-]+" class="dropdown-link">[\s\S]*?</a>', html):
-                last = m
+            last = links[-1]
             html = html[:last.end()] + add + html[last.end():]
-            rep["industries"] += len(TO_INDUSTRIES)
+            rep["industries"] += 1
 
     # ---------- 2. rebuild the Services panels ----------
-    # Regex cannot delimit a panel because mega-item blocks contain nested <div>s, so
-    # find the mega-content container by matching div depth and regenerate it wholesale.
-    def match_div(s, start):
-        """start = index of a '<div'. Return index just past its matching '</div>'."""
-        i, depth = start, 0
-        while i < len(s):
-            o = s.find("<div", i + 1)
-            c = s.find("</div>", i + 1)
-            if c == -1:
-                return -1
-            if o != -1 and o < c:
-                depth += 1
-                i = o
-            else:
-                if depth == 0:
-                    return c + len("</div>")
-                depth -= 1
-                i = c
-        return -1
-
     mc = html.find('<div class="mega-content">')
-    if mc != -1:
-        mc_end = match_div(html, mc)
-        if mc_end != -1:
-            panels_html = []
-            for idx, (pid, label, hrefs) in enumerate(PANELS):
-                wanted = [blocks[h] for h in hrefs if h in blocks]
-                if not wanted:
-                    continue
-                grid = "\n                      ".join(wanted)
-                cls = "mega-panel active" if idx == 0 else "mega-panel"
-                panels_html.append(
-                    '<div class="%s" id="panel-%s">\n                    <div class="mega-grid">\n                      %s\n                    </div>\n                  </div>'
-                    % (cls, pid, grid))
-                rep["panels"] += 1
-            if panels_html:
-                new_mc = ('<div class="mega-content">\n                  '
-                          + "\n                  ".join(panels_html)
-                          + '\n                </div>')
-                html = html[:mc] + new_mc + html[mc_end:]
-
-    # ---------- 3. sidebar tabs ----------
-    tabm = re.search(r'<div class="mega-tab" data-tab="development">[\s\S]*?</div>\s*(?=<div class="mega-tab|<div class="mega-cta-card)', html)
-    if tabm:
-        tab_tmpl = tabm.group(0)
-        for pid, label, _ in PANELS:
-            if 'data-tab="%s"' % pid in html:
+    mc_end = match_div(html, mc) if mc != -1 else -1
+    if mc_end != -1:
+        out = []
+        for idx, (pid, label, hrefs) in enumerate(PANELS):
+            wanted = [blocks[h] for h in hrefs if h in blocks]
+            if not wanted:
                 continue
-            newtab = tab_tmpl.replace('data-tab="development"', 'data-tab="%s"' % pid, 1)
-            newtab = re.sub(r'<span>[^<]*</span>', '<span>%s</span>' % label, newtab, count=1)
-            html = html.replace('<div class="mega-tab" data-tab="development">',
-                                newtab + '<div class="mega-tab" data-tab="development">', 1)
-            rep["tabs"] += 1
+            grid = "\n                      ".join(wanted)
+            cls = "mega-panel active" if idx == 0 else "mega-panel"
+            out.append('<div class="%s" id="panel-%s">\n                    <div class="mega-grid">\n                      %s\n                    </div>\n                  </div>'
+                       % (cls, pid, grid))
+        if out:
+            html = (html[:mc] + '<div class="mega-content">\n                  '
+                    + "\n                  ".join(out) + '\n                </div>' + html[mc_end:])
+            rep["panels"] += 1
 
-    # ---------- 4. mobile menu groups ----------
+    # ---------- 3. tabs: keep only ours, in order, with distinct icons ----------
+    tabs = list(re.finditer(r'<div class="mega-tab[^"]*" data-tab="([^"]+)">[\s\S]*?</div>\s*(?=<div class="mega-tab|<div class="mega-cta-card)', html))
+    if tabs:
+        tmpl = tabs[0].group(0)
+        new_tabs = []
+        for idx, (pid, label, _) in enumerate(PANELS):
+            src = next((t.group(0) for t in tabs if t.group(1) == pid), tmpl)
+            blk = re.sub(r'class="mega-tab[^"]*"', 'class="mega-tab active"' if idx == 0 else 'class="mega-tab"', src, count=1)
+            blk = re.sub(r'data-tab="[^"]*"', 'data-tab="%s"' % pid, blk, count=1)
+            blk = re.sub(r'<span>[^<]*</span>', '<span>%s</span>' % label, blk, count=1)
+            if pid in TAB_ICONS:
+                blk = re.sub(r'(<path stroke-linecap="round" stroke-linejoin="round" stroke-width="[^"]*" d=")[^"]*(")',
+                             lambda m: m.group(1) + TAB_ICONS[pid] + m.group(2), blk, count=1)
+            new_tabs.append(blk.rstrip())
+        html = html[:tabs[0].start()] + "\n                  ".join(new_tabs) + "\n                  " + html[tabs[-1].end():]
+        rep["tabs"] += 1
+
+    # ---------- 4. mobile groups ----------
     mob = {}
     for m in re.finditer(r'<a href="(/[a-z0-9\-]+)" class="mobile-service-link">([^<]*)</a>', html):
         mob.setdefault(m.group(1), m.group(0))
-    gm = re.search(r'(<div class="mobile-section-group">Growth</div>)((?:\s*<a href="[^"]*" class="mobile-service-link">[^<]*</a>)+)', html)
+    gm = re.search(r'(<div class="mobile-section-group">[^<]*</div>)((?:\s*(?:<div class="mobile-section-group">[^<]*</div>|<a href="[^"]*" class="mobile-service-link">[^<]*</a>))+)', html)
     if gm:
         parts = []
         for pid, label, hrefs in PANELS:
-            if pid in ("development", "specialist"):
+            ls = [mob[h] for h in hrefs if h in mob]
+            if not ls:
                 continue
-            links = [mob[h] for h in hrefs if h in mob]
-            if not links:
-                continue
-            plain = label.replace("&amp;", "and")
-            parts.append('<div class="mobile-section-group">%s</div>\n              ' % plain +
-                         "\n              ".join(links))
+            parts.append('<div class="mobile-section-group">%s</div>\n              ' % label.replace("&amp;", "and")
+                         + "\n              ".join(ls))
         if parts:
             html = html[:gm.start()] + "\n              ".join(parts) + html[gm.end():]
             rep["mobile"] += 1
 
-    # ---------- 5. css ----------
     html = html.replace("</head>", NAV_CSS + "</head>", 1)
 
     if html != orig:
@@ -203,7 +202,7 @@ def main():
             if process(os.path.join(dirpath, fn), rep):
                 changed += 1
     print("scanned %d | restructured %d" % (scanned, changed))
-    print("tabs added %d | panels added %d | industries links %d | mobile regrouped %d"
+    print("tabs %d | panels %d | industries %d | mobile %d"
           % (rep["tabs"], rep["panels"], rep["industries"], rep["mobile"]))
     return 0
 

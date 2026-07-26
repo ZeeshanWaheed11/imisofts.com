@@ -12,6 +12,10 @@ import os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Service pages for the Services mega-menu ONLY.
+# The AI-calling INDUSTRY pages are deliberately NOT here: they belong in the
+# Industries dropdown and are owned by ops/restructure_nav.py. Listing them in both
+# made the scripts fight, with inject re-adding them to the mega-menu every run.
 # new service pages to wire in: (slug, nav title, mega-menu description, footer label, svg path d)
 NEW = [
     ("/ai-voice-agents", "AI Voice Agents",
@@ -34,26 +38,6 @@ NEW = [
      "Domains, authentication and warm-up",
      "Email Infrastructure",
      "M3 7l9 6 9-6M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z"),
-    ("/ai-calling-home-services", "AI Calling for Home Services",
-     "Answer every call, book every job",
-     "AI Calling: Home Services",
-     "M3 11l9-8 9 8M5 10v10h14V10"),
-    ("/ai-receptionist-healthcare", "AI Receptionist for Clinics",
-     "Fewer no-shows, filled cancellations",
-     "AI Receptionist: Clinics",
-     "M12 4v16M4 12h16"),
-    ("/ai-calling-mortgage-lending", "AI Calling for Mortgage",
-     "Contact every lead in under a minute",
-     "AI Calling: Mortgage",
-     "M3 10l9-6 9 6v10H3V10zM9 20v-6h6v6"),
-    ("/ai-calling-insurance", "AI Calling for Insurance",
-     "Reach the leads you paid for",
-     "AI Calling: Insurance",
-     "M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3z"),
-    ("/ai-intake-law-firms", "AI Intake for Law Firms",
-     "Screen and book every case enquiry",
-     "AI Intake: Law Firms",
-     "M12 3v18M5 7h14M7 7l-3 7h6l-3-7zM17 7l-3 7h6l-3-7z"),
 ]
 
 ANCHOR = "/ai-automation"   # clone the entry for this page, insert directly after it
