@@ -1,5 +1,7 @@
-# Adds new service pages to the site-wide nav (desktop mega-menu, mobile menu, footer).
-# Additive and idempotent, so it is safe to re-run. Trigger manually from the Actions tab.
+# Site-wide navigation maintenance.
+#   1. inject_nav.py      adds any new service pages to the mega-menu, mobile menu and footer
+#   2. restructure_nav.py sorts them into balanced categories so no panel overflows the screen
+# Both are additive and idempotent, so this is safe to re-run at any time.
 name: Update nav
 on:
   workflow_dispatch:
@@ -7,6 +9,7 @@ on:
     branches: [main]
     paths:
       - 'ops/inject_nav.py'
+      - 'ops/restructure_nav.py'
 permissions:
   contents: write
 jobs:
@@ -19,6 +22,8 @@ jobs:
           python-version: '3.11'
       - name: Inject service links into nav and footer
         run: python3 ops/inject_nav.py
+      - name: Sort nav into balanced categories
+        run: python3 ops/restructure_nav.py
       - name: Commit generated files
         run: |
           git config user.name "imisofts-nav-bot"
@@ -27,6 +32,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No nav changes to commit."
           else
-            git commit -m "build: add service pages to site-wide nav and footer"
+            git commit -m "build: update site-wide nav categories"
             git push
           fi
