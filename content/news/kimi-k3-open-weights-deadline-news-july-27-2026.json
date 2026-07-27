@@ -1,0 +1,30 @@
+{
+  "slug": "kimi-k3-open-weights-deadline-news-july-27-2026",
+  "title": "Kimi K3's Open Weights Were Due Today. Here Is What Was Actually on Hugging Face This Morning.",
+  "desc": "Moonshot promised Kimi K3 open weights at 00:00 UTC July 27. We checked Hugging Face at 04:30 UTC and found no K3 repo. What that means for your stack.",
+  "keywords": "kimi k3 open weights, moonshot ai kimi k3, kimi k3 hugging face, open weight models business, self host large language model, ai model fallback strategy",
+  "date": "2026-07-27",
+  "time": "09:05",
+  "read_time": 4,
+  "word_count": 640,
+  "cta": "Want an AI stack that never depends on one model shipping on time?",
+  "body": "<p><strong>July 27, 2026.</strong> Moonshot AI promised the open weights for Kimi K3 today, at 00:00 UTC on July 27. K3 is the 2.8 trillion parameter model the company launched on July 16 through its hosted API and the kimi.com app, and the weights release was the part the open source world was actually waiting for. As of 04:30 UTC this morning, the weights were not there. Moonshot's Hugging Face organization lists no Kimi-K3 model repository, and the newest model published under that account is still Kimi-K2.7-Code, created on June 11. That may change within hours. The lesson for anyone building on open models does not.</p><p><strong>What we checked and what we found</strong></p><ol><li>Moonshot's Hugging Face organization page and its public model API both return the same list this morning, with no Kimi-K3 entry. Kimi-K2.7-Code, Kimi-K2.6 and Kimi-K2.5 are the most recent published models.</li><li>Multiple secondary write ups published over the weekend already describe the weights as released, some of them citing a technical report. Those posts were written ahead of the deadline. The <a href=\"https://huggingface.co/moonshotai\" target=\"_blank\" rel=\"noopener\">organization page itself</a> is the source of truth, and it is the one we checked.</li><li>The model remains fully usable today through Moonshot's hosted API and kimi.com, exactly as it has been since July 16. Nothing about the API changed. Only the download did not appear on schedule.</li><li>Even when the weights do land, the download is reported at roughly 594GB in native MXFP4 format, needing on the order of 1.4TB of fast memory to serve, and multiple H100 class GPUs to run at all. K3 is a sparse mixture of experts design that fires 16 of 896 experts per token, roughly 50 billion active parameters per step.</li><li>There is a policy shadow over the release. On July 22 the White House alleged Moonshot distilled Anthropic's Fable model to build K3, and the Treasury Secretary said sanctions and Entity List designations were on the table. We covered that story in detail on <a href=\"/blog/white-house-moonshot-distillation-sanctions-news-july-24-2026/\">Friday</a>. Whether it has anything to do with a slipped deadline is unknown, and we are not asserting that it does.</li></ol><p><strong>What it means for operators</strong></p><p>Open weights are a licence and a schedule, not a capability you already have. A promised release date is a marketing artefact until the files exist, and a 1.4TB memory footprint means that even once they exist, almost no small business or agency will self host this model. The realistic uses are a managed inference provider that hosts it for you, or the vendor API you were already using.</p><p>So the practical rule holds: do not put an unreleased model on a client roadmap, and do not let a single model, open or closed, become load bearing in a workflow you have promised to deliver. Build behind a routing layer, keep a configured fallback that you have actually tested, and treat any model that lives on someone else's server or in someone else's jurisdiction as a dependency with a failure mode. That is the same conclusion we reached when Moonshot paused new subscriptions after a capacity crunch on July 19, and it has not changed.</p><p>If you want the cheap open model economics without betting a client deliverable on a download date, the answer is architecture rather than optimism. We build that routing and fallback layer as part of <a href=\"/ai-automation\">AI automation</a> engagements, and you can <a href=\"/hire-ai-engineer\">hire an AI engineer</a> to wire it into a stack you already run.</p>",
+  "faqs": [
+    [
+      "Are the Kimi K3 weights actually available?",
+      "Not as of 04:30 UTC on July 27, 2026. Moonshot's Hugging Face organization lists no Kimi-K3 repository, and the newest model published there is Kimi-K2.7-Code from June 11. The release was promised for 00:00 UTC on July 27, so this may change during the day. Check the organization page directly rather than trusting a roundup."
+    ],
+    [
+      "Can I still use Kimi K3 today?",
+      "Yes. K3 has been available through Moonshot's hosted API and the kimi.com app since July 16, and that access is unaffected. The open weights release would add the ability to download, inspect, fine tune and self host the model, which is a different thing from using it."
+    ],
+    [
+      "Could a small business realistically self host Kimi K3?",
+      "Almost certainly not. The reported download is around 594GB in MXFP4 format and needs roughly 1.4TB of fast memory to serve, which implies multiple H100 class GPUs. For nearly every small business and agency, the practical options are the vendor API or a managed inference provider that hosts the open weights on your behalf."
+    ],
+    [
+      "How should I handle a model whose release date might slip?",
+      "Never make an unreleased model load bearing. Put a routing layer in front of your models, keep at least one fallback configured and tested, and write client commitments against capabilities you can demonstrate today. Treat a promised release date as a plan, not a dependency."
+    ]
+  ]
+}
