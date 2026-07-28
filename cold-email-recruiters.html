@@ -2925,6 +2925,9 @@
   </style>
 
 <style id="vx-layer">
+.vx-scrollfix{}
+html{scroll-padding-top:88px}
+
 /* ===== service page layer, matched to the homepage design system ===== */
 .vx{--o:#F45407;--o2:#ff6b28;--o-soft:#fff5f3;--o-tint:#fff4ef;--ink:#1a1a1a;--body:#666;
  --mute:#999;--line:#e5e5e5;--line2:#f0f0f0;--surf:#f9fafb;
@@ -3097,8 +3100,8 @@
 /* responsive */
 @media(max-width:1024px){
  .vx-hero-grid,.vx-gate{grid-template-columns:1fr;gap:40px}
- .vx-hero{padding:100px 0 60px}
- .vx-hero h1{font-size:40px}
+ .vx-hero{padding:136px 0 60px}
+ .vx-hero h1{font-size:40px!important}
  .vx-gate>div:first-child{order:2}.vx-gate>div:last-child{order:1}
  .vx-halo{width:400px;height:400px;right:-180px;top:-200px}
 }
@@ -3109,8 +3112,8 @@
 }
 @media(max-width:560px){
  .vx-wrap{padding:0 20px}
- .vx-hero{padding:88px 0 48px}
- .vx-hero h1{font-size:32px;letter-spacing:-.3px}
+ .vx-hero{padding:132px 0 48px}
+ .vx-hero h1{font-size:32px!important;letter-spacing:-.3px}
  .vx-lead,.vx p.vx-sub{font-size:16px}
  .vx-ctas{flex-direction:column;gap:12px}
  .vx-btn{width:100%}
