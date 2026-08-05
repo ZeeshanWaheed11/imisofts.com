@@ -79,7 +79,7 @@ def build_article(meta, tpl):
     s=re.sub(r'<h1>[^<]*</h1>',f'<h1>{TH}</h1>',s,count=1)
     faq_section=f'<section class="faq-section" id="faq">\n<h2>Frequently Asked Questions</h2>\n{faq_items_html(faqs)}\n</section>'
     body=normalize_affiliate(meta['body'], meta.get('affiliate_url',''))
-    body=DISCLOSURE+'\n'+body+'\n'+cta_html(meta.get('cta','Want this set up for your business?'))+'\n'+faq_section
+    body=((DISCLOSURE+'\n') if meta.get('affiliate_url') else '')+body+'\n'+cta_html(meta.get('cta','Want this set up for your business?'))+'\n'+faq_section
     i=s.find('<article class="article-content">'); j=s.find('</article>')
     s=s[:i]+'<article class="article-content">\n'+body+'\n'+s[j:]
     s=re.sub(r'<time datetime="[^"]*">[^<]*</time>','<time datetime="%s">%s</time>'%(DATE[:10],human_date(DATE[:10])),s,count=1)
@@ -88,7 +88,7 @@ def build_article(meta, tpl):
     assert mainpart.count(chr(8212))==0, f'{slug}: em-dash in body'
     assert s.count('<main')==1 and s.count('</main>')==1, f'{slug}: main tag issue'
     assert mainpart.count('class="faq-item"')==len(faqs), f'{slug}: faq count mismatch'
-    assert 'affiliate-disclosure' in s, f'{slug}: disclosure missing'
+    assert ('affiliate-disclosure' in s)==bool(meta.get('affiliate_url')), f'{slug}: disclosure/affiliate mismatch'
     if meta.get('affiliate_url'): assert meta['affiliate_url'] in s, f'{slug}: affiliate url missing'
     _probs=[]
     try:
