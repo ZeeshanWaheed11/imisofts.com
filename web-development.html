@@ -107,7 +107,12 @@
     "offers": {
       "@type": "Offer",
       "description": "Custom web development from concept to deployment with ongoing support",
-      "priceRange": "$8,000 - $75,000", 
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "8000",
+        "maxPrice": "75000",
+        "priceCurrency": "USD"
+      }, 
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
       "deliveryLeadTime": "P60D",
