@@ -102,7 +102,12 @@
     "offers": {
       "@type": "Offer",
       "description": "Complete e-commerce development from store setup to optimization",
-      "priceRange": "$5,000 - $35,000",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "5000",
+        "maxPrice": "35000",
+        "priceCurrency": "USD"
+      },
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
       "deliveryLeadTime": "P28D"
