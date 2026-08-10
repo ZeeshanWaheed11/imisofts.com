@@ -102,7 +102,12 @@
     "offers": {
       "@type": "Offer",
       "description": "Custom Shopify app development from concept to App Store approval",
-      "priceRange": "$10,000 - $45,000",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "10000",
+        "maxPrice": "45000",
+        "priceCurrency": "USD"
+      },
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
       "deliveryLeadTime": "P35D"
