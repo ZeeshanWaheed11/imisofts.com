@@ -107,7 +107,12 @@
     "offers": {
       "@type": "Offer",
       "description": "Custom AI automation solutions starting from consultation to full implementation",
-      "priceRange": "$5,000 - $50,000",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "5000",
+        "maxPrice": "50000",
+        "priceCurrency": "USD"
+      },
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
       "deliveryLeadTime": "P30D",
