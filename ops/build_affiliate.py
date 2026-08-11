@@ -126,11 +126,12 @@ def main():
             for i,pp in enumerate(posts):
                 if pp.get('slug')!=meta['slug']: continue
                 changed = (pp.get('date')!=meta['date'] or pp.get('title')!=meta['title'] or pp.get('meta_description')!=meta['desc'])
+                fwd = meta['date'] > (pp.get('date') or '')
                 if changed:
                     pp['date']=meta['date']; pp['title']=meta['title']; pp['meta_description']=meta['desc']
                     pp['word_count']=meta.get('word_count',pp.get('word_count',1500))
                     pp['read_time']=meta.get('read_time',pp.get('read_time',8))
-                    posts.insert(0,posts.pop(i))
+                    if fwd: posts.insert(0,posts.pop(i))
                     print('refreshed index entry %s -> %s'%(meta['slug'],meta['date']))
                 break
             continue
