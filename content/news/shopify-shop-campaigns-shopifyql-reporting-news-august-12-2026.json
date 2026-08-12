@@ -1,0 +1,30 @@
+{
+ "slug": "shopify-shop-campaigns-shopifyql-reporting-news-august-12-2026",
+ "title": "Shopify Opened Shop Campaigns Data to ShopifyQL. Audit the CPA, Not the ROAS",
+ "desc": "Shop Campaigns ad spend, ROAS and customer acquisition cost reached ShopifyQL on August 10, 2026. Why a set CPA channel needs auditing on CAC instead.",
+ "keywords": "shop campaigns reporting, shopifyql shop campaigns, shopify ads customer acquisition cost, shop campaigns roas, shopify analytics 2026",
+ "date": "2026-08-12",
+ "time": "11:00",
+ "read_time": 3,
+ "word_count": 511,
+ "cta": "Want ecommerce reporting that grades every channel the same way?",
+ "body": "<p>August 12, 2026. Shopify <a href=\"https://changelog.shopify.com/posts/see-shop-campaigns-performance-in-your-analytics-tools\" target=\"_blank\" rel=\"noopener noreferrer\">opened Shop Campaigns performance data to ShopifyQL on August 10</a>, which means ad spend, sales, return on ad spend and customer acquisition cost from Shopify's own ads program can now be queried next to the rest of your store data. The reason that matters is not convenience. Shop Campaigns is the one channel that both sets your price per customer and decides which conversions count.</p><p><strong>What changed on August 10</strong></p><ol><li>Shop Campaigns performance is available through ShopifyQL, in the <a href=\"https://shopify.dev/docs/api/shopifyql/2026-07/schemas/marketing/shop_campaign_insights\" target=\"_blank\" rel=\"noopener noreferrer\">shop_campaign_insights schema</a> on the 2026-07 version.</li><li>The data is campaign level, broken out by customer segment and time period, covering ad spend, sales, orders, return on ad spend, average order value and average customer acquisition cost.</li><li>Analytics apps including Triple Whale, Northbeam and Elevar can pull it, though Shopify tells merchants to check with their provider on timing.</li><li>Teams building their own reports can connect through ShopifyQL from Power BI, Tableau or Looker Studio, or read the same numbers in the Analytics or Advertising tab in admin.</li></ol><p><strong>Why a set CPA channel needs its own audit</strong></p><p>Shopify describes Shop Campaigns in its <a href=\"https://help.shopify.com/en/manual/online-sales-channels/shop/shop-campaigns\" target=\"_blank\" rel=\"noopener noreferrer\">own documentation</a> as an ads program that helps you acquire and convert customers at a set cost per acquisition, and says that when customers convert from those ads you pay acquisition fees according to your campaign settings. Read that carefully and the reporting question answers itself. On a set cost per acquisition program, return on ad spend largely reflects the price you already agreed to, so it is close to a tautology. The number that carries information is average customer acquisition cost measured against your own contribution margin and repeat purchase rate.</p><p>Until August 10 those figures lived inside the channel that produced them. Now the invoice and the audit can be written in the same query, which is the first time a merchant can grade this channel with the same tool used on everything else.</p><p><strong>What it means for operators</strong></p><p>Do not wait on your dashboard vendor. Shopify explicitly says to check with your analytics provider on their timeline, so the data existing and your dashboard showing it are two different dates. If you can write a ShopifyQL query, you can have the answer this week.</p><p>Pull average customer acquisition cost by campaign and by customer segment, then put it beside gross margin per order and the repeat rate of customers acquired through that channel. A set cost per acquisition is only a good deal when your real ceiling sits above the set price, and a first order that looks acceptable on margin can still lose money if those buyers never come back. If the segments disagree, that is your steering, and it is the kind of number worth writing into your <a href=\"/ecommerce\">ecommerce reporting</a> rather than reading once in an admin tab.</p><p>One honest limit. This exposes what Shopify attributes to Shop Campaigns. It does not settle whether those customers would have arrived anyway, and no channel owned report ever will. Use it to compare Shopify's numbers with your own, not to replace them.</p>",
+ "faqs": [
+  [
+   "What data is now available for Shop Campaigns?",
+   "Campaign level ad spend, sales, orders, return on ad spend, average order value and average customer acquisition cost, broken out by customer segment and time period, through the shop_campaign_insights schema in ShopifyQL."
+  ],
+  [
+   "Do I need an analytics app to use it?",
+   "No. You can query it through ShopifyQL directly, connect from tools like Power BI, Tableau or Looker Studio, or view Shop Campaigns in the Analytics or Advertising tab in your Shopify admin. Apps like Triple Whale, Northbeam and Elevar can integrate it, but Shopify says to check with your provider on their timeline."
+  ],
+  [
+   "Why focus on customer acquisition cost rather than ROAS?",
+   "Because Shop Campaigns charges a set cost per acquisition. On that model return on ad spend largely reports the price you already agreed to pay, while average customer acquisition cost compared against your contribution margin and repeat purchase rate tells you whether the price is actually good for your business."
+  ],
+  [
+   "Does this prove Shop Campaigns is working?",
+   "No. The data shows what Shopify attributes to the channel. It does not establish whether those customers would have purchased anyway, which is why the useful exercise is comparing these figures against your own margin and retention data rather than accepting them on their own."
+  ]
+ ]
+}
