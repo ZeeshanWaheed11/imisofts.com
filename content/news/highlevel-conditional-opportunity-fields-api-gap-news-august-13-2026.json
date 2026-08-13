@@ -1,0 +1,30 @@
+{
+  "slug": "highlevel-conditional-opportunity-fields-api-gap-news-august-13-2026",
+  "title": "HighLevel's New Required Opportunity Fields Skip API and Workflow Saves",
+  "desc": "HighLevel shipped conditional custom fields for opportunities on August 11, but validation covers only web and mobile saves. Automated writes bypass it entirely.",
+  "keywords": "gohighlevel conditional custom fields, highlevel opportunity required fields, gohighlevel opportunities api validation, highlevel crm data quality, gohighlevel pipeline fields",
+  "date": "2026-08-13",
+  "time": "10:05",
+  "read_time": 4,
+  "word_count": 582,
+  "cta": "Want your CRM data validated where it actually enters?",
+  "body": "<p><strong>August 13, 2026.</strong> HighLevel shipped conditional custom fields for opportunities on August 11, letting admins show fields based on an opportunity's pipeline, stage, status or other field values, and make those visible fields mandatory so an incomplete opportunity cannot be saved. The pitch is better data quality and more accurate reporting. The limit is in the last line of the release notes, and for an automated account it is the line that decides whether the feature does anything at all.</p>\n\n<p><strong>What HighLevel shipped</strong></p>\n\n<ol>\n<li>Conditional rules built from single conditions or AND and OR logic, triggered by pipeline, pipeline stage, status, dropdown, radio, checkbox and multi-select fields, per <a href=\"https://ideas.gohighlevel.com/changelog/conditional-custom-fields-for-opportunities\" rel=\"nofollow noopener\" target=\"_blank\">HighLevel's changelog entry of August 11, 2026</a>.</li>\n<li>Rule outcomes are Show field, Show folder, or Make mandatory, with a live preview before saving and activation immediately on save.</li>\n<li>Rules apply across Add, Edit and Bulk Edit flows on web and mobile, and can be managed from the Pipelines page as well as from Settings.</li>\n<li>It has to be switched on per sub-account in Labs under Show and Require Opportunity Fields Conditionally, only admins can create or edit rules, and nothing changes until an admin builds the first one.</li>\n<li>Validation applies to saves on web and mobile, but not to Public API or workflow-based updates.</li>\n</ol>\n\n<p><strong>The line that limits it</strong></p>\n\n<p>That fifth point is the one to plan around. In a manually operated CRM, most opportunities are typed in by a person, so validating web and mobile saves covers nearly everything. In an agency account it is usually the opposite. Opportunities get created by workflows off a form submission, by an inbound lead router, by an integration hitting the Public API, or by an automation platform pushing records in. None of those paths are validated.</p>\n\n<p>So the practical effect is that mandatory becomes mandatory for the smallest input channel and optional for the largest. If your reporting then treats a required field as guaranteed to be populated, the records most likely to be missing it are the automated ones, which in most agency accounts is the bulk of the pipeline. That is a worse failure than no validation at all, because the field looks enforced.</p>\n\n<p><strong>What it means for operators</strong></p>\n\n<p>Use the feature for what it genuinely fixes, which is humans skipping fields during manual entry and at stage changes. Then enforce the same requirement separately on the automated path, because HighLevel will not. If opportunities arrive through an automation, put the check upstream in the workflow that creates the record, so a missing value is caught before the write instead of discovered in a report. A scheduled reconciliation that flags opportunities in a given stage with the required field empty will also catch anything created through the API, and it costs one workflow.</p>\n\n<p>Two smaller notes worth putting in the runbook. Rules are configured separately for each sub-account, so this is per client work with no template, and if multiple rules apply their mandatory requirements combine, which is easy to trip over once a pipeline has several rules layered on it. Test with a real save rather than the preview.</p>\n\n<p>Anyone standardising pipeline data across a portfolio of client accounts will hit the same split between what the CRM validates and what the automation writes. Aligning the two is part of how our <a href=\"/gohighlevel-services\">GoHighLevel services</a> team sets up reporting that survives contact with an automated pipeline, and it is a routine piece of work when we <a href=\"/hire-n8n-developer\">build n8n automations</a> that write into a CRM.</p>",
+  "faqs": [
+    [
+      "Do HighLevel's new required opportunity fields apply to automations?",
+      "No. HighLevel states that validation applies to saves on web and mobile, but not to Public API or workflow-based updates. An opportunity created or updated by a workflow, an integration or an API call can be saved with a required field empty."
+    ],
+    [
+      "How do I turn on conditional opportunity fields in HighLevel?",
+      "Enable Show and Require Opportunity Fields Conditionally in Settings and Labs for the sub-account, then go to Settings, Custom Fields, Opportunity, Conditional Rules and create a rule. Only admins can create, edit or delete rules, and nothing changes until the first rule exists."
+    ],
+    [
+      "What can trigger a conditional rule on an opportunity?",
+      "Pipeline, pipeline stage, status, and dropdown, radio, checkbox and multi-select fields, combined with single conditions or AND and OR logic. Outcomes are showing an individual field, showing an entire folder, or making a visible field mandatory."
+    ],
+    [
+      "Can I reuse conditional field rules across client sub-accounts?",
+      "Not directly. HighLevel notes that rules are configured separately for each sub-account, so each client account has to be set up on its own. Agencies managing several accounts should document the rule set once and apply it deliberately rather than expecting it to inherit."
+    ]
+  ]
+}
