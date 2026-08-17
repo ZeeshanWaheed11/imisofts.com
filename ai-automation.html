@@ -105,13 +105,20 @@
       "description": "Fully automated workflows that reduce manual work by 60-80%"
     },
     "offers": {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       "description": "Custom AI automation solutions starting from consultation to full implementation",
+      "lowPrice": "599",
+      "highPrice": "5500",
       "priceSpecification": {
-        "@type": "PriceSpecification",
-        "minPrice": "5000",
-        "maxPrice": "50000",
-        "priceCurrency": "USD"
+        "@type": "UnitPriceSpecification",
+        "price": "599",
+        "priceCurrency": "USD",
+        "unitCode": "MON",
+        "referenceQuantity": {
+          "@type": "QuantitativeValue",
+          "value": 1,
+          "unitCode": "MON"
+        }
       },
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",

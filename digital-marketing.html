@@ -105,13 +105,20 @@
       "description": "Measurable increase in conversions, leads, and revenue through optimized digital campaigns"
     },
     "offers": {
-      "@type": "Offer",
+      "@type": "AggregateOffer",
       "description": "Performance-driven digital marketing campaigns with transparent reporting",
+      "lowPrice": "2999",
+      "highPrice": "25000",
       "priceSpecification": {
-        "@type": "PriceSpecification",
-        "minPrice": "2999",
-        "maxPrice": "25000",
-        "priceCurrency": "USD"
+        "@type": "UnitPriceSpecification",
+        "price": "2999",
+        "priceCurrency": "USD",
+        "unitCode": "MON",
+        "referenceQuantity": {
+          "@type": "QuantitativeValue",
+          "value": 1,
+          "unitCode": "MON"
+        }
       },
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
