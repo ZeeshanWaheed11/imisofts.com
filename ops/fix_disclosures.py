@@ -1,7 +1,8 @@
 import os, re, sys, glob
 ROOT = sys.argv[1] if len(sys.argv)>1 else '.'
 AFF = ['get.apollo.io/u5ocuv7me9t2','refer.instantly.ai/oovph6ghwnaa',
-       'gohighlevel.com/?fp_ref=zeeshanwaheed','apify.com?fpr=rc63q','appsumo.8odi']
+       'gohighlevel.com/?fp_ref=zeeshanwaheed','apify.com?fpr=rc63q','appsumo.8odi',
+       'get.brightdata.com/gf73pymzr2rh','try.leadpages.com/ax3hg5o6zyp9','partners.kit.com/080zlzt6wbb0']
 DISC_RE = re.compile(r'<p class="affiliate-disclosure"[^>]*>.*?</p>\s*', re.S)
 def cta(url, label):
     return (f'<p class="aff-cta" style="margin:0 0 22px;"><a href="{url}" target="_blank" '

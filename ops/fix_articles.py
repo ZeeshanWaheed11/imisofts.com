@@ -2,7 +2,7 @@
 """Idempotent article-structure normalizer + pre-publish validator (shared by builders)."""
 import os, re, sys, glob, html as H, json as _json
 DATELINE = re.compile(r'^(January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}\.?$')
-AFF = ['get.apollo.io/u5ocuv7me9t2','refer.instantly.ai/oovph6ghwnaa','gohighlevel.com/?fp_ref=zeeshanwaheed','apify.com?fpr=rc63q','appsumo.8odi']
+AFF = ['get.apollo.io/u5ocuv7me9t2','refer.instantly.ai/oovph6ghwnaa','gohighlevel.com/?fp_ref=zeeshanwaheed','apify.com?fpr=rc63q','appsumo.8odi','get.brightdata.com/gf73pymzr2rh','try.leadpages.com/ax3hg5o6zyp9','partners.kit.com/080zlzt6wbb0']
 def slugify(t):
     t=re.sub(r'<[^>]+>','',t); t=H.unescape(t).lower()
     t=re.sub(r'[^a-z0-9]+','-',t).strip('-'); return (t[:60] or 'section')
