@@ -1,0 +1,30 @@
+{
+  "slug": "google-sheets-20-million-cells",
+  "title": "Google Sheets Doubles to 20 Million Cells, but Not Its Byte Limit",
+  "desc": "Google Sheets now holds up to 20 million cells, generally available from 10 September. The import byte size limit did not move and has no announced date.",
+  "keywords": "google sheets cell limit, google sheets 20 million cells, google sheets import limit, sheets limit lead list, google sheets row limit",
+  "date": "2026-09-11",
+  "time": "13:00",
+  "read_time": 4,
+  "word_count": 635,
+  "cta": "Want your lead lists built, cleaned and actually sendable?",
+  "body": "<p><strong>September 11, 2026.</strong> Google made the doubled cell limit in Google Sheets generally available on 10 September, taking a spreadsheet from up to 10 million cells to up to 20 million. It applies to \"new, existing, and imported files\", needs no admin control and no user setting, and reaches Workspace customers, Individual subscribers and personal Google accounts alike. If your lead lists live in Sheets before they reach a sending platform, the ceiling you keep hitting just moved. One of them did, anyway.</p><p><strong>Two ceilings, and only one moved</strong></p><p>A spreadsheet has more than one limit, and Google's <a href=\"http://workspaceupdates.googleblog.com/2026/09/doubled-cell-limits-in-google-sheets-now-generally-available.html\" rel=\"nofollow noopener\" target=\"_blank\">own announcement</a> says which one did not change: \"Coming soon, we also plan to increase the file byte size limit for imported spreadsheets, making it easier to bring extensive datasets from other spreadsheet formats directly into Google Sheets.\" Coming soon carries no date.</p><p>That distinction decides whether this helps you. If you build the sheet inside Sheets, or grow one you already have, the cell count is the limit you were hitting and you now have twice the room. If you import, and scraped or enriched lead data almost always arrives as a CSV or an .xlsx export, the byte ceiling is still the one that refuses the file, and it refuses it before the cell count is ever consulted. A file that would comfortably fit in 20 million cells can still be rejected on size.</p><p><strong>What 20 million cells buys a lead list</strong></p><p>The arithmetic is worth doing once, because column count drives it far more than most people expect. Twenty million cells across a 25-column list is 800,000 rows. Across 40 columns, the kind of width you end up with after firmographic and technographic enrichment, it is 500,000 rows. Across 60 columns it is roughly 333,000. Every enrichment column you add costs you rows at the ceiling, which is an argument for splitting enrichment output into a second sheet rather than widening the working list.</p><p>Two practical caveats. The rollout is gradual, so the limit is not live for everyone today: Rapid Release domains began on 10 September with up to 15 days for the feature to appear, and Scheduled Release domains do not begin until 28 September, also with up to 15 days, which puts some accounts in mid-October. And a spreadsheet at 20 million cells is a very different thing from a usable one. Sheets remains a staging and review surface for list work, not a database.</p><p><strong>What it means for operators</strong></p><p>If you run outbound, the useful read is that this raises the review ceiling and not the import ceiling. Stage bigger lists, review and dedupe them in one file instead of three, and stop splitting a 400,000 row pull across workbooks just to keep each one under the old limit. But keep chunking on the way in, because the byte limit on import has not moved and has no announced date.</p><p>The other thing worth checking is what happens after the sheet. A list is only useful once it reaches infrastructure that can actually send to it, and a bigger staging file makes it easier to push a bad segment live at scale. Volume that a spreadsheet now tolerates is not automatically volume your domains and mailboxes tolerate, which is a question of <a href=\"/email-infrastructure\">email infrastructure</a> rather than one of storage. If the constraint you are actually hitting is list quality rather than list size, that is a <a href=\"/lead-generation\">lead generation</a> problem and a larger spreadsheet will not touch it.</p><p>Worth noting for anyone who thought they had read this before: they had. Google's post links its own April 2026 announcement carrying a near-identical headline about doubled cell limits. This week's post is the general availability of that change, not a second increase, and the limit is 20 million cells rather than 40.</p>",
+  "faqs": [
+    [
+      "How many cells can a Google Sheet hold now?",
+      "Up to 20 million, doubled from 10 million. Google made the change generally available on 10 September 2026 and says it applies to new, existing and imported files, with no admin control and no end-user setting to switch on."
+    ],
+    [
+      "Does the higher cell limit mean I can import bigger files?",
+      "Not necessarily. Google states that it plans to increase the file byte size limit for imported spreadsheets separately, and that change is described only as coming soon with no date. On import, the byte ceiling can still reject a file whose cell count would fit comfortably."
+    ],
+    [
+      "How many rows is 20 million cells for a lead list?",
+      "It depends entirely on column count. Twenty million cells is about 800,000 rows at 25 columns, 500,000 rows at 40 columns, and around 333,000 rows at 60 columns. Enrichment columns are expensive at the ceiling, so wide lists lose rows quickly."
+    ],
+    [
+      "When will I actually get the higher limit?",
+      "Rapid Release domains began a gradual rollout on 10 September 2026 with up to 15 days for the feature to become visible. Scheduled Release domains begin on 28 September 2026, also with up to 15 days, so some accounts will not see it until mid-October."
+    ]
+  ]
+}
