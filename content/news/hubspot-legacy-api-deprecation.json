@@ -1,0 +1,30 @@
+{
+  "slug": "hubspot-legacy-api-deprecation",
+  "title": "HubSpot Legacy API Deprecation: Two Deadlines in Six Weeks",
+  "desc": "HubSpot has moved v1 to v3 APIs and pre-June 2026 public apps to unsupported status. Legacy private app creation ends 28 September and 26 October 2026.",
+  "keywords": "hubspot legacy api deprecation, hubspot v1 v2 v3 unsupported, hubspot private app migration, hubspot projects based apps, hubspot date based versioning, hubspot api deadline 2027",
+  "date": "2026-09-17",
+  "time": "12:00",
+  "read_time": 3,
+  "cta": "Want your client integrations migrated before the deadline?",
+  "body": "<p><strong>September 17, 2026.</strong> At its Fall Spotlight event on 15 September, HubSpot announced the end of support for three things at once: v1 to v3 APIs, public apps built on the pre-Projects architecture, and legacy private apps. The enforcement date for all three is September 2027, which reads like a problem for next year. Two of the dates are not. Legacy private app creation is switched off on 28 September 2026 for new accounts and 26 October 2026 for existing ones, so an agency that builds client integrations has about six weeks, not twelve months.</p>\n\n<p><strong>What HubSpot announced</strong></p>\n\n<ol>\n<li>Endpoints on /v1/, /v2/ and /v3/ move to unsupported status. HubSpot says it \"will no longer release bug fixes, reliability improvements, or security updates\" for them. Support for v4 is ending on its own earlier timeline, 30 March 2027.</li>\n<li>Public apps created before 23 June 2026 run on the pre-Projects architecture and moved to unsupported status on 15 September. After September 2027 they are eligible for delisting from the Marketplace.</li>\n<li>Legacy private apps must migrate to the Projects based private app model. For new lightweight integrations HubSpot now points to Service Keys instead, with no full OAuth backend required.</li>\n</ol>\n\n<p>Marketplace apps face two independent tests. Calling v1 to v4 after September 2027 costs an app its certification. Running on pre-Projects architecture after September 2027 makes it eligible for delisting. Fixing one does not fix the other.</p>\n\n<p><strong>The detail that will catch people out</strong></p>\n\n<p>A new tasks card in developer home flags apps using APIs that are going unsupported, and the <a href=\"https://developers.hubspot.com/changelog/legacy-apis-and-legacy-apps-whats-going-unsupported-and-when\">changelog</a> spells out how it works: \"detection checks API calls at runtime, not your source code. Runtime calls to legacy endpoints will be flagged even if your codebase has been updated.\" A migrated codebase with one forgotten scheduled job still hitting an old endpoint will show up as unmigrated, which is correct but surprising.</p>\n\n<p>The migration advice also rules out the obvious shortcut. HubSpot says to move from any legacy version straight to date based versioning and to \"not use v3 or v4 as an intermediate step,\" because some endpoints change response shape and not just the URL path.</p>\n\n<p><strong>What it means for operators</strong></p>\n\n<p>If you run HubSpot integrations for clients, the near dates are the ones to diary. Any portal that might need a new private app should get it created before 26 October, because after that the only route is the Projects based model and Service Keys, and that is a different build with a different approval path.</p>\n\n<p>Then do an inventory rather than a guess. Runtime detection means the honest answer about which client integrations are affected lives in HubSpot's own tasks card, not in your repository. Agencies carrying a dozen client portals will usually find the exposure concentrated in a few old automations nobody has touched since the day they started working.</p>\n\n<p>The wider pattern is worth naming. Deprecations like this are the recurring tax on running client systems you did not build, and the tax is the same whether the platform is a CRM or a white label stack. If you are packaging client automation as a product rather than as retainers, our <a href=\"/gohighlevel-white-label-saas\">GoHighLevel white label SaaS</a> work covers that side, and the integration build itself sits with <a href=\"/ai-automation\">AI automation</a>.</p>",
+  "faqs": [
+    [
+      "What did HubSpot announce on 15 September 2026?",
+      "The end of support for v1 to v3 APIs, for public apps created before 23 June 2026 that use the pre-Projects architecture, and for legacy private apps. All three share a September 2027 enforcement date, and support for v4 ends separately on 30 March 2027."
+    ],
+    [
+      "When does legacy private app creation actually stop?",
+      "On 28 September 2026 for new accounts and 26 October 2026 for existing accounts. After those dates new private integrations must use the Projects based private app model, or Service Keys for lightweight cases."
+    ],
+    [
+      "Will my app be delisted from the HubSpot Marketplace?",
+      "Only after September 2027, and only if it still runs on pre-Projects architecture. There are two independent tests: calling v1 to v4 after that date costs certification, and running legacy architecture makes the app eligible for delisting. Meeting one requirement does not satisfy the other."
+    ],
+    [
+      "How do I know which of my integrations are affected?",
+      "Use the tasks card in HubSpot developer home rather than auditing your code. HubSpot's detection checks API calls at runtime, not source code, so a repository that looks migrated can still be flagged if any live job calls a legacy endpoint."
+    ]
+  ],
+  "word_count": 544
+}
