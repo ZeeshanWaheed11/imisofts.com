@@ -1,0 +1,71 @@
+{
+ "slug": "salesforce-agent-api-flex-credits",
+ "title": "Salesforce Will Meter Every AI Agent API Call in Flex Credits",
+ "desc": "Every MCP or API call a registered AI agent makes to Salesforce will be metered as a Headless Platform Interaction in Flex Credits. Rate TBA, 30 days' notice.",
+ "keywords": "salesforce flex credits api calls, headless platform interaction, salesforce agentic identity, salesforce mcp pricing, salesforce agent registration, aiforce headless toolkit billing",
+ "date": "2026-09-26",
+ "time": "18:10",
+ "read_time": 3,
+ "word_count": 695,
+ "cta": "Want your CRM agent designed for a metered API before the meter starts?",
+ "body": "<p><strong>September 26, 2026.</strong> On September 17 Salesforce published a Help article, <a href=\"https://help.salesforce.com/s/articleView?id=005360285&type=1\" target=\"_blank\" rel=\"noopener noreferrer\">Understand AIforce Impact</a>, that changes the economics of connecting any AI agent to a Salesforce org. Targeting November, agents that talk to Salesforce over the Model Context Protocol or the API will have to be registered with their own Agentic Identity, and once registered, \"every successful call a registered agent makes to Salesforce, whether it arrives over Model Context Protocol (MCP) or direct API, is metered as a Headless Platform Interaction (HPI)\" that consumes Flex Credits. The rate is listed as \"TBA\" and metering is off until Salesforce gives 30 days' notice. For a small insurance agency or lender that connected Claude, ChatGPT or a custom calling agent to its CRM this year, the consequence is simple: the day the number is published, every read and write that agent makes has a price. <a href=\"https://www.salesforceben.com/salesforce-will-charge-flex-credits-for-agentic-mcp-and-api-calls/\" target=\"_blank\" rel=\"noopener noreferrer\">Salesforce Ben</a> reported the change on September 24.</p>\n<p><strong>What Salesforce published</strong></p>\n<ol>\n<li><strong>Registration first.</strong> Admins register each agent directly on the platform, which \"carves out a discrete identity for each agent instead of letting it operate under the identity of the person it assists,\" with a narrower permission set than a human user.</li>\n<li><strong>Then billing.</strong> A registered agent's usage is tracked in Digital Wallet under a new usage type in the Customer 360 Platform category of the Flex Credits Rate Card. Every successful MCP or direct API call is one Headless Platform Interaction.</li>\n<li><strong>No rate yet.</strong> The multiplier \"hasn't been announced yet, so it is currently listed as TBA and agentic usage isn't metered.\" Salesforce will give 30 days' notice before metering begins.</li>\n<li><strong>Who must register, and when.</strong> Customers buying on or after September 17 must register all agents that use Salesforce APIs within three months of notice that Agentic Identity is available; existing customers register and migrate at renewal; any use of a Salesforce MCP server requires registration within three months of notice, for all customers.</li>\n<li><strong>Production only.</strong> Sandboxes, scratch orgs and Developer Edition orgs do not incur HPI metering, so building and testing stays free of the meter.</li>\n<li><strong>Traditional integrations are untouched.</strong> \"The pricing and security options for traditional integrations stay exactly as they are today.\" The model is aimed at agentic traffic only.</li>\n<li><strong>The prerequisites.</strong> Flex Credit billing needs Salesforce Foundations, \"currently available at $0\"; then register the agent, point MCP clients and API agents at the registered agent's OAuth credentials, and reconnect.</li>\n<li><strong>What a credit costs today.</strong> Salesforce's <a href=\"https://www.salesforce.com/agentforce/pricing/\" target=\"_blank\" rel=\"noopener noreferrer\">Agentforce pricing page</a> sells Flex Credits at $500 per 100,000, half a cent each; its worked examples price a standard action at 20 credits (10 cents), an order-status request at 40, a support case at 60, an appointment booking at 100 and a voice reservation call at 120 credits, or 60 cents.</li>\n</ol>\n<p><strong>What it means for operators</strong></p>\n<p>The number you can act on before the rate lands is the call count. An intake agent that looks up a contact, checks open cases, writes a call note and updates a stage field makes four calls per conversation; a nightly enrichment agent touching 5,000 records makes at least 5,000. Count those now, per task, and you can price the meter the afternoon the multiplier is published. Salesforce has not said how composite or bulk requests are counted; ask your account executive in writing.</p>\n<p>Architecture matters more than it did. Agents that re-read the same account on every turn will pay twice for what a cached read achieves. The pattern that survives a metered CRM is the same one that survives a metered model: gather once, decide, write once. For an <a href=\"/ai-calling-insurance\">AI calling agent for insurance agencies</a>, where every completed call ends in a CRM write, that write is now a line item to be designed, not an afterthought.</p>\n<p>One part is good news. Agentic Identity gives each agent scoped permissions and a full audit trail, and nothing is billed until the rate exists and the notice period has run. Teams building with a <a href=\"/hire-ai-engineer\">dedicated AI engineer</a> should use the window to instrument call counts and keep bulk data movement on the traditional integration credentials Salesforce says are not changing. See also <a href=\"/blog/hubspot-credits-cost/\">what HubSpot charges per agent action in credits</a>.</p>",
+ "faqs": [
+  [
+   "What is a Headless Platform Interaction in Salesforce?",
+   "It is Salesforce's new billable unit for agentic access, defined in the September 17, 2026 Help article Understand AIforce Impact. Every successful call a registered AI agent makes to Salesforce, over MCP or the direct API, is metered as one Headless Platform Interaction and consumes Flex Credits from the org's Digital Wallet."
+  ],
+  [
+   "How much will Salesforce charge per agent API call?",
+   "Salesforce has not published the multiplier; the rate card lists the usage type as TBA and no agentic usage is metered yet. Salesforce says it will give 30 days' notice before metering begins. Flex Credits themselves cost $500 per 100,000, half a cent each, and Salesforce's own examples price a standard Agentforce action at 20 credits."
+  ],
+  [
+   "Do I have to register my AI agents with Salesforce?",
+   "Yes, on a schedule. Customers who purchase on or after September 17, 2026 must register all agents that use Salesforce APIs within three months of notice that Agentic Identity is available; existing customers must register and migrate at renewal; and any use of a Salesforce MCP server requires registration within three months of notice for all customers."
+  ],
+  [
+   "Are sandbox and developer orgs billed for agent calls?",
+   "No. Salesforce says Flex Credits are only consumed for Headless Platform Interactions in active production orgs. Sandboxes, scratch orgs and Developer Edition orgs do not incur HPI metering, so building and testing agents does not draw down credits."
+  ]
+ ],
+ "image": {
+  "cluster": "CRM pricing",
+  "takeaway": "Every successful MCP or API call by a registered agent is a Headless Platform Interaction in Flex Credits; rate TBA.",
+  "alt": "Salesforce will meter every AI agent API call in Flex Credits",
+  "chart": {
+   "title": "What Salesforce's own examples price one agent task at",
+   "subtitle": "Flex Credit cost per task from the Agentforce pricing page examples, at $500 per 100,000 credits.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Onboarding question",
+     0.1
+    ],
+    [
+     "Order status check",
+     0.2
+    ],
+    [
+     "Support case",
+     0.3
+    ],
+    [
+     "Appointment booking",
+     0.5
+    ],
+    [
+     "Voice reservation call",
+     0.6
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 4,
+   "note": [
+    "120 Flex Credits per call on Agentforce Voice.",
+    "The rate for outside agents' calls is still TBA."
+   ],
+   "source": "Salesforce's published examples, standard action at 20 credits. Source: salesforce.com Agentforce pricing, September 2026",
+   "alt": "Bar chart of Salesforce's example Flex Credit costs per agent task, from 10 cents for an onboarding question to 60 cents for a voice reservation call"
+  }
+ }
+}
