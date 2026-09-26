@@ -26,6 +26,22 @@ CATEGORY = "Founder's Playbook"
 CAT_ATTR = _html.escape(CATEGORY, quote=True)   # -> Founder&#x27;s Playbook (matches sync_blog_index card() esc)
 
 
+def submit_indexnow(urls):
+    """Best-effort IndexNow ping (same as build_news / build_affiliate) so Bing, and the
+    ChatGPT and Perplexity retrieval that reads Bing, see a new byline page within hours
+    instead of waiting for the sitemap crawl. Never breaks the build. Added 2026-09-26."""
+    import urllib.request
+    KEY = "8f91c62405dc13875a9db237c23b51f6"
+    urls = list(dict.fromkeys(urls))
+    try:
+        payload = json.dumps({"host": "imisofts.com", "key": KEY, "keyLocation": f"https://imisofts.com/{KEY}.txt", "urlList": urls}).encode()
+        req = urllib.request.Request("https://api.indexnow.org/indexnow", data=payload, headers={"Content-Type": "application/json; charset=utf-8"}, method="POST")
+        with urllib.request.urlopen(req, timeout=20) as r:
+            print("indexnow: submitted %d url(s), HTTP %s" % (len(urls), getattr(r, "status", r.getcode())))
+    except Exception as e:
+        print("indexnow: skipped (%s)" % e)
+
+
 def load_specs():
     out = []
     if not os.path.isdir(SPEC_DIR):
@@ -158,6 +174,9 @@ def main():
     assert after >= before + len(pi), 'card count sanity failed: %d -> %d (added %d)' % (before, after, len(pi))
     print('posts-index +%d %s | sitemap +%d %s | tab_added=%s | cards %d -> %d | images +%d %s'
           % (len(pi), pi, len(sm), sm, tab, before, after, len(im), im))
+    # ---- IndexNow auto-submit for newly wired pages only (best-effort) ----
+    if pi:
+        submit_indexnow(['https://imisofts.com/blog/%s/' % s for s in pi] + ['https://imisofts.com/', 'https://imisofts.com/blog/'])
     return 0
 
 
