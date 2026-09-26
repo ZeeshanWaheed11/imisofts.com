@@ -19,6 +19,9 @@ jobs:
         run: python3 -m pip install --quiet pillow
       - name: Build affiliate articles and indexes
         run: python3 ops/build_affiliate.py
+      - name: Regenerate llms.txt and llms-full.txt
+        run: python3 ops/build_llms.py
+        continue-on-error: true
       - name: Commit generated files
         run: |
           git config user.name "imisofts-news-bot"
