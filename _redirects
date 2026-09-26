@@ -179,3 +179,39 @@
 /author/                        /blog/                                   301
 /jp                             /                                        301
 /jp/                            /                                        301
+
+# ---------------------------------------------------------------------------
+#     Added 2026-09-26 (full SEO audit, item 1): internal repository files
+#     must not be public. Cloudflare Pages cannot return 404/410 from this
+#     file, so each path is sent to a URL that does not exist and so 404s.
+# ---------------------------------------------------------------------------
+/ops/*                                  /not-public                              301
+/content/*                              /not-public                              301
+/data/*                                 /not-public                              301
+/.github/*                              /not-public                              301
+/.gitignore                             /not-public                              301
+/blog/build_post.py                     /not-public                              301
+/build_batch2.py                        /not-public                              301
+/update_navbars.py                      /not-public                              301
+/README.md                              /not-public                              301
+/BLOG-WORKFLOW.md                       /not-public                              301
+/CURRENT_STATE_ASSESSMENT.md            /not-public                              301
+/DASHBOARD_REQUIREMENTS.md              /not-public                              301
+/SECURITY_VALIDATION.md                 /not-public                              301
+/SEO-AUDIT-REPORT.md                    /not-public                              301
+/SEO_AUDIT_REPORT_2026.md               /not-public                              301
+/SEO_AUDIT_REPORT_GSC_2026.md           /not-public                              301
+/SEO_PLANNING_REPORT.md                 /not-public                              301
+/SPP_EMAIL_INFRASTRUCTURE_DETAILED.md   /not-public                              301
+/SPP_SERVICE_DESCRIPTIONS.md            /not-public                              301
+/SPP_SETUP_GUIDE.md                     /not-public                              301
+/STARTER_WELCOME_EMAIL.md               /not-public                              301
+/WEBSITE_AUDIT_REPORT.txt               /not-public                              301
+
+# ---------------------------------------------------------------------------
+#     Added 2026-09-26: blog slugs requested without the /blog/ prefix
+#     (GSC 404 report, 2026-09-21 weekly audit)
+# ---------------------------------------------------------------------------
+/email-warmup-duration-data             /blog/email-warmup-duration-data/        301
+/cold-email-it-staffing                 /blog/cold-email-it-staffing/            301
+/cold-email-laws-germany                /blog/cold-email-laws-germany/           301
