@@ -17,6 +17,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install image renderer dependency
+        run: python3 -m pip install --quiet pillow
       - name: Wire founder byline article(s) into indexes
         run: python3 ops/build_byline.py
       - name: Commit generated files
