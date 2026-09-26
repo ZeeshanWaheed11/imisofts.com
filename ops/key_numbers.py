@@ -72,7 +72,7 @@ def render(meta):
     cell = 'padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top'
     trs = []
     for label, value, note in kn['rows']:
-        note_html = ' <span style="color:#6B7280;font-weight:400">, %s</span>' % note if note else ''
+        note_html = ' <span style="color:#6B7280;font-weight:400">(%s)</span>' % note if note else ''
         trs.append('<tr><td style="%s">%s%s</td><td style="%s;text-align:right;font-weight:600;white-space:nowrap">%s</td></tr>'
                    % (cell, label, note_html, cell, value))
     return (
