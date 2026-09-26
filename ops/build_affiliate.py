@@ -12,6 +12,24 @@ Idempotent: builds pages missing/newer; only adds index entries not already pres
 import json, re, os, glob, sys, subprocess
 import datetime as _dtmod
 
+def _rfc822(date_iso, hm='09:00'):
+    """RSS 2.0 pubDate (RFC 822) from the spec's YYYY-MM-DD and optional HH:MM, site time UTC+4. Added 2026-09-26."""
+    import datetime as _d, email.utils as _eu
+    try:
+        h, m = [int(x) for x in str(hm or '09:00').split(':')[:2]]
+    except Exception:
+        h, m = 9, 0
+    dt = _d.datetime.fromisoformat(str(date_iso)[:10]).replace(hour=h, minute=m, tzinfo=_d.timezone(_d.timedelta(hours=4)))
+    return _eu.format_datetime(dt)
+
+def _bump_channel(feed, rfc):
+    """Set the channel lastBuildDate and pubDate (header only, before the first <item>). Added 2026-09-26."""
+    i = feed.find('<item>')
+    head, tail = (feed[:i], feed[i:]) if i > 0 else (feed, '')
+    head = re.sub(r'<lastBuildDate>[^<]*</lastBuildDate>', '<lastBuildDate>%s</lastBuildDate>' % rfc, head, count=1)
+    head = re.sub(r'<pubDate>[^<]*</pubDate>', '<pubDate>%s</pubDate>' % rfc, head, count=1)
+    return head + tail
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE = os.path.join(ROOT, 'blog', 'signal-based-outbound-news-june-2026', 'index.html')
 CONTENT_DIR = os.path.join(ROOT, 'content', 'affiliate')
@@ -166,8 +184,12 @@ def main():
             for meta in sorted(metas,key=lambda m:m['date'],reverse=True):
                 u=f'https://imisofts.com/blog/{meta["slug"]}/'
                 if u in ff: continue
-                items+=f'<item>\n<title>{esc(meta["title"])}</title>\n<link>{u}</link>\n<guid isPermaLink="true">{u}</guid>\n<pubDate>{meta["date"]}</pubDate>\n<description>{esc(meta["desc"])}</description>\n</item>\n'
-            if items: open(os.path.join(ROOT,'feed.xml'),'w').write(ff.replace(m0.group(0),items+m0.group(0),1))
+                items+=f'<item>\n<title>{esc(meta["title"])}</title>\n<link>{u}</link>\n<guid isPermaLink="true">{u}</guid>\n<pubDate>{_rfc822(meta["date"], meta.get("time","09:00"))}</pubDate>\n<description>{esc(meta["desc"])}</description>\n</item>\n'
+            if items:
+                ff=ff.replace(m0.group(0),items+m0.group(0),1)
+                _nm=sorted(metas,key=lambda m:m['date'],reverse=True)[0]
+                ff=_bump_channel(ff, _rfc822(_nm['date'], _nm.get('time','09:00')))
+                open(os.path.join(ROOT,'feed.xml'),'w').write(ff)
     except Exception as e: print('feed skip',e)
     subprocess.run([sys.executable,os.path.join(ROOT,'ops','sync_blog_index.py')],check=False)
     submit_indexnow([f'https://imisofts.com/blog/{m["slug"]}/' for m in metas]+['https://imisofts.com/','https://imisofts.com/blog/'])
