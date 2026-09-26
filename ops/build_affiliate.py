@@ -128,7 +128,7 @@ def build_article(meta, tpl):
 def main():
     if not os.path.exists(TEMPLATE): print('ERROR: template missing'); return 1
     if not os.path.isdir(CONTENT_DIR): print('no affiliate content dir'); return 0
-    tpl=open(TEMPLATE,encoding='utf-8').read(); metas=[]
+    tpl=open(TEMPLATE,encoding='utf-8').read(); metas=[]; changed_slugs=[]   # slugs whose HTML differs after this run (IndexNow only for these)
     for f in sorted(glob.glob(os.path.join(CONTENT_DIR,'*.json'))):
         meta=json.load(open(f,encoding='utf-8'))
         out=os.path.join(ROOT,'blog',meta['slug'],'index.html')
@@ -138,7 +138,9 @@ def main():
             except Exception as _qe:
                 print('QA BLOCK %s: %s'%(meta.get('slug','?'), _qe)); continue
             os.makedirs(os.path.dirname(out),exist_ok=True)
+            _prev=open(out,encoding='utf-8').read() if os.path.exists(out) else None
             open(out,'w',encoding='utf-8').write(_html); print('built blog/%s/index.html'%meta['slug'])
+            if _html!=_prev: changed_slugs.append(meta['slug'])
         metas.append(meta)
     if not metas: print('no content files'); return 0
     pj=os.path.join(ROOT,'blog','posts-index.json')
@@ -192,7 +194,11 @@ def main():
                 open(os.path.join(ROOT,'feed.xml'),'w').write(ff)
     except Exception as e: print('feed skip',e)
     subprocess.run([sys.executable,os.path.join(ROOT,'ops','sync_blog_index.py')],check=False)
-    submit_indexnow([f'https://imisofts.com/blog/{m["slug"]}/' for m in metas]+['https://imisofts.com/','https://imisofts.com/blog/'])
+    # 2026-09-26: only pages whose HTML changed in this run (IndexNow asks for changed URLs only).
+    if changed_slugs:
+        submit_indexnow([f'https://imisofts.com/blog/{s}/' for s in changed_slugs]+['https://imisofts.com/','https://imisofts.com/blog/'])
+    else:
+        print('indexnow: nothing changed, no submission')
     print('affiliate build done: %d spec(s)'%len(metas)); return 0
 
 if __name__=='__main__': sys.exit(main())

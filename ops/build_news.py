@@ -138,7 +138,7 @@ def main():
         _nh=fix_chrome(_h,_m.group(1))
         if _nh!=_h:
             open(_hf,'w',encoding='utf-8').write(_nh); print('healed byline:',_hf)
-    metas=[]
+    metas=[]; changed_slugs=[]   # slugs whose HTML actually differs after this run (IndexNow only for these)
     for f in sorted(glob.glob(os.path.join(CONTENT_DIR,'*.json'))):
         meta=json.load(open(f,encoding='utf-8'))
         out=os.path.join(ROOT,'blog',meta['slug'],'index.html')
@@ -148,8 +148,10 @@ def main():
             except Exception as _qe:
                 print('QA BLOCK %s: %s'%(meta.get('slug','?'), _qe)); continue
             os.makedirs(os.path.dirname(out),exist_ok=True)
+            _prev=open(out,encoding='utf-8').read() if os.path.exists(out) else None
             open(out,'w',encoding='utf-8').write(_html)
             print('built blog/%s/index.html'%meta['slug'])
+            if _html!=_prev: changed_slugs.append(meta['slug'])
         metas.append(meta)
     if not metas:
         print('no content files'); return 0
@@ -208,8 +210,13 @@ def main():
     subprocess.run([sys.executable, os.path.join(ROOT,'ops','sync_blog_index.py')], check=False)
     print('indexes updated; news-sitemap has %d fresh url(s)'%fresh_count)
     # ---- IndexNow auto-submit (best-effort; pings Bing -> ChatGPT retrieval) ----
-    inurls=[f'https://imisofts.com/blog/{m["slug"]}/' for m in metas]+['https://imisofts.com/','https://imisofts.com/blog/']
-    submit_indexnow(inurls)
+    # 2026-09-26: only pages whose HTML changed in this run. Re-submitting all spec URLs every
+    # day is what IndexNow asks publishers not to do, and it dilutes the signal for the new ones.
+    if changed_slugs:
+        inurls=[f'https://imisofts.com/blog/{s}/' for s in changed_slugs]+['https://imisofts.com/','https://imisofts.com/blog/']
+        submit_indexnow(inurls)
+    else:
+        print('indexnow: nothing changed, no submission')
     return 0
 
 if __name__=='__main__':
