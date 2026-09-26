@@ -39,61 +39,62 @@
   
   <!-- Structured Data for Shopify App Reviews Service -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Shopify App Review Management",
-    "name": "Shopify App Reviews Service",
-    "description": "Professional review management service for Shopify apps. Get authentic 5-star reviews that increase installs by 400%. 100% App Store compliant.",
-    "provider": {
-      "@type": "Organization",
-      "name": "imisofts",
-      "url": "https://imisofts.com"
-    },
-    "offers": {
-      "@type": "Offer",
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Shopify App Review Management",
+  "name": "Shopify App Reviews Service",
+  "description": "Professional review management service for Shopify apps. Get authentic 5-star reviews that increase installs by 400%. 100% App Store compliant.",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://imisofts.com/#organization",
+    "name": "imisofts",
+    "url": "https://imisofts.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "99",
+    "priceCurrency": "USD",
+    "priceSpecification": {
+      "@type": "UnitPriceSpecification",
       "price": "99",
       "priceCurrency": "USD",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
+      "unitText": "MONTH"
+    }
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Worldwide"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Review Management Packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Starter Package",
         "price": "99",
         "priceCurrency": "USD",
-        "unitText": "MONTH"
+        "description": "5-10 reviews per month"
+      },
+      {
+        "@type": "Offer",
+        "name": "Growth Package",
+        "price": "299",
+        "priceCurrency": "USD",
+        "description": "15-25 reviews per month"
+      },
+      {
+        "@type": "Offer",
+        "name": "Enterprise Package",
+        "price": "599",
+        "priceCurrency": "USD",
+        "description": "30+ reviews per month with priority support"
       }
-    },
-    "areaServed": {
-      "@type": "Place",
-      "name": "Worldwide"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Review Management Packages",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "name": "Starter Package",
-          "price": "99",
-          "priceCurrency": "USD",
-          "description": "5-10 reviews per month"
-        },
-        {
-          "@type": "Offer",
-          "name": "Growth Package",
-          "price": "299",
-          "priceCurrency": "USD",
-          "description": "15-25 reviews per month"
-        },
-        {
-          "@type": "Offer",
-          "name": "Enterprise Package",
-          "price": "599",
-          "priceCurrency": "USD",
-          "description": "30+ reviews per month with priority support"
-        }
-      ]
-    }
+    ]
   }
-  </script>
+}
+</script>
 
   <script type="application/ld+json">
   {
