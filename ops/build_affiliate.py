@@ -108,6 +108,13 @@ def build_article(meta, tpl):
         if _imgs: s=render_images.apply_images_to_html(s, meta, _imgs); print('images: %s'%_imgs['hero_webp'])
     except Exception as _ie:
         print('images skipped for %s: %s'%(slug,_ie))
+    # ---- key numbers (2026-09-26): only specs that carry a "key_numbers" block get the dated table.
+    try:
+        import key_numbers
+        _s2=key_numbers.apply(s, meta)
+        if _s2!=s: s=_s2; print('key numbers: %d rows'%len(key_numbers.spec_block(meta)['rows']))
+    except Exception as _ke:
+        print('key numbers skipped for %s: %s'%(slug,_ke))
     s=re.sub(r'<time datetime="[^"]*">[^<]*</time>','<time datetime="%s">%s</time>'%(DATE[:10],human_date(DATE[:10])),s,count=1)
     s=re.sub(r'(\d+)\s*min read','%d min read'%meta.get('read_time',8),s,count=1)
     mainpart=s[s.find('<article'):s.find('</article>')]

@@ -157,6 +157,37 @@ def add_images(specs):
     return done
 
 
+def add_key_numbers(specs):
+    """2026-09-26: when a byline spec carries a "key_numbers" block, inject the dated numbers table into the
+    already-built page once (idempotent via the key-numbers marker) and refresh the TOC. Specs without the
+    block are untouched, so nothing published before this date changes."""
+    done = []
+    try:
+        import key_numbers, fix_articles
+    except Exception as e:
+        print('key numbers: module unavailable (%s)' % e); return done
+    for sp in specs:
+        if not key_numbers.spec_block(sp):
+            continue
+        page = os.path.join(ROOT, 'blog', sp['slug'], 'index.html')
+        if not os.path.exists(page):
+            print('key numbers: page missing for %s, skipped' % sp['slug']); continue
+        html = open(page, encoding='utf-8').read()
+        if key_numbers.MARK in html:
+            continue
+        try:
+            new = key_numbers.apply(html, sp)
+            new = fix_articles.process(new)[0]          # TOC picks up the new h2
+            probs = fix_articles.validate_article(new)
+            if probs:
+                print('key numbers: QA blocked %s: %s' % (sp['slug'], '; '.join(probs))); continue
+            if new != html:
+                open(page, 'w', encoding='utf-8').write(new); done.append(sp['slug'])
+        except Exception as e:
+            print('key numbers: skipped %s (%s)' % (sp['slug'], e))
+    return done
+
+
 def main():
     specs = load_specs()
     if not specs:
@@ -164,6 +195,7 @@ def main():
         return 0
     before = open(IDX, encoding='utf-8').read().count('class="post-card"')
     im = add_images(specs)
+    kn = add_key_numbers(specs)
     pi = wire_posts_index(specs)
     sm = wire_sitemap(specs)
     # Card them on /blog using the SAME sync the news engine uses (additive + idempotent).
@@ -172,8 +204,8 @@ def main():
     after = open(IDX, encoding='utf-8').read().count('class="post-card"')
     # SAFETY: the grid must never shrink, and our new cards must have landed.
     assert after >= before + len(pi), 'card count sanity failed: %d -> %d (added %d)' % (before, after, len(pi))
-    print('posts-index +%d %s | sitemap +%d %s | tab_added=%s | cards %d -> %d | images +%d %s'
-          % (len(pi), pi, len(sm), sm, tab, before, after, len(im), im))
+    print('posts-index +%d %s | sitemap +%d %s | tab_added=%s | cards %d -> %d | images +%d %s | key numbers +%d %s'
+          % (len(pi), pi, len(sm), sm, tab, before, after, len(im), im, len(kn), kn))
     # ---- IndexNow auto-submit for newly wired pages only (best-effort) ----
     if pi:
         submit_indexnow(['https://imisofts.com/blog/%s/' % s for s in pi] + ['https://imisofts.com/', 'https://imisofts.com/blog/'])
