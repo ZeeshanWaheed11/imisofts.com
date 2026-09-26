@@ -42,85 +42,114 @@
   
   <!-- Structured Data for Cold Email Marketing Service -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Cold Email Marketing & Infrastructure",
-    "description": "Professional cold email marketing and infrastructure setup for ambitious businesses. Private email servers, campaign automation, 95%+ inbox rates. Launch in 48 hours.",
-    "provider": {
-      "@type": "Organization",
-      "name": "imisofts",
-      "url": "https://imisofts.com",
-      "logo": "https://imisofts.com/logo.svg"
-    },
-    "serviceType": "Cold Email Marketing",
-    "areaServed": {
-      "@type": "GeoCircle",
-      "name": "Global",
-      "description": "We serve clients worldwide with remote cold email marketing services"
-    },
-    "offers": {
-      "@type": "Offer",
-      "availability": "https://schema.org/InStock",
-      "priceCurrency": "USD",
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Cold Email Marketing & Infrastructure",
+  "description": "Professional cold email marketing and infrastructure setup for ambitious businesses. Private email servers, campaign automation, 95%+ inbox rates. Launch in 48 hours.",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://imisofts.com/#organization",
+    "name": "imisofts",
+    "url": "https://imisofts.com",
+    "logo": "https://imisofts.com/logo.svg"
+  },
+  "serviceType": "Cold Email Marketing",
+  "areaServed": {
+    "@type": "GeoCircle",
+    "name": "Global",
+    "description": "We serve clients worldwide with remote cold email marketing services"
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "priceCurrency": "USD",
+    "price": "1497",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
       "price": "1497",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "1497",
-        "priceCurrency": "USD",
-        "billingPeriod": "P1M"
-      }
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Cold Email Marketing Packages",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Starter", "description": "10 domains + 50 inboxes, DNS authentication, IP rotation, 14-day warm-up, monthly snapshot" },
-          "price": "489",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Professional", "description": "25 domains + 125 inboxes, geo segmentation, multi-provider routing, blacklist monitoring, analyst review" },
-          "price": "1225",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Enterprise", "description": "50 domains + 250 inboxes, dedicated server cluster, advanced warming, command center, 24/7 priority" },
-          "price": "2450",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Scale", "description": "100 domains + 500 inboxes, multi-brand segmentation, dedicated resources, account manager" },
-          "price": "4500",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Scale Pro", "description": "200 domains + 1000 inboxes, multi-geo architecture, distributed clusters, custom API, SLA support" },
-          "price": "7999",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Agency", "description": "300 domains + 1500 inboxes, multi-client isolation, white-label, dedicated team, monthly strategy" },
-          "price": "10499",
-          "priceCurrency": "USD"
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": { "@type": "Service", "name": "Agency Pro", "description": "500 domains + 2500 inboxes, full multi-client architecture, custom SLA, dedicated engineering, QBR" },
-          "price": "13999",
-          "priceCurrency": "USD"
-        }
-      ]
+      "priceCurrency": "USD",
+      "billingPeriod": "P1M"
     }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Cold Email Marketing Packages",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Starter",
+          "description": "10 domains + 50 inboxes, DNS authentication, IP rotation, 14-day warm-up, monthly snapshot"
+        },
+        "price": "489",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Professional",
+          "description": "25 domains + 125 inboxes, geo segmentation, multi-provider routing, blacklist monitoring, analyst review"
+        },
+        "price": "1225",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Enterprise",
+          "description": "50 domains + 250 inboxes, dedicated server cluster, advanced warming, command center, 24/7 priority"
+        },
+        "price": "2450",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Scale",
+          "description": "100 domains + 500 inboxes, multi-brand segmentation, dedicated resources, account manager"
+        },
+        "price": "4500",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Scale Pro",
+          "description": "200 domains + 1000 inboxes, multi-geo architecture, distributed clusters, custom API, SLA support"
+        },
+        "price": "7999",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Agency",
+          "description": "300 domains + 1500 inboxes, multi-client isolation, white-label, dedicated team, monthly strategy"
+        },
+        "price": "10499",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Agency Pro",
+          "description": "500 domains + 2500 inboxes, full multi-client architecture, custom SLA, dedicated engineering, QBR"
+        },
+        "price": "13999",
+        "priceCurrency": "USD"
+      }
+    ]
   }
-  </script>
+}
+</script>
 
   <script type="application/ld+json">
   {
