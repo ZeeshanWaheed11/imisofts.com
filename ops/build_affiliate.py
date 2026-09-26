@@ -82,6 +82,14 @@ def build_article(meta, tpl):
     body=((DISCLOSURE+'\n') if meta.get('affiliate_url') else '')+body+'\n'+cta_html(meta.get('cta','Want this set up for your business?'))+'\n'+faq_section
     i=s.find('<article class="article-content">'); j=s.find('</article>')
     s=s[:i]+'<article class="article-content">\n'+body+'\n'+s[j:]
+    # ---- images (2026-09-26): only specs that carry an "image" block get a hero (+ optional chart).
+    # Older specs have no block, so previously published pages are byte-for-byte unchanged by this step.
+    try:
+        import render_images
+        _imgs=render_images.ensure_images(meta, ROOT)
+        if _imgs: s=render_images.apply_images_to_html(s, meta, _imgs); print('images: %s'%_imgs['hero_webp'])
+    except Exception as _ie:
+        print('images skipped for %s: %s'%(slug,_ie))
     s=re.sub(r'<time datetime="[^"]*">[^<]*</time>','<time datetime="%s">%s</time>'%(DATE[:10],human_date(DATE[:10])),s,count=1)
     s=re.sub(r'(\d+)\s*min read','%d min read'%meta.get('read_time',8),s,count=1)
     mainpart=s[s.find('<article'):s.find('</article>')]

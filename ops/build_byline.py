@@ -110,12 +110,44 @@ def ensure_tab():
     return True
 
 
+def add_images(specs):
+    """2026-09-26: when a byline spec carries an "image" block, render the hero (+ optional chart) and inject it
+    into the already-built page once (idempotent via the post-hero marker). Specs without the block are untouched,
+    so nothing published before this date changes. This is the one additive edit this script makes to article HTML."""
+    done = []
+    try:
+        import render_images, fix_articles
+    except Exception as e:
+        print('images: renderer unavailable (%s)' % e); return done
+    for sp in specs:
+        if not isinstance(sp.get('image'), dict):
+            continue
+        page = os.path.join(ROOT, 'blog', sp['slug'], 'index.html')
+        if not os.path.exists(page):
+            print('images: page missing for %s, skipped' % sp['slug']); continue
+        html = open(page, encoding='utf-8').read()
+        if 'class="post-hero"' in html:
+            continue
+        try:
+            imgs = render_images.ensure_images(sp, ROOT)
+            new = render_images.apply_images_to_html(html, sp, imgs)
+            probs = fix_articles.validate_article(new)
+            if probs:
+                print('images: QA blocked %s: %s' % (sp['slug'], '; '.join(probs))); continue
+            if new != html:
+                open(page, 'w', encoding='utf-8').write(new); done.append(sp['slug'])
+        except Exception as e:
+            print('images: skipped %s (%s)' % (sp['slug'], e))
+    return done
+
+
 def main():
     specs = load_specs()
     if not specs:
         print('no byline specs found; nothing to do')
         return 0
     before = open(IDX, encoding='utf-8').read().count('class="post-card"')
+    im = add_images(specs)
     pi = wire_posts_index(specs)
     sm = wire_sitemap(specs)
     # Card them on /blog using the SAME sync the news engine uses (additive + idempotent).
@@ -124,8 +156,8 @@ def main():
     after = open(IDX, encoding='utf-8').read().count('class="post-card"')
     # SAFETY: the grid must never shrink, and our new cards must have landed.
     assert after >= before + len(pi), 'card count sanity failed: %d -> %d (added %d)' % (before, after, len(pi))
-    print('posts-index +%d %s | sitemap +%d %s | tab_added=%s | cards %d -> %d'
-          % (len(pi), pi, len(sm), sm, tab, before, after))
+    print('posts-index +%d %s | sitemap +%d %s | tab_added=%s | cards %d -> %d | images +%d %s'
+          % (len(pi), pi, len(sm), sm, tab, before, after, len(im), im))
     return 0
 
 
