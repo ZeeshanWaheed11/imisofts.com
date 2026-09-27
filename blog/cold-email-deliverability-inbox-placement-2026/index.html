@@ -1308,6 +1308,7 @@
 .dropdown-link-desc{font-size:13px;color:#6b7280;line-height:1.5}
 @media(max-width:900px){.dropdown-simple{grid-template-columns:1fr;min-width:0;padding:14px}}
 </style>
+  <script src="/js/measure.js" defer></script>
 </head>
 <body>
   <!-- Progress Bar -->
@@ -2168,31 +2169,6 @@
       document.getElementById('progressBar').style.width = scrolled + '%';
     });
 
-    // Newsletter form
-
-        if (response.ok) {
-          message.style.display = 'block';
-          message.style.background = '#10b981';
-          message.style.color = 'white';
-          message.textContent = 'Successfully subscribed! Check your email.';
-          this.reset();
-        } else {
-          throw new Error('Subscription failed');
-        }
-      } catch (error) {
-        message.style.display = 'block';
-        message.style.background = '#ef4444';
-        message.style.color = 'white';
-        message.textContent = 'Failed to subscribe. Please try again.';
-      } finally {
-        btn.textContent = originalText;
-        btn.disabled = false;
-
-        setTimeout(() => {
-          message.style.display = 'none';
-        }, 5000);
-      }
-    });
 
     // Table of Contents active state
     const sections = document.querySelectorAll('h2[id], h3[id]');

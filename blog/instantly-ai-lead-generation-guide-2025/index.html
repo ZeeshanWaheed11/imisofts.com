@@ -1152,6 +1152,7 @@
 .dropdown-link-desc{font-size:13px;color:#6b7280;line-height:1.5}
 @media(max-width:900px){.dropdown-simple{grid-template-columns:1fr;min-width:0;padding:14px}}
 </style>
+  <script src="/js/measure.js" defer></script>
 </head>
 <body>
   
@@ -1957,6 +1958,7 @@
       });
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
       // Auto-generate table of contents
       const tocList = document.getElementById('toc-list');
       const headings = document.querySelectorAll('.blog-content h2[id]');

@@ -1518,6 +1518,7 @@
 .dropdown-link-desc{font-size:13px;color:#6b7280;line-height:1.5}
 @media(max-width:900px){.dropdown-simple{grid-template-columns:1fr;min-width:0;padding:14px}}
 </style>
+  <script src="/js/measure.js" defer></script>
 </head>
 <body>
   <!-- NAVBAR -->
@@ -2754,7 +2755,6 @@
         document.body.classList.remove('mobile-menu-open');
       });
     });
-    }
 
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -2804,36 +2804,6 @@
       });
     });
 
-    // Newsletter form).then(function(response) {
-          if (response.ok) {
-            if (msgDiv) {
-              msgDiv.style.display = 'block';
-              msgDiv.style.background = '#dcfce7';
-              msgDiv.style.color = '#166534';
-              msgDiv.textContent = 'Thanks for subscribing!';
-            }
-            if (email) email.value = '';
-          } else {
-            throw new Error('Form submission failed');
-          }
-        }).catch(function(error) {
-          if (msgDiv) {
-            msgDiv.style.display = 'block';
-            msgDiv.style.background = '#fef2f2';
-            msgDiv.style.color = '#dc2626';
-            msgDiv.textContent = 'Something went wrong. Please try again.';
-          }
-        }).finally(function() {
-          if (btn) {
-            btn.textContent = 'Subscribe';
-            btn.disabled = false;
-          }
-          setTimeout(function() { 
-            if (msgDiv) msgDiv.style.display = 'none'; 
-          }, 5000);
-        });
-      });
-    }
   </script>
 </body>
 </html>

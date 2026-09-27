@@ -1244,6 +1244,7 @@
 .dropdown-link-desc{font-size:13px;color:#6b7280;line-height:1.5}
 @media(max-width:900px){.dropdown-simple{grid-template-columns:1fr;min-width:0;padding:14px}}
 </style>
+  <script src="/js/measure.js" defer></script>
 </head>
 <body>
   
@@ -2538,43 +2539,6 @@
       });
     });
     
-    // Newsletter Form Handler
-        
-        if (response.ok) {
-          // Success
-          formMessage.style.display = 'block';
-          formMessage.style.background = '#d4edda';
-          formMessage.style.color = '#155724';
-          formMessage.style.border = '1px solid #c3e6cb';
-          formMessage.innerHTML = '✔ Successfully subscribed! Check your email.';
-          form.reset();
-          
-          // Hide message after 5 seconds
-          setTimeout(() => {
-            formMessage.style.display = 'none';
-          }, 5000);
-        } else {
-          // Error
-          formMessage.style.display = 'block';
-          formMessage.style.background = '#f8d7da';
-          formMessage.style.color = '#721c24';
-          formMessage.style.border = '1px solid #f5c6cb';
-          formMessage.innerHTML = 'Oops! Please try again or email us directly.';
-        }
-      } catch (error) {
-        // Network error
-        formMessage.style.display = 'block';
-        formMessage.style.background = '#f8d7da';
-        formMessage.style.color = '#721c24';
-        formMessage.style.border = '1px solid #f5c6cb';
-        formMessage.innerHTML = 'Connection error. Please try again.';
-      } finally {
-        // Reset button
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '1';
-      }
-    });
 
     // AI Mobile Form Handler
     const aiMobileForm = document.getElementById('aiMobileForm');

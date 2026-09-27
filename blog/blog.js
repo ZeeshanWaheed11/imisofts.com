@@ -157,3 +157,13 @@
     initBlogListing();
   }
 })();
+
+/* Site measurement (GA4 + lead events): loads /js/measure.js once. */
+(function() {
+  if (window.__imMeasureLoader || document.querySelector('script[src^="/js/measure.js"]')) return;
+  window.__imMeasureLoader = true;
+  var s = document.createElement('script');
+  s.src = '/js/measure.js';
+  s.defer = true;
+  (document.head || document.documentElement).appendChild(s);
+})();
