@@ -88,13 +88,9 @@
 /main                          /                     301
 /services                      /                     301
 /service                       /                     301
-/service/*                     /                     301
 /blogs                         /blog                 301
-/blogs/*                       /blog                 301
 /articles                      /blog                 301
-/articles/*                    /blog                 301
 /news                          /blog                 301
-/news/*                        /blog                 301
 /portfolio                     /case-studies         301
 /work                          /case-studies         301
 /our-work                      /case-studies         301
@@ -185,10 +181,6 @@
 #     must not be public. Cloudflare Pages cannot return 404/410 from this
 #     file, so each path is sent to a URL that does not exist and so 404s.
 # ---------------------------------------------------------------------------
-/ops/*                                  /not-public                              301
-/content/*                              /not-public                              301
-/data/*                                 /not-public                              301
-/.github/*                              /not-public                              301
 /.gitignore                             /not-public                              301
 /blog/build_post.py                     /not-public                              301
 /build_batch2.py                        /not-public                              301
@@ -290,3 +282,18 @@
 /recruit/                                                                             /careers                       301
 /blog/an-ai-just-sent-me-a-client                                                     /blog/an-ai-sent-me-a-client/  301
 /blog/an-ai-just-sent-me-a-client/                                                    /blog/an-ai-sent-me-a-client/  301
+
+# ---------------------------------------------------------------------------
+#     Splat (dynamic) rules, moved to the end on 2026-09-28. Cloudflare Pages
+#     counts every rule after the first splat as dynamic and allows only 100,
+#     so they must come last. No exact-match rule shares these prefixes, so
+#     the move does not change what any URL does.
+# ---------------------------------------------------------------------------
+/service/*                     /                     301
+/blogs/*                       /blog                 301
+/articles/*                    /blog                 301
+/news/*                        /blog                 301
+/ops/*                                  /not-public                              301
+/content/*                              /not-public                              301
+/data/*                                 /not-public                              301
+/.github/*                              /not-public                              301
