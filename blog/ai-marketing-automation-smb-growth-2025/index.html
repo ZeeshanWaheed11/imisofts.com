@@ -2039,21 +2039,6 @@
       });
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
-      // Auto-generate table of contents
-      const tocList = document.getElementById('toc-list');
-      const headings = document.querySelectorAll('.blog-content h2[id]');
-      
-      headings.forEach(function(heading) {
-        const li = document.createElement('li');
-        const a = document.createElement('a');
-        a.href = '#' + heading.id;
-        a.textContent = heading.textContent;
-        li.appendChild(a);
-        tocList.appendChild(li);
-      });
-    });
-
     // Reading progress bar
     window.addEventListener('scroll', function() {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
