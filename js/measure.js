@@ -5,7 +5,9 @@
  * competes with page content.
  *
  * Events sent (besides GA4 enhanced measurement):
- *   generate_lead       booking completed in the Cal.com popup (lead_source)
+ *   generate_lead       booking completed in the Cal.com popup (lead_source cal_embed),
+ *                       or a visit to /thank-you?src=cal after a booking made on cal.com
+ *                       itself (lead_source cal_redirect); one lead per browser per 12 h
  *   book_call_click     click on a Cal.com link or the "Book Growth Call" button
  *   contact_form_start  first interaction with the ClickUp contact form
  *   contact_click       email / phone / WhatsApp link click (contact_method)
@@ -32,6 +34,28 @@
     if (/[?&]internal=0\b/.test(search)) localStorage.removeItem('im_internal');
     internal = localStorage.getItem('im_internal') === '1';
   } catch (e) { /* storage blocked: treat as external */ }
+
+  var LEAD_KEY = 'im_lead_ts';
+  var LEAD_WINDOW = 12 * 60 * 60 * 1000;
+  function leadRecently() {
+    try { var t = parseInt(localStorage.getItem(LEAD_KEY) || '0', 10); return t && Date.now() - t < LEAD_WINDOW; }
+    catch (e) { return false; }
+  }
+  function markLead() {
+    try { localStorage.setItem(LEAD_KEY, String(Date.now())); } catch (e) { /* ignore */ }
+  }
+
+  // Thank-you page: read our own ?src=, then drop every query parameter before GA
+  // reads the URL (booking tools can append names and email addresses).
+  var isThanks = /^\/thank-you(\.html)?\/?$/.test(location.pathname);
+  var thanksSrc = '';
+  if (isThanks) {
+    var sm = /[?&]src=([a-z0-9_-]{1,30})/i.exec(search);
+    thanksSrc = sm ? sm[1].toLowerCase() : '';
+    if (search && window.history && history.replaceState) {
+      try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) { /* ignore */ }
+    }
+  }
 
   window.dataLayer = window.dataLayer || [];
   var gtag = window.gtag || function () { window.dataLayer.push(arguments); };
@@ -63,6 +87,7 @@
       return 'Blog: ' + (section || 'Article');
     }
     if (p.indexOf('/author/') === 0) return 'Author';
+    if (/^\/thank-you\/?$/.test(p)) return 'Thank-you page';
     if (/^\/(contact|pricing|free-audit)\/?$/.test(p)) return 'Conversion page';
     if (/^\/(about|careers|case-studies|faq|support|products|api-docs|privacy-policy|terms-of-service|cookie-policy)\/?$/.test(p)) return 'Company page';
     return 'Service page';
@@ -83,6 +108,11 @@
     try { gtag('event', name, params || {}); } catch (e) { /* never break the page */ }
   }
 
+  if (isThanks && !leadRecently()) {
+    send('generate_lead', { lead_source: thanksSrc === 'cal' ? 'cal_redirect' : (thanksSrc ? 'thanks_' + thanksSrc : 'thank_you_page') });
+    markLead();
+  }
+
   // ---- lead: booking completed inside the Cal.com popup ----
   var lastLead = 0;
   var seenBookings = {};
@@ -94,6 +124,7 @@
     if (id) seenBookings[id] = 1;
     lastLead = now;
     send('generate_lead', { lead_source: 'cal_embed' });
+    if (window.google_tag_manager) markLead();
   }
   function hookCal() {
     var Cal = window.Cal;
