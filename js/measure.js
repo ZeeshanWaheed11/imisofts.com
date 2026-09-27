@@ -37,17 +37,9 @@
   var gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   window.gtag = gtag;
 
-  // Consent Mode v2. No cookies for visitors in the EEA, UK and Switzerland
-  // (cookieless pings only); analytics cookies elsewhere; ads storage off everywhere.
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    analytics_storage: 'denied',
-    region: ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR',
-      'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI',
-      'ES', 'SE', 'IS', 'LI', 'NO', 'GB', 'CH']
-  });
+  // Consent Mode v2 defaults: analytics counted for every visitor in every country
+  // (Zeeshan's decision, 2026-09-27: no banner, count everyone); ads storage,
+  // ad user data and ad personalisation off everywhere.
   gtag('consent', 'default', {
     ad_storage: 'denied',
     ad_user_data: 'denied',
