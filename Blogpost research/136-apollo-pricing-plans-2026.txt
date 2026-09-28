@@ -224,18 +224,18 @@ Apollo's 2026 pricing starts at $49/month for Basic (30,000 credits/year) and go
 
 Apollo's pricing revolves around credits. Understanding credit economics is essential before choosing a plan.
 
-Each email credit gives you one email address. Each mobile credit gives you one phone number. The cost per credit drops as you move up tiers:
+Apollo no longer sells separate email and mobile credits. Every plan now grants one pool of credits per seat per year, and the pricing page prices data out of that pool: an email costs 1 credit, a phone number costs 8 credits, and a data enrichment run uses up to 9 credits per record. The figures below are read off apollo.io/pricing on September 28, 2026 (annual billing); the per-credit and per-contact columns are our arithmetic on those numbers:
 
-| Plan | Email Credits | Cost Per Email Credit | Mobile Credits | Cost Per Mobile Credit |
-|---|---|---|---|---|
-| Free | 10,000/year | $0.00 | 5/month | $0.00 |
-| Basic ($49/mo) | Unlimited | $0.00 | 75/month | $0.65 |
-| Professional ($79/mo) | Unlimited | $0.00 | 100/month | $0.79 |
-| Organization ($119/mo) | Unlimited | $0.00 | 200/month | $0.60 |
+| Plan (annual billing) | Credits per seat per year | Price per seat per year | Cost per credit | Cost per email (1 credit) | Cost per phone number (8 credits) |
+|---|---|---|---|---|---|
+| Free | 900, granted monthly | $0 | $0.00 | $0.00 | $0.00 |
+| Basic ($49/mo) | 30,000, granted upfront | $588 | $0.0196 | ~$0.02 | ~$0.16 |
+| Professional ($79/mo) | 48,000, granted upfront | $948 | $0.0198 | ~$0.02 | ~$0.16 |
+| Organization ($119/mo, 3-seat minimum) | 72,000, granted upfront | $1,428 | $0.0198 | ~$0.02 | ~$0.16 |
 
-Email credits are unlimited on all paid plans. That's Apollo's biggest advantage over competitors like ZoomInfo ($15K+/year) and Cognism. For cold email campaigns, unlimited email lookups means you can build lists without worrying about credit caps.
+The cost per credit is flat to within about 1.2 percent across the three paid tiers, so moving up a plan buys features and volume, not a cheaper credit. Email lookups are not unlimited on any plan: a Basic seat's 30,000 credits a year is 30,000 verified emails if you never reveal a phone number, and every phone number you do reveal costs the same as eight emails. Apollo is still far cheaper per contact than ZoomInfo ($15K+/year) or Cognism, but the cap is real and it is annual, so a heavy month borrows from the rest of the year.
 
-Mobile credits matter if you're combining cold email with cold calling. At the Organization tier, 200 mobile credits/month costs $0.60 each — reasonable for a multi-channel approach. But if you only do email outreach, you'll never touch the mobile credits, and the Basic plan at $49/month gives you everything you need.
+Phone numbers matter if you're combining cold email with cold calling. At 8 credits each, a Basic seat that spends its whole allowance on phone numbers gets 3,750 a year, about 16 cents apiece, and no higher tier sells a cheaper phone number. If you only do email outreach, the Basic plan at $49/month gives you everything you need, and the free plan's 900 credits a year (75 a month) is enough to test the data before you pay. We list every free-tier limit, including three that are not printed on the plan card, in our Apollo free plan limits guide (/blog/apollo-free-plan-limits-2026/).
 
 ## Apollo vs Competitors: Price Per Lead Comparison
 
@@ -243,7 +243,7 @@ We run Apollo alongside other tools and can compare real costs:
 
 | Tool | Annual Cost | Leads Per Year | Cost Per Lead |
 |---|---|---|---|
-| Apollo Basic | $588/year | Unlimited emails | ~$0.01 |
+| Apollo Basic | $588/year | 30,000 credits (30,000 emails, or 3,750 phone numbers) | ~$0.02 |
 | ZoomInfo | $15,000+/year | ~10,000 credits | ~$1.50 |
 | Lusha | $432/year | 960 credits | ~$0.45 |
 | Cognism | Custom (~$15K+) | Custom credits | ~$1.00+ |
@@ -257,12 +257,12 @@ The tradeoff is data accuracy. Apollo's email accuracy runs around 85-90% on our
 
 For most of our clients at imisofts, the Basic plan at $49/month is sufficient. Here's why:
 
-- Unlimited email credits cover any list size
-- 75 mobile credits/month is enough for light calling
+- 30,000 credits a year covers a 30,000-contact email list, about 2,500 verified emails a month on average
+- Phone numbers cost 8 credits each, so light calling fits inside the same allowance if you budget for it
 - Sequence features aren't needed if you use [Instantly](https://instantly.ai/?via=coldemailmarketing) or [SmartLead](https://smartlead.ai/?via=coldemailmarketing) for sending
 - Saved search filters handle most ICP targeting needs
 
-The Professional plan ($79/month) only makes sense if you need advanced reports, A/B testing within Apollo, or more mobile credits. Since we handle sequences and A/B testing through Instantly, there's no reason to pay for those features twice.
+The Professional plan ($79/month) only makes sense if you need advanced reports, A/B testing within Apollo, or a bigger annual allowance (48,000 credits). Since we handle sequences and A/B testing through Instantly, there's no reason to pay for those features twice.
 
 Pair Apollo Basic ($49/month) with our Starter infrastructure package ($489/year + $399 setup) and Instantly Growth ($30/month) for a complete cold email system at under $600 to start. [See our packages](https://imisofts.com/cold-email-marketing#packages).
 
