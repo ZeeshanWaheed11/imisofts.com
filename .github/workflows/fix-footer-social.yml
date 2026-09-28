@@ -1,0 +1,55 @@
+# One-off site-wide fix, 2026-09-28. The footer X and GitHub icons on every page
+# pointed at twitter.com/imisofts and github.com/imisofts, neither of which exists.
+# Zeeshan asked for them to point at his own profiles. Byte-level replace, so
+# nothing else in any page changes. Idempotent: a re-run finds nothing to change.
+name: Fix footer social links
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/fix-footer-social.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Point the footer X and GitHub icons at Zeeshan's own profiles
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          pairs = [
+              (b'<a href="https://twitter.com/imisofts" aria-label="Twitter"',
+               b'<a href="https://x.com/izeeshanwaheed1" aria-label="X"'),
+              (b'<a href="https://github.com/imisofts" aria-label="GitHub"',
+               b'<a href="https://github.com/ZeeshanWaheed11" aria-label="GitHub"'),
+          ]
+          changed = 0
+          for p in pathlib.Path('.').rglob('*.html'):
+              if '.git' in p.parts:
+                  continue
+              b = p.read_bytes()
+              t = b
+              for old, new in pairs:
+                  t = t.replace(old, new)
+              if t != b:
+                  p.write_bytes(t)
+                  changed += 1
+          print('files changed:', changed)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "imisofts-nav-bot"
+          git config user.email "nav-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to change."
+          else
+            git commit -m "build: footer X and GitHub icons point to Zeeshan's own profiles"
+            git push
+          fi
