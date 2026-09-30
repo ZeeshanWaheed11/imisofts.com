@@ -1,0 +1,85 @@
+{
+ "slug": "sign-in-with-chatgpt-openclaw",
+ "title": "Sign in with ChatGPT: Running OpenClaw on a Plus or Pro Plan",
+ "desc": "OpenAI now lets Plus and Pro plans pay for AI requests in 16 tools, OpenClaw included. What it covers, what it blocks, and the Pro 200 change on October 30.",
+ "keywords": "sign in with chatgpt, openclaw chatgpt plan, use chatgpt plan in other apps, openclaw sign in with chatgpt, chatgpt pro 200 usage change, chatgpt pro 500",
+ "date": "2026-09-30",
+ "time": "13:30",
+ "read_time": 4,
+ "word_count": 700,
+ "cta": "Want OpenClaw set up with the right credential for each job?",
+ "body": "<p><strong>September 30, 2026.</strong> At DevDay on September 29, OpenAI turned Sign in with ChatGPT into a way to pay: Plus and Pro subscribers can now let 16 launch partners, including the open-source agent OpenClaw, draw on the ChatGPT Work and Codex usage in their plan instead of an OpenAI API key. For a business running an OpenClaw agent, model calls that would otherwise bill per token on the API, where GPT-6.1 Sol lists at $2 per million input tokens and $10 per million output, can now draw on a subscription it already pays for, until the weekly allowance runs out. The catch is in Pro 200: new subscriptions already carry a smaller allowance, and existing ones keep the old one only through October 29, 2026.</p><p><strong>What OpenAI launched</strong></p><ol><li><strong>Plan usage in 16 tools.</strong> OpenAI's <a href=\"https://learn.chatgpt.com/docs/sign-in-with-chatgpt\" target=\"_blank\" rel=\"noopener noreferrer\">partner list</a> names 12 apps that can use your plan, among them Devin, Notion, Vercel, Warp and Amp Code, with Lovable coming soon, plus four open-source integrations: OpenClaw, OpenCode, Pi and T3. HubSpot, Airtable, Canva, GitLab and Supabase support sign-in only.</li><li><strong>Only Plus and Pro.</strong> The <a href=\"https://help.openai.com/en/articles/20001542\" target=\"_blank\" rel=\"noopener noreferrer\">help center</a> says anyone can sign in with ChatGPT, but only Plus and Pro subscribers can let an app use their plan.</li><li><strong>A cap per app.</strong> Under Settings, Usage, you set each app's weekly limit as a share of your total weekly usage. It is a cap, not a reserved pool. Apps can spill into paid credits only if you switch that on, and OpenAI warns that automatic credit purchases can then charge you without a separate notice.</li><li><strong>What the app sees.</strong> Your name, email address and profile picture, but not your conversations, memories or an API key.</li><li><strong>New Pro prices.</strong> OpenAI's <a href=\"https://help.openai.com/en/articles/9793128-about-chatgpt-pro-tiers\" target=\"_blank\" rel=\"noopener noreferrer\">Pro tiers page</a> now lists Pro 100 at $100, Pro 200 at $200 and a new Pro 500 at $500 a month, the only one with Ultrafast, and the <a href=\"https://openai.com/index/devday-2026-recap/\" target=\"_blank\" rel=\"noopener noreferrer\">DevDay recap</a> puts Pro 500 at 25 times the Plus allowance. <a href=\"https://thenewstack.io/openai-halves-200-plan/\" target=\"_blank\" rel=\"noopener noreferrer\">The New Stack reports</a> that Pro 200's Work and Codex allowance drops from 20 to 10 times Plus from October 30, and that existing subscribers get 62,500 credits, which OpenAI values at $2,500, expiring on December 31, 2026.</li></ol><p><strong>What OpenClaw can and cannot do on your plan</strong></p><p>OpenClaw's <a href=\"https://docs.openclaw.ai/providers/openai/authentication\" target=\"_blank\" rel=\"noopener noreferrer\">authentication docs</a> now offer three ways to reach OpenAI models: Codex login, Sign in with ChatGPT, still marked beta, and an API key. The new route is one command, <code>openclaw models auth login --provider openai --method siwc</code>, and you must approve token sharing in the browser, or the account saves but cannot run a model. On that route OpenClaw's own tools and local plugins work, and so does web search where the model and account allow it. Image generation, audio transcription, realtime voice and OpenAI-hosted plugins do not, and embeddings or text to speech need a separate credential. OpenAI's <a href=\"https://developers.openai.com/siwc/token-sharing-open-source/preview-limitations\" target=\"_blank\" rel=\"noopener noreferrer\">preview limits</a> add file search, Code Interpreter, native computer use and hosted connectors to the unsupported list. Watch usage on ChatGPT's Usage page, because OpenClaw shows none for this route.</p><p><strong>What it means for operators</strong></p><p>For a founder already on Pro, this moves an OpenClaw agent's model spend into a subscription paid anyway, but treat it as a personal plan: OpenAI's Pro terms prohibit sharing account credentials and reselling access, so agents that serve a whole team belong on an API key with project permissions. In ChatGPT's usage settings, set OpenClaw's weekly app limit below 100 percent so the agent cannot eat the Codex time you need yourself, leave credit spillover off unless you want overflow billing, and keep an API key configured for jobs that must not stop mid-week when a limit hits. If you are on Pro 200, measure a normal week of agent usage before October 30 and choose between the smaller allowance, Pro 500 and metered API billing. Phone work sits outside this route entirely: with no transcription or realtime voice on the plan credential, a line that does <a href=\"/ai-calling-home-services\">after-hours call answering</a> still runs on a metered voice stack. Our <a href=\"/openclaw-setup\">OpenClaw setup service</a> installs the agent on a Mac Studio with the right credential for each job, and our <a href=\"/blog/gpt-6-1-sol-vs-claude-sonnet-5-5/\">GPT-6.1 Sol and Claude Sonnet 5.5 cost comparison</a> shows what the same work costs on the API.</p>",
+ "faqs": [
+  [
+   "What is Sign in with ChatGPT?",
+   "It is OpenAI's login for other apps. Anyone can use it to sign in to a participating app with a ChatGPT account, which shares their name, email address and profile picture. Since September 29, 2026, Plus and Pro subscribers can also let the app use their plan's ChatGPT Work and Codex usage for AI requests, with no API key."
+  ],
+  [
+   "Can OpenClaw use my ChatGPT subscription?",
+   "Yes. OpenClaw is one of four open-source integrations at launch. Run openclaw models auth login --provider openai --method siwc and approve token sharing. Requests then count against your plan, while image generation, audio transcription and realtime voice still need a separate credential."
+  ],
+  [
+   "Which ChatGPT plans can share usage with other apps?",
+   "Only Plus and Pro. Anyone can sign in to a participating app with ChatGPT, but the option to let the app use your plan is limited to those two plans, and you can cap each app at a share of your weekly usage."
+  ],
+  [
+   "What changes for ChatGPT Pro 200 subscribers?",
+   "New Pro 200 subscriptions come with a lower usage allowance at the same $200 a month, and existing subscribers keep their previous allowance through October 29, 2026. The New Stack reports that the Work and Codex allowance falls from 20 to 10 times Plus, with a grant of 62,500 credits that expires on December 31, 2026."
+  ]
+ ],
+ "image": {
+  "cluster": "AI agents",
+  "takeaway": "Plus and Pro plans can now pay for OpenClaw. Pro 200 moves to a smaller allowance after October 29.",
+  "alt": "Sign in with ChatGPT lets Plus and Pro subscribers use their plan in OpenClaw and 15 other tools"
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Launch partners that can use a ChatGPT plan",
+    "value": "16",
+    "note": "12 apps and 4 open-source tools"
+   },
+   {
+    "label": "Plans that can share usage with apps",
+    "value": "Plus and Pro"
+   },
+   {
+    "label": "Pro 100, monthly price",
+    "value": "$100"
+   },
+   {
+    "label": "Pro 200, monthly price",
+    "value": "$200",
+    "note": "new subscriptions get a lower allowance"
+   },
+   {
+    "label": "Pro 500, monthly price",
+    "value": "$500",
+    "note": "25 times the Plus allowance, Ultrafast included"
+   },
+   {
+    "label": "Previous Pro 200 allowance kept through",
+    "value": "October 29, 2026"
+   },
+   {
+    "label": "Pro 200 Work and Codex allowance, as reported",
+    "value": "10 times Plus",
+    "note": "was 20 times"
+   },
+   {
+    "label": "Credit grant to existing Pro 200 subscribers, as reported",
+    "value": "62,500 credits",
+    "note": "valued at $2,500, expire December 31, 2026"
+   },
+   {
+    "label": "GPT-6.1 Sol on the API, per million tokens",
+    "value": "$2 in, $10 out"
+   },
+   {
+    "label": "Account data shared with the app",
+    "value": "name, email, photo"
+   }
+  ],
+  "source": "Plan prices, limits and partner lists read on 30 September 2026 from OpenAI's help center, developer docs and DevDay recap and from OpenClaw's docs; the Pro 200 allowance and credit figures are as reported by The New Stack on 29 September 2026."
+ }
+}
