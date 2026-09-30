@@ -1,0 +1,150 @@
+{
+  "slug": "google-custom-search-api-alternatives",
+  "title": "Google Custom Search API Alternatives: What 1,000 Searches Cost",
+  "desc": "Google's Custom Search JSON API ends January 1, 2027. What Gemini grounding, Brave, SerpApi, Serper, Bright Data and Apify charge per 1,000 searches.",
+  "date": "2026-09-30",
+  "keywords": "google custom search api alternative, google custom search api alternatives, custom search json api discontinued, custom search json api closed to new customers, google search api pricing, serp api pricing per 1000, cheapest google search api, vertex ai search pricing, gemini grounding pricing",
+  "category": "Comparisons",
+  "affiliate_url": "https://get.brightdata.com/gf73pymzr2rh",
+  "cta": "Need the search step in your agent or lead pipeline rebuilt?",
+  "word_count": 1799,
+  "read_time": 8,
+  "body": "<p><strong>Short answer.</strong> Google has closed the Custom Search JSON API to new customers, and existing customers have until <strong>January 1, 2027</strong> to move. Until then it costs <strong>$5 per 1,000 queries after 100 free a day</strong>. Google's own replacements do different jobs: Vertex AI Search covers up to 50 domains, and Gemini's Grounding with Google Search costs <strong>$14 per 1,000 search queries</strong> under terms that forbid collecting the result links. For raw full-web results, Google's own solution has no public price, and the third-party feeds that publish one cost from <strong>$30 (Serper) to $275 (SerpApi)</strong> at 30,000 searches a month, against $135 on Custom Search today. Every API here that sells Google's own results depends on automated access to Google, which Google says its terms prohibit, and Google is suing one of them. We earn a commission from the Bright Data and Apify links on this page, and from no other vendor here.</p>\n<p>Prices were read on each vendor's own pages on 30 September 2026. One \"search\" is one query returning one page of up to 10 results, as a Custom Search call does.</p>\n\n<h2 id=\"what-changes\">What changes on January 1, 2027</h2>\n<p>Google's <a href=\"https://developers.google.com/custom-search/v1/overview\" target=\"_blank\" rel=\"noopener\">developer page</a> now opens with a note: the Custom Search JSON API \"is closed to new customers\", and \"Existing Custom Search JSON API customers have until January 1, 2027 to transition to an alternative solution.\"</p>\n<p>Until then, existing keys get 100 queries a day free, then $5 per 1,000, up to 10,000 a day. Each call returns at most 10 results, and never more than 100 in total for one query.</p>\n<p>Google names two ways forward: Vertex AI Search for \"searching up to 50 domains\", and a full web search product you must ask Google about, unpriced on the page.</p>\n\n<h2 id=\"googles-replacements\">Google's replacements, and what their terms forbid</h2>\n<p><strong>Vertex AI Search</strong>, which Google's documentation says \"is being renamed to Agent Search\", is the licensed route for a fixed set of sites. Website search needs the Search Enterprise Edition at <strong>$4.00 per 1,000 queries</strong>; the $1.50 Standard Edition does not include it. The pricing page lists 10,000 queries per account per month at no cost, under a heading it calls a free trial, and bills index storage on top. It suits a search box over a fixed set of sites.</p>\n<p><strong>Grounding with Google Search</strong> in the Gemini API covers the whole web at a public price. On Gemini 3.8 Flash it is 5,000 free search requests a month, shared across Gemini 3.x models, then <strong>$14 per 1,000</strong>, plus tokens. Google bills every search query the model runs, so a prompt that triggers two searches is two billable uses. It is not on the Gemini API free tier.</p>\n<p>The price is the smaller problem. Grounding returns a model's answer with sources, not a result list. The Gemini API terms say you \"will only display the Grounded Results with the associated Search Suggestion(s) to the end user who submitted the prompt\", and make it a violation to use grounding to extract or collect its parts for another purpose, for example \"using programmatic or automated means to collect Links, using Links to build an index, or using Links to identify destination pages for crawling or scraping.\" If your Custom Search job collected URLs for a lead list, a rank report or a crawler, grounding's terms rule it out.</p>\n<p>Microsoft closed the same door earlier: it set August 11, 2025 as the retirement date for the Bing Search APIs, pointing customers to Grounding with Bing Search. Claude and OpenAI also sell search inside their models, at $10 per 1,000 searches (Claude) or calls (OpenAI), plus tokens.</p>\n\n<h2 id=\"raw-results\">Raw results: what 1,000 searches cost elsewhere</h2>\n<p>For a feed of results rather than an answer, the choice is an independent index or a Google-results service:</p>\n<ul>\n<li><strong>Brave Search API:</strong> $5 per 1,000 requests, the same as Custom Search, with $5 of free credit a month, or 1,000 searches. Its FAQ says storing results needs \"a plan that explicitly grants storage rights\".</li>\n<li><strong>SerpApi:</strong> monthly plans. 250 free searches, then $25 for 1,000, $75 for 5,000 ($15 per 1,000), $275 for 30,000 ($9.17), $3.75 per 1,000 on its 1 million plan and less above that. Only successful searches count. Run out and its FAQ offers early renewal, which refills the plan and moves the renewal date.</li>\n<li><strong><a href=\"https://serper.dev/\" target=\"_blank\" rel=\"noopener\">Serper</a>:</strong> prepaid credits, no subscription. 2,500 free queries to start, then $50 for 50,000 ($1.00 per 1,000), down to $0.30 per 1,000 on a $3,750 pack. Credits last six months, and only successful responses are charged.</li>\n<li><strong>Bright Data SERP API:</strong> <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"sponsored noopener\">pay as you go at $1.50 per 1,000 requests</a>, billed only for successful requests, with monthly spend limits. Its Scale plan is shown at $499 a month for 380,000 requests (about $1.31 per 1,000). The pricing page also shows a free tier headed \"5K requests\" and described as \"5K records per month\".</li>\n<li><strong>Apify Google Search Results Scraper:</strong> <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">priced per results page</a>, at $4.50 per 1,000 on the free plan, $2.50 on Starter ($19 a month), $1.95 on Scale and $1.80 on Business ($999 a month), plus $0.001 each time a run starts. The \"from $1.80\" on its store page is the Business price.</li>\n</ul>\n<p>At volume, Serper beats both services we earn from: its $0.75, $0.50 and $0.30 tiers against Bright Data's $1.30 to $1.31 make Bright Data roughly 1.7 to 4.4 times more expensive per search. Serper's catch: prepayment and a six-month expiry.</p>\n\n<h2 id=\"thirty-thousand-searches\">The same 30,000 searches a month, priced</h2>\n<p>Take 1,000 searches a day on each option's cheapest plan. Free allowances are deducted only where the vendor says they apply every month on the paid plan.</p>\n<ul>\n<li><strong>Custom Search, existing keys:</strong> 3,000 free, then 27,000 at $5, <strong>$135</strong>.</li>\n<li><strong>Serper:</strong> <strong>$30 a month</strong>, paid $50 at a time; a 50,000 pack lasts about 1.7 months.</li>\n<li><strong>Bright Data pay as you go:</strong> <strong>$45</strong>, without assuming the free tier stacks on top.</li>\n<li><strong>Apify on Starter:</strong> $75 of pages plus run starts. Called once per search, that is <strong>$105</strong> ($3.50 per 1,000); batch a day's searches into one run and it stays near $75.</li>\n<li><strong>Vertex AI Search, up to 50 domains:</strong> <strong>$80</strong> if the 10,000 free queries recur monthly, $120 if not, plus index storage.</li>\n<li><strong>Brave:</strong> <strong>$145</strong> after the $5 credit.</li>\n<li><strong>SerpApi Big Data:</strong> <strong>$275</strong>.</li>\n</ul>\n<p>The answer-style options cost more before tokens: Claude or OpenAI search $300, Gemini grounding $350 after its 5,000 free, more if prompts trigger several searches. Gemini is the cheaper of the two only below about 17,500 searches a month.</p>\n<p>A rank tracker that wants the top 100 results per keyword needs ten pages per keyword on Custom Search and on Apify. SerpApi's Google documentation pages through results 10 at a time while its FAQ says a response counts as one search whatever it returns, and we did not capture how Serper, Bright Data or Brave count deeper pages, so test before you budget.</p>\n\n<h2 id=\"legal-line\">The legal line under every Google-results API</h2>\n<p>Serper says it queries Google directly, Apify prices each page of \"Google Search results successfully scraped\", and Bright Data's pricing FAQ pitches its SERP API for \"scraping search engines\", with Google listed among them. Google's position, as the court summarized its complaint against SerpApi, is that its terms prohibit automated access to and scraping of Search, and that it launched SearchGuard in January 2025 to stop it.</p>\n<p>Google sued SerpApi on December 19, 2025 under the anti-circumvention rule of the DMCA (17 U.S.C. § 1201). On July 20, 2026 the court dismissed Google's claims, those about results containing no copyrighted content without leave to amend and those about results with a copyrighted component with leave. Google filed an amended complaint on August 10, and a hearing on SerpApi's motion to dismiss it is set for October 13, 2026, per the <a href=\"https://www.courtlistener.com/docket/72059948/google-llc-v-serpapi-llc/\" target=\"_blank\" rel=\"noopener\">court docket</a>. None of that makes scraping Google lawful. See our <a href=\"/blog/is-web-scraping-legal/\">guide to web scraping law</a>; this is not legal advice.</p>\n<p>SerpApi's U.S. Legal Shield, on the $150 Production plan and above, says SerpApi assumes liability \"for the lawful collection of public search data\" but not for how you use it, up to $2 million. One heading on that page reads \"Worldwide Legal Coverage\"; its FAQ limits coverage to claims brought under U.S. law in a U.S. court. We did not review Bright Data's, Apify's or Serper's data-use terms; read them before you build on any of the three.</p>\n\n<h2 id=\"which-fits\">Which replacement fits which job</h2>\n<ul>\n<li><strong>A search box over a fixed set of sites:</strong> Vertex AI Search in the Enterprise Edition, $4 per 1,000 after the free allowance, licensed by Google, for up to 50 domains.</li>\n<li><strong>An AI answer shown to a user inside your own app:</strong> Gemini grounding, Claude or OpenAI search, or Brave's Answers plan ($4 per 1,000 plus tokens).</li>\n<li><strong>A pipeline that stores results</strong>, such as lead lists or rank reports: you need a raw feed, so check each vendor's terms on storing results. Serper is the cheapest per search if you can prepay, with 2,500 free queries to start and a hard stop when credits run out. <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"sponsored noopener\">Bright Data</a> costs 50 percent more at $1.50 per 1,000, with monthly spend limits and a free tier on its pricing page. Apify costs more per search on Starter, $3.50 per 1,000 when every search is its own run; it makes sense when the same plan credit already pays for other scrapers in your pipeline. SerpApi costs the most and includes a liability shield from its Production plan up.</li>\n<li><strong>An independent index you can build on:</strong> Brave, at the same $5 per 1,000 as Custom Search; storing results needs a plan with storage rights.</li>\n</ul>\n<p>In an AI agent the search provider is often just a setting: OpenClaw, which we <a href=\"/openclaw-setup\">set up and manage for clients</a>, does not list Custom Search at all, and its Google-branded option is Gemini grounding. And if you query Google to see where your brand ranks, AI answers are now a separate place to check; getting named in them is what our <a href=\"/ai-search-optimization\">AI search optimization</a> work tracks.</p>\n\n<h2 id=\"bottom-line\">The bottom line</h2>\n<p>Move before January 1, 2027, and decide first whether you need results or answers. For answers, Google, Anthropic and OpenAI sell search inside their models at $10 to $14 per 1,000 plus tokens. For a raw full-web feed, Google gives no public price after January 1, 2027; among the options priced here, the choice is Brave's own index at $5 per 1,000 or a Google-results API at $0.30 to $25 per 1,000, with the legal question attached. If you paid for Custom Search beyond its 100 free a day, Serper and <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"sponsored noopener\">Bright Data's pay-as-you-go SERP API</a> both cost less per search, at $1.00 and $1.50 against $5. Below about 3,000 searches a month Custom Search was free, so compare each free tier with your volume.</p>",
+  "faqs": [
+    [
+      "Is the Google Custom Search API being discontinued?",
+      "Yes. Google's developer page says the Custom Search JSON API is closed to new customers and that existing customers have until January 1, 2027 to move to an alternative. Google points to Vertex AI Search for searching up to 50 domains and asks you to contact it about full web search, and the page gives no price for that."
+    ],
+    [
+      "Is the Google Custom Search API free?",
+      "Partly, and only for existing customers until January 1, 2027. The first 100 search queries a day are free, then it costs $5 per 1,000 queries, up to 10,000 queries a day. Each query returns at most 10 results."
+    ],
+    [
+      "What is the cheapest alternative to the Google Custom Search API?",
+      "For a raw results feed, Serper's prepaid credits were the cheapest per search we found: $1.00 per 1,000 on a $50 pack, down to $0.30 per 1,000 on a $3,750 pack, valid for six months. Bright Data's SERP API is $1.50 per 1,000 pay as you go. For site search on up to 50 domains, Google's Vertex AI Search is $4 per 1,000 after its free allowance."
+    ],
+    [
+      "Can I use Gemini grounding instead of Custom Search to collect search results?",
+      "Not for a data pipeline. The Gemini API terms require grounded results to be shown with Google's Search Suggestions to the user who asked, and they forbid using grounding to collect links, build an index or find pages to crawl or scrape. It costs $14 per 1,000 search queries after 5,000 free a month on Gemini 3.8 Flash, plus tokens."
+    ],
+    [
+      "Is it legal to use a SERP API that scrapes Google?",
+      "It is unsettled. Google says its terms prohibit automated access to Search and is suing SerpApi. On July 20, 2026 the court dismissed Google's first complaint, part of it without leave to amend; Google filed an amended complaint on August 10, and a hearing on SerpApi's motion to dismiss it is set for October 13, 2026. This is not legal advice; read your provider's terms and check how you use the data."
+    ],
+    [
+      "How many results does one Custom Search query return?",
+      "At most 10, and never more than 100 in total for one query, according to Google's API reference. A top-100 rank check therefore needs ten queries per keyword, and Apify's per-page billing works the same way."
+    ]
+  ],
+  "image": {
+    "cluster": "Search API costs",
+    "takeaway": "Google's Custom Search API ends January 1, 2027. At 30,000 searches a month, results feeds cost $30 to $275.",
+    "alt": "Google Custom Search API alternatives: what 1,000 searches cost",
+    "chart": {
+      "title": "Monthly cost of 30,000 full-web searches",
+      "subtitle": "Cheapest plan for 30,000 one-page searches a month; Apify priced at one run per search.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Serper, prepaid",
+          30
+        ],
+        [
+          "Bright Data",
+          45
+        ],
+        [
+          "Apify, Starter",
+          105
+        ],
+        [
+          "Custom Search API",
+          135
+        ],
+        [
+          "Brave",
+          145
+        ],
+        [
+          "SerpApi",
+          275
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "/mo",
+      "highlight": 3,
+      "note": [
+        "What an existing key costs",
+        "until January 1, 2027."
+      ],
+      "source": "List prices, 30,000 one-page searches a month. Source: Google, Serper, Bright Data, Apify, Brave and SerpApi pricing pages, September 2026.",
+      "alt": "Bar chart of the monthly cost of 30,000 full-web searches: Serper $30, Bright Data $45, Apify $105, Custom Search $135, Brave $145, SerpApi $275.",
+      "after_heading": "The legal line under every Google-results API"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Custom Search JSON API, discontinuation date",
+        "value": "January 1, 2027",
+        "note": "already closed to new customers"
+      },
+      {
+        "label": "Custom Search JSON API, per 1,000 queries",
+        "value": "$5",
+        "note": "after 100 free a day, max 10,000 a day"
+      },
+      {
+        "label": "Gemini grounding with Google Search, per 1,000",
+        "value": "$14",
+        "note": "after 5,000 free a month on Gemini 3.8 Flash, plus tokens"
+      },
+      {
+        "label": "Vertex AI Search Enterprise, per 1,000 queries",
+        "value": "$4.00",
+        "note": "website search, up to 50 domains"
+      },
+      {
+        "label": "Claude web search or OpenAI web search, per 1,000",
+        "value": "$10",
+        "note": "Claude per search, OpenAI per call, plus tokens"
+      },
+      {
+        "label": "Brave Search API, per 1,000 requests",
+        "value": "$5",
+        "note": "$5 of free credit a month"
+      },
+      {
+        "label": "SerpApi Developer plan",
+        "value": "$75 for 5,000",
+        "note": "$15 per 1,000"
+      },
+      {
+        "label": "Serper Starter credit pack",
+        "value": "$50 for 50,000",
+        "note": "$1.00 per 1,000, valid six months"
+      },
+      {
+        "label": "Bright Data SERP API, pay as you go, per 1,000",
+        "value": "$1.50",
+        "note": "successful requests only"
+      },
+      {
+        "label": "Apify Google Search scraper, Starter, per 1,000 pages",
+        "value": "$2.50",
+        "note": "$4.50 on the free plan, plus $0.001 a run"
+      },
+      {
+        "label": "30,000 searches a month on Custom Search",
+        "value": "$135",
+        "note": "Serper $30, Bright Data $45, Apify $105, Brave $145, SerpApi $275"
+      },
+      {
+        "label": "Google v. SerpApi, hearing on the motion to dismiss",
+        "value": "October 13, 2026",
+        "note": "amended complaint, N.D. Cal."
+      }
+    ],
+    "source": "Prices read on 30 September 2026 from each vendor's own pricing page, documentation or terms; the hearing date is from the court docket (CourtListener) the same day."
+  }
+}
