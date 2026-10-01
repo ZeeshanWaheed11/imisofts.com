@@ -1,0 +1,83 @@
+{
+  "slug": "anthropic-inbound-sales-agent",
+  "title": "Anthropic's Inbound Sales Agent: 2x Opportunities, $0.08 an Hour",
+  "desc": "Anthropic says its Claude buying agent turns inbound leads into opportunities twice as often and closes 5 days faster. What Managed Agents costs per chat.",
+  "keywords": "anthropic inbound sales agent, claude managed agents pricing, ai inbound lead qualification, ai buying agent, claude managed agents session hour, ai sales agent for inbound leads, speed to lead ai agent",
+  "date": "2026-10-01",
+  "time": "12:35",
+  "read_time": 4,
+  "word_count": 696,
+  "cta": "Want an inbound agent that hands your team ready buyers?",
+  "body": "<p><strong>October 1, 2026.</strong> Anthropic says the AI buying agent it put in front of its Contact Sales form now holds thousands of conversations a day, and that the buyers it hands to a rep turn into sales opportunities more than twice as often as leads from the old form and close about five days faster. The agent runs on Claude Managed Agents, in beta, which bills model tokens plus $0.08 per session-hour, counted only while the agent is actually working. For an SMB or agency weighing an inbound agent, that makes the runtime fee close to a rounding error: the token bill and the design of the hand-off to a person are where the cost and the results sit.</p><p><strong>What Anthropic reported</strong></p><p>The <a href=\"https://claude.com/blog/how-anthropics-sales-team-rebuilt-inbound-with-claude-managed-agents\" target=\"_blank\" rel=\"noopener noreferrer\">September 30 post</a> by Carl Johnson, a sales development leader at Anthropic, sets out the before and after:</p><ol><li><strong>The queue broke first.</strong> Anthropic had tens of thousands of inbound requests a month, its inbound reps could not keep up, and buyers sometimes waited multiple days for an answer to questions the documentation already covered, such as plan prices, seat minimums and HIPAA terms.</li><li><strong>The agent sits where buyers ask.</strong> It runs on the Contact Sales and Pricing pages, inside the product and in emails, and it is opt-in: buyers choose at the start whether to talk to the agent or a rep.</li><li><strong>Every chat ends one of three ways.</strong> A purchase through checkout, a hand-off to a rep with the full conversation attached, or a quick answer.</li><li><strong>The results.</strong> Escalated buyers convert to opportunities more than twice as often and close about five days faster, and the share of conversations that needed a person to close has fallen by about half. One inside sales rep went from about 10 emails per closed deal to about six and has 2.5 times his closed-won output.</li><li><strong>The build was small.</strong> One engineer built the first version in a few weeks, the agent was on version 7 about a week into internal testing, and prompts changed weekly after launch. Its main lesson: give the model a goal, not a flowchart of rules.</li></ol><p>GIGAZINE's <a href=\"https://gigazine.net/gsc_news/en/20261001-inbound-claude-managed-agents/\" target=\"_blank\" rel=\"noopener noreferrer\">write-up</a> headlined 2.5 times as Anthropic's closing rate; in the post it is one rep's closed-won output.</p><p><strong>What an inbound conversation costs on Managed Agents</strong></p><p>Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a> bills Managed Agents on two meters. Tokens are charged at normal model rates, which for Claude Sonnet 5.5 means $2 per million input tokens and $10 per million output. Session runtime is $0.08 per session-hour, measured to the millisecond and charged only while the session is running, so time spent waiting for the buyer's next message does not count. Web search inside a session costs $10 per 1,000 searches, US-only inference adds 10 percent to token prices, and there is no batch discount because sessions are interactive.</p><p>Anthropic did not publish what its agent costs to run. On our arithmetic, a buying conversation that uses 50,000 input tokens and 5,000 output tokens on Sonnet 5.5 costs about $0.15 in tokens, and three minutes of actual running time adds about $0.004. A thousand such conversations a day would be roughly $150 in tokens.</p><p><strong>What it means for operators</strong></p><p>The pattern transfers to any business whose inbound leads wait in a form queue. Start with the questions your pricing page and help docs already answer, give the agent a clear goal, and make the hand-off the product: the rep or the owner should receive the whole conversation, not a summary of a form. Measure opportunity rate and time to close, not chat volume, and keep a human option, as Anthropic did. Our <a href=\"/ai-automation-agency\">AI automation team</a> builds this kind of agent into a CRM, and our <a href=\"/lead-generation\">lead generation</a> work starts from the same speed-to-lead problem.</p><p>A law firm's version of this agent is an intake agent, with professional conduct rules on top, which we cover on our <a href=\"/ai-intake-law-firms\">AI intake for law firms</a> page. A trades business takes most inbound leads by phone, where the same design runs as a voice agent; our page on <a href=\"/ai-calling-home-services\">after-hours call answering for home services</a> covers what that costs. For the wider cost picture, see <a href=\"/blog/what-does-it-cost-to-run-an-ai-agent/\">what it costs to run an AI agent</a>.</p>",
+  "faqs": [
+    [
+      "What is Anthropic's buying agent?",
+      "It is an AI agent built on Claude Managed Agents that answers buyers who want Claude for their company. It runs on Anthropic's Contact Sales and Pricing pages, inside the product and in emails, holds thousands of conversations a day, and ends each one with a purchase, a hand-off to a sales rep with the full conversation, or a quick answer."
+    ],
+    [
+      "How much does Claude Managed Agents cost?",
+      "Tokens are billed at standard model rates, for example $2 per million input tokens and $10 per million output tokens on Claude Sonnet 5.5, plus $0.08 per session-hour of runtime. Runtime only accrues while the session is running, not while it waits for a user. Web search costs $10 per 1,000 searches."
+    ],
+    [
+      "Did the agent replace Anthropic's sales reps?",
+      "No. Anthropic says the agent hands larger or more complex deals to reps with the full conversation, and that reps now spend more time on informed buyers. The share of conversations that needed a person to close fell by about half, and buyers can choose a rep instead of the agent from the start."
+    ],
+    [
+      "Can a small business build the same kind of inbound agent?",
+      "Yes, at a smaller scale. The core is a goal-based prompt, a knowledge base of your pricing and policies, a few tools such as a CRM lookup and a booking link, and a clear rule for when to hand off to a person. Anthropic says one engineer built its first version in a few weeks."
+    ]
+  ],
+  "image": {
+    "cluster": "AI sales agents",
+    "takeaway": "Leads Anthropic's buying agent hands to reps become opportunities twice as often and close about five days faster.",
+    "alt": "Anthropic's inbound buying agent on Claude Managed Agents, with results and runtime pricing"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Inbound requests before the agent",
+        "value": "tens of thousands a month"
+      },
+      {
+        "label": "Conversations the buying agent holds",
+        "value": "thousands a day"
+      },
+      {
+        "label": "Opportunity rate of escalated buyers vs the old form",
+        "value": "more than 2 times"
+      },
+      {
+        "label": "Time to close for escalated buyers",
+        "value": "about 5 days faster"
+      },
+      {
+        "label": "Share of conversations needing a person to close",
+        "value": "down by about half"
+      },
+      {
+        "label": "Emails to close a deal, one inside sales rep",
+        "value": "about 6",
+        "note": "was about 10"
+      },
+      {
+        "label": "Managed Agents session runtime",
+        "value": "$0.08 per session-hour",
+        "note": "only while running"
+      },
+      {
+        "label": "Claude Sonnet 5.5, per million tokens",
+        "value": "$2 in, $10 out"
+      },
+      {
+        "label": "Web search inside a session",
+        "value": "$10 per 1,000 searches"
+      },
+      {
+        "label": "Our example: 50,000 in and 5,000 out on Sonnet 5.5",
+        "value": "about $0.15 per conversation",
+        "note": "our arithmetic"
+      }
+    ],
+    "source": "Read on 1 October 2026 from Anthropic's September 30 post and the Claude Platform pricing page; the per-conversation figure is our arithmetic."
+  }
+}

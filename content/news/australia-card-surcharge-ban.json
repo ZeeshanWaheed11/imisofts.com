@@ -1,0 +1,143 @@
+{
+  "slug": "australia-card-surcharge-ban",
+  "title": "Australia Card Surcharge Ban: What Businesses Must Change",
+  "desc": "Australia ended card surcharges on eftpos, Mastercard, Visa, Amex and PayPal from October 2026. What changes at checkout, on invoices and in AI phone scripts.",
+  "keywords": "card surcharge ban australia, rba surcharge ban, australia surcharge ban october 2026, no surcharge rules australia, can businesses charge card surcharges in australia, stripe surcharge australia, interchange fee caps australia, card surcharge b2b australia",
+  "date": "2026-10-01",
+  "time": "12:40",
+  "read_time": 7,
+  "word_count": 1194,
+  "cta": "Need your checkout, invoices or phone agent fixed for the ban?",
+  "body": "<p><strong>October 1, 2026.</strong> From today, an Australian business can no longer add a fee because a customer pays by card. eftpos, Mastercard and Visa switched on &quot;no-surcharge&quot; rules on 1 October 2026 after the Reserve Bank of Australia lifted its long-standing prohibition on such rules, and American Express, UnionPay and PayPal are removing surcharging too, PayPal from 5 October. The same day, the RBA cut the interchange cap on Australian consumer credit cards from 0.8 percent to 0.3 percent and on debit cards from 10 cents to 8 cents. For a trade, clinic, store or agency that has been adding a 1.5 percent card fee, the cost has not disappeared. It now has to sit inside the price, and every checkout, invoice template and phone script that still adds it has to change.</p><p><strong>What changed on 1 October 2026</strong></p><ol><li><strong>No card surcharges on the three regulated networks.</strong> The RBA's <a href=\"https://www.rba.gov.au/payments-and-infrastructure/review-of-retail-payments-regulation/2026-03/conclusions-paper/faqs/\" target=\"_blank\" rel=\"noopener noreferrer\">surcharging FAQ</a> says eftpos, Mastercard and Visa each introduced no-surcharge rules from 1 October 2026, covering credit, debit and prepaid cards, including cards issued overseas. The RBA did this by removing its own ban on no-surcharge rules, so the rule now lives in the card networks' scheme rules and your merchant agreement.</li><li><strong>Amex, UnionPay and PayPal followed.</strong> The same FAQ lists American Express and UnionPay as removing surcharging from 1 October 2026, and notes that PayPal's no-surcharge rule takes effect from 5 October 2026.</li><li><strong>Lower interchange caps.</strong> In chapter 3 of its <a href=\"https://www.rba.gov.au/payments-and-infrastructure/review-of-retail-payments-regulation/2026-03/conclusions-paper/interchange-fees.html\" target=\"_blank\" rel=\"noopener noreferrer\">Conclusions Paper</a>, the RBA lowered the cap on domestic debit and prepaid cards to 8 cents, or 0.16 percent as a percentage fee, down from 10 cents or 0.2 percent, and cut the consumer credit cap to 0.3 percent with the 0.5 percent benchmark abolished. Commercial credit cards keep a 0.8 percent cap, and a 1.0 percent cap on foreign-issued cards starts on 1 April 2027.</li><li><strong>Other fees survive.</strong> The rules only cover a fee for paying by card. Weekend, public holiday, booking and service fees are not affected, but the <a href=\"https://www.accc.gov.au/business/pricing/card-surcharges\" target=\"_blank\" rel=\"noopener noreferrer\">ACCC's guidance</a> warns that relabelling a card surcharge as another kind of fee may be misleading conduct under the Australian Consumer Law.</li><li><strong>More dates are coming.</strong> From 30 October 2026, the card networks and large acquirers must publish card fee information; from 30 January 2027, large acquirers must show how interchange cuts reached merchant fees; and from 1 April 2027, every acquirer must give merchants more detailed statements.</li></ol><p><strong>Who the ban catches: B2B, invoices and online checkouts</strong></p><p>Three questions come up first, and the RBA answers all three. Card payments between businesses are not exempt unless a network's rules or a law provides an exemption, so an agency billing Australian clients by card is inside the rule. An invoice issued in September but paid by card on or after 1 October may no longer carry a surcharge, even though it was issued earlier. And the rule is not limited to terminals: it covers online and in-person card payments alike.</p><p>The payment providers are switching the feature off at their end. <a href=\"https://support.stripe.com/questions/australia-is-removing-card-surcharges-what-stripe-users-need-to-know\" target=\"_blank\" rel=\"noopener noreferrer\">Stripe's support note</a> says Stripe will disable surcharging in Australia across online and in-person card payments, and that any checkout, point-of-sale system or third-party provider that calculates a card surcharge and adds it to the amount must remove that logic. It adds the line that matters most for anyone running custom integrations: Stripe will not automatically remove surcharge-related code, disclosures or pricing from systems that you or a third party operate. <a href=\"https://squareup.com/help/au/en/article/8680-preparing-your-business-for-end-of-card-surcharging\" target=\"_blank\" rel=\"noopener noreferrer\">Square</a> says it will disable the surcharge setting on sellers' accounts on 1 October without any action from them.</p><p><strong>What it costs: moving the card fee into the price</strong></p><p>The RBA estimates that consumers pay A$1.6 billion of the A$1.8 billion in card surcharges charged each year on the regulated networks, and its <a href=\"https://www.rba.gov.au/payments-and-infrastructure/review-of-retail-payments-regulation/2026-03/conclusions-paper/executive-summary.html\" target=\"_blank\" rel=\"noopener noreferrer\">executive summary</a> expects the interchange changes to lower merchants' wholesale card costs by about A$910 million a year. Your own merchant service fee will not fall by the same amount automatically, which is why the RBA is forcing acquirers to publish how the cuts flow through.</p><p>The ACCC's own example is a hair salon that charged A$60 plus a 1.0 percent card surcharge. Folding that cost into the price makes the haircut A$60.60. If the salon raises the price to A$65 because energy and labour costs also rose, it must not tell customers the increase is due to the surcharge ban. On our arithmetic, a business paying a 1.5 percent fee needs prices about 1.52 percent higher to keep the same net, so an A$200 call-out fee becomes about A$203.05. Discounts for other methods, such as cash or PayID, remain allowed, as long as the full price is the one displayed.</p><p><strong>Where surcharge logic hides in a client's stack</strong></p><p>In the setups we build for Australian clients, the surcharge rarely lives in one place. Check each of these before the first card payment of the day goes through:</p><ol><li><strong>Online checkouts.</strong> Fee apps on Shopify, WooCommerce plugins and custom Stripe integrations that pass a surcharge amount. If you run a store, our <a href=\"/hire-shopify-expert\">Shopify team</a> can audit the checkout and the fee apps in one pass.</li><li><strong>Invoices and payment links.</strong> CRM invoice templates, recurring billing and payment links that add or mention a card fee, including invoices agencies send from <a href=\"/gohighlevel-services\">GoHighLevel</a> for their own retainers.</li><li><strong>Phone payments and AI receptionists.</strong> A voice agent that tells callers &quot;a 1.5 percent surcharge applies&quot; is now quoting a fee the business cannot charge. If an agent takes card details by phone, update its script and the payment flow behind it, which we cover in <a href=\"/blog/ai-receptionist-card-payments/\">taking card payments over an AI receptionist</a>. Trades that use one for after-hours bookings should also check the price lines in the <a href=\"/ai-calling-home-services\">AI receptionist scripts for home services</a> they run.</li><li><strong>Templates and signage.</strong> Payment reminder emails and SMS, quote templates, pricing pages, menus and counter signs.</li></ol><p><strong>What it means for operators</strong></p><p>The ban turns a line item into a pricing decision. A business that surcharged has three honest options: absorb the fee, raise prices by the fee and say so accurately, or raise prices for wider reasons and say that instead. The ACCC's hair salon example is the line not to cross. Three practical steps help this week:</p><ol><li><strong>Search every system for the word surcharge.</strong> Checkout code, app settings, invoice templates, AI prompts and scripts, email and SMS templates. Then run a live card payment on each channel and confirm the total.</li><li><strong>Re-price with a written reason.</strong> Record what the card fee was and how the new price was set, so any claim you make about the change can be backed up.</li><li><strong>Re-check the merchant plan in November.</strong> Once the networks and large acquirers publish fees from 30 October, compare your plan and switch provider if the interchange cut has not reached you.</li></ol><p>The rules are aimed at card payments taken in Australia, so a US or UK store that accepts payments through an Australian entity or acquirer should treat its checkout as covered and confirm with its payment provider. Our <a href=\"/ecommerce\">e-commerce team</a> handles that kind of audit, and the same market's rules for outbound calls are in <a href=\"/blog/cold-calling-laws-australia/\">our guide to cold calling laws in Australia</a>.</p>",
+  "faqs": [
+    [
+      "Is it illegal to charge a card surcharge in Australia from 1 October 2026?",
+      "It breaks card network rules and your merchant agreement rather than a specific law. eftpos, Mastercard and Visa introduced no-surcharge rules from 1 October 2026 after the RBA removed its ban on such rules, and American Express, UnionPay and PayPal are removing surcharging too. The networks and payment providers enforce those rules, and the ACCC enforces the Australian Consumer Law against misleading prices. The RBA has said it could recommend that the Government legislate a ban if surcharging continues."
+    ],
+    [
+      "Does the surcharge ban apply to American Express and PayPal?",
+      "Yes. The RBA's FAQ lists American Express and UnionPay as removing surcharging from 1 October 2026 and PayPal from 5 October 2026. These firms are not formally regulated by the RBA in the same way, but each decided to remove surcharging."
+    ],
+    [
+      "Can businesses still charge weekend or public holiday surcharges?",
+      "Yes. The ban covers only fees added because a customer pays by card. Weekend, public holiday, booking and service fees are not affected, but they must still be displayed as the ACCC requires, and a card surcharge relabelled as another fee may be misleading conduct."
+    ],
+    [
+      "Does the ban apply to business-to-business card payments?",
+      "Yes, unless a card network's rules or a law provides an exemption. The RBA says card payments between businesses are not exempt from the removal of surcharging, and whether any exemptions exist is a decision for each network."
+    ],
+    [
+      "Can I add a surcharge to an invoice sent before 1 October 2026?",
+      "Probably not if the customer pays by card on or after 1 October. The RBA says surcharging may no longer be available for those payments even if the invoice was issued earlier, and some payment providers have disabled the feature from that date."
+    ],
+    [
+      "Can I offer a discount for cash or bank transfer instead?",
+      "Yes. The RBA and the ACCC both say businesses can still offer discounts for particular payment methods, such as cash or PayID. The ACCC says the full price must be the one displayed and the discounted price must not be shown alone or more prominently."
+    ]
+  ],
+  "image": {
+    "cluster": "Payments law",
+    "takeaway": "Australia ended card surcharges on 1 October 2026, and the consumer credit interchange cap fell to 0.3 percent.",
+    "alt": "Australia card surcharge ban from 1 October 2026 for eftpos, Mastercard, Visa, American Express and PayPal payments",
+    "chart": {
+      "title": "Australian interchange caps before and after 1 October",
+      "subtitle": "Maximum interchange as a percent of the payment, domestic cards unless noted.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Consumer credit before",
+          0.8
+        ],
+        [
+          "Consumer credit now",
+          0.3
+        ],
+        [
+          "Commercial credit",
+          0.8
+        ],
+        [
+          "Debit before",
+          0.2
+        ],
+        [
+          "Debit now",
+          0.16
+        ],
+        [
+          "Foreign cards, 2027",
+          1.0
+        ]
+      ],
+      "prefix": "",
+      "suffix": "%",
+      "highlight": 1,
+      "note": [
+        "Down from 0.8%",
+        "on 1 October 2026"
+      ],
+      "source": "Debit caps also have fixed forms, 10c before and 8c now. Source: rba.gov.au, October 2026",
+      "alt": "Bar chart of Australian interchange caps: consumer credit falls from 0.8 to 0.3 percent, debit from 0.2 to 0.16 percent, commercial credit stays 0.8 percent and foreign cards get a 1.0 percent cap in 2027.",
+      "after_heading": "Who the ban catches: B2B, invoices and online checkouts"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Card surcharges on eftpos, Mastercard and Visa",
+        "value": "Not allowed from 1 October 2026",
+        "note": "credit, debit and prepaid, including overseas cards"
+      },
+      {
+        "label": "American Express and UnionPay surcharges",
+        "value": "Removed from 1 October 2026"
+      },
+      {
+        "label": "PayPal surcharges",
+        "value": "Removed from 5 October 2026"
+      },
+      {
+        "label": "Consumer credit card interchange cap",
+        "value": "0.3 percent",
+        "note": "was 0.8 percent"
+      },
+      {
+        "label": "Debit and prepaid interchange cap",
+        "value": "8 cents or 0.16 percent",
+        "note": "was 10 cents or 0.2 percent"
+      },
+      {
+        "label": "Commercial credit card interchange cap",
+        "value": "0.8 percent",
+        "note": "unchanged"
+      },
+      {
+        "label": "Foreign-issued card interchange cap",
+        "value": "1.0 percent",
+        "note": "from 1 April 2027"
+      },
+      {
+        "label": "Card surcharges charged each year",
+        "value": "A$1.8 billion",
+        "note": "A$1.6 billion of it paid by consumers"
+      },
+      {
+        "label": "Expected cut in merchants' wholesale card costs",
+        "value": "about A$910 million a year"
+      },
+      {
+        "label": "Card fee data published by networks and large acquirers",
+        "value": "from 30 October 2026"
+      },
+      {
+        "label": "Acquirers publish how interchange cuts flowed through",
+        "value": "from 30 January 2027"
+      },
+      {
+        "label": "ACCC example, A$60 haircut with a 1.0 percent fee folded in",
+        "value": "A$60.60"
+      }
+    ],
+    "source": "Rules and figures read on 1 October 2026 from the RBA's Conclusions Paper and surcharging FAQ, the ACCC's card surcharge guidance, and Stripe's and Square's support pages."
+  }
+}
