@@ -1361,7 +1361,7 @@
         "name": "How accurate is Apollo's email data really?",
         "acceptedAnswer": {
             "@type": "Answer",
-            "text": "91% accuracy on first lookup (not vendor's claimed 93%). This includes 4% hard bounce risk and 5% soft bounce risk. Accuracy is excellent for cold email operations."
+            "text": "In our tests, 91% valid on first lookup, below the 98% Apollo claims on its data page. Of the other 9%, 4% hard-bounced and 5% carried soft-bounce risk. Good enough for cold email operations, but verify before large sends."
         }
     },
     {
@@ -1369,7 +1369,7 @@
         "name": "Is Apollo better than Cognism?",
         "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Apollo is better for US/global prospecting. Cognism is better for European data. For US-focused cold email, Apollo wins on database size and cost. For European compliance and SMB data, Cognism wins."
+            "text": "For US prospecting, usually yes. Apollo prints its seat prices on its pricing page; Cognism's pricing page sells by quote, with 5 seats included in each package. In our campaigns a Cognism-sourced European list came back 96% valid against 91% for an Apollo-sourced US list, so for European compliance and SMB data, Cognism wins."
         }
     },
     {
@@ -1377,7 +1377,7 @@
         "name": "What's the cheapest way to use Apollo?",
         "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The free plan ($0, 900 credits a year released monthly) for testing. For ongoing prospecting, the Basic plan at $49/month, billed annually (30,000 credits/year, about 2,500/month on average). Most users find Basic sufficient for sourcing 500-1,000 prospects monthly."
+            "text": "The free plan ($0, 900 credits a year released monthly) for testing. For ongoing prospecting, the Basic plan at $49 per seat per month, billed annually (30,000 credits/year, about 2,500/month on average), or $65 month to month with 2,500 credits a month. At 1 credit per email, Basic covers sourcing 500-1,000 prospects a month with room to spare."
         }
     },
     {
@@ -1385,7 +1385,7 @@
         "name": "Does Apollo include email verification?",
         "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No, Apollo's 91% accuracy is prediction-based, not verification. Layer Hunter.io ($49/month) or RealEmail if separate verification matters."
+            "text": "Yes. Apollo describes seven-step email verification and real-time email and phone verification on every record, and claims 98% accuracy. In our tests 91% of emails were valid and 4% hard-bounced, so we still run a separate verifier before large sends."
         }
     },
     {
@@ -1393,7 +1393,7 @@
         "name": "Can I use Apollo for cold email at scale?",
         "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Apollo's API and bulk exports support high-volume operations, within your plan's credits. Our clients source 50,000+ prospects monthly via Apollo. The API is reliable and well-documented."
+            "text": "Yes, within your plan's credits and limits. Unlimited daily sends, subject to fair use, start on Professional (Free and Basic cap sending at 250 emails a day). API limits run per team and per endpoint: the general plan limits allow 200 requests a minute and 2,000 a day on Basic and Professional, enrichment allows up to 1,000 a minute on paid plans, and your credits are the real cap. Apollo points advanced or custom integrations at its Custom plans. Our clients source 50,000+ prospects monthly via Apollo. The API is reliable and well-documented."
         }
     }
 ]
@@ -1829,7 +1829,8 @@ Table of Contents
 <article class="article-content">
 <p class="affiliate-disclosure" style="font-size:14px;line-height:1.6;color:#475569;background:#f8fafc;border-left:3px solid #F45407;padding:11px 15px;border-radius:6px;margin:0 0 22px;"><strong>Affiliate disclosure:</strong> some links in this article are partner links. If you start a paid plan through them, imisofts may earn a commission at no extra cost to you. We only recommend tools we actually use to run client campaigns.</p>
 <p class="aff-cta" style="margin:0 0 22px;"><a href="https://get.apollo.io/u5ocuv7me9t2" target="_blank" rel="noopener noreferrer sponsored" style="display:inline-block;background:#F45407;color:#fff;font-weight:600;padding:11px 20px;border-radius:8px;text-decoration:none;">Try Apollo free &rarr;</a></p>
-<p><strong>Quick Answer:</strong> Apollo is the best-in-class B2B database for cold email. 260M+ contacts, 91% email accuracy, $49/month entry price, robust API, excellent for US-focused prospecting. Weaknesses: weaker on European data, no built-in sending/warm-up. Verdict: Essential for cold email infrastructure.</p>
+<p><strong>Quick Answer:</strong> Apollo is the B2B database we default to for US-focused cold email. Apollo states 240M+ contacts and 30M+ companies, our tests found 91% of its emails valid (Apollo claims 98%), and paid seats start at $49 a month billed annually, $65 month to month. Paid plans bundle the database with sequences, email warm-up and a US dialer (calls use credits). Weaknesses: in our tests, thinner European data and weaker phone data; on Apollo's own plan table, a 250-emails-a-day sending cap on Free and Basic. Verdict: the right default for US prospecting, but not the cheapest option for every job.</p>
+<p><strong>Corrected on 1 October 2026:</strong> we re-checked the vendor facts listed below, and the competitor prices quoted in the body, against Apollo's pricing page, data page, home page and API documentation, Cognism's pricing and data pages, the pricing pages of RocketReach, Hunter, Instantly, Snov.io and Seamless.ai, RocketReach's home page, and Lusha's home and data pages. Several old errors flattered Apollo: the page put its database at 260M+ (Apollo states 240M+), called it 1.7x larger than competitors (RocketReach and Lusha both publish bigger headline counts, RocketReach in profiles and Lusha in contacts), said it refreshes every 24 hours (the Apollo pages we read give no refresh interval for contact records), gave its API a limit of 5,000 requests a minute and 5,000-record bulk requests (Apollo's docs say 1,000 a minute at most and 10 people per enrichment request), quoted Apollo's own accuracy claim as 93% (its data page says 98%, so the gap to our 91% is 7 points, not 2), and printed prices for Cognism ($299) and Seamless.ai ($99) that neither company's pricing page shows. Other errors ran against Apollo: the page said it has no built-in verification, no sending and no native warm-up, and Apollo's own pages describe all three. One flattered Cognism: a 48-hour refresh, when Cognism states 30 days for Director-level and above data. A deleted stack line priced Instantly, our other affiliate, at $25 a month, which flattered it (Growth is $47, or $37.60 a month billed yearly). We also removed unsupported lines: a 15 to 20 percent European coverage estimate (which ran against Apollo), an API comparison that knocked Cognism and RocketReach, a claim that RocketReach refreshes weekly, and a "real-time triggers" webhook claim. Search filters, coverage and data-age statements, and the test, audit and campaign figures come from the original article and were not re-tested.</p>
 <h2 id="real-data-audit-50000-apollo-records-tested">Real Data Audit: 50,000+ Apollo Records Tested</h2>
 <p>At imisofts, we've validated Apollo data on 50,000+ prospect records across multiple campaigns. This isn't vendor-generated claims, this is operational data from real cold email campaigns.</p>
 <h2 id="audit-results-across-50k-records">Audit results across 50K records:</h2>
@@ -1844,38 +1845,39 @@ Table of Contents
 </ul>
 <p>Apollo's core data, email, company details, job titles, is consistently accurate. Peripheral data (phone, LinkedIn) is decent but not exceptional.</p>
 <h2 id="what-apollo-does-right">What Apollo Does Right</h2>
-<h3>1. Largest B2B Database</h3>
-<p>260M+ verified B2B contacts. That's 1.7x larger than competitors.</p>
-<p>For cold email scale, database size matters. More contacts = higher probability of finding your target audience.</p>
+<h3>1. A Large B2B Database</h3>
+<p>Apollo states 240M+ contacts and 30M+ companies. That is a big database, but not the biggest headline number in this market: RocketReach states 700M profiles and 60M companies, and Lusha states 525M+ contacts and 29M+ companies. Each count is the vendor's own, measures something slightly different (profiles versus contacts), and has not been audited by us, so treat them as marketing figures rather than a ranking.</p>
+<p>For cold email, what matters is how many records match your target list, not the headline total.</p>
 <p>Our high-volume 200-domain proposal client needed 100,000 tech founders across US. Apollo found 94,000 matching records. Cognism found 67,000. RocketReach found 71,000.</p>
-<p>Apollo's size gave them 27,000 additional targets.</p>
+<p>For that search, Apollo returned 27,000 more matches than Cognism and 23,000 more than RocketReach.</p>
 <h3>2. Email Accuracy at 91%</h3>
-<p>Apollo claims 93%. Real-world testing shows 91%. Either way, it's top-tier accuracy.</p>
-<p>Test of 10,000 Apollo emails:</p>
-<p>Apollo accuracy: 91% (910 valid emails from 1,000 sample)</p>
+<p>Apollo's data page claims a 98% email accuracy rate. Our real-world testing shows 91%, seven points lower. That is still strong for cold email, but it is our number, not Apollo's.</p>
+<p>Test of 10,000 Apollo emails (accuracy measured on a 1,000-email sample):</p>
+<p>Apollo accuracy: 91% (910 valid emails in the 1,000-email sample)</p>
 <p>Hard bounce rate: 4%</p>
 <p>Soft bounce rate: 5%</p>
-<p>This 91% accuracy is crucial for cold email. Bad emails tank your domain reputation. Apollo's accuracy is high enough to avoid reputation damage.</p>
+<p>This 91% accuracy is crucial for cold email. Bad emails tank your domain reputation. Apollo's accuracy is high enough for cold email once you verify before large sends.</p>
 <p>Our business funding firm tests emails against verified databases. Apollo's accuracy aligns perfectly with third-party audits.</p>
-<h3>3. $49/Month Entry Price</h3>
-<p>Apollo Basic plan: $49/month, billed annually (30,000 credits/year). This is among the cheapest enterprise-grade databases.</p>
-<p>Cognism: $299/month (4.6x more expensive)</p>
-<p>RocketReach: $27/month billed annually for its email-only Essentials plan (1,200 exports a year), $69/month for Pro with phone numbers (3,600 exports a year), both read on RocketReach's pricing page on September 28, 2026</p>
-<p>Seamless.ai: $99/month</p>
-<p>Apollo's entry price is competitive. You can start cold email prospecting for $49/month.</p>
-<p>Our Dutch recruitment firm pays $49/month and sources roughly 500 prospects/month. Cost per prospect: $0.10. Cost per discovery: <$1.</p>
-<h3>4. Excellent API</h3>
-<p>Apollo's API is the gold standard for cold email.</p>
+<h3>3. $49 a Seat a Month, Billed Annually</h3>
+<p>Apollo Basic plan: $49 per seat per month, billed annually ($588 a year paid upfront, 30,000 credits a year), or $65 per seat month to month (2,500 credits a month).</p>
+<p>Cognism: no price on its pricing page (read October 1, 2026). It sells Standard and Pro packages, each with 5 seats included, by quote.</p>
+<p>RocketReach: $27/month billed annually for its email-only Essentials plan ($329 a year, 1,200 exports a year), $69/month billed annually for Pro with phone numbers (3,600 exports a year), both re-read on RocketReach's pricing page on October 1, 2026</p>
+<p>Seamless.ai: no price on its pricing page (read October 1, 2026), which is an inquiry form.</p>
+<p>So Apollo is not the cheapest seat: RocketReach Essentials costs less. Per unit the two price differently: an Apollo email costs 1 credit, about 2 cents on an annual Basic seat ($588 for 30,000 credits) or 2.6 cents month to month ($65 for 2,500), while RocketReach Essentials advertises unlimited verified emails but includes 1,200 exports a year, about 27 cents an export, and caps sending at 500 emails a day. A credit and an export are not the same unit, so test both on your own list before you compare. You can start on Apollo for $49 a seat a month on an annual plan, or $65 month to month.</p>
+<p>Our Dutch recruitment firm pays $49/month and sources roughly 500 prospects/month. Cost per prospect: $0.10. Cost per discovery: &lt;$1.</p>
+<h3>4. A Strong API, With Plan Limits</h3>
+<p>Apollo's API is the one we build on for cold email.</p>
 <p>Features:</p>
 <ul>
-<li>Real-time prospect lookups (2-4 second latency)</li>
-<li>Bulk export (5,000+ records per request)</li>
-<li>Custom field mapping</li>
-<li>Rate limits: 5,000 req/minute (300,000 req/hour)</li>
-<li>Webhooks for real-time triggers</li>
+<li>Real-time prospect lookups (2-4 second latency in our use)</li>
+<li>Bulk enrichment of up to 10 people per request, charged per person 1 credit for demographics or an email plus 8 if a mobile number is returned, and nothing if no credit-consuming data is found (before waterfall enrichment)</li>
+<li>Custom fields you can create and update through the API</li>
+<li>Rate limits set per team and per endpoint: Apollo's general plan limits allow 200 requests a minute on paid plans (400 an hour and 2,000 a day on Basic and Professional, 600 and 6,000 on Organization), enrichment endpoints allow 1,000 a minute with no hourly or daily cap, and database search allows 200 a minute, 6,000 an hour and 50,000 a day. The Free plan is 50 a minute, 200 an hour and 600 a day (20 a minute and 100 an hour on bulk enrichment). Your credit balance still limits how much you can enrich.</li>
+<li>In the app, the record selection limit is 25 records on Free, 1,000 on Basic, 2,500 on Professional and 10,000 on Organization</li>
+<li>A webhook-result endpoint you can poll</li>
 </ul>
 <p>This API is how we integrate Apollo with our private server infrastructure. Match prospects to domains, rotate inboxes by company vertical, auto-send from appropriate sender addresses.</p>
-<p>Cognism's API is weaker. RocketReach's API works but isn't as well-documented.</p>
+<p>One caveat from Apollo's pricing page: for more advanced or custom integrations, API access is available on Custom plans. Cognism's pricing page lists MCP and API access on its Standard package, which Pro includes, so check both vendors' current terms against what you plan to build.</p>
 <h3>5. Advanced Search Filters</h3>
 <p>Apollo's search interface is powerful:</p>
 <ul>
@@ -1886,36 +1888,33 @@ Table of Contents
 <li>Lookalike audience building</li>
 <li>Competitor analysis</li>
 </ul>
-<p>For precise targeting, Apollo gives you control. You can narrow searches from 260M to exactly your ICP.</p>
+<p>For precise targeting, Apollo gives you control. You can narrow searches from Apollo's 240M+ contacts to exactly your ICP.</p>
 <p>Our European CFO firm searches for "CFO at companies with 50-200 employees in financial services" across 6 countries. Apollo returns 8,000 qualified matches. Cognism returns 4,000. Apollo's filters are more granular.</p>
-<h3>6. Real-Time Database Updates</h3>
-<p>Apollo refreshes daily. Job changes, company updates, and hiring signals are reflected within 24 hours.</p>
-<p>This is better than Cognism (48-hour refresh) and matches RocketReach (weekly refresh in enterprise tier).</p>
+<h3>6. Data Freshness (Apollo's Claim)</h3>
+<p>Apollo describes a regularly refreshed database and says 2M+ users help keep its data fresh every day through inbox connections, CRM syncs and engagement signals. It also describes real-time email and phone verification on every record. The Apollo pages we read give no refresh interval for contact records.</p>
+<p>Cognism does publish one for its senior data: Director-level and above records are refreshed on a 30-day basis. The two statements describe different things, so neither is a like-for-like freshness ranking.</p>
 <h2 id="what-apollo-does-poorly">What Apollo Does Poorly</h2>
 <h3>1. Weak on European Data</h3>
-<p>Apollo's US database is 260M+ contacts. European database is much smaller, estimates suggest 15-20% European coverage.</p>
+<p>Apollo's 240M+ is a global count, and the Apollo pages we read give no regional split, so we judge its European coverage from our own searches.</p>
 <p>For European prospecting, Cognism is superior. Their EMEA focus means better SMB data, verified local details, and GDPR compliance documentation.</p>
 <p>Our healthcare podcast client needed German decision-makers. Apollo found 1,200. Cognism found 2,100. For German SMB targeting, Cognism wins.</p>
-<h3>2. No Built-In Email Verification</h3>
-<p>Apollo doesn't verify emails natively. You find email addresses, they're probably valid (91% confidence), but there's no separate verification step.</p>
-<p>If email confidence matters, you'd layer Hunter.io ($49/month) or RealEmail separately.</p>
-<p>Total cost: Apollo $49 + Hunter $49 = $98/month for finding + verification.</p>
-<p>RocketReach includes verification, but accuracy is 88% vs Apollo's 91%, so you're not gaining quality.</p>
-<h3>3. No Cold Email Sending Feature</h3>
-<p>Apollo doesn't send emails. It finds and verifies. You need Instantly, Woodpecker, or similar for sending.</p>
-<p>This isn't a weakness per se, it's focus. Apollo is best-in-class at finding. Using it as part of a broader cold email stack is appropriate.</p>
-<p>But it means your total stack costs more. Apollo ($49) + Instantly ($25) minimum = $74/month vs Snov.io's $39 all-in-one.</p>
+<h3>2. Verification Is Built In, but 4% Still Hard-Bounced</h3>
+<p>Apollo describes seven-step email verification and real-time email and phone verification on every record. Even so, 4% of the Apollo emails in our test hard-bounced and another 5% carried soft-bounce risk, and our audit found verification coverage on 87% of records.</p>
+<p>If you send at volume, run a separate email verifier before large sends. The original version of this review suggested Hunter.io, whose Starter plan is $49 a month billed monthly or $34 a month billed yearly; we did not re-test its verifier for this update.</p>
+<p>In our accuracy comparison further down, RocketReach emails were 88% valid against Apollo's 91%, so switching databases does not remove the need for a second check.</p>
+<h3>3. Sending Is Capped on Free and Basic</h3>
+<p>Apollo does send email: campaigns are included on every account, and free plans can connect Gmail accounts only. The limits are in the plan table. Free and Basic allow 250 emails a day and one mailbox per user. Professional and Organization remove the daily cap and allow unlimited Google and Microsoft mailboxes plus 5 or 15 SMTP mailboxes per user, though Apollo says features labeled Unlimited may still be subject to its Fair Use Policy.</p>
+<p>For a cold email program that sends from many domains, that means Professional ($79 per seat per month billed annually, $99 month to month) or a dedicated sending tool. Instantly's Growth plan, for example, is $47 a month, or $37.60 a month billed yearly, with unlimited email accounts and warm-up but limits of 5,000 emails a month and 1,000 uploaded contacts on either billing basis. Snov.io's Starter plan bundles lead finding and sending for $39 a month.</p>
 <h3>4. Phone Data Is Weak</h3>
 <p>Apollo's phone number coverage is 60%. Data quality is adequate, not exceptional.</p>
 <p>For teams doing email-to-phone follow-up, RocketReach (84% coverage) is better.</p>
 <p>For cold email only, phone data is nice-to-have but not essential.</p>
-<h3>5. Limited Warm-Up Integration</h3>
-<p>Apollo integrates with some warm-up tools (Lemwarm), but it's not native. You're buying warm-up separately.</p>
-<p>Instantly and SmartLead include warm-up. Apollo expects you to handle it elsewhere.</p>
-<p>This is minor because warm-up belongs in your email sending tool anyway (Instantly/SmartLead), not in the prospecting tool.</p>
+<h3>5. Warm-Up Only on Paid Plans</h3>
+<p>Apollo lists its Deliverability Suite and email warm-up on the Basic, Professional and Organization plans, not on Free. Instantly, a paid sending tool, lists unlimited warm-up on every plan we read.</p>
+<p>This is minor if your mailboxes already live in a dedicated sending tool, where warm-up usually sits anyway.</p>
 <h2 id="performance-metrics-data-accuracy-deep-dive">Performance Metrics: Data Accuracy Deep Dive</h2>
 <h3>Email Accuracy (91%)</h3>
-<p>Real testing validates Apollo's 91% accuracy. Not 93% (vendor claim), but 91% (operational reality).</p>
+<p>Our testing puts Apollo at 91% valid. Not 98% (Apollo's claim on its data page), but 91% (operational reality in our campaigns).</p>
 <p>Breakdown:</p>
 <ul>
 <li>Valid emails: 91%</li>
@@ -1928,7 +1927,7 @@ Table of Contents
 <li>Cognism: 94% valid, 2% hard bounce</li>
 <li>RocketReach: 88% valid, 7% hard bounce</li>
 </ul>
-<p>Apollo is strong. Cognism is 3% better. RocketReach is 3% worse.</p>
+<p>Apollo is strong. Cognism is 3 points better. RocketReach is 3 points worse.</p>
 <p>For 10,000 emails:</p>
 <ul>
 <li>Apollo reaches inbox: 8,736 (91% × 96% deliverability)</li>
@@ -1983,7 +1982,7 @@ Table of Contents
 <li>Reply rate: 2.0%</li>
 <li>Conversations: 30</li>
 </ul>
-<p>Cost: Cognism $399/month ÷ 2,000 emails = $0.20 per email sourced</p>
+<p>Cost: Cognism $399/month (the figure in our original campaign write-up; Cognism's pricing page prints no price and its packages include 5 seats) ÷ 2,000 emails = $0.20 per email sourced</p>
 <p>Cost per conversation: $399 ÷ 30 conversations = $13.30 per conversation</p>
 <p>Apollo is $0.0245 per email sourced. Cognism is $0.20 per email. Apollo is about 8x cheaper per email.</p>
 <p>But Cognism's European data is better (96% valid vs 91%). For US-focused prospecting, Apollo dominates.</p>
@@ -1991,39 +1990,41 @@ Table of Contents
 <p>Apollo pricing:</p>
 <ul>
 <li>Free: $0/month (900 credits/year)</li>
-<li>Basic: $49/month, billed annually (30,000 credits/year)</li>
-<li>Professional: $79/month, billed annually (48,000 credits/year), Apollo's most popular tier</li>
-<li>Organization: $119/month, billed annually, minimum 3 seats (72,000 credits/year)</li>
+<li>Basic: $49 per seat per month, billed annually (30,000 credits per seat per year)</li>
+<li>Professional: $79 per seat per month, billed annually (48,000 credits per seat per year), Apollo's most popular tier</li>
+<li>Organization: $119 per seat per month, billed annually, minimum 3 seats (72,000 credits per seat per year)</li>
 </ul>
-<p>At startup scale, Basic's 30,000 credits/year, about 2,500/month on average, is accessible at $49/month. At SMB scale needing more volume, Professional's 48,000 credits/year at $79/month is the mid-tier. At agency scale with multiple seats, Organization's 72,000 credits/year at $119/month (3-seat minimum) is where teams land.</p>
-<p>Real scenario: Our Dutch recruitment firm sources roughly 500 prospects/month. That's well within the Basic plan's annual allotment, so the $49/month tier covers them without needing to upgrade.</p>
+<p>At startup scale, Basic's 30,000 credits/year, about 2,500/month on average, is accessible at $49 per seat per month. At SMB scale needing more volume, Professional's 48,000 credits/year at $79 per seat per month is the mid-tier. Larger teams land on Organization: $119 per seat per month with a 3-seat minimum, so at least $357 a month billed annually, with 72,000 credits per seat per year.</p>
+<p>Month to month, Basic is $65 per seat (2,500 credits a month) and Professional $99 (4,000 credits a month). Organization is annual only: the monthly view shows $149 per seat marked Annual Only. The 14-day trial includes 75 credits. Credits do not roll over: unused credits, including purchased add-on credits, expire at the end of each billing cycle. On an annual plan, mid-cycle downgrades are not permitted and switching to monthly means waiting for the annual term to expire; where a downgrade is allowed, it takes effect at once and unused time is not refunded.</p>
+<p>Agencies should read one clause before buying: Apollo's pricing page says the plans are for internal business use only, and using Apollo data to "power external products, share with customers, or resell" needs a separate agreement with custom pricing.</p>
+<p>Real scenario: Our Dutch recruitment firm sources roughly 500 prospects/month. That's well within the Basic plan's annual allotment, so the Basic tier ($49 a seat a month, billed annually) covers them without needing to upgrade.</p>
 <p>This tier structure is straightforward: on annual billing, credits are granted upfront for the year (monthly Basic and Professional get a monthly allowance instead), and price scales with volume and seats.</p>
 <p>Before you pay, the free tier is worth a fortnight of real use: it is 900 credits per seat per year, granted monthly, which is 75 a month, and the search, filters and Chrome extension all work on it. The limits that do not appear on the plan card are listed in our <a href="/blog/apollo-free-plan-limits-2026/">Apollo free plan limits guide</a>, and <a href="/blog/is-apollo-worth-it-2026/">is Apollo.io worth it</a> runs the break-even math on a paid seat.</p>
 <h2 id="verdict-who-should-use-apollo">Verdict: Who Should Use Apollo</h2>
 <h2 id="essential-if">Essential if:</h2>
 <ul>
 <li>US-focused prospecting (70%+ of targets)</li>
-<li>Building private server infrastructure (API integration required)</li>
-<li>Needing database scale (260M+ contacts)</li>
+<li>Building private server infrastructure (API integration required; check whether your integration needs a Custom plan)</li>
+<li>Wanting the database, sequences and a dialer in one self-serve subscription</li>
 <li>Cold email is revenue channel</li>
 </ul>
 <h2 id="consider-if">Consider if:</h2>
 <ul>
-<li>Testing cold email (worth the $49 entry)</li>
-<li>Scaling beyond 5,000 monthly emails</li>
-<li>Integrating with custom tools (API required)</li>
+<li>Testing cold email (start on the free plan or a $65 month-to-month Basic seat before committing to a year)</li>
+<li>Scaling beyond 5,000 monthly emails (on Professional, since Free and Basic cap sending at 250 a day)</li>
+<li>Integrating with custom tools (API required; Apollo points advanced or custom integrations at its Custom plans)</li>
 <li>European expansion planned (after validating US first)</li>
 </ul>
 <h2 id="skip-if">Skip if:</h2>
 <ul>
 <li>European or APAC prospecting is primary</li>
-<li>Email verification must be built-in (use Hunter.io instead)</li>
-<li>All-in-one sending + finding desired (use Snov.io)</li>
-<li>Budget is extremely limited (<$49/month)</li>
+<li>You need phone numbers at volume (RocketReach Ultimate works out cheaper per email-plus-phone contact if you use its 20,000 exports a year)</li>
+<li>You will share Apollo data with customers or resell it (Apollo's standard plans are for internal business use only)</li>
+<li>Your budget cannot cover a paid seat ($588 a year upfront, or $65 a month) and the free plan's 75 credits a month are too few</li>
 </ul>
 <h2 id="our-recommendation">Our Recommendation</h2>
-<p>Apollo is the best B2B database for cold email. Period.</p>
-<p>For US-focused prospecting at any scale, Apollo's combination of 260M contacts, 91% email accuracy, and $49/month entry price is unbeatable.</p>
+<p>Apollo is the B2B database we recommend first for cold email.</p>
+<p>For US-focused prospecting, Apollo's combination of 240M+ contacts (Apollo's count), 91% valid emails in our tests, sequences on the same seat and a $49 per seat per month entry price on annual billing is the best all-round package we have tested. It is not the cheapest at everything: RocketReach Essentials is the cheaper seat, and for email-plus-phone contacts at volume RocketReach Ultimate works out at about 8.5 cents an export, if you use all 20,000 a year, against about 17.6 cents for Apollo's 9 credits on a Basic annual seat. Our <a href="/blog/apollo-vs-rocketreach/">Apollo vs RocketReach comparison</a> has the full arithmetic.</p>
 <p>At imisofts, Apollo is the default recommendation for clients launching cold email. It's how we source prospects for our private server infrastructure. It's how we've scaled to managing 50,000+ monthly prospects across clients.</p>
 <p>The API integration is seamless. The search filters are powerful. The pricing is fair.</p>
 <p>For European operations, you'd layer Cognism for specific countries. For global operations, you'd use Apollo + Cognism hybrid approach (Apollo for US, Cognism for Europe).</p>
@@ -2036,7 +2037,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">91% accuracy on first lookup (not vendor&#x27;s claimed 93%). This includes 4% hard bounce risk and 5% soft bounce risk. Accuracy is excellent for cold email operations.</div>
+<div class="faq-answer-inner">In our tests, 91% valid on first lookup, below the 98% Apollo claims on its data page. Of the other 9%, 4% hard-bounced and 5% carried soft-bounce risk. Good enough for cold email operations, but verify before large sends.</div>
 </div>
 </div><div class="faq-item">
 <button class="faq-question" aria-expanded="false">
@@ -2044,7 +2045,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">Apollo is better for US/global prospecting. Cognism is better for European data. For US-focused cold email, Apollo wins on database size and cost. For European compliance and SMB data, Cognism wins.</div>
+<div class="faq-answer-inner">For US prospecting, usually yes. Apollo prints its seat prices on its pricing page; Cognism&#x27;s pricing page sells by quote, with 5 seats included in each package. In our campaigns a Cognism-sourced European list came back 96% valid against 91% for an Apollo-sourced US list, so for European compliance and SMB data, Cognism wins.</div>
 </div>
 </div><div class="faq-item">
 <button class="faq-question" aria-expanded="false">
@@ -2052,7 +2053,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">The free plan ($0, 900 credits a year released monthly) for testing. For ongoing prospecting, the Basic plan at $49/month, billed annually (30,000 credits/year, about 2,500/month on average). Most users find Basic sufficient for sourcing 500-1,000 prospects monthly.</div>
+<div class="faq-answer-inner">The free plan ($0, 900 credits a year released monthly) for testing. For ongoing prospecting, the Basic plan at $49 per seat per month, billed annually (30,000 credits/year, about 2,500/month on average), or $65 month to month with 2,500 credits a month. At 1 credit per email, Basic covers sourcing 500-1,000 prospects a month with room to spare.</div>
 </div>
 </div><div class="faq-item">
 <button class="faq-question" aria-expanded="false">
@@ -2060,7 +2061,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">No, Apollo&#x27;s 91% accuracy is prediction-based, not verification. Layer Hunter.io ($49/month) or RealEmail if separate verification matters.</div>
+<div class="faq-answer-inner">Yes. Apollo describes seven-step email verification and real-time email and phone verification on every record, and claims 98% accuracy. In our tests 91% of emails were valid and 4% hard-bounced, so we still run a separate verifier before large sends.</div>
 </div>
 </div><div class="faq-item">
 <button class="faq-question" aria-expanded="false">
@@ -2068,7 +2069,7 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="faq-answer">
-<div class="faq-answer-inner">Yes. Apollo&#x27;s API and bulk exports support high-volume operations, within your plan&#x27;s credits. Our clients source 50,000+ prospects monthly via Apollo. The API is reliable and well-documented.</div>
+<div class="faq-answer-inner">Yes, within your plan&#x27;s credits and limits. Unlimited daily sends, subject to fair use, start on Professional (Free and Basic cap sending at 250 emails a day). API limits run per team and per endpoint: the general plan limits allow 200 requests a minute and 2,000 a day on Basic and Professional, enrichment allows up to 1,000 a minute on paid plans, and your credits are the real cap. Apollo points advanced or custom integrations at its Custom plans. Our clients source 50,000+ prospects monthly via Apollo. The API is reliable and well-documented.</div>
 </div>
 </div>
 </section>
