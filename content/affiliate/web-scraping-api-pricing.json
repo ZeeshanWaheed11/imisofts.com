@@ -1,0 +1,153 @@
+{
+  "slug": "web-scraping-api-pricing",
+  "title": "Web Scraping API Pricing: What 1,000 Pages Actually Cost",
+  "desc": "We priced 8 web scraping APIs per 1,000 pages: plain, JavaScript and premium proxy. Credit multipliers turn $0.196 into $4.90. Read on vendor pages, Oct 2026.",
+  "date": "2026-10-02",
+  "keywords": "web scraping api pricing, web scraping api pricing comparison, best web scraping api, scraping api cost per 1000 requests, scrapingbee pricing, scraperapi pricing, zenrows pricing, bright data unlocker api pricing, zyte api pricing, cheapest web scraping api",
+  "category": "Comparisons",
+  "affiliate_url": "https://get.brightdata.com/gf73pymzr2rh",
+  "cta": "Want your scraping pipeline costed and built for you?",
+  "word_count": 1907,
+  "read_time": 8,
+  "body": "<p><strong>Short answer.</strong> What a web scraping API charges per 1,000 pages depends more on the page than on the plan. On the credit APIs' plans nearest $50 a month, a plain HTML page costs <strong>$0.15 (Scrapfly) to $0.49 (ScraperAPI)</strong> per 1,000, and switching on JavaScript rendering multiplies that by 5 to 10. A page that needs premium or residential proxies plus JavaScript costs 25 to 30 credits, which is <strong>$4.50 to $12.25 per 1,000</strong> on the same plans. Bright Data's Unlocker API and Apify's Web Fetch list one card rate instead, <strong>$1.50 per 1,000 successful requests</strong> (Apify adds small Actor Start charges, and whether Bright Data bills some domains higher is unverified). That is 3 to 10 times the credit APIs' price for plain pages, more than the other plans in our table for JavaScript pages except ScraperAPI's and Zyte's dearer tiers, and less only once enough of your pages need premium proxies. We earn a commission from the Bright Data and Apify links on this page, and from no other vendor here.</p>\n<p>Every price below was read on the vendor's own pricing page or documentation on 2 October 2026 (Apify's plan-by-plan rates come from its public Actor API). \"Per 1,000 pages\" means per 1,000 billed requests, results or fetches, which are not quite the same unit, and every figure assumes the request succeeds. We did not run a success-rate test.</p>\n\n<h2 id=\"price-per-1000-pages\">Price per 1,000 pages on eight scraping APIs</h2>\n<p>Credit-API figures assume you use the whole monthly allowance; plans are those nearest $50 a month, billed monthly.</p>\n<table>\n<thead><tr><th>API and plan</th><th>Plain HTML</th><th>JavaScript on</th><th>Premium proxy and JavaScript</th></tr></thead>\n<tbody>\n<tr><td><strong>Scrapfly</strong> Discovery, $30 a month, 200,000 credits</td><td>$0.15</td><td>$0.90</td><td>$4.50 (residential)</td></tr>\n<tr><td><strong>ScrapingBee</strong> Freelance, $49 a month, 250,000 credits</td><td>$0.196</td><td>$0.98</td><td>$4.90</td></tr>\n<tr><td><strong>ZenRows</strong> Launch, $69 a month, 250,000 credits</td><td>$0.276</td><td>$1.38</td><td>$6.90</td></tr>\n<tr><td><strong>ScraperAPI</strong> Hobby, $49 a month, 100,000 credits</td><td>$0.49</td><td>$4.90</td><td>$12.25</td></tr>\n<tr><td><strong>Oxylabs</strong> Web Scraper API Micro, $49 a month</td><td>$1.15 (Amazon $0.50)</td><td>$1.35</td><td>$1.35 (one JavaScript rate)</td></tr>\n<tr><td><strong>Zyte API</strong>, pay as you go</td><td>$0.13 to $1.27</td><td>$1.01 to $16.08</td><td>set by the site's tier</td></tr>\n<tr><td><strong>Bright Data</strong> Unlocker API, pay as you go</td><td>$1.50</td><td>$1.50</td><td>$1.50 (card rate; per-domain pricing unverified)</td></tr>\n<tr><td><strong>Apify</strong> Web Fetch, Starter plan, plus Actor Start charges</td><td>$1.50</td><td>$1.50</td><td>$1.50 (no proxy or country setting)</td></tr>\n</tbody>\n</table>\n<p>ZenRows' page opens on annual billing ($58 a month for Launch). Scrapfly's pricing page lists browser rendering at 5 credits and its <a href=\"https://scrapfly.io/docs/scrape-api/billing\" target=\"_blank\" rel=\"noopener\">billing documentation</a> at 6 on datacenter proxies, the figure used here ($0.75 on the pricing page's reading).</p>\n\n<h2 id=\"credits-are-not-requests\">Why credits are not requests</h2>\n<p>Credit-based APIs charge more than one credit for harder pages, so a plan's headline allowance counts plain pages.</p>\n<ul>\n<li><strong>ScrapingBee</strong> turns JavaScript rendering on by default at 5 credits, so its $49 plan's 250,000 credits buy 50,000 pages at default settings. Premium proxies cost 10 credits without JavaScript and 25 with it, stealth proxies with JavaScript 75, and AI extraction adds 5. Its Auto-Mode charges only for the configuration that worked.</li>\n<li><strong>ZenRows</strong> uses the same 1, 5, 10 and 25 ladder and says so: 250,000 credits run \"about 250K standard pages, 50K with JavaScript, or 10K hard-protected\".</li>\n<li><strong>ScraperAPI</strong>'s <a href=\"https://docs.scraperapi.com/getting-started/quick-start/credits-and-requests-costs\" target=\"_blank\" rel=\"noopener\">credit table</a> lists render=true at 10 credits a request, twice ScrapingBee's and ZenRows' 5, premium proxies with rendering at 25 and ultra_premium with rendering at 75 (paid plans only). Some domains cost more on their own: Amazon 5, Google and Bing 25, LinkedIn 30, and a site behind Cloudflare, DataDome, PerimeterX or Akamai adds 10. The credit table we read does not say how a domain cost combines with render=true, so check the sa-credit-cost header on a test request.</li>\n<li><strong>Scrapfly</strong> charges 1 credit on datacenter proxies and 25 on residential ones, \"25x more expensive\" in its own words, plus 5 for a browser, and its Unblocker may move a request to a dearer proxy pool, which can raise the final cost.</li>\n</ul>\n<p>So the same $49 on ScrapingBee buys anywhere from 250,000 plain pages to 3,333 stealth-proxy pages. If those pages feed a lead list, see our guide to <a href=\"/blog/lead-scraper-cost/\">what a lead scraper really costs</a> for how blocked requests change the bill.</p>\n\n<h2 id=\"flat-rate-unlockers\">Flat card rates: Bright Data, Apify and Oxylabs</h2>\n<p>Three vendors here price a successful request or result at a fixed card rate instead of a credit ladder.</p>\n<p><strong>Bright Data Unlocker API.</strong> A free tier of 5,000 requests a month with no card, then <strong>$1.50 per 1,000</strong> on pay as you go, billed only for successful requests. The Scale plan is $499 a month for 383,000 requests ($1.30 per 1,000 after that), $999 for 908,000 ($1.10) or $1,999 for 2 million ($1.00), and the plan list includes browser rendering and CAPTCHA solving at that rate. The \"starts from $1\" on Bright Data's menu matches the $1,999 tier. Two things we could not confirm: whether some domains bill above the card rate (Bright Data's documentation site would not load for us) and how Bright Data defines a successful request. It is not built to be driven like a browser; Bright Data sells a separate Scraping Browser for that. <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"sponsored noopener\">Try the Unlocker API on 5,000 free requests a month</a>.</p>\n<p><strong>Apify Web Fetch.</strong> <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Apify</a>'s Web Fetch returns a page as Markdown, HTML, text or links for <strong>$1.50 per 1,000 successful fetches</strong> on the Free and Starter plans, $1.25 on Scale and $1.00 on Business (the \"from $1.00\" on its store page is that $999-a-month plan's rate), plus an Actor Start charge of $0.00005 per run for each GB of memory. It renders JavaScript automatically and does not charge failed fetches, but a 404 page it converts to Markdown counts as a fetch. Its input table lists only the URL, output formats, an unwrap switch and custom headers, with no country, wait-for or click options, and the claim that it gets past bot protection is Apify's.</p>\n<p><strong>Oxylabs Web Scraper API.</strong> The Micro plan is $49 billed monthly and charges per 1,000 successful results: Amazon $0.50, Google $1.00, other sites $1.15, and $1.35 with JavaScript. Its \"up to 98,000 results\" is the Amazon figure; on other sites $49 buys about 42,600 results, or about 36,300 with JavaScript, by our arithmetic; its FAQ also notes that the Headless Browser raises billing costs. Rates fall on bigger plans, down to $0.70 for other sites and $0.95 with JavaScript on the $2,000-a-month Corporate plan.</p>\n\n<h2 id=\"when-flat-rates-win\">When $1.50 per 1,000 pages beats a credit plan</h2>\n<p>Take ScrapingBee's $49 plan and assume every page needs JavaScript and the flat-rate vendor succeeds at its card rate. A default JavaScript page costs $0.98 per 1,000 and a premium-proxy JavaScript page $4.90, so a flat $1.50 becomes cheaper once about <strong>13% of pages</strong> need premium proxies, or about 4% need stealth proxies at $14.70. The share moves with plan size: on ScrapingBee's $19 Hobby plan it is about 4.6% (1.3% for stealth), and on its $99 Startup plan about 51% (14.5%). Against ZenRows Launch it is about 2%, and against ScraperAPI's $49 Hobby plan ($4.90) $1.50 is cheaper for every JavaScript page.</p>\n<p>Now the numbers that cut against our affiliates. For JavaScript pages on standard proxies, Scrapfly Discovery ($0.90), ScrapingBee Freelance ($0.98), Oxylabs Micro ($1.35) and ZenRows Launch ($1.38) all undercut $1.50, as do ScraperAPI's bigger plans ($1.49 on the $149 Startup plan, about $1.00 on the $299 Business plan) and Zyte's lowest tier ($1.01). For plain HTML, $1.50 is ten times Scrapfly Discovery's $0.15 and about 7.7 times ScrapingBee Freelance's $0.196. Test your own URLs to learn what share of them needs premium proxies.</p>\n\n<h2 id=\"zyte-site-tiers\">Zyte prices by website tier and rendering</h2>\n<p><a href=\"https://www.zyte.com/pricing/\" target=\"_blank\" rel=\"noopener\">Zyte</a> prices websites in five tiers, with datacenter and residential proxies and rendering included in one API. On pay as you go, an HTTP response costs $0.13 to $1.27 per 1,000 and a browser-rendered one $1.01 to $16.08, a 124-fold spread between the cheapest and dearest cell. Monthly commitments of $100, $200 and $500 lower every rate, and its \"from $0.06 per 1,000 successful responses\" headline is the lowest unrendered rate in the $500-a-month row. You look up a given site's price in Zyte's cost calculator. Usage above a commitment is billed at the same discounted rate, not a penalty rate, and Zyte notes that \"some advanced features may incur additional usage-based costs\".</p>\n\n<h2 id=\"what-counts-as-success\">What each API bills as a successful request</h2>\n<p>All eight say you pay for successes, and each defines success differently.</p>\n<table>\n<thead><tr><th>API</th><th>Billed</th><th>Not billed</th></tr></thead>\n<tbody>\n<tr><td>ScrapingBee</td><td>200, plus the target's 404, 410 and 413</td><td>An anti-bot 403 and other errors (returned as 500), 429</td></tr>\n<tr><td>ZenRows</td><td>Successful requests; 404 and 410 count as results</td><td>Failed requests</td></tr>\n<tr><td>ScraperAPI</td><td>200 and 404, plus requests you cancel before 70 seconds</td><td>Other failures</td></tr>\n<tr><td>Scrapfly</td><td>Successes, plus failures with codes it lists as excluded from protection (404, 410 and 20 other 4xx)</td><td>Other failures, unless more than 30% of failed traffic with eligible status codes is detected within a minimum one-hour period</td></tr>\n<tr><td>Oxylabs</td><td>Attempts that return a 2xx or 4xx status</td><td>5xx and 6xx errors from its own system</td></tr>\n<tr><td>Zyte</td><td>\"Successful responses\" (not defined on the pricing page)</td><td>Not stated on the pricing page</td></tr>\n<tr><td>Bright Data</td><td>\"Pay only for success\" (not defined on the pricing page)</td><td>Unsuccessful requests</td></tr>\n<tr><td>Apify Web Fetch</td><td>Any fetch that returns content, whatever the target's status code, including a converted 404 page</td><td>Errors: invalid URL, unreachable or blocking site, page too slow or too large</td></tr>\n</tbody>\n</table>\n<p>Scrapfly's pricing page and billing documentation disagree. The pricing page says \"Failed request $0, never charged on error\" and \"upstream 4xx/5xx and failed scrapes are free\", while the billing documentation lists 404, 410 and 20 other 4xx codes as excluded from that protection and switches it off if more than 30% of failed traffic with eligible status codes is detected within a minimum one-hour period. Oxylabs' FAQ does not say whether a target's block page counts as a billable 4xx, and Apify's README does not say whether a block page it converts is billed. We read only pricing pages for ZenRows, Zyte and Oxylabs, and Bright Data's documentation would not load.</p>\n\n<h2 id=\"free-tiers-and-picks\">Free tiers, and which API fits which job</h2>\n<p>Every vendor here has a free tier or trial, listed in the FAQ below, so test on your own URLs before paying.</p>\n<ul>\n<li><strong>Mostly plain pages, or JavaScript pages on sites that do not fight back:</strong> Scrapfly or ScrapingBee, the cheapest per page on plans nearest $50 a month.</li>\n<li><strong>A mix where some pages need premium proxies:</strong> run 200 of your real URLs through ScrapingBee's Auto-Mode or ScraperAPI's cost endpoint, note the credits each used, and compare the blended rate with the flat rates: $1.35 at Oxylabs, $1.50 at Bright Data and Apify.</li>\n<li><strong>Protected targets at volume, with no time to manage proxy tiers:</strong> a flat rate. Oxylabs lists $1.35 per 1,000 JavaScript results on its $49 plan, <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"sponsored noopener\">Bright Data's Unlocker API</a> $1.50 per 1,000 (per-domain pricing unverified), and Apify Web Fetch $1.50 plus Actor Start charges, the one built to hand Markdown to a language model. We did not test any vendor's success rate.</li>\n<li><strong>Amazon-heavy work:</strong> Oxylabs charges $0.50 per 1,000 Amazon results on its $49 plan; ScraperAPI's 5-credit Amazon rate works out to $2.45 on its $49 plan.</li>\n</ul>\n<p>Check the legal side first in our guide to <a href=\"/blog/is-web-scraping-legal/\">whether web scraping is legal</a>. If the pages you scrape become a lead list, the sending side needs its own <a href=\"/email-infrastructure\">email infrastructure</a> before the first campaign, and our <a href=\"/lead-generation\">lead generation team</a> can build the pipeline from scrape to booked meeting. To test before you commit, <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"sponsored noopener\">open a free Bright Data account and send your own URLs</a>.</p>",
+  "faqs": [
+    [
+      "How much does a web scraping API cost per 1,000 requests?",
+      "On the credit APIs' plans nearest $50 a month, a plain HTML page costs $0.15 (Scrapfly) to $0.49 (ScraperAPI) per 1,000, a JavaScript page $0.90 to $4.90, and a page that needs premium proxies plus JavaScript $4.50 to $12.25. Bright Data's Unlocker API and Apify's Web Fetch list $1.50 per 1,000 successful requests with or without JavaScript (Apify adds small Actor Start charges, and whether Bright Data bills some domains higher is unverified), Oxylabs charges $1.15 for general sites or $1.35 with JavaScript on its $49 plan, and Zyte ranges from $0.13 to $16.08 depending on the site's tier and rendering. Prices read on 2 October 2026."
+    ],
+    [
+      "Why does my scraping API use more credits than requests?",
+      "Credit-based APIs charge more than one credit for harder pages. ScrapingBee charges 5 credits for JavaScript rendering, which is on by default, 25 for premium proxies with JavaScript and 75 for stealth proxies with JavaScript. ScraperAPI charges 10 for render=true, 25 for Google or Bing, 30 for LinkedIn and adds 10 for sites behind bot protection. A plan's headline credit count is the number of plain pages it buys."
+    ],
+    [
+      "Which web scraping API is cheapest?",
+      "For plain HTML, Scrapfly ($0.15 per 1,000 on its $30 plan, $0.10 on its $100 plan) and ScrapingBee ($0.196 on its $49 plan); Zyte starts at $0.13 on its cheapest site tier. For JavaScript pages on standard proxies, Scrapfly ($0.90) and ScrapingBee ($0.98). When enough pages need premium proxies, the flat rates of Oxylabs ($1.35 with JavaScript), Bright Data and Apify Web Fetch ($1.50) can come out cheaper: if every page needs JavaScript, the crossover on ScrapingBee's $49 plan is about 13% of pages on premium proxies (4.6% on its $19 plan, 51% on its $99 plan)."
+    ],
+    [
+      "Do scraping APIs charge for failed requests?",
+      "All eight say they bill successes, but they define success differently. ScrapingBee, ZenRows, ScraperAPI and Apify Web Fetch bill a 404 page, and Scrapfly lists 404 as excluded from its failure protection. Oxylabs counts every attempt that returns a 2xx or 4xx status as successful; its FAQ does not say whether a target's block page counts. ScraperAPI also bills requests you cancel before 70 seconds, and Scrapfly switches its protection off if more than 30% of failed traffic with eligible status codes is detected within a minimum one-hour period."
+    ],
+    [
+      "Is Bright Data's Unlocker API worth $1.50 per 1,000 requests?",
+      "It can be for pages that need premium proxies, which cost $4.50 to $12.25 per 1,000 on the credit plans we priced, though Oxylabs' $49 plan lists $1.35 per 1,000 JavaScript results. For plain HTML it is the expensive option, ten times Scrapfly's $0.15. Test it on the 5,000 free requests a month first, and ask Bright Data whether your target domains bill at the card rate and how it defines a successful request; we could verify neither."
+    ],
+    [
+      "Which scraping APIs have a free tier?",
+      "ZenRows gives 5,000 credits a month, Bright Data 5,000 Unlocker requests a month and Apify $5 of usage on its Free plan. ScraperAPI has 1,000 free credits or a 7-day trial with 5,000, ScrapingBee and Scrapfly give 1,000 credits, Oxylabs offers a trial of up to 2,000 results and Zyte $5 of credit for 30 days."
+    ]
+  ],
+  "image": {
+    "cluster": "Scraping APIs",
+    "takeaway": "On ScrapingBee's $49 plan, 1,000 pages cost $0.196 without JavaScript and $4.90 with premium proxies and JavaScript.",
+    "alt": "Web scraping API pricing: what 1,000 pages actually cost",
+    "chart": {
+      "title": "Cost per 1,000 JavaScript pages",
+      "subtitle": "Plan nearest $50 a month, JavaScript on, standard proxies, full allowance used; Zyte runs $1.01 to $16.08 by site tier.",
+      "type": "hbar",
+      "rows": [
+        [
+          "ScraperAPI Hobby",
+          4.9
+        ],
+        [
+          "Bright Data, PAYG",
+          1.5
+        ],
+        [
+          "Apify Web Fetch",
+          1.5
+        ],
+        [
+          "ZenRows Launch",
+          1.38
+        ],
+        [
+          "Oxylabs Micro",
+          1.35
+        ],
+        [
+          "ScrapingBee Freelance",
+          0.98
+        ],
+        [
+          "Scrapfly Discovery",
+          0.9
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 1,
+      "note": [
+        "Also $1.50 for a plain page;",
+        "credit APIs charge $0.15 to $0.49"
+      ],
+      "source": "Card rates, monthly billing; Apify adds Actor Start fees, Bright Data domain pricing unverified. Source: vendor pricing pages and docs, October 2026.",
+      "alt": "Bar chart of the cost per 1,000 JavaScript-rendered pages: ScraperAPI Hobby $4.90, Bright Data pay as you go $1.50, Apify Web Fetch $1.50, ZenRows Launch $1.38, Oxylabs Micro $1.35, ScrapingBee Freelance $0.98, Scrapfly Discovery $0.90."
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "ScrapingBee Freelance, per month",
+        "value": "$49 for 250,000 credits",
+        "note": "JavaScript is on by default at 5 credits a request"
+      },
+      {
+        "label": "ScrapingBee, stealth proxy with JavaScript",
+        "value": "75 credits",
+        "note": "$14.70 per 1,000 pages on Freelance"
+      },
+      {
+        "label": "ZenRows Launch, per month",
+        "value": "$69 for 250,000 credits",
+        "note": "$58 a month billed annually"
+      },
+      {
+        "label": "ScraperAPI Hobby, per month",
+        "value": "$49 for 100,000 credits",
+        "note": "render=true bills 10 credits a request"
+      },
+      {
+        "label": "Scrapfly Discovery, per month",
+        "value": "$30 for 200,000 credits",
+        "note": "no pay as you go; browser request 6 credits per its docs"
+      },
+      {
+        "label": "Zyte API pay as you go, per 1,000 responses",
+        "value": "$0.13 to $16.08",
+        "note": "by site tier and rendering"
+      },
+      {
+        "label": "Oxylabs Web Scraper API Micro, per 1,000 results",
+        "value": "$1.15",
+        "note": "$49 a month; $1.35 with JavaScript, Amazon $0.50"
+      },
+      {
+        "label": "Bright Data Unlocker API, pay as you go",
+        "value": "$1.50 per 1,000",
+        "note": "card rate, per-domain pricing unverified; 5,000 free a month"
+      },
+      {
+        "label": "Bright Data Unlocker API, Scale plan",
+        "value": "$499 a month for 383,000 requests",
+        "note": "$1.30 per 1,000 after that"
+      },
+      {
+        "label": "Apify Web Fetch, Free and Starter plans",
+        "value": "$1.50 per 1,000",
+        "note": "successful fetches plus Actor Start events; $1.00 on Business"
+      },
+      {
+        "label": "Cheapest plain HTML page, credit plans near $50",
+        "value": "$0.15 per 1,000",
+        "note": "Scrapfly Discovery, a tenth of $1.50"
+      },
+      {
+        "label": "Premium-proxy share where $1.50 beats ScrapingBee",
+        "value": "about 13%",
+        "note": "on Freelance if every page needs JavaScript; 4.6% on Hobby, 51% on Startup"
+      }
+    ],
+    "source": "Prices read on 2 October 2026 from the ScrapingBee, ZenRows, ScraperAPI, Scrapfly, Zyte, Oxylabs, Bright Data and Apify pricing pages, their documentation and Apify's public Actor API; the last two rows are our arithmetic."
+  }
+}
