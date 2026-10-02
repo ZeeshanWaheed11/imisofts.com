@@ -1,0 +1,134 @@
+{
+  "slug": "mai-voice-2-1-pricing",
+  "title": "MAI-Voice-2.1 Pricing: What Microsoft's New Voices Cost a Phone Agent",
+  "desc": "Microsoft's MAI-Voice-2.1 costs $22 per million characters and Flash $15, with streaming transcription at $0.54 an hour. All in preview. What a call costs.",
+  "keywords": "mai-voice-2.1 pricing, mai-voice-2.1-flash, mai-transcribe-2-streaming price, microsoft text to speech pricing, azure tts price per million characters, mai voice models foundry, text to speech api for voice agents",
+  "date": "2026-10-02",
+  "time": "12:35",
+  "read_time": 4,
+  "word_count": 688,
+  "cta": "Want a phone agent priced and built on the right voice stack?",
+  "body": "<p><strong>October 2, 2026.</strong> Microsoft released three speech models for voice agents on October 1, and its <a href=\"https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/build-expressive-voice-experiences-with-new-mai-models-in-microsoft-foundry/4524637\" target=\"_blank\" rel=\"noopener noreferrer\">Foundry blog</a> puts the prices up front: MAI-Voice-2.1 costs $22 per million characters of speech, MAI-Voice-2.1-Flash costs $15, and the new MAI-Transcribe-2-Streaming costs $0.54 per hour of audio at an introductory price that runs through the end of the year. For an AI receptionist or an outbound calling agent, that is the listening and speaking half of every call. The limit is on Microsoft Learn: the two voice models and the streaming transcriber are all in public preview, without a service level agreement, and Microsoft does not recommend them for production workloads.</p><p><strong>What Microsoft released on October 1</strong></p><ol><li><strong>MAI-Transcribe-2-Streaming.</strong> It turns live speech into text as it arrives, in 60 languages with automatic language detection. Microsoft says words appear, in most cases, as early as 320 milliseconds after they are spoken, against more than 500 for the closest competitor, and that it ranks first for accuracy on the Artificial Analysis leaderboard. It connects through an OpenAI Realtime-compatible WebSocket or the Azure Speech SDK, per its <a href=\"https://learn.microsoft.com/en-us/azure/ai-services/speech-service/mai-transcribe-2-streaming\" target=\"_blank\" rel=\"noopener noreferrer\">Microsoft Learn page</a>.</li><li><strong>MAI-Voice-2.1.</strong> Text to speech in 23 languages that keeps one voice identity across all of them, aimed at uses where voice quality is the point.</li><li><strong>MAI-Voice-2.1-Flash.</strong> The same languages and voices, tuned for response time and volume. Microsoft says it is 55 percent faster and 60 percent less expensive than competing models in its class, citing ElevenLabs' documentation as the comparison.</li><li><strong>Where it runs.</strong> All three are in Microsoft Foundry through Azure Speech. The <a href=\"https://learn.microsoft.com/en-us/azure/ai-services/speech-service/mai-voices\" target=\"_blank\" rel=\"noopener noreferrer\">MAI-Voice documentation</a> says the voices are available globally from 14 Azure regions, use the same Speech API and SDK as Azure's other voices, and gate instant voice cloning behind an access review. Microsoft also names OpenRouter, Vercel and LiveKit as additional platforms for the models.</li></ol><p><a href=\"https://www.unite.ai/microsoft-launches-mai-transcribe-2-streaming-and-two-mai-voice-models/\" target=\"_blank\" rel=\"noopener noreferrer\">Unite.AI</a> reported the same three prices on launch day.</p><p><strong>How the prices compare</strong></p><p>Per million characters, MAI-Voice-2.1-Flash at $15 matches what Azure already charges for its Neural and Neural HD Flash voices on the <a href=\"https://azure.microsoft.com/en-us/pricing/details/speech/\" target=\"_blank\" rel=\"noopener noreferrer\">Azure Speech pricing page</a>, read on October 2, and MAI-Voice-2.1 at $22 sits just under Azure's $24 for a custom professional voice. ElevenLabs' <a href=\"https://elevenlabs.io/pricing/api\" target=\"_blank\" rel=\"noopener noreferrer\">API pricing page</a> lists Flash and v4 Turbo at $0.04 per 1,000 characters, or $40 per million, and v4 at $80. One catch: until October 12 a 72 percent launch discount puts ElevenLabs v4 Turbo at $11 per million, below Microsoft's Flash. On transcription MAI is not the cheapest live option. Its $0.54 an hour is about half of Azure's standard real-time rate of $1, but ElevenLabs lists Scribe v2 Realtime at $0.39. For recorded calls, our <a href=\"/blog/ai-transcription-cost-per-hour/\">AI transcription cost per hour</a> comparison covers the batch model, MAI-Transcribe-2.</p><p><strong>What a phone call costs on MAI</strong></p><p>Take a five-minute call where the agent talks for half of it at about 150 words, or roughly 900 characters, a minute. That is about 2,250 characters, or $0.034 on Flash and $0.05 on MAI-Voice-2.1. Streaming all five minutes of the caller's audio through MAI-Transcribe-2-Streaming adds about $0.045. So the speech layer comes to about 8 cents a call on Flash, before the language model, telephony and any platform fee. These are our figures from Microsoft's list prices, not Microsoft's.</p><p><strong>What it means for operators</strong></p><p>At a few cents a call, the speech price is rarely what decides a voice agent; preview status and latency are. Do not move a live client line onto a preview model that has no service level agreement. If you already run Azure Speech, switching a test agent to a MAI voice is a change of voice name in your SSML, so trial Flash on recorded call flows and time the full turn, recognition plus model plus voice, because callers hear the total. Get written consent before cloning anyone's voice: Microsoft gates its own instant cloning and says only authorized, consented voices can be used. Our <a href=\"/blog/elevenlabs-v4-turbo-pricing/\">ElevenLabs v4 Turbo pricing</a> note covers the other side of the comparison, and for a business that wants every missed call answered, that is the <a href=\"/ai-calling-home-services\">after-hours call answering</a> we build for home services firms, on whichever voice stack tests best.</p>",
+  "faqs": [
+    [
+      "How much does MAI-Voice-2.1 cost?",
+      "Microsoft lists MAI-Voice-2.1 at $22 per million characters and MAI-Voice-2.1-Flash at $15 per million characters in Microsoft Foundry, in its October 1, 2026 launch post. Flash matches the $15 per million characters Azure charges for its Neural and Neural HD Flash voices."
+    ],
+    [
+      "How much does MAI-Transcribe-2-Streaming cost?",
+      "It costs $0.54 per hour of audio at an introductory price through the end of 2026. Azure's standard real-time transcription is $1 an hour, and ElevenLabs lists Scribe v2 Realtime at $0.39 an hour."
+    ],
+    [
+      "Can I use the MAI voice models in production?",
+      "Microsoft Learn says the MAI-Voice models and MAI-Transcribe-2-Streaming are in public preview, provided without a service level agreement and not recommended for production workloads. Test them on staging lines first."
+    ],
+    [
+      "What does a five-minute AI phone call cost on MAI?",
+      "By our arithmetic, about 8 cents for speech on Flash: roughly 2,250 characters of agent speech at $15 per million plus five minutes of streaming transcription at $0.54 an hour. The language model, telephony and any platform fee are extra."
+    ]
+  ],
+  "image": {
+    "cluster": "AI voice pricing",
+    "takeaway": "MAI-Voice-2.1-Flash costs $15 per million characters and streaming transcription $0.54 an hour, both in preview.",
+    "alt": "Microsoft MAI-Voice-2.1 and MAI-Transcribe-2-Streaming pricing for AI phone agents",
+    "chart": {
+      "title": "Text to speech list price per million characters",
+      "subtitle": "Microsoft's new MAI voices against Azure's existing voices and ElevenLabs, read on 2 October 2026.",
+      "type": "hbar",
+      "rows": [
+        [
+          "MAI-Voice-2.1-Flash",
+          15
+        ],
+        [
+          "Azure neural voices",
+          15
+        ],
+        [
+          "MAI-Voice-2.1",
+          22
+        ],
+        [
+          "Azure custom voice",
+          24
+        ],
+        [
+          "ElevenLabs v4 Turbo",
+          40
+        ],
+        [
+          "ElevenLabs v4",
+          80
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 0,
+      "note": [
+        "Same price as Azure's",
+        "Neural HD Flash voices"
+      ],
+      "source": "List prices per 1M characters; ElevenLabs v4 Turbo is $11 until Oct 12. Source: microsoft.com, elevenlabs.io, October 2026",
+      "alt": "Bar chart of text to speech prices per million characters: MAI-Voice-2.1-Flash $15, Azure neural voices $15, MAI-Voice-2.1 $22, Azure custom voice $24, ElevenLabs v4 Turbo $40 and ElevenLabs v4 $80.",
+      "after_heading": "How the prices compare"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "MAI models released",
+        "value": "October 1, 2026"
+      },
+      {
+        "label": "MAI-Voice-2.1",
+        "value": "$22 per 1M characters"
+      },
+      {
+        "label": "MAI-Voice-2.1-Flash",
+        "value": "$15 per 1M characters",
+        "note": "same as Azure Neural HD Flash"
+      },
+      {
+        "label": "MAI-Transcribe-2-Streaming, introductory",
+        "value": "$0.54 per hour of audio",
+        "note": "through the end of 2026"
+      },
+      {
+        "label": "Azure standard real-time transcription",
+        "value": "$1 per hour"
+      },
+      {
+        "label": "ElevenLabs Flash and v4 Turbo, list",
+        "value": "$40 per 1M characters",
+        "note": "v4 Turbo $11 until October 12"
+      },
+      {
+        "label": "ElevenLabs Scribe v2 Realtime",
+        "value": "$0.39 per hour"
+      },
+      {
+        "label": "Languages, transcription and voices",
+        "value": "60 and 23"
+      },
+      {
+        "label": "First words on screen, Microsoft's figure",
+        "value": "as early as 320 ms",
+        "note": "closest rival over 500 ms"
+      },
+      {
+        "label": "Azure regions serving the MAI voices",
+        "value": "14"
+      },
+      {
+        "label": "Status on Microsoft Learn",
+        "value": "Public preview, no SLA"
+      },
+      {
+        "label": "Speech layer of a 5-minute call on Flash",
+        "value": "about 8 cents",
+        "note": "our arithmetic"
+      }
+    ],
+    "source": "Prices read on 2 October 2026 from Microsoft's Foundry blog, the Azure Speech pricing page and Microsoft Learn, and from ElevenLabs' API pricing page."
+  }
+}
