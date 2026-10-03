@@ -1,0 +1,121 @@
+{
+  "slug": "what-is-agentic-ai",
+  "title": "What Is Agentic AI? The Term Every Vendor Uses and Few Define",
+  "desc": "Agentic AI means a model that picks its own steps and tools to reach a goal. The one-line test, five patterns vendors blur, Gartner's numbers and six questions.",
+  "keywords": "what is agentic ai, agentic ai, agentic ai meaning, agentic ai definition, agentic ai vs generative ai, agentic ai examples, ai agents vs workflows, agent washing, agentic ai for business, agentic ai gartner",
+  "date": "2026-10-03",
+  "time": "19:48",
+  "read_time": 9,
+  "word_count": 1954,
+  "cta": "Want to know which of your tasks need an agent and which need a $40 workflow?",
+  "body": "<p><strong>October 3, 2026.</strong> Agentic AI is an AI system that is given a goal, decides for itself which steps and which tools to use to reach it, checks its own results and keeps going until the goal is met or it hands back to a person. That is the whole definition. A chatbot answers; an agent acts. The reason the phrase is on every vendor's homepage is that it sells, and the reason so few vendors define it is that most of what they sell does not meet it. Gartner, which tracks the market, estimated last year that only about 130 of the thousands of companies calling themselves agentic AI vendors are the real thing, and predicted that more than 40 percent of agentic AI projects will be cancelled by the end of 2027. This guide gives you the working definition, the test that separates an agent from a workflow, the five patterns vendors blur together, the numbers on adoption, and the questions that get an honest answer out of a sales call.</p>\n<p><strong>Agentic AI, defined</strong></p>\n<p>The clearest definition in print comes from Anthropic's engineering team, in a guide written for people who build these systems rather than people who buy them. It draws one line. \"Workflows are systems where LLMs and tools are orchestrated through predefined code paths. Agents, on the other hand, are systems where LLMs dynamically direct their own processes and tool usage, maintaining control over how they accomplish tasks\" (<a href=\"https://www.anthropic.com/engineering/building-effective-agents\" target=\"_blank\" rel=\"noopener noreferrer\">Building effective agents</a>). Anthropic calls both kinds \"agentic systems\", which is fair, but the distinction is the one that matters when you are paying for one. In a workflow, a programmer decided the sequence in advance and the model fills in the blanks. In an agent, the model decides the sequence at run time. Everything else, the memory, the tools, the loop, follows from which of those two you have.</p>\n<p>Put as a test you can apply to any demo: who chooses the next step, the code or the model? If a human wrote \"first look up the customer, then draft the reply, then log it\", you are looking at a workflow with an LLM inside it. If the system was told \"resolve this ticket\" and worked out that it needed to look up the order, check the refund policy, ask the customer one question and then issue a credit, you are looking at an agent.</p>\n<p><strong>The four parts every real agent has</strong></p>\n<ol>\n<li><strong>A goal, not a script.</strong> The input is an outcome (\"book the inspection\", \"qualify this lead\", \"get this invoice paid\") rather than a sequence of instructions.</li>\n<li><strong>Tools it can call.</strong> A model on its own can only produce text. An agent has permission to do things: search, read a CRM record, send an email, place a call, run code, fill a form. The list of tools is the real boundary of what the agent can affect.</li>\n<li><strong>A loop.</strong> The agent acts, observes the result, decides whether it is closer to the goal, and acts again. This is what makes it able to recover from a failed step and also what makes it able to wander.</li>\n<li><strong>A stopping rule and an escalation path.</strong> A production agent knows when it is done and when it is out of its depth. Anthropic's guide recommends \"checkpoints\" and human review at the points where a mistake is expensive. If a vendor cannot show you where the agent stops and asks, it has not built one for production.</li>\n</ol>\n<p>Memory is often listed as a fifth part. Useful agents remember what they did earlier in the task and, in longer deployments, what happened in previous tasks. But memory on its own does not make something an agent. A chatbot with memory is a chatbot that remembers.</p>\n<p><strong>What agentic AI is not</strong></p>\n<p>Gartner's June 2025 release named the problem: \"agent washing\", which it defined as \"the rebranding of existing products, such as AI assistants, robotic process automation (RPA) and chatbots, without substantial agentic capabilities\" (<a href=\"https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027\" target=\"_blank\" rel=\"noopener noreferrer\">Gartner, June 25, 2025</a>). The same release carried the estimate that \"only about 130 of the thousands of agentic AI vendors are real\". Three products get relabelled most often.</p>\n<ul>\n<li><strong>Chatbots and assistants.</strong> They answer questions and draft text. They do not take actions in other systems, so there is no loop and no tools. Adding a \"book a meeting\" button that opens a calendar page does not change that.</li>\n<li><strong>Robotic process automation.</strong> RPA replays a fixed sequence of clicks. It is brittle when a screen changes and it has no judgement, which is precisely why it is cheap and predictable. Wrapping it in a chat interface makes it RPA with a chat interface.</li>\n<li><strong>Workflow automation.</strong> Tools in the Zapier and n8n family run a predefined path with a model step inside it. By Anthropic's definition these are workflows, and for most business tasks that is a compliment: they are cheaper, faster and easier to audit than an agent. They are just not agents.</li>\n</ul>\n<p><strong>Five patterns vendors call agentic</strong></p>\n<p>Anthropic's guide catalogues the building blocks that most \"agent\" products are assembled from. Knowing their names lets you ask which one you are buying.</p>\n<ul>\n<li><strong>Prompt chaining.</strong> One model call feeds the next in a fixed order, with checks between steps. A workflow.</li>\n<li><strong>Routing.</strong> A classifier sends each input down one of several predefined paths, for example billing questions to one prompt and technical questions to another. A workflow.</li>\n<li><strong>Parallelisation.</strong> The same task is split or voted across several calls at once. A workflow.</li>\n<li><strong>Orchestrator and workers.</strong> A central model breaks a task into subtasks it did not know in advance and delegates them. This is where the line starts to move, because the subtasks are chosen at run time.</li>\n<li><strong>Evaluator and optimiser.</strong> One model produces, another critiques, and the loop repeats until the output passes. Agentic in the loop sense, but on a fixed problem.</li>\n</ul>\n<p>Beyond these sits the autonomous agent proper: a model in a loop with tools and an open-ended goal. Anthropic's two worked examples of where this earns its cost are customer support, where the conversation flows naturally into tool calls, and coding, where a test suite gives the agent a way to check its own work. Notice that both have something the agent can verify against. Tasks with no clear success check are where agents go wrong most expensively.</p>\n<p><strong>What the adoption numbers say</strong></p>\n<p>The gap between the pitch and the deployment is measurable. In a January 2025 Gartner poll of 3,412 webinar attendees, 19 percent said their organisation had made significant investments in agentic AI, 42 percent conservative investments, 8 percent none, and 31 percent were waiting or unsure. Gartner's analyst Anushree Verma put the cause plainly: \"Many use cases positioned as agentic today don't require agentic implementations.\" Her advice is the best one-line buying guide in the field: \"start by using AI agents when decisions are needed, automation for routine workflows and assistants for simple retrieval.\"</p>\n<p>The forecasts in the same release are worth keeping because they are dated and checkable: at least 15 percent of day-to-day work decisions made autonomously by agentic AI by 2028, from 0 percent in 2024, and 33 percent of enterprise software applications including agentic AI by 2028, from under 1 percent in 2024. In July 2026 Gartner added the money: up to $234 billion of enterprise application spending is exposed to what it calls agentic arbitrage by 2030, roughly 20 percent of enterprise SaaS, because \"agentic systems deliver outcomes directly, bypassing traditional user experience-heavy applications and making the software invisible\" (<a href=\"https://www.gartner.com/en/newsroom/press-releases/2026-07-01-gartner-says-us-dollars-234-billion-in-enterprise-application-software-spend-is-at-risk-from-agentic-artificial-intelligence\" target=\"_blank\" rel=\"noopener noreferrer\">Gartner, July 1, 2026</a>). And on September 29, 2026 it warned about how the systems get built: by 2028, 70 percent of enterprises will abandon agentic AI built by a vendor's forward-deployed engineers, \"trapped by soaring costs and unable to evolve it on their own\", with fewer than 20 percent of those engagements turning into product features (<a href=\"https://www.gartner.com/en/newsroom/press-releases/2026-09-29-gartner-predicts-70-percent-of-enterprises-will-abandon-agentic-ai-built-by-vendor-forward-deployed-engineering-by-2028\" target=\"_blank\" rel=\"noopener noreferrer\">Gartner, September 29, 2026</a>). The lesson for a buyer is to insist on knowledge transfer, intellectual property and an exit plan before the contract is signed, not after.</p>\n<p><strong>What agentic AI looks like in a small business</strong></p>\n<p>Strip the vocabulary away and the systems a 10 to 200 person company actually runs fall into three tiers.</p>\n<ul>\n<li><strong>Assistants.</strong> Drafting, summarising, answering from a knowledge base. Cheap, low risk, and most \"AI adoption\" statistics are counting this.</li>\n<li><strong>Workflows with a model inside.</strong> New lead arrives, model enriches and scores it, record is created, owner is notified. Missed call, model sends the follow-up text. Invoice overdue, model drafts the reminder in the customer's language. These are the highest-return automations in most businesses, and none of them needs an agent. An <a href=\"/ai-automation-agency\">AI automation agency</a> will build dozens of these before it builds one true agent, if it is honest.</li>\n<li><strong>Agents.</strong> An inbound phone agent that answers, asks qualifying questions, checks a live calendar, books the job and sends the confirmation is an agent: the caller sets the path, the model chooses the next step, and the tools are real. Our <a href=\"/ai-calling-home-services\">AI calling for home services</a> is built this way, with the escalation rule that any caller who asks for a person gets one. The cost arithmetic is in <a href=\"/blog/what-does-it-cost-to-run-an-ai-agent/\">what it costs to run an AI agent</a>.</li>\n</ul>\n<p><strong>Do you need an agent at all</strong></p>\n<p>Anthropic's own recommendation to builders is to find \"the simplest solution possible, and only increasing complexity when needed. This might mean not building agentic systems at all.\" The guide notes that agentic systems \"often trade latency and cost for better task performance\". A usable decision rule follows. Use a workflow when the steps are known in advance, the volume is high and the cost of an error is low. Use an agent when the path varies from case to case, the task needs judgement at each step, and there is a way to check the result before it matters. If a vendor proposes an agent for a task that fits the first description, you are being sold the more expensive and less predictable option for the pleasure of the word. The security side of that trade is covered in <a href=\"/blog/agent-auto-approve-tool-calls/\">why agents should not auto-approve their own tool calls</a>, and the governance side in <a href=\"/blog/ai-agent-governance-openai-incident-report/\">what OpenAI's incident report teaches about agents off task</a>.</p>\n<p><strong>Six questions that expose agent washing</strong></p>\n<ol>\n<li>Which decisions does the model make at run time, and which did your engineers fix in advance?</li>\n<li>What tools can it call, with what permissions, and can I see the list?</li>\n<li>Where does it stop and hand to a person, and how did you choose those points?</li>\n<li>How does it know a task succeeded? Show me the check, not the dashboard.</li>\n<li>What did last month's deployments cost per completed task, including retries?</li>\n<li>If we part ways, what do we keep: the prompts, the tool definitions, the logs, the evaluation set?</li>\n</ol>\n<p>A real agent vendor answers all six in under ten minutes. A rebranded chatbot vendor answers the first with a demo.</p>\n<p><strong>The honest summary</strong></p>\n<p>Agentic AI is a precise idea wearing a loose label. The precise idea, a model that directs its own steps and tools toward a goal with a loop and a stopping rule, is real, useful in a narrow set of jobs today, and getting cheaper every quarter. The loose label covers most of what is being sold. The businesses getting value in 2026 are not the ones that bought the most agents; they are the ones that automated the routine with workflows, reserved agents for the few tasks that need judgement, and kept a person at the points where a mistake costs money. For the wider vocabulary, <a href=\"/blog/what-is-agi/\">what AGI means</a> and <a href=\"/blog/what-is-super-intelligence/\">what super intelligence means</a> explain the two terms vendors reach for next.</p>",
+  "faqs": [
+    [
+      "What is agentic AI in simple terms?",
+      "Agentic AI is an AI system that is given a goal rather than a script, chooses its own steps and tools to reach it, checks its results and keeps going until it is done or hands off to a person. A chatbot answers questions; an agent takes actions in other systems."
+    ],
+    [
+      "What is the difference between an AI agent and an AI workflow?",
+      "In a workflow, a programmer fixed the sequence of steps in advance and the model fills in the blanks. In an agent, the model decides the sequence at run time. Anthropic's engineering guide draws exactly this line: workflows run through predefined code paths, agents dynamically direct their own processes and tool usage."
+    ],
+    [
+      "What is agent washing?",
+      "Agent washing is Gartner's term for rebranding existing products such as chatbots, AI assistants and robotic process automation as agentic AI without substantial agentic capability. Gartner estimated in June 2025 that only about 130 of the thousands of self-described agentic AI vendors are real."
+    ],
+    [
+      "Is agentic AI the same as generative AI?",
+      "No. Generative AI produces content such as text, images or code in response to a prompt. Agentic AI uses a model, usually a generative one, inside a loop with tools and a goal so that it can act. Most agentic systems contain generative AI, but most generative AI products are not agents."
+    ],
+    [
+      "What are examples of agentic AI in a small business?",
+      "An inbound phone agent that answers calls, asks qualifying questions, checks a live calendar and books the appointment is an agent. A system that enriches and scores a new lead and notifies the owner is usually a workflow with a model inside. Both are useful; only the first is agentic in the strict sense."
+    ],
+    [
+      "Will most agentic AI projects fail?",
+      "Gartner predicted in June 2025 that more than 40 percent of agentic AI projects will be cancelled by the end of 2027 because of cost, unclear value or weak risk controls, and in September 2026 that 70 percent of enterprises will abandon agentic AI built by vendor forward-deployed engineers by 2028. Projects that start with a clear success check and a human escalation path are the ones that survive."
+    ]
+  ],
+  "image": {
+    "cluster": "AI explainer",
+    "takeaway": "The test: who picks the next step, the code or the model? Most products sold as agentic fail it.",
+    "alt": "What is agentic AI: the definition, the agent versus workflow test, Gartner's adoption numbers and six vendor questions",
+    "chart": {
+      "title": "Agentic AI investment, Gartner poll, Jan 2025",
+      "subtitle": "3,412 webinar attendees asked how far their organisation has gone",
+      "type": "hbar",
+      "rows": [
+        [
+          "Significant",
+          19
+        ],
+        [
+          "Conservative",
+          42
+        ],
+        [
+          "None",
+          8
+        ],
+        [
+          "Waiting or unsure",
+          31
+        ]
+      ],
+      "prefix": "",
+      "suffix": "%",
+      "highlight": 1,
+      "note": [
+        "Most buyers hedge; Gartner says about",
+        "130 of thousands of vendors are real"
+      ],
+      "source": "Gartner press release, 25 June 2025, read 3 October 2026",
+      "alt": "Bar chart of Gartner's January 2025 poll: 19 percent significant investment in agentic AI, 42 percent conservative, 8 percent none, 31 percent waiting or unsure",
+      "after_heading": "What the adoption numbers say"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Agentic AI vendors Gartner estimates are real",
+        "value": "About 130",
+        "note": "of thousands that use the label, June 2025"
+      },
+      {
+        "label": "Agentic AI projects Gartner expects cancelled by end of 2027",
+        "value": "Over 40 percent",
+        "note": "costs, unclear value or weak risk controls"
+      },
+      {
+        "label": "Firms with significant agentic AI investment, Jan 2025 poll",
+        "value": "19 percent",
+        "note": "42 percent conservative, 8 percent none, 31 percent waiting"
+      },
+      {
+        "label": "Day-to-day work decisions made autonomously by 2028",
+        "value": "At least 15 percent",
+        "note": "from 0 percent in 2024"
+      },
+      {
+        "label": "Enterprise apps that will include agentic AI by 2028",
+        "value": "33 percent",
+        "note": "from under 1 percent in 2024"
+      },
+      {
+        "label": "Enterprise app spend exposed to agentic arbitrage by 2030",
+        "value": "Up to $234 billion",
+        "note": "about 20 percent of enterprise SaaS spend"
+      },
+      {
+        "label": "Enterprises expected to drop vendor-FDE agentic AI by 2028",
+        "value": "70 percent",
+        "note": "Gartner, September 29, 2026"
+      },
+      {
+        "label": "FDE engagements that will turn into product features",
+        "value": "Under 20 percent",
+        "note": "through 2028, same release"
+      }
+    ],
+    "source": "Anthropic, Building effective agents (19 December 2024); Gartner press releases of 25 June 2025, 1 July 2026 and 29 September 2026; all read 3 October 2026."
+  }
+}
