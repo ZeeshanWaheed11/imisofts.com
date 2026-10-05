@@ -1,0 +1,162 @@
+{
+ "slug": "ai-agent-search-api-pricing",
+ "title": "AI Agent Search API Pricing: Tavily, Exa, Brave, Perplexity",
+ "desc": "What 1,000 searches cost for an AI agent on Tavily, Exa, Brave, Perplexity, Parallel, Linkup, Firecrawl, Apify and the Claude, OpenAI and Gemini search tools.",
+ "date": "2026-10-05",
+ "keywords": "ai agent search api pricing, tavily pricing, exa pricing, exa api pricing, brave search api pricing, perplexity search api pricing, perplexity api pricing, search api for ai agents, web search api for llm, tavily alternatives, parallel search api, linkup api pricing, firecrawl search pricing, apify rag web browser",
+ "category": "Comparisons",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "cta": "Want your agent's search and browsing layer costed and built for you?",
+ "word_count": 2208,
+ "read_time": 10,
+ "body": "<p><strong>Short answer.</strong> Outside each vendor's premium modes, a web search for an AI agent lists at <strong>$1 to $14 per 1,000 calls</strong>: $1 for Parallel's and Perplexity's fast modes; $5 for Brave, Perplexity's standard search, Linkup and Parallel's basic mode; $7 for Exa's default auto mode; $8 for Tavily's basic search on pay as you go; $10 for the search tools built into Claude and OpenAI, before tokens; and $14 for Gemini's grounding with Google Search after 5,000 free requests a month on the paid tier. Other modes list higher: Exa's deep-reasoning search is $15, Tavily's advanced search $16, OpenAI's search preview on non-reasoning models $25 (with its content tokens free) and Linkup's deep search $50 per 1,000. The list price is rarely the bill, because one \"search\" buys a different bundle on each tool: how many results, page text or only snippets, and how many searches one prompt fires. We earn a commission from the Apify links on this page, and from no other vendor here.</p>\n<p>Every price below was read on the vendor's own pricing page or documentation on 5 October 2026; Apify's plan rates also come from its public Actor API, in a price record that took effect on 2 October. Prices assume a successful call at the default number of results and, on plans, a fully used allowance. We did not test result quality, latency or uptime.</p>\n\n<h2 id=\"price-per-1000-searches\">Price per 1,000 searches on eleven agent search tools</h2>\n<p>Standard mode first, cheaper or premium mode in brackets. \"One call includes\" is what a billed call returns by default.</p>\n<table>\n<thead><tr><th>Tool and mode</th><th>Per 1,000 calls</th><th>Free allowance</th><th>One call includes</th></tr></thead>\n<tbody>\n<tr><td><strong>Parallel Search</strong>, basic or advanced (fast or turbo)</td><td>$5 ($1)</td><td>$5 credit a month: 1,000 basic or 5,000 fast searches; up to $80 at signup</td><td>10 results with compressed excerpts; $1 per 1,000 extra results</td></tr>\n<tr><td><strong>Perplexity Search API</strong>, standard (fast)</td><td>$5 ($1)</td><td>None on its pricing page</td><td>10 results by default, up to 20, with extracted page content; up to five queries per request, billed once</td></tr>\n<tr><td><strong>Brave Search API</strong></td><td>$5</td><td>$5 credit a month (1,000 searches); card required, not charged</td><td>Search results with snippets and extra \"LLM context\"</td></tr>\n<tr><td><strong>Linkup</strong>, standard (deep)</td><td>$5 ($50)</td><td>$20 a month for professional email sign-ups (4,000 searches)</td><td>Results with page text excerpts; an answer instead of results costs $6</td></tr>\n<tr><td><strong>Exa</strong>, auto or fast (instant)</td><td>$7 ($4)</td><td>$10 a month (about 1,428 auto or 2,500 instant searches), no payment method, plus a one-time $10 bonus</td><td>Up to 10 results with page contents; $1 per 1,000 extra results</td></tr>\n<tr><td><strong>Tavily</strong>, basic (advanced)</td><td>$8 ($16) pay as you go; $5 ($10) on the $500 Growth plan</td><td>1,000 credits a month, no card</td><td>10 results by default, up to 20, with snippets; raw page content optional</td></tr>\n<tr><td><strong>Firecrawl</strong> search</td><td>$1.98 on Standard ($99 a month), $7.60 on Hobby ($19)</td><td>1,000 credits a month (500 searches), no card</td><td>2 credits per 10 results; scraping each page adds 1 credit</td></tr>\n<tr><td><strong>Claude</strong> web search</td><td>$10 plus result tokens</td><td>Not stated with the tool price</td><td>Results, billed as input tokens in that turn and later turns</td></tr>\n<tr><td><strong>OpenAI</strong> web search</td><td>$10 plus content tokens ($25 for the preview on non-reasoning models, content tokens free)</td><td>Not stated with the tool price</td><td>Search content billed as tokens at the model's rates</td></tr>\n<tr><td><strong>Gemini</strong> 3.8 Flash grounding with Google Search</td><td>$14 per 1,000 requests, more when a request runs several Google queries</td><td>5,000 requests a month, shared across Gemini 3.x models, paid tier only</td><td>A grounded answer; every Google query a request triggers is billed</td></tr>\n<tr><td><strong>Apify RAG Web Browser</strong>, default 3 pages</td><td>$10.32 on the free credit, $8.60 on Starter ($19 a month), via Standby; normal runs add $1.80</td><td>$5 of usage a month (about 484 Standby queries, 412 as normal runs), no card</td><td>One Google search plus 3 pages as Markdown; Raw HTTP by default, a Playwright browser if selected, same price</td></tr>\n</tbody>\n</table>\n<p>Tavily's, Firecrawl's and Apify's plan rates assume every credit or dollar of usage is spent, and Tavily's credits reset on the first of each month whatever your billing date. Brave's FAQ says storing results, for example to train or tune a model, needs a plan that explicitly grants storage rights; we did not review the other vendors' data-use terms.</p>\n\n<h2 id=\"what-one-search-includes\">What one search actually includes</h2>\n<p>The headline unit hides three multipliers.</p>\n<ul>\n<li><strong>Results per call.</strong> Exa's base price covers 10 results, and each result above 10 adds $1 per 1,000, so an auto search returning 20 results costs $17 per 1,000 calls rather than $7. Parallel charges the same $1 per 1,000 extra results. Tavily's credit table prices a search by depth, not by result count, and allows up to 20 results.</li>\n<li><strong>Depth.</strong> Tavily's advanced search costs 2 credits instead of 1, and its auto_parameters option, off by default, can move a search to advanced once you switch it on; Tavily's docs say to set basic explicitly to avoid the extra credit. Exa's \"from $4\" is its instant mode, and its default auto mode is $7, 75% more. Linkup's deep search costs ten times its standard search.</li>\n<li><strong>Batching.</strong> Perplexity bills a successful request, not a query. A request carrying up to five queries is one billing unit, so an agent that batches five queries per request pays $5 for 5,000 queries at the standard rate. Perplexity also bills a successful response that returns no results.</li>\n</ul>\n<p>Failure rules differ too. Perplexity does not bill invalid, rate-limited or upstream-failed requests. Tavily does not charge for a failed URL extraction. Firecrawl does not charge a scrape that returns nothing, but it does charge 1 credit for a page that answers with a 403 or 404 error. Firecrawl's search costs 2 credits per 10 results, rounded up, and scraping each result adds 1 credit per page, so a search that reads 10 full pages costs 12 credits, about $11.88 per 1,000 searches on the $99 Standard plan.</p>\n\n<h2 id=\"built-in-search-tools\">The built-in search tools in Claude, OpenAI and Gemini</h2>\n<p>If your agent runs on a frontier model, its own search tool is the least code, and its price has two parts. Claude's web search costs $10 per 1,000 searches plus standard token costs, and Anthropic counts the results as input tokens in the turn that searched and in later turns of the conversation. A search counts once however many results it returns, and a search that errors is not billed. OpenAI charges $10 per 1,000 web search calls plus the search content tokens at the model's rates; its search preview on non-reasoning models costs $25 per 1,000 calls with those content tokens free. Gemini 3.8 Flash grounds answers in Google Search for $14 per 1,000 requests after 5,000 free a month, shared across Gemini 3.x models on the paid tier, and Google's pricing page notes that one request can trigger several Google queries, each billed, so $14 per 1,000 requests is the floor.</p>\n<p>Tokens are not a cost only the built-in tools carry. Whatever text a search API returns, the model that reads it bills it as input. At Claude Sonnet 5.5's $2 per million input tokens, every 10,000 tokens of results the model reads adds $0.02, twice Claude's own search fee. What differs is control: Perplexity lets you cap the page content its Search API returns, Claude's web fetch tool has a maximum content setting, Exa offers token-efficient highlights as a content option, Tavily's chunks_per_source and max_results set how much it returns, and Apify's maxResults sets how many pages of Markdown the model reads. Perplexity's own Agent API lists its web search tool at $2.50 per 1,000 invocations, half the standalone Search API's $5, plus the model's tokens.</p>\n\n<h2 id=\"apify-rag-web-browser\">Apify's RAG Web Browser: what the $1.33 headline leaves out</h2>\n<p>We earn from Apify, so it gets the same test. The store card says \"from $1.33 / 1,000 fetched pages\". That is the per-page rate on Apify's $999-a-month Business plan, and it is per page, not per query. Apify bills a RAG Web Browser query as two kinds of event, plus a start event on normal runs: one search, which \"returns a set of links to be fetched\", at $3.48 per 1,000 on the free plan, $2.90 on Starter, $2.47 on Scale and $2.03 on Business, and one event per fetched page at $2.28, $1.90, $1.62 and $1.33 per 1,000. The default is three pages, so 1,000 default queries sent to the Actor's Standby web server cost <strong>$10.32 on the free credit, $8.60 on Starter, $7.33 on Scale and $6.02 on Business</strong>, and ten pages per query cost $26.28 on the free credit or $21.90 on Starter through Standby ($28.08 or $23.70 as normal runs). A normal run also pays a start fee of $0.000225 per GB of memory, $0.0018 at the default 8 GB, which takes 1,000 one-query runs to $12.12 on the free credit or $10.40 on Starter. A URL sent as the query skips the search event. Apify's README for the Actor says platform usage is included in these event prices.</p>\n<p>So on the free credit, Starter and Scale, a default Apify query costs more than a standard-mode call to Brave, Perplexity, Linkup, Parallel or Exa, and on Business ($6.02 through Standby) it is dearer than each of those except Exa's $7 auto or fast search; as normal runs ($7.82) it is dearer than all five. The free plan includes $5 of usage a month, about 484 default Standby queries or 412 as normal runs, and unlike the paid plans it has no pay as you go; Starter costs $19 a month. One more gap between the marketing and the settings: the store card says the Actor scrapes pages \"using a full web browser\", but its default scraping tool is Raw HTTP, which Apify's own input description says cannot handle JavaScript. Select the Browser (Playwright) tool for JavaScript-heavy pages; the README prices a fetch the same with either tool. What the price buys is a Google search plus the top pages returned as Markdown in one call, where Brave returns snippets plus \"LLM context\" and Exa, Perplexity, Linkup and Parallel return extracted text or excerpts with their results. Two more limits: it searches Google in the United States in English, and a fetched page is charged even when it holds no text to extract, while a page that fails to load is not.</p>\n<p><a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">Try the RAG Web Browser on Apify's free $5 monthly credit</a> and check the per-event charges on your first run before you scale it.</p>\n\n<h2 id=\"cost-to-read-pages\">What it costs to read the pages</h2>\n<p>Many agents search with one tool and read pages with another. Per 1,000 URLs turned into text:</p>\n<ul>\n<li><strong>Perplexity</strong> fetch tool: $0.50 per 1,000 invocations, inside its Agent API, plus the model's tokens.</li>\n<li><strong>Parallel</strong> Extract: $1.</li>\n<li><strong>Linkup</strong> fetch: $1 without JavaScript rendering, $5 with it.</li>\n<li><strong>Exa</strong> contents: $1 per content type, so text plus highlights is $2.</li>\n<li><strong>Firecrawl</strong>: 1 credit a page, $0.99 on Standard or $3.80 on Hobby.</li>\n<li><strong>Tavily</strong> extract: 1 credit per 5 URLs, $1.60 on pay as you go, or $3.20 for advanced extraction; failed extractions are free.</li>\n<li><strong>Apify</strong> RAG Web Browser: $2.28 on the free credit or $1.90 on Starter through Standby, Raw HTTP or browser at the same price; as one-URL normal runs, the start fee lifts that to $4.08 or $3.70.</li>\n<li><strong>Claude</strong> web fetch tool: no fee beyond the tokens of the fetched content.</li>\n</ul>\n<p>For raw Google result feeds (Serper, SerpApi and Bright Data's SERP API), see our <a href=\"/blog/google-custom-search-api-alternatives/\">Custom Search API alternatives</a>, priced on 30 September, and for scraping APIs priced per page, <a href=\"/blog/web-scraping-api-pricing/\">web scraping API pricing</a>.</p>\n\n<h2 id=\"which-to-pick\">Which search API fits which agent</h2>\n<ul>\n<li><strong>Lowest price per query:</strong> Parallel's fast mode or Perplexity's fast search at $1 per 1,000, or Perplexity's standard search if your agent can batch five queries per request.</li>\n<li><strong>Page text in the same call:</strong> Exa's auto search includes page contents for 10 results at $7 per 1,000; Tavily and Perplexity can also return page content with their results.</li>\n<li><strong>Pages behind JavaScript:</strong> <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">Apify's RAG Web Browser</a> with its Browser (Playwright) tool selected, at the same per-page price as Raw HTTP ($2.28 per 1,000 pages on the free credit through Standby, $4.08 as one-URL normal runs), or Linkup's fetch with JavaScript rendering at $5 per 1,000. Both cost more per page than Linkup's $1 plain fetch.</li>\n<li><strong>Already building on Claude, OpenAI or Gemini:</strong> the built-in tool is the least code; budget $10 to $14 per 1,000 searches plus tokens ($25, with content tokens free, for OpenAI's preview on non-reasoning models).</li>\n<li><strong>Voice agents:</strong> on a live call, latency matters more than price. Exa lists search latency from 180 ms and Parallel from 200 ms, the same constraint we design around in <a href=\"/ai-calling-home-services\">after-hours call answering for home services</a>.</li>\n</ul>\n<p>One more reason to care which index an agent searches: Brave says its index is commonly used in AI search engines and agentic search, so indexes like it decide which businesses an agent can find and cite. If you want your own company to be the result an agent cites, that is what our <a href=\"/ai-search-optimization\">AI search optimization</a> work covers. If you would rather have an agent's search and browsing layer costed and built for you, our <a href=\"/hire-ai-engineer\">AI engineers</a> do that, and <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">Apify's free plan</a> is a low-risk place to prototype the browsing half.</p>",
+ "faqs": [
+  [
+   "How much does Tavily cost per search?",
+   "Tavily bills credits: a basic, fast or ultra-fast search costs 1 credit and an advanced search 2. On pay as you go a credit is $0.008, so 1,000 basic searches cost $8 and 1,000 advanced searches $16. Monthly plans run from $30 for 4,000 credits ($0.0075 each) to $500 for 100,000 ($0.005 each), if you use them all, and every account gets 1,000 free credits a month. Its auto_parameters option, off by default, can switch a search to advanced once enabled, so set basic explicitly if you want to pay 1 credit. Prices read on 5 October 2026."
+  ],
+  [
+   "What does the Exa search API cost?",
+   "Exa charges per request: $4 per 1,000 for instant search, $7 for the default auto mode or fast, $12 for deep and $15 for deep-reasoning. The base price includes up to 10 results with page contents; each result above 10 adds $1 per 1,000 results, and AI page summaries add $1 per 1,000 pages. New accounts get $10 of credit a month with no payment method, about 1,428 auto searches."
+  ],
+  [
+   "How much is the Brave Search API?",
+   "Brave's Search plan costs $5 per 1,000 requests and includes $5 of credit every month, which covers 1,000 searches. Its Answers plan costs $4 per 1,000 requests plus $5 per million input and output tokens. Brave asks for a credit card even for the free credit, as an anti-fraud check it says it will not charge, and storing results, for example to train a model, needs a plan that grants storage rights."
+  ],
+  [
+   "Is the Perplexity Search API cheaper than Tavily?",
+   "Per call at list price, yes: Perplexity charges $5 per 1,000 successful requests, or $1 with its fast search, with no token charges, against Tavily's $8 per 1,000 basic searches on pay as you go, and level with Tavily's $500 Growth plan at $5 per 1,000 basic searches. A Perplexity request can carry up to five queries and is billed once, and a successful request is billed even when it returns no results. Tavily gives 1,000 free credits a month; Perplexity's pricing page lists no free Search API allowance."
+  ],
+  [
+   "What do Claude, OpenAI and Gemini charge for web search?",
+   "Claude's web search costs $10 per 1,000 searches plus token costs, because the results count as input tokens in that turn and later turns. OpenAI charges $10 per 1,000 web search calls plus search content tokens at the model's rates, or $25 per 1,000 for its search preview on non-reasoning models with those tokens free. Gemini 3.8 Flash charges $14 per 1,000 grounded requests after 5,000 free a month, shared across Gemini 3.x models on the paid tier, and one request can trigger several billed Google queries."
+  ],
+  [
+   "What does Apify's RAG Web Browser cost per query?",
+   "Each query bills one search event plus one event per page fetched, and a normal run adds a start fee. On Apify's free plan that is $3.48 per 1,000 searches and $2.28 per 1,000 pages, so 1,000 queries at the default three pages cost $10.32 through the Actor's Standby server; on the $19 Starter plan they cost $8.60, and on the $999-a-month Business plan $6.02. A normal run adds a start fee of $0.000225 per GB of memory, $0.0018 at the default 8 GB, so 1,000 one-query normal runs cost $12.12 on the free plan or $10.40 on Starter. The store's \"from $1.33\" is the Business plan's per-page rate, and the default scraping tool is Raw HTTP, not a browser. We earn a commission from Apify."
+  ]
+ ],
+ "image": {
+  "cluster": "Search APIs",
+  "takeaway": "Outside premium modes, web search for AI agents lists at $1 to $14 per 1,000 calls, before the tokens to read results.",
+  "alt": "AI agent search API pricing: what 1,000 searches cost on Tavily, Exa, Brave, Perplexity and more",
+  "chart": {
+   "title": "List price per 1,000 agent searches",
+   "subtitle": "Standard mode, default results, before model tokens; plan rates assume the allowance is used.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Brave Search API",
+     5
+    ],
+    [
+     "Perplexity Search API",
+     5
+    ],
+    [
+     "Parallel, basic",
+     5
+    ],
+    [
+     "Exa, auto",
+     7
+    ],
+    [
+     "Firecrawl, Hobby",
+     7.6
+    ],
+    [
+     "Tavily, pay as you go",
+     8
+    ],
+    [
+     "Claude or OpenAI",
+     10
+    ],
+    [
+     "Apify RAG (affiliate)",
+     10.32
+    ],
+    [
+     "Gemini grounding",
+     14
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 7,
+   "note": [
+    "Standby, search plus 3 pages; Starter $8.60",
+    "Normal runs: $12.12 free, $10.40 Starter"
+   ],
+   "source": "Not shown: Linkup $5, fast modes $1. Source: vendor pricing pages, October 2026.",
+   "alt": "Bar chart of list prices per 1,000 searches at standard mode: Brave $5, Perplexity Search API $5, Parallel basic $5, Exa auto $7, Firecrawl Hobby $7.60, Tavily pay as you go $8, Claude or OpenAI web search $10 before tokens, Apify RAG Web Browser on the free plan $10.32 for a search plus 3 pages via Standby, Gemini grounding $14.",
+   "after_heading": "What one search actually includes"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Tavily, per credit on pay as you go",
+    "value": "$0.008",
+    "note": "basic search 1 credit, advanced 2"
+   },
+   {
+    "label": "Tavily Growth plan, per month",
+    "value": "$500 for 100,000 credits",
+    "note": "$0.005 a credit if all are used"
+   },
+   {
+    "label": "Exa auto or fast search, per 1,000 requests",
+    "value": "$7",
+    "note": "10 results with page contents; instant $4"
+   },
+   {
+    "label": "Exa, each result above 10",
+    "value": "$1 per 1,000 results",
+    "note": "20 auto results cost $17 per 1,000 requests"
+   },
+   {
+    "label": "Brave Search API, per 1,000 requests",
+    "value": "$5",
+    "note": "$5 free credit a month; card required"
+   },
+   {
+    "label": "Perplexity Search API, per 1,000 requests",
+    "value": "$5",
+    "note": "fast $1; up to five queries billed as one at the standard rate"
+   },
+   {
+    "label": "Parallel Search, per 1,000 requests",
+    "value": "$1 to $5",
+    "note": "fast or turbo $1, basic or advanced $5"
+   },
+   {
+    "label": "Linkup standard search, per 1,000",
+    "value": "$5",
+    "note": "deep $50; $20 free a month, professional email"
+   },
+   {
+    "label": "Firecrawl search",
+    "value": "2 credits per 10 results",
+    "note": "plus 1 credit per page scraped"
+   },
+   {
+    "label": "Claude or OpenAI web search, per 1,000",
+    "value": "$10",
+    "note": "plus result tokens at model rates"
+   },
+   {
+    "label": "Gemini grounding with Google Search, per 1,000",
+    "value": "$14",
+    "note": "after 5,000 free a month, paid tier; each Google query billed"
+   },
+   {
+    "label": "Apify RAG Web Browser, 1,000 default queries",
+    "value": "$10.32 on the free credit",
+    "note": "via Standby, a search plus 3 pages; Starter $8.60 via Standby; normal runs $12.12 free, $10.40 Starter"
+   }
+  ],
+  "source": "Prices read on 5 October 2026 from each vendor's own pricing page or documentation; Apify's plan rates also from its public Actor API."
+ }
+}
