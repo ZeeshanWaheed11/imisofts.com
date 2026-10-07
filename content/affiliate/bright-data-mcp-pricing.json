@@ -1,0 +1,146 @@
+{
+ "slug": "bright-data-mcp-pricing",
+ "title": "Bright Data MCP Pricing: What 5,000 Free Requests Cover",
+ "desc": "Bright Data's MCP server is free for 5,000 requests a month, then $1.50 per 1,000 and $8 per GB for browser tools. What the free pool covers, and the rivals.",
+ "date": "2026-10-07",
+ "keywords": "bright data mcp pricing, bright data mcp, bright data mcp free tier, bright data mcp server, bright data mcp cost, bright data web mcp, mcp server pricing, web scraping mcp server, firecrawl mcp pricing, zenrows mcp, apify mcp server, bright data browser api pricing",
+ "category": "Guides",
+ "affiliate_url": "https://get.brightdata.com/gf73pymzr2rh",
+ "cta": "Want your agent's scraping and search layer costed and built for you?",
+ "word_count": 2255,
+ "read_time": 10,
+ "body": "<p><strong>Short answer.</strong> The Bright Data MCP server costs nothing for the first 5,000 requests a month and then $1.50 per 1,000 requests on pay as you go, with its browser tools billed at $8 per GB of traffic. The catch sits in Bright Data's own documentation: those 5,000 are not a separate MCP allowance. They are your account's single free pool of 5,000 credits, shared with Bright Data's other scraping APIs and with everyone on a team account, renewed on the 1st with no rollover, and the browser tools draw 5 credits per MB from it. Past the limit, an account with no funds gets errors instead of a bill, and Bright Data's MCP FAQ says you continue by creating a new Web Unlocker zone. We earn a commission from the Bright Data and Apify links on this page, and from no other vendor named here.</p>\n<p>Bright Data's figures were read on its MCP pricing page (last modified 1 September 2026), its free-tier and MCP documentation, and the MCP server's README and source code on GitHub, all on 7 October 2026. ZenRows, Firecrawl, Apify and Oxylabs were read on their own pricing pages and docs the same day. Plan rates assume the whole allowance is used. We did not test success rates or speed on any of them.</p>\n\n<h2 id=\"the-free-tier\">The free tier is one shared pool, not an MCP grant</h2>\n<p>The MCP pricing page shows a free tier of 5K requests, and the server's README promises 5,000 free requests a month with no credit card. The documentation is more precise. Its <a href=\"https://docs.brightdata.com/products/mcp-server/faqs\" target=\"_blank\" rel=\"noopener\">MCP FAQ</a> says the free tier \"is not a separate grant\" but the account's single shared pool of 5,000 credits, and its free-tier page lists who else draws on that pool: the Web Unlocker API, SERP API, Web Scraper API, Scraper Studio and Browser API. The MCP draws on it because, in Bright Data's words, the MCP server runs on the Web Unlocker API. Bright Data values the pool at about $7.50 a month. Four consequences follow from its own rules:</p>\n<ul>\n<li><strong>Other products spend it.</strong> Usage is deducted from the same pool \"regardless of which product made the call\", so a scraper running on the same account eats the credits your agent was counting on.</li>\n<li><strong>Your team shares it.</strong> Five developers on one team account average 1,000 requests each a month, about 32 a day.</li>\n<li><strong>It is for new accounts.</strong> Accounts on custom pay-as-you-go pricing or a pre-commit plan are not eligible, and upgrading to a pre-commit plan stops the monthly free credits.</li>\n<li><strong>It is rate limited until you fund it.</strong> Unfunded free-tier accounts are capped at 1,000 requests a minute across the SERP API, Web Unlocker API and proxies.</li>\n</ul>\n<p>On a single agent with nothing else on the account, 5,000 requests average 161 a day over a 31-day month. The Free Tier Credits section of the billing overview shows what is left, and the server's session_stats tool counts the requests made in the current session. <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"sponsored noopener\">Open a free Bright Data account</a> and check that counter before you plan a long run.</p>\n\n<h2 id=\"what-one-request-buys\">What one request buys, tool by tool</h2>\n<p>Only five tools load by default: search_engine, search_engine_batch, scrape_as_markdown, scrape_batch and discover. The README counts 69 tools in all, added in groups such as ecommerce, social and browser, and notes that fewer tools means less context for your agent to process, which is a cost on your model's tokens rather than on Bright Data's bill. How each kind of tool spends the pool, from Bright Data's docs and the open-source server code:</p>\n<table>\n<thead><tr><th>Tool</th><th>What it spends</th></tr></thead>\n<tbody>\n<tr><td><strong>search_engine</strong></td><td>1 request per results page; asking for the next page is another request</td></tr>\n<tr><td><strong>scrape_as_markdown</strong></td><td>1 request per page, with unblocking handled on Bright Data's side</td></tr>\n<tr><td><strong>search_engine_batch, scrape_batch</strong></td><td>1 request per query or URL; the code caps a batch at 5, though the README says 10</td></tr>\n<tr><td><strong>extract</strong></td><td>1 scrape, then MCP sampling, which hands the JSON step to your own client's model and its tokens</td></tr>\n<tr><td><strong>web_data_* (structured data)</strong></td><td>1 credit per record delivered, so a call that returns 100 reviews spends 100</td></tr>\n<tr><td><strong>scraping_browser_* (13 tools)</strong></td><td>5 credits per MB of traffic on the free pool, $8 per GB on pay as you go</td></tr>\n<tr><td><strong>discover</strong></td><td>Calls a separate Discover endpoint that neither the pricing page nor the README prices</td></tr>\n</tbody>\n</table>\n<p>So a research task of one search and four page reads costs 5 requests: the free pool covers 1,000 such tasks a month, and pay as you go then charges $7.50 per 1,000 tasks. A task that reads ten known URLs costs 10 requests, which is 500 tasks free and $15 per 1,000 after that. The units drift a little across Bright Data's own pages: the pricing card says \"1K requests\", the README \"1K results\" and the Scale plans count \"results included\". The docs settle it for the scraping APIs: one credit is one request, or one record from the Web Scraper API.</p>\n\n<h2 id=\"browser-tools-cost\">Browser tools are billed by the megabyte</h2>\n<p>The 13 browser tools are priced by traffic, not by page: $8 per GB on pay as you go, $6 per GB on the Scale plans, and 5 credits per MB on the free pool, so the whole 5,000-credit pool buys about 1 GB of browser traffic a month. At $8 per GB a megabyte costs $0.008, which means a browser page load costs more than a $1.50-per-1,000 scrape once it moves more than about 0.19 MB.</p>\n<table>\n<thead><tr><th>Traffic per page</th><th>Free-pool credits per page</th><th>Pages from 5,000 credits</th><th>Pay as you go per 1,000 pages</th></tr></thead>\n<tbody>\n<tr><td>0.5 MB</td><td>2.5</td><td>2,000</td><td>$4</td></tr>\n<tr><td>1 MB</td><td>5</td><td>1,000</td><td>$8</td></tr>\n<tr><td>2 MB</td><td>10</td><td>500</td><td>$16</td></tr>\n<tr><td>5 MB</td><td>25</td><td>200</td><td>$40</td></tr>\n</tbody>\n</table>\n<p>At 2 MB a page, 1,000 browser page loads cost $16, 10.7 times the scrape rate; at 5 MB they cost $40, 26.7 times. The page weights are examples, so check the transferred size of your own target pages in your browser's developer tools before you budget. Bright Data's README points agents to scrape_as_markdown for any known URL and to the browser tools only when a page needs a click, typing, a scroll or a login, which is also the cheaper habit.</p>\n\n<h2 id=\"request-5001\">What happens at request 5,001</h2>\n<p>Bright Data describes this moment in three places, and they are not identical. The free-tier documentation says an account with funds moves to its pre-paid balance at pay-as-you-go rates with no interruption, while an account without funds gets errors and a prompt to add funds; adding a card is only a verification step, so an unfunded account cannot run up a bill. The MCP FAQ is stricter: past 5,000, requests start failing, and to continue you create a new Web Unlocker zone in the control panel, point the MCP at it (an unlocker parameter on the remote URL, or WEB_UNLOCKER_ZONE when self-hosted) and restart your MCP client. The open-source server goes furthest: when it receives Bright Data's usage-limit error on its default zone, it tells the agent to stop the current task immediately and walk you through those same steps.</p>\n<p>In practice, an agent that hits the limit halfway through a long job stops halfway through it. If the job matters, deposit funds and set up your own Unlocker zone before the run, not during it. A self-hosted server also accepts a RATE_LIMIT setting such as 100/1h, but it counts tool calls, not requests, so a five-URL batch passes as one call and spends five requests. For spend control, Bright Data's billing settings offer balance alerts and the README mentions a spend cap in the control panel; auto-recharge, if you enable it, refills the balance and removes the hard stop.</p>\n\n<h2 id=\"mcp-servers-compared\">Bright Data MCP vs ZenRows, Firecrawl, Apify and Oxylabs</h2>\n<p>On all five you pay for the API calls behind the server, not for connecting it: Bright Data's server is open source under an MIT licence, and ZenRows' docs say its server itself is free. Rival plan rates assume the whole allowance is used.</p>\n<table>\n<thead><tr><th>MCP server</th><th>Free allowance</th><th>Paid price per 1,000 pages</th><th>What changes the price</th></tr></thead>\n<tbody>\n<tr><td><strong>Bright Data</strong></td><td>5,000 credits a month, shared with its other APIs, no card, no rollover</td><td>$1.50 pay as you go; Scale $499, $999 or $1,999 a month for 383K, 908K or 2M results ($1.30, $1.10, $1.00)</td><td>Browser $8 per GB ($6 on Scale); structured data per record</td></tr>\n<tr><td><strong>ZenRows</strong></td><td>5,000 credits a month, no card, no rollover</td><td>Launch, $69 for 250,000 credits: $0.28 standard, $1.38 with JavaScript, $2.76 with premium proxies, $6.90 with both (Build, $19: $0.42 to $10.56)</td><td>Default mode adds JavaScript or premium proxies only when a page needs them and bills what succeeded; failed requests free, 404 and 410 billed; browser sessions 5 credits a minute</td></tr>\n<tr><td><strong>Firecrawl</strong></td><td>1,000 credits a month, no card, no rollover, 10 scrapes a minute; keyless MCP access with rate limits it does not number</td><td>Standard, $99 for 100,000 credits: $0.99; Hobby, $19 for 5,000: $3.80; top-ups $5 per 1,000 credits on Hobby, $5 per 2,000 on Standard</td><td>1 credit a page including its enhanced proxies; search 2 credits per 10 results; JSON output +4; 403 and 404 pages billed</td></tr>\n<tr><td><strong>Apify</strong> (Web Fetch, loaded by default)</td><td>$5 of usage a month, no card, no rollover, about 3,300 fetches</td><td>$1.50 on Free and Starter, $1.25 on Scale, $1.00 on Business, plus $0.00005 per GB of memory at each run start</td><td>Failed fetches free; the other web Actor loaded by default, RAG Web Browser, costs $10.32 per 1,000 queries of one search and three pages on Free, $12.12 as normal runs</td></tr>\n<tr><td><strong>Oxylabs</strong></td><td>$5 of welcome credits</td><td>Starter, $30: $1.00 without JavaScript, $1.50 with; Basic, $100: $0.90 and $1.40</td><td>Its MCP README mentions a one-week Web Scraper API trial and 1,000 free AI Studio credits</td></tr>\n</tbody>\n</table>\n<p>Two things in that table work against the vendors that pay us. At around $100 a month of spend, Bright Data's $1.50 and Apify's $1.50 are the highest rates for an ordinary page: ZenRows Launch charges $0.28, Oxylabs Basic $0.90 and Firecrawl Standard $0.99, and Firecrawl's single credit includes its enhanced proxies. Bright Data only reaches $1.00 on its $1,999 plan. And Apify's RAG Web Browser, one of two web Actors its MCP server loads by default, charges $3.48 per 1,000 searches plus $2.28 per 1,000 fetched pages on the free plan ($2.90 and $1.90 on Starter), more per page than any rate in the chart. Where Bright Data's flat rate helps is the difficult page: its README says bot detection, CAPTCHA solving and proxy rotation are handled on every request at the one price, while ZenRows charges up to 25 credits for a page that needs JavaScript and premium proxies.</p>\n\n<h2 id=\"break-even\">Pay as you go or a plan: the break-even points</h2>\n<p>Pay as you go has no monthly fee, so at low volume it beats every plan; the useful question is where it stops. Counting Bright Data's 5,000 free requests first:</p>\n<ul>\n<li><strong>Against ZenRows Build at $19:</strong> Bright Data's pay as you go reaches $19 at about 17,700 requests a month. Build's 45,000 credits cover 45,000 standard pages, but only 1,800 that need JavaScript and premium proxies.</li>\n<li><strong>Against ZenRows Launch at $69:</strong> it reaches $69 at 51,000 requests. Launch's credits stretch to 250,000 standard pages but only 10,000 pages that need JavaScript and premium proxies, so the mix of your pages decides which side wins.</li>\n<li><strong>Against Firecrawl Standard at $99:</strong> it reaches $99 at 71,000 requests a month.</li>\n<li><strong>Against Bright Data's own Scale plan at $499:</strong> pay as you go reaches $499 at about 337,700 requests, and moving to Scale ends the free monthly credits.</li>\n</ul>\n<p>Above those volumes the plans are cheaper per page, for pages they can fetch at their base credit cost and as long as you stay inside the allowance. Firecrawl's Standard top-ups cost $2.50 per 1,000, more than Bright Data's $1.50.</p>\n\n<h2 id=\"which-to-start-with\">Which MCP setup to start with</h2>\n<ul>\n<li><strong>An agent that reads a few hundred protected pages a month:</strong> <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"sponsored noopener\">Bright Data's free tier</a>, on an account where nothing else spends the pool.</li>\n<li><strong>From about 18,000 ordinary pages a month:</strong> usually a plan. Against Bright Data's pay as you go, ZenRows Build wins from about 17,700 standard pages up to its 45,000 credits, ZenRows Launch from 51,000 and Firecrawl Standard from 71,000. Run 200 of your real URLs through each first, because ZenRows' bill depends on how many pages need JavaScript or premium proxies.</li>\n<li><strong>Site-specific scrapers the agent can call by name:</strong> <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Apify</a>'s MCP server, which searches and runs Store Actors, each with its own price. Its Web Fetch costs the same $1.50 per 1,000 as Bright Data on the Free and Starter plans.</li>\n<li><strong>Browser-heavy work:</strong> budget per megabyte or per minute, not per page. Bright Data bills browser traffic by the gigabyte and ZenRows bills browser sessions at 5 credits a minute.</li>\n</ul>\n<p>Bright Data's MCP can also send prompts to ChatGPT, Grok and Perplexity and return their answers as structured data, which its README calls the feedback loop for Generative Engine Optimization. That measuring step is half of <a href=\"/ai-search-optimization\">AI search optimization</a>; the other half is changing what those assistants find when they look you up. If you would rather have the agent built than wire it up yourself, our <a href=\"/hire-ai-engineer\">AI engineers</a> can scope the search and scraping layer, and our guides to <a href=\"/blog/web-scraping-api-pricing/\">web scraping API pricing</a> and <a href=\"/blog/ai-agent-search-api-pricing/\">search APIs for AI agents</a> price the same jobs outside MCP. For the rest of Bright Data's catalogue, see our <a href=\"/blog/bright-data-pricing-2026/\">Bright Data pricing guide</a>. To see what the free pool covers on your own agent, <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"sponsored noopener\">start on Bright Data's free tier and watch the credits counter</a> for a week before you fund anything.</p>\n",
+ "faqs": [
+  [
+   "Is the Bright Data MCP server free?",
+   "Yes, for the first 5,000 requests a month on a new account, with no credit card. Those 5,000 are not a separate MCP grant: Bright Data's documentation says they are the account's single free pool of 5,000 credits, which its Web Unlocker, SERP, Web Scraper and Browser APIs and Scraper Studio also draw on. A team account shares the pool, it renews on the 1st and unused credits are forfeited. Accounts on custom pay-as-you-go pricing or pre-commit plans are not eligible. Read on Bright Data's pricing page and docs on 7 October 2026."
+  ],
+  [
+   "How much does Bright Data MCP cost after the free tier?",
+   "$1.50 per 1,000 requests on pay as you go, and $8 per GB of traffic for the browser tools. The Scale plans cost $499, $999 or $1,999 a month for 383,000, 908,000 or 2 million results, which works out to $1.30, $1.10 and $1.00 per 1,000 if you use them all, with browser traffic at $6 per GB. Moving to a pre-commit plan such as Scale ends the free monthly credits."
+  ],
+  [
+   "What counts as one request on Bright Data MCP?",
+   "One search results page, or one scraped page, is one request; each query or URL in a batch call is its own request. Structured-data tools spend one credit per record they return, so a call that returns 100 reviews spends 100. Browser tools spend 5 credits per MB of traffic from the free pool. The extract tool is one scrape, and its JSON step runs on your own client's model through MCP sampling."
+  ],
+  [
+   "What happens when the 5,000 free requests run out?",
+   "On an account with no deposited funds, requests start failing and nothing is charged, and the open-source server tells the agent to stop the current task when it hits the limit on its default zone. Bright Data's MCP FAQ says that to continue you create a new Web Unlocker zone, add it to your MCP configuration and restart your MCP client; because the free pool is account-wide, the account also needs funds to keep going. Bright Data's free-tier page says an account with funds moves to pay-as-you-go rates with no interruption. Set this up before a long agent run."
+  ],
+  [
+   "Is Bright Data's MCP cheaper than Firecrawl or ZenRows?",
+   "Not for ordinary pages at volume. At full use, ZenRows Launch charges $0.28 per 1,000 standard pages and Firecrawl Standard $0.99, against Bright Data's $1.50 pay as you go. Bright Data is cheaper at low volume, because pay as you go has no monthly fee: counting its free 5,000, it reaches ZenRows Build's $19 at about 17,700 requests a month, ZenRows Launch's $69 at 51,000 and Firecrawl Standard's $99 at 71,000. Its flat rate also helps on pages that would cost ZenRows up to 25 credits."
+  ],
+  [
+   "Do the browser tools use the free requests?",
+   "Yes, according to Bright Data's free-tier documentation, which lists the Browser API in the same pool of 5,000 at 5 credits per MB of traffic, so the whole pool covers about 1 GB of browser traffic a month. Its MCP FAQ describes the free tier more narrowly, as web search and page scraping via Web Unlocker, so check the Free Tier Credits counter after your first browser session. A page load that moves 2 MB spends 10 credits, the same as ten scrapes. On pay as you go, browser traffic costs $8 per GB."
+  ]
+ ],
+ "image": {
+  "cluster": "Scraping MCP pricing",
+  "takeaway": "Bright Data's 5,000 free MCP requests are the account's one shared credit pool; browser tools draw 5 credits per MB.",
+  "alt": "Bright Data MCP pricing: what the 5,000 free requests cover and what each tool spends",
+  "chart": {
+   "title": "Price per 1,000 ordinary pages",
+   "subtitle": "At about $100 a month: Bright Data pay as you go, Apify Starter, other plans fully used.",
+   "type": "hbar",
+   "rows": [
+    [
+     "ZenRows Launch",
+     0.28
+    ],
+    [
+     "Oxylabs Basic, no JS",
+     0.9
+    ],
+    [
+     "Firecrawl Standard",
+     0.99
+    ],
+    [
+     "Apify Web Fetch",
+     1.5
+    ],
+    [
+     "Bright Data",
+     1.5
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 4,
+   "note": [
+    "Pay as you go; $1.30 on the $499 plan,",
+    "$1.00 only on the $1,999 plan."
+   ],
+   "source": "Monthly billing; Bright Data and Apify pay us a commission. Source: vendor pricing pages and docs, October 2026.",
+   "alt": "Bar chart of the price per 1,000 ordinary pages at about $100 a month of spend: ZenRows Launch $0.28 for a standard page, Oxylabs Basic $0.90 without JavaScript, Firecrawl Standard $0.99, Apify Web Fetch $1.50 on the Starter plan, and Bright Data $1.50 on pay as you go, highlighted.",
+   "after_heading": "Bright Data MCP vs ZenRows, Firecrawl, Apify and Oxylabs"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Bright Data free pool, per account per month",
+    "value": "5,000 credits",
+    "note": "MCP requests, other Bright Data APIs and team members share it; renews on the 1st"
+   },
+   {
+    "label": "Bright Data MCP, pay as you go",
+    "value": "$1.50 per 1,000 requests",
+    "note": "no monthly fee"
+   },
+   {
+    "label": "Bright Data Scale plans, per month",
+    "value": "$499 / $999 / $1,999",
+    "note": "383K, 908K or 2M results: $1.30, $1.10, $1.00 per 1,000"
+   },
+   {
+    "label": "Bright Data browser tools",
+    "value": "$8 per GB",
+    "note": "$6 on Scale; 5 credits per MB from the free pool"
+   },
+   {
+    "label": "Browser page that costs more than a scrape",
+    "value": "over about 0.19 MB",
+    "note": "at $8 per GB against $1.50 per 1,000 requests"
+   },
+   {
+    "label": "Free-pool tasks of one search plus four page reads",
+    "value": "1,000 a month",
+    "note": "then $7.50 per 1,000 tasks"
+   },
+   {
+    "label": "Unfunded free-tier rate limit",
+    "value": "1,000 requests a minute",
+    "note": "removed once funds are added"
+   },
+   {
+    "label": "ZenRows Launch, per 1,000 pages",
+    "value": "$0.28 to $6.90",
+    "note": "$69 for 250,000 credits; 1 to 25 credits a page"
+   },
+   {
+    "label": "Firecrawl Standard, per 1,000 pages",
+    "value": "$0.99",
+    "note": "$99 for 100,000 credits; free plan 1,000 credits a month"
+   },
+   {
+    "label": "Apify Web Fetch, per 1,000 fetches",
+    "value": "$1.50",
+    "note": "Free and Starter; $1.25 Scale, $1.00 Business; Free plan $5 a month"
+   },
+   {
+    "label": "Per 1,000 ordinary pages at about $100 a month",
+    "value": "$0.28 to $1.50",
+    "note": "ZenRows Launch $0.28, Oxylabs Basic $0.90, Firecrawl Standard $0.99, Apify and Bright Data $1.50"
+   },
+   {
+    "label": "Bright Data PAYG passes ZenRows Build, Launch, Firecrawl",
+    "value": "17,700 / 51,000 / 71,000 a month",
+    "note": "requests, counting the free 5,000; ZenRows on standard pages"
+   }
+  ],
+  "source": "Prices read on 7 October 2026 from the Bright Data, ZenRows, Firecrawl, Apify and Oxylabs pricing pages and documentation, and from Bright Data's MCP server README and code on GitHub."
+ }
+}
