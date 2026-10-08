@@ -1,0 +1,159 @@
+{
+ "slug": "x-api-pricing",
+ "title": "X API Pricing: $5 per 1,000 Post Reads, $0.20 per Link Post",
+ "desc": "X's API is pay-per-use: $0.005 a post read, $0.010 a profile, $0.015 a post, $0.20 with a link, 3M post reads a month max. Job costs vs Apify scrapers.",
+ "date": "2026-10-08",
+ "time": "16:30",
+ "keywords": "x api pricing, twitter api pricing, x api cost, twitter api cost, x api pay per use, x api cost per post, x api pricing tiers, x api free tier, x api rate limits, twitter api pricing per month, x api basic plan, grok x search pricing, twitter scraper apify",
+ "category": "Guides",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "cta": "Want your lead data setup costed before you commit?",
+ "word_count": 1850,
+ "read_time": 8,
+ "body": "<p><strong>Short answer.</strong> X sells self-serve API access as prepaid credits charged per item: $0.005 for each post you read ($5 per 1,000), $0.010 for each user profile, $0.015 for each post you publish and $0.200 for a post that contains a link. Pay-per-use post reads are capped at 3 million per billing cycle ($15,000 at list price), with Enterprise, which has no public price, above that. Accounts new to paying can get up to $70 of free credit, rolling out since 2 October 2026. The Apify Store's two most used X scrapers (by 30-day users) list $0.22 to $0.40 per 1,000 posts on Apify's $19 Starter plan (kaitoeasyapi drops to $0.18 on the $999 Business plan), but X's Terms of Service prohibit scraping without its written consent. We earn a commission if you buy an Apify plan through our links; X, xAI and the Store developers named here pay us nothing.</p>\n<p>Every price below was read on 8 October 2026 on X's, xAI's and Apify's own pages, including X's changelog, Developer Pay-Per-Use Agreement and Terms of Service. We did not test data quality, completeness or speed.</p>\n\n<h2 id=\"price-list\">The X API price list, item by item</h2>\n<p>X moved its API to pay-per-use on 6 February 2026. You buy credits in the Developer Console; each request deducts from them. X's documentation describes the model as having \"no subscriptions\"; its launch note said the Basic and Pro plans remained available and that existing subscribers could opt in to pay-per-use. Reads are charged per resource returned, writes per request.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Item</th><th>Price each</th><th>Per 1,000</th></tr></thead><tbody>\n<tr><td>Post read</td><td>$0.005</td><td>$5</td></tr>\n<tr><td>User profile read</td><td>$0.010</td><td>$10</td></tr>\n<tr><td>Owned read (your own account's data)</td><td>$0.001</td><td>$1</td></tr>\n<tr><td>Like, mute or block read</td><td>$0.001</td><td>$1</td></tr>\n<tr><td>Publish a post</td><td>$0.015</td><td>$15</td></tr>\n<tr><td>Publish a post containing a URL</td><td>$0.200</td><td>$200</td></tr>\n<tr><td>Summoned reply</td><td>$0.010</td><td>$10</td></tr>\n<tr><td>DM or user interaction</td><td>$0.015</td><td>$15</td></tr>\n</tbody></table></div>\n<p>Owned reads apply to twelve endpoints, such as your own posts, mentions, followers and bookmarks, and only when the request's user ID is the authenticated user who owns the developer app. Every resource is deduplicated within a UTC day, so reading the same post twice before midnight UTC is charged once, though X calls this a soft guarantee.</p>\n<p>The two write prices come from an update that took effect on 20 April 2026: a post went from $0.01 to $0.015, and a post containing a URL became $0.20, while a summoned reply stayed at $0.01. The same announcement says \"Following, Likes, and Quote-Posts via API Writes will be removed for all self-serve tiers\", so a self-serve app can no longer follow, like or quote-post. Since 23 February 2026, programmatic replies on self-serve tiers are allowed only when the original author summoned your account by mentioning or quoting it.</p>\n\n<h2 id=\"what-jobs-cost\">What common jobs cost on pay-per-use</h2>\n<p>On X's own rates, before any free credit:</p>\n<ul>\n<li><strong>Monitoring a keyword:</strong> 500 matching posts a day is about 15,000 a month, or $75 in post reads. X charges reads per resource returned, so author profiles requested alongside may add user reads.</li>\n<li><strong>Monitoring your own mentions:</strong> the same 15,000 posts through the owned-read mentions endpoint, $15, if your account owns the developer app. A client's account read through an agency's app is billed at $5 per 1,000 ($75).</li>\n<li><strong>Looking up 1,000 profiles:</strong> $10.</li>\n<li><strong>Publishing 100 posts:</strong> $1.50 without links, $20 with a link in each.</li>\n<li><strong>The ceiling:</strong> 3 million post reads in a month, $15,000.</li>\n</ul>\n<p>X adds $20 when an account that has never paid saves its first credit or debit card (prepaid cards do not qualify), and matches the first successful auto-recharge up to $50. The full $70 therefore needs a first recharge of $50 or more of your own money; a card alone is worth 4,000 post reads. It is spent before purchased credit, expires three months after it is granted, and is still rolling out, so some accounts get nothing yet.</p>\n<p>Spend in a billing cycle also earns xAI API credit if you link an xAI team: nothing under $200, 10% from $200, 15% from $500 and 20% from $1,000.</p>\n\n<h2 id=\"old-plans\">Pay-per-use against the old $200 and $5,000 plans</h2>\n<p>X's documentation, as archived on 7 December 2025, listed Basic at $200 a month with a cap of 15,000 posts and Pro at $5,000 with a cap of 1,000,000, with full-archive search and the filtered stream only from Pro. Divide each fee by its cap and Basic worked out at $13.33 per 1,000 posts if you used all of it, and Pro at $5.00. The old table did not split reads from writes and the fee covered other endpoints too, so treat this as a rough guide:</p>\n<ul>\n<li>$200 now buys 40,000 post reads, 2.7 times Basic's cap.</li>\n<li>At 1,000,000 posts a month the metered price equals Pro's $5,000. Pay-per-use saves money below that volume, not at it.</li>\n<li>Above that, pay-per-use runs to the 3 million cap; Pro stopped at 1,000,000.</li>\n</ul>\n<p>X's developer homepage now calls fixed fees of $200 or $5,000 the \"old model\".</p>\n\n<h2 id=\"fine-print\">What the docs and the agreement add</h2>\n<p>X's developer homepage says pay-per-use has \"no monthly caps\". The pricing documentation caps pay-per-use at 3 million post reads per billing cycle and sends larger users to Enterprise. Plan against the documentation.</p>\n<p>The X Developer PPU Agreement, accepted when you buy credits, adds four points:</p>\n<ul>\n<li>Credits are not refundable or transferable except as required by law, and a verified phone number is needed to buy them.</li>\n<li>After reasonable notice of a material change, new prices \"will apply to future purchases and deductions\". We read that as covering credit you already hold, so prepaying does not lock in a rate.</li>\n<li>Disputed deductions must be reported within 30 days, and taxes and card, bank and currency fees come on top.</li>\n<li>You may not redistribute the data to third parties except as the agreement permits, provide the API \"on a service bureau, rental or managed services basis\", share your keys, use the data to derive non-public information about individual users, train a foundation or frontier model, or use X content to target ads outside X.</li>\n</ul>\n<p>Agencies collecting X data for <a href=\"/lead-generation\">client lead generation</a> should read those clauses before pricing the work, since they limit what you can pass on.</p>\n\n<h2 id=\"grok-x-search\">Grok's X Search tool charges the same, plus tokens</h2>\n<p>xAI's API offers an X Search tool that lets Grok run keyword, semantic and user searches and fetch threads on X. xAI bills it at $5 per 1,000 posts fetched and $10 per 1,000 profiles, plus the model's tokens, and counts every post returned, including parent and quoted posts. Those are the X API's own read prices: not a cheaper route to the data, just one that hands the posts straight to a model.</p>\n<p>So what customers post about a business on X is material Grok can read when asked about it. Checking what AI assistants read about you is part of our <a href=\"/ai-search-optimization\">AI search optimization</a> work.</p>\n\n<h2 id=\"apify-scrapers\">Scrapers on Apify: cheaper per post, but against X's terms</h2>\n<p><a href=\"https://www.apify.com?fpr=rc63q\">The Apify Store</a> sells scrapers built by independent developers, billed through your Apify account on plans from Free ($5 a month to spend) to Starter at $19, Scale at $199 and Business at $999 a month. The two X scrapers with the most 30-day users on 8 October:</p>\n<ul>\n<li><strong>apidojo's Tweet Scraper V2</strong> (8,686 users in 30 days) lists $0.40 per 1,000 tweets on every Apify plan, platform usage during the run included. Each query must return at least 50 tweets, and it does not fetch single tweets or conversations. Its pricing tab shows the Free plan as \"up to 12,500 tweets\", the $5 credit divided by the rate; its README limits Free accounts to Demo Mode, five runs a month of at most 10 items, with no API access. Real use needs a paid plan. Its README warns that some tweets may not show up and that X can change search without notice.</li>\n<li><strong>kaitoeasyapi's Tweet Scraper</strong> (6,232 users in 30 days) lists $0.25 per 1,000 on Free, $0.22 on Starter, $0.20 on Scale and $0.18 on Business; the $0.18 in its title is the Business rate. Its README says a call that finds nothing is still billed a minimum, met by returning mock records, without stating the amount; that queries return up to about 20 tweets; that its since and until filters may return incomplete or empty results; and that free users face an unstated tweet limit.</li>\n</ul>\n<p>kaitoeasyapi's Store title promises \"No Rate Limits\"; both READMEs add per-query minimums, result caps and Free-plan limits. On Starter, the cheapest paid plan, the listed rate is $0.22 to $0.40 per 1,000, so the API's $5 costs 12.5 to 22.7 times as much; kaitoeasyapi's $0.18 needs the $999 Business plan. The gap narrows for your own data, where owned reads cost $1 per 1,000. For profiles, apidojo's user scraper lists $0.40 per 1,000 profiles plus $0.004 per profile URL query in its pricing record, about $4.40 for 1,000 profiles fetched one URL at a time, against $10 on the API. Plan fees act as a monthly minimum (Starter's $19 includes $19 of usage): below 3,800 posts a month the API is cheaper, because $19 buys 3,800 metered post reads. Reading or writing a dataset after the run is billed as Apify platform usage. Scraper prices move too: Tweet Scraper V2's pricing history shows $0.10 per 1,000 in November 2023, $0.40 by November 2024 and, from February to June 2026, $40 per 1,000 for Free-plan users.</p>\n<p>The bigger cost is the contract. X's Terms of Service, both the version in force until 9 October 2026 and its replacement, say crawling or scraping X \"in any form, for any purpose\" without its prior written consent is prohibited. They also set liquidated damages of $15,000 per 1,000,000 posts (EUR 15,000 in the EU, EFTA and UK versions) for a user who breaks the Terms, or induces or knowingly facilitates others to, and requests, views or accesses more than 1,000,000 posts in any 24-hour period, to the extent permitted by applicable law, and they make that user jointly and severally liable. That is a contract term X can try to enforce, not a fee it bills. Whether and how it applies to your use is a question for a lawyer; our <a href=\"/blog/is-web-scraping-legal/\">guide to web scraping and the law</a> covers the basics. If you weigh them anyway, read each Actor's README and X's Terms of Service first.</p>\n\n<h2 id=\"which-route\">Which route fits which job</h2>\n<ul>\n<li><strong>Your own account's data</strong> (mentions, followers, your posts): the X API's owned reads at $1 per 1,000, from an app your account owns.</li>\n<li><strong>Small volumes:</strong> the X API with its free credit; under about 3,800 posts a month it also beats a $19 Apify plan.</li>\n<li><strong>An AI agent that answers questions from X conversations:</strong> xAI's X Search, at the API's read prices plus tokens.</li>\n<li><strong>Research up to 3 million posts a month:</strong> the X API at $5 per 1,000, then Enterprise.</li>\n<li><strong>Scrapers:</strong> cheaper per post on paper, but X's terms prohibit scraping without its written consent.</li>\n</ul>\n<p>For sites whose terms do not forbid it, see <a href=\"https://www.apify.com?fpr=rc63q\">Apify's Store</a> and our <a href=\"/blog/web-scraping-api-pricing/\">web scraping API pricing</a> guide, which compares what 1,000 pages cost on each service.</p>",
+ "faqs": [
+  [
+   "How much does the X API cost per month?",
+   "There is no monthly fee on pay-per-use. You buy credits and pay per item: $0.005 per post read, $0.010 per user profile, $0.001 per owned read of your own account's data, $0.015 per post published and $0.200 per post containing a URL. Monitoring 15,000 posts a month costs about $75 in post reads, or $15 if they are your own mentions read through the owned-read endpoint from an app your account owns. Post reads are capped at 3 million per billing cycle, $15,000 at list price. Prices read on X's documentation on 8 October 2026."
+  ],
+  [
+   "Is there a free X API tier?",
+   "X's pricing page lists no free plan. Accounts new to paying can get up to $70 of free credit: $20 for saving a first credit or debit card and a match of the first successful auto-recharge up to $50. The credit expires three months after it is granted, is spent before purchased credit, and was still rolling out when we checked on 8 October 2026. When pay-per-use launched in February 2026, recently active Legacy Free tier users received a one-time $10 voucher, and X said Public Utility Apps continue to receive free scaled access."
+  ],
+  [
+   "Are the $200 Basic and $5,000 Pro plans still available?",
+   "X's 6 February 2026 launch note said Basic and Pro remained available and that existing subscribers could opt in to pay-per-use. X's documentation now describes the API as pay-per-usage with no subscriptions, and its developer homepage calls fixed monthly fees of $200 or $5,000 the old model. Basic capped usage at 15,000 posts a month and Pro at 1,000,000, according to X's documentation as archived in December 2025."
+  ],
+  [
+   "Why does posting a link through the X API cost $0.20?",
+   "X priced a post containing a URL at $0.20 from 20 April 2026, when a plain post went from $0.01 to $0.015; a summoned reply stays at $0.01. X's announcement gives no specific reason for the URL price. In practice 100 posts with a link cost $20 through the API, against $1.50 without links."
+  ],
+  [
+   "Is scraping X cheaper than the X API?",
+   "On listed price per post, yes: the two X scrapers with the most users in the past 30 days on the Apify Store list $0.22 to $0.40 per 1,000 tweets on Apify's $19 Starter plan (kaitoeasyapi drops to $0.18 on the $999 Business plan), against $5 per 1,000 post reads on the API. Tweet Scraper V2 needs a paid plan for real use, so below about 3,800 posts a month the API costs less. X's Terms of Service prohibit scraping without its prior written consent and set liquidated damages of $15,000 per 1,000,000 posts for a user who breaks the Terms, or induces or knowingly facilitates others to, and requests, views or accesses more than 1,000,000 posts in any 24-hour period, to the extent permitted by applicable law. It is a contract term, not a fee. We earn a commission on Apify plans."
+  ],
+  [
+   "Can I use Grok to search X instead of the X API?",
+   "Yes, through xAI's API. Its X Search tool runs keyword, semantic and user searches and fetches threads on X, billed at $5 per 1,000 posts fetched and $10 per 1,000 profiles plus model tokens, with parent and quoted posts counted. Those match the X API's read prices, so it is not cheaper; it suits an agent that needs a model to read the posts. Read on xAI's documentation on 8 October 2026."
+  ]
+ ],
+ "image": {
+  "cluster": "Social data costs",
+  "takeaway": "X's API charges $5 per 1,000 posts read and $0.20 per post with a link, with post reads capped at 3 million a month.",
+  "alt": "X API pricing: what 1,000 post reads cost on pay-per-use, the old plans, Grok's X Search and Apify scrapers",
+  "chart": {
+   "title": "Listed cost per 1,000 posts read",
+   "subtitle": "October 2026 list prices; the old plans are fee divided by monthly cap at full use.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Old Basic, full use",
+     13.33
+    ],
+    [
+     "X API post reads",
+     5.0
+    ],
+    [
+     "Old Pro, full use",
+     5.0
+    ],
+    [
+     "xAI X Search + tokens",
+     5.0
+    ],
+    [
+     "Owned reads (own data)",
+     1.0
+    ],
+    [
+     "Tweet Scraper V2",
+     0.4
+    ],
+    [
+     "kaitoeasyapi, Starter",
+     0.22
+    ],
+    [
+     "kaitoeasyapi, Business",
+     0.18
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 1,
+   "note": [
+    "Metered, no plan fee; capped at 3M post reads a month.",
+    "Scraper rows exclude plan fees and X's terms."
+   ],
+   "source": "Apify pays us a commission. Source: X, xAI and Apify Store pricing pages, October 2026; old plans from X docs, December 2025.",
+   "alt": "Bar chart of the listed cost per 1,000 posts read: the old Basic plan $13.33 at full use, X API post reads $5 highlighted, the old Pro plan $5 at full use, xAI X Search $5 plus tokens, X API owned reads of your own account's data $1, Apify's Tweet Scraper V2 $0.40, kaitoeasyapi $0.22 on Apify Starter and $0.18 on Business.",
+   "after_heading": "Scrapers on Apify: cheaper per post, but against X's terms"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "X API post read",
+    "value": "$0.005 per post",
+    "note": "$5 per 1,000; charged once per post per UTC day, a soft guarantee per X"
+   },
+   {
+    "label": "X API user profile read",
+    "value": "$0.010 per profile",
+    "note": "$10 per 1,000"
+   },
+   {
+    "label": "X API owned read of your own account's data",
+    "value": "$0.001 per item",
+    "note": "$1 per 1,000; twelve listed endpoints, your own app and user only"
+   },
+   {
+    "label": "X API post you publish",
+    "value": "$0.015 per post",
+    "note": "up from $0.01 on 20 April 2026"
+   },
+   {
+    "label": "X API post that contains a URL",
+    "value": "$0.200 per post",
+    "note": "13.3 times a plain post; a summoned reply is $0.010"
+   },
+   {
+    "label": "Pay-per-use post reads, monthly cap",
+    "value": "3,000,000",
+    "note": "$15,000 at list; more needs Enterprise, which has no public price"
+   },
+   {
+    "label": "Free credit for accounts new to paying",
+    "value": "up to $70",
+    "note": "$20 for a first card plus a first auto-recharge match up to $50; expires after 3 months; rolling out"
+   },
+   {
+    "label": "xAI X Search tool for Grok",
+    "value": "$5 per 1,000 posts",
+    "note": "$10 per 1,000 profiles, plus model tokens"
+   },
+   {
+    "label": "Old Basic plan, fee divided by monthly cap",
+    "value": "$13.33 per 1,000 posts",
+    "note": "$200 a month for 15,000 posts (X docs, December 2025)"
+   },
+   {
+    "label": "Old Pro plan, fee divided by monthly cap",
+    "value": "$5.00 per 1,000 posts",
+    "note": "$5,000 a month for 1,000,000 posts"
+   },
+   {
+    "label": "Apify Tweet Scraper V2 (apidojo)",
+    "value": "$0.40 per 1,000 tweets",
+    "note": "paid Apify plan from $19 a month; Free is a demo of up to 50 tweets a month with no API; X's terms prohibit scraping without its written consent"
+   },
+   {
+    "label": "X terms, liquidated damages above 1M posts in 24 hours",
+    "value": "$15,000 per 1,000,000 posts",
+    "note": "contract term for a user who breaks the Terms or knowingly facilitates it, where the law allows; not a fee X bills; EUR 15,000 in the EU, EFTA and UK"
+   }
+  ],
+  "source": "Prices read on 8 October 2026 from X's API documentation, pricing page, changelog and Developer PPU Agreement, X's Terms of Service, xAI's API documentation and the Apify Store; the Basic and Pro rows come from X's documentation as archived on 7 December 2025."
+ }
+}
