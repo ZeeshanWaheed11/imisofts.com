@@ -1,0 +1,144 @@
+{
+  "slug": "openai-api-usage-tiers",
+  "title": "OpenAI API Usage Tiers: What $5, $100 and $500 Unlock Now",
+  "desc": "OpenAI cut its API usage tiers from five to three on Oct 6. Build, Launch and Grow now open at $5, $100 and $500. The new limits, and who actually gains.",
+  "keywords": "openai api usage tiers, openai usage tiers, openai build tier, openai launch tier, openai grow tier, openai api rate limits, openai tier 5, gpt-6.1 sol rate limits, gpt-live concurrent sessions, openai monthly usage limit",
+  "date": "2026-10-08",
+  "time": "13:20",
+  "read_time": 6,
+  "word_count": 1342,
+  "cta": "Running client automations on OpenAI?",
+  "body": "<p><strong>October 8, 2026.</strong> OpenAI replaced its five numbered API usage tiers with three named ones on October 6. Build now opens at $5 in total credit purchases with a $500 monthly usage limit, Launch at $100 with $5,000, and Grow at $500 with $200,000, a ceiling that used to take $1,000. A $5 OpenAI account now gets 5,000 requests a minute on GPT-6.1 Sol, ten times the old Tier 1 rate, according to OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/rate-limits\" target=\"_blank\" rel=\"noopener noreferrer\">rate limits guide</a> and the archived version it replaced. Below: what each tier unlocks, which accounts actually gain, and what agencies running client automations should change this week.</p><p><strong>What changed on October 6</strong></p><ol><li><strong>Five paid tiers became three.</strong> OpenAI's <a href=\"https://developers.openai.com/api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">API changelog</a> says it simplified API usage tiers \"from five to three: Build, Launch, and Grow,\" and that organizations upgrade automatically as total credit purchases reach each minimum. Paid organizations were moved with no action needed, per OpenAI's <a href=\"https://community.openai.com/t/update-to-openai-api-rate-limits/1403852\" target=\"_blank\" rel=\"noopener noreferrer\">developer forum announcement</a>.</li><li><strong>The thresholds fell.</strong> In the Internet Archive's October 1 capture of the same guide, $5 bought Tier 1 with a $100 monthly limit, $100 bought Tier 3 with $1,000, $250 bought Tier 4 with $5,000, and Tier 5's $200,000 needed $1,000. Now $5 buys $500 a month, $100 buys $5,000 and $500 buys $200,000.</li><li><strong>Rate limits are printed per tier.</strong> On Build, the Astra, Sol and Terra models get 5,000 requests per minute (RPM) and 1,000,000 tokens per minute (TPM). Launch gets 10,000 RPM and 4,000,000 TPM, and Grow 15,000 RPM and 40,000,000 TPM. GPT-6 Luna, the cheapest of the three flagship models, runs 5,000, 10,000 and 30,000 RPM with 2,000,000, 10,000,000 and 180,000,000 TPM.</li><li><strong>Voice sessions rose.</strong> <a href=\"https://developers.openai.com/api/docs/models/gpt-live-1\" target=\"_blank\" rel=\"noopener noreferrer\">GPT-Live 1</a>, OpenAI's full-duplex voice model at $0.05 a minute, now allows 50 concurrent sessions on Build, 300 on Launch and 500 on Grow, up from 25 for a $5 account, 200 for $100 and 300 for $500 before the change.</li><li><strong>The free tier stayed put.</strong> It keeps a $100 monthly limit for users in an allowed geography and still cannot call GPT-6.1 Sol or GPT-Live.</li></ol><p>The independent outlet MIXED compared the live guide with the archived one and <a href=\"https://mixed-news.com/en/openai-api-usage-tiers-five-to-three-build-launch-grow/\" target=\"_blank\" rel=\"noopener noreferrer\">reported the same old and new thresholds</a>.</p><p><strong>Same spend, before and after</strong></p><p>The clearest way to read the change is by how much an organization has bought in total. Three of the six spend bands gain. The other three land exactly where they were, because their old tier already matched the new one.</p><div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Total credit purchases</th><th>Tier before, tier now</th><th>Monthly usage limit</th><th>GPT-6.1 Sol per minute</th><th>GPT-Live calls at once</th></tr></thead><tbody><tr><td><strong>$5 to under $50</strong></td><td>Tier 1, now Build</td><td>$100, now $500</td><td>500 requests and 500K tokens, now 5,000 and 1M</td><td>25, now 50</td></tr><tr><td><strong>$50 to under $100</strong></td><td>Tier 2, now Build</td><td>$500, unchanged</td><td>5,000 and 1M, unchanged</td><td>50, unchanged</td></tr><tr><td><strong>$100 to under $250</strong></td><td>Tier 3, now Launch</td><td>$1,000, now $5,000</td><td>5,000 and 2M, now 10,000 and 4M</td><td>200, now 300</td></tr><tr><td><strong>$250 to under $500</strong></td><td>Tier 4, now Launch</td><td>$5,000, unchanged</td><td>10,000 and 4M, unchanged</td><td>300, unchanged</td></tr><tr><td><strong>$500 to under $1,000</strong></td><td>Tier 4, now Grow</td><td>$5,000, now $200,000</td><td>10,000 and 4M, now 15,000 and 40M</td><td>300, now 500</td></tr><tr><td><strong>$1,000 or more</strong></td><td>Tier 5, now Grow</td><td>$200,000, unchanged</td><td>15,000 and 40M, unchanged</td><td>500, unchanged</td></tr></tbody></table></div><p style=\"font-size:13px;color:#6B7280\">Old figures: Internet Archive captures of OpenAI's rate limits guide and GPT-6.1 Sol model page (October 1, 2026) and GPT-Live 1 model page (September 22, 2026). New figures: the live pages, read October 8, 2026.</p><p>Two patterns fall out. The change is mostly a gift to new and small accounts: an organization that tops up $5 gets ten times the request rate it had a week ago, and $100 now buys the $5,000 monthly limit that used to take $250. And the $500 band is the biggest single jump. An account with $500 of purchases sat at Tier 4 until it reached $1,000; it now gets Grow's 40 million tokens a minute, ten times its old token rate, and a monthly limit 40 times higher.</p><p><strong>What it means for operators running n8n or GoHighLevel</strong></p><p>Most agency automations call OpenAI one record at a time: an n8n workflow, a Make scenario or a GoHighLevel workflow sends a request per contact, row or message. At the old Tier 1, 500 requests a minute on GPT-6.1 Sol was the wall that turned a 10,000-row enrichment run into a stream of 429 errors. On Build it is 5,000. Four practical consequences:</p><ol><li><strong>Per-client accounts got cheaper to bring up.</strong> Tiers and rate limits are set per organization, with project limits inside it, not per user. If each client pays OpenAI from its own organization, reaching production limits now takes $100 of credit, which is prepaid usage rather than a fee, instead of $250.</li><li><strong>Shared accounts share everything.</strong> If an agency runs every client through one organization, all those workflows draw on one tier's limits and one monthly usage limit. Put heavy clients in their own projects with their own limits so one bulk job cannot starve the rest.</li><li><strong>The usage limit is no longer a safety net.</strong> OpenAI says the monthly usage limit is separate from the spend limits you set, and it rose fivefold for the smallest accounts. Set a hard spend limit on each project, which makes requests return a 429 error at your cap, and a spend alert below it.</li><li><strong>Retries should follow OpenAI's guidance.</strong> Treat the Retry-After header as a minimum wait, back off with jitter, cap the attempts and never retry quota or billing errors. In n8n, a node's Retry On Fail setting with a wait between tries covers simple flows; our <a href=\"/hire-n8n-developer\">n8n developers</a> build the rest.</li></ol><p><strong>AI voice agents can take more calls at once</strong></p><p>For an AI receptionist on GPT-Live, concurrency is the number that binds, because every live call holds a session for its whole length. A $5 account now holds 50 calls at once, double the old Tier 1; $100 holds 300 and $500 holds 500. Sessions bill at $0.05 a minute, by the second, plus whatever backend model and tools the agent calls. That puts a 50-call surge, the kind an HVAC or plumbing company can see in a storm, within the smallest paid tier, which matters for <a href=\"/ai-calling-home-services\">emergency call flows for HVAC and plumbing</a>. If you would rather buy than build, our guide to <a href=\"/blog/ai-answering-service-for-hvac/\">AI answering services for HVAC</a> compares the packaged options.</p><p><strong>What the new tiers do not change</strong></p><p>A tier changes limits, not prices: a GPT-6.1 Sol token costs the same on Build as on Grow. Prompts over 272,000 input tokens still bill the whole request at the long-context rate, which we covered in <a href=\"/blog/openai-long-context-pricing-272k/\">OpenAI's 272K long-context pricing</a>. The standard limits above are separate from the Ultrafast processing limits. And a 429 with the code slow_down can still appear below your RPM and TPM when traffic jumps too fast. OpenAI's rule of thumb, once traffic reaches 1 million input tokens a minute, is to grow by no more than 50% every 15 minutes. A bulk job that goes from zero to full speed at 9 a.m. is exactly that pattern, so stagger it or move it to the Batch API, which OpenAI prices at half the standard rate.</p><p><strong>What to do this week</strong></p><ol><li>Open Settings, then Organization, then Limits in the OpenAI dashboard and check which tier each organization landed on and its per-model limits.</li><li>If an organization sits just under $100 or $500 in total purchases, a credit top-up moves it up at once; OpenAI's guide points to Upgrade tier in the Usage Tiers section.</li><li>Set a hard spend limit and a spend alert on every client project.</li><li>Update retry logic in every workflow that calls OpenAI: honor Retry-After, add jitter, cap attempts, and stop on quota and billing errors.</li><li>For voice agents, size peak concurrency against 50, 300 or 500 sessions and load test before the busy season.</li></ol><p>If you want this set up properly across client accounts, our <a href=\"/ai-automation\">AI automation</a> team builds and maintains these workflows for agencies and small businesses, and you can <a href=\"/hire-ai-engineer\">hire an AI engineer</a> for a one-off audit of your OpenAI setup.</p>",
+  "faqs": [
+    [
+      "What are OpenAI's API usage tiers now?",
+      "Since October 6, 2026 there are three paid tiers plus Free. Build needs $5 in total credit purchases and allows $500 of usage a month, Launch needs $100 and allows $5,000, and Grow needs $500 and allows $200,000. Free allows $100 a month for users in an allowed geography."
+    ],
+    [
+      "How do I get to OpenAI's Grow tier?",
+      "Reach $500 in total API credit purchases. OpenAI upgrades the organization automatically when its purchases cross the threshold, and its rate limits guide points to an Upgrade tier option in the Usage Tiers section of the organization's limits page. The old top tier, Tier 5, needed $1,000."
+    ],
+    [
+      "What rate limits does OpenAI's Build tier get?",
+      "On GPT-6.1 Sol and the other Astra, Sol and Terra models, 5,000 requests and 1,000,000 tokens per minute. GPT-6 Luna gets 5,000 requests and 2,000,000 tokens per minute, and GPT-Live 1 allows 50 concurrent voice sessions. The old Tier 1 allowed 500 requests and 500,000 tokens a minute on Sol and 25 GPT-Live sessions."
+    ],
+    [
+      "Do existing OpenAI accounts need to do anything?",
+      "No. OpenAI moved paid organizations to their new tier automatically. Organizations with $5 to under $50, $100 to under $250 or $500 to under $1,000 in total purchases got higher limits; those with $50 to under $100, $250 to under $500 or $1,000 or more kept the same limits under a new name. Check Settings, Organization, Limits to confirm."
+    ],
+    [
+      "Is OpenAI's monthly usage limit the same as a spend limit?",
+      "No. OpenAI sets an approved monthly usage limit for each organization by tier, and it is separate from the spend limits you configure. A spend alert only sends a notification, while a hard spend limit makes affected requests return a 429 error once the organization or project reaches the amount you set."
+    ],
+    [
+      "Why do I still get 429 errors when I am under my rate limits?",
+      "OpenAI returns a 429 with the code slow_down when traffic rises too quickly, even within your requests and tokens per minute. Follow the Retry-After header when it is present, then ramp up gradually; OpenAI suggests growing by no more than 50% every 15 minutes once traffic reaches 1 million input tokens a minute."
+    ]
+  ],
+  "image": {
+    "cluster": "OpenAI API limits",
+    "takeaway": "A $5 OpenAI account now gets 5,000 requests a minute on GPT-6.1 Sol, ten times the old Tier 1 rate.",
+    "alt": "OpenAI API usage tiers: what $5, $100 and $500 in credit purchases unlock under Build, Launch and Grow",
+    "chart": {
+      "title": "GPT-6.1 Sol requests a minute, by spend",
+      "subtitle": "Standard rate limit at each level of total credit purchases, before and after the October 6 tier change.",
+      "type": "hbar",
+      "rows": [
+        [
+          "$5, before Oct 6",
+          500
+        ],
+        [
+          "$5, from Oct 6",
+          5000
+        ],
+        [
+          "$100, before Oct 6",
+          5000
+        ],
+        [
+          "$100, from Oct 6",
+          10000
+        ],
+        [
+          "$500, before Oct 6",
+          10000
+        ],
+        [
+          "$500, from Oct 6",
+          15000
+        ]
+      ],
+      "prefix": "",
+      "suffix": " RPM",
+      "highlight": 1,
+      "note": [
+        "Ten times the old",
+        "Tier 1 request rate"
+      ],
+      "source": "Standard limits; old values from the Internet Archive capture of Oct 1. Source: developers.openai.com, October 2026",
+      "alt": "Bar chart of GPT-6.1 Sol requests per minute by total credit purchases: 5 dollars rose from 500 to 5,000, 100 dollars from 5,000 to 10,000, and 500 dollars from 10,000 to 15,000 after October 6.",
+      "after_heading": "What it means for operators running n8n or GoHighLevel"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Build tier threshold",
+        "value": "$5 in total credit purchases",
+        "note": "$500 monthly usage limit"
+      },
+      {
+        "label": "Launch tier threshold",
+        "value": "$100",
+        "note": "$5,000 monthly usage limit"
+      },
+      {
+        "label": "Grow tier threshold",
+        "value": "$500",
+        "note": "$200,000 a month; old Tier 5 needed $1,000"
+      },
+      {
+        "label": "Free tier monthly usage limit",
+        "value": "$100",
+        "note": "allowed geographies only"
+      },
+      {
+        "label": "GPT-6.1 Sol on Build, per minute",
+        "value": "5,000 requests, 1M tokens",
+        "note": "old Tier 1: 500 and 500K"
+      },
+      {
+        "label": "GPT-6.1 Sol on Launch, per minute",
+        "value": "10,000 requests, 4M tokens"
+      },
+      {
+        "label": "GPT-6.1 Sol on Grow, per minute",
+        "value": "15,000 requests, 40M tokens"
+      },
+      {
+        "label": "GPT-6 Luna on Grow, per minute",
+        "value": "30,000 requests, 180M tokens"
+      },
+      {
+        "label": "GPT-Live 1 concurrent sessions",
+        "value": "50 / 300 / 500",
+        "note": "Build, Launch, Grow; old Tier 1 was 25"
+      },
+      {
+        "label": "GPT-Live 1 price",
+        "value": "$0.05 a minute",
+        "note": "billed per second, backend model extra"
+      },
+      {
+        "label": "Ramp-rate rule of thumb above 1M input tokens a minute",
+        "value": "50% every 15 minutes"
+      },
+      {
+        "label": "Date of the change",
+        "value": "October 6, 2026"
+      }
+    ],
+    "source": "Tiers and limits read on 8 October 2026 from OpenAI's rate limits guide, changelog and model pages; old values from Internet Archive captures of 22 September and 1 October 2026."
+  }
+}
