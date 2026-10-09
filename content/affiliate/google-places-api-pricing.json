@@ -1,0 +1,155 @@
+{
+ "slug": "google-places-api-pricing",
+ "title": "Google Places API Pricing: What 1,000 Business Listings Cost",
+ "desc": "Places API (New) bills Text Search per request, not per place: $35 per 1,000 Enterprise searches of up to 20 places. Free caps, plans, Apify and the terms.",
+ "date": "2026-10-09",
+ "time": "17:30",
+ "keywords": "google places api pricing, places api cost per request, google places api free tier, google maps api pricing, places api text search pricing, place details api pricing, google maps platform subscription, places api vs scraper, google maps scraper cost, google places api lead generation, apify google maps scraper pricing",
+ "category": "Guides",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "cta": "Want your lead data pipeline costed before you build it?",
+ "word_count": 2045,
+ "read_time": 9,
+ "body": "<p><strong>Short answer.</strong> Google's Places API (New) charges per request, at the price of the most expensive field you ask for. A Text Search that returns business names and addresses lists at $32 per 1,000 requests after 5,000 free a month; add phone numbers, websites or ratings and it is $35 per 1,000 after 1,000 free. One Text Search request returns up to 20 places, so when every page comes back full, phones and websites cost $1.75 per 1,000 places, against $20 per 1,000 if you look each place up with Place Details. At full pages that undercuts Apify's Google Maps Scraper on its Free, Starter and Scale plans ($4, $3 and $2 per 1,000 places). The catch is the licence: Google's Maps Platform terms say the customer will not \"copy and save business names, addresses, or user reviews\", so the API does not hand you a lead list you can keep. Scraping does not get round this: Google's Maps end-user terms bar mass downloading its content or letting anyone else do so. We earn a commission if you buy an Apify plan through our links; Google pays us nothing.</p>\n<p>Every price here was read on 9 October 2026 on Google's and Apify's own pages, including Google's price list, SKU details, subscription pages and terms. Prices are Google's global list in US dollars (India has its own). We did not run billed tests or test either route's accuracy or coverage.</p>\n\n<h2 id=\"price-list\">What each Places API request costs</h2>\n<p>You choose the fields with a field mask, and Google bills the whole request at the highest SKU any of those fields belongs to, so one Enterprise field makes it an Enterprise request. These are the global list prices per 1,000 requests, from the end of the free cap up to 100,000 requests a month:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Request</th><th>Fields that put it there</th><th>Free a month</th><th>Per 1,000</th></tr></thead><tbody>\n<tr><td>Text Search, IDs only</td><td>place ID, next page token</td><td>Unlimited</td><td>$0</td></tr>\n<tr><td>Text Search Pro</td><td>name, address, type, business status, Maps link, location</td><td>5,000</td><td>$32.00</td></tr>\n<tr><td>Text Search Enterprise</td><td>phone numbers, website, rating, opening hours, price level</td><td>1,000</td><td>$35.00</td></tr>\n<tr><td>Text Search Enterprise + Atmosphere</td><td>reviews, summaries, amenity fields</td><td>1,000</td><td>$40.00</td></tr>\n<tr><td>Nearby Search Pro / Enterprise</td><td>the Pro or Enterprise fields; up to 20 results a request</td><td>5,000 / 1,000</td><td>$32.00 / $35.00</td></tr>\n<tr><td>Place Details, IDs only</td><td>place ID</td><td>Unlimited</td><td>$0</td></tr>\n<tr><td>Place Details Essentials</td><td>address, location, types</td><td>10,000</td><td>$5.00</td></tr>\n<tr><td>Place Details Pro</td><td>name, business status, Maps link</td><td>5,000</td><td>$17.00</td></tr>\n<tr><td>Place Details Enterprise</td><td>phone numbers, website, rating, opening hours</td><td>1,000</td><td>$20.00</td></tr>\n<tr><td>Place Details Enterprise + Atmosphere</td><td>summaries, amenity fields and more</td><td>1,000</td><td>$25.00</td></tr>\n</tbody></table></div>\n<p>Above 100,000 requests a month the price falls in steps, and each step applies only to the requests inside it. Text Search Enterprise drops to $28.00 per 1,000 from the 100,001st request, $21.00 from 500,001, $10.50 from 1,000,001 and $2.63 above 5,000,000; Text Search Pro runs $25.60, $19.20, $9.60 and $2.40. Google counts usage across every project on one billing account, and the free requests reset on the first of each month at midnight Pacific time. They replaced the old $200 monthly credit on 1 March 2025. Billing has to be enabled on the project even inside the free caps, and Google's pricing page offers new customers a $300 trial credit. One more date: as of October 2026, Places API (Legacy) can no longer be enabled for new Google Cloud projects, so a new build is priced on the table above.</p>\n\n<h2 id=\"per-request\">Google bills the search, not the places in it</h2>\n<p>Google's SKU details name the billable event for Text Search as a successful request for Pro fields, or for Enterprise fields. A request returns up to 20 places (20 is the default page size), and the next page is a new request that carries the page token, so in our reading of those definitions one page is one charge whether it holds 20 places or 2. The pages we read do not say how a request that finds nothing is billed. Divided out, the Enterprise price per 1,000 places depends on how full the pages are:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Places returned per request</th><th>Text Search Enterprise, per 1,000 places</th></tr></thead><tbody>\n<tr><td>20 (a full page)</td><td>$1.75</td></tr>\n<tr><td>10</td><td>$3.50</td></tr>\n<tr><td>5</td><td>$7.00</td></tr>\n<tr><td>1</td><td>$35.00</td></tr>\n</tbody></table></div>\n<p>The two-step pattern, a free IDs-only search and then a Place Details Enterprise call per place, costs $20 per 1,000 places, 11.4 times the full-page price. If you want phones and websites for a batch of places, put those fields in the Text Search field mask instead of looking each place up. The Details call earns its keep when you hold place IDs, the one thing the terms let you keep indefinitely, and refresh a single record at the moment you need it.</p>\n<p>Treat $1.75 as a floor, not an average. Text Search returns at most 60 results across all pages for one query, a limit Google says may change, so covering a city means many smaller searches, for example one per rectangle with <code>locationRestriction</code>. If your search areas overlap, or you bias a search to an area instead of restricting it, the same places can come back more than once, and every repeat sits on a page you pay for. Google also says the list returned is not guaranteed to be consistent for identical requests. Its own example for the <code>includePureServiceAreaBusinesses</code> parameter is a search for plumbers: set to true, the results include businesses with no physical business location, which come back without a formatted address; set to false, only businesses with a physical location come back. Home-services firms, the firms our <a href=\"/ai-calling-home-services\">after-hours call answering for home services</a> serves, are the obvious case: set the parameter on purpose.</p>\n\n<h2 id=\"free-caps-plans\">The free caps and the three subscription plans</h2>\n<p>The free requests go further than they look. At full pages, the 1,000 free Text Search Enterprise requests a month are up to 20,000 places with phones and websites, and the 5,000 free Text Search Pro requests are up to 100,000 places with names and addresses but no phone or website. Apify's free plan covers up to 1,250 places a month on its $5 credit.</p>\n<p>Google also sells three self-service subscriptions, each with one combined call allowance across the SKUs it includes: Starter at $100 a month for 50,000 calls, Essentials at $275 for 100,000 and Pro at $1,200 for 250,000. Only Pro includes Text Search Pro, Nearby Search Pro and Place Details Pro; Essentials includes Place Details Essentials but none of the Pro Places SKUs, and Starter covers Dynamic Maps and Geocoding. None of the three includes an Enterprise Places SKU, so phone numbers, websites and ratings are billed pay as you go on any of them; Google's sales-negotiated Enterprise plan is where those SKUs appear. Fully used, Pro works out to $4.80 per 1,000 calls, about $0.24 per 1,000 places at full pages, for names and addresses only. Calls over the allowance are billed at pay-as-you-go prices rather than blocked, and plans can be changed or cancelled without penalty.</p>\n\n<h2 id=\"worked-examples\">What 10,000 or 100,000 places cost on each route</h2>\n<p>Here is the arithmetic for one month at list prices, after the free caps. Every row assumes each place returned is new to you; we could not find whether either side bills a repeat differently. On <a href=\"https://www.apify.com?fpr=rc63q\">Apify</a>, the Google Maps Scraper charges per place scraped, platform costs included, and the monthly plan fee is prepaid usage that the scrape draws down first (unused credit expires at the end of the billing cycle).</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Route, places with phone and website</th><th>10,000 places</th><th>100,000 places</th></tr></thead><tbody>\n<tr><td>Places API Text Search Enterprise, 20 a request</td><td>$0 (500 requests, inside the free 1,000)</td><td>$140 (5,000 requests)</td></tr>\n<tr><td>Same, 10 a request</td><td>$0 (1,000 requests)</td><td>$315</td></tr>\n<tr><td>Same, 5 a request</td><td>$35</td><td>$665</td></tr>\n<tr><td>Places API IDs-only search, then Place Details Enterprise</td><td>$180</td><td>$1,980</td></tr>\n<tr><td>Apify, Free plan</td><td>not possible (stops at 1,250)</td><td>not possible</td></tr>\n<tr><td>Apify, Starter ($19 a month)</td><td>$30</td><td>$300</td></tr>\n<tr><td>Apify, Scale ($199 a month)</td><td>$199 (the plan fee)</td><td>$200</td></tr>\n<tr><td>Apify, Business ($999 a month)</td><td>$999 (the plan fee)</td><td>$999 (the plan fee)</td></tr>\n</tbody></table></div>\n<p>On price per place, the official API at full pages, $1.75 per 1,000, sits under every public Apify rate except Business at $1.50. That is the number that counts against the tool we earn from, and it holds only when pages come back full and searches do not overlap. Business only wins on total cost above about 590,000 places a month, because its plan fee is $999, and from the 100,001st Enterprise request in a month Google's $28 rate is $1.40 per 1,000 places at full pages. Google also grants discretionary discounts on a signed order form. The Actor's pricing record lists two deeper Apify tiers, $1.26 and $0.756 per 1,000, that are not among Apify's public plans.</p>\n<p>Apify's extras cut both ways. Each filter you apply, such as a category or a minimum rating, adds $1 per 1,000 places on Starter. Its company contacts add-on does something the API cannot: it crawls each place's website for emails and social profiles at $2 per 1,000 places on Starter, and Apify's launch note for this pricing says places without a website are not charged for it. Google's Place Data Fields list has no email field at all. <a href=\"https://www.apify.com?fpr=rc63q\">Apify's free plan</a> runs the scraper on up to 1,250 places a month at no cost; read the next section before building a list with it.</p>\n\n<h2 id=\"terms\">What Google's terms let you keep</h2>\n<p>Price is the smaller question. On the API route, the Google Maps Platform Terms (last modified 26 August 2026) say the customer will not export, extract or otherwise scrape Google Maps Content for use outside the Services, and give as examples that it will not \"pre-fetch, index, store, reshare, or rehost\" that content outside the services or \"copy and save business names, addresses, or user reviews\". Caching is barred except where the Service Specific Terms allow it, and for the Places API they allow two things: place IDs, which Google's policy page says you may store indefinitely, and latitude and longitude for up to 30 consecutive calendar days. The EEA terms contain both quoted examples and the same caching bar. So a CRM filled with names and numbers pulled from the API sits outside what the terms permit. Storing place IDs and fetching details when you need them is permitted, but each fetch is billed again and returns content the same terms still cover.</p>\n<p>The scraper route does not get round Google's terms either. Google's Maps end-user terms (last modified 27 January 2026) say users may not mass download or create bulk feeds of the content, or let anyone else do so, and may not copy the content except as Google's permissions page or intellectual property law, including fair use, allows. A further clause bars using Google Maps to create or augment a mapping-related dataset, including a business listings database, mailing list or telemarketing list, for use in a service that is a substitute for, or a substantially similar service to, Google Maps. Apify's README says scraping publicly available data is legal, that you should respect personal data and intellectual property rules, and that you \"should also factor in Google's Terms of Use\". This is not legal advice; our <a href=\"/blog/is-web-scraping-legal/\">guide to web scraping and the law</a> covers the basics.</p>\n\n<h2 id=\"which-route\">Which route fits which job</h2>\n<ul>\n<li><strong>Places inside your own app or site</strong> (a store finder, address entry, a live lookup): the Places API. IDs-only calls are free, and steady Pro-level volume can sit on the $1,200 plan.</li>\n<li><strong>Phones and websites for a batch of places, used when you need them:</strong> Text Search with Enterprise fields in the field mask, from $1.75 per 1,000 places at full pages to $7 at five a page and $35 at one, rather than a Place Details call per place at $20.</li>\n<li><strong>A list you will keep, email and call:</strong> neither route licenses it. The API terms bar saving names and addresses, and scraping runs against the Maps end-user terms. If you weigh a scraper anyway, budget $3 per 1,000 places on Apify Starter (the $19 plan fee is the monthly minimum), plus $1 per 1,000 for each filter and $2 per 1,000 for the company contacts add-on; our <a href=\"/blog/best-google-maps-scrapers-2026/\">Google Maps scraper roundup</a> covers the alternatives.</li>\n<li><strong>Meetings rather than a list:</strong> our done-for-you <a href=\"/lead-generation\">B2B lead generation</a> service runs the outreach end to end.</li>\n</ul>",
+ "faqs": [
+  [
+   "How much does the Google Places API cost?",
+   "Places API (New) bills each request at the highest SKU any requested field belongs to. Per 1,000 requests on Google's global list: Text Search Pro $32 and Text Search Enterprise $35 (Enterprise adds phone numbers, website and rating), Place Details Essentials $5, Pro $17 and Enterprise $20, with IDs-only searches and lookups free. Each paid SKU has a monthly free cap (10,000 for Essentials, 5,000 for Pro, 1,000 for Enterprise), and rates fall in steps above 100,000 requests a month."
+  ],
+  [
+   "Is the Google Places API free?",
+   "Partly. IDs-only Text Search and Place Details requests are free without limit, and every other SKU has free requests each month: 10,000 for Essentials, 5,000 for Pro and 1,000 for Enterprise, reset on the first of the month at midnight Pacific time and counted across all projects on one billing account. These caps replaced the $200 monthly credit on 1 March 2025. Billing must be enabled on the project even inside the caps, and Google's pricing page offers new customers a $300 trial credit."
+  ],
+  [
+   "Does the Places API charge per request or per result?",
+   "Per request. Google's SKU details bill Text Search per successful request for the fields asked, and a request returns up to 20 places, with each further page a new request and at most 60 results per query. At $35 per 1,000 Enterprise requests that is $1.75 per 1,000 places when every page is full, $3.50 at 10 places a page and $35 at one. Asking Place Details for each place instead costs $20 per 1,000 places."
+  ],
+  [
+   "Can I store Google Places API results in my CRM?",
+   "Not business names and addresses. The Google Maps Platform Terms say the customer will not copy and save business names, addresses or user reviews, or store Google Maps Content outside the services, and caching is allowed only where the Service Specific Terms permit it: place IDs, which may be stored indefinitely, and latitude and longitude for up to 30 consecutive days. Storing place IDs and fetching details when needed is permitted, with each fetch billed. This is not legal advice."
+  ],
+  [
+   "Is the Places API cheaper than a Google Maps scraper?",
+   "At full pages, usually yes. Text Search Enterprise costs $1.75 per 1,000 places with phones and websites, under Apify's Google Maps Scraper at $4 on its free plan, $3 on Starter and $2 on Scale, and above its $1.50 on Business. The API's 1,000 free Enterprise requests cover up to 20,000 places a month, against 1,250 on Apify's free plan. The API returns no email addresses and its terms bar saving the list, while scraping Google Maps runs against Google's end-user terms. We earn a commission on Apify plans."
+  ],
+  [
+   "Do Google Maps Platform subscriptions cover the Places API?",
+   "Partly. The $1,200 Pro plan (250,000 calls a month) includes Text Search Pro, Nearby Search Pro, Place Details Pro and Place Details Essentials; the $275 Essentials plan includes Place Details Essentials; the $100 Starter plan covers Dynamic Maps and Geocoding. None of the three self-service plans includes an Enterprise Places SKU, so phone numbers, websites and ratings are billed pay as you go."
+  ]
+ ],
+ "image": {
+  "cluster": "Maps data costs",
+  "takeaway": "Google bills Places Text Search per request: $35 per 1,000 requests for phones and websites, each up to 20 places.",
+  "alt": "Google Places API pricing: what 1,000 places with phone and website cost through Text Search, Place Details and Apify's Google Maps Scraper",
+  "chart": {
+   "title": "Cost per 1,000 places with phone and website",
+   "subtitle": "October 2026 list prices after free caps; Google bills per search, so full pages of 20 cost least.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Place Details route",
+     20.0
+    ],
+    [
+     "Apify Free plan",
+     4.0
+    ],
+    [
+     "Text Search, 10/page",
+     3.5
+    ],
+    [
+     "Apify Starter",
+     3.0
+    ],
+    [
+     "Apify Scale",
+     2.0
+    ],
+    [
+     "Text Search, 20/page",
+     1.75
+    ],
+    [
+     "Apify Business",
+     1.5
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 5,
+   "note": [
+    "Floor: assumes every search returns 20.",
+    "Google's terms bar saving the list."
+   ],
+   "source": "Apify pays us a commission. Apify rows are per-place rates; paid plans bill at least the plan fee. Source: Google Maps Platform price list and Apify pricing tab, October 2026.",
+   "alt": "Bar chart of the cost per 1,000 places with phone and website: Place Details route $20, Apify free plan $4, Text Search at 10 places a page $3.50, Apify Starter $3, Apify Scale $2, Text Search at 20 places a page $1.75 highlighted, Apify Business $1.50.",
+   "after_heading": "What 10,000 or 100,000 places cost on each route"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Text Search Pro (name, address), per 1,000 requests",
+    "value": "$32",
+    "note": "5,000 free a month; $25.60 from the 100,001st"
+   },
+   {
+    "label": "Text Search Enterprise (phone, website), per 1,000 requests",
+    "value": "$35",
+    "note": "1,000 free a month; $28 from the 100,001st"
+   },
+   {
+    "label": "Place Details Enterprise, per 1,000 places",
+    "value": "$20",
+    "note": "1,000 free a month"
+   },
+   {
+    "label": "Places returned per Text Search request",
+    "value": "up to 20",
+    "note": "at most 60 per query across pages; each page is a request"
+   },
+   {
+    "label": "Text Search Enterprise per 1,000 places, full pages",
+    "value": "$1.75",
+    "note": "$3.50 at 10 a page, $7.00 at 5; a floor, not an average"
+   },
+   {
+    "label": "Free Text Search Enterprise requests a month",
+    "value": "1,000",
+    "note": "up to 20,000 places at full pages"
+   },
+   {
+    "label": "Google Maps Platform Pro subscription",
+    "value": "$1,200 a month",
+    "note": "250,000 calls; Pro and Essentials SKUs, no phones or websites"
+   },
+   {
+    "label": "Apify Google Maps Scraper, per 1,000 places",
+    "value": "$4 / $3 / $2 / $1.50",
+    "note": "Free, Starter ($19), Scale ($199), Business ($999) plans"
+   },
+   {
+    "label": "Apify free plan, places a month",
+    "value": "up to 1,250",
+    "note": "on the $5 monthly credit"
+   },
+   {
+    "label": "Apify company contacts add-on (website emails), per 1,000",
+    "value": "$2",
+    "note": "per place on Starter; Google's field list has no email field"
+   },
+   {
+    "label": "Places API data the terms let you cache",
+    "value": "place IDs; lat/lng 30 days",
+    "note": "the terms bar saving business names and addresses"
+   },
+   {
+    "label": "Places API (Legacy) for new Cloud projects",
+    "value": "unavailable",
+    "note": "as of October 2026; existing projects still supported"
+   }
+  ],
+  "source": "Prices read on 9 October 2026 from the Google Maps Platform price list, SKU details, subscription and pricing overview pages, the Places API (New) documentation and terms, and Apify's pricing page, pricing tab and Actor record."
+ }
+}
