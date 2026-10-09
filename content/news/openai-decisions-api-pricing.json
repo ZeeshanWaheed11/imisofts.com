@@ -1,0 +1,128 @@
+{
+ "slug": "openai-decisions-api-pricing",
+ "title": "OpenAI Decisions API Pricing: $0.10 per Million, No Output Fee",
+ "desc": "OpenAI's Decisions API is in public beta at $0.10 per million input tokens, no output or cache charges. What 10,000 routing decisions cost and when to use it.",
+ "keywords": "openai decisions api pricing, openai decisions api, decisions api gpt-6-luna, openai classification api, openai routing api cost, gpt-6 luna pricing, v1 decisions endpoint, openai lead routing api, decisions api vs responses api",
+ "date": "2026-10-09",
+ "time": "13:25",
+ "read_time": 2,
+ "word_count": 535,
+ "cta": "Want AI routing that costs a fraction of a cent?",
+ "body": "<p><strong>October 9, 2026.</strong> OpenAI's Decisions API costs $0.10 per million input tokens on gpt-6-luna, and input is the only thing it bills: there are no output-token, cache-read or cache-write charges, according to OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/decisions\" target=\"_blank\" rel=\"noopener noreferrer\">Decisions guide</a>. That puts 10,000 lead-routing decisions of about 1,500 tokens each at $1.50. The endpoint entered public beta on October 6, per the <a href=\"https://developers.openai.com/api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">API changelog</a>, and OpenAI says it expects general availability in the coming weeks.</p><p><strong>What the Decisions API does</strong></p><p>It reads text, images or both and returns a typed answer instead of prose, about 10x faster than the Responses API, OpenAI says. InfoQ's <a href=\"https://www.infoq.com/news/2026/10/openai-devday-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">DevDay recap</a> described it on October 2 as a limited preview for classification, request routing and choosing an agent's next action; OpenAI's guide now marks it public beta and prints the price.</p><ol><li><strong>Predicate:</strong> the probability, from 0 to 1, that a condition is true, such as visible damage in a product photo.</li><li><strong>Choice:</strong> one option from a fixed set you supply, such as a department or a content category.</li><li><strong>Score:</strong> a rating against ordered levels, such as issue severity, returned as a probability-weighted average.</li><li><strong>Model and endpoint:</strong> gpt-6-luna only, on a dedicated POST /v1/decisions endpoint, with Zero Data Retention and HIPAA use for eligible customers and data residency in the US and Europe.</li></ol><p><strong>What it costs next to the alternatives</strong></p><p>Take a routing job: 10,000 inbound leads or tickets, about 1,500 input tokens each, each sorted into one of a few queues. On the Decisions API that is 15 million input tokens at $0.10, or $1.50. The same job through the Responses API on gpt-6-luna, with a 50-token answer at $0.50 per million output tokens, comes to $1.75 at <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">OpenAI's list prices</a>. Claude Haiku 5.5 also lands at about $1.75 for that job, by the per-task math in our <a href=\"/blog/claude-haiku-5-5-pricing/\">Haiku 5.5 pricing breakdown</a>, while GPT-6.1 Sol at $2 input and $10 output per million would run about $35.</p><p>Two multipliers apply. Regional processing endpoints add 10%, so $0.11 per million tokens, or $1.65 for the same 10,000 decisions, and a request with more than 272,000 input tokens is billed at 2x input, $0.20 per million, for the whole request, per the <a href=\"https://developers.openai.com/api/docs/models/gpt-6-luna\" target=\"_blank\" rel=\"noopener noreferrer\">gpt-6-luna model page</a>. Against the Responses API the saving is small in dollars; the bigger gains are speed and an answer your code can branch on without parsing text.</p><p><strong>What it means for operators</strong></p><ol><li><strong>Lead routing.</strong> A choice question sends each form fill or reply to the right rep, sequence or nurture track for a fraction of a cent.</li><li><strong>Intake triage.</strong> Law firms can sort enquiries by practice area and urgency before a human reads them, the same pattern behind our <a href=\"/ai-intake-law-firms\">AI intake for law firms</a>.</li><li><strong>Ticket and review scoring.</strong> A score question ranks severity so the worst problems surface first.</li><li><strong>Voice agents.</strong> OpenAI's guide pairs the API with the Live API through client delegation, so a voice agent can pick an action from a spoken request.</li><li><strong>Plan for the beta.</strong> Only gpt-6-luna is available and terms can change before general availability, so keep a fallback route in production.</li></ol><p>If you want routing like this wired into your CRM or help desk, our <a href=\"/hire-ai-engineer\">AI engineers</a> build it and our <a href=\"/ai-automation\">AI automation</a> team runs it.</p>",
+ "faqs": [
+  [
+   "How much does the OpenAI Decisions API cost?",
+   "$0.10 per million input tokens on gpt-6-luna, with no charges for output tokens, cache reads or cache writes. Regional processing adds 10%, or $0.11 per million, and requests over 272,000 input tokens are billed at $0.20 per million for the whole request."
+  ],
+  [
+   "Is the OpenAI Decisions API generally available?",
+   "Not yet. It entered public beta on October 6, 2026, after a limited preview announced at DevDay, and OpenAI says it expects general availability in the coming weeks. gpt-6-luna is the only model available."
+  ],
+  [
+   "What can the OpenAI Decisions API return?",
+   "Three question types: a predicate returns the probability that a condition is true, a choice returns one option from a fixed list you supply, and a score rates an input against ordered levels. You can ask several named questions in one request."
+  ],
+  [
+   "Is the Decisions API cheaper than the Responses API?",
+   "Slightly, for short answers. Routing 10,000 items of about 1,500 tokens costs $1.50 on the Decisions API versus about $1.75 on gpt-6-luna through the Responses API with a 50-token answer, because the Decisions API charges nothing for output. OpenAI says it is also about 10x faster."
+  ]
+ ],
+ "image": {
+  "cluster": "AI pricing",
+  "takeaway": "OpenAI's Decisions API costs $0.10 per million input tokens and charges nothing for output or caching.",
+  "alt": "OpenAI Decisions API pricing: $0.10 per million input tokens on gpt-6-luna with no output or cache charges",
+  "chart": {
+   "title": "Cost of 10,000 routing decisions",
+   "subtitle": "About 1,500 input tokens each, plus a 50-token answer where output is billed. List prices.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Decisions API",
+     1.5
+    ],
+    [
+     "Decisions, regional",
+     1.65
+    ],
+    [
+     "GPT-6 Luna, Responses",
+     1.75
+    ],
+    [
+     "Claude Haiku 5.5",
+     1.75
+    ],
+    [
+     "GPT-6.1 Sol, Responses",
+     35
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 0,
+   "note": [
+    "No output or",
+    "cache charges"
+   ],
+   "source": "Per-task math at list prices; Haiku 5.5 at Anthropic list prices. Source: developers.openai.com, October 2026",
+   "alt": "Bar chart of the cost of 10,000 routing decisions at list prices: Decisions API 1.50 dollars, Decisions on a regional endpoint 1.65, GPT-6 Luna through the Responses API 1.75, Claude Haiku 5.5 1.75, and GPT-6.1 Sol 35.",
+   "after_heading": "What it means for operators"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Decisions API input price",
+    "value": "$0.10 per 1M tokens",
+    "note": "gpt-6-luna"
+   },
+   {
+    "label": "Output, cache read and cache write charges",
+    "value": "$0"
+   },
+   {
+    "label": "Regional processing endpoints",
+    "value": "$0.11 per 1M tokens",
+    "note": "10% uplift"
+   },
+   {
+    "label": "Requests over 272,000 input tokens",
+    "value": "$0.20 per 1M tokens",
+    "note": "for the whole request"
+   },
+   {
+    "label": "Speed vs the Responses API",
+    "value": "about 10x faster",
+    "note": "per OpenAI"
+   },
+   {
+    "label": "Models available",
+    "value": "gpt-6-luna only"
+   },
+   {
+    "label": "Question types",
+    "value": "3",
+    "note": "predicate, choice, score"
+   },
+   {
+    "label": "10,000 routing decisions, 1,500 tokens each",
+    "value": "$1.50"
+   },
+   {
+    "label": "Same job on gpt-6-luna through the Responses API",
+    "value": "$1.75",
+    "note": "50-token answer"
+   },
+   {
+    "label": "Same job on GPT-6.1 Sol",
+    "value": "about $35"
+   },
+   {
+    "label": "Public beta since",
+    "value": "October 6, 2026",
+    "note": "general availability expected in the coming weeks"
+   }
+  ],
+  "source": "Prices and terms read on 9 October 2026 from OpenAI's Decisions guide, API changelog, pricing page and gpt-6-luna model page; per-task costs at list prices."
+ }
+}

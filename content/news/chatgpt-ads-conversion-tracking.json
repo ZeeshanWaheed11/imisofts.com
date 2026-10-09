@@ -1,0 +1,146 @@
+{
+ "slug": "chatgpt-ads-conversion-tracking",
+ "title": "ChatGPT Ads Conversion Tracking: Pixel, CAPI and Attribution",
+ "desc": "ChatGPT Ads takes conversions from a pixel, its Conversions API or partners like Hightouch and Triple Whale. What counts, the 7 to 30-day windows, the catches.",
+ "keywords": "chatgpt ads conversion tracking, chatgpt ads conversions api, chatgpt ads pixel, chatgpt ads attribution window, chatgpt ads view-through conversions, openai ads measurement partners, chatgpt ads hubspot, chatgpt ads hightouch, chatgpt ads triple whale, chatgpt ads incrementality",
+ "date": "2026-10-09",
+ "time": "13:20",
+ "read_time": 6,
+ "word_count": 1293,
+ "cta": "Want your ChatGPT Ads conversions tracked properly?",
+ "body": "<p><strong>October 9, 2026.</strong> ChatGPT Ads conversions can now reach Ads Manager three ways: the OpenAI Pixel, its Conversions API (CAPI), or, since OpenAI expanded its measurement tools on October 5, a partner such as Hightouch, Tealium, LiveRamp, Triple Whale or AppsFlyer. Ads Manager credits a click for 7, 14 or 30 days and a view for at most 1 day, and changing those windows alters reporting only, not bidding or billing, according to <a href=\"https://help.openai.com/en/articles/20001214-measure-results\" target=\"_blank\" rel=\"noopener noreferrer\">OpenAI's help center</a>. The same <a href=\"https://openai.com/index/new-chatgpt-ads-format-and-measurement/\" target=\"_blank\" rel=\"noopener noreferrer\">announcement</a> adds a visual ad format that OpenAI will begin testing in the US later this month.</p><p><strong>What OpenAI announced on October 5</strong></p><ol><li><strong>Conversion pipes.</strong> The Pixel and CAPI measure purchases, leads, installs and sign-ups, and new integrations with Hightouch, Tealium and LiveRamp send conversion data from systems advertisers already run.</li><li><strong>Ten attribution partners.</strong> AppsFlyer, Triple Whale, Adjust, DV Rockerbox, Northbeam, Branch, Singular, Kochava, Airbridge and Tenjin now support CAPI, reporting or click attribution, with Fospha, Measured and INCRMNTAL for full-funnel measurement.</li><li><strong>Incrementality tests.</strong> Haus, Measured and WorkMagic are working with OpenAI on geo-based experiments, and Kantar and Cint are in early testing on brand metrics.</li><li><strong>View-through reporting.</strong> In an early analysis of global campaigns optimized for deeper-funnel outcomes, 52.7% of eligible one-day view-through conversions happened within an hour of the matched ad impression.</li><li><strong>Signal grading.</strong> An Event Quality Score rates the conversion data each pixel or data source sends.</li><li><strong>Placement controls.</strong> Negative Phrases are available to qualifying advertisers, and DoubleVerify and Integral Ad Science are piloting brand suitability evaluations.</li><li><strong>A visual format.</strong> OpenAI will test image ads during image generation for Free and Go users, labeled and kept separate from the image being created, with an initial group of US advertisers.</li></ol><p>OpenAI's <a href=\"https://ads.openai.com/blog/more-ways-to-measure\" target=\"_blank\" rel=\"noopener noreferrer\">Ads Blog post</a> lists the partners and results, and MediaPost <a href=\"https://www.mediapost.com/publications/article/418529/openai-adds-visual-format-makes-chatgpt-ads-more.html\" target=\"_blank\" rel=\"noopener noreferrer\">reported the same partner roster</a> on October 6.</p><p><strong>How a conversion gets counted</strong></p><p>Everything starts with a data source in Ads Manager. When someone clicks an ad, OpenAI appends a click reference called oppref to the landing page URL. The Pixel stores it in a first-party cookie and attaches it to later events, and a server sending CAPI events can include it. A click-through conversion is reported when four things line up: the event arrives from a connected data source, it matches a conversion event set on the campaign, it falls inside the attribution window, and OpenAI can connect it to an eligible ad click, per its <a href=\"https://help.openai.com/en/articles/20001409-conversion-measurement\" target=\"_blank\" rel=\"noopener noreferrer\">conversion measurement guide</a>.</p><p>Three details decide how much of it you see. Running the Pixel and CAPI together is the recommended setup, as long as both send the same event ID so the conversion is counted once. Automatic advanced matching has the Pixel hash contact details from your forms with SHA-256 in the browser, which helps when the click reference is lost. And where available, reported totals may include modeled conversions, in which OpenAI estimates attribution for events it could not match directly.</p><p><strong>The windows, and what they do not change</strong></p><p>Ads Manager lets you pick a 7, 14 or 30-day click-through window and a view-through window of 0 days, which turns it off, or 1 day. A view-through conversion counts when someone converts within a day of seeing an eligible ad and no qualifying click takes the credit; if both a click and an impression qualify, the click wins. The model is last touch, not multi-touch, and the setting changes reporting only: optimization, bidding and billing stay the same.</p><p>Two timing rules matter when you reconcile numbers. Attributed conversions can take 24 to 48 hours to appear, and reports default to the time of the ad click or impression rather than the time of the conversion; a column called Conversions (by conv. time) switches that. ChatGPT Ads, Google Analytics and other ad platforms can disagree whenever their windows or methods differ, so compare channels on the same window before you judge one.</p><p><strong>Four ways to wire it, by stack</strong></p><ol><li><strong>A website with a form or checkout.</strong> Install the Pixel on the pages where the action happens and add CAPI for events your server confirms, both carrying the same event ID.</li><li><strong>HubSpot.</strong> OpenAI's <a href=\"https://help.openai.com/en/articles/20001522-setting-up-chatgpt-ads-in-hubspot\" target=\"_blank\" rel=\"noopener noreferrer\">HubSpot guide</a> covers a native connection on Marketing Hub Free, Starter, Professional or Enterprise that creates campaigns, adds new leads to the CRM, triggers follow-up workflows and reports contacts, customers and cost by campaign. On ChatGPT Business or Enterprise organizations, a global admin must first approve HubSpot's Ads access, which is off by default.</li><li><strong>A warehouse or customer data platform.</strong> In Hightouch you add OpenAI as a destination with your Pixel ID and API key and map events from a model with a unique primary key; LiveRamp access goes through your LiveRamp rep.</li><li><strong>Online stores and apps.</strong> Triple Whale and Northbeam are the attribution options built for online stores, and AppsFlyer, Adjust, Branch, Singular, Kochava, Airbridge and Tenjin are the mobile measurement partners for app campaigns. A Google Analytics 4 connection is in beta through your account manager, but event mapping is still coming, so it cannot feed conversion reporting yet.</li></ol><p><strong>The catch for lead generation</strong></p><p>OpenAI's <a href=\"https://help.openai.com/en/articles/20001513-understand-and-improve-event-quality\" target=\"_blank\" rel=\"noopener noreferrer\">event quality page</a> flags server events that do not arrive within one hour of the action, and it scores seven complete days of events, refreshed daily. A nightly batch that pushes yesterday's CRM leads will draw that warning, so send the lead event when the form is submitted and keep the original action time on any retry. Conversion-optimized campaigns also accept standard events only, such as a purchase, sign-up or lead submission; a custom event like \"sales qualified\" cannot be the optimization goal yet.</p><p>Phone-first businesses have a second gap: a call is not a form fill, so the Pixel never sees it. If your HVAC or plumbing jobs arrive by phone, the conversion worth sending is the booked job, logged with the original call time in a system that can post it through CAPI, whether that is your CRM or an <a href=\"/ai-calling-home-services\">after-hours call answering</a> setup that writes bookings into it.</p><p><strong>Read the early results as case studies</strong></p><p>OpenAI published five partner-validated results. DV Rockerbox measured WeightWatchers' attributed cost per acquisition 15.3% below its blended paid search benchmark. Dose found 67% of its incremental purchases came from net-new customers, and WorkMagic's geo-lift study estimated 2.3x more incremental orders for Dose than last-click attribution captured. INCRMNTAL reported statistically significant lift on every campaign it measured. Triple Whale found 93% of Portland Leather Goods' visitors from ChatGPT Ads were new. Fospha measured 83% more revenue per 1,000 impressions than the paid social average for the same advertisers. These are results OpenAI chose to show, each from one method, with no spend levels disclosed. Treat them as test designs, not forecasts.</p><p><strong>What it means for operators</strong></p><ol><li><strong>Fix the plumbing before the budget.</strong> Run the Pixel and CAPI with a shared event ID, and check that oppref survives redirects, link shorteners and booking widgets.</li><li><strong>Set the window to your sales cycle.</strong> Seven days suits impulse purchases; 30 suits considered B2B purchases. Compare channels on the same window.</li><li><strong>Choose billing deliberately.</strong> In conversion campaigns, impression billing optimizes toward conversions after views and clicks, click billing toward conversions after clicks, and neither can be changed in place: you clone the campaign to switch.</li><li><strong>Prove lift before you scale.</strong> A geo test with one of the incrementality partners answers the question attribution cannot.</li><li><strong>Do not confuse the ad with the answer.</strong> OpenAI says ads do not influence ChatGPT's answers, so being recommended in those answers is a separate job, the one <a href=\"/ai-search-optimization\">AI search optimization</a> covers.</li></ol><p>For bids, budgets and what a lead costs, see our breakdown of <a href=\"/blog/chatgpt-ads-cost-per-lead/\">ChatGPT Ads cost per lead</a>, and for where self-serve buying is open, <a href=\"/blog/chatgpt-ads-self-service-countries/\">the country list</a>. If you want the conversion pipeline built from your CRM, our <a href=\"/lead-generation\">lead generation</a> and <a href=\"/ai-automation\">AI automation</a> teams do this work.</p>",
+ "faqs": [
+  [
+   "How do you track conversions from ChatGPT Ads?",
+   "Create a data source in Ads Manager and send events through the OpenAI Pixel, the Conversions API, or both. If you use both, give the same conversion the same event ID so it is counted once. Partners such as Hightouch, Tealium, LiveRamp, Triple Whale and AppsFlyer can send the events for you, and HubSpot has a native integration."
+  ],
+  [
+   "What attribution windows does ChatGPT Ads use?",
+   "You choose a 7, 14 or 30-day click-through window and a view-through window of 0 or 1 day. The windows change reporting only, not optimization, bidding or billing, and attribution is last touch, not multi-touch."
+  ],
+  [
+   "Does ChatGPT Ads count view-through conversions?",
+   "Yes, when the view-through window is set to 1 day. A conversion within a day of an eligible impression counts if no qualifying click takes the credit; when both qualify, the click wins. OpenAI says 52.7% of eligible one-day view-through conversions in an early analysis happened within an hour of the impression."
+  ],
+  [
+   "Can I connect HubSpot to ChatGPT Ads?",
+   "Yes. HubSpot Marketing Hub Free, Starter, Professional and Enterprise accounts can connect ChatGPT Ads under Settings, Marketing, Ads, create ChatGPT Chat Card campaigns, add new leads to the CRM and see contacts, customers and cost per campaign. ChatGPT Business and Enterprise organizations need a global admin to approve HubSpot's Ads access first."
+  ],
+  [
+   "Which measurement partners work with ChatGPT Ads?",
+   "OpenAI names Hightouch, Tealium and LiveRamp for sending conversion data; AppsFlyer, Triple Whale, Adjust, DV Rockerbox, Northbeam, Branch, Singular, Kochava, Airbridge and Tenjin for attribution; Fospha, Measured and INCRMNTAL for full-funnel measurement; and Haus, Measured and WorkMagic for geo-based incrementality tests."
+  ],
+  [
+   "When does the new ChatGPT visual ad format start?",
+   "OpenAI says testing begins later in October 2026 in the US with an initial group of advertisers. The image ads appear during image generation for Free and Go users, are labeled, and stay separate from the image being created."
+  ]
+ ],
+ "image": {
+  "cluster": "ChatGPT Ads",
+  "takeaway": "ChatGPT Ads credits a click for up to 30 days and a view for 1 day, and the window changes reporting, not billing.",
+  "alt": "ChatGPT Ads conversion tracking: Pixel, Conversions API, partners, and the 7 to 30-day click and 1-day view windows",
+  "chart": {
+   "title": "ChatGPT Ads measurement clocks, in days",
+   "subtitle": "Reporting windows you can choose, plus the delay and lookback OpenAI documents.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Click window, longest",
+     30
+    ],
+    [
+     "Click window, middle",
+     14
+    ],
+    [
+     "Click window, shortest",
+     7
+    ],
+    [
+     "Event quality lookback",
+     7
+    ],
+    [
+     "Reporting delay, max",
+     2
+    ],
+    [
+     "View-through window",
+     1
+    ]
+   ],
+   "prefix": "",
+   "suffix": "",
+   "highlight": 5,
+   "note": [
+    "Views count for",
+    "one day only"
+   ],
+   "source": "Windows and delays per OpenAI Ads Manager help articles. Source: help.openai.com, October 2026",
+   "alt": "Bar chart of ChatGPT Ads measurement clocks in days: click windows of 30, 14 or 7 days, a 7-day event quality lookback, up to 2 days of reporting delay, and a 1-day view-through window.",
+   "after_heading": "Four ways to wire it, by stack"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "ChatGPT weekly users",
+    "value": "1.2 billion",
+    "note": "per OpenAI"
+   },
+   {
+    "label": "Click-through reporting windows",
+    "value": "7, 14 or 30 days"
+   },
+   {
+    "label": "View-through reporting window",
+    "value": "0 or 1 day"
+   },
+   {
+    "label": "View-through conversions within an hour of the impression",
+    "value": "52.7 percent",
+    "note": "early analysis, eligible one-day conversions"
+   },
+   {
+    "label": "Delay before conversions appear in Ads Manager",
+    "value": "24 to 48 hours"
+   },
+   {
+    "label": "Server event timeliness check",
+    "value": "within 1 hour of the action",
+    "note": "event quality warning"
+   },
+   {
+    "label": "Event quality assessment period",
+    "value": "7 complete days",
+    "note": "refreshed daily"
+   },
+   {
+    "label": "Attribution partners named",
+    "value": "10",
+    "note": "plus 3 full-funnel partners"
+   },
+   {
+    "label": "Conversion data integrations",
+    "value": "3",
+    "note": "Hightouch, Tealium, LiveRamp"
+   },
+   {
+    "label": "WeightWatchers attributed CPA vs blended paid search",
+    "value": "15.3 percent lower",
+    "note": "DV Rockerbox"
+   },
+   {
+    "label": "Dose incremental orders vs last-click attribution",
+    "value": "2.3x",
+    "note": "WorkMagic geo-lift study"
+   },
+   {
+    "label": "Visual ad format test",
+    "value": "later in October 2026",
+    "note": "US, Free and Go plans"
+   }
+  ],
+  "source": "Figures read on 9 October 2026 from OpenAI's October 5 announcement, its Ads Blog and its Ads Manager help articles."
+ }
+}
