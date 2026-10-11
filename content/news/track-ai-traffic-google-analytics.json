@@ -1,0 +1,116 @@
+{
+  "slug": "track-ai-traffic-google-analytics",
+  "title": "How to Track AI Traffic in GA4: ChatGPT, Gemini, Perplexity, Claude",
+  "desc": "GA4 now labels ChatGPT, Gemini and Perplexity visits as AI Assistant traffic. How to find it, set up your own channel, and why our AI leads were job seekers.",
+  "keywords": "track ai traffic google analytics, ga4 ai traffic, ai assistant channel ga4, chatgpt traffic google analytics, chatgpt referral traffic, utm_source=chatgpt.com, perplexity traffic ga4, ga4 custom channel group ai, ai traffic analytics, llm referral traffic",
+  "date": "2026-10-11",
+  "time": "13:41",
+  "read_time": 5,
+  "word_count": 1195,
+  "cta": "Want your brand cited by AI assistants, and the visits they send measured properly?",
+  "body": "<p><strong>October 11, 2026.</strong> Google Analytics 4 now sorts visits from AI chat assistants into their own channel. Its default channel group includes an \"AI Assistant\" channel for visitors arriving from sources like ChatGPT, Gemini, DeepSeek, Copilot and Grok, and ChatGPT tags its own outbound links with <code>utm_source=chatgpt.com</code>. So for most sites the data is already there; the work is finding it, deciding what counts, and knowing what it misses. We set this up on imisofts.com on September 27, and the first two weeks taught us something every report on AI traffic should check first: of our 30 visits from AI assistants, 20 went to our careers page, and every conversion they produced was a job application, not a sales lead. This guide shows how to track AI traffic in GA4 step by step, using our own numbers as the worked example. It is part of how we measure results in our <a href=\"/ai-search-optimization\">AI search optimization service</a>.</p>\n<p>Definitions come from Google's Analytics Help and OpenAI's publisher FAQ; our figures are from our own GA4 property for September 27 to October 10, 2026, all read 11 October 2026.</p>\n<p><strong>Step 1: find it in a report you already have</strong></p>\n<p>Open Reports, then Acquisition, then Traffic acquisition. The table's first column is the session channel group. Look for a row called AI Assistant. Google defines it as \"the channel by which users arrive at your site from sources like ChatGPT, Gemini, Deepseek, Copilot, or Grok\", and notes that it \"excludes Google's AI Overviews and AI Mode\". Behind the scenes, GA4 sets the medium to <code>ai-assistant</code> and the campaign to <code>(ai-assistant)</code> when the referrer matches its list of AI assistants (<a href=\"https://support.google.com/analytics/answer/9756891?hl=en\" target=\"_blank\" rel=\"noopener noreferrer\">GA4 default channel group</a>).</p>\n<p>To see which assistants, change the primary dimension to Session source / medium. On our property the rows read <code>chatgpt.com / ai-assistant</code>, <code>perplexity.ai / ai-assistant</code>, <code>gemini.google.com / ai-assistant</code> and <code>claude.ai / ai-assistant</code>. ChatGPT visits are the easiest to attribute, because OpenAI says ChatGPT automatically adds <code>utm_source=chatgpt.com</code> to the links it sends (<a href=\"https://help.openai.com/en/articles/12627856-publishers-and-developers-faq\" target=\"_blank\" rel=\"noopener noreferrer\">OpenAI publishers FAQ</a>).</p>\n<p><strong>Step 2: build your own channel group if you want control</strong></p>\n<p>The default group is a good start, but you cannot edit Google's list of AI sources. If you want to decide what counts, create a custom channel group in Admin, under Data display, then Channel groups. Copy the default group, add a channel for AI assistants, and set its condition to session source matching a regular expression. Ours, created on September 27, is:</p>\n<p><code>chatgpt|openai|perplexity|claude\\.ai|anthropic|gemini\\.google|bard\\.google|copilot|edgeservices\\.bing|you\\.com|phind|deepseek|grok|meta\\.ai|mistral|poe\\.com</code></p>\n<p>Two settings matter. Order: GA4 assigns each session to the first channel whose rule it matches, so place the AI channel above Referral and Organic Search, or those channels will claim the traffic first. And primary status: setting the custom group as primary makes it the default in your acquisition reports, while Google's default group stays available as a dimension.</p>\n<p><strong>Step 3: separate buyers from job seekers</strong></p>\n<p>Here is what our first two weeks looked like by channel.</p>\n<ul>\n<li><strong>AI assistants:</strong> 30 sessions, 1.8 percent of all sessions, 66.7 percent engaged, 41 seconds average engagement, 8 key events.</li>\n<li><strong>Organic Search:</strong> 310 sessions, 46.1 percent engaged, 40 seconds, 4 key events.</li>\n<li><strong>Referral:</strong> 24 sessions, 29.2 percent engaged, 3 key events.</li>\n<li><strong>Direct:</strong> 1,305 sessions, 8.4 percent engaged, 7 seconds, which tells you most of it is automated traffic rather than people.</li>\n</ul>\n<p>On those numbers, AI assistants look like the best channel we have: a 23.3 percent session key event rate against 1.3 percent for organic search. Then we added Page path as a secondary dimension. Twenty of the 30 AI sessions landed on our careers page, and all eight key events were people starting the application form or clicking to book a call from that page. ChatGPT was sending job seekers who had asked it about working here. Useful to know, and not pipeline.</p>\n<p>The fix is in how you define conversions, not in the channel group. Track job applications as their own event, keep them out of your sales key events, and always break AI traffic down by landing page before you report a conversion rate. The same discipline applies to every small channel: 30 sessions is enough to spot a pattern and far too few to forecast from.</p>\n<p><strong>What GA4 cannot see</strong></p>\n<ul>\n<li><strong>Google's own AI answers.</strong> Clicks from AI Overviews and AI Mode are excluded from the AI Assistant channel and count as Organic Search. Search Console's generative AI features report is the place to look for them; we cover it in <a href=\"/blog/search-console-multimodal-filter/\">what the Search Console multimodal filter shows</a>.</li>\n<li><strong>Apps that strip the referrer.</strong> When someone clicks a link inside a desktop or mobile app that sends no referrer, the visit arrives as Direct. On October 9, a first-time visitor landed on one of our blog articles with no source at all, went straight to our contact page and booked a sales call. Whatever pointed them to us left no trace in GA4. Ask new leads how they found you; it is the only way to see this traffic.</li>\n<li><strong>Answers that never send a click.</strong> Most AI answers mention brands without a visit. Bing Webmaster Tools reports Copilot citations, explained in <a href=\"/blog/bing-ai-performance-report/\">the Bing AI performance report</a>, and tracking whether assistants name you needs prompt testing, not analytics.</li>\n<li><strong>Broken links the assistant invented.</strong> One of our AI-referred visits arrived on a URL with a fragment of markdown glued to the end. Check your 404 report for AI-referred paths and redirect the common ones.</li>\n</ul>\n<p><strong>Reading the numbers without fooling yourself</strong></p>\n<p>Compare AI assistants with organic search on engagement rate and conversion rate per landing page, not on raw sessions; AI traffic will be small for a long time. Watch the trend line weekly rather than daily. And remember that the channel only counts clicks: a brand that ChatGPT recommends by name, without a link, shows up later as branded search or Direct. That is why we measure AI visibility in two places, analytics for the clicks and citation tracking for the mentions, as described in <a href=\"/blog/aeo-vs-seo/\">AEO versus SEO</a> and <a href=\"/blog/how-to-get-chatgpt-to-recommend-your-business/\">how to get ChatGPT to recommend your business</a>.</p>\n<p><strong>A weekly AI traffic check in ten minutes</strong></p>\n<ol>\n<li>Traffic acquisition, last 7 days, compared with the 7 before: AI Assistant sessions and engagement rate.</li>\n<li>Same report, Session source / medium: which assistants sent visits.</li>\n<li>Secondary dimension Landing page: which pages they landed on.</li>\n<li>Key events by landing page: are they sales actions or something else.</li>\n<li>Pages and screens report filtered to the 404 page title: any AI-invented URLs to redirect.</li>\n<li>One note in your log: what changed on the site that week.</li>\n</ol>\n<p><strong>The bottom line</strong></p>\n<p>Tracking AI traffic in GA4 takes five minutes now that Google labels it for you; reading it honestly takes a little longer. Separate job seekers and support visits from buyers, remember what lands in Direct and Organic Search instead, and judge the channel on landing pages and conversions rather than session counts. If you want your site cited and recommended by AI assistants, and measured properly when it is, that is the work of our <a href=\"/ai-search-optimization\">AI search optimization team</a>; the automation that routes those leads into your CRM is part of our <a href=\"/ai-automation-agency\">AI automation agency</a> work.</p>",
+  "faqs": [
+    [
+      "How do I see ChatGPT traffic in Google Analytics 4?",
+      "Open Reports, Acquisition, Traffic acquisition and look for the AI Assistant row in the session channel group, then switch the primary dimension to Session source / medium. ChatGPT visits appear as chatgpt.com / ai-assistant, because GA4 sets the medium to ai-assistant for referrers on its AI assistant list and ChatGPT adds utm_source=chatgpt.com to its links."
+    ],
+    [
+      "Does GA4 have an AI channel by default?",
+      "Yes. GA4's default channel group includes an AI Assistant channel for users arriving from sources like ChatGPT, Gemini, DeepSeek, Copilot or Grok. It excludes Google's AI Overviews and AI Mode, whose clicks count as Organic Search."
+    ],
+    [
+      "Should I create a custom channel group for AI traffic?",
+      "If you want control over which sources count. You cannot edit Google's list in the default group, but a custom group lets you match sources with your own regular expression. Place the AI channel above Referral and Organic Search, because GA4 assigns a session to the first rule it matches."
+    ],
+    [
+      "Why does some AI traffic show up as Direct?",
+      "Clicks from apps that send no referrer arrive without a source, so GA4 records them as Direct. A visitor who followed an AI recommendation inside a desktop or mobile app can land deep in your site with no trace of where they came from, which is why it helps to ask new leads how they found you."
+    ],
+    [
+      "Are visits from AI Overviews counted as AI traffic in GA4?",
+      "No. Google's definition of the AI Assistant channel excludes AI Overviews and AI Mode, so those clicks are reported as Organic Search. Search Console's generative AI features report is the place to see that activity."
+    ],
+    [
+      "How much traffic do AI assistants send?",
+      "For most sites, still a small share. On imisofts.com from September 27 to October 10, 2026, AI assistants sent 30 of 1,679 sessions, 1.8 percent, with a 66.7 percent engagement rate against 46.1 percent for organic search; 26 of the 30 came from ChatGPT."
+    ]
+  ],
+  "image": {
+    "cluster": "AI search",
+    "takeaway": "GA4 now labels AI assistant visits for you. Check landing pages before reporting: ours were job seekers, not buyers.",
+    "alt": "How to track AI traffic in GA4: the AI Assistant channel, a custom channel group for ChatGPT, Perplexity, Gemini and Claude, and what it misses",
+    "chart": {
+      "title": "Engagement rate by channel on imisofts.com",
+      "subtitle": "Share of sessions that were engaged, GA4, September 27 to October 10, 2026",
+      "type": "hbar",
+      "rows": [
+        [
+          "AI assistants",
+          67
+        ],
+        [
+          "Organic Search",
+          46
+        ],
+        [
+          "Referral",
+          29
+        ],
+        [
+          "Direct",
+          8
+        ]
+      ],
+      "prefix": "",
+      "suffix": "%",
+      "highlight": 0,
+      "note": [
+        "20 of 30 AI visits went",
+        "to the careers page"
+      ],
+      "source": "imisofts.com GA4 property, Traffic acquisition report, read 11 October 2026",
+      "alt": "Bar chart of engagement rate by channel on imisofts.com: AI assistants 67 percent, Organic Search 46, Referral 29, Direct 8",
+      "after_heading": "What GA4 cannot see"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "AI assistant sessions, Sep 27 to Oct 10, 2026",
+        "value": "30 of 1,679",
+        "note": "1.8 percent of all sessions"
+      },
+      {
+        "label": "Engagement rate, AI assistants vs organic search",
+        "value": "66.7% vs 46.1%",
+        "note": "imisofts.com GA4"
+      },
+      {
+        "label": "Share of AI sessions from ChatGPT",
+        "value": "26 of 30",
+        "note": "chatgpt.com / ai-assistant"
+      },
+      {
+        "label": "AI sessions that landed on the careers page",
+        "value": "20 of 30",
+        "note": "all 8 AI key events were job-page actions"
+      },
+      {
+        "label": "Sessions recorded as Direct",
+        "value": "77.7%",
+        "note": "8.4% engaged, mostly automated traffic"
+      },
+      {
+        "label": "GA4 AI Assistant channel excludes",
+        "value": "AI Overviews and AI Mode",
+        "note": "Google Analytics Help"
+      },
+      {
+        "label": "Parameter ChatGPT adds to outbound links",
+        "value": "utm_source=chatgpt.com",
+        "note": "OpenAI publishers FAQ"
+      }
+    ],
+    "source": "imisofts.com GA4 property (Traffic acquisition, Sep 27 to Oct 10, 2026), Google Analytics Help on the default channel group and OpenAI's publishers and developers FAQ, all read 11 October 2026."
+  }
+}

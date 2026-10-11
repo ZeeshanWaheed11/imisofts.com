@@ -1,0 +1,88 @@
+{
+  "slug": "tcpa-compliant-ai-calling-platforms",
+  "title": "TCPA Compliant AI Calling: What 5 Platforms Actually Enforce",
+  "desc": "No AI calling platform is TCPA compliant on its own. What Retell, Vapi, Bland, ElevenLabs and HighLevel enforce for calling hours, do-not-call and opt-outs.",
+  "keywords": "tcpa compliant ai calling, tcpa compliant ai voice agent, which ai calling platforms are tcpa compliant, tcpa compliance software, tcpa compliant dialer, ai calling calling hours, ai voice agent do not call list, retell ai do not call, vapi campaign time zone, gohighlevel voice ai compliance",
+  "date": "2026-10-11",
+  "time": "13:36",
+  "read_time": 7,
+  "word_count": 1475,
+  "cta": "Want an AI calling stack with the consent check, DNC scrub and time zones handled before the first dial?",
+  "body": "<p><strong>October 11, 2026.</strong> Which AI calling platforms are TCPA compliant? None of them, in the sense buyers usually mean, and the vendors say so in their own documentation. HighLevel states that it \"does not perform platform-level contact consent validation before placing outbound Voice AI calls\". ElevenLabs publishes a TCPA guide that assigns time-zone awareness, do-not-call scrubbing and consent records to the business placing the calls. What actually differs between platforms is which guardrails they enforce for you, which ones they offer but leave switched off, and which ones they do not have at all. We read the outbound calling documentation of Retell AI, Vapi, Bland, ElevenLabs and HighLevel (read 11 October 2026) and sorted their controls against the four parts of the rule that decide most TCPA claims. If you would rather have the whole stack built for you, that is what our <a href=\"/tcpa-compliant-ai-calling\">TCPA-compliant AI calling service</a> does.</p>\n<p>A note on scope: this is a feature comparison, not legal advice, and features change. Every claim below links to the vendor page it came from.</p>\n<p><strong>The four controls that decide a TCPA claim</strong></p>\n<ol>\n<li><strong>Consent.</strong> Since the FCC's February 2024 ruling, an AI-generated voice is an artificial voice (<a href=\"https://www.fcc.gov/document/fcc-confirms-tcpa-applies-ai-technologies-generate-human-voices\" target=\"_blank\" rel=\"noopener noreferrer\">FCC-24-17</a>), so any call to a cell phone needs prior express consent, and any call that sells needs prior express written consent (<a href=\"https://www.ecfr.gov/current/title-47/chapter-I/subchapter-B/part-64/subpart-L/section-64.1200\" target=\"_blank\" rel=\"noopener noreferrer\">47 CFR 64.1200(a)(1) to (a)(3)</a>).</li>\n<li><strong>Calling hours.</strong> Telephone solicitations may only be made between 8 a.m. and 9 p.m. local time at the called party's location (64.1200(c)(1)). The key words are \"called party's location\", not your office's time zone.</li>\n<li><strong>Do-not-call lists.</strong> Two of them: the national registry, which a seller must check using a copy no more than 31 days old to keep its safe harbor (64.1200(c)(2)(i)(D)), and your own internal list of people who asked you to stop, honored within ten business days and kept for five years (64.1200(d)(3) and (d)(6)).</li>\n<li><strong>Opt-out mechanics.</strong> An artificial-voice telemarketing call must identify the business at the start and offer an automated voice or key-press opt-out within two seconds of that identification, which adds the number to your list and ends the call (64.1200(b)). Consent can also be revoked by any reasonable means, including saying so (64.1200(a)(10)).</li>\n</ol>\n<p><strong>Calling hours: one time zone per batch is the norm</strong></p>\n<p>Most platforms let you schedule a calling window, but almost all of them apply one time zone to the whole batch.</p>\n<ul>\n<li><strong>Retell AI</strong> batch calls accept a <code>call_time_window</code> of allowed minutes in local time with a single <code>timezone</code> and a list of days; windows cannot cross midnight (<a href=\"https://docs.retellai.com/api-references/create-batch-call\" target=\"_blank\" rel=\"noopener noreferrer\">Create Batch Call</a>).</li>\n<li><strong>Vapi</strong> campaigns are explicit about it: \"A campaign uses one time zone and calling window for every contact.\" Its documentation tells you to split audiences into separate campaigns by time zone, not to infer local time from an area code, and to exclude contacts whose location you cannot determine (<a href=\"https://docs.vapi.ai/outbound-campaigns/scheduling-and-lifecycle\" target=\"_blank\" rel=\"noopener noreferrer\">Campaign scheduling and lifecycle</a>).</li>\n<li><strong>Bland</strong> sets a time zone per call, defaulting to America/Los_Angeles and handled automatically for US numbers, and lets you schedule a <code>start_time</code>; it does not document an enforced calling window (<a href=\"https://docs.bland.ai/api-v1/post/calls\" target=\"_blank\" rel=\"noopener noreferrer\">Send Call</a>).</li>\n<li><strong>ElevenLabs</strong> added time zone selection to batch scheduling in January 2026, and its TCPA guide tells developers to implement 8 a.m. to 9 p.m. time-zone awareness themselves (<a href=\"https://elevenlabs.io/docs/eleven-agents/legal/tcpa\" target=\"_blank\" rel=\"noopener noreferrer\">TCPA Compliance</a>).</li>\n<li><strong>HighLevel</strong> is the one that enforces a window per contact: outbound Voice AI calls are scheduled between 8:00 AM and 8:00 PM \"based on the contact's phone-number timezone\", and calls outside the window move to the next eligible time (<a href=\"https://help.gohighlevel.com/support/solutions/articles/155000006679-voice-ai-outbound-calling-compliance-checks\" target=\"_blank\" rel=\"noopener noreferrer\">Voice AI Outbound Calling Compliance Checks</a>).</li>\n</ul>\n<p>Notice the tension between the last two approaches. HighLevel derives local time from the phone number; Vapi's documentation warns against exactly that, because mobile numbers move with their owners. A 312 number belonging to someone who moved to Los Angeles is a 6 a.m. call if you trust the area code. The safest pattern is a time zone taken from the customer's service or billing address, stored in your CRM, with a conservative window for contacts you cannot place.</p>\n<p><strong>Do-not-call: internal lists are not the national registry</strong></p>\n<p>Retell has the most developed internal do-not-call handling, and it is off by default. With Do-not-contact Handling enabled, the agent confirms the request once, ends the call and marks the contact do-not-call. But marking does not block calls by itself: the Create Phone Call API only refuses a marked number when you pass <code>honor_internal_dnc: true</code>, which defaults to false, and the documentation states plainly that \"Batch calls and inbound calls don't check do_not_call\" (<a href=\"https://docs.retellai.com/build/do-not-call\" target=\"_blank\" rel=\"noopener noreferrer\">Retell do-not-call requests</a>). Its dashboard dialer and campaigns can be set to honor the flag.</p>\n<p>Vapi offers a different tool: a pre-dial webhook that can check consent and suppression status in your own system immediately before each call and return <code>eligible: false</code> to skip a contact. Bland's API documents an error for numbers found on its own do-not-call list. HighLevel limits each number to one Voice AI call per day and fourteen in fourteen days, and tells businesses to keep honoring opt-outs and DND preferences themselves.</p>\n<p>In the documentation we read, none of the five says it scrubs your list against the national Do Not Call Registry for you. That check, against a registry download no more than 31 days old, stays in your pipeline.</p>\n<p><strong>Consent: nobody checks it for you</strong></p>\n<p>HighLevel is the most explicit. Its outbound terms are accepted once per location, and the help center warns that accepting them \"does not establish permission to call an individual contact\". It used to validate consent on forms, surveys and calendars before dialing; its current Flexible Outbound Calling Framework removed that platform-level check and leaves consent records to you (we wrote about the change in <a href=\"/blog/does-gohighlevel-check-consent-before-ai-calls/\">does GoHighLevel check consent before an AI call</a>). ElevenLabs gives sample consent language and says the burden of proving consent is on the caller. Retell, Vapi and Bland document no consent verification at all in the pages we read, and their contracts put compliance on the customer, as we found when we read them for <a href=\"/blog/ai-voice-agent-liability/\">AI voice agent liability</a>.</p>\n<p><strong>What each platform enforces, in one list</strong></p>\n<ul>\n<li><strong>Retell AI:</strong> calling window per batch in one time zone; internal DNC detection and marking, off by default; API dialing honors DNC only when told to; batch calls skip the check.</li>\n<li><strong>Vapi:</strong> calling window per campaign in one time zone; pre-dial eligibility webhook you wire to your CRM; no built-in registry scrub.</li>\n<li><strong>Bland:</strong> per-call time zone and scheduled start; its own DNC list error; content guard rails that can end or transfer a call; no enforced window.</li>\n<li><strong>ElevenLabs:</strong> batch scheduling with a time zone; an end-call tool for opt-outs; a detailed TCPA guide that leaves enforcement to you.</li>\n<li><strong>HighLevel Voice AI:</strong> enforced 8 a.m. to 8 p.m. window per contact by phone-number time zone; per-number frequency caps; 5,000 calls per location per day at up to 10 a minute; domestic calls only; no consent validation.</li>\n</ul>\n<p><strong>What a compliant stack looks like</strong></p>\n<p>A platform is one layer. The compliance comes from what you put around it:</p>\n<ol>\n<li>Consent captured at the source with the exact disclosure text, timestamp and number, stored in the CRM.</li>\n<li>A pre-dial check against that record, your internal list and a national registry copy no older than 31 days.</li>\n<li>Local time from the customer's address, with separate batches per time zone.</li>\n<li>An opening line with your registered business name and an automated opt-out within two seconds, plus handling for spoken opt-outs that writes back to the CRM.</li>\n<li>Recordings and logs retained, because the caller has to prove consent, not the consumer.</li>\n</ol>\n<p>That is the layer we build when we deploy <a href=\"/ai-voice-agents\">AI voice agents</a> for outbound work, whichever platform runs the calls.</p>\n<p><strong>Regulated industries add their own layer</strong></p>\n<p>Insurance and lending carry rules beyond the TCPA. Medicare sales calls face CMS marketing restrictions that ban cold calling outright, covered in our guide to <a href=\"/blog/medicare-aep-ai-calling-rules/\">what CMS lets an AI voice agent do during AEP</a> and built into our <a href=\"/ai-calling-insurance\">AI calling for insurance agencies</a>. Mortgage teams must keep the agent away from anything that looks like quoting or negotiating terms, which we explain in <a href=\"/blog/ai-calling-mortgage-insurance-licensing/\">your AI agent can call your mortgage leads, it cannot quote them</a>; our <a href=\"/ai-calling-mortgage-lending\">mortgage AI calling setup</a> is designed around that line.</p>\n<p><strong>The bottom line</strong></p>\n<p>Pick a platform for voice quality, latency and price, then assume it will not keep you compliant. HighLevel enforces the most by default, Retell has the best internal do-not-call tooling once you switch it on, and Vapi gives developers the cleanest hook for a real consent check. The registry scrub, the consent records and the time zone data are yours in every case. Our <a href=\"/tcpa-compliant-ai-calling\">TCPA-compliant calling build</a> puts those pieces in place before the first call, and our comparison of <a href=\"/blog/best-ai-voice-agents-2026/\">the best AI voice agents on real cost</a> covers what each platform charges.</p>",
+  "faqs": [
+    [
+      "Which AI calling platforms are TCPA compliant?",
+      "None makes a business compliant on its own. HighLevel states it does not validate contact consent before outbound Voice AI calls, ElevenLabs assigns time-zone handling, do-not-call scrubbing and consent records to the business, and Retell, Vapi and Bland document no consent verification. Platforms differ in the guardrails they enforce, such as calling windows and internal do-not-call lists."
+    ],
+    [
+      "Do AI calling platforms enforce TCPA calling hours?",
+      "HighLevel enforces an 8 a.m. to 8 p.m. window per contact based on the phone number's time zone. Retell and Vapi let you set a calling window, but one time zone applies to the whole batch or campaign, so you must split contacts by time zone yourself. Bland schedules per call with a time zone field and ElevenLabs lets you pick a time zone when scheduling a batch."
+    ],
+    [
+      "Does Retell AI honor do-not-call requests automatically?",
+      "Only after you switch it on. Retell's Do-not-contact Handling is off by default; when enabled, the agent confirms the request, ends the call and marks the contact. The API refuses marked numbers only when honor_internal_dnc is set to true, which defaults to false, and Retell's documentation says batch calls do not check the do-not-call flag."
+    ],
+    [
+      "Do these platforms scrub the national Do Not Call Registry?",
+      "None of the five says so in the documentation we read. To keep the safe harbor under 47 CFR 64.1200(c)(2), a seller must use a version of the national registry obtained no more than 31 days before the call, so the scrub belongs in your own pre-dial process."
+    ],
+    [
+      "Is an AI voice an artificial voice under the TCPA?",
+      "Yes. The FCC's declaratory ruling FCC-24-17, released February 8, 2024, confirmed that the TCPA's restrictions on artificial or prerecorded voice cover current AI technologies that generate human voices, so these calls need prior express consent, and written consent when they sell."
+    ],
+    [
+      "Is using the phone number's area code enough to set local calling time?",
+      "It is a weak signal. Vapi's documentation warns against inferring local time from an area code because mobile numbers move with their owners. A time zone taken from the customer's address in your CRM is more reliable, with a conservative window for contacts you cannot place."
+    ]
+  ],
+  "image": {
+    "cluster": "AI calling compliance",
+    "takeaway": "No platform checks consent for you. HighLevel enforces the most; Retell's DNC tools stay off until you enable them.",
+    "alt": "TCPA compliant AI calling: what Retell AI, Vapi, Bland, ElevenLabs and HighLevel enforce for calling hours, do-not-call lists and opt-outs"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Calling hours for telephone solicitations",
+        "value": "8 a.m. to 9 p.m.",
+        "note": "local time at the called party's location, 64.1200(c)(1)"
+      },
+      {
+        "label": "Maximum age of the national registry copy you scrub against",
+        "value": "31 days",
+        "note": "64.1200(c)(2)(i)(D)"
+      },
+      {
+        "label": "Deadline to honor a do-not-call request",
+        "value": "10 business days",
+        "note": "64.1200(d)(3)"
+      },
+      {
+        "label": "How long a do-not-call request must be honored",
+        "value": "5 years",
+        "note": "64.1200(d)(6)"
+      },
+      {
+        "label": "HighLevel Voice AI calling window",
+        "value": "8:00 AM to 8:00 PM",
+        "note": "by the contact's phone-number time zone"
+      },
+      {
+        "label": "HighLevel Voice AI calls per number",
+        "value": "1 a day, 14 in 14 days",
+        "note": "plus 5,000 per location per day"
+      },
+      {
+        "label": "Retell AI do-not-contact handling",
+        "value": "Off by default",
+        "note": "batch calls do not check the flag"
+      },
+      {
+        "label": "Time zones per Vapi campaign",
+        "value": "One",
+        "note": "split audiences into separate campaigns"
+      }
+    ],
+    "source": "47 CFR 64.1200 (eCFR), FCC-24-17, and the outbound calling documentation of Retell AI, Vapi, Bland, ElevenLabs and HighLevel, all read 11 October 2026."
+  }
+}
