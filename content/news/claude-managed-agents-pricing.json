@@ -1,0 +1,126 @@
+{
+  "slug": "claude-managed-agents-pricing",
+  "title": "Claude Managed Agents Pricing: $0.08 an Hour, Plus Tokens",
+  "desc": "Claude Managed Agents bills model tokens plus $0.08 per session-hour of running time. New workflow runs start up to 1,000 agents with no fee of their own.",
+  "keywords": "claude managed agents pricing, claude managed agents cost, managed agents session runtime, claude dynamic workflows, managed agents workflow runs, anthropic agent pricing, claude agent cost per hour, managed agents limits",
+  "date": "2026-10-12",
+  "time": "11:10",
+  "read_time": 3,
+  "word_count": 588,
+  "cta": "Want an agent workflow with a budget you set?",
+  "body": "<p><strong>October 12, 2026.</strong> Claude Managed Agents, Anthropic's hosted agent runtime, bills two things: the model's standard token rates and $0.08 per session-hour of running time, according to Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>. On October 9 Anthropic added dynamic workflows in beta, which let one agent write a program that runs up to 1,000 agents in phases, 64 at a time, and its <a href=\"https://platform.claude.com/docs/en/managed-agents/workflow-runs\" target=\"_blank\" rel=\"noopener noreferrer\">workflow documentation</a> says a run \"has no price of its own\". For a 500-document review on Claude Sonnet 5.5, that puts the bill near $12, almost all of it tokens.</p><p><strong>What Anthropic shipped on October 9</strong></p><ol><li><strong>Dynamic workflows, in beta.</strong> Per the <a href=\"https://platform.claude.com/docs/en/release-notes/overview\" target=\"_blank\" rel=\"noopener noreferrer\">release notes</a>, an agent with workflows turned on can write a workflow, a program that runs many agents in phases and combines their results, and the server runs it in the background. It needs the managed-agents-2026-04-01 beta header and the multiagent_20261001 setting with workflows enabled.</li><li><strong>Only the agent starts a run.</strong> You tell it in the system prompt when to start one, then follow progress through workflow_run events on the session's event stream.</li><li><strong>Limits.</strong> 64 threads working at once in one run, 1,000 agents over a run's life, a 24-hour default lifetime and 10 open runs per session by default. Anthropic says the 64 is not guaranteed and can change.</li><li><strong>Budgets.</strong> A run's model requests count toward the session's budget. At the budget every open run pauses, and raising or removing the budget resumes it.</li></ol><p><strong>How Managed Agents is billed</strong></p><ul><li><strong>Tokens</strong> at each model's standard rates, with the usual prompt caching multipliers. Claude Sonnet 5.5 is $2 per million input and $10 per million output tokens, <a href=\"/blog/claude-haiku-5-5-pricing/\">Claude Haiku 5.5</a> $0.10 and $0.50 for prompts up to 100,000 tokens, Opus 5.5 $4 and $20.</li><li><strong>Session runtime</strong> at $0.08 per session-hour, metered to the millisecond and only while the session is running. Idle time waiting for your next message or a tool confirmation is not billed.</li><li><strong>Web search</strong> inside a session at $10 per 1,000 searches.</li><li><strong>No Batch discount,</strong> because sessions are stateful and interactive, and tokens cost 1.1x when you pin inference to the US.</li></ul><p>Verdent's independent <a href=\"https://www.verdent.ai/guides/claude-managed-agents-pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing guide</a> describes the same $0.08 runtime charge, billed only while a session runs.</p><p><strong>What a 500-document review costs</strong></p><p>Say a workflow hands 500 intake documents to 500 agents, each reading about 8,000 tokens and writing an 800-token summary. That is 4 million input and 400,000 output tokens. Add two hours of session runtime, $0.16. At list prices the job costs about $0.76 on Haiku 5.5, $12.16 on Sonnet 5.5, $24.16 on Opus 5.5 and $60.16 on Claude Fable 5.1, which lists at $10 and $50 per million. The runtime line is the same in every case; the model choice is the bill. The lead agent that writes the workflow and merges the summaries adds its own tokens on top.</p><p><strong>What it means for operators</strong></p><p>Fan-out is the new cost lever. A workflow that quietly starts 1,000 agents multiplies whatever each one reads, so set a session budget before the first real run, put extraction on Haiku and save Sonnet or Opus for the judgment step. For a law firm sorting a week of intake, that is the difference between pennies and tens of dollars per batch, which is how we scope <a href=\"/ai-intake-law-firms\">AI intake for law firms</a>. We first wrote about the runtime fee when Anthropic put its own <a href=\"/blog/anthropic-inbound-sales-agent/\">inbound sales agent</a> on Managed Agents; agencies building these for clients can bring in an <a href=\"/hire-ai-engineer\">AI engineer</a> to set budgets and model routing before handing over the keys.</p>",
+  "faqs": [
+    [
+      "How much does Claude Managed Agents cost?",
+      "Model tokens at Anthropic's standard rates plus $0.08 per session-hour of running time, metered to the millisecond. Web search inside a session costs $10 per 1,000 searches, and idle time is not billed."
+    ],
+    [
+      "Do Claude Managed Agents workflow runs cost extra?",
+      "There is no separate fee. Anthropic's documentation says a run has no price of its own: the tokens its agents use are billed like the session's other tokens, and session runtime is billed as usual."
+    ],
+    [
+      "How many agents can a Managed Agents workflow run?",
+      "Up to 1,000 agents over a run's life, with 64 threads working at once, a 24-hour default lifetime and 10 open runs per session by default. Anthropic says the 64 limit is not guaranteed and can change."
+    ],
+    [
+      "Does the Batch API discount apply to Managed Agents?",
+      "No. Anthropic lists the Batch API discount among the modifiers that do not apply, because sessions are stateful and interactive. Pinning inference to the US multiplies token prices by 1.1."
+    ]
+  ],
+  "image": {
+    "cluster": "AI agents",
+    "takeaway": "Claude Managed Agents bills model tokens plus $0.08 per session-hour, and workflow runs add no fee.",
+    "alt": "Claude Managed Agents pricing: model tokens plus $0.08 per session-hour of running time",
+    "chart": {
+      "title": "Cost of a 500-document review by model",
+      "subtitle": "4 million input and 400,000 output tokens plus two hours of session runtime, at list prices.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Claude Haiku 5.5",
+          0.76
+        ],
+        [
+          "Claude Sonnet 5.5",
+          12.16
+        ],
+        [
+          "Claude Opus 5.5",
+          24.16
+        ],
+        [
+          "Claude Fable 5.1",
+          60.16
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 1,
+      "note": [
+        "Runtime is $0.16",
+        "in every case"
+      ],
+      "source": "Managed Agents list prices, lead agent excluded. Source: platform.claude.com, October 2026",
+      "alt": "Bar chart of the cost of a 500-document review on Claude Managed Agents at list prices: Haiku 5.5 0.76 dollars, Sonnet 5.5 12.16, Opus 5.5 24.16, Fable 5.1 60.16.",
+      "after_heading": "What it means for operators"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Session runtime",
+        "value": "$0.08 per session-hour",
+        "note": "billed only while running"
+      },
+      {
+        "label": "Web search inside a session",
+        "value": "$10 per 1,000 searches"
+      },
+      {
+        "label": "Claude Sonnet 5.5 tokens",
+        "value": "$2 in, $10 out per 1M"
+      },
+      {
+        "label": "Claude Haiku 5.5 tokens",
+        "value": "$0.10 in, $0.50 out per 1M",
+        "note": "prompts up to 100,000 tokens"
+      },
+      {
+        "label": "Claude Opus 5.5 tokens",
+        "value": "$4 in, $20 out per 1M"
+      },
+      {
+        "label": "Threads working at once in one run",
+        "value": "64",
+        "note": "not guaranteed"
+      },
+      {
+        "label": "Agents over a run's life",
+        "value": "1,000"
+      },
+      {
+        "label": "Default run lifetime",
+        "value": "24 hours"
+      },
+      {
+        "label": "Open runs per session",
+        "value": "10",
+        "note": "default"
+      },
+      {
+        "label": "US-only inference",
+        "value": "1.1x token prices"
+      },
+      {
+        "label": "500-document review on Sonnet 5.5",
+        "value": "about $12.16",
+        "note": "4M input, 400,000 output, 2 hours runtime"
+      },
+      {
+        "label": "Dynamic workflows beta",
+        "value": "October 9, 2026"
+      }
+    ],
+    "source": "Prices and limits read on 12 October 2026 from Anthropic's pricing page, Managed Agents workflow runs documentation and release notes; per-job costs at list prices."
+  }
+}

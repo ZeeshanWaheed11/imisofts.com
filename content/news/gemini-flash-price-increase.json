@@ -1,0 +1,154 @@
+{
+  "slug": "gemini-flash-price-increase",
+  "title": "Gemini Flash Price Increase: What Doubles on January 1, 2027",
+  "desc": "Gemini 3.8 Flash and 3.6 Flash rise from $0.75 to $1.50 per million input tokens on January 1, 2027. What doubles, what does not, and how to cut the bill.",
+  "keywords": "gemini flash price increase, gemini 3.8 flash pricing, gemini api price increase 2027, gemini 3.6 flash pricing, gemini flash tts pricing, gemini 3.7 flash deprecated, gemini batch api pricing, gemini flash-lite pricing, gemini api cost for automations",
+  "date": "2026-10-12",
+  "time": "11:15",
+  "read_time": 6,
+  "word_count": 1369,
+  "cta": "Want your Gemini automations re-priced before January?",
+  "body": "<p><strong>October 12, 2026.</strong> Google's introductory price for Gemini 3.8 Flash ends on December 31, 2026. From January 1, 2027 the model costs $1.50 per million input tokens and $7.50 per million output tokens, twice today's $0.75 and $3.75, according to the <a href=\"https://ai.google.dev/gemini-api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini API pricing page</a> and the footnote to Google's <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/\" target=\"_blank\" rel=\"noopener noreferrer\">September 2 launch post</a>. Gemini 3.6 Flash is on the same schedule. For an automation that sends 10,000 requests a month at about 2,000 input and 500 output tokens, the bill goes from $33.75 to $67.50 without a line of code changing. And since October 8, Google routes every gemini-3.7-flash request to 3.8 Flash, per its <a href=\"https://ai.google.dev/gemini-api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">API changelog</a>, so workflows still pinned to the older model already run on the one that doubles.</p><p><strong>What changes on January 1, 2027</strong></p><p>Every dated price on Google's pricing page doubles on New Year's Day: the two current Flash models, the two Flash speech models and Gemini Robotics ER 2 Preview, a model few agencies run. DataCamp's <a href=\"https://www.datacamp.com/blog/gemini-3-8-flash-cyber\" target=\"_blank\" rel=\"noopener noreferrer\">review of Gemini 3.8 Flash</a> reports the same schedule.</p><ol><li><strong>Gemini 3.8 Flash, Standard:</strong> input goes from $0.75 to $1.50 per million tokens and output from $3.75 to $7.50. Google bills thinking tokens at the output rate, so a model that reasons before it answers pays the higher price on those tokens too.</li><li><strong>Gemini 3.6 Flash, Standard:</strong> the identical $0.75 and $3.75 today, then $1.50 and $7.50.</li><li><strong>Batch and Flex:</strong> half of Standard on both models, $0.375 and $1.875 today, $0.75 and $3.75 from January 1.</li><li><strong>Priority:</strong> $1.35 and $6.75 today, $2.70 and $13.50 from January 1.</li><li><strong>Context caching:</strong> cached input goes from $0.075 to $0.15 per million tokens, and storage from $0.50 to $1.00 per million tokens per hour.</li><li><strong>Gemini 3.8 Flash TTS:</strong> text input goes from $0.50 to $1.00 per million tokens and audio output from $9.00 to $18.00 per million, which Google equates to $0.00225 and then $0.0045 per 10 seconds of speech. Gemini 3.8 Flash-Lite TTS goes from $6.00 to $12.00, or $0.0015 to $0.003 per 10 seconds.</li></ol><p><strong>What does not change</strong></p><p>The same page lists no January change for Gemini 3.5 Flash-Lite ($0.30 input and $2.50 output per million tokens), Gemini 3.1 Flash-Lite ($0.25 and $1.50 for text) or the Gemini 3.8 Live voice model ($3.00 per million audio input tokens, about $0.005 a minute, and $12.00 per million audio output tokens, about $0.018 a minute). Grounding with Google Search stays at 5,000 free requests a month, shared across Gemini 3 and newer models, then $14 per 1,000.</p><table><thead><tr><th>Model, paid tier, per 1M tokens</th><th>Through Dec 31, 2026</th><th>From Jan 1, 2027</th></tr></thead><tbody><tr><td>Gemini 3.8 Flash</td><td>$0.75 in, $3.75 out</td><td>$1.50 in, $7.50 out</td></tr><tr><td>Gemini 3.6 Flash</td><td>$0.75 in, $3.75 out</td><td>$1.50 in, $7.50 out</td></tr><tr><td>3.8 Flash on Batch or Flex</td><td>$0.375 in, $1.875 out</td><td>$0.75 in, $3.75 out</td></tr><tr><td>Gemini 3.5 Flash-Lite</td><td>$0.30 in, $2.50 out</td><td>No change listed</td></tr><tr><td>Gemini 3.1 Flash-Lite</td><td>$0.25 in, $1.50 out</td><td>No change listed; shuts down May 7, 2027</td></tr><tr><td>Gemini 3.8 Live, audio output</td><td>$12.00</td><td>No change listed</td></tr></tbody></table><p><strong>The October 8 routing change behind the deadline</strong></p><p>Google's changelog entry of October 8 deprecated two Flash models and pointed their traffic at newer ones automatically, and the <a href=\"https://ai.google.dev/gemini-api/docs/deprecations\" target=\"_blank\" rel=\"noopener noreferrer\">deprecations page</a> lists the dates operators now have to plan around:</p><ul><li><strong>gemini-3.7-flash:</strong> deprecated, with requests routed to gemini-3.8-flash. Google launched 3.8 Flash on September 2 at the same introductory price as 3.7 Flash, so the routing changes the model, not today's price. No shutdown date has been announced.</li><li><strong>gemini-3.5-flash:</strong> deprecated, with requests routed to gemini-3.6-flash, which doubles in January along with 3.8 Flash.</li><li><strong>Deep Research agent:</strong> deep-research-pro-preview-12-2025 shuts down on October 23, 2026. Google's replacements are deep-research-preview-04-2026 and deep-research-max-preview-04-2026.</li><li><strong>gemini-3.1-flash-tts-preview:</strong> shuts down on November 17, 2026, with 3.8 Flash TTS or 3.8 Flash-Lite TTS as the replacements, both of which double about six weeks later.</li><li><strong>gemini-3.1-flash-lite:</strong> shuts down on May 7, 2027, replaced by 3.5 Flash-Lite.</li></ul><p><strong>What 10,000 requests a month cost before and after</strong></p><p>Take a typical agency workflow: an n8n or Make scenario that classifies an inbound lead, drafts a reply and writes a summary to the CRM, run 10,000 times a month at about 2,000 input tokens and 500 output tokens each, thinking included. That is 20 million input and 5 million output tokens a month. At list prices:</p><ul><li>Gemini 3.8 Flash today: $15.00 for input plus $18.75 for output, $33.75 a month.</li><li>Gemini 3.8 Flash from January 1: $30.00 plus $37.50, $67.50 a month.</li><li>Gemini 3.8 Flash on Batch or Flex from January 1: $33.75, the same as today's Standard bill.</li><li>Gemini 3.5 Flash-Lite: $6.00 plus $12.50, $18.50 a month, with no January change listed.</li><li>Claude Sonnet 5.5 and GPT-6.1 Sol, both $2 and $10 per million at list price on <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic's pricing page</a> and <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">OpenAI's pricing page</a>: $90.00 a month.</li><li>Claude Haiku 5.5 and GPT-6 Luna, both $0.10 and $0.50 per million: $4.50 a month.</li></ul><p>So even at $1.50 and $7.50, Gemini 3.8 Flash stays a quarter below the mid-tier models from Anthropic and OpenAI at list price, while the small models we priced in <a href=\"/blog/claude-haiku-5-5-pricing/\">Claude Haiku 5.5 pricing</a> cost a fraction of either for routing and extraction. The jump matters less inside one workflow than as a line item multiplied across every client account an agency runs on Flash.</p><p><strong>Voice agents: speech doubles, Live audio does not</strong></p><p>If an <a href=\"/ai-calling-home-services\">AI receptionist for a home-services business</a>, like the ones we compare for an <a href=\"/blog/ai-answering-service-for-hvac/\">AI answering service for HVAC</a>, speaks through Gemini 3.8 Flash TTS, its voice gets twice as expensive. At 1,000 calls a month with 90 seconds of agent speech each, 1,500 minutes of audio cost $20.25 today and $40.50 from January 1. Flash-Lite TTS moves from $13.50 to $27.00. Gemini 3.8 Live, the speech-to-speech model, lists no January change: about $0.018 a minute for its spoken output, $27.00 for the same 1,500 minutes, plus about $0.005 a minute for the caller's audio. Those are different architectures, so test call quality before switching on price alone. We break down the rest of a call in <a href=\"/blog/ai-receptionist-cost/\">what an AI receptionist costs</a>, and build these stacks as <a href=\"/ai-voice-agents\">AI voice agents</a>.</p><p><strong>What it means for operators</strong></p><p>Three things change on January 1 without anyone touching a workflow. Budgets set in the fourth quarter on today's rates cover half of what the same usage costs in the first quarter. Fixed-fee automation retainers priced on 3.8 Flash lose margin on the first invoice of the year. And any client still calling gemini-3.7-flash or gemini-3.5-flash is now served by 3.8 Flash or 3.6 Flash, both on the January schedule, so the model string in an old workflow no longer tells you which model, or which price list, you are on. The opportunity sits in the same table: Batch and Flex at half price, 3.5 Flash-Lite at a fifth of the January input price, and cache reads at a tenth of input.</p><p><strong>How to cut the January bill before it lands</strong></p><ol><li><strong>Inventory model strings.</strong> List every workflow, its model and its monthly tokens from the usage dashboard, including anything still on 3.7 Flash or 3.5 Flash.</li><li><strong>Move work nobody waits for to Batch or Flex.</strong> Lead enrichment, nightly summaries and bulk classification at half price cost in January what Standard costs today.</li><li><strong>Send simple steps to Flash-Lite.</strong> Routing, tagging and extraction often pass on Gemini 3.5 Flash-Lite at $0.30 and $2.50. Run your own test set first.</li><li><strong>Cache the shared prompt.</strong> A long system prompt or knowledge block read on every call costs $0.15 per million as a cache read from January, against $1.50 uncached.</li><li><strong>Watch thinking tokens.</strong> They bill at the output rate, so a routine step that reasons at length pays $7.50 per million for it.</li><li><strong>Re-price retainers now.</strong> Show clients the January number before the invoice does.</li></ol><p>If you would rather hand the audit off, our <a href=\"/hire-n8n-developer\">n8n developers</a> re-route model calls inside existing workflows, and our <a href=\"/ai-automation-agency\">AI automation agency</a> team re-prices client stacks across Gemini, Claude and OpenAI.</p><p><strong>What we do not know yet</strong></p><p>Google has not said whether the introductory rate could be extended, and it has announced no shutdown date for gemini-3.7-flash or gemini-3.5-flash. The prices here are the Gemini Developer API's paid-tier list prices as read on October 12, 2026.</p>",
+  "faqs": [
+    [
+      "When does the Gemini Flash price increase take effect?",
+      "On January 1, 2027. Google's introductory price for Gemini 3.8 Flash expires on December 31, 2026, per the footnote to its September 2 launch post, and the Gemini API pricing page lists the same date for Gemini 3.6 Flash and the 3.8 Flash speech models."
+    ],
+    [
+      "How much will Gemini 3.8 Flash cost in 2027?",
+      "$1.50 per million input tokens and $7.50 per million output tokens on the Standard paid tier, up from $0.75 and $3.75. Batch and Flex requests cost half that, $0.75 and $3.75, and cached input costs $0.15 per million."
+    ],
+    [
+      "Does the increase apply to Gemini 3.6 Flash and Batch requests?",
+      "Yes. Gemini 3.6 Flash has the same $0.75 and $3.75 introductory rate and the same $1.50 and $7.50 price from January 1, and the Batch, Flex and Priority rates for both models double on the same date."
+    ],
+    [
+      "What happened to Gemini 3.7 Flash?",
+      "Google deprecated gemini-3.7-flash on October 8, 2026 and now routes its requests to gemini-3.8-flash automatically. 3.8 Flash launched at the same introductory price as 3.7 Flash, so the routing does not change today's list price, and the model those requests now reach doubles in price on January 1. No shutdown date has been announced."
+    ],
+    [
+      "Which Gemini models are not getting more expensive?",
+      "Google's pricing page lists no January change for Gemini 3.5 Flash-Lite ($0.30 and $2.50 per million tokens), Gemini 3.1 Flash-Lite ($0.25 and $1.50, shutting down May 7, 2027) or Gemini 3.8 Live (about $0.005 a minute of audio in and $0.018 a minute out). Grounding with Google Search also stays at $14 per 1,000 requests after 5,000 free a month."
+    ],
+    [
+      "How can I keep my Gemini API bill flat in 2027?",
+      "Move jobs that do not need an instant answer to Batch or Flex, which cost half of Standard, route simple steps to Gemini 3.5 Flash-Lite, cache long shared prompts and limit thinking on routine steps. Batch alone brings a 3.8 Flash workload back to today's Standard price."
+    ]
+  ],
+  "image": {
+    "cluster": "AI pricing",
+    "takeaway": "Gemini 3.8 Flash goes from $0.75 to $1.50 per million input tokens on January 1, 2027.",
+    "alt": "Gemini Flash price increase: Gemini 3.8 Flash input rises from $0.75 to $1.50 per million tokens on January 1, 2027",
+    "chart": {
+      "title": "Monthly cost of 10,000 requests",
+      "subtitle": "2,000 input and 500 output tokens each, paid-tier list prices, before and after January 1, 2027.",
+      "type": "hbar",
+      "rows": [
+        [
+          "3.8 Flash, today",
+          33.75
+        ],
+        [
+          "3.8 Flash, from Jan 1",
+          67.5
+        ],
+        [
+          "3.8 Flash Batch, Jan 1",
+          33.75
+        ],
+        [
+          "3.5 Flash-Lite",
+          18.5
+        ],
+        [
+          "Claude Sonnet 5.5",
+          90
+        ],
+        [
+          "GPT-6.1 Sol",
+          90
+        ],
+        [
+          "Claude Haiku 5.5",
+          4.5
+        ],
+        [
+          "GPT-6 Luna",
+          4.5
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 1,
+      "note": [
+        "Same usage, twice",
+        "the bill from Jan 1"
+      ],
+      "source": "20M input and 5M output tokens a month at list prices. Source: ai.google.dev, October 2026",
+      "alt": "Bar chart of the monthly cost of 10,000 requests at list prices: Gemini 3.8 Flash 33.75 dollars today and 67.50 from January 1, 3.8 Flash on Batch 33.75 from January 1, Gemini 3.5 Flash-Lite 18.50, Claude Sonnet 5.5 and GPT-6.1 Sol 90 each, Claude Haiku 5.5 and GPT-6 Luna 4.50 each.",
+      "after_heading": "Voice agents: speech doubles, Live audio does not"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Gemini 3.8 Flash input, through Dec 31, 2026",
+        "value": "$0.75 per 1M tokens",
+        "note": "introductory price"
+      },
+      {
+        "label": "Gemini 3.8 Flash input, from Jan 1, 2027",
+        "value": "$1.50 per 1M tokens"
+      },
+      {
+        "label": "Gemini 3.8 Flash output, through Dec 31, 2026",
+        "value": "$3.75 per 1M tokens",
+        "note": "thinking tokens included"
+      },
+      {
+        "label": "Gemini 3.8 Flash output, from Jan 1, 2027",
+        "value": "$7.50 per 1M tokens"
+      },
+      {
+        "label": "Gemini 3.6 Flash",
+        "value": "same schedule",
+        "note": "$0.75 and $3.75, then $1.50 and $7.50"
+      },
+      {
+        "label": "Batch and Flex, from Jan 1, 2027",
+        "value": "$0.75 in, $3.75 out per 1M",
+        "note": "half of Standard"
+      },
+      {
+        "label": "Cached input, from Jan 1, 2027",
+        "value": "$0.15 per 1M tokens",
+        "note": "storage $1.00 per 1M tokens per hour"
+      },
+      {
+        "label": "Gemini 3.8 Flash TTS audio, from Jan 1, 2027",
+        "value": "$0.0045 per 10 seconds",
+        "note": "$0.00225 today"
+      },
+      {
+        "label": "Gemini 3.5 Flash-Lite",
+        "value": "$0.30 in, $2.50 out per 1M",
+        "note": "no January change listed"
+      },
+      {
+        "label": "Gemini 3.8 Live spoken output",
+        "value": "about $0.018 a minute",
+        "note": "no January change listed"
+      },
+      {
+        "label": "Deep Research preview agent shutdown",
+        "value": "October 23, 2026",
+        "note": "deep-research-pro-preview-12-2025"
+      },
+      {
+        "label": "10,000 requests a month, 2,000 in and 500 out",
+        "value": "$33.75 today, $67.50 from Jan 1"
+      }
+    ],
+    "source": "Prices and dates read on 12 October 2026 from Google's Gemini API pricing page, API changelog and deprecations page, and the 2 September Gemini 3.8 Flash launch post; per-workload costs at list prices."
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "slug": "openai-ultrafast-pricing",
+  "title": "OpenAI Ultrafast Pricing: $12 In, $60 Out on GPT-6.1 Sol",
+  "desc": "OpenAI's Ultrafast mode for GPT-6.1 Sol costs $12 per million input and $60 per million output tokens, six times Standard, for up to 8x the speed. When it pays.",
+  "keywords": "openai ultrafast pricing, openai ultrafast mode, gpt-6.1 sol ultrafast price, ultrafast vs fast mode openai, openai service tiers pricing, gpt-6 astra ultrafast, openai fast mode pricing, ultrafast rate limits",
+  "date": "2026-10-12",
+  "time": "11:05",
+  "read_time": 3,
+  "word_count": 575,
+  "cta": "Want a voice agent tuned for speed and cost?",
+  "body": "<p><strong>October 12, 2026.</strong> OpenAI's Ultrafast mode for GPT-6.1 Sol costs $12 per million input tokens and $60 per million output tokens, six times the Standard rate of $2 and $10, according to OpenAI's <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">API pricing page</a>. OpenAI's <a href=\"https://community.openai.com/t/ultrafast-is-rolling-out-today-for-gpt-6-1-sol-in-the-api-codex-and-chatgpt-work/1404475\" target=\"_blank\" rel=\"noopener noreferrer\">launch post</a> promises near-Astra intelligence at up to 8x the speed of Sol Standard. Since October 8 it is open to all API users, per the <a href=\"https://developers.openai.com/api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">API changelog</a>. A request with 3,000 input and 300 output tokens costs $0.009 on Standard and $0.054 on Ultrafast.</p><p><strong>What OpenAI shipped on October 8</strong></p><ol><li><strong>A service tier, not a new model.</strong> You call gpt-6.1-sol with service_tier set to ultrafast in the Responses API. OpenAI says it reduces the time between generated output tokens.</li><li><strong>Open to every API account,</strong> with its own rate limits, separate from Standard and Fast. GPT-6.1 Sol defaults to 1,000,000 tokens a minute on the Build tier, 4,000,000 on Launch and 40,000,000 on Grow, per the <a href=\"https://developers.openai.com/api/docs/guides/ultrafast-mode\" target=\"_blank\" rel=\"noopener noreferrer\">Ultrafast guide</a>. We explained those three tiers in <a href=\"/blog/openai-api-usage-tiers/\">OpenAI's new usage tiers</a>.</li><li><strong>GPT-6 Astra has it too,</strong> at $60 and $300 per million, with lower limits of 500,000, 1,000,000 and 5,000,000 tokens a minute.</li><li><strong>Long prompts cost more again.</strong> Over 272,000 input tokens, Sol Ultrafast is $24 input and $90 output per million for the whole request, the same 2x input and 1.5x output uplift the <a href=\"https://developers.openai.com/api/docs/models/gpt-6.1-sol\" target=\"_blank\" rel=\"noopener noreferrer\">GPT-6.1 Sol model page</a> applies on every tier.</li><li><strong>Data residency:</strong> Sol Ultrafast supports US and EU residency; Astra Ultrafast supports the US only.</li><li><strong>In ChatGPT Work and Codex,</strong> access is limited to the $500 Pro plan and eligible Enterprise and Edu workspaces, and Enterprise admins must switch it on.</li></ol><p>Latenode's <a href=\"https://latenode.com/news/openai-rolls-out-ultrafast-for-gpt-6-1-sol\" target=\"_blank\" rel=\"noopener noreferrer\">report</a> confirms the $12 and $60 pricing and the plan limits. We covered the August preview, when no price had been published, in <a href=\"/blog/openai-ultrafast-mode-cerebras-voice-commerce-news-august-14-2026/\">OpenAI's Ultrafast preview</a>.</p><p><strong>Standard, Fast or Ultrafast: the price of speed</strong></p><p>OpenAI now sells GPT-6.1 Sol at three speeds. Standard is $2 and $10 per million. Fast, which replaced priority processing on July 30, is $4 and $20 for up to 2.5x the speed, per OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/fast-mode\" target=\"_blank\" rel=\"noopener noreferrer\">Fast mode guide</a>. Ultrafast is $12 and $60 for up to 8x. Batch and Flex sit below at $1 and $5. For 10,000 requests a month at 3,000 input and 300 output tokens:</p><ul><li>Batch or Flex: $45</li><li>Standard: $90</li><li>Fast: $180</li><li>Ultrafast: $540</li><li>GPT-6 Astra on Standard, for comparison: $450</li></ul><p>Ultrafast costs three times Fast for a little over three times the speed, 8x against 2.5x, at OpenAI's upper bounds. Measure your own latency before you pay for either.</p><p><strong>What it means for operators</strong></p><p>Ultrafast is a price paid per token for time saved per answer, so it only pays where a person or a process is waiting on long output. OpenAI's examples are debugging an outage, agents navigating apps and live experiences where every second counts. Bulk work such as enrichment, summaries and lead scoring belongs on Batch at a twelfth of the price. For voice, test before you pay: a phone agent's replies are short, and Ultrafast cuts the time between output tokens, so on a 30-word answer the gain may be small next to speech recognition and text to speech. If you run an <a href=\"/ai-calling-home-services\">AI receptionist for a home-services business</a>, measure end-to-end response time on real calls before moving it to Ultrafast, and use the WebSocket connection OpenAI recommends so network overhead does not eat the gain. Our <a href=\"/ai-voice-agents\">AI voice agent</a> builds start with that latency test.</p>",
+  "faqs": [
+    [
+      "How much does OpenAI Ultrafast mode cost?",
+      "For GPT-6.1 Sol, $12 per million input tokens, $0.60 for cached input, $15 for cache writes and $60 per million output tokens, six times Standard. Prompts over 272,000 tokens cost $24 and $90. GPT-6 Astra in Ultrafast mode is $60 and $300."
+    ],
+    [
+      "How fast is Ultrafast compared with Standard?",
+      "OpenAI says up to 8x faster than GPT-6.1 Sol Standard, with near-Astra intelligence. Fast mode, at twice the Standard price, is up to 2.5x faster. Both are upper bounds, so test with your own prompts."
+    ],
+    [
+      "Who can use OpenAI Ultrafast mode?",
+      "All OpenAI API users since October 8, 2026, under separate Ultrafast rate limits of 1,000,000 tokens a minute on Build, 4,000,000 on Launch and 40,000,000 on Grow for GPT-6.1 Sol. In ChatGPT Work and Codex it is limited to the $500 Pro plan and eligible Enterprise and Edu workspaces."
+    ],
+    [
+      "Is Ultrafast worth it for an AI voice agent?",
+      "Only if your measured latency improves. OpenAI says Ultrafast cuts the time between generated output tokens, and phone replies are short, so speech recognition and text to speech may dominate the delay. Test end-to-end response time on real calls before paying six times Standard."
+    ]
+  ],
+  "image": {
+    "cluster": "AI pricing",
+    "takeaway": "GPT-6.1 Sol in Ultrafast mode costs $12 per million input and $60 per million output tokens.",
+    "alt": "OpenAI Ultrafast pricing: GPT-6.1 Sol at $12 per million input and $60 per million output tokens",
+    "chart": {
+      "title": "Cost of 10,000 GPT-6.1 Sol requests by tier",
+      "subtitle": "3,000 input and 300 output tokens each, at OpenAI list prices for prompts under 272,000 tokens.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Batch or Flex",
+          45
+        ],
+        [
+          "Standard",
+          90
+        ],
+        [
+          "Fast",
+          180
+        ],
+        [
+          "GPT-6 Astra Standard",
+          450
+        ],
+        [
+          "Ultrafast",
+          540
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 4,
+      "note": [
+        "Six times Standard",
+        "for up to 8x speed"
+      ],
+      "source": "GPT-6.1 Sol list prices, short context. Source: developers.openai.com, October 2026",
+      "alt": "Bar chart of the cost of 10,000 GPT-6.1 Sol requests at list prices: Batch or Flex 45 dollars, Standard 90, Fast 180, GPT-6 Astra on Standard 450, Ultrafast 540.",
+      "after_heading": "What it means for operators"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "GPT-6.1 Sol Ultrafast, input",
+        "value": "$12 per 1M tokens"
+      },
+      {
+        "label": "GPT-6.1 Sol Ultrafast, cached input",
+        "value": "$0.60 per 1M tokens"
+      },
+      {
+        "label": "GPT-6.1 Sol Ultrafast, output",
+        "value": "$60 per 1M tokens"
+      },
+      {
+        "label": "Sol Ultrafast, prompts over 272,000 tokens",
+        "value": "$24 in, $90 out per 1M"
+      },
+      {
+        "label": "GPT-6.1 Sol Standard",
+        "value": "$2 in, $10 out per 1M"
+      },
+      {
+        "label": "GPT-6.1 Sol Fast",
+        "value": "$4 in, $20 out per 1M",
+        "note": "up to 2.5x faster"
+      },
+      {
+        "label": "Ultrafast speed vs Sol Standard",
+        "value": "up to 8x",
+        "note": "per OpenAI"
+      },
+      {
+        "label": "GPT-6 Astra Ultrafast",
+        "value": "$60 in, $300 out per 1M"
+      },
+      {
+        "label": "Sol Ultrafast rate limit, Build tier",
+        "value": "1,000,000 tokens a minute",
+        "note": "Launch 4,000,000, Grow 40,000,000"
+      },
+      {
+        "label": "Open to all API users since",
+        "value": "October 8, 2026"
+      },
+      {
+        "label": "One request, 3,000 in and 300 out",
+        "value": "$0.009 Standard, $0.054 Ultrafast"
+      }
+    ],
+    "source": "Prices and limits read on 12 October 2026 from OpenAI's API pricing page, Ultrafast and Fast mode guides, API changelog and launch post; per-request costs at list prices."
+  }
+}
