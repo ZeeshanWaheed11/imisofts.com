@@ -10,12 +10,15 @@
 <meta property="og:title" content="Microsoft SMTP AUTH Basic Auth Deprecation: What Breaks in December">
 <meta property="og:description" content="Microsoft switches off password logins for SMTP AUTH by default at the end of December 2026. What breaks in cold email, and the report that finds it today.">
 <meta property="og:url" content="https://imisofts.com/blog/smtp-auth-basic-authentication-deprecation/">
-<meta property="og:image" content="https://imisofts.com/og-image.jpg">
+<meta property="og:image" content="https://imisofts.com/assets/blog/smtp-auth-basic-authentication-deprecation/hero-bea106cc.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="Microsoft SMTP AUTH Basic auth deprecation: password logins to smtp.office365.com are off by default in existing tenants from the end of December 2026">
 <meta property="og:site_name" content="imisofts">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Microsoft SMTP AUTH Basic Auth Deprecation: What Breaks in December">
 <meta name="twitter:description" content="Microsoft switches off password logins for SMTP AUTH by default at the end of December 2026. What breaks in cold email, and the report that finds it today.">
-<meta name="twitter:image" content="https://imisofts.com/og-image.jpg">
+<meta name="twitter:image" content="https://imisofts.com/assets/blog/smtp-auth-basic-authentication-deprecation/hero-bea106cc.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -1292,39 +1295,41 @@
 <link rel="stylesheet" href="/blog/blog-visuals.css">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Microsoft SMTP AUTH Basic Auth Deprecation: What Breaks in December",
-  "description": "Microsoft switches off password logins for SMTP AUTH by default at the end of December 2026. What breaks in cold email, and the report that finds it today.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://imisofts.com/blog/smtp-auth-basic-authentication-deprecation/"
-  },
-  "author": {
-    "@type": "Person",
-    "@id": "https://imisofts.com/author/zeeshan-waheed/#person",
-    "name": "Zeeshan Waheed",
-    "url": "https://imisofts.com/author/zeeshan-waheed/",
-    "jobTitle": "Founder & CEO, imisofts",
-    "sameAs": [
-      "https://www.linkedin.com/in/izeeshanwaheed"
-    ]
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "imisofts",
-    "url": "https://imisofts.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://imisofts.com/og-image.jpg"
-    }
-  },
-  "datePublished": "2026-10-13",
-  "dateModified": "2026-10-13",
-  "image": "https://imisofts.com/og-image.jpg",
-  "articleSection": "Founder's Playbook",
-  "keywords": "smtp auth basic authentication deprecation, microsoft smtp auth deprecation date, office 365 smtp basic authentication end of life, smtp basic auth retirement, exchange online smtp auth basic authentication december 2026, outlook inbox cold email smtp basic auth, 550 5.7.30 basic authentication is not supported",
-  "inLanguage": "en"
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Microsoft SMTP AUTH Basic Auth Deprecation: What Breaks in December",
+ "description": "Microsoft switches off password logins for SMTP AUTH by default at the end of December 2026. What breaks in cold email, and the report that finds it today.",
+ "mainEntityOfPage": {
+  "@type": "WebPage",
+  "@id": "https://imisofts.com/blog/smtp-auth-basic-authentication-deprecation/"
+ },
+ "author": {
+  "@type": "Person",
+  "@id": "https://imisofts.com/author/zeeshan-waheed/#person",
+  "name": "Zeeshan Waheed",
+  "url": "https://imisofts.com/author/zeeshan-waheed/",
+  "jobTitle": "Founder & CEO, imisofts",
+  "sameAs": [
+   "https://www.linkedin.com/in/izeeshanwaheed"
+  ]
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "imisofts",
+  "url": "https://imisofts.com/",
+  "logo": {
+   "@type": "ImageObject",
+   "url": "https://imisofts.com/og-image.jpg"
+  }
+ },
+ "datePublished": "2026-10-13",
+ "dateModified": "2026-10-13",
+ "image": [
+  "https://imisofts.com/assets/blog/smtp-auth-basic-authentication-deprecation/hero-bea106cc.jpg"
+ ],
+ "articleSection": "Founder's Playbook",
+ "keywords": "smtp auth basic authentication deprecation, microsoft smtp auth deprecation date, office 365 smtp basic authentication end of life, smtp basic auth retirement, exchange online smtp auth basic authentication december 2026, outlook inbox cold email smtp basic auth, 550 5.7.30 basic authentication is not supported",
+ "inLanguage": "en"
 }
 </script>
 <script type="application/ld+json">
@@ -1797,14 +1802,45 @@ Table of Contents
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
 </button>
 <div class="mobile-toc-content">
-<ul class="toc-list"><li><a href="#three-dates">Microsoft has set three dates. The third flips the default</a></li><li><a href="#box-or-password">The box stays ticked. The password stops working</a></li><li><a href="#password-path">Who is on the password path</a></li><li><a href="#moves">Four moves before the end of December</a></li><li><a href="#bottom-line">The bottom line</a></li><li><a href="#faq">Frequently Asked Questions</a></li></ul>
+<ul class="toc-list">
+<li><a href="#key-numbers">Key numbers</a></li>
+<li><a href="#three-dates">Microsoft has set three dates. The third flips the default</a></li>
+<li><a href="#box-or-password">The box stays ticked. The password stops working</a></li>
+<li><a href="#password-path">Who is on the password path</a></li>
+<li><a href="#moves">Four moves before the end of December</a></li>
+<li><a href="#bottom-line">The bottom line</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
 </div>
 </div>
 
 <div class="blog-content-layout">
 <article class="article-content"><p>Microsoft will switch off Basic authentication for SMTP AUTH by default in existing Exchange Online tenants at the end of December 2026. Admins can still turn it back on, tenants created after December 2026 will not have it by default, and Microsoft says it will announce the final removal date in the second half of 2027. Anything that logs in to smtp.office365.com with a username and password is on the affected path; OAuth is the method Microsoft names as supported.</p>
+<figure class="post-hero" style="margin:0 0 8px"><img src="/assets/blog/smtp-auth-basic-authentication-deprecation/hero-bea106cc.webp" width="1200" height="675" alt="Microsoft SMTP AUTH Basic auth deprecation: password logins to smtp.office365.com are off by default in existing tenants from the end of December 2026" loading="eager" fetchpriority="high" decoding="async"></figure>
+
 <p>It is easy to read that as the end of SMTP for Outlook inboxes. It is not. The Authenticated SMTP box you ticked to connect them to your sequencer is not what Microsoft is switching off. The password login is. If your inboxes went in through a Microsoft sign-in screen, this change is not aimed at them. If they went in as a list of usernames and passwords, it is.</p>
 <div class="bv-pullquote bv-rise"><svg class="bv-pullquote__art" viewBox="0 0 200 200" fill="none"><g stroke="#F45407"><circle cx="145" cy="55" r="22" stroke-width="2"></circle><circle cx="145" cy="55" r="42" stroke-width="2" opacity=".5"></circle><circle cx="145" cy="55" r="64" stroke-width="2" opacity=".26"></circle><circle cx="145" cy="55" r="88" stroke-width="2" opacity=".12"></circle></g><circle cx="145" cy="55" r="6" fill="#F45407"></circle></svg><span class="bv-pullquote__bar"></span><p class="bv-dsp">Microsoft is not switching off the box. It is switching off the password.</p></div>
+<section class="key-numbers" id="key-numbers-block" style="margin:28px 0;padding:18px 20px 14px;border:1px solid #E5E7EB;border-radius:12px;background:#FAFAFA">
+<h2 id="key-numbers">Key numbers</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;line-height:1.45">
+<thead><tr><th style="text-align:left;padding:6px;border-bottom:2px solid #E5E7EB;font-size:13px;color:#6B7280;font-weight:600">Item</th><th style="text-align:right;padding:6px;border-bottom:2px solid #E5E7EB;font-size:13px;color:#6B7280;font-weight:600">Number</th></tr></thead>
+<tbody>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">Basic auth for SMTP AUTH off by default, existing tenants <span style="color:#6B7280;font-weight:400">(admins can still turn it back on)</span></td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">End of December 2026</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">New tenants start without it by default</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">Created after December 2026</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">Final removal date to be announced</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">Second half of 2027</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">Date Microsoft revised the timeline</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">27 January 2026</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">First removal date, announced 15 April 2024</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">September 2025</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">Second plan, first Basic auth rejections</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">1 March 2026</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">Second plan, all Basic auth rejected</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">30 April 2026</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">SMTP AUTH client submission port <span style="color:#6B7280;font-weight:400">(smtp.office365.com)</span></td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">587</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">Response once Basic auth is permanently disabled</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">550 5.7.30</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">SMTP AUTH Clients report range, default and longest</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">7 and 90 days</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">Smartlead wait after ticking Authenticated SMTP</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">20 to 30 minutes</td></tr>
+<tr><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top">HVE accounts per tenant, internal recipients only</td><td style="padding:9px 6px;border-bottom:1px solid #EEF0F3;vertical-align:top;text-align:right;font-weight:600;white-space:nowrap">Up to 100</td></tr>
+</tbody>
+</table>
+<p style="font-size:13px;color:#6B7280;margin:10px 0 0">Read on 13 October 2026: the Exchange Team blog posts of 15 April 2024 and 27 January 2026, Microsoft Learn pages on SMTP AUTH, the SMTP AUTH Clients report and High Volume Email, and Smartlead’s Outlook connection guide.</p>
+</section>
 <h2 id="three-dates">Microsoft has set three dates. The third flips the default</h2>
 <p>Microsoft announced the retirement on 15 April 2024, with Basic authentication gone from SMTP AUTH in September 2025. It later moved that to a ramp: a small share of Basic auth submissions rejected from 1 March 2026, all of them by 30 April 2026. On 27 January 2026 it replaced the ramp with the schedule above, saying customers need “sufficient time to adopt viable, secure alternatives.”</p>
 <p>The old plans rejected traffic. The new one changes a default. Until the end of December, nothing changes. Then Basic authentication for SMTP AUTH is off in existing tenants unless an admin switches it back on, and a tenant created after December starts without it. Microsoft’s 2024 announcement gives the response once Basic auth is permanently disabled as 550 5.7.30, “Basic authentication is not supported for Client Submission,” and WP Mail SMTP’s troubleshooting guide lists that one beside 535 5.7.139, “basic authentication is disabled.”</p>
@@ -1880,7 +1916,15 @@ Book a 30-Minute Call
 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path></svg>
 Contents
 </div>
-<ul class="toc-list"><li><a href="#three-dates">Microsoft has set three dates. The third flips the default</a></li><li><a href="#box-or-password">The box stays ticked. The password stops working</a></li><li><a href="#password-path">Who is on the password path</a></li><li><a href="#moves">Four moves before the end of December</a></li><li><a href="#bottom-line">The bottom line</a></li><li><a href="#faq">Frequently Asked Questions</a></li></ul>
+<ul class="toc-list">
+<li><a href="#key-numbers">Key numbers</a></li>
+<li><a href="#three-dates">Microsoft has set three dates. The third flips the default</a></li>
+<li><a href="#box-or-password">The box stays ticked. The password stops working</a></li>
+<li><a href="#password-path">Who is on the password path</a></li>
+<li><a href="#moves">Four moves before the end of December</a></li>
+<li><a href="#bottom-line">The bottom line</a></li>
+<li><a href="#faq">Frequently Asked Questions</a></li>
+</ul>
 </nav>
 <div class="sidebar-card"><h3>Email Infrastructure</h3><p>Sending domains, mailboxes, SPF, DKIM and DMARC, built so your main domain is never at risk and every asset sits in your own accounts.</p><a href="/email-infrastructure" class="btn">See the Service</a></div>
 <div class="sidebar-card">
