@@ -1,0 +1,77 @@
+{
+  "slug": "smtp-auth-basic-authentication-deprecation",
+  "title": "Microsoft SMTP AUTH Basic Auth Deprecation: What Breaks in December",
+  "meta_description": "Microsoft switches off password logins for SMTP AUTH by default at the end of December 2026. What breaks in cold email, and the report that finds it today.",
+  "primary_keyword": "smtp auth basic authentication deprecation",
+  "secondary_keywords": [
+    "microsoft smtp auth deprecation date",
+    "office 365 smtp basic authentication end of life",
+    "smtp basic auth retirement",
+    "exchange online smtp auth basic authentication december 2026",
+    "outlook inbox cold email smtp basic auth",
+    "550 5.7.30 basic authentication is not supported"
+  ],
+  "date": "2026-10-13",
+  "word_count": 883,
+  "read_time": 5,
+  "image": {
+    "cluster": "Email infrastructure",
+    "takeaway": "Basic auth for SMTP AUTH is off by default in existing tenants from the end of December 2026. OAuth is supported.",
+    "alt": "Microsoft SMTP AUTH Basic auth deprecation: password logins to smtp.office365.com are off by default in existing tenants from the end of December 2026"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Basic auth for SMTP AUTH off by default, existing tenants",
+        "value": "End of December 2026",
+        "note": "admins can still turn it back on"
+      },
+      {
+        "label": "New tenants start without it by default",
+        "value": "Created after December 2026"
+      },
+      {
+        "label": "Final removal date to be announced",
+        "value": "Second half of 2027"
+      },
+      {
+        "label": "Date Microsoft revised the timeline",
+        "value": "27 January 2026"
+      },
+      {
+        "label": "First removal date, announced 15 April 2024",
+        "value": "September 2025"
+      },
+      {
+        "label": "Second plan, first Basic auth rejections",
+        "value": "1 March 2026"
+      },
+      {
+        "label": "Second plan, all Basic auth rejected",
+        "value": "30 April 2026"
+      },
+      {
+        "label": "SMTP AUTH client submission port",
+        "value": "587",
+        "note": "smtp.office365.com"
+      },
+      {
+        "label": "Response once Basic auth is permanently disabled",
+        "value": "550 5.7.30"
+      },
+      {
+        "label": "SMTP AUTH Clients report range, default and longest",
+        "value": "7 and 90 days"
+      },
+      {
+        "label": "Smartlead wait after ticking Authenticated SMTP",
+        "value": "20 to 30 minutes"
+      },
+      {
+        "label": "HVE accounts per tenant, internal recipients only",
+        "value": "Up to 100"
+      }
+    ],
+    "source": "Read on 13 October 2026: the Exchange Team blog posts of 15 April 2024 and 27 January 2026, Microsoft Learn pages on SMTP AUTH, the SMTP AUTH Clients report and High Volume Email, and Smartlead’s Outlook connection guide."
+  }
+}
