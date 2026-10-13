@@ -1,0 +1,143 @@
+{
+ "slug": "youtube-api-pricing",
+ "title": "YouTube API Pricing: No Listed Fee, 100 Search Calls a Day",
+ "desc": "Google lists no fee for the YouTube Data API, only quota: 100 search calls and 100 uploads a day per project, plus 10,000 units. Apify's scraper prices too.",
+ "date": "2026-10-13",
+ "time": "16:30",
+ "keywords": "youtube api pricing, youtube data api pricing, youtube api quota, youtube data api quota, youtube api cost, is youtube api free, youtube api free limit, youtube api quota increase, youtube api quota reset time, youtube api quota exceeded, youtube search api quota, youtube data api v3 pricing, youtube scraper apify, youtube scraper pricing",
+ "category": "Guides",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "cta": "Want your lead data setup costed before you build it?",
+ "word_count": 2070,
+ "read_time": 9,
+ "body": "<p><strong>Short answer.</strong> Google lists no price for the YouTube Data API: its terms set no fee, its quota pages count units rather than dollars, and its Cloud Marketplace listing has no pricing section. Under the granular buckets Google announced on 1 June 2026, each Google Cloud project gets 100 search.list calls and 100 video uploads a day, each in its own bucket at 1 unit a call, plus 10,000 units a day for most other methods. More takes a compliance audit, not a card. A search call returns up to 50 results, so the default ceiling is 5,000 search results a day. Apify's YouTube Scraper charges per video instead: $4.00 per 1,000 on the Free plan's $5 credit, $3.00 on the $19 Starter plan and $2.40 on the $999 Business plan. YouTube's Terms of Service, though, bar access by automated means such as scrapers, except for public search engines or with YouTube's prior written permission. We earn a commission if you buy an Apify plan through our links; Google and YouTube pay us nothing.</p>\n<p>Every number below was read on 13 October 2026 in Google's YouTube Data API documentation and policies, YouTube's Terms of Service and Apify's Store; the pre-June figures are Google's Quota Calculator as archived on 4 May 2026. We did not run billed tests or test data quality on either route.</p>\n\n<h2 id=\"quota-rules\">The YouTube API quota in 2026: separate buckets, no price list</h2>\n<p>Google's quota pages give each project, per day:</p>\n<ul>\n<li><strong>Search:</strong> 100 search.list calls, charged to a Search Queries bucket at 1 unit a call.</li>\n<li><strong>Uploads:</strong> 100 videos.insert calls, in their own bucket at 1 unit a call.</li>\n<li><strong>Everything else:</strong> 10,000 units shared by the other methods, except videos.batchGetStats, a statistics method added on 3 June 2026 with its own 10,000 units a day.</li>\n</ul>\n<p>Quotas reset at midnight Pacific Time. Every request costs at least one unit, invalid ones included; a project that runs out gets a quotaExceeded (403) error, and each extra page of search results is another call.</p>\n<p>The buckets are new. In an entry dated 1 June 2026, Google's revision history says the API \"is transitioning to a granular quota system\", starting with videos.insert and search.list. Before that, the Quota Calculator charged 100 units for a search and 100 for an upload (cut from about 1,600 in a 4 December 2025 update) out of one 10,000-unit pool, so 100 searches spent the whole day's quota. Now they leave the 10,000 units untouched. At least one ranking guide, and the AI Overview Google showed us on 13 October, still describe one 10,000-unit pool.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Method</th><th>Bucket</th><th>Units per call</th><th>Items per call</th></tr></thead><tbody>\n<tr><td>search.list</td><td>Search, 100 calls a day</td><td>1</td><td>up to 50 results (default 5)</td></tr>\n<tr><td>videos.insert (upload)</td><td>Uploads, 100 calls a day</td><td>1</td><td>1 video</td></tr>\n<tr><td>videos.batchGetStats</td><td>Own, 10,000 units a day</td><td>1</td><td>views, likes, comments, duration</td></tr>\n<tr><td>videos.list</td><td>Shared, 10,000 units a day</td><td>1</td><td>the IDs you list (no cap printed)</td></tr>\n<tr><td>channels.list</td><td>Shared</td><td>1</td><td>up to 50</td></tr>\n<tr><td>playlistItems.list</td><td>Shared</td><td>1</td><td>up to 50</td></tr>\n<tr><td>commentThreads.list</td><td>Shared</td><td>1</td><td>up to 100</td></tr>\n<tr><td>Most writes (insert, update, delete)</td><td>Shared</td><td>50</td><td>1</td></tr>\n<tr><td>captions.download</td><td>Shared</td><td>200</td><td>1 caption track</td></tr>\n</tbody></table></div>\n\n<h2 id=\"what-quota-buys\">What the free quota buys in a day</h2>\n<p>Divide Google's limits and the default quota is generous for reading public data and tight for searching it:</p>\n<ul>\n<li><strong>Search:</strong> 100 calls at up to 50 results is at most 5,000 search results a day, or 150,000 over 30 days of full use. That is a ceiling: the search.list reference says a page may hold fewer items than requested even when more exist. Results mix videos, channels and playlists unless you set the type parameter to video.</li>\n<li><strong>Stats:</strong> search returns the snippet part only, so view, like and comment counts come from videos.list with the statistics part, or from videos.batchGetStats. Even at one video ID per call, 5,000 videos cost at most 5,000 units, half the shared bucket, or none of it through batchGetStats.</li>\n<li><strong>Comments or playlist items:</strong> commentThreads.list returns up to 100 threads per call and playlistItems.list up to 50 items, so the 10,000 shared units could return up to 1,000,000 comment threads or 500,000 playlist items a day, if every page were full and nothing else ran. Those are alternatives from one bucket, not a total.</li>\n</ul>\n<p>For list building, note that the API rounds subscriber counts down to three significant figures and the channel resource has no email field. The cost Google does not bill is your own: a Cloud project, code and someone to run it, which we have not priced.</p>\n\n<h2 id=\"more-quota\">How to get more quota, and what it costs</h2>\n<p>Google lists no paid tier. Its audit guide says that to request more than the default allocation \"you must first complete an audit\" of the project's compliance, through the Audit and Quota Extension Form, after which, it says, \"A member of YouTube's API Services team will contact you as soon as possible.\" That promise covers first contact, not a decision; Google publishes no fee and no decision time.</p>\n<p>The Developer Policies attach conditions. Approved quota may be used \"only for the approved use case\", and a changed use case means resubmitting the audit. YouTube may revoke credentials or reduce quotas for a project inactive for 90 consecutive days. And the API Services Terms of Service say you \"will not, and will not attempt to, exceed or circumvent use or quota restrictions\".</p>\n\n<h2 id=\"data-rules\">The rules that come with the free data</h2>\n<p>YouTube's Developer Policies, last updated 14 September 2026, also limit what an API client may keep. Data an API client can access \"without User Credentials\" is Non-Authorized Data, and a client \"may temporarily store limited amounts\" of it for no longer than 30 calendar days, then must delete or refresh it. Google's own example: a client \"must not store the subscriber count for a YouTube channel for more than 30 days without authorization from the channel owner.\" For a creator list kept in a CRM, that means refreshing or deleting the numbers at least every 30 days, and the refresh calls spend the same quota.</p>\n<p>The same policies say: \"You and your API Clients must not, and must not encourage, enable, or require others to, directly or indirectly, scrape YouTube Applications or Google Applications, or obtain scraped YouTube data or content.\" The rule names \"You\" as well as \"your API Clients\". We do not assess how it applies to any given project.</p>\n\n<h2 id=\"scraper-prices\">What Apify's YouTube scrapers charge per 1,000</h2>\n<p>Apify's YouTube Actors in its <a href=\"https://www.apify.com?fpr=rc63q\">Store</a> charge per item. The prices below are from each Actor's pricing tab on 13 October 2026 and match its record in Apify's API; the tabs list platform costs as included. YouTube Scraper, the top Store result for \"youtube\" by popularity (about 15,000 users in 30 days, by Apify's count), has billed per event since 7 November 2025, at prices set on 2 September 2026.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Item</th><th>Free</th><th>Starter</th><th>Scale</th><th>Business</th></tr></thead><tbody>\n<tr><td>Plan fee per month</td><td>$0 ($5 usage)</td><td>$19</td><td>$199</td><td>$999</td></tr>\n<tr><td>YouTube Scraper, per 1,000 videos</td><td>$4.00</td><td>$3.00</td><td>$2.60</td><td>$2.40</td></tr>\n<tr><td>Date range add-on for channels, per 1,000</td><td>$1.30</td><td>$1.00</td><td>$0.80</td><td>$0.60</td></tr>\n<tr><td>Transcript add-on, per 1,000 started minutes</td><td>$48</td><td>$41</td><td>$33</td><td>$27</td></tr>\n<tr><td>AI summary add-on, per 1,000 minutes</td><td>$15</td><td>$10</td><td>$8.50</td><td>$7</td></tr>\n<tr><td>Comments Scraper, per 1,000 comments</td><td>$2.00</td><td>$1.50</td><td>$1.20</td><td>$0.90</td></tr>\n<tr><td>Fast Channel Scraper, per 1,000 videos</td><td>$1.30</td><td>$1.00</td><td>$0.80</td><td>$0.50</td></tr>\n</tbody></table></div>\n<p>Each paid plan's fee buys the same amount of prepaid usage and the excess goes on the next invoice, so the fee is a monthly minimum. On Free, Apify's FAQ says access \"will be blocked until the beginning of the next monthly cycle\" once usage passes the prepaid amount, and on every plan unused credit expires at the end of the cycle. Annual billing is 10% cheaper. On YouTube Scraper, Free's $5 covers up to 1,250 videos a month, and the README marks only its two transcription options as paid, not \"Only download subtitles\". It does not say whether the error items it writes for unavailable videos are billed.</p>\n<p>Three things on Apify's pages are worth reading twice. The Store card's \"from $2.40 / 1,000 videos\" is the Business rate on a $999 plan; on Starter it is $3.00, and the Actor's API record lists two further tiers, $1.50 and $1.00, that the public tab does not show. The README's FAQ still says the Actor \"uses our price-per-result model. Currently, it costs $5.00 for 1,000 videos\", while the pricing tab bills per event at the rates above. And the Store calls it an \"Alternative YouTube API with no limits or quotas\", while the README says it \"can extract up to 20,000 videos per URL\" and that scraping YouTube \"may cause the results to fluctuate case by case\".</p>\n\n<h2 id=\"cost-comparison\">API or scraper: what a month of YouTube data costs</h2>\n<p>The arithmetic on both vendors' published numbers, before engineering time on the API side and before add-ons on the Apify side:</p>\n<ul>\n<li><strong>1,000 videos with view counts:</strong> the API needs at least 20 of the day's 100 search calls and up to 1,000 units for statistics, with no fee from Google. On Apify, YouTube Scraper uses $4.00 of Free's $5 credit, or costs the $19 Starter fee (usage $3.00).</li>\n<li><strong>150,000 videos in a month:</strong> the API's default search ceiling, reached only with 100 full calls of 50 video results every day for 30 days and enough results to page through, with no fee from Google. On Apify: $450 on Starter, $390 on Scale, and $999 on Business, whose fee covers the $360 of usage; the other $639 can go to other Actors that cycle or expires unused. Free cannot reach it.</li>\n<li><strong>Transcripts:</strong> the API's captions.download costs 200 units, and Google says it \"requires the user to have permission to edit the video.\" Apify's add-on bills each started minute: if none of 1,000 ten-minute videos has subtitles, Starter charges $410 for transcription plus $3 for the videos, $413 in all.</li>\n</ul>\n<p>The scraper needs no Cloud project or audit, is not bound by Google's daily search quota (its README caps a URL at 20,000 videos; we did not test volume), prices transcription per minute and returns fields its README lists, such as channel location and social media links. The API carries no Google fee within quota and is the official source.</p>\n\n<h2 id=\"terms\">What YouTube's terms and Apify's README say</h2>\n<p>YouTube's Terms of Service, in the version our browser was shown (effective 5 January 2022), list among the things users are not allowed to do: \"access the Service using any automated means (such as robots, botnets or scrapers) except (a) in the case of public search engines, in accordance with YouTube's robots.txt file; or (b) with YouTube's prior written permission\", and \"collect or harvest any information that might identify a person (for example, usernames or faces), unless permitted by that person or allowed under section (3) above.\"</p>\n<p>Apify's README makes its own claim about the law: \"Scraping YouTube is legal as long as you adhere to regulations concerning copyright and personal data.\" It adds that \"You should not scrape personal data unless you have a legitimate reason to do so\" and that users who are unsure should consult their lawyers. That is Apify's view of the law. We do not assess how YouTube's Terms apply to any given project, and this is not legal advice; our <a href=\"/blog/is-web-scraping-legal/\">guide to web scraping and the law</a> covers the general questions.</p>\n\n<h2 id=\"which-route\">Which route fits which job</h2>\n<ul>\n<li><strong>Search plus stats, up to 5,000 results a day:</strong> the YouTube Data API, with no listed fee and a 30-day limit on stored Non-Authorized Data.</li>\n<li><strong>Comments for research or sentiment:</strong> commentThreads.list, up to 100 threads a call at 1 unit, before any paid tool.</li>\n<li><strong>More than the default quota:</strong> the audit, which has no published fee or decision time and ties the extra quota to your stated use case.</li>\n<li><strong>Transcripts of videos you cannot edit:</strong> the API's download method needs edit permission; a scraper's per-minute add-on is the priced alternative, though YouTube's Terms list access by scrapers among the things not allowed without its prior written permission.</li>\n<li><strong>Creator outreach:</strong> neither the API's channel resource nor Apify's YouTube Scraper lists an email field, and YouTube's terms restrict harvesting information that might identify a person. If you contact creators who publish a business address themselves, the sending side is <a href=\"/email-infrastructure\">email infrastructure</a>: domains, authentication and warm-up decide whether those emails land.</li>\n</ul>\n<p>For sources whose terms allow automated collection, see <a href=\"https://www.apify.com?fpr=rc63q\">Apify's Store</a>; our <a href=\"/blog/web-scraping-api-pricing/\">web scraping API pricing</a> guide prices 1,000 pages per service, and our <a href=\"/blog/x-api-pricing/\">X API pricing</a> guide covers X's metered API.</p>",
+ "faqs": [
+  [
+   "Is the YouTube Data API free?",
+   "Google lists no price for it: its terms set no fee, its quota pages count units, and its Cloud Marketplace listing has no pricing section. What limits you is quota: by default each project gets 100 search calls and 100 uploads a day, each in its own bucket, plus 10,000 units a day for most other methods. Going past that takes a compliance audit, not a payment."
+  ],
+  [
+   "How many searches can I make per day with the YouTube API?",
+   "By default, 100 search.list calls a day per project, charged at 1 unit each to their own bucket since the change Google announced on 1 June 2026. Each call returns up to 50 results, so the ceiling is 5,000 results a day, and every extra page of results is another call. Before the change, a search cost 100 of the project's 10,000 daily units."
+  ],
+  [
+   "When does the YouTube API quota reset?",
+   "At midnight Pacific Time, according to Google's Quota Calculator. A project that runs out gets a quotaExceeded (403) error until then. Every request counts, including invalid ones, which cost at least one unit."
+  ],
+  [
+   "How do I increase my YouTube API quota?",
+   "Complete an API Compliance Audit through the YouTube API Services Audit and Quota Extension Form. Google publishes no fee and no decision time, and approved quota may be used only for the use case you described; a new use case means resubmitting the audit."
+  ],
+  [
+   "Is a YouTube scraper cheaper than the YouTube API?",
+   "Not in fees. Apify's YouTube Scraper charges $4.00 per 1,000 videos on the Free plan, $3.00 on the $19 Starter plan, $2.60 on the $199 Scale plan and $2.40 on the $999 Business plan, while Google lists no fee within quota. A scraper can make sense for transcripts or for volume above the default quota, where Google's alternative is the audit, but YouTube's Terms of Service bar access by automated means such as scrapers without YouTube's prior written permission, apart from public search engines."
+  ],
+  [
+   "Can the YouTube API give me a channel's email address?",
+   "No. The channel resource in the YouTube Data API has no email field, and Apify's YouTube Scraper does not list an email among its output fields either. YouTube's Terms of Service also bar collecting or harvesting information that might identify a person, unless permitted by that person or allowed under section (3) of those Terms."
+  ]
+ ],
+ "image": {
+  "cluster": "Social data costs",
+  "takeaway": "Google lists no price for the YouTube Data API; a project gets 100 search calls a day plus 10,000 units.",
+  "alt": "YouTube API pricing: the default quota in 2026 and what Apify's YouTube scrapers charge per 1,000 videos",
+  "chart": {
+   "title": "Monthly bill for 150,000 YouTube videos",
+   "subtitle": "At the API's default search ceiling: 100 calls of 50 video results a day for 30 days.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Apify Business (fee)",
+     999
+    ],
+    [
+     "Apify Starter",
+     450
+    ],
+    [
+     "Apify Scale",
+     390
+    ],
+    [
+     "YouTube Data API",
+     0
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 3,
+   "note": [
+    "No Google fee at the default quota.",
+    "Excludes your build and run costs."
+   ],
+   "source": "Apify pays us a commission. Source: Apify Store pricing and Google YouTube Data API docs, October 2026.",
+   "alt": "Bar chart of the monthly bill for 150,000 YouTube videos: the Apify Business plan fee $999, Apify Starter $450, Apify Scale $390, and the YouTube Data API $0 in Google fees at its default search ceiling, highlighted.",
+   "after_heading": "What YouTube's terms and Apify's README say"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "YouTube Data API price",
+    "value": "No fee listed",
+    "note": "terms set no fee; quota pages count units, not dollars"
+   },
+   {
+    "label": "search.list calls per project per day",
+    "value": "100",
+    "note": "own bucket since the change announced on 1 June 2026, 1 unit a call; before, 100 of the 10,000 shared units"
+   },
+   {
+    "label": "Results per search.list call",
+    "value": "up to 50",
+    "note": "default 5; at most 5,000 results a day"
+   },
+   {
+    "label": "Uploads (videos.insert) per project per day",
+    "value": "100",
+    "note": "own bucket; an upload cost about 1,600 units before a 4 December 2025 update"
+   },
+   {
+    "label": "Shared units per project per day",
+    "value": "10,000 units",
+    "note": "most reads 1 unit, most writes 50; videos.batchGetStats has its own 10,000"
+   },
+   {
+    "label": "Quota reset",
+    "value": "Midnight Pacific Time",
+    "note": "quotaExceeded (403) until then"
+   },
+   {
+    "label": "Caption download (captions.download)",
+    "value": "200 units",
+    "note": "requires permission to edit the video"
+   },
+   {
+    "label": "Stored Non-Authorized Data, e.g. subscriber counts",
+    "value": "30 days maximum",
+    "note": "then delete or refresh, per YouTube's Developer Policies"
+   },
+   {
+    "label": "More quota",
+    "value": "Compliance audit",
+    "note": "no fee or decision time published; approved use case only"
+   },
+   {
+    "label": "Apify YouTube Scraper, per 1,000 videos",
+    "value": "$3.00 on Starter",
+    "note": "$19 a month; $4.00 on Free ($5 credit, up to 1,250 videos); $2.40 on the $999 Business plan"
+   },
+   {
+    "label": "Apify transcript add-on, per started minute",
+    "value": "$0.041 on Starter",
+    "note": "$0.048 on Free, $0.027 on Business; only when transcribing"
+   },
+   {
+    "label": "150,000 videos in a month",
+    "value": "API $0 in fees; Apify $390 to $999",
+    "note": "API at its default search ceiling, before build costs; Apify Scale $390, Starter $450, Business $999 plan fee"
+   }
+  ],
+  "source": "Read on 13 October 2026 from Google's YouTube Data API documentation, revision history, API Services Terms of Service and Developer Policies, YouTube's Terms of Service and Apify's Store and pricing pages; the pre-June quota table is Google's Quota Calculator as archived on 4 May 2026."
+ }
+}
