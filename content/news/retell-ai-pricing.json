@@ -1,0 +1,142 @@
+{
+  "slug": "retell-ai-pricing",
+  "title": "Retell AI Pricing: $0.07 to $0.31 a Minute, and What 1,000 Calls Cost",
+  "desc": "Retell AI bills $0.07 to $0.31 a minute: $0.055 infrastructure plus voice, model and phone line. What 1,000 inbound or outbound calls cost, with fees on top.",
+  "keywords": "retell ai pricing, retell ai cost per minute, retell ai pricing per minute, retell ai concurrency cost, retell ai phone number cost, retell ai credits, retell ai billing, ai voice agent cost per minute",
+  "date": "2026-10-13",
+  "time": "14:20",
+  "read_time": 7,
+  "word_count": 1352,
+  "cta": "Want an AI voice agent priced and built for your calls?",
+  "body": "<p><strong>October 13, 2026.</strong> Retell AI charges $0.07 to $0.31 a minute for an AI voice agent on its pay-as-you-go plan, with no platform fee and $10 in free credits to start, according to its <a href=\"https://www.retellai.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>. Every minute is the sum of four lines: $0.055 for Retell's voice infrastructure, a voice from $0.015, a language model from $0.0016, and a phone line at $0.015 a minute on a US number, or nothing from Retell if you bring your own SIP trunk. On the setup we would start most businesses on, that adds up to $0.149 a minute, so 1,000 inbound calls of three minutes cost $447 plus $2 for the number.</p>\n<p><strong>What Retell AI charges per minute</strong></p>\n<p>Retell publishes every component of the per-minute price on its rate card, and an independent <a href=\"https://www.eesel.ai/blog/retell-ai-pricing\" target=\"_blank\" rel=\"noopener noreferrer\">eesel AI review</a> of the same page, last edited October 5, lists the same $0.055 infrastructure fee and $0.015 voice rate. These four lines make up the minute you pay for:</p>\n<ol>\n<li><strong>Voice infrastructure, $0.055 a minute.</strong> Retell's fee for its conversation voice engine. It is the same on every call, whatever model or voice you pick.</li>\n<li><strong>Text to speech, $0.015 to $0.10 a minute.</strong> Retell's platform voices, Cartesia, Minimax, Fish, OpenAI and Inworld voices are $0.015. ElevenLabs costs more: $0.04 for Flash, $0.06 for Multilingual v2, $0.08 for v3 Conversational and v4 Turbo, and $0.10 for v3 and v4. ElevenLabs' own API rates are in our <a href=\"/blog/elevenlabs-v4-turbo-pricing/\">ElevenLabs v4 Turbo pricing</a> explainer.</li>\n<li><strong>The language model, $0.0016 to $0.32 a minute.</strong> Retell marks GPT 5.6 Terra and Claude 5 Sonnet as recommended at $0.064 a minute, GPT 5.4 at $0.08 and GPT 5.5 at $0.16. Small models cost a fraction of a cent: GPT 6 Luna and Claude 5.5 Haiku at $0.0032, GPT 5 nano at $0.0016. GPT 6 Astra is $0.32. A fast tier, offered on some models, doubles the rate, so GPT 6.1 Sol is $0.064 or $0.128.</li>\n<li><strong>The phone line, up to $0.10 a minute in tier-1 markets.</strong> A US number on Retell's Twilio line is $0.015 a minute, US toll free $0.06, Canada $0.03, and the UK and Australia $0.10. Retell charges nothing for calls over your own SIP trunk or custom telephony, so you pay your carrier instead.</li>\n</ol>\n<p>Speech-to-speech models sit on their own price line, from $0.07 a minute for GPT Realtime mini to $0.38 for GPT Realtime 2 and 2.1. Chat agents are billed per AI message instead, from $0.0005 on GPT 5 nano.</p>\n<p><strong>The add-ons and monthly fees on top</strong></p>\n<p>Features you switch on are priced per minute or per call. A knowledge base adds $0.005 a minute, advanced denoising $0.005, safety guardrails $0.005, PII removal $0.01, and AI quality assurance $0.10 a minute after the first 100 free minutes. Batch calling adds $0.005 a dial, branded caller ID $0.10 per outbound call, and SMS $0.01 a message.</p>\n<p>The monthly items are small but recurring: $2 for each Retell phone number, $10 for a verified number, $20 for Retell SMS, $8 for each concurrent call above the 20 included, and $8 for each knowledge base above the 10 included. Numbers you connect through your own telephony carry no Retell number fee. Enterprise plans add custom pricing, dedicated support and concurrency from 50 calls up.</p>\n<p><strong>What a 1,000-call month costs</strong></p>\n<p>We priced two common jobs at Retell's list prices for US calls. The call lengths and pickup rates are our assumptions, so swap in your own numbers.</p>\n<ol>\n<li><strong>Inbound receptionist, 1,000 calls of 3 minutes.</strong> 3,000 minutes at $0.149 (a Retell voice, GPT 5.6 Terra and a US Twilio line) is $447, plus $2 for the number: $449 a month. Add a knowledge base and the month is $464.</li>\n<li><strong>Outbound appointment setting, 1,000 dials.</strong> If 350 people pick up and talk for 2 minutes and 300 calls reach voicemail for a 30-second message, Retell bills 850 minutes, or $126.65. Add $5 in batch dialing fees and $2 for the number and the month is about $134. Branded caller ID would add up to $100 more at $0.10 per outbound call.</li>\n<li><strong>The same 3,000 inbound minutes on other builds.</strong> $219.60 on the leanest one (GPT 6 Luna and a Retell voice over your own SIP trunk, before your carrier's charges), $930 on GPT 5.5 with an ElevenLabs v4 Turbo voice, and $1,470 on GPT 6 Astra with an ElevenLabs v4 voice. That last build is $0.49 a minute, well above the $0.07 to $0.31 range Retell advertises.</li>\n</ol>\n<p>For the same volume across other vendors, see our <a href=\"/blog/ai-receptionist-cost/\">AI receptionist cost</a> comparison of 11 products, and <a href=\"/blog/vapi-vs-retell/\">Vapi vs Retell</a> for the contract terms that separate the two developer platforms.</p>\n<p><strong>Four billing rules that move the total</strong></p>\n<ol>\n<li><strong>Long prompts stretch the clock.</strong> Retell's <a href=\"https://docs.retellai.com/accounts/billing-exceptions\" target=\"_blank\" rel=\"noopener noreferrer\">billing exceptions page</a> scales the billed duration once an agent uses more than 4,000 tokens: the factor is tokens divided by 4,000, so a 60-second call that uses 4,800 tokens bills as 72 seconds. The count includes the global prompt, tool descriptions, node prompts, the transcript, tool results and retrieved knowledge base text, and Retell names Flex mode as a common trigger.</li>\n<li><strong>Short calls have a floor.</strong> A call under 10 seconds that opens with a dynamic message, with the AI speaking first, bills as 10 seconds. That adds up on outbound lists with many quick hang-ups.</li>\n<li><strong>Burst capacity costs $0.10 a minute extra.</strong> With concurrency burst on, calls above your limit still connect, up to three times the limit or the limit plus 300, whichever is lower, but each burst call carries a $0.10 surcharge on every minute, per Retell's <a href=\"https://docs.retellai.com/deploy/concurrency\" target=\"_blank\" rel=\"noopener noreferrer\">concurrency documentation</a>. A permanent extra line is $8 a month, so a line that bursts for more than 80 minutes a month is cheaper to buy.</li>\n<li><strong>Silence is billed, transfers mostly are not.</strong> Retell bills to the nearest second with no rounding per call, and it bills silence and hold time because the speech engine keeps listening. Failed calls are free, voicemail is billed only while the agent is on the line, and after a transfer only the telephony charge continues.</li>\n</ol>\n<p><strong>The September 30 switch to prepaid credits</strong></p>\n<p>Retell moved its remaining monthly-invoice workspaces to prepaid credits on September 30, 2026, while Enterprise workspaces stay on monthly invoices, according to its <a href=\"https://docs.retellai.com/accounts/billing\" target=\"_blank\" rel=\"noopener noreferrer\">billing documentation</a>. Calls, chat and other usage stop when the credit balance reaches zero. Credits never expire, but they are non-refundable. Auto recharge buys more when the balance drops below a trigger you set between $10 and $1,000, and an optional monthly budget between $10 and $100,000 pauses calls at 100 percent even if credits remain. Phone numbers, extra concurrency and extra knowledge bases still bill to your card at the end of the month.</p>\n<p><strong>What it means for operators</strong></p>\n<p>Retell's price is easy to read and easy to underestimate. The model is the biggest lever: moving from GPT 5.6 Terra to GPT 5.5 adds $0.096 a minute, more than Retell's own infrastructure fee. The voice is the second: an ElevenLabs v4 voice costs almost seven times a Retell voice. Most receptionist and booking flows run well on the recommended $0.064 models, so start there and upgrade only the call types that fail.</p>\n<p>Three settings protect the budget. Keep the prompt and retrieved context under 4,000 tokens, or budget for the multiplier. Turn on auto recharge with a trigger above a busy day of usage, because an AI receptionist with no credits stops answering. And treat the monthly budget as a ceiling, not a target, since reaching it pauses calls until you raise it or the month resets.</p>\n<p>For outbound, the consent rules matter more than the rate card, so read how we set up <a href=\"/tcpa-compliant-ai-calling\">TCPA-compliant AI calling</a> before a campaign dials a US number. For inbound, our <a href=\"/ai-calling-home-services\">AI calling setup for home-services businesses</a> shows the build we run on this kind of stack, and our <a href=\"/blog/ai-answering-service-for-hvac/\">AI answering service for HVAC</a> comparison prices it against packaged products. Practices that handle health information should start with our <a href=\"/blog/best-hipaa-compliant-ai-receptionists-2026/\">HIPAA-compliant AI receptionists</a> comparison. If you want an agent built and priced for your own call volume, that is what our <a href=\"/ai-voice-agents\">AI voice agent</a> team does.</p>",
+  "faqs": [
+    [
+      "How much does Retell AI cost per minute?",
+      "Retell AI lists $0.07 to $0.31 a minute for voice agents on pay as you go. Each minute is $0.055 for voice infrastructure plus a voice ($0.015 for Retell's own, up to $0.10 for ElevenLabs v4), a model ($0.0016 to $0.32) and a phone line ($0.015 on a US Twilio number). A standard setup with GPT 5.6 Terra comes to $0.149 a minute."
+    ],
+    [
+      "Does Retell AI have a monthly fee?",
+      "There is no platform fee or minimum. Monthly charges apply only to extras: $2 per Retell phone number, $10 per verified number, $20 for Retell SMS, $8 per concurrent call above the 20 included and $8 per knowledge base above the 10 included. Usage is paid from prepaid credits, and new accounts get $10 free."
+    ],
+    [
+      "What do 1,000 calls a month cost on Retell AI?",
+      "At list prices, 1,000 inbound calls of three minutes cost about $449 on a standard setup (GPT 5.6 Terra, a Retell voice, a US line and one number). 1,000 outbound dials where 350 people talk for two minutes and 300 calls reach voicemail cost about $134, plus up to $100 for branded caller ID."
+    ],
+    [
+      "Does Retell charge for voicemail, silence or failed calls?",
+      "Failed calls are free. Voicemail is billed only while the agent is on the line. Silence and hold time are billed because the speech engine keeps listening. After a transfer only the telephony charge continues, and a call under 10 seconds that starts with a dynamic AI opening bills as 10 seconds."
+    ],
+    [
+      "Why is my Retell bill higher than the per-minute price?",
+      "The usual causes are prompts over 4,000 tokens, which stretch the billed duration by tokens divided by 4,000; burst calls above your concurrency limit at $0.10 a minute extra; ElevenLabs voices; and add-ons such as a knowledge base, PII removal, batch dialing and branded calls."
+    ],
+    [
+      "What changed in Retell billing on September 30, 2026?",
+      "Retell moved its remaining monthly-invoice workspaces to prepaid credits, while Enterprise stays on invoices. Credits never expire and are non-refundable, usage stops at a zero balance, auto recharge can top up from a trigger between $10 and $1,000, and a monthly budget between $10 and $100,000 pauses calls at 100 percent."
+    ]
+  ],
+  "image": {
+    "cluster": "AI calling",
+    "takeaway": "A standard Retell AI voice agent costs $0.149 a minute, or $447 for 1,000 three-minute calls.",
+    "alt": "Retell AI pricing: $0.07 to $0.31 a minute, and $447 for 1,000 three-minute calls on a standard setup",
+    "chart": {
+      "title": "Cost of 3,000 inbound minutes on Retell AI, by build",
+      "subtitle": "1,000 calls of 3 minutes at Retell list prices on a US Twilio line, unless noted.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Lean: Luna, own SIP",
+          219.6
+        ],
+        [
+          "Standard: Terra",
+          447
+        ],
+        [
+          "Standard plus KB",
+          462
+        ],
+        [
+          "Premium: GPT 5.5",
+          930
+        ],
+        [
+          "Top: GPT 6 Astra",
+          1470
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 1,
+      "note": [
+        "Our default build:",
+        "$0.149 a minute"
+      ],
+      "source": "Pay-as-you-go list prices, US calls. Source: retellai.com, October 2026",
+      "alt": "Bar chart of the cost of 3,000 inbound minutes on Retell AI: 219.60 dollars on GPT 6 Luna over your own SIP trunk, 447 on GPT 5.6 Terra with a Retell voice, 462 with a knowledge base, 930 on GPT 5.5 with ElevenLabs v4 Turbo, and 1,470 on GPT 6 Astra with ElevenLabs v4.",
+      "after_heading": "Four billing rules that move the total"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Retell AI voice agents, pay as you go",
+        "value": "$0.07 to $0.31 per minute",
+        "note": "no platform fee"
+      },
+      {
+        "label": "Retell voice infrastructure",
+        "value": "$0.055 per minute"
+      },
+      {
+        "label": "Retell platform voices (text to speech)",
+        "value": "$0.015 per minute",
+        "note": "ElevenLabs v4 $0.10"
+      },
+      {
+        "label": "GPT 5.6 Terra or Claude 5 Sonnet on Retell",
+        "value": "$0.064 per minute",
+        "note": "marked recommended"
+      },
+      {
+        "label": "US phone line on Retell (Twilio)",
+        "value": "$0.015 per minute",
+        "note": "Canada $0.03, UK and Australia $0.10"
+      },
+      {
+        "label": "Retell phone number",
+        "value": "$2 a month"
+      },
+      {
+        "label": "Concurrent calls included",
+        "value": "20",
+        "note": "then $8 a line a month"
+      },
+      {
+        "label": "Burst surcharge above the concurrency limit",
+        "value": "$0.10 per minute",
+        "note": "on the whole call"
+      },
+      {
+        "label": "Prompt size before billed time is scaled",
+        "value": "4,000 tokens",
+        "note": "4,800 tokens bills 60 s as 72 s"
+      },
+      {
+        "label": "Free credits for new accounts",
+        "value": "$10"
+      },
+      {
+        "label": "1,000 inbound calls of 3 minutes, standard build",
+        "value": "$449 a month",
+        "note": "$0.149 a minute plus one number"
+      },
+      {
+        "label": "1,000 outbound dials, standard build",
+        "value": "about $134 a month",
+        "note": "our pickup and voicemail assumptions"
+      }
+    ],
+    "source": "Prices and billing rules read on 13 October 2026 from Retell AI's pricing page and its billing, billing exceptions and concurrency documentation."
+  }
+}
