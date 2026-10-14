@@ -1,0 +1,140 @@
+{
+  "slug": "claude-code-pricing",
+  "title": "Claude Code Pricing: Pro, Max, Team Seats or Pay-Per-Token API",
+  "desc": "Claude Code costs $20 on Pro, $100 or $200 on Max, $25 or $125 per Team seat, or an average of about $13 a developer per active day on the API. Which wins.",
+  "keywords": "claude code pricing, claude code cost, how much does claude code cost, claude max pricing, claude code pro plan, claude code api cost, claude code team pricing, claude code usage limits, claude code per developer cost, claude max 5x vs 20x",
+  "date": "2026-10-15",
+  "time": "02:35",
+  "read_time": 7,
+  "word_count": 1602,
+  "cta": "Want an agent built on Claude without paying for trial and error?",
+  "body": "<p><strong>October 15, 2026.</strong> Claude Code costs $20 a month on the Pro plan, $100 or $200 a month on Max, $25 or $125 a month per Team seat (less with annual billing), or per token on the API, with no seat fee. Anthropic's own documentation puts the average API cost at about $13 per developer per active day, or $150 to $250 per developer per month across enterprise deployments. Which option is cheapest depends on one number: how many days a month a developer actually codes with it, and how hard. We build AI agents and help companies get recommended inside AI assistants through <a href=\"/ai-search-optimization\">AI search optimization</a>, so this guide sets out Anthropic's published prices and the arithmetic for choosing between them.</p>\n<p>Every price below comes from <a href=\"https://claude.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic's pricing page</a> and the <a href=\"https://code.claude.com/docs/en/costs\" target=\"_blank\" rel=\"noopener noreferrer\">Claude Code cost documentation</a>, read 15 October 2026. Prices exclude tax and Anthropic says they can change, so check the page before you buy seats for a whole team.</p>\n<p><strong>Every way to pay for Claude Code</strong></p>\n<p>Claude Code is included in every paid Claude plan. It is not included in the Free plan. The plans differ in how much usage you get, not in whether the tool works.</p>\n<table style=\"font-size:14px\">\n<thead><tr><th>Plan</th><th>Price</th><th>Claude Code usage</th><th>Billing</th></tr></thead>\n<tbody>\n<tr><td>Pro</td><td>$20 a month, or $200 a year billed up front (shown as $17 a month)</td><td>Included, shares the plan's limits with chat</td><td>Monthly or annual</td></tr>\n<tr><td>Max 5x</td><td>$100 a month</td><td>5x Pro usage per 5-hour session, plus $100 a month in API credits</td><td>Monthly</td></tr>\n<tr><td>Max 20x</td><td>$200 a month</td><td>20x Pro usage per 5-hour session, plus $200 a month in API credits</td><td>Monthly</td></tr>\n<tr><td>Team, Standard seat</td><td>$25 a seat a month, $20 on annual billing</td><td>More usage than Pro</td><td>Monthly or annual, 2 to 150 users</td></tr>\n<tr><td>Team, Premium seat</td><td>$125 a seat a month, $100 on annual billing</td><td>5x the usage of a Standard seat</td><td>Monthly or annual</td></tr>\n<tr><td>Enterprise</td><td>$20 a seat a month plus usage at API rates</td><td>Billed per token on top of the seat</td><td>Annual, 20-seat minimum</td></tr>\n<tr><td>API (Claude Console)</td><td>Pay per token, no seat fee</td><td>Every token billed at model rates</td><td>Prepaid credits</td></tr>\n</tbody>\n</table>\n<p>Two details matter more than the headline prices. Max is billed monthly only, so there is no annual discount. And the Max plans now include monthly API credits for building on the Claude Platform; our guide to <a href=\"/blog/claude-max-team-api-credits/\">what the Max and Team API credits cover</a> explains how far $100 to $500 goes.</p>\n<p><strong>How the usage limits actually work</strong></p>\n<p>Subscription plans do not bill per token, but they are not unlimited. According to Anthropic's pricing FAQ, every plan has limits that reset on a rolling five-hour window, paid plans add weekly limits on top, and your activity across Claude on the web, desktop, mobile and Claude Code all draws from the same pool. A long coding session therefore eats into the same allowance as your chats.</p>\n<ul>\n<li><strong>Pro</strong> gives at least 5x the usage of Free per five-hour session.</li>\n<li><strong>Max</strong> gives 5x or 20x the usage of Pro per session, with higher output limits and priority access at busy times.</li>\n<li><strong>Team</strong> Standard seats give more than Pro, and Premium seats give 5x more than Standard.</li>\n<li><strong>Fable</strong>, which Anthropic calls its most advanced generally available model, is available on Pro only through usage credits; on Max and on Team Premium seats the pricing table lists it at 50 percent of weekly limits.</li>\n</ul>\n<p>When you hit a limit you can wait for the reset, upgrade, or on paid plans turn on usage credits and keep working at standard API rates. Anthropic also says it may apply other caps, such as weekly or monthly limits on a model or feature, so there is no fixed number of messages or coding hours per plan.</p>\n<p><strong>What Claude Code costs on the API</strong></p>\n<p>On the API, Claude Code is billed purely by tokens. These are the current model rates per million tokens:</p>\n<table style=\"font-size:14px\">\n<thead><tr><th>Model</th><th>Input</th><th>Output</th><th>Cache read</th><th>Anthropic's cost guidance</th></tr></thead>\n<tbody>\n<tr><td>Fable 5.1</td><td>$10</td><td>$50</td><td>$0.25</td><td>Highest price per token</td></tr>\n<tr><td>Opus 5.5</td><td>$4</td><td>$20</td><td>$0.20</td><td>Complex architecture and multi-step reasoning</td></tr>\n<tr><td>Sonnet 5.5</td><td>$2</td><td>$10</td><td>$0.10</td><td>Handles most coding tasks</td></tr>\n<tr><td>Haiku 5.5</td><td>$0.10 (up to 100K tokens)</td><td>$0.50 (up to 100K tokens)</td><td>$0.01</td><td>Simple subagent tasks</td></tr>\n</tbody>\n</table>\n<p>Three multipliers apply on top. Fast mode for Opus 5.5 costs 2x standard pricing for up to 2.5x the speed. US-only inference costs 1.1x on input and output. And thinking tokens bill as output tokens; the cost documentation notes that thinking cannot be switched off on Opus 5.5, Sonnet 5.5, Haiku 5.5 or the Fable models. Batch processing halves the price, but it suits asynchronous jobs, not an interactive coding session.</p>\n<p>Anthropic's average of about $13 per developer per active day is the most useful planning number, and its documentation adds that costs stay below $30 per active day for 90 percent of users. For deeper background on why repeated context is cheap, see our explainer on <a href=\"/blog/cached-input-token-pricing/\">cached input token pricing</a>.</p>\n<p><strong>Subscription or API: the break-even</strong></p>\n<p>Divide each plan price by $13 and you get the number of average coding days it pays for at API rates:</p>\n<ul>\n<li>Pro at $20 a month covers about 1.5 average days.</li>\n<li>Max 5x at $100 covers about 7.7 days.</li>\n<li>A Team Premium seat at $125 a month covers about 9.6 days.</li>\n<li>Max 20x at $200 covers about 15.4 days.</li>\n</ul>\n<p>A developer who codes with Claude 20 days a month at the average rate would spend about $260 at API prices, more than any single seat. At that rate, Max or a Premium seat costs less on paper. The catch is the usage limit: a seat is cheaper only while your work fits inside its five-hour and weekly windows. Heavy users who keep hitting limits pay the seat price and then usage credits at API rates, so track a few weeks of real usage before you commit a whole team.</p>\n<p>The API wins in two cases: occasional users who code with Claude a few days a month, and automated jobs, such as code review in CI, where nobody is sitting at a keyboard and a seat would sit idle.</p>\n<p><strong>What makes Claude Code expensive</strong></p>\n<p>The cost documentation is unusually candid about where tokens go:</p>\n<ul>\n<li><strong>Long sessions.</strong> Claude Code resends the conversation with each request, so a one-line question in a session that has been open all day still pays for the whole history at the cached rate.</li>\n<li><strong>Cache misses.</strong> The cache lasts an hour on a subscription but drops to five minutes once you draw on usage credits, and five minutes is the API default. A coffee break can mean reprocessing the full context.</li>\n<li><strong>Agent teams.</strong> Teammates running in plan mode use roughly 7x the tokens of a standard session, because each one keeps its own context window.</li>\n<li><strong>Opus as the default.</strong> Opus 5.5 costs twice Sonnet 5.5 per token. The cost guide says Sonnet handles most coding tasks well and suggests reserving Opus for complex architectural decisions or multi-step reasoning.</li>\n<li><strong>Context overhead.</strong> A large CLAUDE.md loads into every session, and long logs or test output fill the context; the guide suggests hooks that filter output down to errors and skills that load only when needed.</li>\n</ul>\n<p>Background housekeeping is small by comparison: Anthropic puts it at typically under $0.04 per session.</p>\n<p><strong>How to cap spend for a team</strong></p>\n<p>On seat plans, the cost documentation calls the seat allowance the default ceiling: to let developers go past it, an admin turns on usage credits and sets spend limits at the organization, group or member level. Enterprise as now priced on the pricing page adds usage at API rates on top of the seat fee, so check which model your contract uses. The <a href=\"https://support.claude.com/en/articles/14782391-claude-enterprise-consumption-guide\" target=\"_blank\" rel=\"noopener noreferrer\">Enterprise consumption guide</a> describes pooled group budgets and alerts at 75 and 90 percent of an organization limit, with limits resetting at 00:00 UTC on the first of the month. On the API, the Claude Console creates a \"Claude Code\" workspace automatically, and you can put a spend limit on it.</p>\n<p>For API teams, Anthropic publishes per-user rate limit starting points that shrink as teams grow, because fewer people code at the same moment:</p>\n<table style=\"font-size:14px\">\n<thead><tr><th>Team size</th><th>Tokens per minute per user</th><th>Requests per minute per user</th></tr></thead>\n<tbody>\n<tr><td>1 to 5</td><td>200k to 300k</td><td>5 to 7</td></tr>\n<tr><td>5 to 20</td><td>100k to 150k</td><td>2.5 to 3.5</td></tr>\n<tr><td>20 to 50</td><td>50k to 75k</td><td>1.25 to 1.75</td></tr>\n<tr><td>50 to 100</td><td>25k to 35k</td><td>0.62 to 0.87</td></tr>\n<tr><td>100 to 500</td><td>15k to 20k</td><td>0.37 to 0.47</td></tr>\n<tr><td>500+</td><td>10k to 15k</td><td>0.25 to 0.35</td></tr>\n</tbody>\n</table>\n<p><strong>Which plan to choose</strong></p>\n<ol>\n<li><strong>Trying it out:</strong> Pro at $20 a month, or the API if you only need it a few days a month.</li>\n<li><strong>One developer, coding daily:</strong> Max 5x at $100, moving to Max 20x if the weekly limit bites.</li>\n<li><strong>A small team that needs central billing and SSO:</strong> Team, with Premium seats for the people who code every day and Standard seats for everyone else. Seat types can be mixed.</li>\n<li><strong>Twenty or more people with security reviews:</strong> Enterprise, where you pay $20 a seat plus metered usage and get spend controls, SCIM and audit logs. Our guide to <a href=\"/blog/claude-team-pricing/\">Claude Team and Enterprise pricing</a> compares those plans in detail.</li>\n<li><strong>Automation and CI jobs:</strong> the API, with a workspace spend limit.</li>\n</ol>\n<p>If you are a startup, check our <a href=\"/blog/ai-startup-credits/\">AI startup credits comparison</a> before paying list price; credit programs change often. And if your real goal is a working agent rather than a coding tool, our <a href=\"/hire-ai-engineer\">AI engineers</a> build them on these same models. When you want the assistants themselves to recommend your business, that is what our <a href=\"/ai-search-optimization\">AI search optimization</a> work is for.</p>",
+  "faqs": [
+    [
+      "How much does Claude Code cost?",
+      "Claude Code is included in every paid Claude plan: Pro at $20 a month ($200 a year on annual billing), Max at $100 or $200 a month, and Team seats at $25 or $125 a month ($20 or $100 on annual billing). Enterprise is $20 a seat plus usage at API rates. On the API there is no seat fee and Anthropic puts the average at about $13 per developer per active day."
+    ],
+    [
+      "Is Claude Code free?",
+      "No. The Free plan does not include Claude Code. The cheapest plan that includes it is Pro, at $20 a month or $200 a year billed up front, or you can pay per token through the Claude Console if you only need it occasionally."
+    ],
+    [
+      "What is the difference between Max 5x and Max 20x for Claude Code?",
+      "Max 5x costs $100 a month and gives 5x the usage of Pro per five-hour session; Max 20x costs $200 and gives 20x. Both are billed monthly, include priority access at busy times and add monthly API credits of $100 or $200 for building on the Claude Platform."
+    ],
+    [
+      "Does Claude Code share usage limits with Claude chat?",
+      "Yes. Anthropic says activity across Claude on the web, desktop, mobile and Claude Code draws from the same pool, with limits that reset on a rolling five-hour window plus weekly limits on paid plans."
+    ],
+    [
+      "Is the API cheaper than a Claude subscription for coding?",
+      "Only for light use. At Anthropic's average of about $13 per active day, $100 covers about 7.7 coding days and $200 about 15.4 days, so for a developer coding most working days, Max or a Premium seat costs less on paper, as long as the work fits inside the plan's limits."
+    ],
+    [
+      "How can a team control Claude Code spending?",
+      "On seat plans the seat allowance is the default ceiling, and admins can add usage credits with spend limits at the organization, group or member level. Enterprise as now priced bills usage at API rates on top of the seat, with the same kinds of spend limits. On the API, set a spend limit on the Claude Code workspace in the Claude Console and follow Anthropic's per-user rate limit recommendations."
+    ]
+  ],
+  "image": {
+    "cluster": "AI cost explainers",
+    "takeaway": "Claude Code: $20 Pro, $100 or $200 Max, or an average of about $13 a developer per active day on the API.",
+    "alt": "Claude Code pricing compared: Pro, Max 5x, Max 20x, Team Standard and Premium seats, Enterprise and pay-per-token API costs per developer",
+    "chart": {
+      "title": "Monthly cost of Claude Code per developer",
+      "subtitle": "Plan prices billed monthly; the API rows are Anthropic's average range across enterprise deployments.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Pro",
+          20
+        ],
+        [
+          "Team Standard",
+          25
+        ],
+        [
+          "Max 5x",
+          100
+        ],
+        [
+          "Team Premium",
+          125
+        ],
+        [
+          "API, low average",
+          150
+        ],
+        [
+          "Max 20x",
+          200
+        ],
+        [
+          "API, high average",
+          250
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 6,
+      "note": [
+        "Seats cap usage;",
+        "the API bills every token"
+      ],
+      "source": "claude.com/pricing and code.claude.com/docs/en/costs, read 15 October 2026",
+      "alt": "Bar chart of monthly Claude Code cost per developer: Pro $20, Team Standard $25, Max 5x $100, Team Premium $125, API $150 to $250 average, Max 20x $200",
+      "after_heading": "Subscription or API: the break-even"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Pro plan",
+        "value": "$20 a month",
+        "note": "or $200 a year billed up front"
+      },
+      {
+        "label": "Max 5x / Max 20x",
+        "value": "$100 / $200 a month",
+        "note": "billed monthly; $100 / $200 API credits"
+      },
+      {
+        "label": "Team Standard seat",
+        "value": "$25 a month",
+        "note": "$20 on annual billing"
+      },
+      {
+        "label": "Team Premium seat",
+        "value": "$125 a month",
+        "note": "$100 on annual billing; 5x Standard usage"
+      },
+      {
+        "label": "Enterprise",
+        "value": "$20 a seat plus API-rate usage",
+        "note": "annual, 20-seat minimum"
+      },
+      {
+        "label": "Average API cost per developer",
+        "value": "about $13 per active day",
+        "note": "below $30 for 90% of users"
+      },
+      {
+        "label": "Average API cost per developer per month",
+        "value": "$150 to $250",
+        "note": "enterprise deployments"
+      },
+      {
+        "label": "Opus 5.5 API price per million tokens",
+        "value": "$4 input, $20 output"
+      },
+      {
+        "label": "Sonnet 5.5 API price per million tokens",
+        "value": "$2 input, $10 output"
+      },
+      {
+        "label": "Usage window on subscription plans",
+        "value": "rolling 5 hours, plus weekly limits"
+      }
+    ],
+    "source": "Anthropic pricing page and Claude Code cost documentation, read 15 October 2026."
+  }
+}
