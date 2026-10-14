@@ -1,0 +1,153 @@
+{
+ "slug": "gemini-4-argon-pricing",
+ "title": "Gemini 4 Argon Pricing: $2 In, $10 Out, Then Double on December 1",
+ "desc": "Gemini 4 Argon costs $2 per million input tokens and $10 output through November 30, then $4 and $20. Batch, Priority, caching and what 1,000 agent steps cost.",
+ "keywords": "gemini 4 argon pricing, gemini 4 argon price, gemini 4 argon api cost, gemini 4 argon introductory price, gemini 4 argon batch api, gemini 4 argon vs gpt-6.1 sol, gemini 4 argon free tier, gemini 4 argon context caching, gemini-4-argon",
+ "date": "2026-10-14",
+ "time": "16:00",
+ "read_time": 6,
+ "word_count": 1236,
+ "cta": "Want your agents priced before the December 1 change?",
+ "body": "<p><strong>October 14, 2026.</strong> Google made Gemini 4 Argon generally available on October 13 at an introductory price of $2 per million input tokens and $10 per million output tokens, with thinking tokens billed as output. The offer runs through November 30, 2026. From December 1 the same model costs $4 and $20, double the launch rate, according to Google's <a href=\"https://ai.google.dev/gemini-api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini API pricing page</a>. The same page says Argon is not available on the free tier or on the Google AI Pro plan, so every API test call is billed. For an agency running agents for clients, that means two budgets: one for October and November, and one at twice the rate for any work that runs into December.</p><p><strong>What Google released on October 13</strong></p><ol><li><strong>General availability.</strong> Google's <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/\" target=\"_blank\" rel=\"noopener noreferrer\">launch post</a> says Argon is available globally through the Gemini API in AI Studio and the Gemini platform, in Google Antigravity for Google AI Ultra subscribers, and in the Gemini app and AI Mode in Search for Google AI Pro and Ultra subscribers. Google first announced the model on September 30, for a group of cyber defenders in its Fairwind Program.</li><li><strong>An introductory price with an end date.</strong> The <a href=\"https://ai.google.dev/gemini-api/docs/latest-model\" target=\"_blank\" rel=\"noopener noreferrer\">developer guide</a> lists $2 input and $10 output per million tokens through November 30, then $4 and $20 from December 1. The AI Insider's <a href=\"https://theaiinsider.tech/2026/10/13/google-begins-gemini-4-argon-rollout/\" target=\"_blank\" rel=\"noopener noreferrer\">launch report</a> carries the same $2 and $10 figures.</li><li><strong>Half price for work that can wait.</strong> Batch and Flex requests cost $1 input and $5 output until November 30, then $2 and $10. Priority requests cost $3.60 and $18, then $7.20 and $36.</li><li><strong>Automatic caching only.</strong> Explicit context caching is not supported. Implicit caching applies to prompts of at least 4,096 tokens and bills cache hits at 95 percent off, which is $0.10 per million on Standard now and $0.20 from December 1.</li><li><strong>One rate across the whole window.</strong> Input, thinking and output share a single window of 1,048,576 tokens, per Google's developer guide and <a href=\"https://ai.google.dev/gemini-api/docs/models/gemini-4-argon\" target=\"_blank\" rel=\"noopener noreferrer\">model page</a>, and the pricing page lists no separate rate for long prompts. With background execution, a single response can run past 65,536 tokens, up to the window minus your input.</li><li><strong>Grounding is billed separately.</strong> Grounding with Google Search includes 5,000 free requests a month, shared across Gemini 3 and newer models, then costs $14 per 1,000. Grounding with Google Maps has the same allowance and rate.</li></ol><p><strong>How Argon's price compares with GPT-6.1 Sol and Claude</strong></p><p>Until November 30, Argon costs the same per token as OpenAI's GPT-6.1 Sol and Anthropic's Claude Sonnet 5.5: $2 input and $10 output on the <a href=\"https://developers.openai.com/api/docs/models/gpt-6.1-sol\" target=\"_blank\" rel=\"noopener noreferrer\">GPT-6.1 Sol model page</a> and on <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic's pricing page</a>. From December 1 it costs the same as Claude Opus 5.5, $4 and $20. OpenAI's GPT-6 Astra stays well above both at $10 and $50.</p><p>The rules around the rate differ more than the rate. OpenAI bills a GPT-6.1 Sol prompt of more than 272,000 input tokens at twice the input and cache rates and 1.5 times the output rate, for the whole request. Anthropic bills its 4.6 and later models, except Claude Haiku 5.5, at standard rates across the full 1M window. Google lists one Argon rate for any prompt that fits. If your agents read long contracts or full catalogs, that removes the cliff covered in our guide to <a href=\"/blog/openai-long-context-pricing-272k/\">OpenAI's 272K pricing rule</a>.</p><p>To put numbers on it, we priced 1,000 agent steps of 20,000 input tokens and 2,000 output tokens each, with no cache hits. Those sizes are our assumption for a step that reads a ticket, a policy and a short history. Argon costs $60 for that work today and $120 from December 1. GPT-6.1 Sol and Claude Sonnet 5.5 cost $60, Claude Opus 5.5 costs $120, GPT-6 Astra $300 and Gemini 3.8 Flash $22.50 at its current price. Google bills Argon's thinking tokens as output, so a higher thinking level raises the output side of the bill.</p><p><strong>What Argon costs for a store's catalog work</strong></p><p>For an online store, a likely first job is the catalog. Take 10,000 product descriptions, each request carrying 1,500 tokens of product data and brand rules and returning 1,000 tokens of thinking and copy (our assumptions). Through the Batch API that run costs $65 before November 30 and $130 after. The same run on Standard costs $130 now and $260 from December 1.</p><p>For volume copy, a Flash model is still the cheaper tool. At $0.75 input and $3.75 output per million, Gemini 3.8 Flash costs $48.75 for the same 10,000 descriptions on Standard, and Google has scheduled that rate to double on January 1, 2027, as our <a href=\"/blog/gemini-flash-price-increase/\">Gemini Flash price increase</a> guide explains. Google positions Argon for complex coding, agentic, math and science tasks, so the better catalog use is the hard part: mapping a messy supplier feed to your variants, or checking product claims against a spec sheet.</p><p>If you sell a Shopify app that writes product copy on Argon, your cost per description doubles on December 1 unless you move the work to Batch or a Flash model. Plan any price change before then; our <a href=\"/shopify-app-reviews\">Shopify app reviews</a> team helps app developers keep their ratings steady through changes like that.</p><p><strong>Migration details that change the bill</strong></p><ol><li><strong>Remove explicit cache calls.</strong> Requests that create or reference cachedContents have to be rewritten, because Argon supports only implicit caching. Google's <a href=\"https://ai.google.dev/gemini-api/docs/caching\" target=\"_blank\" rel=\"noopener noreferrer\">caching guide</a> says hits are more likely when large, common content sits at the beginning of the prompt and similar requests arrive close together.</li><li><strong>Raise the output limit.</strong> Google recommends a max_output_tokens of at least 32,768, because thinking shares the limit with the answer and a response stops when it reaches the limit.</li><li><strong>Pick the thinking level by test.</strong> Low uses the fewest tokens, medium is the default and high uses the most. Google's advice is to run evaluations at all three and choose the lowest level that meets your quality bar, which is also the cheapest.</li><li><strong>Drop sampling settings and lengthen timeouts.</strong> Temperature, top_p and top_k are ignored. Google suggests HTTP timeouts of at least 15 minutes, or background execution, because hard prompts can take several minutes.</li></ol><p><strong>What it means for operators</strong></p><ol><li><strong>Test in October, quote at December prices.</strong> The introductory rate is a cheap window for evaluations, but a fixed-fee client project that runs past November 30 should be priced at $4 and $20, not $2 and $10.</li><li><strong>Keep Argon off the phone line.</strong> The model page lists the Live API as not supported, and Google says hard prompts can take several minutes. An <a href=\"/ai-calling-home-services\">AI receptionist for home services</a> needs a fast voice model on the call; a model like Argon fits behind it, in work that can wait, such as preparing a quote after the call.</li><li><strong>AI Mode now offers Argon to paying users.</strong> Google AI Pro and Ultra subscribers can now choose Argon in AI Mode in Search, according to Google and <a href=\"https://www.seroundtable.com/google-ai-mode-gemini-4-argon-42289.html\" target=\"_blank\" rel=\"noopener noreferrer\">Search Engine Roundtable</a>. Nothing in Google's announcement changes how AI Mode picks the sites it cites, so being named in those answers is still <a href=\"/ai-search-optimization\">AI search optimization</a> work: clear, specific, crawlable pages that answer the question.</li></ol><p>If you want an agent built on the cheapest model that passes your tests, our <a href=\"/ai-automation\">AI automation</a> team runs that comparison as part of each build, or you can <a href=\"/hire-ai-engineer\">hire an AI engineer</a> for a one-off model evaluation. For how we got here, see our September note on the <a href=\"/blog/gemini-4-release-timeline/\">Gemini 4 release timeline</a>.</p>",
+ "faqs": [
+  [
+   "How much does Gemini 4 Argon cost?",
+   "Through November 30, 2026, Gemini 4 Argon costs $2 per million input tokens and $10 per million output tokens on the Gemini API Standard tier, and thinking tokens bill as output. From December 1, 2026 it costs $4 and $20. Cached input costs $0.10 per million now and $0.20 from December 1."
+  ],
+  [
+   "When does the Gemini 4 Argon introductory price end?",
+   "Google's pricing page says the introductory rates apply through November 30, 2026. The new rates start on December 1, 2026 and double every tier: Standard goes to $4 and $20, Batch and Flex to $2 and $10, and Priority to $7.20 and $36 per million tokens."
+  ],
+  [
+   "Is Gemini 4 Argon free to use?",
+   "Not through the API. Google's Gemini API pricing page says Argon is not available on the free tier or on the Google AI Pro plan, so API calls need a paid tier. Separately, Google's launch post says Google AI Pro and Ultra subscribers can use Argon in the Gemini app and in AI Mode in Search, and Ultra subscribers can also use it in Google Antigravity."
+  ],
+  [
+   "Is Gemini 4 Argon cheaper than GPT-6.1 Sol or Claude?",
+   "Until November 30 it has the same list price as GPT-6.1 Sol and Claude Sonnet 5.5, $2 input and $10 output per million tokens. From December 1 it matches Claude Opus 5.5 at $4 and $20, double Sol and Sonnet. For 1,000 agent steps of 20,000 input and 2,000 output tokens, Argon costs $60 today and $120 from December 1."
+  ],
+  [
+   "Does Gemini 4 Argon charge more for long prompts?",
+   "Google's pricing page lists one Argon rate with no separate long-context price, and input, thinking and output share a 1,048,576-token window. OpenAI, by contrast, bills GPT-6.1 Sol prompts over 272,000 input tokens at twice the input rate and 1.5 times the output rate for the whole request."
+  ],
+  [
+   "Does Gemini 4 Argon support context caching?",
+   "Only implicit caching. Explicit caching with cachedContents is not supported, so requests that create or reference a cache must be rewritten. Implicit caching applies to prompts of at least 4,096 tokens and discounts cache hits by 95 percent. Google suggests putting large, common content at the beginning of the prompt to raise the hit rate."
+  ]
+ ],
+ "image": {
+  "cluster": "AI pricing",
+  "takeaway": "Gemini 4 Argon costs $2 in and $10 out per million tokens until November 30, then $4 and $20.",
+  "alt": "Gemini 4 Argon pricing: $2 input and $10 output per million tokens through November 30, 2026, then $4 and $20",
+  "chart": {
+   "title": "Cost of 1,000 agent steps, by model",
+   "subtitle": "20,000 input and 2,000 output tokens per step, no cache hits, Standard list prices.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Gemini 3.8 Flash",
+     22.5
+    ],
+    [
+     "Argon to Nov 30",
+     60
+    ],
+    [
+     "GPT-6.1 Sol",
+     60
+    ],
+    [
+     "Claude Sonnet 5.5",
+     60
+    ],
+    [
+     "Argon from Dec 1",
+     120
+    ],
+    [
+     "Claude Opus 5.5",
+     120
+    ],
+    [
+     "GPT-6 Astra",
+     300
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 4,
+   "note": [
+    "Same work, double the bill",
+    "once the offer ends"
+   ],
+   "source": "Standard tier, our step sizes. Source: Google, OpenAI and Anthropic pricing pages, October 2026",
+   "alt": "Bar chart of the cost of 1,000 agent steps: Gemini 3.8 Flash $22.50, Argon $60 to November 30 and $120 from December 1, GPT-6.1 Sol and Claude Sonnet 5.5 $60, Claude Opus 5.5 $120, GPT-6 Astra $300.",
+   "after_heading": "How Argon's price compares with GPT-6.1 Sol and Claude"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Gemini 4 Argon input, through Nov 30, 2026",
+    "value": "$2.00 per 1M tokens",
+    "note": "Standard tier"
+   },
+   {
+    "label": "Gemini 4 Argon output, through Nov 30, 2026",
+    "value": "$10.00 per 1M tokens",
+    "note": "thinking tokens bill as output"
+   },
+   {
+    "label": "Input and output from Dec 1, 2026",
+    "value": "$4.00 and $20.00 per 1M",
+    "note": "Standard tier"
+   },
+   {
+    "label": "Batch and Flex, through Nov 30",
+    "value": "$1.00 and $5.00 per 1M",
+    "note": "$2.00 and $10.00 from Dec 1"
+   },
+   {
+    "label": "Priority, through Nov 30",
+    "value": "$3.60 and $18.00 per 1M",
+    "note": "$7.20 and $36.00 from Dec 1"
+   },
+   {
+    "label": "Cached input, Standard",
+    "value": "$0.10 per 1M",
+    "note": "$0.20 from Dec 1; implicit caching only"
+   },
+   {
+    "label": "Minimum prompt for implicit caching",
+    "value": "4,096 tokens",
+    "note": "hits discounted 95 percent"
+   },
+   {
+    "label": "Context window",
+    "value": "1,048,576 tokens",
+    "note": "input, thinking and output combined"
+   },
+   {
+    "label": "Grounding with Google Search",
+    "value": "5,000 free a month",
+    "note": "then $14 per 1,000 requests"
+   },
+   {
+    "label": "GPT-6.1 Sol and Claude Sonnet 5.5",
+    "value": "$2.00 and $10.00 per 1M",
+    "note": "input and output list prices"
+   },
+   {
+    "label": "Claude Opus 5.5",
+    "value": "$4.00 and $20.00 per 1M",
+    "note": "input and output list prices"
+   },
+   {
+    "label": "1,000 agent steps on Argon",
+    "value": "$60 now, $120 from Dec 1",
+    "note": "our sizes: 20,000 in, 2,000 out per step"
+   }
+  ],
+  "source": "Prices read on 14 October 2026 from Google's Gemini API pricing page, model page and developer guide, OpenAI's GPT-6.1 Sol model page and Anthropic's pricing page."
+ }
+}
