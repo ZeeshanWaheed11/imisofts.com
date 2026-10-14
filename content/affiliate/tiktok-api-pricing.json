@@ -1,0 +1,155 @@
+{
+ "slug": "tiktok-api-pricing",
+ "title": "TikTok API Pricing: $0, but the Research API Excludes Businesses",
+ "desc": "TikTok does not currently charge for its developer APIs, but the Research API excludes commercial users. What each official API allows, and scraper prices.",
+ "date": "2026-10-14",
+ "time": "16:45",
+ "keywords": "tiktok api pricing, tiktok api cost, is tiktok api free, tiktok api free, tiktok research api, tiktok research api eligibility, tiktok research api rate limit, tiktok api rate limit, tiktok display api, tiktok content posting api, tiktok commercial content api, tiktok business api pricing, tiktok shop api pricing, tiktok api for business, tiktok scraper pricing, tiktok scraper api, apify tiktok scraper, bright data tiktok scraper, does tiktok have an api",
+ "category": "Guides",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "cta": "Want your social data pipeline costed before you build it?",
+ "word_count": 2044,
+ "read_time": 9,
+ "body": "<p><strong>Short answer.</strong> TikTok charges nothing for its developer APIs today: its Developer Terms, last modified on 26 December 2025, say TikTok \"does not currently charge\" for its developer services, and keep the right to add fees later with notice. What TikTok rations is access. In the documentation we read, the only official API that searches public, non-ad videos and accounts without the account owner's sign-in is the Research API, and TikTok's FAQ says creators, advertisers and commercial users are not eligible for it. The Display API reads only the profiles and videos of people who authorize your app. So for a business that wants public videos and accounts from people who have not authorized its app, we found no official route, and the working price is a scraper's: $1.30 to $3.70 per 1,000 across the paid rates of the two we priced, Bright Data and Apify. TikTok's terms bar that kind of automated extraction without its written approval. We earn a commission if you buy Apify or Bright Data through our links; TikTok pays us nothing.</p>\n<p>Every price and limit below was read on 14 October 2026 in TikTok's developer docs and terms, Apify's Store and pricing page and Bright Data's TikTok Scraper API page; the totals are our arithmetic. We did not run paid jobs on either scraper or test their data quality.</p>\n\n<h2 id=\"official-apis\">What each official TikTok API costs and who can use it</h2>\n<p>TikTok's Developer Terms define its developer services as the developer site, the documentation and the TikTok API, and that is where the no-charge line sits. The Research API's own Research Terms set no access fee either. The business and shop APIs live on other portals, whose pages we read show no price.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>API</th><th>Price</th><th>Who can use it</th><th>What it gives you</th></tr></thead><tbody>\n<tr><td>Research API (Research Tools)</td><td>$0</td><td>Approved non-commercial researchers</td><td>Public accounts, videos, comments and follower lists; 1,000 requests a day</td></tr>\n<tr><td>Display API</td><td>$0</td><td>Approved apps, for users who sign in through Login Kit</td><td>That user's profile and videos; 600 requests a minute per endpoint by default</td></tr>\n<tr><td>Content Posting API</td><td>$0</td><td>Approved apps; public posting needs an audit</td><td>Posts to the accounts of creators who authorize your app</td></tr>\n<tr><td>Commercial Content API</td><td>$0</td><td>The public and researchers, by application</td><td>Ads and advertisers, EU ads only for now</td></tr>\n<tr><td>Data Portability API</td><td>$0</td><td>Qualified applicants with a defined use case</td><td>Data of EEA and UK users who authorize a transfer</td></tr>\n<tr><td>API for Business</td><td>No price shown</td><td>Advertisers and their developers</td><td>Campaigns, audiences, reports and lead ads</td></tr>\n<tr><td>TikTok Shop Partner Center</td><td>No developer fee shown</td><td>Developers and partners serving sellers</td><td>Apps for sellers and creators</td></tr>\n</tbody></table></div>\n\n<h2 id=\"research-api\">The Research API: free, 1,000 requests a day, researchers only</h2>\n<p>Research Tools are open to academic institutions in the US, EEA, UK, Canada or Switzerland, to not-for-profit research bodies in the EU and to academic or not-for-profit groups in Brazil studying online youth safety. Applicants must be independent of commercial interests, disclose their funding, show an ethical review and submit a defined research proposal; approved non-academic non-profits work through TikTok's Virtual Compute Environment.</p>\n<p>The FAQ is blunt: creators, advertisers and commercial users are not eligible. The Research Terms, effective 22 January 2026, bar commercial use beyond publishing papers about the approved research, and TikTok says applicants usually get an answer within 4 weeks.</p>\n<p>The quota, per TikTok's FAQ:</p>\n<ul>\n<li><strong>Most endpoints:</strong> 1,000 requests a day. Video and comment requests return up to 100 records each, so up to 100,000 records a day, shared across the approved organization and reset at midnight UTC.</li>\n<li><strong>Follower and following lists:</strong> up to 20,000 calls and up to 2 million records a day.</li>\n<li><strong>Virtual Compute Environment:</strong> up to 5,000 records a day in its test stage.</li>\n<li><strong>More quota:</strong> TikTok takes requests by email but says it cannot grant exceptions.</li>\n</ul>\n<p>A video query also spans at most 30 days of upload dates and runs on archived data: TikTok says new videos can take up to 48 hours to appear and view counts up to 10 days to update, a weak fit for same-day trend tracking. Where you can access personal data, the Research Terms require a refresh at least every 30 days and deletion of anything no longer available.</p>\n<p>At the ceiling, 100,000 records a day for 30 days is up to 3 million records at no charge. Bought from a scraper at the list prices below, counting one result or record as one item, the same 3 million would cost $3,899.80 on Bright Data's Scale plan, $4,492.50 at its pay-as-you-go rate after the 5,000 free monthly credits, or $5,100 on Apify's Business plan. If your project qualifies, no paid scraper plan comes close.</p>\n\n<h2 id=\"display-posting\">Display and posting APIs work only for users who sign in</h2>\n<p>Google's AI Overview told us on 14 October that the Display API can pull public profiles and video data. TikTok's documentation describes something narrower: every call carries an access token granted by one user through Login Kit, and the video query endpoint checks that the requested videos belong to that user. It is built for showing a creator's own profile and videos in your product, at a default 600 requests a minute per endpoint, more if TikTok approves a request. The Get User Info page lists profile fields and follower and like counts, but no email field.</p>\n<p>The Content Posting API is gated twice. Until your app passes an audit, everything it posts is private and at most 5 users can post through it in a 24-hour window. After the audit, TikTok still caps active creators per app and caps the posts each creator can make through Direct Post, typically at around 15 a day, shared across every app posting for that creator. Its guidelines also list a tool for uploading to accounts you or your team manage as not acceptable, and app review will not approve apps for private or personal use.</p>\n<p>The Data Portability API moves only data that a TikTok user in the EEA or UK authorizes your app to receive, after a privacy and security review.</p>\n\n<h2 id=\"ads-business\">Ads and business data: Commercial Content API and API for Business</h2>\n<p>The Commercial Content API searches TikTok's ad library by advertiser name or keyword, with dates, targeting and reach for each ad. For now it covers only ads from EU countries, though applicants can be anywhere, and TikTok says complete applications get a response within 2 working days. TikTok's Developer Terms let you use this data for what they call CCL Purposes, which they define as supervision of, and research into, risks from online advertising such as illegal ads or disinformation.</p>\n<p>TikTok API for Business is a separate portal for advertisers, covering campaigns, audiences, reporting and leads from lead generation ads. It also lists Organic and Business Messaging APIs, whose details we could not open, and the portal page shows no price. TikTok Shop's Partner Center shows no developer fee either, though TikTok's EEA terms say it may charge sellers a commission.</p>\n\n<h2 id=\"scraper-prices\">What a TikTok scraper costs per 1,000 videos</h2>\n<p>Apify's own TikTok API page presents its scraper as access to data no official API provides. For public videos and accounts that have not authorized your app, that matches what we found for a commercial user; an approved researcher gets profiles, follower lists, videos and comments from the Research API at no charge.</p>\n<p><a href=\"https://www.apify.com?fpr=rc63q\">Apify's TikTok Scraper</a> (clockworks/tiktok-scraper, maintained by Apify; 333K total users and a 4.8 rating from 369 reviews, by Apify's count) bills per result on a pay-per-event model, with platform costs included. <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Bright Data's TikTok Scraper API</a> bills per record and says it does not charge for failed deliveries.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Plan</th><th>Monthly fee</th><th>Per 1,000 results or records</th><th>Notes</th></tr></thead><tbody>\n<tr><td>Apify Free</td><td>$0</td><td>$3.70</td><td>$5 of usage a month, up to 1,351 results</td></tr>\n<tr><td>Apify Starter</td><td>$19</td><td>$3.00</td><td>The fee is prepaid usage; overage goes on the next invoice</td></tr>\n<tr><td>Apify Scale</td><td>$199</td><td>$2.30</td><td>Same model as Starter</td></tr>\n<tr><td>Apify Business</td><td>$999</td><td>$1.70</td><td>The rate behind the Store card's from $1.70 figure</td></tr>\n<tr><td>Bright Data free tier</td><td>$0</td><td>$0</td><td>5,000 credits a month for new accounts, shared with its Unlocker and SERP APIs</td></tr>\n<tr><td>Bright Data pay as you go</td><td>None, prepaid funds</td><td>$1.50</td><td>After the free credits</td></tr>\n<tr><td>Bright Data Scale</td><td>$499</td><td>$1.30</td><td>384,000 records included</td></tr>\n</tbody></table></div>\n<p>The lower rates come with plan minimums. The $199, $999 and $499 fees are paid even if you use less, so at 10,000 videos a month Apify Scale, Apify Business and Bright Data Scale work out to $19.90, $99.90 and $49.90 per 1,000. Apify's add-ons bill per 1,000 on top: on Starter, $1.00 each for filters, sorting, video download, comments and country targeting, $3.00 for follower lists and $41.00 for transcripts, plus $0.001 per run. Unused Apify credit expires each billing cycle, and Free accounts are blocked once the $5 is spent. Bright Data's free credits renew on the 1st and do not roll over, and its page also calls them 5K records; once they run out, requests fail unless you have deposited funds.</p>\n<p>A worked example, treating one Apify result and one Bright Data record as one video, which neither page states:</p>\n<ul>\n<li><strong>10,000 videos a month:</strong> Apify Starter bills $30, the $19 fee plus $11 on the next invoice, or $40 with a date filter on every result. Bright Data bills $7.50 if your 5,000 free credits are untouched and $15 if they went elsewhere. Apify Free stops at 1,351 results.</li>\n</ul>\n<p>At this volume and at the 3 million above, Bright Data's listed price is lower than Apify's. Both pay us a commission, and we did not test data quality or completeness on either.</p>\n\n<h2 id=\"terms\">What TikTok's terms say about scrapers</h2>\n<p>TikTok's US Terms of Service, an agreement with TikTok USDS Joint Venture LLC last updated on 15 July 2026, bar using bots or any other automated system or software to scrape, crawl, export or otherwise extract data or content from the platform, whatever the purpose, unless TikTok USDS Joint Venture has approved it in writing. They also bar commercial use of another user's content without that user's permission, and of TikTok's own content without TikTok's. The EEA terms, updated in July 2026, bar extraction with automated systems that TikTok neither provides nor approves in writing.</p>\n<p>Neither vendor's legal answer addresses those terms in the text we read. Apify's README answers with privacy law: its scrapers take only what users share publicly and no private data such as email addresses, results may still contain personal data protected by the GDPR, and you should not scrape personal data without a legitimate reason. Bright Data's FAQ says its TikTok scraper is designed to comply with the GDPR and the CCPA, and markets it for competitive analysis. We do not assess how TikTok's terms apply to a given project, and this is not legal advice; our <a href=\"/blog/is-web-scraping-legal/\">guide to web scraping and the law</a> covers the general questions.</p>\n\n<h2 id=\"which-route\">Which route fits which job</h2>\n<ul>\n<li><strong>Academic or non-profit research in an eligible region:</strong> the Research API. It is free, allows up to 100,000 records a day and costs less than any paid scraper plan at volume; allow about 4 weeks for an answer and view counts that can lag by up to 10 days.</li>\n<li><strong>Showing creators' own videos on your site or app:</strong> the Display API with Login Kit.</li>\n<li><strong>Posting for creators:</strong> the Content Posting API, after an audit.</li>\n<li><strong>Ad research:</strong> the Commercial Content API, for EU ads and CCL Purposes.</li>\n<li><strong>Your own ad accounts and lead ads:</strong> TikTok API for Business.</li>\n<li><strong>Public videos, hashtags or creator lists for marketing:</strong> we found no official route open to a commercial user. The scrapers above price it, and TikTok's terms bar automated extraction without its written approval.</li>\n<li><strong>Creator outreach:</strong> TikTok's Get User Info page lists no email field, Apify says its scrapers do not extract private data such as email addresses, and its README warns that results may still hold personal data covered by laws such as the GDPR. If you contact creators who publish a business address themselves, the sending side is <a href=\"/email-infrastructure\">email infrastructure</a>: domains, authentication and warm-up affect whether those emails land.</li>\n</ul>\n<p>For sources whose terms allow automated collection, compare <a href=\"https://www.apify.com?fpr=rc63q\">Apify's Store</a> with <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Bright Data's scraper APIs</a>. Our <a href=\"/blog/web-scraping-api-pricing/\">web scraping API pricing</a>, <a href=\"/blog/youtube-api-pricing/\">YouTube API pricing</a> and <a href=\"/blog/x-api-pricing/\">X API pricing</a> guides cover other sources, and our <a href=\"/ai-automation-agency\">AI automation team</a> builds and costs data pipelines like these.</p>",
+ "faqs": [
+  [
+   "Is the TikTok API free?",
+   "Yes, for now. TikTok's Developer Terms, last modified on 26 December 2025, say it does not currently charge for its developer services, which they define as the developer site, the documentation and the TikTok API, and that any future fees would be disclosed before they take effect. What TikTok limits instead is access: app review, scopes, audits and, for the Research API, eligibility."
+  ],
+  [
+   "Can a business use the TikTok Research API?",
+   "No. TikTok's Research Tools FAQ says creators, advertisers and commercial users are not eligible, and the Research Terms bar commercial use beyond publishing papers about the approved research. Eligible applicants are academic institutions in the US, EEA, UK, Canada or Switzerland, not-for-profit research bodies in the EU and academic or not-for-profit groups in Brazil studying online youth safety, and all must be independent of commercial interests."
+  ],
+  [
+   "What are the TikTok API rate limits?",
+   "By default the Display API allows 600 requests a minute for each of /v2/user/info/, /v2/video/list/ and /v2/video/query/ on a sliding one-minute window, and TikTok raises the limit if it approves a request. The Research API allows 1,000 requests a day, up to 100,000 records, plus up to 20,000 calls and 2 million records a day for follower and following lists, resetting at midnight UTC. Unaudited posting apps can let at most 5 users post in a 24-hour window, and only privately."
+  ],
+  [
+   "Can the TikTok API get any public profile or video?",
+   "Not for a commercial user, in the documentation we read. The Display API returns only the profile and videos of a user who authorizes your app through Login Kit, and its video query checks that each video belongs to that user. The Research API can query public accounts and videos, but only for approved non-commercial researchers. The Commercial Content API searches ads, and only EU ads for now."
+  ],
+  [
+   "How much does a TikTok scraper cost?",
+   "On the two we priced on 14 October 2026: Apify's TikTok Scraper charges $3.70 per 1,000 results on its Free plan ($5 of monthly usage, up to 1,351 results), $3.00 on the $19 Starter plan, $2.30 on the $199 Scale plan and $1.70 on the $999 Business plan, with add-ons extra. Bright Data's TikTok Scraper API charges $1.50 per 1,000 records pay as you go and $1.30 on its $499 Scale plan, which includes 384,000 records; new accounts get 5,000 free credits a month, shared with its Unlocker and SERP APIs. Both pay us a commission."
+  ],
+  [
+   "Is scraping TikTok allowed?",
+   "TikTok's US Terms of Service bar using bots or other automated systems to scrape, crawl, export or otherwise extract data or content, whatever the purpose, unless TikTok USDS Joint Venture has approved it in writing, and its EEA terms bar extraction with automated systems that TikTok has not provided or approved in writing. Apify's and Bright Data's legal answers address privacy law such as the GDPR, not TikTok's terms. This is not legal advice."
+  ]
+ ],
+ "image": {
+  "cluster": "Social data costs",
+  "takeaway": "TikTok does not charge for its developer APIs today, but its Research API excludes creators, advertisers and businesses.",
+  "alt": "TikTok API pricing: what each official TikTok API costs and allows in 2026, and what TikTok scrapers charge per 1,000 videos",
+  "chart": {
+   "title": "Listed price per 1,000 TikTok videos",
+   "subtitle": "Lower rates need $199 to $999 monthly plans. One result or record counted as one video.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Apify Free",
+     3.7
+    ],
+    [
+     "Apify Starter",
+     3.0
+    ],
+    [
+     "Apify Scale",
+     2.3
+    ],
+    [
+     "Apify Business",
+     1.7
+    ],
+    [
+     "Bright Data PAYG",
+     1.5
+    ],
+    [
+     "Bright Data Scale",
+     1.3
+    ],
+    [
+     "TikTok Research API",
+     0
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 6,
+   "note": [
+    "Free for approved researchers.",
+    "Commercial users are not eligible."
+   ],
+   "source": "Apify and Bright Data pay us commissions. Source: Apify Store, Bright Data and TikTok developer docs and terms, October 2026.",
+   "alt": "Bar chart of the listed price per 1,000 TikTok videos: Apify Free $3.70, Starter $3.00, Scale $2.30, Business $1.70, Bright Data pay as you go $1.50, Bright Data Scale $1.30, and TikTok's Research API $0 for approved researchers, highlighted.",
+   "after_heading": "What TikTok's terms say about scrapers"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "TikTok developer API fee",
+    "value": "$0",
+    "note": "no charge today under the Developer Terms; any fees would be disclosed before taking effect"
+   },
+   {
+    "label": "Research API requests per day",
+    "value": "1,000",
+    "note": "up to 100,000 video or comment records; resets at midnight UTC; shared across the organization"
+   },
+   {
+    "label": "Research API follower and following lists",
+    "value": "Up to 2 million records a day",
+    "note": "up to 20,000 calls of up to 100 records"
+   },
+   {
+    "label": "Who can use the Research API",
+    "value": "Approved non-commercial researchers",
+    "note": "eligible institutions in eligible regions; creators, advertisers and commercial users are not eligible"
+   },
+   {
+    "label": "Research API application answer",
+    "value": "Usually within 4 weeks",
+    "note": "per TikTok's Research Tools page"
+   },
+   {
+    "label": "Display API limit per endpoint",
+    "value": "600 requests a minute by default",
+    "note": "only for users who authorize your app through Login Kit; more if TikTok approves"
+   },
+   {
+    "label": "Unaudited Content Posting API",
+    "value": "5 users per 24 hours, private posts",
+    "note": "an audit lifts the private-only rule"
+   },
+   {
+    "label": "Direct Post cap per creator",
+    "value": "Typically about 15 posts a day",
+    "note": "may vary by creator; shared across every app posting for that creator"
+   },
+   {
+    "label": "Apify TikTok Scraper, per 1,000 results",
+    "value": "$3.00 on Starter",
+    "note": "$19 a month; $3.70 on Free (up to 1,351 results); $1.70 on the $999 Business plan"
+   },
+   {
+    "label": "Bright Data TikTok Scraper API, per 1,000 records",
+    "value": "$1.50 pay as you go",
+    "note": "after 5,000 free monthly credits for new accounts, shared with its Unlocker and SERP APIs; $1.30 on the $499 Scale plan with 384,000 included"
+   },
+   {
+    "label": "10,000 videos in a month",
+    "value": "Bright Data $7.50 to $15, Apify $30",
+    "note": "Bright Data with or without its free credits; Apify on Starter; one result or record counted as one video"
+   },
+   {
+    "label": "3 million records or results in 30 days",
+    "value": "Research API $0, scrapers $3,899.80 to $5,100",
+    "note": "Research API only if eligible; Bright Data Scale $3,899.80; Apify Business $5,100"
+   }
+  ],
+  "source": "Read on 14 October 2026 from TikTok for Developers documentation, TikTok's Developer Terms, Research Tools Terms and US and EEA Terms of Service, Apify's Store and pricing pages and Bright Data's TikTok Scraper API page."
+ }
+}
