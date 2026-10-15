@@ -1,0 +1,144 @@
+{
+  "slug": "grok-voice-api-pricing",
+  "title": "Grok Voice 3.0 Pricing: $0.08 a Minute and What 1,000 Calls Cost",
+  "desc": "Grok Voice 3.0 costs $0.08 a minute in xAI's Voice Agent API, the 2.0 price and up from $0.05 in July. Telephony, OpenAI and Google, and what 1,000 calls cost.",
+  "keywords": "grok voice api pricing, grok voice 3.0 pricing, grok voice pricing, grok voice 3.0, grok voice cost per minute, xai voice agent api pricing, grok voice vs gpt-live, grok voice 2.0 deprecated, grok voice agent builder pricing, grok-voice-3.0",
+  "date": "2026-10-15",
+  "time": "11:05",
+  "read_time": 6,
+  "word_count": 1242,
+  "cta": "Want an AI receptionist priced and built on the right voice model?",
+  "body": "<p><strong>October 15, 2026.</strong> xAI released Grok Voice 3.0 on October 14 and kept the price at $0.08 per minute of audio, or $4.80 an hour, in its Voice Agent API, the same rate it charges for Grok Voice 2.0, according to the <a href=\"https://x.ai/news/grok-voice-3\" target=\"_blank\" rel=\"noopener noreferrer\">Grok Voice 3.0 announcement</a> and xAI's <a href=\"https://docs.x.ai/developers/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">API pricing page</a>. That rate is 60 percent above the $0.05 a minute xAI listed in early July, before Grok Voice 2.0 shipped. For a business that answers 1,000 calls a month at three minutes each, the model alone now costs $240 a month, against $150 at the July rate, before you pay for the phone line.</p><p><strong>What xAI released on October 14</strong></p><ol><li><strong>Grok Voice 3.0 in the API.</strong> The model ID is grok-voice-3.0, and xAI's <a href=\"https://docs.x.ai/developers/release-notes\" target=\"_blank\" rel=\"noopener noreferrer\">release notes</a> say the grok-voice-latest alias now points to it, so agents that use the alias were upgraded automatically. The <a href=\"https://docs.x.ai/developers/model-capabilities/audio/speech-to-speech\" target=\"_blank\" rel=\"noopener noreferrer\">speech to speech docs</a> say the endpoint, session parameters and events are unchanged.</li><li><strong>Grok Voice 2.0 is deprecated.</strong> Agents pinned to grok-voice-2.0 should switch the model string to grok-voice-3.0 or grok-voice-latest. Both models are listed at the same $0.08 a minute.</li><li><strong>A benchmark lead.</strong> On the Speech to Speech Index from <a href=\"https://artificialanalysis.ai/speech-to-speech\" target=\"_blank\" rel=\"noopener noreferrer\">Artificial Analysis</a>, which we read on October 15, Grok Voice 3.0 scores 86.9, ahead of OpenAI's GPT-Live-1 (Astra, medium) at 83.2, Google's Gemini 3.8 Live with extended thinking at 82.6 and Grok Voice 2.0 at 81.3. Its score on τ-Voice, a test of support calls with accents, background noise and interruptions, rose from 56.5 to 71.6 percent.</li><li><strong>Production claims from xAI.</strong> xAI says Starlink call centers answer 20,000 calls a day on Grok Voice, resolve roughly 70 percent with no human involved, and close a purchase on one in four sales calls. It also cites a 74 percent accuracy score on ServiceNow's EVA-Bench. These are vendor figures, not independent tests.</li></ol><p>The Neuron's <a href=\"https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-october-14-2026/\" target=\"_blank\" rel=\"noopener noreferrer\">October 14 digest</a> also reported the release and the unchanged API price.</p><p><strong>What Grok Voice costs, line by line</strong></p><p>xAI bills a voice agent on one meter instead of separate charges for transcription, the model and the voice. Its <a href=\"https://x.ai/news/grok-voice-agent-builder\" target=\"_blank\" rel=\"noopener noreferrer\">Voice Agent Builder post</a> says voices are included and there is no separate platform fee. These are the lines that can appear on the bill:</p><ol><li><strong>Speech to speech, $0.08 a minute.</strong> $4.80 an hour of audio for Grok Voice 3.0 or 2.0.</li><li><strong>Text inputs, $0.004 each.</strong> The pricing page lists this next to the per-minute rate for both speech to speech models.</li><li><strong>Telephony, $0.01 a minute or your carrier's rate.</strong> An agent built in the Voice Agent Builder can use a free provisioned number at $0.01 a minute. Through the API, xAI's <a href=\"https://docs.x.ai/developers/model-capabilities/audio/speech-to-speech/sip\" target=\"_blank\" rel=\"noopener noreferrer\">SIP guide</a> says it does not provision numbers, so you register your own number on your own SIP trunk and pay your carrier. Twilio's <a href=\"https://www.twilio.com/en-us/sip-trunking/pricing/us\" target=\"_blank\" rel=\"noopener noreferrer\">US SIP trunking prices</a> are $0.0034 a minute for inbound calls to a local number and $0.0130 to a toll-free number, plus $1.15 or $2.15 a month for the number.</li><li><strong>The standalone speech APIs.</strong> If you build your own pipeline instead, speech to text costs $0.10 an hour on REST or $0.20 streaming, and text to speech costs $15 per million characters.</li></ol><p><strong>The price rose in July, not this week</strong></p><p>The 60 percent increase did not arrive with 3.0. A <a href=\"https://web.archive.org/web/20260704072119/https://x.ai/news/grok-voice-agent-builder\" target=\"_blank\" rel=\"noopener noreferrer\">capture of the Voice Agent Builder post</a> saved by the Internet Archive on July 4, 2026 lists the API rate as $0.05 a minute of audio. When xAI launched <a href=\"https://x.ai/news/grok-voice-think-fast-2\" target=\"_blank\" rel=\"noopener noreferrer\">Grok Voice 2.0</a> on July 29, it priced the model at $0.08 a minute and set the grok-voice-latest alias to switch to 2.0 on August 5. The same builder post now says $0.08. Artificial Analysis lists Grok Voice 1.0 at $3.00 per hour of input audio and both later versions at $4.80, which matches the two rates.</p><p>What the extra 3 cents a minute buys, on Artificial Analysis's numbers: an index score of 86.9 against 73.7 for Grok Voice 1.0, a task success rate of 94.8 percent against 80.7, and 0.81 seconds to first audio against 1.25. One trade-off is worth testing on your own calls: Grok Voice 2.0 was quicker to first audio, at 0.70 seconds.</p><p><strong>What a 1,000-call month costs</strong></p><p>We priced an inbound receptionist that answers 1,000 calls a month at an average of three minutes, so 3,000 minutes. The call length is our assumption, so swap in your own.</p><ol><li><strong>Model only: $240 a month.</strong> 3,000 minutes at $0.08. At the early July rate of $0.05 the same line was $150, so the month costs $90 more than a July budget assumed.</li><li><strong>On the builder's free number: $270 a month.</strong> Telephony adds $30 at $0.01 a minute. That is $0.09 a minute, or about $0.27 for a three-minute call.</li><li><strong>On your own Twilio SIP trunk: $251.35 a month.</strong> $240 plus $10.20 of inbound minutes and $1.15 for a local number, before taxes and carrier fees. A toll-free number takes the month to $281.15.</li></ol><p>For the same workload on hosted voice agent platforms, see our <a href=\"/blog/retell-ai-pricing/\">Retell AI pricing</a> and <a href=\"/blog/vapi-pricing/\">Vapi pricing</a> breakdowns and the <a href=\"/blog/ai-receptionist-cost/\">AI receptionist cost</a> comparison.</p><p><strong>How Grok Voice compares with OpenAI and Google</strong></p><p>Vendors bill voice models differently, by the minute or by audio tokens, so a like for like price is hard to read off a rate card. Artificial Analysis measures what each model costs to run the same fixed 40-question Big Bench Audio set, normalized to an hour of input audio:</p><ol><li><strong>GPT-Realtime-2.1 (High): $10.75 an hour.</strong> It takes 1.21 seconds to first audio.</li><li><strong>GPT-Live-1 (Astra, medium): $5.83 an hour.</strong> It scores higher on τ-Voice, 74.5 percent against 71.6, but takes 1.34 seconds to first audio against Grok Voice 3.0's 0.81.</li><li><strong>Grok Voice 3.0: $4.80 an hour.</strong> The same as its list price of $0.08 a minute.</li><li><strong>Gemini 3.8 Live, extended thinking (High): $3.50 an hour.</strong> It takes 1.35 seconds to first audio and scores 68.6 percent on τ-Voice.</li></ol><p>On that measure Grok Voice 3.0 costs less than both OpenAI models and more than Google's, and it reaches first audio faster than all three. Your own bill depends on call length and on how much of each call the caller spends talking, so run a week of real calls before you move a client's line.</p><p><strong>What it means for operators</strong></p><ol><li><strong>Check which model your agents run.</strong> Agents on grok-voice-latest moved to 3.0 on October 14 without a deploy. Replay a set of recorded test calls this week, because timing and tool use can shift with a new model.</li><li><strong>Re-budget at $0.08.</strong> Any quote or client budget built on xAI's early July rate of $0.05 needs its model line raised by 60 percent.</li><li><strong>Choose the phone line on purpose.</strong> The builder's number is the simplest route. Your own SIP trunk is cheaper on inbound local calls, and the number stays with your carrier if you change models later.</li><li><strong>Outbound calls still need consent.</strong> Consent and disclosure rules for automated calls apply whichever model is speaking, so read our <a href=\"/tcpa-compliant-ai-calling\">TCPA-compliant AI calling</a> page and the <a href=\"/blog/ai-caller-disclosure-laws-by-state/\">AI caller disclosure laws by state</a> before you dial.</li></ol><p>In home services the first job for a voice agent is usually the after-hours line. Our <a href=\"/ai-calling-home-services\">AI call answering for home services</a> puts an agent on HVAC, plumbing and roofing phone lines, including after-hours emergencies, and our <a href=\"/blog/ai-answering-service-for-hvac/\">AI answering service for HVAC</a> comparison shows what the off-the-shelf alternatives cost. If you want a voice agent built on Grok, OpenAI or Gemini and tested on your own calls, see our <a href=\"/ai-voice-agents\">AI voice agent</a> service.</p>",
+  "faqs": [
+    [
+      "How much does Grok Voice 3.0 cost?",
+      "Grok Voice 3.0 costs $0.08 per minute of audio, or $4.80 an hour, in xAI's Voice Agent API, the same price as Grok Voice 2.0. xAI's pricing page also lists text inputs at $0.004 each. Voices are included and there is no separate platform fee."
+    ],
+    [
+      "Did Grok Voice get more expensive?",
+      "Yes, in July. An Internet Archive capture of xAI's Voice Agent Builder post from July 4, 2026 lists the API rate at $0.05 a minute. Grok Voice 2.0 launched on July 29 at $0.08 a minute, and Grok Voice 3.0 kept that price on October 14, so the current rate is 60 percent above early July."
+    ],
+    [
+      "Is Grok Voice cheaper than OpenAI's voice models?",
+      "On Artificial Analysis's measure, the cost to run a fixed Big Bench Audio set per hour of input audio, Grok Voice 3.0 costs $4.80 against $5.83 for GPT-Live-1 (Astra, medium) and $10.75 for GPT-Realtime-2.1 (High). Google's Gemini 3.8 Live with extended thinking costs less, at $3.50. Real bills depend on call length and talk time."
+    ],
+    [
+      "Do I need to change my code to use Grok Voice 3.0?",
+      "Not if your agent uses the grok-voice-latest alias, which xAI pointed at Grok Voice 3.0 on October 14. If you pinned grok-voice-2.0, which is now deprecated, change the model to grok-voice-3.0. xAI says the endpoint, session parameters and events are unchanged."
+    ],
+    [
+      "What does a 1,000-call month cost on Grok Voice?",
+      "At three minutes a call, 3,000 minutes cost $240 for the model. On the Voice Agent Builder's free number, telephony adds $30 at $0.01 a minute, for $270. On your own Twilio SIP trunk with a local number, inbound minutes and the number add $11.35, for $251.35 before taxes and fees."
+    ],
+    [
+      "Does xAI provide phone numbers for Grok Voice agents?",
+      "Agents built in xAI's Voice Agent Builder can use a free provisioned number, with telephony billed at $0.01 a minute. Through the API, xAI says it does not provision phone numbers, so you register a number on your own SIP trunk, for example from Twilio or Telnyx, and pay that carrier's rates."
+    ]
+  ],
+  "image": {
+    "cluster": "AI calling",
+    "takeaway": "Grok Voice 3.0 costs $0.08 a minute, up from the $0.05 xAI listed in early July.",
+    "alt": "Grok Voice 3.0 pricing: $0.08 a minute in xAI's Voice Agent API, up from $0.05 in early July 2026",
+    "chart": {
+      "title": "Cost per hour of input audio, by voice model",
+      "subtitle": "Artificial Analysis cost to run a fixed 40-question Big Bench Audio set, per hour of input audio.",
+      "type": "hbar",
+      "rows": [
+        [
+          "GPT-Realtime-2.1 High",
+          10.75
+        ],
+        [
+          "GPT-Live-1 Astra med",
+          5.83
+        ],
+        [
+          "Grok Voice 3.0",
+          4.8
+        ],
+        [
+          "Gemini 3.8 Live High",
+          3.5
+        ],
+        [
+          "Grok Voice 1.0",
+          3.0
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "/hr",
+      "highlight": 2,
+      "note": [
+        "$0.08 a minute,",
+        "same as Grok Voice 2.0"
+      ],
+      "source": "Measured benchmark cost, not list price. Source: artificialanalysis.ai, October 2026",
+      "alt": "Bar chart of cost per hour of input audio measured by Artificial Analysis: GPT-Realtime-2.1 High 10.75 dollars, GPT-Live-1 Astra medium 5.83, Grok Voice 3.0 4.80, Gemini 3.8 Live extended thinking High 3.50, Grok Voice 1.0 3.00.",
+      "after_heading": "How Grok Voice compares with OpenAI and Google"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Grok Voice 3.0, speech to speech",
+        "value": "$0.08 per minute",
+        "note": "$4.80 an hour, same as Grok Voice 2.0"
+      },
+      {
+        "label": "xAI voice API rate, early July 2026",
+        "value": "$0.05 per minute",
+        "note": "Internet Archive capture of 4 July"
+      },
+      {
+        "label": "Speech to speech text input",
+        "value": "$0.004 each",
+        "note": "listed for Grok Voice 3.0 and 2.0"
+      },
+      {
+        "label": "Telephony on a Voice Agent Builder number",
+        "value": "$0.01 per minute",
+        "note": "free provisioned number"
+      },
+      {
+        "label": "Twilio SIP trunk, US local inbound",
+        "value": "$0.0034 per minute",
+        "note": "plus $1.15 a month for the number"
+      },
+      {
+        "label": "Speech to text API",
+        "value": "$0.10 an hour",
+        "note": "$0.20 streaming"
+      },
+      {
+        "label": "Text to speech API",
+        "value": "$15 per 1M characters"
+      },
+      {
+        "label": "Speech to Speech Index, Artificial Analysis",
+        "value": "86.9",
+        "note": "Grok Voice 2.0 81.3, GPT-Live-1 (Astra) 83.2"
+      },
+      {
+        "label": "Time to first audio, Artificial Analysis",
+        "value": "0.81 seconds",
+        "note": "Grok Voice 2.0 0.70, GPT-Live-1 (Astra) 1.34"
+      },
+      {
+        "label": "1,000 three-minute calls, model only",
+        "value": "$240 a month",
+        "note": "$150 at the July rate"
+      },
+      {
+        "label": "Same month on the builder's number",
+        "value": "$270 a month",
+        "note": "$0.09 a minute with telephony"
+      },
+      {
+        "label": "Starlink calls handled on Grok Voice",
+        "value": "20,000 a day",
+        "note": "about 70 percent with no human, per xAI"
+      }
+    ],
+    "source": "Prices read on 15 October 2026 from xAI's API pricing page, Grok Voice posts and SIP guide and Twilio's US SIP trunking page; benchmarks from Artificial Analysis the same day; the July rate from an Internet Archive capture of 4 July 2026."
+  }
+}

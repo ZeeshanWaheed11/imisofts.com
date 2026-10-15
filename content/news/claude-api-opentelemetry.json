@@ -1,0 +1,69 @@
+{
+  "slug": "claude-api-opentelemetry",
+  "title": "Claude API OpenTelemetry: Trace Tokens, Tools and Agent Runs",
+  "desc": "Anthropic exports OpenTelemetry traces from the Claude API, Managed Agents and SDKs in beta. What spans include, the content modes, and how agencies use them.",
+  "keywords": "claude opentelemetry, claude api opentelemetry, claude api tracing, claude managed agents observability, claude otel, anthropic opentelemetry, claude sdk tracing, claude langfuse, claude datadog tracing",
+  "date": "2026-10-15",
+  "time": "11:09",
+  "read_time": 3,
+  "word_count": 673,
+  "cta": "Want your client agents traced and costed before they scale?",
+  "body": "<p><strong>October 15, 2026.</strong> Anthropic released OpenTelemetry export in public beta on October 14, so the Claude Messages API, Claude Managed Agents sessions and the Claude SDKs can send traces to the observability tools teams already run, according to its <a href=\"https://platform.claude.com/docs/en/release-notes/overview\" target=\"_blank\" rel=\"noopener noreferrer\">release notes</a> and <a href=\"https://claude.com/resources/articles/agent-observability-on-the-claude-platform\" target=\"_blank\" rel=\"noopener noreferrer\">announcement</a>. Every agent turn, model call and tool use arrives as a standard trace with latency, token counts and IDs. For an agency running Claude agents for several clients, that is a record of what each agent did and how many tokens each step used, without writing custom logging into every workflow.</p><p><strong>What Anthropic shipped on October 14</strong></p><ol><li><strong>Two ways in.</strong> SDK tracing is set up in code: install the SDK and register a tracer provider. It needs no special permission and covers clients that use the SDK. API tracing is set up by adding a destination in the Claude Console, needs an admin, and covers any client. Set up both to see a request's SDK and API spans in one trace.</li><li><strong>Seven SDK languages.</strong> The release notes list Python, TypeScript, C#, Go, Java, PHP and Ruby.</li><li><strong>Standard spans.</strong> Spans follow the OpenTelemetry GenAI semantic conventions, so platforms that support them read the spans without extra setup. The <a href=\"https://platform.claude.com/docs/en/manage-claude/opentelemetry\" target=\"_blank\" rel=\"noopener noreferrer\">OpenTelemetry docs</a> name 12 partners, Arize AI, Braintrust, Databricks, Datadog, Grafana Cloud, Honeycomb, Langfuse, LangSmith, New Relic, PostHog, Sentry and Splunk, and any platform that accepts OTLP works.</li><li><strong>Scheduled agents on AWS.</strong> The same release notes say Managed Agents scheduled deployments are now available on Claude Platform on AWS.</li></ol><p><a href=\"https://www.unite.ai/anthropic-adds-opentelemetry-trace-export-to-the-claude-platform/\" target=\"_blank\" rel=\"noopener noreferrer\">Unite.AI</a> reported the same two setup paths and the metadata only default.</p><p><strong>What the spans include, and what they leave out</strong></p><p>Every destination and every SDK client has a content mode. Metadata only is the default: spans carry identifiers, timing, status, token counts and the names you choose for agents, tools and MCP servers, but no prompts or responses. Full content adds the prompts and responses, which helps you read a failed run or build evaluations from real traffic, and it stores client conversations in your observability platform under that platform's own access and retention settings.</p><p>Three limits are worth knowing before you rely on the data:</p><ol><li><strong>Data-handling restrictions force metadata.</strong> If your organization has a HIPAA, FERPA or K-12 data-handling restriction with Anthropic, destinations export only metadata whatever the content mode. SDK spans are not affected.</li><li><strong>Large content is cut.</strong> With full content, each span holds up to 0.75 MB by default, which fits a 200,000-token English context. A full 1 million token window needs about 4 MB, so raise the limit only if your platform accepts larger payloads.</li><li><strong>Spans are not a billing record.</strong> Delivery is best effort, so a span can be lost or arrive twice, and a caller can switch sampling off for a request. Anthropic points to its Usage API to track each API key's usage.</li></ol><p><strong>How agencies can use it</strong></p><ol><li><strong>Bill from the Usage API, debug from traces.</strong> Run each client on its own API key so the usage totals separate cleanly, then use the traces to see which step used the tokens.</li><li><strong>Count tokens the documented way.</strong> gen_ai.usage.input_tokens already includes tokens read from and written to the prompt cache, so do not add the cache attributes again, and count a duplicated span once by its trace ID and span ID.</li><li><strong>Keep client data in metadata mode by default.</strong> Turn on full content for a destination only while you debug, and check your platform's retention settings first.</li><li><strong>Trace before you widen access.</strong> Anthropic's own advice is to review an agent's traces, then give it more access as it proves reliable.</li></ol><p>If your organization has a HIPAA arrangement with Anthropic, for example to run an AI receptionist for a clinic, expect metadata only traces from Console destinations; our <a href=\"/blog/best-hipaa-compliant-ai-receptionists-2026/\">HIPAA-compliant AI receptionists</a> comparison covers the vendor side. For home services clients, the same traces show where an agent built on Claude for <a href=\"/ai-calling-home-services\">after-hours call answering</a> spends its time on tool calls. If you want agents built and monitored for you, see our <a href=\"/ai-automation-agency\">AI automation agency</a> and <a href=\"/hire-ai-engineer\">AI engineers</a>.</p>",
+  "faqs": [
+    [
+      "What is Claude API OpenTelemetry export?",
+      "It is a public beta, released on October 14, 2026, that sends traces from the Claude Messages API, Claude Managed Agents and the Claude SDKs to any OpenTelemetry tool. Each agent turn, model call and tool use arrives as a trace with latency, token counts and IDs."
+    ],
+    [
+      "Do Claude traces include prompts and responses?",
+      "Not by default. Metadata only is the default content mode and carries identifiers, timing, status and token counts. Full content adds prompts and responses. Under a HIPAA, FERPA or K-12 data-handling restriction with Anthropic, destinations export only metadata whatever the setting."
+    ],
+    [
+      "Which observability tools work with Claude traces?",
+      "Any platform that accepts OTLP. Anthropic's docs name Arize AI, Braintrust, Databricks, Datadog, Grafana Cloud, Honeycomb, Langfuse, LangSmith, New Relic, PostHog, Sentry and Splunk as partners."
+    ],
+    [
+      "Can I bill clients from Claude trace data?",
+      "Not on its own. Anthropic says exported spans are delivered on a best effort basis and are not guaranteed to be a complete record of API usage. Use the Usage API, which tracks each API key's usage and counts requests without spans, and use traces to see where the tokens went."
+    ]
+  ],
+  "image": {
+    "cluster": "AI agents",
+    "takeaway": "Claude API traces carry latency, token counts and IDs, but no prompts unless you turn on full content.",
+    "alt": "Claude API OpenTelemetry export: traces from the Messages API, Managed Agents and SDKs with latency, token counts and IDs"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "OpenTelemetry export release",
+        "value": "October 14, 2026",
+        "note": "public beta"
+      },
+      {
+        "label": "Claude SDK languages that emit spans",
+        "value": "7",
+        "note": "Python, TypeScript, C#, Go, Java, PHP, Ruby"
+      },
+      {
+        "label": "Partner platforms named in the docs",
+        "value": "12",
+        "note": "any OTLP endpoint also works"
+      },
+      {
+        "label": "Content modes",
+        "value": "2",
+        "note": "metadata only (default) and full content"
+      },
+      {
+        "label": "Default content limit per span",
+        "value": "0.75 MB",
+        "note": "fits a 200,000-token English context"
+      },
+      {
+        "label": "Content for a full 1M token window",
+        "value": "about 4 MB"
+      }
+    ],
+    "source": "Read on 15 October 2026 from Anthropic's Claude Platform release notes, OpenTelemetry docs and announcement."
+  }
+}
