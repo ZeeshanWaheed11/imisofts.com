@@ -1,0 +1,155 @@
+{
+ "slug": "instagram-api-pricing",
+ "title": "Instagram API Pricing: No Listed Fee, Business and Creator Only",
+ "desc": "Meta lists no fee for the Instagram API, but it serves only Business and Creator accounts and caps hashtag search at 30 hashtags a week. Scrapers compared.",
+ "date": "2026-10-16",
+ "time": "16:30",
+ "keywords": "instagram api pricing, instagram api cost, is instagram api free, instagram api free tier, instagram graph api pricing, meta instagram api pricing, instagram api rate limit, instagram graph api rate limit, instagram hashtag search limit, instagram business discovery api, instagram api with instagram login, instagram messaging api pricing, instagram dm api pricing, instagram basic display api, instagram scraper pricing, apify instagram scraper, bright data instagram scraper",
+ "category": "Guides",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "cta": "Want your Instagram data pipeline costed before you build it?",
+ "word_count": 1881,
+ "read_time": 8,
+ "body": "<p><strong>Short answer.</strong> Meta lists no fee for the Instagram API: its Platform Terms, last updated on 3 February 2026, contain no fee clause, and the Instagram Platform docs we read show no price. What Meta rations is reach. The API works only for Business and Creator accounts, mostly the ones that sign in to your app; through Business Discovery it can read another Business or Creator account's public fields, but not a personal account's, and its hashtag search stops at 30 unique hashtags per account in any rolling 7 days, without the poster's username. Past those limits you pay a scraper, $1.30 to $2.70 per 1,000 items at the listed rates of the two we priced, Bright Data and Apify, and Instagram's terms bar automated collection without Meta's express permission. We earn a commission if you buy Apify or Bright Data through our links; Meta pays us nothing.</p>\n<p>Every price and limit below was read on 16 October 2026 on Meta's, Instagram's, Apify's and Bright Data's own pages; the totals are our arithmetic. We did not run paid jobs on either scraper or test their data quality.</p>\n\n<h2 id=\"what-meta-charges\">What Meta charges for the Instagram API</h2>\n<p>Nothing that we could find. The Meta Platform Terms govern Meta's developer platform, and their only mention of a fee is the legal fees you would owe Meta under the indemnity clause. Neither of the two setups Meta documents carries a price:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Setup</th><th>Sign-in</th><th>Facebook Page</th><th>Hashtag search</th><th>Business Discovery</th><th>Fee listed</th></tr></thead><tbody>\n<tr><td>Instagram API with Instagram Login</td><td>Instagram credentials</td><td>Not required</td><td>Not supported</td><td>Not listed</td><td>None</td></tr>\n<tr><td>Instagram API with Facebook Login</td><td>Facebook credentials</td><td>Required</td><td>Supported</td><td>Supported</td><td>None</td></tr>\n</tbody></table></div>\n<p>Both cover publishing, comments, mentions, insights and messaging. An app serving only your own professional account, or accounts you manage, can run on Standard Access. Serving accounts you do not own or manage, for people with no role on the app or on a business portfolio that has claimed it, takes Advanced Access: App Review and Business Verification. Meta warns that some features might not work properly until then.</p>\n<p>Google's AI Overview for \"instagram api pricing\" told us on 15 October that official use requires a linked Facebook Page, business verification and App Review. Only part of that holds. Hashtag Search and Business Discovery, the two features that compete with scrapers, sit on the Facebook Login setup, which needs a linked Page, and Hashtag Search also needs App Review. Business Verification comes only with Advanced Access. Instagram Login needs no Page, and Standard Access needs no review. Meta's docs list no per-message fee for direct messages either; most replies must come within 24 hours.</p>\n\n<h2 id=\"what-it-reads\">What the official API can and cannot read</h2>\n<p>Meta's rule: a permission only reaches data created by the app user who granted it, and a few endpoints return limited, public data about others. In practice:</p>\n<ul>\n<li><strong>Your own and your clients' accounts:</strong> everything above, once the owner signs in and grants permissions. Short-lived tokens last 1 hour; long-lived ones last 60 days and can be refreshed before they expire.</li>\n<li><strong>Other Business and Creator accounts:</strong> Business Discovery returns public fields by username, such as biography, follower and media counts, username and website, plus public post counts such as comments, likes and views (paid views included). You need the username first, age-gated accounts return nothing, and display names and profile pictures are not among the fields Meta marks public. Meta does not publish how many calls a user gets.</li>\n<li><strong>Personal accounts:</strong> none of the setups connects them, and Business Discovery cannot look them up. Meta announced in September 2024 that the Basic Display API, its consumer route, would stop working on 4 December 2024, after which \"there will no longer be a set of Instagram APIs for consumer developer apps\".</li>\n</ul>\n<p>The IG User reference has no email or phone field at all. Business Discovery gives you a website; the Platform Terms below limit how you may use it, and whether outreach emails land depends on your <a href=\"/email-infrastructure\">email infrastructure</a>, not on Instagram. We priced <a href=\"/blog/tiktok-api-pricing/\">TikTok's</a> and <a href=\"/blog/youtube-api-pricing/\">YouTube's</a> APIs the same way.</p>\n\n<h2 id=\"hashtag-search\">Hashtag search: 30 hashtags a week, and no usernames</h2>\n<p>Apart from posts that tag or mention your account, Hashtag Search is the API's only way to find posts from accounts you have no username for, and its tightest part. It needs the Facebook Login setup and App Review for Instagram Public Content Access, a feature whose allowed uses Meta lists as your own hashtag campaigns, brand sentiment, contest entrants, customer support and your audience. Competitor monitoring is not listed, and the Platform Terms bar uses outside Meta's documented purposes. An app reviewers cannot test, such as one with no user interface, can request only instagram_basic and instagram_manage_comments.</p>\n<ul>\n<li><strong>30 unique hashtags per account in any rolling 7 days.</strong> Fetching a hashtag's recent or top posts counts, even with its ID in hand; a repeat inside the 7 days neither counts again nor resets the clock.</li>\n<li><strong>Recent posts reach back only 24 hours</strong>, up to 50 per page, not always in order, with no ads.</li>\n<li><strong>No usernames.</strong> Neither the recent nor the top posts edge returns the username field, so the API returns the post and its permalink, but not the poster's username.</li>\n<li>No Story hashtags, no emoji in queries, and a generic error for hashtags Meta deems sensitive.</li>\n</ul>\n<p>The arithmetic: recent posts reach back only 24 hours, so a hashtag checked daily stays in use, and one account can track up to 30 at a time. In bursts the cap allows at most 150 distinct hashtags in a 30-day month (30 on days 1, 8, 15, 22 and 29), about 129 a month sustained. Fifty hashtags for ten clients fit if each client's own account runs its five; from one account, the cap stops at 30.</p>\n\n<h2 id=\"rate-limits\">Rate limits are rarely the constraint on your own accounts</h2>\n<p>Most endpoints sit under Meta's Business Use Case limits: per app and account pair, 4,800 calls times the account's impressions (how often its content reached a screen) over a rolling 24 hours. An account seen 1,000 times a day allows 4.8 million calls; one seen 10 times allows 48,000. Business Discovery and Hashtag Search are the exceptions, under Platform Rate Limits whose per-user numbers Meta does not reveal. Messaging has separate per-account limits. On accounts you manage, volume rarely stops you. Scope does.</p>\n\n<h2 id=\"scraper-prices\">What Instagram scrapers cost per 1,000 items</h2>\n<p>For public data outside the API's reach, we priced the two scraping vendors that pay us. Apify counts a result as one scraped item, \"a post, reel, comment, profile, hashtag, or place\"; Bright Data prices per record. We count either as one item. Other vendors advertise lower per-request prices; we did not check them.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Plan</th><th>Monthly fee</th><th>Per 1,000 items</th></tr></thead><tbody>\n<tr><td>Apify Free</td><td>$0, with $5 of usage</td><td>$2.70</td></tr>\n<tr><td>Apify Starter</td><td>$19, spent as usage</td><td>$2.30</td></tr>\n<tr><td>Apify Scale</td><td>$199, spent as usage</td><td>$1.90</td></tr>\n<tr><td>Apify Business</td><td>$999, spent as usage</td><td>$1.50</td></tr>\n<tr><td>Bright Data free tier</td><td>$0, new accounts</td><td>5,000 credits a month, shared</td></tr>\n<tr><td>Bright Data pay as you go</td><td>None</td><td>$1.50</td></tr>\n<tr><td>Bright Data Scale</td><td>$499 for 384,000 records</td><td>$1.30 after that</td></tr>\n</tbody></table></div>\n<p><a href=\"https://www.apify.com?fpr=rc63q\">Apify's Instagram Scraper</a>, its own Actor (433,513 users by its count), has charged these rates since 20 February 2026, platform costs included; a plan fee is prepaid usage. The Store card's \"from $1.50\" is the rate on the $999-a-month Business plan, and the Actor's record lists $0.90 and $0.50 tiers that no public plan sells. Apify's Profile Scraper charges $2.60 to $1.60 per 1,000 profiles and its Hashtag Scraper $2.60 to $1.90.</p>\n<p><a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Bright Data's Instagram Scraper API</a> charges $1.50 per 1,000 records pay as you go, or $499 a month for 384,000 records and $1.30 per 1,000 after that, and does not charge for failed deliveries. Its banner promises \"5k requests/month for free\", but its FAQ says the 5,000 monthly credits on every new account, worth about $7.50, also cover its other scrapers, Unlocker API and SERP API, and do not roll over. Spend them elsewhere and Instagram gets fewer. Pay as you go runs on prepaid funds; without them, requests fail once the credits are gone.</p>\n<p>What a month costs at the listed rates:</p>\n<ul>\n<li><strong>10,000 items:</strong> Bright Data $15, or $7.50 if its free credits are untouched; Apify $23 on Starter ($19 plus $4).</li>\n<li><strong>100,000 items:</strong> Bright Data $150, or $142.50 with the credits; Apify $199 on Scale, where $190 of usage fits inside the fee, or $230 on Starter.</li>\n<li><strong>384,000 items:</strong> Bright Data Scale $499; Bright Data pay as you go $576, or $568.50 with the credits; Apify Scale $729.60; Apify Business $999.</li>\n</ul>\n<p>Both vendors pay us, and Bright Data's listed price is lower at every volume we priced. For anything the official API can return, Meta lists no fee at all. <a href=\"/blog/best-instagram-scrapers-2026/\">Our Instagram scraper comparison</a> goes deeper on plan tiers and third-party Actors.</p>\n\n<h2 id=\"terms\">What Meta's terms say about scrapers</h2>\n<p>Instagram's Terms of Use, as shown on its Help Centre, bar \"accessing or collecting information in an automated way without our express permission, regardless of whether such automated access or collection is undertaken while logged in to an Instagram account\", and bar selling, licensing or buying data obtained from the service. Meta's Automated Data Collection Terms (effective 7 October 2024), whose definition of Meta's terms and policies names the Instagram Terms of Use, say accepting them is not permission, and limit collected data to search results, link previews or uses Meta permits in writing.</p>\n<p>The official API has its own rules: the Platform Terms bar selling, licensing or buying Platform Data, which includes usernames, profile pictures and email addresses, and bar building user profiles without valid consent. Meta can enforce with or without notice.</p>\n<p>Both scraper vendors answer the legal question with privacy law. Apify's legal FAQ cites the GDPR and says to \"only scrape data if you have a legitimate reason\"; Bright Data's FAQ says its API is designed to comply with the GDPR and CCPA, and its product page says a compliance team reviews every use case. Neither answer mentions Instagram's terms, and Apify's FAQ on result counts suggests an incognito window \"to see what's available to logged-out users\". We are not lawyers; get advice before you scale a pull. Our <a href=\"/blog/is-web-scraping-legal/\">guide to web scraping law</a> discusses Meta v. Bright Data.</p>\n\n<h2 id=\"which-route\">Which route fits which job</h2>\n<ul>\n<li><strong>Publishing, comments, DMs and insights for your own or clients' accounts:</strong> the official API, with no fee listed.</li>\n<li><strong>Checking a known list of business accounts:</strong> Business Discovery, with a Facebook Login app: public counts and no fee listed, but no display names, no personal accounts and no published rate limit. For 10,000 profiles, Apify's Profile Scraper costs $23 on Starter ($83 with its About account add-on) and Bright Data $15, or $7.50 with untouched credits, with different fields.</li>\n<li><strong>Monitoring your own brand hashtags:</strong> Hashtag Search, within 30 hashtags per account and 24 hours of posts.</li>\n<li><strong>Bulk public data the API cannot reach:</strong> of the routes we priced, only a scraper does this, under the terms risk above. On listed prices <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Bright Data</a> is cheaper at every volume we priced; <a href=\"https://www.apify.com?fpr=rc63q\">Apify's Store</a> fits when Instagram is one of several sources drawing on one prepaid plan.</li>\n</ul>\n<p>If you would rather have it built, our <a href=\"/ai-automation-agency\">AI automation agency</a> does this work: the official API where it reaches, and a costed plan where it does not.</p>",
+ "faqs": [
+  [
+   "Is the Instagram API free?",
+   "Meta lists no fee. The Meta Platform Terms, last updated on 3 February 2026, contain no fee clause, and the Instagram Platform docs we read show no price. The costs are access: a Business or Creator account, App Review and Business Verification for Advanced Access, and App Review for hashtag search."
+  ],
+  [
+   "Can the Instagram API read personal accounts?",
+   "Not in the docs we read. No setup connects a personal account, and Business Discovery reads only other Business or Creator accounts. Meta announced that the Basic Display API, its consumer route, would stop working on 4 December 2024, after which it said there would be no set of Instagram APIs for consumer developer apps."
+  ],
+  [
+   "How many hashtags can I search with the Instagram API?",
+   "30 unique hashtags per Business or Creator account in any rolling 7 days. Fetching a hashtag's recent or top posts counts as a query, a repeat query inside the window does not, and recent posts reach back only 24 hours, up to 50 per page, without usernames."
+  ],
+  [
+   "What are the Instagram API rate limits?",
+   "Most endpoints allow 4,800 calls per impression over a rolling 24 hours, per app and account pair, so an account seen 1,000 times a day allows 4.8 million calls. Business Discovery and Hashtag Search use Meta's Platform Rate Limits, whose per-user numbers Meta does not reveal. Messaging has separate per-account limits."
+  ],
+  [
+   "Does the Instagram API need a Facebook Page?",
+   "Not always. The Instagram API with Instagram Login needs no Facebook Page. The Facebook Login setup does, and it is the one that offers hashtag search and Business Discovery."
+  ],
+  [
+   "How much does an Instagram scraper cost?",
+   "On listed prices read on 16 October 2026, Apify's Instagram Scraper charges $2.70 per 1,000 results on its free plan and $2.30, $1.90 or $1.50 on its $19, $199 and $999 monthly plans; Bright Data charges $1.50 per 1,000 records pay as you go, or $499 a month for 384,000. Both pay us a commission, and Instagram's terms bar automated collection without Meta's express permission."
+  ]
+ ],
+ "image": {
+  "cluster": "Social data costs",
+  "takeaway": "Meta lists no fee for the Instagram API, but it serves only Business and Creator accounts.",
+  "alt": "Instagram API pricing: what Meta charges for the official Instagram API in 2026, its limits, and what Instagram scrapers charge per 1,000 items",
+  "chart": {
+   "title": "Listed price per 1,000 Instagram items",
+   "subtitle": "Apify's lower rates need its $199 or $999 plans, Bright Data's $1.30 its $499 plan. One result or record counted as one item.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Apify Free",
+     2.7
+    ],
+    [
+     "Apify Starter",
+     2.3
+    ],
+    [
+     "Apify Scale",
+     1.9
+    ],
+    [
+     "Apify Business",
+     1.5
+    ],
+    [
+     "Bright Data PAYG",
+     1.5
+    ],
+    [
+     "Bright Data Scale",
+     1.3
+    ],
+    [
+     "Meta Instagram API",
+     0
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 6,
+   "note": [
+    "No fee listed by Meta.",
+    "Business and Creator only."
+   ],
+   "source": "Listed rates; Apify and Bright Data pay us, Meta does not. Source: Apify and Bright Data pricing pages, Meta docs, October 2026",
+   "alt": "Bar chart of listed prices per 1,000 Instagram items: Apify $2.70 to $1.50 by plan, Bright Data $1.50 pay as you go and $1.30 on Scale, and no fee listed for Meta's Instagram API.",
+   "after_heading": "What Meta's terms say about scrapers"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Instagram API fee listed by Meta",
+    "value": "None listed",
+    "note": "no fee clause in the Platform Terms, last updated 3 February 2026"
+   },
+   {
+    "label": "Accounts the API serves",
+    "value": "Business and Creator only",
+    "note": "the consumer Basic Display API was set to end on 4 December 2024"
+   },
+   {
+    "label": "Hashtag Search cap",
+    "value": "30 unique hashtags per 7 days",
+    "note": "per account, rolling; fetching posts counts"
+   },
+   {
+    "label": "Hashtag recent posts",
+    "value": "Last 24 hours, up to 50 per page",
+    "note": "no username field on returned posts"
+   },
+   {
+    "label": "Call limit for most endpoints",
+    "value": "4,800 x impressions per 24 hours",
+    "note": "per app and account pair; not Business Discovery, Hashtag Search or messaging"
+   },
+   {
+    "label": "Long-lived access token",
+    "value": "60 days",
+    "note": "refreshable; short-lived tokens last 1 hour"
+   },
+   {
+    "label": "Apify Instagram Scraper, per 1,000 results",
+    "value": "$2.70 to $1.50",
+    "note": "Free, then the $19, $199 and $999 monthly plans"
+   },
+   {
+    "label": "Bright Data Instagram Scraper API, pay as you go",
+    "value": "$1.50 per 1,000 records",
+    "note": "failed deliveries not charged"
+   },
+   {
+    "label": "Bright Data Scale plan",
+    "value": "$499 a month for 384,000 records",
+    "note": "$1.30 per 1,000 after that"
+   },
+   {
+    "label": "Bright Data free credits",
+    "value": "5,000 a month",
+    "note": "new accounts; shared with its other scrapers, Unlocker API and SERP API"
+   },
+   {
+    "label": "10,000 items in a month",
+    "value": "Bright Data $15; Apify $23",
+    "note": "$7.50 on Bright Data with untouched credits; Apify on Starter"
+   },
+   {
+    "label": "100,000 items in a month",
+    "value": "Bright Data $150; Apify $199",
+    "note": "$142.50 on Bright Data with untouched credits; Apify on Scale"
+   }
+  ],
+  "source": "Prices and limits read on 16 October 2026 from Meta's developer docs and Platform Terms, Apify's Store and pricing pages and Bright Data's Instagram Scraper API page; totals are our arithmetic. Apify and Bright Data pay us a commission; Meta does not."
+ }
+}
