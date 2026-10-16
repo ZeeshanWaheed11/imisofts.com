@@ -1,0 +1,130 @@
+{
+  "slug": "claude-fast-mode-pricing",
+  "title": "Claude Fast Mode Pricing: Opus 5.5 at $8 In, $40 Out",
+  "desc": "Claude fast mode on Opus 5.5 costs $8 per million input and $40 per million output tokens, twice standard, for up to 2.5x output speed. When it is worth it.",
+  "keywords": "claude fast mode pricing, claude fast mode cost, claude fast mode, claude opus 5.5 fast mode, claude fast mode api, claude fast mode usage credits, claude code fast mode, fast mode has been disabled by your organization, anthropic fast mode pricing",
+  "date": "2026-10-16",
+  "time": "14:24",
+  "read_time": 3,
+  "word_count": 696,
+  "cta": "Want client agents priced before you pick a speed?",
+  "body": "<p><strong>October 16, 2026.</strong> Anthropic took fast mode for Claude Opus 5.5 out of research preview on October 15, so any Claude API organization in the Start, Build or Scale usage tier can now send <code>speed: \"fast\"</code> without an access request or beta header, according to its <a href=\"https://platform.claude.com/docs/en/release-notes/overview\" target=\"_blank\" rel=\"noopener noreferrer\">release notes</a>. Fast mode costs $8 per million input tokens and $40 per million output tokens on Opus 5.5, twice the standard $4 and $20, for up to 2.5 times more output tokens per second, per the <a href=\"https://platform.claude.com/docs/en/build-with-claude/fast-mode\" target=\"_blank\" rel=\"noopener noreferrer\">fast mode docs</a> and <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>. An agent task that reads 50,000 tokens and writes 5,000 costs $0.30 at standard speed and $0.60 fast.</p><p><strong>What changed on October 15</strong></p><ol><li><strong>No access request for Opus 5.5.</strong> Requests no longer need the fast-mode-2026-02-01 beta header, and requests that still send it keep working.</li><li><strong>Default rate limits.</strong> Opus 5.5 now has a default fast mode rate limit in the Start, Build and Scale tiers, separate from standard Opus limits. Evaluation tier organizations get it once they move up.</li><li><strong>Older Opus models stay in preview.</strong> Fast mode on Claude Opus 5 and Opus 4.8 still needs preview access and the beta header, at $10 per million input and $50 per million output tokens.</li><li><strong>Where it runs.</strong> The Claude API, including Managed Agents, and for Opus 5.5 also Microsoft Foundry deployments hosted on Azure. Not Claude Platform on AWS, partner-operated clouds, the Batch API or Priority Tier.</li></ol><p>An independent <a href=\"https://claudefa.st/blog/guide/performance/fast-mode\" target=\"_blank\" rel=\"noopener noreferrer\">Claude Code guide</a> lists the same $8 and $40 rates, exactly twice standard Opus 5.5.</p><p><strong>What the premium buys, and what it does not</strong></p><p>Fast mode runs the same model with a faster inference setup, so quality does not change. The premium covers the full context window, including requests over 200,000 input tokens, and caching and data residency multipliers apply on top. Three details decide whether it pays:</p><ol><li><strong>It speeds up output, not the first token.</strong> Anthropic says the gain is in output tokens per second, not time to first token. Long answers finish sooner, but it is not built to shorten the pause before the first word, which is the delay a caller hears on a phone agent such as an <a href=\"/ai-calling-home-services\">AI receptionist for home services</a>.</li><li><strong>Switching speed breaks the cache.</strong> Fast and standard requests do not share cached prefixes, and Claude Code's docs say turning fast mode on mid-conversation bills the whole context once at the fast, uncached input price. Turn it on at the start of a session.</li><li><strong>It has its own limit.</strong> Past the fast mode limit, the API returns a 429 error with a retry-after header, and the SDK retries twice by default, or you can catch it and resend at standard speed.</li></ol><p><strong>Why Claude Code says fast mode requires usage credits</strong></p><p>On Pro, Max, Team and Enterprise plans, <a href=\"https://code.claude.com/docs/en/fast-mode\" target=\"_blank\" rel=\"noopener noreferrer\">Claude Code's fast mode docs</a> say fast mode is paid only from usage credits, even when plan usage is left. Pro and Max users turn credits on under Settings, then Usage, on claude.ai. On Team and Enterprise, fast mode stays off until an Owner enables it, which is why users see that it has been disabled by their organization. When we read it, that page still called fast mode a research preview needing provisioned access; the API docs say Opus 5.5 needs neither.</p><p><strong>How it compares with OpenAI</strong></p><p>OpenAI prices speed the same way. Its <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">API pricing page</a>, read on October 16, lists GPT-6.1 Sol at $2 per million input and $10 per million output tokens on Standard, $4 and $20 on Fast, the renamed Priority tier, and $12 and $60 on Ultrafast, six times Standard. Our <a href=\"/blog/openai-ultrafast-pricing/\">OpenAI Ultrafast pricing</a> breakdown covers when that tier pays.</p><p><strong>When fast mode pays</strong></p><p>Pay for it where a person waits on a long answer: a live debugging session, a sales demo or a chat agent that writes long replies. Skip it for overnight jobs, batch processing and phone calls, where the first word matters more than the last. For a client agent, run the same prompts at both speeds and price the gap before you quote. For agents built and costed for you, see our <a href=\"/ai-automation-agency\">AI automation agency</a> or <a href=\"/hire-ai-engineer\">hire an AI engineer</a>.</p>",
+  "faqs": [
+    [
+      "How much does Claude fast mode cost?",
+      "On Claude Opus 5.5, fast mode costs $8 per million input tokens and $40 per million output tokens, twice the standard $4 and $20. On Claude Opus 5 and Opus 4.8 it is $10 and $50. The rate applies across the full context window, and prompt caching and data residency multipliers apply on top."
+    ],
+    [
+      "Do I need to request access to Claude fast mode?",
+      "Not for Claude Opus 5.5 on the Claude API since October 15, 2026. Organizations in the Start, Build and Scale tiers get a default fast mode rate limit and need no beta header. Fast mode on Opus 5 and Opus 4.8 is still a research preview with a waitlist, and Evaluation tier organizations must move up a tier first."
+    ],
+    [
+      "Why does Claude Code say fast mode requires usage credits?",
+      "On Pro, Max, Team and Enterprise plans, fast mode is billed only from usage credits, even when plan usage is left. Pro and Max users turn credits on under Settings, Usage on claude.ai. On Team and Enterprise an Owner must also enable fast mode, otherwise users are told it has been disabled by their organization."
+    ],
+    [
+      "Does fast mode make Claude start answering sooner?",
+      "Not by design. Anthropic says fast mode raises output tokens per second by up to 2.5 times and is not aimed at time to first token, so long answers finish sooner but the wait before the first word is not what it shortens."
+    ]
+  ],
+  "image": {
+    "cluster": "AI pricing",
+    "takeaway": "Claude Opus 5.5 fast mode costs $8 in and $40 out per million tokens, twice the standard rate.",
+    "alt": "Claude fast mode pricing: Opus 5.5 at $8 per million input and $40 per million output tokens, twice standard",
+    "chart": {
+      "title": "Output price per million tokens, by speed tier",
+      "subtitle": "List prices for output tokens on the Claude API and the OpenAI API.",
+      "type": "hbar",
+      "rows": [
+        [
+          "GPT-6.1 Sol Standard",
+          10
+        ],
+        [
+          "Opus 5.5 standard",
+          20
+        ],
+        [
+          "GPT-6.1 Sol Fast",
+          20
+        ],
+        [
+          "Opus 5.5 fast mode",
+          40
+        ],
+        [
+          "Opus 5 fast mode",
+          50
+        ],
+        [
+          "GPT-6.1 Sol Ultrafast",
+          60
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "/M",
+      "highlight": 3,
+      "note": [
+        "Twice standard Opus 5.5,",
+        "up to 2.5x output speed"
+      ],
+      "source": "Short-context output list prices. Source: platform.claude.com and developers.openai.com, October 2026",
+      "alt": "Bar chart of output prices per million tokens: GPT-6.1 Sol Standard 10 dollars, Claude Opus 5.5 standard 20, GPT-6.1 Sol Fast 20, Claude Opus 5.5 fast mode 40, Claude Opus 5 fast mode 50, GPT-6.1 Sol Ultrafast 60.",
+      "after_heading": "How it compares with OpenAI"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Claude Opus 5.5 fast mode, input",
+        "value": "$8 per 1M tokens",
+        "note": "standard $4"
+      },
+      {
+        "label": "Claude Opus 5.5 fast mode, output",
+        "value": "$40 per 1M tokens",
+        "note": "standard $20"
+      },
+      {
+        "label": "Claude Opus 5 and Opus 4.8 fast mode",
+        "value": "$10 / $50 per 1M tokens",
+        "note": "input / output, still research preview"
+      },
+      {
+        "label": "Output speed gain",
+        "value": "up to 2.5x",
+        "note": "output tokens per second, not time to first token"
+      },
+      {
+        "label": "Opus 5.5 fast mode out of research preview",
+        "value": "October 15, 2026"
+      },
+      {
+        "label": "Usage tiers with a default fast mode limit",
+        "value": "3",
+        "note": "Start, Build and Scale"
+      },
+      {
+        "label": "SDK retries on a fast mode 429 error",
+        "value": "2",
+        "note": "by default"
+      },
+      {
+        "label": "Task with 50,000 tokens in and 5,000 out",
+        "value": "$0.30 standard, $0.60 fast",
+        "note": "Opus 5.5 list prices"
+      },
+      {
+        "label": "OpenAI GPT-6.1 Sol on Fast",
+        "value": "$4 / $20 per 1M tokens",
+        "note": "twice Standard"
+      },
+      {
+        "label": "OpenAI GPT-6.1 Sol on Ultrafast",
+        "value": "$12 / $60 per 1M tokens",
+        "note": "six times Standard"
+      }
+    ],
+    "source": "Prices read on 16 October 2026 from Anthropic's pricing page, fast mode docs, release notes and Claude Code docs, and OpenAI's API pricing page."
+  }
+}
