@@ -1,0 +1,139 @@
+{
+  "slug": "gpt-4o-api-shutdown",
+  "title": "GPT-4o API Shutdown Is January 14, 2027: What Luna Costs",
+  "desc": "OpenAI retires GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini on January 14, 2027. GPT-6 Luna costs less per token, but default reasoning can flip the bill.",
+  "keywords": "gpt-4o api shutdown, gpt-4o deprecation date, gpt-4o shutdown date, gpt 4o deprecation api, gpt-4o mini deprecation date, gpt-4.1 deprecation date, gpt-4.1 mini deprecation, gpt-4o replacement, gpt 6 luna price, openai model deprecations, openai deprecations",
+  "date": "2026-10-19",
+  "time": "09:00",
+  "read_time": 7,
+  "word_count": 1333,
+  "cta": "Want your OpenAI models migrated before the deadline?",
+  "body": "<p><strong>October 19, 2026.</strong> OpenAI will switch off GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini in its API on January 14, 2027, and it names GPT-6 Luna as the replacement for all four, according to its <a href=\"https://developers.openai.com/api/docs/deprecations\" target=\"_blank\" rel=\"noopener noreferrer\">deprecations page</a>, which says developers using them were told on October 14. That is 92 days of notice. On list prices the move saves money: Luna costs $0.10 per million input tokens and $0.50 per million output tokens, against $2.50 and $10 for GPT-4o. The catch is that Luna reasons at medium effort by default, and reasoning tokens are billed as output, so a straight swap of the model name can cost more than the model it replaces.</p><p><strong>What OpenAI shuts down on January 14, 2027</strong></p><p>The October 14 notice covers four model families and their dated snapshots. Standard list prices below are per million tokens, read from OpenAI's model pages on October 19.</p><ol><li><strong>GPT-4o</strong> (gpt-4o-2024-08-06 and gpt-4o-2024-11-20): $2.50 input, $1.25 cached input, $10 output, with a 128,000-token context window.</li><li><strong>GPT-4o mini</strong> (gpt-4o-mini-2024-07-18): $0.15 input, $0.075 cached, $0.60 output.</li><li><strong>GPT-4.1</strong> (gpt-4.1-2025-04-14): $2 input, $0.50 cached, $8 output, the model OpenAI still labels its smartest non-reasoning model, with a 1M-token context window.</li><li><strong>GPT-4.1 mini</strong> (gpt-4.1-mini-2025-04-14): $0.40 input, $0.10 cached, $1.60 output.</li><li><strong>Every fine-tuned version of them.</strong> OpenAI says fine-tuned models follow the same shutdown schedule as their base models.</li></ol><p><strong>Three months of notice, not six</strong></p><p>OpenAI's own policy, on the same page, promises at least six months of notice before it retires a generally available model, three months for specialized variants such as chat or Codex models, and as little as two weeks for previews. It allows a faster timeline only when safety or compliance concerns require one. The October 14 notice gives no reason, and <a href=\"https://thenewstack.io/openai-gpt4o-api-shutdown/\" target=\"_blank\" rel=\"noopener noreferrer\">The New Stack</a> reported on October 15 that none was offered. The contrast is on the page itself: GPT-5.1 and GPT-5.3-Codex, deprecated on October 1, got six months, to April 1, 2027.</p><p>Two escape hatches exist. The List models endpoint now returns a <code>shutdown_date</code> field for each model, so a script can flag retirements before they bite. And OpenAI says some customers can provision dedicated capacity to keep a model running after its shutdown date, through its sales team. The first only warns you, and the second is a sales conversation most small businesses will never have.</p><p><strong>What GPT-6 Luna costs, and the catch</strong></p><p>The <a href=\"https://developers.openai.com/api/docs/models/gpt-6-luna\" target=\"_blank\" rel=\"noopener noreferrer\">GPT-6 Luna model page</a> lists $0.10 per million input tokens, $0.01 cached input, $0.125 for cache writes and $0.50 output, with a 1,050,000-token context window, 128,000 maximum output tokens and a May 18, 2026 knowledge cutoff. It reads text and images and does not take audio. Batch and Flex cost half; Fast mode costs double. A prompt over 272,000 input tokens is billed at twice the input and cache rates and 1.5 times the output rate for the whole request, a rule we unpack in our <a href=\"/blog/openai-long-context-pricing-272k/\">272K long-context pricing</a> explainer.</p><p>Take a support chatbot that handles 10,000 conversations a month, each reading 3,000 tokens and writing 300. Before caching, that month costs $105 on GPT-4o, $84 on GPT-4.1, $16.80 on GPT-4.1 mini, $6.30 on GPT-4o mini and $4.50 on Luna with reasoning switched off.</p><p>Now leave Luna at its default. OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/reasoning\" target=\"_blank\" rel=\"noopener noreferrer\">reasoning guide</a> says hidden reasoning tokens are billed as output tokens. On this workload, every 100 reasoning tokens per conversation adds $0.50 a month, so a GPT-4o mini user's $1.80 saving is gone at about 360 reasoning tokens per conversation. Teams coming from GPT-4o or GPT-4.1 still save heavily; teams coming from the mini models only save if they control effort.</p><p><strong>What breaks when you only change the model name</strong></p><p>OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/latest-model\" target=\"_blank\" rel=\"noopener noreferrer\">GPT-6 migration guide</a> lists the settings that matter, and several only show up when a request fails.</p><ol><li><strong>Tool calls in Chat Completions.</strong> Luna supports function calling in Chat Completions only with <code>reasoning_effort</code> set to none. To reason and call tools in the same request, move to the Responses API.</li><li><strong>Sampling settings.</strong> When reasoning effort is anything but none, remove temperature, top_p and top_logprobs, and logprobs in Chat Completions. GPT-4.1 accepted all of them.</li><li><strong>Cache writes.</strong> GPT-4o's price card has input, cached input and output. Luna adds cache writes at 1.25 times the input rate, so a request that writes a long prompt to the cache pays 25 percent more on those tokens. See our <a href=\"/blog/cached-input-token-pricing/\">cached input pricing</a> guide.</li><li><strong>No audio.</strong> Luna is text and image only. Voice apps built on GPT-4o's audio and realtime variants run on a separate schedule, covered below.</li><li><strong>No fine-tuning path.</strong> OpenAI's <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a> says it is winding down the fine-tuning platform, and active customers can no longer create new fine-tuning jobs from January 6, 2027. Every model on its fine-tuning price list is on the shutdown calendar, and no GPT-6 model is on it. A fine-tuned GPT-4o mini already bills $0.30 per million input tokens and $1.20 output, double the base model.</li></ol><p><strong>Every OpenAI API shutdown date to April 2027</strong></p><p>The GPT-4o notice is one line on a crowded calendar. From the deprecations page, read on October 19:</p><ol><li><strong>October 23, 2026:</strong> gpt-3.5-turbo, gpt-4, gpt-4-turbo, gpt-4.1-nano, the first GPT-4o snapshot (gpt-4o-2024-05-13), o1, o1-pro, o3-mini, o4-mini and gpt-image-1, plus fine-tunes of gpt-3.5-turbo, gpt-4, gpt-4.1-nano, o4-mini, babbage-002 and davinci-002. Replacements are GPT-5.6 Sol, Terra and Luna, and gpt-image-2.5 for images.</li><li><strong>November 30, 2026:</strong> Agent Builder and the Evals dashboard and API, as covered in our <a href=\"/blog/openai-agent-builder-shutdown/\">Agent Builder shutdown</a> brief.</li><li><strong>December 1, 2026:</strong> gpt-image-1-mini, gpt-image-1.5 and chatgpt-image-latest.</li><li><strong>December 11, 2026:</strong> the August 2025 GPT-5 snapshots, gpt-5-pro, o3 and o3-pro.</li><li><strong>January 6, 2027:</strong> tts-1, tts-1-hd and gpt-4o-mini-tts, replaced by gpt-realtime-2.1-mini. From this date active customers can no longer create new fine-tuning jobs.</li><li><strong>January 14, 2027:</strong> GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini, replaced by gpt-6-luna.</li><li><strong>January 20, 2027:</strong> gpt-realtime, gpt-4o-realtime, gpt-audio, gpt-4o-audio and their mini versions, replaced by gpt-realtime-2.1, gpt-realtime-2.1-mini and gpt-audio-1.5.</li><li><strong>February 26, 2027:</strong> whisper-1 and the gpt-4o transcribe models, replaced by gpt-live-transcribe or gpt-transcribe. Our <a href=\"/blog/ai-transcription-cost-per-hour/\">transcription cost per hour</a> page prices the switch.</li><li><strong>April 1, 2027:</strong> gpt-5.1 and gpt-5.3-codex, replaced by gpt-6-sol, and gpt-5.4-nano, replaced by gpt-6-luna.</li></ol><p><strong>What it means for operators</strong></p><p>Most small businesses do not call these models directly. They run them inside a chatbot, a CRM workflow, an automation platform or an app an agency built, which is why a retirement email sent to whoever owns the API key can go unread. The practical order of work:</p><ol><li><strong>Inventory this week.</strong> Call GET /v1/models and read each <code>shutdown_date</code>, then search your code, prompts and automation steps for gpt-4o, gpt-4.1, gpt-3.5-turbo, o3-mini and o4-mini. Anything on the October 23 list fails in four days.</li><li><strong>Test Luna at effort none first.</strong> That is the closest match to a non-reasoning model, it keeps tool calls working in Chat Completions, and it is the cheapest setting. Raise effort only where quality drops, and cap spend with <code>max_output_tokens</code>.</li><li><strong>Measure reasoning tokens before you quote.</strong> Log output tokens on a sample of real traffic at each effort level, then reprice the month. The list-price comparison flatters Luna.</li><li><strong>Export fine-tuning data now.</strong> If a client depends on a fine-tuned GPT-4o or GPT-4.1, rebuild the behavior as a cached prompt with examples. At $0.01 per million cached tokens, a long example block is cheap to resend.</li><li><strong>Check voice agents separately.</strong> An AI receptionist built on gpt-realtime or gpt-4o-realtime has until January 20. The listed replacement, gpt-realtime-2.1, prices audio at $32 per million input tokens and $64 output, and OpenAI also documents a move to per-minute GPT-Live sessions, priced in our <a href=\"/blog/gpt-live-pricing/\">GPT-Live pricing</a> brief. If you run an <a href=\"/ai-calling-home-services\">AI receptionist for a home services business</a>, test the replacement on recorded calls before the January deadline, not on live customers after it.</li></ol><p>OpenAI's recommended path is cheaper on paper, but only a measured month proves it. If you would rather hand the migration to someone who has done it, our <a href=\"/ai-automation-agency\">AI automation agency</a> audits model calls across a stack, or you can <a href=\"/hire-ai-engineer\">hire an AI engineer</a> to run the Luna tests against your own traffic.</p>",
+  "faqs": [
+    [
+      "When is GPT-4o being shut down in the OpenAI API?",
+      "OpenAI removes GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini from its API on January 14, 2027, including the gpt-4o-2024-08-06, gpt-4o-2024-11-20, gpt-4o-mini-2024-07-18, gpt-4.1-2025-04-14 and gpt-4.1-mini-2025-04-14 snapshots. Developers using them were notified on October 14, 2026. The earliest GPT-4o snapshot, gpt-4o-2024-05-13, shuts down sooner, on October 23, 2026."
+    ],
+    [
+      "What replaces GPT-4o and GPT-4.1 in the API?",
+      "OpenAI recommends gpt-6-luna for all four models. It costs $0.10 per million input tokens and $0.50 per million output tokens, with a 1,050,000-token context window. Set reasoning effort to none to get the closest match to GPT-4o behavior and to keep function calling working in Chat Completions."
+    ],
+    [
+      "Is GPT-6 Luna cheaper than GPT-4o mini?",
+      "On list prices, yes: $0.10 and $0.50 per million input and output tokens against $0.15 and $0.60. But Luna reasons at medium effort by default and reasoning tokens are billed as output. On a month of 10,000 conversations with 3,000 input and 300 output tokens each, Luna at effort none costs $4.50 against $6.30, and that saving is gone at about 360 reasoning tokens per conversation."
+    ],
+    [
+      "What happens to fine-tuned GPT-4o models?",
+      "They stop on January 14, 2027 with their base models, because OpenAI says fine-tuned versions follow the base model's shutdown schedule. From January 6, 2027 active customers can no longer create new fine-tuning jobs, and OpenAI's pricing page says it is winding down the fine-tuning platform, with no GPT-6 model on its fine-tuning price list, so plan to rebuild the behavior with prompts and examples."
+    ],
+    [
+      "Why did OpenAI give only three months of notice?",
+      "OpenAI did not say. Its deprecations policy promises at least six months for generally available models and allows a shorter timeline only for safety or compliance concerns. The October 14 notice gives 92 days. OpenAI says some customers can provision dedicated capacity through its sales team to keep using a model after its shutdown date."
+    ],
+    [
+      "Which OpenAI models shut down on October 23, 2026?",
+      "gpt-3.5-turbo, gpt-4, gpt-4-turbo, gpt-4.1-nano, gpt-4o-2024-05-13, o1, o1-pro, o3-mini, o4-mini and gpt-image-1, plus fine-tuned gpt-3.5-turbo, gpt-4, gpt-4.1-nano, o4-mini, babbage-002 and davinci-002 models. OpenAI points them to GPT-5.6 Sol, Terra or Luna, or to gpt-image-2.5 for images."
+    ]
+  ],
+  "image": {
+    "cluster": "OpenAI API",
+    "takeaway": "OpenAI turns off GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini in its API on January 14, 2027.",
+    "alt": "GPT-4o API shutdown: OpenAI retires GPT-4o, GPT-4o mini, GPT-4.1 and GPT-4.1 mini on January 14, 2027",
+    "chart": {
+      "title": "Monthly cost of 10,000 support chats, by model",
+      "subtitle": "3,000 input and 300 output tokens per chat, Standard list prices, before caching.",
+      "type": "hbar",
+      "rows": [
+        [
+          "GPT-4o",
+          105
+        ],
+        [
+          "GPT-4.1",
+          84
+        ],
+        [
+          "GPT-4.1 mini",
+          16.8
+        ],
+        [
+          "GPT-4o mini",
+          6.3
+        ],
+        [
+          "GPT-6 Luna",
+          4.5
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "/mo",
+      "highlight": 4,
+      "note": [
+        "Reasoning effort none;",
+        "each 100 reasoning tokens adds $0.50"
+      ],
+      "source": "Standard list prices per 1M tokens. Source: developers.openai.com, October 2026",
+      "alt": "Bar chart of the monthly cost of 10,000 support chats: GPT-4o 105 dollars, GPT-4.1 84, GPT-4.1 mini 16.80, GPT-4o mini 6.30, GPT-6 Luna with reasoning effort none 4.50.",
+      "after_heading": "What GPT-6 Luna costs, and the catch"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "GPT-4o, GPT-4o mini, GPT-4.1, GPT-4.1 mini API shutdown",
+        "value": "January 14, 2027",
+        "note": "notice sent October 14, 2026"
+      },
+      {
+        "label": "Notice given",
+        "value": "92 days",
+        "note": "policy promises at least 6 months for GA models"
+      },
+      {
+        "label": "GPT-6 Luna, input and output",
+        "value": "$0.10 / $0.50 per 1M tokens",
+        "note": "cached input $0.01, cache writes $0.125"
+      },
+      {
+        "label": "GPT-4o, input and output",
+        "value": "$2.50 / $10 per 1M tokens"
+      },
+      {
+        "label": "GPT-4o mini, input and output",
+        "value": "$0.15 / $0.60 per 1M tokens"
+      },
+      {
+        "label": "GPT-4.1, input and output",
+        "value": "$2 / $8 per 1M tokens"
+      },
+      {
+        "label": "GPT-4.1 mini, input and output",
+        "value": "$0.40 / $1.60 per 1M tokens"
+      },
+      {
+        "label": "Luna surcharge over 272,000 input tokens",
+        "value": "2x input, 1.5x output",
+        "note": "for the whole request"
+      },
+      {
+        "label": "10,000 chats a month, 3,000 in and 300 out each",
+        "value": "$105 on GPT-4o, $4.50 on Luna",
+        "note": "Luna at effort none, before caching"
+      },
+      {
+        "label": "gpt-3.5-turbo, gpt-4, o4-mini and others shut down",
+        "value": "October 23, 2026"
+      },
+      {
+        "label": "New fine-tuning jobs blocked for active customers",
+        "value": "January 6, 2027",
+        "note": "no GPT-6 model on the fine-tuning price list"
+      },
+      {
+        "label": "gpt-realtime and gpt-4o audio models shut down",
+        "value": "January 20, 2027"
+      }
+    ],
+    "source": "Dates and prices read on 19 October 2026 from OpenAI's deprecations page, model pages, pricing page and GPT-6 migration guide."
+  }
+}

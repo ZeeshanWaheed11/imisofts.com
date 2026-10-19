@@ -1,0 +1,80 @@
+{
+  "slug": "gpt-live-pricing",
+  "title": "GPT-Live Pricing: $0.05 a Minute, and Custom Voices Are Free",
+  "desc": "GPT-Live costs $0.05 a minute, billed per second, plus backend tokens. Since October 16 any API customer can create prompt-to-voice custom voices for free.",
+  "keywords": "gpt-live pricing, gpt live pricing api, gpt-live api cost, gpt-live-1 pricing, gpt live cost, openai custom voices, openai api custom voice, openai create custom voice, prompt-to-voice, gpt-live voices, openai voice agent cost",
+  "date": "2026-10-19",
+  "time": "09:02",
+  "read_time": 3,
+  "word_count": 678,
+  "cta": "Want a voice agent priced per call before you build it?",
+  "body": "<p><strong>October 19, 2026.</strong> OpenAI's GPT-Live voice sessions cost $0.05 a minute, billed per second with no rounding up to the next minute, and backend model and tool usage is charged on top, according to its <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">API pricing page</a>. On October 16 OpenAI made prompt-to-voice available to every API customer: you describe a voice in plain text and get a saved custom voice for GPT-Live, free to create, with speech billed at the normal session rate. A three-minute call costs $0.15 in voice time before the backend and the phone line.</p><p><strong>What OpenAI shipped on October 15 and 16</strong></p><p>The API <a href=\"https://developers.openai.com/api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">changelog</a> lists three changes in two days:</p><ol><li><strong>Prompt-to-voice, generally available.</strong> Create a voice through the API or the voice Playground with no reference recording and no consent recording. Each organization can create up to 100 prompt-generated voices, and that cap also covers voices your app creates for its own customers, per the <a href=\"https://developers.openai.com/api/docs/guides/custom-voices\" target=\"_blank\" rel=\"noopener noreferrer\">custom voices guide</a>.</li><li><strong>Nine new built-in voices.</strong> Nuri, Juni and Flitz in German, Brise and Sillage in French, Nira in Hindi, Harema and Shida in Japanese, and Noeul in Korean.</li><li><strong>Native Decisions integration.</strong> GPT-Live can call the Decisions API directly, or your app can trigger decisions as transcript text arrives, so it can act while the caller is still talking. We priced that API in our <a href=\"/blog/openai-decisions-api-pricing/\">Decisions API</a> brief.</li></ol><p>An independent <a href=\"https://pasqualepillitteri.it/en/news/24926/openai-gpt-live-api-prompt-to-voice-nine-voices\" target=\"_blank\" rel=\"noopener noreferrer\">write-up on October 17</a> reports the same terms: free to generate, nine voices, five languages.</p><p><strong>How a GPT-Live call is billed</strong></p><p>OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/voice-latency-cost\" target=\"_blank\" rel=\"noopener noreferrer\">cost guide</a> splits every conversation into two bills. The voice session is billed per second for all active time, including silence and the seconds the backend spends working. Creating a WebRTC session bills 15 seconds while it initializes, which is credited against the call once it starts, so it matters mainly for reconnects and for sessions opened before the caller is ready. Backend calls are billed like any other API request. OpenAI's own example: a 90-second session is $0.075 in voice time, plus $0.02 of backend work, for $0.095.</p><p>The phone line is a third bill. GPT-Live reaches phone calls over <a href=\"https://developers.openai.com/api/docs/guides/voice-sip\" target=\"_blank\" rel=\"noopener noreferrer\">direct SIP</a>, with TLS signaling and SRTP audio, or through an application that relays the audio, and OpenAI publishes partner guides for Twilio, Telnyx, Bandwidth, LiveKit and Daily or Pipecat. Twilio's <a href=\"https://www.twilio.com/en-us/sip-trunking/pricing/us\" target=\"_blank\" rel=\"noopener noreferrer\">Elastic SIP Trunking price list</a> shows US local origination at $0.0034 a minute and a local number at $1.15 a month. So 1,000 inbound calls averaging three minutes come to $150 of GPT-Live time, $10.20 of origination and $1.15 for the number: $161.35 before backend tokens.</p><p><strong>Prompt voices versus voices from a recording</strong></p><p>Prompt voices are open to everyone but work only with GPT-Live, not with the Text to Speech, Realtime or Chat Completions APIs. Voices cloned from a recording work with all four, but they are limited to eligible customers through OpenAI sales, capped at 20 per organization, and need a sample of 30 seconds or less plus a consent recording in which the speaker reads a fixed phrase. OpenAI's rules for prompt voices: no imitation of a named person, public figure or fictional character, adult voices only, and tell listeners the speech is AI-generated. Our <a href=\"/blog/ai-voice-agent-scripted-disclosure/\">scripted disclosure guide</a> covers the wording, and the <a href=\"/blog/ai-caller-disclosure-laws-by-state/\">state disclosure laws</a> set the floor.</p><p><strong>What it means for operators</strong></p><p>A branded voice for a receptionist no longer needs a voice actor, a cloning contract or an approval from OpenAI sales. Write three or four descriptions, test each on recorded calls, and keep the prompt you chose, because OpenAI returns a voice ID, not audio. Agencies should budget the 100-voice cap per organization across every client brand they host.</p><p>Price the whole call, not the headline rate: voice minutes, backend tokens and the carrier. For a receptionist designed and costed per call, see our <a href=\"/ai-calling-home-services\">AI receptionist for home services</a>, or compare options in our <a href=\"/blog/ai-answering-service-for-hvac/\">HVAC answering service</a> review and the <a href=\"/blog/best-hipaa-compliant-ai-receptionists-2026/\">HIPAA-compliant AI receptionists</a> list. If the same agent dials out, register its numbers first; our <a href=\"/blog/twilio-voice-integrity/\">Twilio Voice Integrity</a> brief explains how. Agents still on gpt-realtime have until January 20, 2027, per our <a href=\"/blog/gpt-4o-api-shutdown/\">OpenAI shutdown calendar</a>.</p>",
+  "faqs": [
+    [
+      "How much does GPT-Live cost?",
+      "GPT-Live voice sessions cost $0.05 a minute on OpenAI's API, billed per second without rounding up to a whole minute. Backend model and tool usage is billed separately at normal API rates. A three-minute call is $0.15 in voice time, and creating a WebRTC session bills 15 seconds that are credited once the call starts."
+    ],
+    [
+      "Are OpenAI custom voices free?",
+      "Prompt-generated voices are. Since October 16, 2026 any API customer can create one from a text description at no charge, and speech in that voice is billed at the regular GPT-Live session rate. Each organization can create up to 100. Voices made from a recording are limited to eligible customers through OpenAI sales, at up to 20 per organization."
+    ],
+    [
+      "Can I use a prompt-generated voice outside GPT-Live?",
+      "No. OpenAI says prompt-generated voices work with GPT-Live only, not with the Text to Speech, Realtime or Chat Completions APIs. Voices created from a recording, with a consent recording and a sample of 30 seconds or less, work across GPT-Live, Text to Speech, the Realtime API and Chat Completions audio output."
+    ],
+    [
+      "What do 1,000 GPT-Live phone calls cost?",
+      "At an average of three minutes, 1,000 calls use 3,000 minutes: $150 of GPT-Live time. On Twilio's Elastic SIP Trunking, US local origination adds $10.20 at $0.0034 a minute and a local number $1.15 a month, for $161.35 before the backend model and tool tokens your agent uses."
+    ]
+  ],
+  "image": {
+    "cluster": "Voice AI",
+    "takeaway": "GPT-Live bills $0.05 a minute, per second, and prompt-generated custom voices are free to create.",
+    "alt": "GPT-Live pricing: OpenAI voice sessions at $0.05 a minute and free prompt-generated custom voices"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "GPT-Live voice session",
+        "value": "$0.05 per minute",
+        "note": "billed per second, no rounding up"
+      },
+      {
+        "label": "WebRTC session start",
+        "value": "15 seconds billed",
+        "note": "credited once the session runs"
+      },
+      {
+        "label": "OpenAI example, 90-second call",
+        "value": "$0.095",
+        "note": "$0.075 voice plus $0.02 backend"
+      },
+      {
+        "label": "Prompt-generated voices per organization",
+        "value": "100",
+        "note": "free to create, GPT-Live only"
+      },
+      {
+        "label": "Voices from recordings per organization",
+        "value": "20",
+        "note": "eligible customers, samples up to 30 seconds"
+      },
+      {
+        "label": "New built-in GPT-Live voices, October 16",
+        "value": "9",
+        "note": "German, French, Hindi, Japanese, Korean"
+      },
+      {
+        "label": "Twilio US local SIP origination",
+        "value": "$0.0034 per minute",
+        "note": "local number $1.15 a month"
+      },
+      {
+        "label": "1,000 inbound calls of three minutes",
+        "value": "$161.35",
+        "note": "GPT-Live plus Twilio line and number, before backend tokens"
+      }
+    ],
+    "source": "Prices and limits read on 19 October 2026 from OpenAI's API pricing page, changelog, custom voices and cost guides, and Twilio's US Elastic SIP Trunking pricing page."
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "twilio-voice-integrity",
+  "title": "Twilio Voice Integrity Now Covers Verizon: Who Qualifies",
+  "desc": "Twilio Voice Integrity now covers Verizon too, so it reaches the spam-label engines of all three big US carriers. You need an EIN or DUNS and a vetted profile.",
+  "keywords": "twilio voice integrity, twilio voice integrity pricing, twilio voice integrity cost, twilio voice integrity api, twilio spam likely, twilio scam likely, business number showing as spam, register business phone number, free caller registry, twilio branded calling",
+  "date": "2026-10-19",
+  "time": "09:04",
+  "read_time": 3,
+  "word_count": 598,
+  "cta": "Want outbound AI calls that reach people, not spam folders?",
+  "body": "<p><strong>October 19, 2026.</strong> Twilio's Voice Integrity, the beta that registers a business's outbound numbers with the analytics engines US carriers use to label calls as spam, now covers Verizon as well as AT&amp;T and T-Mobile, according to Twilio's <a href=\"https://www.twilio.com/en-us/changelog/voice-integrity-now-supports-all-three-major-us-networks\" target=\"_blank\" rel=\"noopener noreferrer\">October 16 changelog</a>. To qualify you need an approved Trust Hub Business Profile with an EIN or a DUNS number, a US business address, an authorized representative with a US phone number and a working https website. Twilio's <a href=\"https://www.twilio.com/en-us/voice/pricing/us\" target=\"_blank\" rel=\"noopener noreferrer\">US voice price list</a>, read on October 19, has no Voice Integrity line; it lists Branded Calling at $0.12 a call.</p><p><strong>What changed on October 16</strong></p><ol><li><strong>Verizon added.</strong> Voice Integrity previously registered numbers with the analytics vendors for AT&amp;T and T-Mobile. It now reaches the vendor that supports Verizon, so one registration covers all three major US networks.</li><li><strong>No action for existing customers.</strong> Twilio says accounts already enrolled have had their business details and phone numbers registered with the Verizon-side vendor automatically.</li><li><strong>Still a public beta.</strong> The <a href=\"https://www.twilio.com/docs/voice/spam-monitoring-with-voiceintegrity\" target=\"_blank\" rel=\"noopener noreferrer\">Voice Integrity docs</a> say it is not covered by Twilio's Support Terms or service level agreement, and that it is not a HIPAA eligible service or PCI compliant, so it should not be enabled in workflows subject to either.</li></ol><p><strong>Who qualifies, and how long it takes</strong></p><p>Only phone numbers assigned to an approved Primary or Secondary Business Profile can be registered. Per the <a href=\"https://www.twilio.com/docs/voice/spam-monitoring-with-voiceintegrity/voice-integrity-onboarding\" target=\"_blank\" rel=\"noopener noreferrer\">onboarding guide</a>, Twilio's compliance team vets the profile in 24 to 48 hours, and registration with the analytics engines takes about another 24 to 48 business hours, so allow most of a working week before a new campaign. Enrollment runs through the Twilio Console or the Trust Hub API, with separate paths for direct customers, including outsourced call centers, and for software vendors or resellers whose customers place the calls. An agency that runs dialers for its clients fits the reseller description, since its customers are the ones calling.</p><p><strong>What registration does not fix</strong></p><p>Twilio is blunt about the limit: Voice Integrity \"isn't a silver bullet\" and will not make numbers immune to spam labels. Registration tells the analytics engines who you are; your calling pattern still decides the score. Our explainer on <a href=\"/blog/why-is-my-business-number-showing-as-spam/\">why a business number shows as Spam Likely</a> names the three engines and the behavior they penalize, such as rotating numbers. Twilio recommends pairing registration with the highest SHAKEN/STIR attestation, CNAM and Branded Calling. The <a href=\"https://www.freecallerregistry.com/fcr/\" target=\"_blank\" rel=\"noopener noreferrer\">Free Caller Registry</a> sends business details to the engines behind the same three carriers, First Orion, Hiya and Transaction Network Services, at no cost, and it too says registration does not guarantee calls will never be blocked or labeled.</p><p><strong>What it means for operators</strong></p><p>If you run an AI dialer for appointment reminders or speed-to-lead callbacks, register the numbers before the first campaign, not after the first complaint, and keep them steady. The costs are small: Twilio lists a US local number at $1.15 a month and outbound local calls at $0.0140 a minute, so 1,000 one-minute reminder calls cost $14 in Twilio minutes, and Branded Calling would add $120. Registration is not consent, either. Who you may call is still set by the TCPA and state rules, which our <a href=\"/tcpa-compliant-ai-calling\">TCPA-compliant AI calling</a> service builds in, and our <a href=\"/blog/telemarketing-laws-by-state/\">state telemarketing laws</a> guide maps calling hours by state.</p><p>Clinics should note the HIPAA exclusion before enabling it in patient reminder flows; our <a href=\"/blog/best-hipaa-compliant-ai-receptionists-2026/\">HIPAA-compliant AI receptionists</a> list covers that side. For inbound, see our <a href=\"/ai-calling-home-services\">AI receptionist for home services</a> and the <a href=\"/blog/ai-answering-service-for-hvac/\">HVAC answering service</a> review, and if your agent runs on OpenAI, our <a href=\"/blog/gpt-live-pricing/\">GPT-Live pricing</a> brief prices the voice side of the same call.</p>",
+  "faqs": [
+    [
+      "What is Twilio Voice Integrity?",
+      "Voice Integrity is a Twilio Trust Hub product, in public beta, that registers a business and its outbound phone numbers with the analytics engines major US carriers use to label calls. Since October 16, 2026 it covers T-Mobile, Verizon and AT&T. Registration helps those engines recognize legitimate traffic, but Twilio says it does not make numbers immune to spam labels."
+    ],
+    [
+      "How much does Twilio Voice Integrity cost?",
+      "Twilio's US voice price list, read on October 19, 2026, has no Voice Integrity line. The same page lists Branded Calling at $0.12 a call, a local number at $1.15 a month and outbound local calls at $0.0140 a minute. The Free Caller Registry registers numbers with the same three analytics engines at no cost."
+    ],
+    [
+      "What do I need to qualify for Voice Integrity?",
+      "An approved Primary or Secondary Business Profile in Twilio's Trust Hub with an EIN or DUNS number, a valid US business address, an authorized representative with a valid US phone number and a working https website, plus the phone numbers assigned to that profile. Vetting takes 24 to 48 hours and registration about 24 to 48 business hours."
+    ],
+    [
+      "Will Voice Integrity stop my calls showing as Spam Likely?",
+      "Not on its own. Twilio calls it a first line of defense, not a silver bullet. The analytics engines still score how you call, so keep numbers steady, get the highest SHAKEN/STIR attestation, set CNAM, consider Branded Calling at $0.12 a call, and consider the free Free Caller Registry too."
+    ]
+  ],
+  "image": {
+    "cluster": "AI calling",
+    "takeaway": "Twilio Voice Integrity now registers business numbers with the spam-label engines for all three big US carriers.",
+    "alt": "Twilio Voice Integrity now covers Verizon, AT&T and T-Mobile: requirements to register outbound business numbers"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "US networks covered by Voice Integrity",
+        "value": "3",
+        "note": "T-Mobile, Verizon and AT&T; Verizon added October 16, 2026"
+      },
+      {
+        "label": "Business Profile vetting",
+        "value": "24 to 48 hours"
+      },
+      {
+        "label": "Registration with the analytics engines",
+        "value": "about 24 to 48 business hours"
+      },
+      {
+        "label": "Twilio Branded Calling",
+        "value": "$0.12 per call"
+      },
+      {
+        "label": "Twilio US local number",
+        "value": "$1.15 a month"
+      },
+      {
+        "label": "Twilio outbound local calls",
+        "value": "$0.0140 per minute"
+      },
+      {
+        "label": "1,000 one-minute outbound calls",
+        "value": "$14 in Twilio minutes",
+        "note": "$120 more with Branded Calling"
+      },
+      {
+        "label": "Free Caller Registry",
+        "value": "$0",
+        "note": "First Orion, Hiya and TNS"
+      }
+    ],
+    "source": "Read on 19 October 2026 from Twilio's changelog, Voice Integrity docs and US voice pricing page, and the Free Caller Registry site."
+  }
+}
