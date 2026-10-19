@@ -1,0 +1,155 @@
+{
+ "slug": "perplexity-api-pricing",
+ "title": "Perplexity API Pricing After Sonar Chat Completions Support Ended",
+ "desc": "Perplexity ended Sonar Chat Completions support on 27 Sep 2026. The Agent API bills tokens plus $1 to $2.50 per 1,000 searches. Prices read 19 Oct 2026.",
+ "date": "2026-10-19",
+ "time": "17:15",
+ "keywords": "perplexity api pricing, perplexity api cost, perplexity sonar api pricing, sonar api pricing, sonar pro api pricing, sonar deep research api pricing, perplexity agent api pricing, perplexity search api pricing, perplexity api cost per token, is perplexity api free, perplexity api free tier, perplexity api rate limits, perplexity api usage tiers, perplexity sonar deprecated, migrate from sonar to agent api, perplexity api presets, bright data serp api pricing, apify rag web browser pricing",
+ "category": "Guides",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "cta": "Want your AI search pipeline costed before you build it?",
+ "word_count": 2202,
+ "read_time": 10,
+ "body": "<p><strong>Short answer.</strong> Perplexity ended support for Sonar Chat Completions on 27 September 2026, and its pricing page no longer lists a Sonar rate. Synchronous and streaming Sonar calls still work while Perplexity reformulates them as Agent API requests, model by model; asynchronous Sonar calls are no longer supported. On the Agent API you pay each model's per-token rate plus tool fees: $2.50 per 1,000 web search calls, or $1.00 with Fast Search, and $0.50 per 1,000 page-fetch calls. The standalone Search API costs $5 per 1,000 requests, or $1 with Fast Search, with no token charges. Perplexity's own benchmark tables put its cheapest preset, fast, at $0.0014 to $0.0018 per request, against $0.0059 to $0.0070 for Sonar. We earn a commission if you buy Apify or Bright Data through our links; Perplexity pays us nothing.</p>\n<p>Every price and limit below was read on 19 October 2026 on Perplexity's, Apify's and Bright Data's own pages; the totals are our arithmetic. We did not run billed tests on any of the three or test answer quality.</p>\n\n<h2 id=\"what-happened-to-sonar\">What happened to Sonar</h2>\n<p>Perplexity's migration guide says Sonar Chat Completions support ended on 27 September 2026. Synchronous and streaming requests keep working and are being reformulated as Agent API requests, rolling out gradually by model. Asynchronous Sonar requests are no longer supported and need to move to the Agent API's background mode. The changelog tagged the migration as a deprecation in July 2026.</p>\n<p>Sonar the model has not disappeared: <code>perplexity/sonar</code> is listed inside the Agent API at $0.25 per million input tokens and $2.50 per million output tokens, with web search billed separately. What has ended is support for Sonar Chat Completions, and its rate card is off the pricing page. Perplexity suggests these presets as starting points:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Sonar model</th><th>Suggested preset</th><th>What the preset runs today</th></tr></thead><tbody>\n<tr><td>Sonar</td><td>fast</td><td>GPT-6 Luna, 1 step, priority tier, Fast Search, 10 results</td></tr>\n<tr><td>Sonar Pro</td><td>fast</td><td>Same as above</td></tr>\n<tr><td>Sonar Reasoning Pro</td><td>low</td><td>GPT-6 Luna, up to 5 steps, Fast Search plus page fetch</td></tr>\n<tr><td>Sonar Deep Research</td><td>high</td><td>GPT-6 Sol, up to 15 steps, Fast Search plus page fetch</td></tr>\n</tbody></table></div>\n<p>Above high sits xhigh, which runs Claude Opus 5.5 for up to 100 steps with standard web search, finance search and a code sandbox.</p>\n<p>Two migration details change the bill. Sonar's <code>search_context_size</code> setting has no named equivalent; the Agent API's web search tool takes token budgets instead, and you are charged for the exact number of search context tokens consumed, not the budget you set. And presets are dynamic: Perplexity updates a preset's configuration, which can include its model, as evals show improvements, aiming to stay in the same cost band, unless you copy the preset's current values into a frozen configuration.</p>\n\n<h2 id=\"current-prices\">Perplexity API prices on 19 October 2026</h2>\n<p>The pricing page now covers the Search, Agent, Orchestrator, Embeddings and Decisions APIs. From the pricing and Agent API models pages, the lines most relevant to Sonar users:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Item</th><th>Listed price</th><th>Billing unit</th></tr></thead><tbody>\n<tr><td>GPT-6 Luna (fast, low and medium presets)</td><td>$0.10 in, $0.50 out</td><td>Per million tokens, up to 272K input</td></tr>\n<tr><td>GPT-6 Sol (high preset)</td><td>$2 in, $10 out</td><td>Per million tokens, up to 272K input</td></tr>\n<tr><td>Claude Opus 5.5 (xhigh preset)</td><td>$4 in, $20 out</td><td>Per million tokens</td></tr>\n<tr><td>perplexity/sonar</td><td>$0.25 in, $2.50 out</td><td>Per million tokens</td></tr>\n<tr><td>web_search</td><td>$2.50, or $1.00 with Fast Search</td><td>Per 1,000 invocations</td></tr>\n<tr><td>fetch_url</td><td>$0.50</td><td>Per 1,000 invocations</td></tr>\n<tr><td>people_search, finance_search</td><td>$5</td><td>Per 1,000 invocations</td></tr>\n<tr><td>sandbox</td><td>$0.03</td><td>Per session, a 20-minute billing window</td></tr>\n<tr><td>Search API</td><td>$5, or $1 with Fast Search</td><td>Per 1,000 successful requests</td></tr>\n</tbody></table></div>\n<p>Priority processing bills twice the listed token price and flex half, on models that support those tiers; GPT-6 Luna and GPT-6 Sol do, Claude Opus 5.5 lists neither. The fast preset runs on priority, so its GPT-6 Luna tokens bill at $0.20 and $1.00 per million.</p>\n<p>The Search API bills each successful request, and one request can carry up to five queries for the price of one. It does not bill invalid, rate-limited or upstream-failed requests, but it does bill a successful response that returns no results. It returns 10 ranked results by default, up to 20.</p>\n\n<h2 id=\"old-sonar-rates\">The old Sonar rate card, and what we could not confirm</h2>\n<p>The pricing page no longer shows Sonar, but a copy of its rate card remains in the data behind the pricing calculator on Perplexity's Agent API Models page:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Sonar model</th><th>Tokens in / out, per million</th><th>Request fee per 1,000 (low / medium / high context)</th></tr></thead><tbody>\n<tr><td>Sonar</td><td>$1 / $1</td><td>$5 / $8 / $12</td></tr>\n<tr><td>Sonar Pro</td><td>$3 / $15</td><td>$6 / $10 / $14</td></tr>\n<tr><td>Sonar Reasoning Pro</td><td>$2 / $8</td><td>$6 / $10 / $14</td></tr>\n<tr><td>Sonar Deep Research</td><td>$2 / $8</td><td>None; $2 per million citation tokens, $3 per million reasoning tokens, $5 per 1,000 searches</td></tr>\n</tbody></table></div>\n<p>Sonar's per-request fee was tiered by search context size. We could not confirm whether reformulated Sonar calls now bill on this card or at Agent API rates, or whether Sonar also billed search content as tokens; the Agent API does.</p>\n<p>Google's AI Overview for \"perplexity api pricing\" (US English) told us on 19 October that standard Sonar models carry no per-request search fees and that search and citations are included in the per-token price. Its token rates match the card above, but that card carries request fees of $5 to $14 per 1,000, and the Agent API bills every web search as its own line.</p>\n\n<h2 id=\"cost-per-request\">What a request costs on Perplexity's benchmarks, by preset</h2>\n<p>Perplexity's benchmark page prices each Sonar model and preset per request on its own workloads, with no date, model or preset versions given:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Configuration</th><th>BrowseComp score, cost per request</th><th>DeepSearchQA score, cost per request</th></tr></thead><tbody>\n<tr><td>Sonar</td><td>7.00%, $0.0070</td><td>27.26%, $0.0059</td></tr>\n<tr><td>Sonar Pro</td><td>7.33%, $0.0156</td><td>30.11%, $0.0209</td></tr>\n<tr><td>Sonar Reasoning Pro</td><td>16.33%, $0.0163</td><td>38.41%, $0.0260</td></tr>\n<tr><td>Sonar Deep Research</td><td>29.10%, $0.611</td><td>48.94%, $0.5656</td></tr>\n<tr><td>fast preset</td><td>26.67%, $0.0014</td><td>53.30%, $0.0018</td></tr>\n<tr><td>low preset</td><td>48.67%, $0.0060</td><td>64.90%, $0.0120</td></tr>\n<tr><td>medium preset</td><td>71.67%, $0.0160</td><td>85.90%, $0.0310</td></tr>\n<tr><td>high preset</td><td>78.00%, $0.136</td><td>89.60%, $0.121</td></tr>\n<tr><td>xhigh preset</td><td>85.33%, $0.78</td><td>93.00%, $0.218</td></tr>\n</tbody></table></div>\n<p>On Perplexity's own workloads, each suggested replacement costs less per request. Fast costs 80% less than Sonar on BrowseComp and 69% less on DeepSearchQA, and 91% less than Sonar Pro on both. Low costs 63% and 54% less than Sonar Reasoning Pro. High costs 22% and 21% of Sonar Deep Research, which bears out Perplexity's \"under a quarter\", and low costs about 1% and 2% of it, consistent with Perplexity's \"1-2%\". The exception is xhigh, Perplexity's top-quality tier rather than its Deep Research replacement: it costs 28% more per request than Deep Research on BrowseComp ($0.78 against $0.611) while scoring 85.33% against 29.10%, and 61% less on DeepSearchQA.</p>\n<p>Your queries are not Perplexity's benchmark, so check list prices. Perplexity's pricing calculator assumes a fast run reads 1,000 input tokens and writes 500; it labels these median values from representative runs, not billed values, and lists them beside an older model. At the fast preset's priority rate that is $0.0007 in tokens plus $0.001 for one Fast Search: $0.0017 per request, or $1.70 per 1,000, inside the benchmark's range. Without priority it would be $0.00135. The same token counts on the old Sonar card come to $0.0065 at low search context, $0.0095 at medium and $0.0135 at high. That is rate-card arithmetic at identical token counts, not what the same query cost. Inside the Agent API, at the same token counts, <code>perplexity/sonar</code> with one Fast Search comes to $0.0025, or $0.0040 with standard search. Actual cost is metered per response, and a completed response can report it in its usage cost field.</p>\n\n<h2 id=\"limits-and-billing\">Rate limits, credits and refunds</h2>\n<p>Perplexity sells API credits in advance. Usage tiers rise with lifetime purchases and never drop: Tier 1 from $50, Tier 2 from $250, Tier 3 from $500, Tier 4 from $1,000 and Tier 5 from $5,000. Agent API limits apply per organization, shared across models and keys: 1, 3, 8, 17, 33 and 33 requests per second from Tier 0 to Tier 5, so the step from $1,000 to $5,000 of purchases adds no Agent API throughput. The Search API allows 50 query units per second on every tier, and a five-query request is one billed request but five rate-limit units.</p>\n<p>If credits run out, Perplexity blocks your API keys until you add more; an optional Automatic Top Up refills the balance when it drops below $2. A Perplexity subscription is not required to use the API. We found no free API allowance on the pricing page or in the API billing help article, and the Pro billing FAQ, modified on 17 October, does not mention the API. The help center, modified on 14 September, says refunds \"can be processed\" if reported within 14 days of purchase and the credits are unused. The API terms, updated on 23 January 2026, still name \"Sonar by Perplexity\" and say payments are nonrefundable except where the terms expressly say otherwise.</p>\n\n<h2 id=\"build-your-own\">Building your own: search APIs plus a model</h2>\n<p>Sonar sold search and an answer in one call. The Agent API already lets you pick a model from several providers and freeze its configuration. If you would rather call a model on your own account, you buy search separately and pay that model to read the results. Per billed call at listed paid rates:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Route</th><th>Listed price</th><th>What one call returns</th><th>Free allowance</th></tr></thead><tbody>\n<tr><td>Perplexity Search API</td><td>$5 per 1,000 requests, $1 with Fast Search</td><td>Ranked web results, up to five queries per request</td><td>None found</td></tr>\n<tr><td>Bright Data SERP API, pay as you go</td><td>$1.50 per 1,000 successful requests</td><td>Search results from Google, Bing, DuckDuckGo or Yandex as JSON, HTML or Markdown</td><td>5,000 credits a month, shared across its APIs</td></tr>\n<tr><td>Bright Data SERP API, Scale</td><td>$499 a month for 380,000 requests, then $1.30 per 1,000</td><td>Same</td><td>Same</td></tr>\n<tr><td>Apify RAG Web Browser</td><td>$3.48 (Free) to $2.03 (Business, $999 a month) per 1,000 searches, plus $2.28 to $1.33 per 1,000 fetched pages</td><td>Google results plus up to three pages as Markdown by default</td><td>$5 of usage on the Free plan</td></tr>\n</tbody></table></div>\n<p>At those rates Perplexity's Fast Search is the lowest per call, below both of our affiliates. The units differ, though. A Perplexity request can carry five queries and returns 10 results by default; Bright Data bills per successful request; Apify bills per query and per page fetched, up to three by default, and adds $0.000225 per GB of memory on normal runs. Perplexity also bills successful requests that return nothing, and Apify charges for fetched pages that hold no text. We did not test speed or result quality on any of them.</p>\n<p>The comparison that hurts our affiliates most: Perplexity's benchmark lists the fast preset at $0.0014 to $0.0018 per request on its own workloads, $1.40 to $1.80 per 1,000, for a run that returns an answer. Bright Data charges $1.50 per 1,000, or $0.0015 a request, on pay as you go for search results with no answer, so a model adds cost on top. An Apify default query, one search plus up to three pages, costs at most $10.32 per 1,000 on the Free plan through Standby, or $6.02 on the $999-a-month Business plan, before a model reads anything; normal runs add $1.80 per 1,000 at the default 8 GB. Apify's $5 of free usage covers about 484 such queries. Bright Data gives every new account 5,000 free credits a month, one per SERP request, from a pool shared with its other APIs; its menu says \"starts from $1/1k req\", a rate we could not tie to any plan on its pricing cards.</p>\n<p>So the alternatives earn their place for specific jobs. For Google's own results and search verticals such as Shopping, Maps, News or Jobs, use <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Bright Data's SERP API</a>. For Google's top pages as Markdown, priced the same per page with either of its scraping tools, use <a href=\"https://www.apify.com?fpr=rc63q\">Apify's RAG Web Browser</a>. For raw results feeding your own model, Perplexity's Search API with Fast Search is the lowest listed price here, $1 per 1,000 requests. Our <a href=\"/blog/ai-agent-search-api-pricing/\">AI agent search API comparison</a> prices Tavily, Exa, Brave and others per 1,000 calls, and our <a href=\"/blog/google-custom-search-api-alternatives/\">Custom Search API alternatives</a> covers raw Google result feeds.</p>\n\n<h2 id=\"which-route\">Which Perplexity API route fits which job</h2>\n<ul>\n<li><strong>Answers with citations, the old Sonar job:</strong> the Agent API's fast preset, or low for light multi-step research. If you freeze fast to pin its model, the changelog says to set the service tier to priority to match it; default processing bills the listed token rate, half the priority rate.</li>\n<li><strong>Deep research reports:</strong> high, which Perplexity's benchmark puts at under a quarter of Sonar Deep Research per request. Use xhigh when its higher scores, 85.33% against 78.00% on BrowseComp and 93.00% against 89.60% on DeepSearchQA, are worth about 5.7 and 1.8 times high's cost per request.</li>\n<li><strong>Raw results for your own model or index:</strong> the Search API, batching up to five queries per request.</li>\n<li><strong>Google rankings, verticals or page text:</strong> <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Bright Data</a> or <a href=\"https://www.apify.com?fpr=rc63q\">Apify</a>, at the prices above.</li>\n<li><strong>Being cited by Perplexity rather than calling it:</strong> that is <a href=\"/ai-search-optimization\">AI search optimization</a>, not an API bill, and you can <a href=\"/blog/track-ai-traffic-google-analytics/\">track Perplexity referrals in GA4</a>.</li>\n</ul>\n<p>If you would rather have it built, our <a href=\"/ai-automation-agency\">AI automation agency</a> can scope the pipeline and cost it before it ships.</p>",
+ "faqs": [
+  [
+   "Is the Perplexity Sonar API still available?",
+   "Perplexity ended support for Sonar Chat Completions on 27 September 2026. Synchronous and streaming calls still work while Perplexity reformulates them as Agent API requests, model by model; asynchronous calls are no longer supported. The Sonar model itself is listed inside the Agent API at $0.25 per million input tokens and $2.50 per million output tokens, with web search billed per call. We could not confirm how reformulated legacy calls are billed."
+  ],
+  [
+   "How much does the Perplexity API cost per request?",
+   "It depends on the model, the tokens and the tool calls. Perplexity's own benchmark tables list the fast preset at $0.0014 to $0.0018 per request, low at $0.006 to $0.012, high at $0.121 to $0.136 and xhigh at $0.218 to $0.78. At the fast preset's priority rate, twice the listed token price, a fast run of 1,000 input and 500 output tokens with one Fast Search works out to about $0.0017."
+  ],
+  [
+   "Is the Perplexity API free?",
+   "We found no free API allowance on Perplexity's pricing page or its API billing help article, read on 19 October 2026. Credits are prepaid, a Perplexity subscription is not required, and new accounts start at Tier 0 with one Agent API request per second. The help center says refunds can be processed if the issue is reported within 14 days of purchase and the credits are unused; the API terms say payments are nonrefundable except where they say otherwise."
+  ],
+  [
+   "Does Perplexity charge for web search separately from tokens?",
+   "Yes, on the Agent API: web_search costs $2.50 per 1,000 invocations, or $1.00 with Fast Search, on top of model tokens, and the search context the model reads is billed as tokens. The Search API works differently: $5 per 1,000 successful requests, or $1 with Fast Search, with no token charges."
+  ],
+  [
+   "What replaced Sonar Pro and Sonar Deep Research?",
+   "Perplexity suggests the fast preset for Sonar and Sonar Pro, low for Sonar Reasoning Pro and high for Sonar Deep Research, as starting points. On Perplexity's own benchmarks, fast costs 91% less per request than Sonar Pro, and high costs 21% to 22% of Sonar Deep Research."
+  ],
+  [
+   "Is Perplexity's Search API cheaper than a Google SERP API?",
+   "With Fast Search, yes: $1 per 1,000 requests, against $1.50 per 1,000 on Bright Data's SERP API pay as you go and $3.48 to $2.03 per 1,000 searches on Apify's RAG Web Browser before page fetches. At the standard $5 per 1,000 it costs more per call, though one request can carry up to five queries. They return different things: Bright Data returns Google's own results and verticals, Apify returns Google results plus page Markdown."
+  ]
+ ],
+ "image": {
+  "cluster": "AI API pricing",
+  "takeaway": "Perplexity ended Sonar Chat Completions support on 27 September 2026; the Agent API bills tokens plus each search.",
+  "alt": "Perplexity API pricing after Sonar Chat Completions support ended: Agent API token and tool prices, Search API rates and preset costs per request",
+  "chart": {
+   "title": "Listed price per 1,000 search calls",
+   "subtitle": "Before model tokens. A Perplexity Search API request carries up to five queries; Apify's search excludes page fetches.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Perplexity Search API",
+     5.0
+    ],
+    [
+     "Apify search, Free",
+     3.48
+    ],
+    [
+     "Agent API web_search",
+     2.5
+    ],
+    [
+     "Apify search, Business",
+     2.03
+    ],
+    [
+     "Bright Data SERP PAYG",
+     1.5
+    ],
+    [
+     "Bright Data SERP Scale",
+     1.3
+    ],
+    [
+     "Perplexity Fast Search",
+     1.0
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 6,
+   "note": [
+    "Lowest per call here.",
+    "Both affiliates cost more."
+   ],
+   "source": "Listed rates; Bright Data $1.30 on its $499 plan, Apify $2.03 on its $999 plan; both pay us, Perplexity does not. Source: Perplexity, Bright Data and Apify pricing pages, October 2026",
+   "alt": "Bar chart of listed prices per 1,000 search calls: Perplexity Search API $5, Apify search $3.48 on Free and $2.03 on Business, Agent API web_search $2.50, Bright Data SERP API $1.50 pay as you go and $1.30 on Scale, and Perplexity Fast Search $1. One Perplexity Search API request can carry up to five queries.",
+   "after_heading": "Which Perplexity API route fits which job"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Sonar Chat Completions support ended",
+    "value": "27 September 2026",
+    "note": "sync and streaming calls being reformulated as Agent API requests, model by model; async no longer supported"
+   },
+   {
+    "label": "Agent API web_search, per 1,000 invocations",
+    "value": "$2.50, or $1.00 with Fast Search",
+    "note": "plus model tokens; fetch_url $0.50 per 1,000"
+   },
+   {
+    "label": "Search API, per 1,000 successful requests",
+    "value": "$5, or $1 with Fast Search",
+    "note": "up to five queries per request; no token charges"
+   },
+   {
+    "label": "GPT-6 Luna tokens on the fast preset, per million",
+    "value": "$0.20 in, $1.00 out",
+    "note": "up to 272K input; priority tier, twice the listed $0.10 and $0.50"
+   },
+   {
+    "label": "Old Sonar rate card, request fee per 1,000",
+    "value": "$5, $8 or $12",
+    "note": "by search context size, plus $1 per million tokens in and out"
+   },
+   {
+    "label": "Old Sonar Pro rate card, per million tokens",
+    "value": "$3 in, $15 out",
+    "note": "plus $6 to $14 per 1,000 requests"
+   },
+   {
+    "label": "Fast preset cost per request, Perplexity benchmarks",
+    "value": "$0.0014 to $0.0018",
+    "note": "undated; Sonar: $0.0059 to $0.0070; Bright Data SERP results alone, pay as you go: $0.0015"
+   },
+   {
+    "label": "high preset vs Sonar Deep Research, per request",
+    "value": "$0.136 vs $0.611; $0.121 vs $0.5656",
+    "note": "BrowseComp; DeepSearchQA: 22% and 21% of the cost"
+   },
+   {
+    "label": "xhigh preset vs Sonar Deep Research, BrowseComp",
+    "value": "$0.78 vs $0.611 per request",
+    "note": "28% more, scoring 85.33% vs 29.10%; 61% less on DeepSearchQA"
+   },
+   {
+    "label": "Agent API rate limit, Tier 0 to Tier 5",
+    "value": "1 to 33 requests per second",
+    "note": "Tier 1 from $50 of credits; Tiers 4 and 5 both 33"
+   },
+   {
+    "label": "Bright Data SERP API, pay as you go",
+    "value": "$1.50 per 1,000 requests",
+    "note": "5,000 free credits a month, shared; Scale $499 for 380,000"
+   },
+   {
+    "label": "Apify RAG Web Browser, per 1,000 default queries",
+    "value": "$6.02 to $10.32",
+    "note": "at most; Business ($999 a month) to Free, through Standby; up to three pages each"
+   }
+  ],
+  "source": "Prices and limits read on 19 October 2026 from Perplexity's pricing, Agent API, presets, benchmark, changelog and rate-limit docs, its help center and API terms, Bright Data's SERP API page and free-tier docs, and Apify's RAG Web Browser pages; totals are our arithmetic. Apify and Bright Data pay us a commission; Perplexity does not."
+ }
+}
