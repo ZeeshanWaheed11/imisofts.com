@@ -1,0 +1,118 @@
+{
+  "slug": "claude-api-rate-limits",
+  "title": "Claude API Rate Limits: Start, Build and Scale, and the $500 Cap",
+  "desc": "Claude API rate limits read October 20: the Start tier gets 1,000 requests and 2M input tokens a minute and a $500 monthly spend cap. Cached reads do not count.",
+  "keywords": "claude api rate limits, claude api rate limits tiers, anthropic rate limits, claude api spend limit, claude api spend cap, claude api tier, claude api usage tiers, claude api rate limit exceeded, claude api 429, claude api tier 4, anthropic rate limits tier 1",
+  "date": "2026-10-20",
+  "time": "09:04",
+  "read_time": 3,
+  "word_count": 698,
+  "cta": "Want AI agents that keep running when usage spikes?",
+  "body": "<p><strong>October 20, 2026.</strong> A Claude API organization on the Start tier can send 1,000 requests a minute to Claude Opus 5.5, Sonnet 5.5 or Haiku 5.5, with 2 million input and 400,000 output tokens a minute on each model, but it can spend only $500 in a calendar month before Anthropic pauses its API access until 00:00 UTC on the first of the next month. Those are the figures on Anthropic's <a href=\"https://platform.claude.com/docs/en/api/rate-limits\" target=\"_blank\" rel=\"noopener noreferrer\">rate limits page</a>, read today. Tiers 1 to 4 no longer exist: on June 26 Anthropic consolidated them into Start, Build and Scale and raised Sonnet and Haiku to Opus's limits at every tier, according to its <a href=\"https://platform.claude.com/docs/en/release-notes/overview\" target=\"_blank\" rel=\"noopener noreferrer\">release notes</a>.</p>\n<p><strong>The limits by tier</strong></p>\n<ol>\n<li><strong>Start.</strong> 1,000 requests a minute (RPM), 2,000,000 input tokens a minute (ITPM) and 400,000 output tokens a minute (OTPM) on every current Opus, Sonnet and Haiku model. Monthly spend cap: $500.</li>\n<li><strong>Build.</strong> 5,000 RPM, 5,000,000 ITPM and 1,000,000 OTPM. Monthly spend cap: $1,000.</li>\n<li><strong>Scale.</strong> 10,000 RPM, 10,000,000 ITPM and 2,000,000 OTPM. Monthly spend cap: $200,000. Custom limits above Scale have no cap and are arranged with Anthropic's account team.</li>\n<li><strong>Fable 5.x is lower.</strong> Claude Fable 5.1 and Fable 5 share one bucket, at 1,000 RPM, 500,000 ITPM and 100,000 OTPM on Start.</li>\n<li><strong>Each model has its own bucket.</strong> Opus 5.5, Opus 5, Sonnet 5.5 and Sonnet 5 each have a separate limit, so work split across models gets each model's full allowance.</li>\n<li><strong>New accounts can start lower.</strong> Organizations with little usage history may begin in an Evaluation tier below these limits, which rises automatically as history builds.</li>\n<li><strong>Batches have their own limits.</strong> The Message Batches API allows 1,000, 2,000 and 4,000 RPM by tier, up to 200,000, 300,000 and 500,000 requests waiting in the queue, and 100,000 requests per batch.</li>\n</ol>\n<p><strong>What counts toward the limits</strong></p>\n<p>On current models only uncached input counts toward input tokens per minute, so in Anthropic's own example a 2,000,000 ITPM limit with an 80 percent cache hit rate processes 10 million input tokens a minute. Output counts as it is generated and max_tokens is ignored, so a generous max_tokens costs nothing. A normal 429 error names the limit you crossed. The spend cap behaves differently: it returns the same rate_limit_error type with no retry-after header and the code enforced_spend_limit_reached, and retries, including the SDK's automatic ones, fail until access resumes.</p>\n<p><strong>What a 10,000-lead personalization run needs</strong></p>\n<p>Take a cold email job writing an opening line for 10,000 leads: 3,000 input tokens a lead, 2,500 of them a shared prompt, and 300 output tokens. On Start, 1,000 RPM means at least 10 minutes. Without caching, 30 million input tokens against 2 million a minute stretch that to 15 minutes; cache the shared prompt and uncached input falls to 5 million, so requests per minute set the pace again. At list prices from Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>, the run costs about $4.50 on Haiku 5.5, $90 on Sonnet 5.5 and $180 on Opus 5.5, or about $85 on Opus with the shared prompt cached. One uncached Opus run uses 36 percent of the Start tier's $500 cap, and a third run in the same month would hit the cap partway through.</p>\n<p><strong>What it means for operators</strong></p>\n<p>Check your tier on the Rate limits page in the Claude Console before a client launch, set your own spend limit below the cap on the Billing page, and alert on enforced_spend_limit_reached so a paused account is not mistaken for a busy one. Use Request tier increase before a heavy month, not during it. Cache system prompts and tool definitions, which raises throughput and cuts cost, and move work that can wait to the Message Batches API. Agents such as OpenClaw that run on your own Claude API key draw on the same organization limits; our <a href=\"/openclaw-setup\">OpenClaw setup</a> service and <a href=\"/hire-ai-engineer\">AI engineers</a> configure them, and an intake agent like our <a href=\"/ai-intake-law-firms\">AI intake for law firms</a> should never go quiet late in the month because of a cap.</p>\n<p>Our <a href=\"/blog/openai-api-usage-tiers/\">OpenAI API usage tiers</a> brief covers the same limits at OpenAI, and <a href=\"/blog/cached-input-token-pricing/\">cached input token pricing</a> explains the caching math. To skip the pipeline entirely, see what a <a href=\"/blog/cold-email-agency-pricing-2026/\">cold email agency costs per month</a>.</p>",
+  "faqs": [
+    [
+      "What are the Claude API rate limits?",
+      "On the Start tier, 1,000 requests, 2 million input tokens and 400,000 output tokens a minute on each current Opus, Sonnet and Haiku model. Build raises that to 5,000, 5 million and 1 million, and Scale to 10,000, 10 million and 2 million, per Anthropic's rate limits page read on October 20, 2026."
+    ],
+    [
+      "What happens when you hit the Claude API spend cap?",
+      "API requests return HTTP 429 with the error code enforced_spend_limit_reached and no retry-after header until 00:00 UTC on the first day of the next month, unless you move to a higher tier. The monthly caps are $500 on Start, $1,000 on Build and $200,000 on Scale."
+    ],
+    [
+      "Do cached tokens count toward Claude rate limits?",
+      "Not on current models. Uncached input tokens and tokens written to the cache count toward input tokens per minute, but cache reads do not. Claude Haiku 3.5, now retired except on Google Cloud, is the exception. Output tokens count as they are generated, and max_tokens is ignored."
+    ],
+    [
+      "How do I increase my Claude API rate limit?",
+      "Use Request tier increase on the Rate limits page in the Claude Console, or contact Anthropic support for urgent needs. Organizations also move up tiers automatically as they build usage history, and limits above Scale are arranged with Anthropic's sales team."
+    ]
+  ],
+  "image": {
+    "cluster": "AI API limits",
+    "takeaway": "A Start tier Claude API organization gets 1,000 requests a minute and a $500 monthly spend cap.",
+    "alt": "Claude API rate limits by usage tier: Start, Build and Scale requests and tokens per minute and monthly spend caps",
+    "chart": {
+      "title": "Cost of one 10,000-lead personalization run",
+      "subtitle": "3,000 input and 300 output tokens per lead, Claude API list prices.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Haiku 5.5",
+          4.5
+        ],
+        [
+          "Sonnet 5.5",
+          90
+        ],
+        [
+          "Opus 5.5, cached",
+          85
+        ],
+        [
+          "Opus 5.5",
+          180
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 3,
+      "note": [
+        "36 percent of the Start",
+        "tier's $500 monthly cap"
+      ],
+      "source": "List prices per 1M tokens. Source: platform.claude.com, October 2026",
+      "alt": "Bar chart of the cost of one 10,000-lead personalization run on the Claude API: Haiku 5.5 4.50 dollars, Sonnet 5.5 90, Opus 5.5 with the shared prompt cached 85, Opus 5.5 uncached 180.",
+      "after_heading": "What a 10,000-lead personalization run needs"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Start tier, current Opus, Sonnet and Haiku models",
+        "value": "1,000 requests a minute",
+        "note": "2M input, 400K output tokens a minute"
+      },
+      {
+        "label": "Build tier",
+        "value": "5,000 requests a minute",
+        "note": "5M input, 1M output tokens a minute"
+      },
+      {
+        "label": "Scale tier",
+        "value": "10,000 requests a minute",
+        "note": "10M input, 2M output tokens a minute"
+      },
+      {
+        "label": "Monthly spend cap, Start",
+        "value": "$500"
+      },
+      {
+        "label": "Monthly spend cap, Build",
+        "value": "$1,000"
+      },
+      {
+        "label": "Monthly spend cap, Scale",
+        "value": "$200,000"
+      },
+      {
+        "label": "Fable 5.x on Start",
+        "value": "1,000 requests a minute",
+        "note": "500K input, 100K output tokens a minute"
+      },
+      {
+        "label": "Requests per Message Batches batch",
+        "value": "100,000"
+      },
+      {
+        "label": "Tiers consolidated into Start, Build and Scale",
+        "value": "June 26, 2026"
+      },
+      {
+        "label": "10,000-lead run on Opus 5.5, uncached",
+        "value": "$180",
+        "note": "about $85 with the shared prompt cached"
+      }
+    ],
+    "source": "Limits and prices read on 20 October 2026 from Anthropic's rate limits page, release notes and pricing page."
+  }
+}

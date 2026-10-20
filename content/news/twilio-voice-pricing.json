@@ -1,0 +1,131 @@
+{
+  "slug": "twilio-voice-pricing",
+  "title": "Twilio Voice Pricing: Every Line Item an AI Phone Agent Pays",
+  "desc": "Twilio Voice pricing for AI calls: $0.0085 a minute inbound, $0.0140 outbound, $1.15 a number, $0.07 for ConversationRelay, plus CPS, AMD and recording fees.",
+  "keywords": "twilio voice pricing, twilio voice cost per minute, twilio pricing per minute, twilio programmable voice pricing, twilio conversationrelay pricing, twilio voice ai pricing, twilio calls per second pricing, twilio answering machine detection pricing, twilio call recording pricing, twilio elastic sip trunking pricing, twilio phone number cost",
+  "date": "2026-10-20",
+  "time": "09:00",
+  "read_time": 7,
+  "word_count": 1324,
+  "cta": "Want an AI phone agent that answers and dials for you?",
+  "body": "<p><strong>October 20, 2026.</strong> Twilio charges $0.0085 a minute to receive a call on a US local number and $0.0140 a minute to place one, plus $1.15 a month for the number, according to its <a href=\"https://www.twilio.com/en-us/voice/pricing/us\" target=\"_blank\" rel=\"noopener noreferrer\">US Programmable Voice price list</a>, which Twilio marks as current as of August 2026. An AI phone agent pays for more than minutes. ConversationRelay, Twilio's managed speech layer for voice AI, adds $0.07 a minute, and an outbound AI dialer pays per call for answering machine detection and branded caller ID, and per month for any calls per second above the free one. Below is every Twilio line item an AI receptionist or AI dialer touches, read on October 20, what 1,000 calls cost on each of the three ways to connect a voice agent, and where the bill grows.</p>\n<p><strong>Twilio's US voice rates, line by line</strong></p>\n<p>These are pay-as-you-go list prices for the United States. Twilio says volume discounts apply automatically past the first 100,000 minutes a month, but the page names the thresholds, not the discounted rates.</p>\n<ol>\n<li><strong>Minutes.</strong> Local numbers cost $0.0085 a minute to receive and $0.0140 to call out. Toll-free numbers cost $0.0220 a minute to receive and $0.0140 to call out. Calls to a browser or app, and calls over Twilio's SIP interface, are $0.0040 a minute either way.</li>\n<li><strong>Numbers.</strong> $1.15 a month for a local number and $2.15 for toll-free. The free trial includes $15 to buy a number and test.</li>\n<li><strong>Voice AI.</strong> ConversationRelay is $0.07 a minute, with the voice minutes billed separately, per Twilio's <a href=\"https://www.twilio.com/en-us/products/conversational-ai/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Conversations pricing page</a>. Media Streams, which sends the raw call audio to your own server, is $0.0044 a minute.</li>\n<li><strong>Recording.</strong> $0.0025 a minute to record and $0.0005 a minute for each month a recording stays in storage, falling to $0.00025 after the first 5 million stored minutes.</li>\n<li><strong>Transcription.</strong> $0.05 a minute for recording transcription, or $0.024 a minute in batch and $0.027 a minute in real time through Conversation Intelligence.</li>\n<li><strong>Outbound extras.</strong> Answering machine detection is $0.0075 a call, Branded Calling $0.12 a call and Voice Insights advanced features $0.0024 a minute.</li>\n<li><strong>Speech on classic call flows.</strong> Gather speech recognition is $0.02 a use, or $0.025 when you choose Deepgram Nova or Google v2. Basic text to speech is free; Premium voices cost $0.0008, $0.0032 and $0.0130 per 100 characters for standard, neural and generative.</li>\n</ol>\n<p><strong>How Twilio counts a minute</strong></p>\n<p>Twilio rounds every call leg up to the next full minute. Its <a href=\"https://help.twilio.com/articles/223132307-How-Are-Twilio-Voice-Call-Duration-Minutes-Calculated-for-Billing\" target=\"_blank\" rel=\"noopener noreferrer\">Help Center</a> gives the example of a one-way call of 1 minute 20 seconds billed as 2 minutes, and says a call that connects two Call SIDs bills as two calls. The rule covers Programmable Voice, Twilio Client, the SIP interface, Elastic SIP Trunking and Media Streams. Calls that end Failed or Busy are not billed, according to Twilio's <a href=\"https://www.twilio.com/docs/voice/resolve-call-log-usage-discrepancies\" target=\"_blank\" rel=\"noopener noreferrer\">usage documentation</a>.</p>\n<p>Two things follow for AI calls. A 20-second voicemail drop costs a full minute, so a dialer that leaves 1,000 short messages pays for 1,000 minutes. And when an AI receptionist hands a caller to a person, the transfer opens a second leg: the inbound minutes keep running, and the leg to the technician's phone bills at $0.0140 a minute on top.</p>\n<p><strong>Three ways to wire a voice agent, priced</strong></p>\n<p>Take 1,000 inbound calls of exactly three minutes on one local number, 3,000 billed minutes. What Twilio charges depends on how the call reaches the AI.</p>\n<ol>\n<li><strong>ConversationRelay: $236.65.</strong> That is $25.50 in inbound minutes, $210 for ConversationRelay and $1.15 for the number. Twilio runs the speech recognition and the voice, with providers such as Deepgram, Google, Amazon and ElevenLabs listed in its <a href=\"https://www.twilio.com/docs/voice/conversationrelay\" target=\"_blank\" rel=\"noopener noreferrer\">ConversationRelay docs</a>, and your app supplies the language model over a WebSocket, so the model's tokens are billed by its own vendor.</li>\n<li><strong>Media Streams to your own speech model: $39.85.</strong> That is $25.50 in minutes, $13.20 for the stream and $1.15 for the number. The model does the listening and the speaking and bills separately, for example OpenAI's GPT-Live at the per-minute rate in our <a href=\"/blog/gpt-live-pricing/\">GPT-Live pricing</a> brief.</li>\n<li><strong>Elastic SIP Trunking to a voice AI platform: $11.35.</strong> Inbound trunk minutes on a local number are $0.0034, per Twilio's <a href=\"https://www.twilio.com/en-us/sip-trunking/pricing/us\" target=\"_blank\" rel=\"noopener noreferrer\">SIP Trunking price list</a>, so $10.20 plus the $1.15 number. The platform, such as <a href=\"/blog/retell-ai-pricing/\">Retell</a> or <a href=\"/blog/vapi-pricing/\">Vapi</a>, then bills its own minutes. Sending a Programmable Voice call to a SIP address instead costs the $0.0085 inbound minute plus $0.0040 for the SIP interface.</li>\n</ol>\n<p>The three are not like for like. Only the first includes speech recognition and a voice, and none includes the model. What they show is where Twilio's share of the bill sits: on ConversationRelay Twilio is most of the call, while on a SIP trunk it is close to a rounding error and the platform you pick sets the price. Our <a href=\"/blog/ai-phone-call-cost-per-minute/\">AI phone call cost per minute</a> guide adds up all four legs of a self-built call.</p>\n<p><strong>What an outbound AI dialer adds</strong></p>\n<p>Outbound AI calling, for speed-to-lead callbacks or appointment reminders, adds three Twilio costs an inbound agent never sees.</p>\n<ol>\n<li><strong>Per-call fees.</strong> Answering machine detection is $0.0075 a call, and Branded Calling, which shows your business name on the handset, is $0.12 a call. 1,000 one-minute calls cost $14 in minutes and $7.50 in detection, $21.50 together, or $141.50 with Branded Calling. Running them through ConversationRelay adds $70 for the relay minutes.</li>\n<li><strong>Calls per second.</strong> Each account gets 1 call per second (CPS) for outbound API calls, and each Elastic SIP trunk gets 1 per region, according to Twilio's <a href=\"https://www.twilio.com/docs/glossary/cps\" target=\"_blank\" rel=\"noopener noreferrer\">CPS glossary</a>; inbound calls and &lt;Dial&gt; calls are not limited by CPS. Twilio's pricing slider, read October 20, prices extra throughput by the month: $35 for 2 CPS, $140 for 5, $540 for 10, $1,340 for 20 and $2,540 for 30, with sales quotes above 50. New accounts without an approved Business Profile cannot raise CPS themselves.</li>\n<li><strong>Trunk rates.</strong> A dialer that runs on a SIP platform can send calls out through Elastic SIP Trunking at $0.0100 a minute to Twilio's 48-state zone, against $0.0140 on Programmable Voice. Alaska is $0.0862 a minute and high-cost US routes $0.0620.</li>\n</ol>\n<p>One CPS starts up to 60 calls a minute, or 3,600 an hour, which covers most small-business campaigns. Twilio says calls run at the CPS rate in aggregate, with individual seconds above or below it, so buy more throughput only when a measured campaign actually queues.</p>\n<p><strong>Recording and storage keep billing</strong></p>\n<p>Recording the 3,000 inbound minutes costs $7.50 once. Storing them costs $1.50 every month, so a year of retention adds $18, and recording plus a year of storage, $25.50, equals the inbound minutes themselves. Export what you need to keep and delete the rest. Transcribing every call in batch through Conversation Intelligence, at $0.024 a minute, adds $72 for the same 3,000 minutes.</p>\n<p><strong>What it means for operators</strong></p>\n<p>Pick the wiring before you compare vendors. If you already pay a voice AI platform, a SIP trunk keeps Twilio's share at $0.0034 a minute; ConversationRelay makes sense when you want Twilio to run the speech layer while you keep control of the model, at $0.07 a minute. Then budget for the rounding: an agent whose calls each run 3 minutes 10 seconds bills 4 minutes for each, about a quarter more than the talk time.</p>\n<p>For inbound work, such as after-hours answering for plumbers or HVAC firms, see our <a href=\"/ai-calling-home-services\">AI receptionist for home services</a>, and compare packaged options in our <a href=\"/blog/ai-answering-service-for-hvac/\">HVAC answering service</a> review and <a href=\"/blog/best-ai-voice-agents-2026/\">best AI voice agents</a> list. For outbound, cost is the small part. Who you may call is set by the TCPA, which our <a href=\"/tcpa-compliant-ai-calling\">TCPA-compliant AI calling</a> service builds in, and our <a href=\"/blog/twilio-voice-integrity/\">Twilio Voice Integrity</a> brief covers registering numbers before a campaign so calls are not labelled spam. If the speech layer is the line you want to shave, our <a href=\"/blog/deepgram-pricing/\">Deepgram pricing</a> brief prices speech recognition and voices one level down, and our <a href=\"/hire-ai-engineer\">AI engineers</a> can wire any of the three setups.</p>",
+  "faqs": [
+    [
+      "How much does Twilio charge per minute for voice calls?",
+      "In the US, Twilio's pay-as-you-go list price, read on October 20, 2026, is $0.0085 a minute to receive a call on a local number, $0.0220 on a toll-free number and $0.0140 a minute to place a call. Browser, app and SIP interface calls are $0.0040 a minute. Partial minutes round up to the next full minute."
+    ],
+    [
+      "How much is a Twilio phone number per month?",
+      "$1.15 a month for a US local number and $2.15 for a toll-free number. Twilio's free trial includes $15 to buy a number and test voice features."
+    ],
+    [
+      "How much does Twilio ConversationRelay cost?",
+      "$0.07 a minute on pay-as-you-go, with the voice minutes billed separately. Twilio handles speech recognition and text to speech, and your app supplies the language model, whose tokens its own vendor bills. 1,000 three-minute inbound calls on one local number cost $236.65 in Twilio charges."
+    ],
+    [
+      "Does Twilio round call minutes up?",
+      "Yes. Twilio rounds each call leg up to the next full minute, so a call of 1 minute 20 seconds bills as 2 minutes, and a call that connects two Call SIDs bills as two calls. Calls that end Failed or Busy are not billed."
+    ],
+    [
+      "What does Twilio charge for more calls per second?",
+      "Every account gets 1 outbound call per second free. On October 20, 2026 Twilio's pricing slider showed $35 a month for 2 CPS, $140 for 5, $540 for 10 and $2,540 for 30, with sales quotes above 50. Inbound calls are not limited by CPS, and accounts without an approved Business Profile cannot raise it themselves."
+    ],
+    [
+      "How much does Twilio answering machine detection cost?",
+      "$0.0075 a call in the US. For 1,000 one-minute outbound calls that is $7.50 on top of $14 in minutes. Branded Calling, which shows your business name on the handset, adds $0.12 a call."
+    ]
+  ],
+  "image": {
+    "cluster": "AI calling",
+    "takeaway": "Twilio bills $0.0085 a minute to receive a US local call, and ConversationRelay adds $0.07 a minute.",
+    "alt": "Twilio Voice pricing for AI phone agents: per-minute rates, numbers, ConversationRelay, calls per second and recording fees",
+    "chart": {
+      "title": "Twilio cost of 1,000 three-minute inbound AI calls",
+      "subtitle": "One US local number, 3,000 billed minutes, Twilio charges only.",
+      "type": "hbar",
+      "rows": [
+        [
+          "ConversationRelay",
+          236.65
+        ],
+        [
+          "Media Streams",
+          39.85
+        ],
+        [
+          "Elastic SIP Trunking",
+          11.35
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 0,
+      "note": [
+        "Includes speech recognition",
+        "and voice; model tokens extra"
+      ],
+      "source": "US pay-as-you-go list prices. Source: twilio.com, October 2026",
+      "alt": "Bar chart of Twilio's charges for 1,000 three-minute inbound AI calls on one local number: ConversationRelay 236.65 dollars, Media Streams 39.85, Elastic SIP Trunking 11.35.",
+      "after_heading": "Three ways to wire a voice agent, priced"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Receive a call, US local number",
+        "value": "$0.0085 per minute"
+      },
+      {
+        "label": "Place a call, US local or toll-free number",
+        "value": "$0.0140 per minute"
+      },
+      {
+        "label": "Receive a call, US toll-free number",
+        "value": "$0.0220 per minute"
+      },
+      {
+        "label": "US local phone number",
+        "value": "$1.15 a month",
+        "note": "toll-free $2.15"
+      },
+      {
+        "label": "ConversationRelay",
+        "value": "$0.07 per minute",
+        "note": "voice minutes billed separately"
+      },
+      {
+        "label": "Media Streams",
+        "value": "$0.0044 per minute"
+      },
+      {
+        "label": "Elastic SIP Trunking, inbound to a local number",
+        "value": "$0.0034 per minute",
+        "note": "outbound $0.0100 to the 48-state zone"
+      },
+      {
+        "label": "Answering machine detection",
+        "value": "$0.0075 per call"
+      },
+      {
+        "label": "Branded Calling",
+        "value": "$0.12 per call"
+      },
+      {
+        "label": "Call recording",
+        "value": "$0.0025 per minute",
+        "note": "storage $0.0005 per minute a month"
+      },
+      {
+        "label": "Calls per second above the free 1",
+        "value": "$35 a month for 2 CPS",
+        "note": "$540 for 10, $2,540 for 30"
+      },
+      {
+        "label": "1,000 three-minute inbound calls on ConversationRelay",
+        "value": "$236.65",
+        "note": "Twilio charges only; the model is extra"
+      }
+    ],
+    "source": "Prices read on 20 October 2026 from Twilio's US Programmable Voice, Elastic SIP Trunking and Conversations pricing pages (marked current as of August 2026) and its Help Center billing article."
+  }
+}
