@@ -7,14 +7,14 @@
   
   <!-- Visitor Tracking -->
   <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="Sfy91D1xWAFhfQuk" data-version="062024"></script>
-  <meta name="description" content="How the free imisofts browser extensions handle data. The SPF, DKIM &amp; DMARC Checker sends DNS lookups only, needs no permissions, and imisofts receives nothing.">
+  <meta name="description" content="How the free imisofts browser extensions handle data. The SPF, DKIM &amp; DMARC Checker sends DNS lookups only, Send to Webhook sends pages only to webhooks you add, and imisofts receives nothing.">
   <link rel="canonical" href="https://imisofts.com/browser-extensions-privacy">
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
   <!-- Open Graph Tags -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Browser Extension Privacy Policy - imisofts">
-  <meta property="og:description" content="How the free imisofts browser extensions handle data. The SPF, DKIM &amp; DMARC Checker sends DNS lookups only, needs no permissions, and imisofts receives nothing.">
+  <meta property="og:description" content="How the free imisofts browser extensions handle data. The SPF, DKIM &amp; DMARC Checker sends DNS lookups only, Send to Webhook sends pages only to webhooks you add, and imisofts receives nothing.">
   <meta property="og:url" content="https://imisofts.com/browser-extensions-privacy">
   <meta property="og:site_name" content="imisofts">
   <meta property="og:locale" content="en_US">
@@ -22,7 +22,7 @@
   <!-- Twitter Card Tags -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Browser Extension Privacy Policy - imisofts">
-  <meta name="twitter:description" content="How the free imisofts browser extensions handle data. The SPF, DKIM &amp; DMARC Checker sends DNS lookups only, needs no permissions, and imisofts receives nothing.">
+  <meta name="twitter:description" content="How the free imisofts browser extensions handle data. The SPF, DKIM &amp; DMARC Checker sends DNS lookups only, Send to Webhook sends pages only to webhooks you add, and imisofts receives nothing.">
 
   <!-- Favicon using inline SVG data URL -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
@@ -38,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Browser Extension Privacy Policy",
-  "description": "How the free imisofts browser extensions handle data. The SPF, DKIM & DMARC Checker sends DNS lookups only, needs no permissions, and imisofts receives nothing.",
+  "description": "How the free imisofts browser extensions handle data. The SPF, DKIM & DMARC Checker sends DNS lookups only, Send to Webhook sends pages only to webhooks you add, and imisofts receives nothing.",
   "url": "https://imisofts.com/browser-extensions-privacy",
   "inLanguage": "en-US",
   "isPartOf": {
@@ -1421,7 +1421,7 @@
 
     <section class="policy-content">
       <div class="container">
-        <p><strong>Last Updated:</strong> October 16, 2026</p>
+        <p><strong>Last Updated:</strong> October 20, 2026</p>
 
         <h2>1. Scope</h2>
         <p>This policy covers the free browser extensions that imisofts publishes in the Chrome Web Store. Our website is covered by our main <a href="/privacy-policy">Privacy Policy</a>.</p>
@@ -1447,13 +1447,35 @@
         <h3>Links to imisofts.com</h3>
         <p>The guide links and the "Get it set up by imisofts" button open pages on imisofts.com in a new tab, only when you click them. These links carry UTM tags that tell us a visit came from the extension. They do not identify you. Once you are on imisofts.com, our main <a href="/privacy-policy">Privacy Policy</a> applies.</p>
 
-        <h2>3. Chrome Web Store User Data Policy</h2>
+        <h2>3. Send to Webhook for n8n, Make &amp; Zapier by imisofts</h2>
+        <p>The extension sends the page you are viewing, or text you select on it, to a webhook URL that you add yourself, such as an n8n, Make, Zapier or Clay webhook, and shows that webhook's reply.</p>
+
+        <h3>What it handles</h3>
+        <ul>
+          <li><strong>The webhooks you add.</strong> Each webhook's name, URL and optional secret header are saved in the extension's local storage on your device. They are never sent to us, and removing the extension deletes them.</li>
+          <li><strong>The page you send.</strong> The extension reads the current page only when you click its toolbar icon, choose one of its right-click menu items or press its keyboard shortcut. Clicking the icon opens a small window that shows what will be sent, and nothing is sent until you click Send. It reads the page's address, title, description and social sharing tags, author and date tags, language, main heading, and any text you selected. If you right-clicked a link or an image, it also reads that link's address and text, or the image's address. If you turn on "Include the page text", it also reads the page's visible text, up to 20,000 characters. It never reads password boxes or boxes for passwords, one-time codes or card numbers, and it does not read what you typed into form fields unless you selected that text in a text box.</li>
+          <li><strong>Where it goes.</strong> That data, with any note you type, is sent once, as JSON, to the webhook you chose and to no one else. The extension does not follow redirects, so it never sends the data to any address other than the one you saved. Webhooks on the internet must use HTTPS; plain HTTP is allowed only for local and private network addresses, such as a self-hosted n8n on your own computer. No cookies or referrer are sent. What happens to the data next is decided by you and the service behind your webhook, under that service's own privacy policy.</li>
+          <li><strong>The webhook's reply.</strong> The reply is shown in the extension so you can see the result. It is not stored. For a send from the right-click menu or the keyboard shortcut, and for a send that failed after you closed the extension's window, a one-line result (for example "Sent to Research queue" or the reason it failed) is kept in the browser's memory, never on disk, so the extension can explain a failed send the next time you open it. It is deleted once it has been shown, and in any case when you close the browser.</li>
+          <li><strong>Browser permissions.</strong> The extension can read a page only when you act on it (Chrome's activeTab permission). When you save a webhook, Chrome asks whether the extension may send data to that webhook's website, and only that website. When you delete a webhook, that permission is removed if no other webhook needs it.</li>
+        </ul>
+
+        <h3>What it does not do</h3>
+        <ul>
+          <li>imisofts does not receive, collect, store, sell or share any data from the extension. There is no imisofts server involved.</li>
+          <li>The extension has no analytics, no cookies, no accounts and no remotely hosted code.</li>
+          <li>It does not read pages in the background or read your browsing history, and it sends nothing unless you ask it to.</li>
+        </ul>
+
+        <h3>Links to imisofts.com</h3>
+        <p>The "Get it built by imisofts" button and the other imisofts.com links open in a new tab, only when you click them. These links carry UTM tags that tell us a visit came from the extension. They do not identify you. Once you are on imisofts.com, our main <a href="/privacy-policy">Privacy Policy</a> applies.</p>
+
+        <h2>4. Chrome Web Store User Data Policy</h2>
         <p>The use of information received by imisofts browser extensions adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
 
-        <h2>4. Changes to This Policy</h2>
+        <h2>5. Changes to This Policy</h2>
         <p>If an extension starts handling data in a different way, we will update this page before that version is released and change the date at the top.</p>
 
-        <h2>5. Contact Us</h2>
+        <h2>6. Contact Us</h2>
         <p>Questions about this policy or our extensions:</p>
         <ul>
           <li>Email: growth@imisofts.com</li>
