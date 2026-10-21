@@ -1,0 +1,137 @@
+{
+ "slug": "gemini-api-free-tier-limits",
+ "title": "Gemini API Free Tier Limits: 20 Requests a Day on Gemini 3.8 Flash",
+ "desc": "Gemini API free tier limits read in AI Studio on October 21: Gemini 3.8 Flash 5 RPM and 20 requests a day, Flash-Lite 500, Pro models 0. What paying unlocks.",
+ "keywords": "gemini api free tier limits, gemini api free tier rate limit, gemini api free tier, gemini api rate limits, gemini api rate limits free tier, gemini api free tier models, gemini api free tier quota, gemini api rate limits tier 1, gemini api rate limits reset, gemini api free tier usage limits",
+ "date": "2026-10-21",
+ "time": "11:32",
+ "read_time": 3,
+ "word_count": 694,
+ "cta": "Want an AI workflow sized to the right Gemini tier?",
+ "body": "<p><strong>October 21, 2026.</strong> A Gemini API project on the free tier can send Gemini 3.8 Flash 5 requests a minute and 20 a day, according to the rate limit page Google AI Studio showed for our own free project today. The newer Flash-Lite models get 15 a minute and 500 a day, while Gemini 4 Argon, Gemini 3.1 Pro and Gemini 2.5 Pro get none. Google no longer prints these figures: its <a href=\"https://ai.google.dev/gemini-api/docs/rate-limits\" target=\"_blank\" rel=\"noopener noreferrer\">rate limits page</a>, updated October 15, points to AI Studio and says specified limits are not guaranteed.</p>\n<p><strong>Free tier limits by model, read in AI Studio</strong></p>\n<p>Requests per minute (RPM), input tokens per minute (TPM) and requests per day (RPD), read October 21:</p>\n<ol>\n<li><strong>Gemini 3.8 Flash, 3.6 Flash, 3 Flash and 2.5 Flash:</strong> 5 RPM, 250,000 TPM, 20 RPD.</li>\n<li><strong>Gemini 3.5 Flash-Lite and 3.1 Flash-Lite:</strong> 15 RPM, 250,000 TPM, 500 RPD. Gemini 2.5 Flash-Lite gets 10 RPM and 20 RPD.</li>\n<li><strong>Gemini 4 Argon, Gemini 3.1 Pro and Gemini 2.5 Pro:</strong> 0 on every counter. Google's <a href=\"https://ai.google.dev/gemini-api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>, updated October 19, labels Argon not available on the free tier but still marks Gemini 2.5 Pro free of charge, so check your own project.</li>\n<li><strong>Gemma 4 and embeddings:</strong> Gemma 4 gets 14,400 RPD at 30 RPM; Gemini Embedding 2 gets 1,000 RPD. Image, video and music models get 0.</li>\n</ol>\n<p>Limits apply per project, not per API key, so a second key shares the same 20 requests, and daily counters reset at midnight Pacific time. Some third-party guides still quote about 10 requests a minute and 1,500 a day for free Flash; our project shows 5 and 20.</p>\n<p><strong>What free costs besides requests</strong></p>\n<p>The pricing page marks free tier content as used to improve Google's products; paid tier content is not. Grounding with Google Search is not available on the free tier for Gemini 3 models; paid projects get 5,000 grounded requests a month, shared across Gemini 3 and newer models, then $14 per 1,000. An invite-only Contributor tier sells the same data trade at half the Standard price.</p>\n<p><strong>Leaving the free tier: $5 and a billing account</strong></p>\n<p>Tier 1 needs a linked billing account and a prepaid top-up of at least $5, per Google's <a href=\"https://ai.google.dev/gemini-api/docs/billing\" target=\"_blank\" rel=\"noopener noreferrer\">billing page</a>. AI Studio's tier comparison puts Gemini 3.8 Flash on Tier 1 at 1,000 RPM, 2 million TPM and 10,000 RPD, and the newer Flash-Lite models at 4,000 RPM and 150,000 RPD. Tier 1 carries a $250 billing cap; Tier 2 follows after $100 paid and 3 days. Prepaid credits expire after 12 months and are non-refundable, every key on the billing account stops with an HTTP 402 error when the balance reaches $0, and Google Cloud's $300 welcome credit cannot be spent on the Gemini API.</p>\n<p>Gemini 3.8 Flash is $0.75 per million input tokens and $3.75 per million output through December 31, rising to $1.50 and $7.50 on January 1, 2027, the change in our <a href=\"/blog/gemini-flash-price-increase/\">Gemini Flash price increase</a> brief. Gemini 3.1 Flash-Lite is $0.25 and $1.50.</p>\n<p><strong>What it means for operators</strong></p>\n<p>Take a Shopify store rewriting 2,000 product descriptions. On the free tier, Gemini 3.8 Flash at 20 requests a day needs 100 days; Flash-Lite at 500 a day needs four. On the paid tier, at about 800 input and 400 output tokens a product, Gemini 3.8 Flash does the job for about $4.20, $1.20 of input and $3.00 of output, which is less than the $5 minimum top-up, or $8.40 after January 1.</p>\n<ol>\n<li><strong>Use the free tier for tests and public text</strong> such as product copy, on Flash-Lite, with 25 times the daily allowance.</li>\n<li><strong>Keep customer data off free keys.</strong> Emails, call transcripts and CRM records belong in a paid project.</li>\n<li><strong>Read your own limits</strong> on AI Studio's rate limit page before scheduling around them.</li>\n<li><strong>Watch the prepaid balance.</strong> At $0, every key on the account stops.</li>\n</ol>\n<p>Tracking how Gemini describes your brand takes more than 20 requests a day and, on Gemini 3 models, grounded answers, which means a paid project. That measurement is part of our <a href=\"/ai-search-optimization\">AI search optimization</a> work, and catalog jobs sit in our <a href=\"/ecommerce\">e-commerce</a> services. For other platforms, see our <a href=\"/blog/claude-api-rate-limits/\">Claude API rate limits</a> and <a href=\"/blog/openai-api-usage-tiers/\">OpenAI API usage tiers</a> briefs.</p>",
+ "faqs": [
+  [
+   "What are the Gemini API free tier limits?",
+   "On a free project in Google AI Studio on October 21, 2026: Gemini 3.8 Flash, 3.6 Flash, 3 Flash and 2.5 Flash at 5 requests a minute, 250,000 input tokens a minute and 20 requests a day; Gemini 3.5 and 3.1 Flash-Lite at 15 a minute and 500 a day; Gemini 4 Argon, 3.1 Pro and 2.5 Pro at 0. Google says limits vary by project and are not guaranteed."
+  ],
+  [
+   "When do Gemini API free tier limits reset?",
+   "Requests per day reset at midnight Pacific time. Limits are counted per project, not per API key, so creating a second key on the same project does not add requests."
+  ],
+  [
+   "Does Google use Gemini API free tier data?",
+   "Yes. Google's Gemini API pricing page marks free tier content as used to improve Google's products, and paid tier content as not used. Keep customer data such as emails, call transcripts and CRM records on a paid project."
+  ],
+  [
+   "How do I get higher Gemini API rate limits?",
+   "Link a billing account in Google AI Studio and prepay at least $5 to reach Tier 1, where AI Studio lists Gemini 3.8 Flash at 1,000 requests a minute and 10,000 a day. Tier 2 follows after $100 of payments and 3 days."
+  ]
+ ],
+ "image": {
+  "cluster": "AI API limits",
+  "takeaway": "A free Gemini API project gets 20 Gemini 3.8 Flash requests a day, and 500 on Flash-Lite.",
+  "alt": "Gemini API free tier limits by model: Gemini 3.8 Flash 20 requests a day, Flash-Lite 500, Gemini 4 Argon and 2.5 Pro 0",
+  "chart": {
+   "title": "Gemini API free tier, requests per day",
+   "subtitle": "Daily limits Google AI Studio showed for one free project on October 21, 2026.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Gemini 4 Argon",
+     0
+    ],
+    [
+     "Gemini 2.5 Pro",
+     0
+    ],
+    [
+     "Gemini 3.8 Flash",
+     20
+    ],
+    [
+     "Gemini 2.5 Flash",
+     20
+    ],
+    [
+     "Gemini 2.5 Flash-Lite",
+     20
+    ],
+    [
+     "Gemini 3.1 Flash-Lite",
+     500
+    ],
+    [
+     "Gemini 3.5 Flash-Lite",
+     500
+    ],
+    [
+     "Gemini Embedding 2",
+     1000
+    ]
+   ],
+   "prefix": "",
+   "suffix": "",
+   "highlight": 2,
+   "note": [
+    "Google's newest Flash:",
+    "5 a minute, 20 a day"
+   ],
+   "source": "Free tier, one project; Google says limits vary. Source: aistudio.google.com, October 2026",
+   "alt": "Bar chart of Gemini API free tier requests per day: Gemini 4 Argon 0, Gemini 2.5 Pro 0, Gemini 3.8 Flash 20, Gemini 2.5 Flash 20, Gemini 2.5 Flash-Lite 20, Gemini 3.1 Flash-Lite 500, Gemini 3.5 Flash-Lite 500, Gemini Embedding 2 1,000.",
+   "after_heading": "What free costs besides requests"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Gemini 3.8 Flash, free tier",
+    "value": "5 RPM, 20 a day",
+    "note": "250,000 input tokens a minute"
+   },
+   {
+    "label": "Gemini 3.5 and 3.1 Flash-Lite, free tier",
+    "value": "15 RPM, 500 a day"
+   },
+   {
+    "label": "Gemini 4 Argon, 3.1 Pro and 2.5 Pro, free tier",
+    "value": "0 requests"
+   },
+   {
+    "label": "Gemma 4, free tier",
+    "value": "14,400 a day",
+    "note": "30 RPM"
+   },
+   {
+    "label": "Daily limit reset",
+    "value": "midnight Pacific",
+    "note": "per project, not per key"
+   },
+   {
+    "label": "Paid Tier 1 entry",
+    "value": "$5 minimum prepay",
+    "note": "linked billing account"
+   },
+   {
+    "label": "Gemini 3.8 Flash, Tier 1",
+    "value": "1,000 RPM, 10,000 a day",
+    "note": "2 million TPM"
+   },
+   {
+    "label": "Gemini 3.8 Flash, paid price per 1M tokens",
+    "value": "$0.75 in, $3.75 out",
+    "note": "doubles January 1, 2027"
+   },
+   {
+    "label": "Grounding with Google Search, paid",
+    "value": "5,000 free a month",
+    "note": "then $14 per 1,000; not on free"
+   },
+   {
+    "label": "Prepaid credits",
+    "value": "expire after 12 months",
+    "note": "non-refundable"
+   }
+  ],
+  "source": "Free tier and Tier 1 limits read on 21 October 2026 in Google AI Studio for one free project; prices and billing rules from Google's Gemini API pricing, rate limits and billing pages, read the same day."
+ }
+}

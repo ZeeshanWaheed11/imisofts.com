@@ -1,0 +1,117 @@
+{
+ "slug": "openai-prompt-caching-pricing",
+ "title": "OpenAI Prompt Caching Pricing: 12-Hour Cache Writes Cost 2.5x",
+ "desc": "OpenAI added a 12-hour prompt cache on October 20: writes cost 2.5x input, reads 0.1x. On GPT-6.1 Sol that is $5 per million to write and $0.10 to read.",
+ "keywords": "openai prompt caching pricing, openai prompt caching, openai prompt caching ttl, openai 12 hour prompt caching, openai cache write cost, prompt_cache_options ttl, openai cached input pricing, gpt-6.1 sol cached input price, openai prompt caching time, openai prompt caching api",
+ "date": "2026-10-21",
+ "time": "11:34",
+ "read_time": 3,
+ "word_count": 694,
+ "cta": "Want your AI agents tuned so they cost less to run?",
+ "body": "<p><strong>October 21, 2026.</strong> OpenAI now lets developers keep a cached prompt for 12 hours instead of the default 30 minutes, it said in its <a href=\"https://developers.openai.com/api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">API changelog</a> on October 20. The longer cache costs more to write, 2.5 times the model's input price against 1.25 times for the 30-minute default, and the same to read: 0.1 times input on most models and 0.05 times on GPT-6.1 Sol. On GPT-6.1 Sol that is $5.00 per million tokens for a 12-hour write, $2.50 for a 30-minute write and $0.10 to read, per OpenAI's <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>. For an AI receptionist or agent whose conversations arrive hours apart, it decides whether the same instructions are paid for once a day or once a call.</p>\n<p><strong>What changed on October 20</strong></p>\n<ol>\n<li><strong>A new setting.</strong> In the Responses API, prompt_cache_options.ttl now accepts \"12h\" as well as the default \"30m\" on GPT-5.6 and later, per OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/prompt-caching\" target=\"_blank\" rel=\"noopener noreferrer\">prompt caching guide</a>.</li>\n<li><strong>Write and read rates.</strong> Writes cost 1.25 times uncached input for 30 minutes and 2.5 times for 12 hours, and OpenAI calls these total rates, not surcharges. Reads cost 0.1 times input for both lifetimes, 0.05 times on GPT-6.1 Sol.</li>\n<li><strong>Per million tokens.</strong> GPT-6.1 Sol: $2.00 input, $0.10 cached, $2.50 for a 30-minute write and $5.00 for 12 hours. GPT-6 Luna: $0.10, $0.01, $0.125 and $0.25. GPT-6 Astra: $10.00, $1.00, $12.50 and $25.00.</li>\n<li><strong>The fine print.</strong> Twelve hours is a minimum lifetime, not a deletion deadline. A prefix must reach 1,024 tokens to cache, and upgrading an existing 30-minute entry to 12 hours charges a fresh write with no credit for the first.</li>\n</ol>\n<p><strong>Why the default cache can cost more than none</strong></p>\n<p>On GPT-5.6 and later, caching is on by default and a write bills at 1.25 times input. If requests that share a prompt arrive more than 30 minutes apart, each arrives after the entry's 30-minute read window has lapsed and pays the write again, so the shared prompt costs 25 percent more than with no caching at all. The guide's explicit mode is the way out: when no breakpoints are placed, a request does not use prompt caching or create cache writes.</p>\n<p>Take a 10,000-token shared prompt (instructions, price list, service area) on GPT-6.1 Sol, used by 12 conversations a day that each start more than 30 minutes after the last. Counted in passes over the prompt at the uncached input price, a day costs 12 with caching off, 15 on the default cache, 3.6 on a 12-hour cache at the usual 0.1 read rate and 3.05 at GPT-6.1 Sol's 0.05. Over 30 days that is $7.20 with caching off, $9.00 on the default and $1.83 on the 12-hour cache: one $0.05 write a day plus 11 reads at $0.001.</p>\n<p><strong>When the 12-hour write pays</strong></p>\n<p>A 12-hour write costs 1.25 times input more than a 30-minute write, and each later cold start it avoids saves about 1.15 times. So it pays once it saves two: if your prompt would sit unused for more than 30 minutes at least twice in a 12-hour day, choose 12 hours. An agent called every few minutes stays warm on the default, because each read extends the entry by 30 minutes.</p>\n<p><strong>What it means for operators</strong></p>\n<p>The workloads that gain are small business ones: an AI receptionist taking a call every hour or two, an after-hours line, a lead-enrichment job that wakes hourly. Each reuses a long, stable prompt with long gaps.</p>\n<ol>\n<li><strong>Set ttl to \"12h\" on the stable part</strong> of the prompt and keep anything that changes, like the caller's details, after the last breakpoint.</li>\n<li><strong>Check which API your automation calls.</strong> The 12-hour option exists only in the Responses API.</li>\n<li><strong>Measure hit rates</strong> in OpenAI's Prompt Caching Dashboard before and after.</li>\n<li><strong>Mind the routing.</strong> OpenAI says traffic above 15 requests a minute can overflow to machines without your cache.</li>\n</ol>\n<p>Our <a href=\"/blog/cached-input-token-pricing/\">cached input token pricing</a> explainer compares cache rates across OpenAI and Anthropic, and our <a href=\"/blog/openai-api-usage-tiers/\">OpenAI API usage tiers</a> brief covers the rate limits around them. If you would rather have an AI receptionist built and tuned for you, see our <a href=\"/ai-calling-home-services\">AI call answering for home services</a>, or our <a href=\"/ai-automation-agency\">AI automation agency</a> for other agents.</p>",
+ "faqs": [
+  [
+   "How much does OpenAI prompt caching cost?",
+   "On GPT-5.6 and later, cache writes cost 1.25 times the model's input price for the default 30-minute lifetime and 2.5 times for the 12-hour option, and cache reads cost 0.1 times input, or 0.05 times on GPT-6.1 Sol. For GPT-6.1 Sol that is $2.50 or $5.00 per million tokens to write and $0.10 to read."
+  ],
+  [
+   "How do I turn on 12-hour prompt caching in the OpenAI API?",
+   "In the Responses API, set prompt_cache_options.ttl to 12h on the request, or set a ttl on an individual explicit breakpoint. The default is 30m. The option is available on GPT-5.6 and later models from October 20, 2026."
+  ],
+  [
+   "Does OpenAI delete a 12-hour cache after 12 hours?",
+   "No. OpenAI describes 12 hours as a minimum lifetime, not a deletion deadline. It may keep entries longer, and the setting does not change its maximum data retention policy."
+  ],
+  [
+   "Can prompt caching cost more than not caching?",
+   "Yes, on GPT-5.6 and later, when requests that share a prompt are more than 30 minutes apart: each one pays a 1.25 times write on the default cache. A 12-hour cache or explicit mode with no breakpoints avoids that."
+  ]
+ ],
+ "image": {
+  "cluster": "AI API pricing",
+  "takeaway": "OpenAI's 12-hour cache write costs 2.5x input; reads cost 0.1x, or 0.05x on GPT-6.1 Sol.",
+  "alt": "OpenAI prompt caching pricing: 12-hour cache writes at 2.5x input, 30-minute writes at 1.25x, reads at 0.1x",
+  "chart": {
+   "title": "One shared prompt, 12 requests an hour apart",
+   "subtitle": "Daily cost in passes over the prompt at the uncached input price, by cache setting.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Caching off",
+     12
+    ],
+    [
+     "Default 30-minute",
+     15
+    ],
+    [
+     "12-hour, most models",
+     3.6
+    ],
+    [
+     "12-hour, GPT-6.1 Sol",
+     3.05
+    ]
+   ],
+   "prefix": "",
+   "suffix": "x",
+   "highlight": 1,
+   "note": [
+    "Every request finds it expired",
+    "and pays a 1.25x write"
+   ],
+   "source": "OpenAI write and read multipliers. Source: developers.openai.com, October 2026",
+   "alt": "Bar chart of the daily cost of one shared prompt used by 12 requests an hour apart, in multiples of one uncached pass: caching off 12, default 30-minute cache 15, 12-hour cache on most models 3.6, 12-hour cache on GPT-6.1 Sol 3.05.",
+   "after_heading": "When the 12-hour write pays"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "12-hour cache write",
+    "value": "2.5x input",
+    "note": "ttl 12h, Responses API"
+   },
+   {
+    "label": "Default 30-minute cache write",
+    "value": "1.25x input"
+   },
+   {
+    "label": "Cache read, both lifetimes",
+    "value": "0.1x input",
+    "note": "0.05x on GPT-6.1 Sol"
+   },
+   {
+    "label": "GPT-6.1 Sol, 12-hour write per 1M tokens",
+    "value": "$5.00",
+    "note": "$2.50 for 30 minutes"
+   },
+   {
+    "label": "GPT-6.1 Sol, cached read per 1M tokens",
+    "value": "$0.10",
+    "note": "input $2.00"
+   },
+   {
+    "label": "GPT-6 Luna, 12-hour write per 1M tokens",
+    "value": "$0.25",
+    "note": "read $0.01"
+   },
+   {
+    "label": "GPT-6 Astra, 12-hour write per 1M tokens",
+    "value": "$25.00",
+    "note": "read $1.00"
+   },
+   {
+    "label": "Minimum cacheable prefix",
+    "value": "1,024 tokens",
+    "note": "GPT-5.6 and later"
+   },
+   {
+    "label": "10,000-token prompt, 12 uses a day, 30 days, Sol",
+    "value": "$1.83",
+    "note": "$9.00 default, $7.20 uncached"
+   }
+  ],
+  "source": "Prices and cache rules read on 21 October 2026 from OpenAI's API pricing page, prompt caching guide and changelog."
+ }
+}
