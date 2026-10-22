@@ -1,0 +1,136 @@
+{
+  "slug": "deepseek-search-api-pricing",
+  "title": "DeepSeek Search API Pricing: $0.75 per 1,000 Successful Calls",
+  "desc": "DeepSeek Search and Fetch APIs cost $0.75 per 1,000 successful calls each; calls inside Claude Code and Codex are billed from November 1. How it compares.",
+  "keywords": "deepseek search api pricing, deepseek search api cost, deepseek web search api pricing, deepseek fetch api, deepseek search api, deepseek harness search api, can deepseek api search the web, cheapest web search api, web search api pricing, ai agent search api cost",
+  "date": "2026-10-22",
+  "time": "12:44",
+  "read_time": 4,
+  "word_count": 674,
+  "cta": "Want a research agent built on the right search API?",
+  "body": "<p><strong>October 22, 2026.</strong> DeepSeek charges $0.75 per 1,000 successful requests for its new Search API, and the same for its Fetch API, which returns a web page as Markdown, according to its <a href=\"https://api-docs.deepseek.com/guides/search\" target=\"_blank\" rel=\"noopener noreferrer\">Search and Fetch guide</a>. Anthropic and OpenAI charge $10 per 1,000 searches for the web search tools built into their APIs, before tokens. For developers who run DeepSeek models inside DeepSeek Harness, Claude Code or Codex, the date matters as much as the price: the search and fetch calls those tools already make are free until 00:00 Beijing time on November 1, 2026, which is 16:00 UTC on October 31, and billed at the same rate after that.</p><p><strong>What DeepSeek launched on October 17</strong></p><p>DeepSeek opened both APIs to everyone in its <a href=\"https://api-docs.deepseek.com/news/news261017\" target=\"_blank\" rel=\"noopener noreferrer\">October 17 release note</a> for DeepSeek-V4.1-Flash-1017, saying they run on its in-house search engine. The guide sets the terms:</p><ol><li><strong>Search.</strong> POST /v1/tools/search returns 1 to 50 results per call, 10 by default, for a query of up to 128 characters.</li><li><strong>Fetch.</strong> POST /v1/tools/fetch retrieves one page and returns its content as Markdown.</li><li><strong>Price.</strong> $0.75 per 1,000 successful requests for each. A request is billed only when it returns HTTP 200 with a result, so failed requests, empty searches and timeouts cost nothing, and asking for 50 results costs the same as asking for one.</li><li><strong>Rate limits.</strong> 100 requests a second for Search and 25 for Fetch per account, across all your API keys, with a per-domain limit on Fetch as well.</li><li><strong>Tool calls in coding agents.</strong> Free for now inside DeepSeek Harness, Claude Code and Codex, and billed from November 1, Beijing time.</li></ol><p><strong>How $0.75 compares with other search tools</strong></p><p>Per 1,000 web searches, read on October 22 from each vendor's pricing page:</p><ol><li><strong>DeepSeek Search API:</strong> $0.75.</li><li><strong>Perplexity Search API with Fast Search:</strong> $1.00, or $5.00 for standard search, per Perplexity's <a href=\"https://docs.perplexity.ai/getting-started/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>. One request can carry up to five queries, and a successful request is billed even when it returns nothing.</li><li><strong>Claude web search tool:</strong> $10, plus tokens for the results, per Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>.</li><li><strong>OpenAI web search tool:</strong> $10 per 1,000 calls, plus search content tokens at model rates, per OpenAI's <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>.</li><li><strong>Google Search grounding for Gemini 3 and newer:</strong> 5,000 free requests a month on the paid tier, then $14 per 1,000, per the <a href=\"https://ai.google.dev/gemini-api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini API pricing page</a>.</li></ol><p>Fetch is a different story. DeepSeek's $0.75 per 1,000 pages is more than Anthropic's web fetch tool, which has no fee beyond tokens, and more than the fetch_url tool in Perplexity's Agent API, at $0.0005 a call, or $0.50 per 1,000. Take a lead-research agent that runs 20,000 searches and opens 20,000 pages a month: DeepSeek's two APIs cost $30, against $200 for the searches alone on Claude or OpenAI. DeepSeek returns raw results, so the model that reads them is still a separate bill.</p><p><strong>What it means for operators</strong></p><p>For agencies running prospect research, competitor monitoring or AI-visibility tracking, search calls pile up quickly, and $0.75 is below the $1 fast modes that were the cheapest rates in our <a href=\"/blog/ai-agent-search-api-pricing/\">AI agent search API pricing</a> comparison of eleven tools. Three checks before you switch:</p><ol><li><strong>Data location.</strong> DeepSeek's <a href=\"https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html\" target=\"_blank\" rel=\"noopener noreferrer\">privacy policy</a>, last updated February 10, 2026, says it collects, processes and stores personal data in the People's Republic of China. Keep client personal data out of queries unless your contracts allow it.</li><li><strong>Coding-agent budgets.</strong> If your team runs DeepSeek models in Claude Code or Codex, the free search inside those sessions ends at 16:00 UTC on October 31.</li><li><strong>Split search and fetch.</strong> DeepSeek's search is the cheapest per call on this list while its fetch is not, so an agent can search on one API and read pages on another.</li></ol><p>For Perplexity's full price list, see our <a href=\"/blog/perplexity-api-pricing/\">Perplexity API pricing</a> breakdown. If you want an agent that tracks how AI assistants describe your brand, see our <a href=\"/ai-search-optimization\">AI search optimization</a> service; for prospect research that feeds outbound, see our <a href=\"/lead-generation\">lead generation</a> service, or <a href=\"/hire-ai-engineer\">hire an AI engineer</a> to build it on the APIs that fit your data rules.</p>",
+  "faqs": [
+    [
+      "How much does the DeepSeek Search API cost?",
+      "$0.75 per 1,000 successful requests, read on October 22, 2026 from DeepSeek's Search and Fetch guide. The Fetch API, which returns a page as Markdown, costs the same. The number of results you ask for, from 1 to 50, does not change the price."
+    ],
+    [
+      "Does DeepSeek bill failed or empty searches?",
+      "No. A request is billable only when it returns HTTP 200 and produces a result: a non-empty results array for Search, page content for Fetch. Failed requests, empty search results and timeouts are not billed. Perplexity's Search API, by contrast, bills a successful request even when it returns no results."
+    ],
+    [
+      "When does DeepSeek start charging for search in Claude Code and Codex?",
+      "At 00:00 Beijing time on November 1, 2026, which is 16:00 UTC on October 31. Until then, the server-side search and fetch calls made when you use the DeepSeek API through DeepSeek Harness, Claude Code or Codex are free; after that they bill at $0.75 per 1,000 successful requests."
+    ],
+    [
+      "Is DeepSeek search cheaper than Claude or OpenAI web search?",
+      "Per call, yes: $0.75 per 1,000 against $10 per 1,000 searches for both Anthropic's and OpenAI's web search tools, which also bill tokens for the results. For fetching pages it is not: Anthropic's web fetch tool has no fee beyond tokens, and Perplexity's fetch_url costs $0.50 per 1,000."
+    ]
+  ],
+  "image": {
+    "cluster": "AI search APIs",
+    "takeaway": "DeepSeek charges $0.75 per 1,000 successful searches; Claude and OpenAI charge $10 plus tokens.",
+    "alt": "DeepSeek Search API pricing: $0.75 per 1,000 successful calls against $1 to $14 on other agent search tools",
+    "chart": {
+      "title": "Price per 1,000 web searches",
+      "subtitle": "List price per 1,000 searches on six agent search tools, read October 22, 2026.",
+      "type": "hbar",
+      "rows": [
+        [
+          "DeepSeek Search",
+          0.75
+        ],
+        [
+          "Perplexity Fast Search",
+          1
+        ],
+        [
+          "Perplexity Search API",
+          5
+        ],
+        [
+          "Claude web search",
+          10
+        ],
+        [
+          "OpenAI web search",
+          10
+        ],
+        [
+          "Google grounding",
+          14
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 0,
+      "note": [
+        "Billed only when a",
+        "search returns results"
+      ],
+      "source": "Tool fees only; Claude, OpenAI and Google also bill tokens. Source: vendor pricing pages, October 2026",
+      "alt": "Bar chart of the price per 1,000 web searches: DeepSeek Search 0.75 dollars, Perplexity Fast Search 1, Perplexity Search API 5, Claude web search 10, OpenAI web search 10 and Google grounding 14 after 5,000 free requests a month.",
+      "after_heading": "How $0.75 compares with other search tools"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "DeepSeek Search API",
+        "value": "$0.75",
+        "note": "per 1,000 successful requests"
+      },
+      {
+        "label": "DeepSeek Fetch API",
+        "value": "$0.75",
+        "note": "per 1,000 successful requests"
+      },
+      {
+        "label": "Results per DeepSeek search",
+        "value": "1 to 50",
+        "note": "10 by default, same price"
+      },
+      {
+        "label": "Rate limit, DeepSeek Search",
+        "value": "100 a second",
+        "note": "per account"
+      },
+      {
+        "label": "Rate limit, DeepSeek Fetch",
+        "value": "25 a second",
+        "note": "plus a per-domain limit"
+      },
+      {
+        "label": "Tool calls in Claude Code and Codex billed from",
+        "value": "1 November 2026",
+        "note": "00:00 Beijing, 16:00 UTC on 31 October"
+      },
+      {
+        "label": "Perplexity Search API, Fast Search",
+        "value": "$1.00",
+        "note": "per 1,000 requests"
+      },
+      {
+        "label": "Claude web search tool",
+        "value": "$10",
+        "note": "per 1,000 searches, plus tokens"
+      },
+      {
+        "label": "OpenAI web search tool",
+        "value": "$10",
+        "note": "per 1,000 calls, plus tokens"
+      },
+      {
+        "label": "Google Search grounding, Gemini 3 and newer",
+        "value": "$14",
+        "note": "per 1,000 after 5,000 free a month"
+      },
+      {
+        "label": "20,000 searches and 20,000 fetches a month",
+        "value": "$30 on DeepSeek",
+        "note": "model tokens extra"
+      }
+    ],
+    "source": "Prices and limits read on 22 October 2026 from DeepSeek's Search and Fetch guide and the Anthropic, OpenAI, Perplexity and Google pricing pages."
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "slug": "claude-api-user-profiles",
+  "title": "Claude API User Profiles: Bans Can Hit One Customer, Not Your Org",
+  "desc": "Claude API user profiles, launched October 20, tag each request with an end customer, so a safety ban can hit that customer instead of your org. Free to use.",
+  "keywords": "claude api user profiles, anthropic user profiles, claude api ban, anthropic-user-profile-id, claude api enforcement status, claude api reseller, anthropic api ban organization, claude user_profile_id, anthropic organization webhooks, claude api end customer attribution",
+  "date": "2026-10-22",
+  "time": "12:42",
+  "read_time": 4,
+  "word_count": 699,
+  "cta": "Want client AI agents that one bad user cannot take down?",
+  "body": "<p><strong>October 22, 2026.</strong> Until this week, an agency or SaaS company running Claude for many clients under one Anthropic organization carried a quiet risk: Anthropic's automated safety classifiers could tie one client's misuse to the whole organization and restrict or ban it, stopping every client's agent at once. On October 20 Anthropic launched user profiles, which tell it which end customer each API request is for, so an enforcement action can land on that customer alone, per its <a href=\"https://platform.claude.com/docs/en/release-notes/overview\" target=\"_blank\" rel=\"noopener noreferrer\">release notes</a>. Profiles are free, there is no cap on how many you create, and on October 21 Anthropic added fields that show whether it has restricted or banned a given customer.</p><p><strong>What Anthropic shipped on October 20 and 21</strong></p><ol><li><strong>User profiles.</strong> You register each end customer once with POST /v1/user_profiles, store the uprof_ ID it returns and send it in the anthropic-user-profile-id header on every request for that customer, or pass user_profile_id in the SDK. It also covers token counting, Message Batches and OpenAI SDK compatibility requests.</li><li><strong>Free, with no cap.</strong> Anthropic's <a href=\"https://platform.claude.com/docs/en/manage-claude/user-profiles\" target=\"_blank\" rel=\"noopener noreferrer\">user profiles guide</a> says profiles are not billable and do not affect pricing. There is no cap per organization, but creation is rate limited, so Anthropic asks you to contact your account team before registering an existing customer base in bulk.</li><li><strong>Enforcement status.</strong> Since October 21 a profile returns enforcement_status, one of three values: unrestricted, restricted or banned. Any open action carries one of six reasons: unsupported_region, fraud_or_abuse, high_harm, usage_policy_violation, account_compromise or unspecified. While an action is open, Anthropic refuses some or all requests that carry the profile's ID.</li><li><strong>Organization webhooks, in beta.</strong> Admin API endpoints behind the webhooks-2026-10-07 beta header send an event when a profile is restricted or banned and another when that ends. Access goes through your Anthropic account team.</li></ol><p><strong>How to set profiles up</strong></p><p>A profile stands for one of two things. For a signed-up user of your product, create one per user (access_type application, the default). For a company you resell API access to, create one per company, not per person (passthrough). A request without a profile ID counts as your own usage, and Anthropic says to keep that in a separate organization, because profiles belong to an organization and separate workspaces inside one are not enough. Every field is optional: a country, your own reference ID, an account status, and hashes of a name or email address if you cannot share them. A profile holds no conversation content, and Anthropic does not verify what you send. Profiles work on the Claude API, Claude Platform on AWS and Microsoft Foundry deployments hosted on Anthropic; Amazon Bedrock and Google Cloud have no profile endpoints of their own.</p><p><strong>What it means for operators</strong></p><p>The common agency setup is the one this fixes: one organization and one key behind chatbots, intake agents and AI receptionists for twenty clients, with a public chat widget on each client's site that anyone can type into. <a href=\"https://mixed-news.com/en/claude-api-user-profiles-ban-one-customer-not-whole-account/\" target=\"_blank\" rel=\"noopener noreferrer\">Mixed News</a> put it the same way on October 21: a ban can now hit one customer instead of the whole account. What to do:</p><ol><li><strong>Split your own use out.</strong> Move internal work, such as Claude Code and back-office tools, into a second organization.</li><li><strong>Create a profile in client onboarding</strong> and store the ID on the client record. The create call is not idempotent, so a retry makes a duplicate.</li><li><strong>Send the header on every request.</strong> An ID that is malformed or belongs to another organization gets a 400 error.</li><li><strong>Check enforcement status on a schedule</strong> by listing restricted and banned profiles, or ask your account team for the webhooks.</li><li><strong>Test before you upgrade the SDK.</strong> The new major versions released October 21, such as Python 2.0.0 and TypeScript 1.0.0, send API version 2026-10-21, which rejects three sampling parameters, temperature, top_p and top_k, with a 400 error even at their default values.</li></ol><p>For limits and spend caps by tier, see our <a href=\"/blog/claude-api-rate-limits/\">Claude API rate limits</a> brief, and for hosted agents, <a href=\"/blog/claude-managed-agents-pricing/\">Claude Managed Agents pricing</a>. If you want client-facing agents built with one profile per client from day one, see our <a href=\"/ai-calling-home-services\">AI call answering for home services</a> or our <a href=\"/ai-automation-agency\">AI automation agency</a> work, or <a href=\"/hire-ai-engineer\">hire an AI engineer</a> to add profiles to your current stack.</p>",
+  "faqs": [
+    [
+      "What are Claude API user profiles?",
+      "User profiles, launched by Anthropic on October 20, 2026, attach each Claude API request to one of your end customers through the anthropic-user-profile-id header. If that customer triggers a safety restriction or ban, Anthropic can apply it to the profile instead of your whole organization, and the rest of your traffic keeps running."
+    ],
+    [
+      "Do Claude user profiles cost anything?",
+      "No. Anthropic's documentation says profiles are not billable and do not affect pricing. There is no cap on how many an organization creates, but creation is rate limited, so Anthropic asks platforms to contact their account team before registering an existing customer base in bulk."
+    ],
+    [
+      "How can I tell if Anthropic restricted or banned one of my customers?",
+      "Retrieve the profile, or list your profiles filtered by enforcement_status restricted or banned. Since October 21, 2026 each profile shows unrestricted, restricted or banned, with every open action, its reason and its expiry. Organization webhooks that send an event when an action opens or ends are in beta through your Anthropic account team."
+    ],
+    [
+      "Do user profiles work on Amazon Bedrock and Google Cloud?",
+      "Bedrock and Google Cloud have no profile endpoints of their own. Anthropic's guide says to create the profiles in an organization on the Claude API or Claude Platform on AWS, and covers attributing Bedrock and Google Cloud requests separately. On Claude Platform on AWS the enforcement fields always read unrestricted, and Anthropic does not refuse requests there because of an open action."
+    ]
+  ],
+  "image": {
+    "cluster": "Agency stack",
+    "takeaway": "Tag each Claude API request with a free user profile and a safety ban can hit that customer, not your org.",
+    "alt": "Claude API user profiles: a safety ban can now hit one end customer instead of the whole Anthropic organization"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Price of a user profile",
+        "value": "$0",
+        "note": "not billable, no effect on pricing"
+      },
+      {
+        "label": "Profiles per organization",
+        "value": "no cap",
+        "note": "creation is rate limited"
+      },
+      {
+        "label": "User profiles launched",
+        "value": "20 October 2026"
+      },
+      {
+        "label": "Enforcement fields added",
+        "value": "21 October 2026"
+      },
+      {
+        "label": "Enforcement statuses",
+        "value": "3",
+        "note": "unrestricted, restricted, banned"
+      },
+      {
+        "label": "Enforcement reasons Anthropic lists",
+        "value": "6"
+      },
+      {
+        "label": "Sampling parameters rejected by API version 2026-10-21",
+        "value": "3",
+        "note": "temperature, top_p, top_k"
+      }
+    ],
+    "source": "Read on 22 October 2026 from Anthropic's Claude Platform release notes, its user profiles guide and its migration guide for API version 2026-10-21."
+  }
+}

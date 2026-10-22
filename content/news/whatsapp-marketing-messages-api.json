@@ -1,0 +1,154 @@
+{
+  "slug": "whatsapp-marketing-messages-api",
+  "title": "WhatsApp Marketing Messages API: Cloud API Cutoff Is 13 October 2027",
+  "desc": "Meta ends WhatsApp marketing on the Cloud API on 13 October 2027. What the Marketing Messages API costs, how max price bids work, and what to move first.",
+  "keywords": "whatsapp marketing messages api, whatsapp cloud api marketing messages, mm lite api, whatsapp mm lite, marketing messages lite api, whatsapp max price, whatsapp marketing message pricing, whatsapp marketing message rates, whatsapp cloud api sunset, whatsapp api marketing messages cost, meta whatsapp marketing message price, whatsapp mm lite pricing",
+  "date": "2026-10-22",
+  "time": "12:40",
+  "read_time": 7,
+  "word_count": 1198,
+  "cta": "Want your WhatsApp campaigns moved before the cutoff?",
+  "body": "<p><strong>October 22, 2026.</strong> Meta will stop accepting WhatsApp marketing messages through the Cloud API on October 13, 2027, it confirmed in a <a href=\"https://developers.facebook.com/blog/post/2026/10/21/sunsetting-marketing-messages-on-the-cloud-api/\" target=\"_blank\" rel=\"noopener noreferrer\">Meta for Developers post</a> on October 21. From that date every promotional template has to go out through the Marketing Messages API for WhatsApp, which HighLevel still calls MM Lite, and Meta's <a href=\"https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/overview/\" target=\"_blank\" rel=\"noopener noreferrer\">overview page</a> says a marketing message sent on the Cloud API after the cutoff will produce an error. Accounts created from April 13, 2027 lose the old route six months sooner. The quieter change is the price: in eligible markets Meta is moving marketing messages from a fixed rate per message to a bid cap it calls max price, and that traffic gets its own invoice line from November 1. Here are the dates, today's rates and what to move first.</p><p><strong>The dates Meta has set</strong></p><ol><li><strong>November 19, 2025.</strong> The Marketing Messages API reached general availability after months of open beta.</li><li><strong>October 1, 2026.</strong> Max price, a cap on what you pay per delivered marketing message, entered open beta, per Meta's <a href=\"https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/pricing/\" target=\"_blank\" rel=\"noopener noreferrer\">max price guide</a>.</li><li><strong>October 13, 2026.</strong> The date Meta's overview gives for the global announcement of the sunset. The developer blog post followed on October 21.</li><li><strong>November 1, 2026.</strong> Messages sent with a max price get their own invoice line, with the price type Max Price, and their own pricing category, MARKETING_LITE_DYNAMIC, in the Pricing Analytics API, per Meta's <a href=\"https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/pricing/max-price-billing-sku/\" target=\"_blank\" rel=\"noopener noreferrer\">billing notes</a> updated October 15.</li><li><strong>April 13, 2027.</strong> Messaging accounts created on or after this date cannot send marketing messages on the Cloud API.</li><li><strong>Q2 2027.</strong> Max price reaches general availability. Meta says it then becomes required in eligible geographies, and fixed published marketing rates apply only on the Cloud API.</li><li><strong>October 13, 2027.</strong> Cloud API support for marketing messages ends for everyone. Service, authentication and utility messages stay on the Cloud API.</li></ol><p><strong>What a marketing message costs today</strong></p><p>Meta charges per delivered message, by the recipient's market, and only for messages a business sends. Its USD rate card effective October 1, 2026, linked from the <a href=\"https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing/\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp pricing page</a>, states that marketing rates apply across the Cloud API and the Marketing Messages API, so moving does not change the list price. A selection of its marketing rates per delivered message:</p><ol><li>India: $0.0118</li><li>North America, meaning Canada and the US: $0.025</li><li>United Arab Emirates and Saudi Arabia: $0.0576</li><li>Brazil: $0.0625</li><li>United Kingdom: $0.0635</li><li>Rest of Asia Pacific, which includes Australia: $0.0842</li><li>Germany: $0.1365</li><li>Netherlands: $0.1597, the highest on the card</li></ol><p>Per 1,000 delivered messages, the unit max price bids in, that is $11.80 in India, $25 in North America, $57.60 in the UAE, $62.50 in Brazil, $63.50 in the UK, $84.20 across Rest of Asia Pacific, $136.50 in Germany and $159.70 in the Netherlands. A 10,000-message promotion to UK customers lists at $635.</p><p>One line matters more than the rest for American senders. Meta's <a href=\"https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/marketing-templates/per-user-limits/\" target=\"_blank\" rel=\"noopener noreferrer\">per-user limits page</a> says WhatsApp does not currently deliver marketing templates to people with US phone numbers, and a send to one returns an error. Because Meta bills only delivered messages, the North America marketing rate in practice applies to Canadian numbers. Meta changes rates only on the first day of a quarter, with at least a month's notice for a rate change and six months for a change to the pricing model.</p><p><strong>Max price turns the rate card into a ceiling</strong></p><p>Max price lets you set the most you will pay for each delivered marketing message, and Meta charges that amount or less. Meta pitches three settings: at the published rate to keep delivery while paying less, below it to reach more people cheaply, and above it for holiday peaks. In the API it is a bid_amount per 1,000 deliveries on the template, in your account currency's smallest unit (cents for USD), with the bid strategy LOWEST_COST_WITH_BID_CAP. A per-message multiplier under 1 lowers the cap for individual sends, and since October 19 a template can hold up to 240 country multipliers, up from 50. It is a cap, not a budget, and it can sit alongside a daily or lifetime campaign budget.</p><p>Direct integrators sign a beta agreement for their business. Solution Partners sign once, and since October 1 every eligible client account shared with or managed by them is covered without an allowlist. Meta suggests a four-arm test of 10,000 sends each: no max price, the rate card, 1.5 times the rate card (1.2 times in India and Saudi Arabia) and 0.9 times the rate card. Taken together, Meta's pages leave no API route to fixed per-message marketing rates in eligible markets after October 13, 2027, so bidding is worth learning while it is still optional.</p><p><strong>What the new API adds, and two catches</strong></p><p>Meta's <a href=\"https://developers.facebook.com/documentation/business-messaging/whatsapp/marketing-messages/features/\" target=\"_blank\" rel=\"noopener noreferrer\">feature comparison</a> credits the Marketing Messages API with delivering up to 9% more high-engagement marketing messages than the Cloud API, a figure from a test of about 12 million messages sent by advertisers in India in January 2025. It adds GIF headers, Android app deep links, a time-to-live of 12 hours to 30 days for marketing messages, and benchmarks and recommendations; carousels, catalogs and flows work on both. The payload and permissions match the Cloud API, and marketing templates go to POST /PHONE_NUMBER_ID/marketing_messages instead of /messages.</p><p>The first catch: until a business finishes onboarding, the new endpoint still routes its marketing messages through the Cloud API, unless the request sets product_policy to STRICT. The second: a utility template that Meta reclassifies as marketing must also move to the new endpoint, so an integration has to watch template categories. Meta says most integrations take about two weeks.</p><p><strong>What it means for operators</strong></p><p>A US business that messages only US customers loses nothing, because those customers already get no WhatsApp marketing templates. The exposure sits with anyone who promotes on WhatsApp to the UK, the Gulf, India, Latin America or Europe, and with the agencies that run those campaigns from a CRM. HighLevel has already built the switch: its <a href=\"https://ideas.gohighlevel.com/changelog/action-needed-move-your-whatsapp-marketing-to-mm-lite-before-october-2027\" target=\"_blank\" rel=\"noopener noreferrer\">October 19 changelog</a> walks each sub-account through Settings, WhatsApp, Enable MM Lite, and then a request to approve in the WhatsApp account. What to do this quarter:</p><ol><li><strong>List every sender.</strong> CRM sub-accounts, Shopify apps, chatbots and any n8n or Make flow that posts a marketing template to /messages.</li><li><strong>Move the biggest senders first,</strong> and test with product_policy set to STRICT so a silent fallback cannot hide an unfinished onboarding.</li><li><strong>Start every new client number on the new API.</strong> From April 13, 2027 new accounts have no choice anyway.</li><li><strong>Fix billing before November.</strong> If you rebill WhatsApp to clients, teach your invoice and analytics parsing the three marketing SKUs, the Max Price price type and MARKETING_LITE_DYNAMIC.</li><li><strong>Run Meta's four-arm max price test</strong> on one template before Q2 2027, while bidding is still optional.</li></ol><p>Service replies started costing money on October 1; our <a href=\"/blog/whatsapp-service-message-pricing/\">WhatsApp service message pricing</a> brief covers that change, and our guide to <a href=\"/blog/whatsapp-messaging-limits-gohighlevel/\">WhatsApp messaging limits</a> explains the portfolio-wide caps. If you resell HighLevel to clients with WhatsApp built in, see our <a href=\"/gohighlevel-white-label-saas\">GoHighLevel white-label SaaS</a> setup and our <a href=\"/gohighlevel-services\">GoHighLevel services</a>. For a direct Cloud API integration in your own stack, <a href=\"/hire-n8n-developer\">hire an n8n developer</a>, and e-commerce brands that sell over WhatsApp can start with our <a href=\"/ecommerce\">e-commerce services</a>.</p>",
+  "faqs": [
+    [
+      "When does WhatsApp stop marketing messages on the Cloud API?",
+      "On October 13, 2027. Meta's overview page says marketing messages sent through the Cloud API after that date will produce an error, and Messaging accounts created on or after April 13, 2027 cannot send marketing messages on the Cloud API at all. Service, authentication and utility messages stay on the Cloud API."
+    ],
+    [
+      "What is MM Lite?",
+      "MM Lite is short for Marketing Messages Lite API, the earlier name that HighLevel and Meta's USD rate card still use, for what Meta now calls the Marketing Messages API for WhatsApp. It sends marketing templates only, with the same phone numbers, templates, payload and permissions as the Cloud API, through the /marketing_messages endpoint."
+    ],
+    [
+      "Does the Marketing Messages API cost more than the Cloud API?",
+      "Not at published rates. Meta's USD rate card effective October 1, 2026 applies the same marketing rates on both APIs, for example $0.025 per delivered message in North America, $0.0635 in the UK and $0.0576 in the UAE. The difference is max price: on the Marketing Messages API you can cap what you pay per delivery, and Meta says the cap becomes required in eligible geographies when max price reaches general availability in Q2 2027."
+    ],
+    [
+      "How does WhatsApp max price work?",
+      "You set a bid_amount per 1,000 deliveries on a marketing template, in your account currency's smallest unit, with the bid strategy LOWEST_COST_WITH_BID_CAP, and Meta charges that amount or less. Multipliers can lower the cap per message, and a template can hold up to 240 country multipliers. Max price entered open beta on October 1, 2026 and gets its own invoice line from November 1, 2026."
+    ],
+    [
+      "Can I send WhatsApp marketing messages to US phone numbers?",
+      "No. Meta's per-user limits page says WhatsApp does not currently deliver marketing template messages to users with US phone numbers, and a send to one returns an error. That is why the Cloud API cutoff matters most to businesses that market to customers outside the US."
+    ],
+    [
+      "How long does the move to the Marketing Messages API take?",
+      "Meta says most integrations take about two weeks. In HighLevel it is a switch per sub-account: Settings, WhatsApp, Enable MM Lite, then approve the access request in the WhatsApp account. A direct integration accepts the Marketing Messages API terms, sends marketing templates to the /marketing_messages endpoint and routes utility templates that Meta reclassifies as marketing there too."
+    ]
+  ],
+  "image": {
+    "cluster": "WhatsApp pricing",
+    "takeaway": "Meta rejects WhatsApp marketing messages sent through the Cloud API from 13 October 2027.",
+    "alt": "WhatsApp marketing messages leave the Cloud API on 13 October 2027: dates, rates and the max price bid cap",
+    "chart": {
+      "title": "What 1,000 delivered marketing messages cost",
+      "subtitle": "Meta's published WhatsApp marketing rates in USD by recipient market, effective October 1, 2026.",
+      "type": "hbar",
+      "rows": [
+        [
+          "India",
+          11.8
+        ],
+        [
+          "North America",
+          25
+        ],
+        [
+          "UAE",
+          57.6
+        ],
+        [
+          "Brazil",
+          62.5
+        ],
+        [
+          "United Kingdom",
+          63.5
+        ],
+        [
+          "Rest of Asia Pacific",
+          84.2
+        ],
+        [
+          "Germany",
+          136.5
+        ],
+        [
+          "Netherlands",
+          159.7
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 1,
+      "note": [
+        "US numbers get no",
+        "marketing templates"
+      ],
+      "source": "Same rates on Cloud API and MM API, effective 1 October 2026. Source: developers.facebook.com, October 2026",
+      "alt": "Bar chart of what 1,000 delivered WhatsApp marketing messages cost at Meta's published rates: India 11.80 dollars, North America 25, UAE 57.60, Brazil 62.50, United Kingdom 63.50, Rest of Asia Pacific 84.20, Germany 136.50 and the Netherlands 159.70.",
+      "after_heading": "What a marketing message costs today"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Cloud API marketing messages end",
+        "value": "13 October 2027",
+        "note": "later sends return an error"
+      },
+      {
+        "label": "New accounts lose Cloud API marketing",
+        "value": "13 April 2027"
+      },
+      {
+        "label": "Typical move to the Marketing Messages API",
+        "value": "about 2 weeks",
+        "note": "per Meta"
+      },
+      {
+        "label": "Max price open beta",
+        "value": "1 October 2026"
+      },
+      {
+        "label": "Max price on its own invoice line",
+        "value": "from 1 November 2026",
+        "note": "price type Max Price"
+      },
+      {
+        "label": "Max price required in eligible markets",
+        "value": "Q2 2027",
+        "note": "at general availability"
+      },
+      {
+        "label": "Max price bid unit",
+        "value": "per 1,000 deliveries",
+        "note": "in the currency's smallest unit"
+      },
+      {
+        "label": "Country multipliers per template",
+        "value": "240",
+        "note": "up from 50 on 19 October"
+      },
+      {
+        "label": "Marketing rate, North America",
+        "value": "$0.025",
+        "note": "US numbers get no marketing templates"
+      },
+      {
+        "label": "Marketing rate, United Kingdom",
+        "value": "$0.0635"
+      },
+      {
+        "label": "Marketing rate, Netherlands",
+        "value": "$0.1597",
+        "note": "highest on the USD card"
+      },
+      {
+        "label": "Extra deliveries for high-engagement messages",
+        "value": "up to 9 percent",
+        "note": "Meta test, India, January 2025"
+      }
+    ],
+    "source": "Dates, rates and API rules read on 22 October 2026 from Meta's Marketing Messages API documentation, its WhatsApp pricing page and USD rate card, and its 21 October developer blog post."
+  }
+}
