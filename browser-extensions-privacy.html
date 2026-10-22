@@ -1421,19 +1421,20 @@
 
     <section class="policy-content">
       <div class="container">
-        <p><strong>Last Updated:</strong> October 20, 2026</p>
+        <p><strong>Last Updated:</strong> October 22, 2026</p>
 
         <h2>1. Scope</h2>
         <p>This policy covers the free browser extensions that imisofts publishes in the Chrome Web Store. Our website is covered by our main <a href="/privacy-policy">Privacy Policy</a>.</p>
 
         <h2>2. SPF, DKIM &amp; DMARC Checker by imisofts</h2>
-        <p>The extension looks up the public DNS records of a domain you enter (SPF, DKIM, DMARC, MX, BIMI and MTA-STS) and shows the results with suggested fixes.</p>
+        <p>The extension looks up the public DNS records of a domain you enter (SPF, DKIM, DMARC, MX, BIMI and MTA-STS) and shows the results with suggested fixes. From version 1.1.0, its Propagation tab also checks whether a DNS record you name (A, CNAME, TXT, MX, NS or AAAA) has reached six public DNS providers. See the <a href="/spf-dkim-dmarc-checker">SPF, DKIM &amp; DMARC Checker page</a> for what it checks.</p>
 
         <h3>What it handles</h3>
         <ul>
           <li><strong>The domain you enter.</strong> If you enter an email address, the extension keeps only the part after the @ on your device. The rest is discarded straight away and is never sent or stored.</li>
-          <li><strong>DNS lookups.</strong> To run a check, the extension sends DNS queries for that domain and related names (such as _dmarc.yourdomain.com, selector._domainkey.yourdomain.com and the names in your SPF record) over HTTPS to <a href="https://developers.google.com/speed/public-dns/privacy" target="_blank" rel="noopener">Google Public DNS</a>. If Google Public DNS cannot answer, the same queries go to <a href="https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/" target="_blank" rel="noopener">Cloudflare DNS</a>. These services answer the queries under their own privacy policies.</li>
-          <li><strong>Recent checks.</strong> The last five domains you checked are saved in the extension's local storage on your device so you can run them again with one click. They are never sent to us, and removing the extension deletes them.</li>
+          <li><strong>DNS lookups for the email checks.</strong> To run a check, the extension sends DNS queries for that domain and related names (such as _dmarc.yourdomain.com, selector._domainkey.yourdomain.com and the names in your SPF record) over HTTPS to <a href="https://developers.google.com/speed/public-dns/privacy" target="_blank" rel="noopener">Google Public DNS</a>. If Google Public DNS cannot answer, the same queries go to <a href="https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/" target="_blank" rel="noopener">Cloudflare DNS</a>. These services answer the queries under their own privacy policies.</li>
+          <li><strong>DNS lookups for propagation checks.</strong> When you check a record on the Propagation tab, on the Keep checking page or in the New domain checklist, the extension sends a DNS query for that record name and type over HTTPS to six public DNS providers: <a href="https://developers.google.com/speed/public-dns/privacy" target="_blank" rel="noopener">Google Public DNS</a>, <a href="https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/" target="_blank" rel="noopener">Cloudflare DNS</a>, <a href="https://www.alibabacloud.com/help/en/legal/latest/alibaba-cloud-international-website-privacy-policy" target="_blank" rel="noopener">AliDNS</a> (Alibaba Cloud), <a href="https://dns.sb/privacy/" target="_blank" rel="noopener">DNS.SB</a>, <a href="https://controld.com/privacy" target="_blank" rel="noopener">Control D</a> and <a href="https://joindns4.eu/privacy-policy" target="_blank" rel="noopener">DNS4EU</a>. To say where the domain's DNS is hosted, it also asks Google Public DNS for the domain's SOA and NS records. When a CNAME does not show up on a domain hosted at Cloudflare, it asks Google Public DNS for that name's A record, to tell whether Cloudflare's proxy is on. The expected value you type is compared on your device and is never sent. Keep checking repeats the query every 30 seconds while its tab is open, and stops by itself. These services answer the queries under their own privacy policies.</li>
+          <li><strong>Saved on your device.</strong> The last five domains you checked on the Email records tab, the last five records you checked for propagation, the tab you used last, and the domain and records you paste into the New domain checklist are saved in the extension's local storage on your device, so you can use them again. They are never sent to us, and removing the extension deletes them.</li>
           <li><strong>Copy report.</strong> When you click Copy report, a text summary of the results is placed on your clipboard. Nothing is sent anywhere.</li>
         </ul>
 
@@ -1446,9 +1447,10 @@
 
         <h3>Links to imisofts.com</h3>
         <p>The guide links and the "Get it set up by imisofts" button open pages on imisofts.com in a new tab, only when you click them. These links carry UTM tags that tell us a visit came from the extension. They do not identify you. Once you are on imisofts.com, our main <a href="/privacy-policy">Privacy Policy</a> applies.</p>
+        <p>The Flush Google, Purge Cloudflare and whatsmydns.net links on the Propagation tab open those sites in a new tab, only when you click them. The whatsmydns.net link includes the record name and type you checked, and the expected value if it is a single word (never for TXT), so that site can run the same check under its own privacy policy.</p>
 
         <h2>3. Send to Webhook for n8n, Make &amp; Zapier by imisofts</h2>
-        <p>The extension sends the page you are viewing, or text you select on it, to a webhook URL that you add yourself, such as an n8n, Make, Zapier or Clay webhook, and shows that webhook's reply.</p>
+        <p>The extension sends the page you are viewing, or text you select on it, to a webhook URL that you add yourself, such as an n8n, Make, Zapier or Clay webhook, and shows that webhook's reply. See the <a href="/send-to-webhook">Send to Webhook page</a> for how it works.</p>
 
         <h3>What it handles</h3>
         <ul>
