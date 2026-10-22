@@ -46,8 +46,8 @@ SERVICE_GROUPS = [
         '/ai-mobile-apps', '/launch-your-saas', '/digital-marketing', '/shopify-app-reviews',
         '/products',
     ]),
-    ('Free tools (Chrome extensions)', [
-        '/spf-dkim-dmarc-checker', '/send-to-webhook',
+    ('Free tools', [
+        '/dns-propagation-checker', '/spf-dkim-dmarc-checker', '/send-to-webhook',
     ]),
 ]
 COMPANY_PAGES = ['/pricing', '/about', '/case-studies', '/contact', '/free-audit', '/faq',
