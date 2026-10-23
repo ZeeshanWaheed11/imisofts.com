@@ -1,0 +1,151 @@
+{
+ "slug": "yelp-api-pricing",
+ "title": "Yelp API Pricing: Places API From $229 a Month, Not for Lead Lists",
+ "desc": "Yelp's Places API costs $229, $299 or $643 a month plus overage after a 30-day trial. What each plan includes, the limits, and what the license does not cover.",
+ "date": "2026-10-23",
+ "time": "16:17",
+ "keywords": "yelp api pricing, yelp api cost, is yelp api free, yelp api free tier, yelp places api pricing, yelp fusion api pricing, yelp api plans, yelp api base enhanced premium, yelp api rate limit, yelp api free trial, yelp api terms of use, yelp api lead generation, yelp ai api pricing, yelp insights api pricing, yelp scraper pricing, apify yelp scraper, bright data yelp scraper, is scraping yelp legal",
+ "category": "Guides",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "cta": "Want local business outreach built and run for you?",
+ "word_count": 1975,
+ "read_time": 9,
+ "body": "<p><strong>Short answer.</strong> The Yelp Places API has no ongoing free plan. It costs $229 (Base), $299 (Enhanced) or $643 (Premium) a month, plus $5.91, $6.57 or $14.13 for each extra 1,000 calls, before tax, and self-serve billing stops at 150,000 calls a month. The free option is a 30-day trial of up to 5,000 calls, for evaluation only. The license matters as much as the price: Yelp's API Terms let you show Yelp content in your own consumer-facing site or app, keep it for 24 hours at most, and bar building your own business-listing database or using it with direct-marketing or telemarketing services. A Places API plan is not a lead list. Yelp sells business data for B2B use through its Insights API, whose calculator starts at $25,000 a year. We earn a commission if you buy Apify or Bright Data through our links; Yelp pays us nothing.</p>\n<p>Everything below was read on 23 October 2026 on Yelp's, Apify's and Bright Data's own pages; totals are our arithmetic, before tax. Yelp's developer FAQ, plan and rate-limit pages were about a year old when read, and we flag where they disagree with the pricing page. We ran no paid scraper jobs.</p>\n\n<h2 id=\"places-api-plans\">What the Yelp Places API costs on each plan</h2>\n<p>The Places API is the former Fusion API (Yelp's docs still list \"current Yelp Fusion API endpoints\"). Its three plans:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Plan</th><th>Per month</th><th>Each extra 1,000 calls</th><th>What you get</th></tr></thead><tbody>\n<tr><td>Base</td><td>$229</td><td>$5.91</td><td>15 attributes (name, address, categories, phone, hours, rating, review count, Yelp URL and a few more), base search filters, no review excerpts, no photos beyond the business profile photo</td></tr>\n<tr><td>Enhanced</td><td>$299</td><td>$6.57</td><td>23 attributes, adding the business website URL, price, service area and Request a Quote response rate and time; up to 3 photos and 3 review excerpts</td></tr>\n<tr><td>Premium</td><td>$643</td><td>$14.13</td><td>66 attributes, premium search filters, up to 12 photos, up to 7 review excerpts and the Review Highlights endpoint</td></tr>\n</tbody></table></div>\n<p>The pricing page adds early access to Yelp's AI API at 100 calls a day on every plan; the older docs plan page says 20, in the Premium column only. Sign-up needs a business email and a Yelp account.</p>\n<p>Under section 8 of Yelp's API Terms of Use, the fee is billed monthly in arrears to your card, calls above the monthly quota are added at the end of each billing period up to 150,000 calls a month, and taxes come on top. Reviews come only as excerpts of about 160 characters (none on Base), a business needs at least one review, photo or other user contribution to appear, and a search returns up to 50 results per request and 240 per originating query.</p>\n\n<h2 id=\"monthly-bill\">What a month of Yelp API calls adds up to</h2>\n<p>Yelp's developer FAQ says a paid plan includes 30,000 calls a month and bills usage beyond that in 1,000-call increments. The pricing page does not print the 30,000, but its calculator footnote, \"Minimum 1,000 API calls billed daily\", fits it. Before tax:</p>\n<ul>\n<li><strong>30,000 calls (about 1,000 a day):</strong> $229, $299 and $643. The included calls cost $7.63, $9.97 and $21.43 per 1,000, more than each overage rate, so the fee is a monthly minimum.</li>\n<li><strong>60,000 calls:</strong> $406.30, $496.10 and $1,066.90.</li>\n<li><strong>150,000 calls, the self-serve ceiling</strong> (the FAQ's 5,000-a-day maximum for 30 days): $938.20, $1,087.40 and $2,338.60.</li>\n</ul>\n<p>Yelp's own calculator shows less at volume: $899, $999 and $2,148 a month at its 5,000 setting. Read as calls a day, as its billed-daily footnote suggests, the figures match about 152,083 calls (5,000 a day over an average month) at each overage rate with no plan fee; the plan-card arithmetic for that volume is about $951 on Base. The calculator also prices settings past the self-serve limits. Near the ceiling, get Yelp's number in writing.</p>\n\n<h2 id=\"free-trial\">Is the Yelp API free? A 30-day trial for evaluation</h2>\n<p>Each Places plan starts with a 30-day trial of 5,000 calls, which the developer FAQ calls \"STRICTLY FOR EVALUATION AND NOT FOR COMMERCIAL DEPLOYMENT\". The API Terms bar a public launch during the trial (section 7.3) and end API key access on day 30 unless you subscribe with a credit card (section 7.1). Yelp's rate-limit page adds a trial cap of 300 calls per 24 hours on the Starter plan (the old name for Base), so 5,000 calls take about 17 days, though its own example header shows 500. You cannot switch plans mid-trial without emailing Yelp or signing up again with another Yelp account.</p>\n<p>Once you subscribe, the plan runs month to month and you can cancel at any time, keeping access to the end of the billing period (section 7.2). Yelp can end it on 30 days' notice for any reason, refunding prepaid, unused fees pro rata (section 7.5).</p>\n\n<h2 id=\"license-limits\">What the Places API license does not cover</h2>\n<p>Yelp's API Terms of Use, last updated 22 September 2026, license you to receive Yelp content and display it on your consumer-facing website or app, and to use it for nothing else \"without Yelp's prior written consent\". Section 1 calls that display \"non-commercial\", although Yelp sells the paid plan as a \"commercial license plan\". Section 5 bars you, or anyone you help, from:</p>\n<ul>\n<li><strong>Keeping it.</strong> Storing Yelp content longer than 24 hours, or running any scraping or \"bulk download\" operation, except business IDs for back-end matching and non-commercial analysis. Yelp can demand deletion within 24 hours (section 4).</li>\n<li><strong>Building a database.</strong> Using Yelp content \"to update or create your own database of business listing information\", unless for non-commercial analysis.</li>\n<li><strong>Commercial use.</strong> Any commercial use without Yelp's express written consent; on commercial analysis, the developer FAQ says \"Analysis is not permitted for Yelp Places integrations\" and points to the Insights API.</li>\n<li><strong>Client work.</strong> Using the API \"on behalf of any third party\"; section 3 also allows one set of credentials unless Yelp agrees in writing, so an agency needs Yelp's permission to run it for clients.</li>\n<li><strong>Direct marketing.</strong> Use in connection with products or services used primarily for spam, \"direct marketing and/or telemarketing activities\" and other listed categories.</li>\n</ul>\n<p>So a Places API plan does not license a list of businesses to email or call without Yelp's written consent.</p>\n<p>Section 9 covers AI: no training or fine-tuning generative AI models on Yelp content without written approval, and no submitting \"any Yelp Content into any Generative AI Model\", Yelp's example being prompts sent to ChatGPT. Sections 5 and 9 survive termination. If you are wiring Yelp into an AI agent, the kind of build our <a href=\"/ai-automation-agency\">AI automation agency</a> does, keep Yelp content out of the prompts.</p>\n<p>Against the 9 September 2025 version, our paragraph comparison found the new terms add Yelp's reporting and leads interfaces (the latter under a Leads Program Agreement), with sections 1, 4, 5, 7, 8, 9 and 12 unchanged. Section 12 reads \"THE API IS BEING PROVIDED FREE OF CHARGE\" and caps Yelp's liability at US$100.</p>\n\n<h2 id=\"ai-and-insights\">Yelp's AI API and Insights API, priced</h2>\n<ul>\n<li><strong>AI API:</strong> $25 per 1,000 calls with a minimum of 1,000 daily calls, which we read as a floor of $25 a day, about $750 over 30 days. Yelp licenses it for use \"within a conversational consumer-facing product\", with full Premium access. It has a free-trial button; we did not read separate AI API terms.</li>\n<li><strong>Insights API:</strong> sold for \"B2B purposes and internal analysis\", with no display rights and over 230 attributes, priced per unique location on a rolling 12 months. The cards say \"starting @\" $0.04, $0.06 and $0.08 a location plus volume discounts (Premium adds full review text); the calculator on the same page starts at 50,000 locations for $25,000 a year on Base ($35,000 Enhanced, $50,000 Premium), $0.50 a location, and reaches $100,000 for 500,000 on Base, $0.20 a location. The page does not reconcile the two.</li>\n</ul>\n<p>Yelp markets Insights for sales prospecting (\"new viable sales targets\", current CRM data). We did not read its license, so confirm your use, outbound calling for example, with Yelp first.</p>\n\n<h2 id=\"scraping-yelp\">Scraping Yelp: what the terms say, and what scrapers cost</h2>\n<p>Yelp's Terms of Service, effective 1 January 2026, have every user promise not to use, or \"assist, encourage, or enable others\" to use, \"any robot, spider ... or other automated device, process or means to access, retrieve, copy, scrape, or index any portion of the Service or any Service Content, except as expressly permitted by Yelp\", or to \"sell, trade, or in any way exploit\" Yelp content without its authorization. Yelp's robots.txt adds that visiting the site means agreeing to those terms, bars AI and LLM crawlers and agents unless Yelp permits them, and ends with \"User-Agent: *\" and \"Disallow: /\" for every crawler it does not name. Whether they bind a given scraper is a legal question (see whether <a href=\"/blog/is-web-scraping-legal/\">web scraping is legal</a>); either way, Yelp has not agreed to it. Even the Yelp Scraper's README on Apify tells users to follow Yelp's terms of service and not to scrape personal data without a legitimate reason.</p>\n<p>Both vendors below pay us a commission; listing their prices is not a recommendation to scrape Yelp without its permission. Prices as of 23 October 2026:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Tool</th><th>Billed per</th><th>Price per 1,000</th><th>Also charged</th></tr></thead><tbody>\n<tr><td>Yelp Scraper, maintained by <a href=\"https://www.apify.com?fpr=rc63q\">Apify</a></td><td>Business</td><td>$5.00 on Free (the $5 credit covers about 1,000), $2.00 Starter, $1.80 Scale, $1.50 Business</td><td>$0.001 a run; $0.85 to $1.00 per 1,000 extra photo pages beyond 20 photos</td></tr>\n<tr><td>Yelp Ultimate Scraper (api-ninja), Apify</td><td>Result</td><td>$5.00 on Free, $0.75 on any paid plan</td><td>$0.01 per GB of memory per run; a confirmed missing business is billed as a result</td></tr>\n<tr><td><a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Bright Data Yelp Scraper API</a></td><td>Record</td><td>$1.50 pay as you go; Scale is $499 a month for 384,000, then $1.30</td><td>None listed; 5,000 free credits a month for new accounts</td></tr>\n</tbody></table></div>\n<p>Apify's paid plans cost $19, $199 and $999 a month, each including that much usage, and both actors' prices include platform costs. The Apify-maintained scraper (price set 25 September 2026) has the most users of Apify's Yelp business scrapers, 7.2K, and is rated 2.7 of 5 from 10 reviews. api-ninja's (price set 3 July 2026) has 867 users and a 5.0 rating from 6. Bright Data calls its record price the whole bill, says its scraper is designed to comply with GDPR and CCPA (privacy law, not Yelp's terms) and markets a version built \"to bypass Yelp's 240-result limit\"; its free credits are for new accounts and shared with its Unlocker and SERP APIs.</p>\n<p>At those prices 10,000 businesses cost about $7.50 on api-ninja (within a $19 Apify Starter plan), $15 on Bright Data pay as you go ($7.50 if a new account's free credits are unused) or $20 on the Apify-maintained scraper on Starter, plus run fees. One number cuts against both vendors we earn from: once the $229 Base fee is paid, Yelp's own search results cost about 12 cents per 1,000 businesses (at least 21 calls of up to 50 results, at $5.91 per 1,000 calls), below every scraper price above. That buys consumer-facing display with a 24-hour cache, not a list to keep; Enhanced rows, with website URLs, run about 14 cents.</p>\n<p>If Yelp has given you written permission to collect its data, <a href=\"https://www.apify.com?fpr=rc63q\">compare Yelp scrapers on Apify</a> or <a href=\"https://get.brightdata.com/gf73pymzr2rh\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">Bright Data</a>. If not, the licensed routes are Yelp's APIs.</p>\n\n<h2 id=\"which-route\">Which Yelp data route fits which job</h2>\n<ul>\n<li><strong>Yelp ratings or listings in your own consumer-facing app or site:</strong> the Places API, on the plan whose fields you need.</li>\n<li><strong>A conversational assistant for consumers:</strong> the AI API.</li>\n<li><strong>Lead lists, CRM enrichment or market analysis:</strong> the Insights API, after confirming your use with Yelp. Google's Places API is no shortcut: its terms bar saving business names and addresses too, as our <a href=\"/blog/google-places-api-pricing/\">Google Places API pricing</a> guide shows.</li>\n<li><strong>Scraping:</strong> only with Yelp's express permission.</li>\n</ul>\n<p>If the list is for phone outreach, the calling rules are a separate question; our page on <a href=\"/tcpa-compliant-ai-calling\">TCPA-compliant AI calling</a> covers them.</p>",
+ "faqs": [
+  [
+   "Is the Yelp API free?",
+   "There is no ongoing free plan. The Yelp Places API offers a 30-day trial of up to 5,000 calls that Yelp says is strictly for evaluation, not commercial deployment; you may not launch publicly during the trial, and API key access ends on day 30 unless you subscribe. Paid plans cost $229, $299 or $643 a month plus overage, before tax."
+  ],
+  [
+   "How much does the Yelp Places API cost per call?",
+   "Yelp's developer FAQ says each paid plan includes 30,000 calls a month, which works out to $7.63 (Base), $9.97 (Enhanced) and $21.43 (Premium) per 1,000 included calls. Extra calls cost $5.91, $6.57 and $14.13 per 1,000, billed in 1,000-call steps up to 150,000 calls a month, before tax. Above that you contact Yelp. At the margin, Base search results cost about 12 cents per 1,000 businesses."
+  ],
+  [
+   "Can I use the Yelp API to build a lead list?",
+   "Not under the standard Places API terms. The license covers displaying Yelp content in your own consumer-facing site or app; the terms bar keeping it beyond 24 hours, creating your own business-listing database, commercial use without written consent, use on behalf of a third party, and use with direct-marketing or telemarketing services. Yelp sells data for B2B and internal use through the Insights API."
+  ],
+  [
+   "What does the Yelp Insights API cost?",
+   "Yelp prices it per unique location on a rolling 12 months, and its plan cards say starting at $0.04, $0.06 and $0.08 a location. Its own calculator starts at 50,000 locations for $25,000 a year on Base ($35,000 Enhanced, $50,000 Premium) and lists $100,000 for 500,000 locations on Base."
+  ],
+  [
+   "Can I put Yelp API data into ChatGPT or another AI model?",
+   "No. Section 9 of Yelp's API Terms bars submitting Yelp content into any generative AI model, giving prompts to ChatGPT as its example, and bars training or fine-tuning models on it without Yelp's written approval. Yelp's AI API, at $25 per 1,000 calls with a minimum of 1,000 daily calls, is its own product for conversational consumer apps."
+  ],
+  [
+   "Is scraping Yelp allowed?",
+   "Not without Yelp's express permission. Its Terms of Service bar automated access, copying and scraping, its robots.txt disallows every crawler it does not name, and its API Terms bar API users from scraping or bulk downloads. Whether those terms bind a particular scraper is a legal question; the vendors we earn from sell the capability, but Yelp has not agreed to it."
+  ]
+ ],
+ "image": {
+  "cluster": "Yelp data access",
+  "takeaway": "Yelp's Places API costs $229 to $643 a month plus overage and licenses display in your own consumer-facing product.",
+  "alt": "Yelp API pricing: Places API plans at $229, $299 and $643 a month, what the license covers, and what Yelp's other APIs and Yelp scrapers cost",
+  "chart": {
+   "title": "Yelp Places API monthly bill at 30,000 and 150,000 calls",
+   "subtitle": "Plan fee plus overage beyond the 30,000 included calls, before tax; 150,000 is the self-serve ceiling.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Base, 30K calls",
+     229
+    ],
+    [
+     "Enhanced, 30K calls",
+     299
+    ],
+    [
+     "Premium, 30K calls",
+     643
+    ],
+    [
+     "Base, 150K calls",
+     938.2
+    ],
+    [
+     "Enhanced, 150K calls",
+     1087.4
+    ],
+    [
+     "Premium, 150K calls",
+     2338.6
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 3,
+   "note": [
+    "Yelp's calculator: $899",
+    "at 5,000, unit unstated."
+   ],
+   "source": "Totals are our arithmetic: pricing-page fees and overage, 30,000 included calls per Yelp's developer FAQ. Source: Yelp pricing page, October 2026.",
+   "alt": "Bar chart of the Yelp Places API monthly bill on the Base, Enhanced and Premium plans at 30,000 and 150,000 calls a month, before tax",
+   "after_heading": "Is the Yelp API free? A 30-day trial for evaluation"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Yelp Places API Base plan, per month",
+    "value": "$229",
+    "note": "plus $5.91 per additional 1,000 calls; 15 attributes, no review excerpts"
+   },
+   {
+    "label": "Yelp Places API Enhanced plan, per month",
+    "value": "$299",
+    "note": "plus $6.57 per additional 1,000 calls; adds website URL, 3 photos, 3 excerpts"
+   },
+   {
+    "label": "Yelp Places API Premium plan, per month",
+    "value": "$643",
+    "note": "plus $14.13 per additional 1,000 calls; 66 attributes, Review Highlights"
+   },
+   {
+    "label": "Calls included in a paid plan, per month",
+    "value": "30,000",
+    "note": "daily limit up to 5,000, per Yelp's developer FAQ"
+   },
+   {
+    "label": "Self-serve ceiling, per month",
+    "value": "150,000 calls",
+    "note": "above that, contact Yelp's data licensing team"
+   },
+   {
+    "label": "Free trial",
+    "value": "30 days, up to 5,000 calls",
+    "note": "for evaluation only; no public launch during the trial"
+   },
+   {
+    "label": "Longest you may keep Places API content",
+    "value": "24 hours",
+    "note": "Yelp business IDs may be kept for back-end matching"
+   },
+   {
+    "label": "Yelp AI API",
+    "value": "$25 per 1,000 calls",
+    "note": "minimum 1,000 daily calls"
+   },
+   {
+    "label": "Yelp Insights API, smallest calculator setting",
+    "value": "$25,000 a year",
+    "note": "50,000 locations on Base, $0.50 a location; cards say from $0.04"
+   },
+   {
+    "label": "Apify's Yelp business scraper with most users, per 1,000",
+    "value": "$2.00 on Starter",
+    "note": "$5.00 on Free, $1.50 on Business; rated 2.7 of 5 from 10 reviews"
+   },
+   {
+    "label": "Bright Data Yelp Scraper API, per 1,000 records",
+    "value": "$1.50 pay as you go",
+    "note": "5,000 free credits a month for new accounts, shared across products"
+   },
+   {
+    "label": "Yelp robots.txt rule for crawlers it does not name",
+    "value": "Disallow: /",
+    "note": "Yelp's terms bar automated collection without its express permission"
+   }
+  ],
+  "source": "Prices and terms read on 23 October 2026 from Yelp's pricing, developer and terms pages and the Apify and Bright Data pricing pages; totals before tax."
+ }
+}
