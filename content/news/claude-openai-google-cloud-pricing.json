@@ -1,0 +1,136 @@
+{
+ "slug": "claude-openai-google-cloud-pricing",
+ "title": "Claude and OpenAI on Google Cloud: Pricing, Billing and Commitments",
+ "desc": "Claude runs on Google Cloud at Anthropic's list prices from October 22, billed on your GCP invoice; OpenAI's GPT-6 models are in private preview there.",
+ "keywords": "claude on google cloud, claude google cloud pricing, openai models google cloud, openai on google cloud, claude models on google cloud anthropic managed, anthropic managed vs google managed, claude vertex ai pricing, gpt-6 google cloud model garden, google cloud commitment ai models, claude google cloud marketplace",
+ "date": "2026-10-23",
+ "time": "12:39",
+ "read_time": 6,
+ "word_count": 1244,
+ "cta": "Want Claude or GPT agents built on the cloud you already pay for?",
+ "body": "<p><strong>October 23, 2026.</strong> Anthropic now sells its full Claude API through Google Cloud at the same list prices as its own, from $0.10 per million input tokens on Claude Haiku 5.5 to $10 on Claude Fable 5.1, with the charges on your Google Cloud invoice and counted toward your Google Cloud spend commitment. Anthropic made its new Anthropic-managed option generally available on October 22, a day after OpenAI said its models are coming to Google Cloud's Model Garden, where Google says GPT-6 Astra, GPT-6.1 Sol and GPT-6 Luna are rolling out in private preview to select enterprise customers. For a business that already pays Google Cloud, Claude and, once OpenAI's rollout opens up, GPT models can go through one bill and one set of access controls.</p><p><strong>What Anthropic, OpenAI and Google announced</strong></p><ol><li><strong>Claude Models on Google Cloud (Anthropic managed), generally available October 22.</strong> It is the Claude API, run by Anthropic and reached through your Google Cloud project, per <a href=\"https://claude.com/resources/articles/claude-models-on-google-cloud-anthropic-managed\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic's announcement</a>. Access goes through Google Cloud IAM, billing goes through Google Cloud Marketplace, and new Claude Platform features and betas ship the same day they reach Anthropic's own API. The announcement lists US and Global endpoints and four current models: Claude Fable 5.1, Opus 5.5, Sonnet 5.5 and Haiku 5.5.</li><li><strong>The Google-managed option stays.</strong> Google keeps running Claude on its Agent Platform, the route that earlier Claude on Vertex AI projects use (Anthropic's SDK client for it is still called AnthropicVertex). Google is the data processor there, under your existing Google Cloud agreements.</li><li><strong>OpenAI models are coming to Model Garden.</strong> OpenAI's <a href=\"https://openai.com/index/openai-models-google-cloud/\" target=\"_blank\" rel=\"noopener noreferrer\">October 21 post</a> says its frontier models and Codex workflows are coming to Model Garden, that the models will be bought through Google Cloud Marketplace, that customers with Google Cloud spend commitments can draw them down, that general availability is planned \"in the coming weeks\" and that Microsoft remains OpenAI's primary cloud partner.</li><li><strong>Google's side of both deals.</strong> In its <a href=\"https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers\" target=\"_blank\" rel=\"noopener noreferrer\">October 22 post</a>, Google names the three OpenAI models in private preview, says preview customers can connect Codex CLI and Desktop to its platform for inference, and says OpenAI usage counts toward Flexible Savings Plans as well as commitments, with zero data retention options and Confidential Compute \"coming soon\". Its <a href=\"https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud\" target=\"_blank\" rel=\"noopener noreferrer\">Claude post</a> says both Claude options carry \"the same pricing\" and the same Google Cloud billing. Google calls itself the only hyperscale cloud offering all three leading closed-source model families, a point Techzine repeated in its <a href=\"https://www.techzine.eu/news/applications/145174/openais-models-are-finally-fully-supported-on-google-cloud/\" target=\"_blank\" rel=\"noopener noreferrer\">October 21 report</a>.</li></ol><p><strong>What Claude costs on Google Cloud</strong></p><p>Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a> and Google Cloud's <a href=\"https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Agent Platform price list</a> give the same standard rates per million tokens, read on October 23:</p><ol><li><strong>Claude Fable 5.1:</strong> $10 input, $50 output.</li><li><strong>Claude Opus 5.5:</strong> $4 input, $20 output.</li><li><strong>Claude Sonnet 5.5:</strong> $2 input, $10 output.</li><li><strong>Claude Haiku 5.5:</strong> $0.10 input and $0.50 output for prompts up to 100,000 tokens, $0.50 and $2.50 above that.</li></ol><p>Four details move the bill. Fast mode on Opus 5.5, which Anthropic says gives up to 2.5 times faster output, costs $8 input and $40 output per million tokens, and on Google Cloud it is listed only for the Anthropic-managed option. US-only inference through the inference_geo parameter adds a 1.1x multiplier on the Anthropic-managed option, the same as on Anthropic's API, while on the Google-managed option multi-region and regional endpoints carry a 10 percent premium over global ones. Anthropic meters usage and reports it to Google in Claude Consumption Units worth $0.01 each, so no separate Anthropic invoice arrives. And if you have a negotiated discount with Anthropic or Google, Anthropic's setup guide says to talk to your account representative before you switch, because discounts cannot be applied to past usage.</p><p><strong>Anthropic managed or Google managed</strong></p><p>Same models, same prices, same invoice. The difference, per Anthropic's <a href=\"https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud\" target=\"_blank\" rel=\"noopener noreferrer\">comparison page</a> and <a href=\"https://platform.claude.com/docs/en/build-with-claude/claude-models-on-google-cloud/anthropic-managed\" target=\"_blank\" rel=\"noopener noreferrer\">setup guide</a>, is who runs the service and how fast features arrive:</p><ol><li><strong>Data processor.</strong> Anthropic, under its Commercial Terms, on the Anthropic-managed option, where some supporting services such as trust and safety process data outside Google Cloud. Google, under your existing Google Cloud agreements, on the Google-managed one.</li><li><strong>Features.</strong> The Anthropic-managed option gets Claude Managed Agents (beta), code execution, Agent Skills, the advisor tool, the MCP connector, the Files API, web search, web fetch, batches and fast mode from day one. The Google-managed option gets new platform features once Google integrates them, plus VPC Service Controls, data residency in the US, EU and APAC, and links to BigQuery and Model Armor. Customer-managed encryption keys work on both.</li><li><strong>Accounts and keys.</strong> The Anthropic-managed setup creates a new Anthropic organization for your Google Cloud project, separate from any Anthropic organization you already have, Claude Enterprise included. It accepts Google Cloud credentials only, with no API keys, and a zero data retention agreement on another Anthropic organization does not carry over.</li><li><strong>Rate limits.</strong> Anthropic sets them on the Anthropic-managed option and measures them as its rate limits page describes, which our <a href=\"/blog/claude-api-rate-limits/\">Claude API rate limits</a> guide walks through; higher limits go through Anthropic's account team or sales. Google Cloud sets them on the Google-managed option.</li></ol><p><strong>What OpenAI on Google Cloud will cost</strong></p><p>Google has not published Model Garden prices for OpenAI's models yet. OpenAI's own <a href=\"https://openai.com/api/pricing/\" target=\"_blank\" rel=\"noopener noreferrer\">API price list</a>, read on October 23 for prompts under 272,000 tokens, puts GPT-6 Astra at $10 input, $1 cached input and $50 output per million tokens, GPT-6.1 Sol at $2, $0.10 and $10, and GPT-6 Luna at $0.10, $0.01 and $0.50, with batch at half price and data residency at 10 percent extra. Those are the same input and output list prices as Claude Fable 5.1, Sonnet 5.5 and Haiku 5.5, tier for tier. Until Google prints its own numbers, treat OpenAI's list as the reference and check the Marketplace listing before you commit spend.</p><p><strong>What it means for operators</strong></p><p>The change is in procurement, not capability: these are the models you can already call directly. Where it pays off:</p><ol><li><strong>Companies with a Google Cloud commitment.</strong> Claude spend now counts toward it the way other Marketplace purchases do, per Anthropic's setup guide, and OpenAI spend will once it reaches your account. If your commitment is under-used, that is budget you had already promised Google.</li><li><strong>Agencies building for clients.</strong> You can deploy into the client's own Google Cloud project: the client's IAM grants your team a role such as Claude User, the usage lands on the client's invoice, and nobody passes API keys around, because the Anthropic-managed option does not accept them.</li><li><strong>Regulated work.</strong> The data processor choice is now explicit. If you are scoping <a href=\"/ai-intake-law-firms\">AI intake for a law firm</a> or <a href=\"/ai-calling-insurance\">AI calling for an insurer</a>, decide early whether the client needs Google as processor with regional endpoints, or Anthropic's newest agent features.</li><li><strong>Startups counting on credits.</strong> Anthropic's guide talks about commitments, not promotional credits, and our <a href=\"/blog/ai-startup-credits/\">AI startup credits</a> guide found that Google's program credits cover Gemini and Gemma rather than third-party models. Ask Google before you plan a Claude build on credits.</li></ol><p>How to start: check which option you use today from the host in your request URLs (claude.googleapis.com is Anthropic managed, aiplatform.googleapis.com is Google managed), subscribe to the Anthropic-managed listing in Marketplace, enable claude.googleapis.com and anthropic-managed-claude.cloudpartnerservices.goog on each project, then activate the new Anthropic organization and grant roles. For OpenAI, request access through OpenAI's form and plan around general availability rather than the preview. If you want this wired into a working agent, see our <a href=\"/ai-automation-agency\">AI automation agency</a> service or <a href=\"/hire-ai-engineer\">hire an AI engineer</a>.</p>",
+ "faqs": [
+  [
+   "Is Claude available on Google Cloud?",
+   "Yes, in two ways. Claude Models on Google Cloud (Anthropic managed), generally available since October 22, 2026, is the Claude API run by Anthropic and billed through Google Cloud Marketplace. Claude Models on Google Cloud (Google managed) runs on Google's Agent Platform with Google as the data processor. Both offer Claude Fable 5.1, Opus 5.5, Sonnet 5.5 and Haiku 5.5."
+  ],
+  [
+   "Does Claude cost more on Google Cloud than on Anthropic's API?",
+   "No, not at standard global rates. Read on October 23, 2026, Claude Opus 5.5 costs $4 input and $20 output per million tokens on Anthropic's API and on both Google Cloud options, and Google says both options carry the same pricing. US-only inference adds 1.1x on the Anthropic-managed option, and multi-region or regional endpoints add 10 percent on the Google-managed option."
+  ],
+  [
+   "What is the difference between Anthropic managed and Google managed Claude?",
+   "Who runs it and how fast features arrive. Anthropic managed: Anthropic is the data processor, Claude Platform features such as Managed Agents, code execution and fast mode arrive on day one, and setup creates a new Anthropic organization. Google managed: Google is the data processor under your Google Cloud agreements, with VPC Service Controls, data residency in the US, EU and APAC, and new features once Google integrates them."
+  ],
+  [
+   "When will OpenAI models be available on Google Cloud?",
+   "Google says GPT-6 Astra, GPT-6.1 Sol and GPT-6 Luna are rolling out in private preview to select enterprise customers in Model Garden, and OpenAI says general availability is planned in the coming weeks. Access during the preview is by request through OpenAI's form."
+  ],
+  [
+   "Can I use my Google Cloud commitment to pay for Claude or OpenAI models?",
+   "Yes for Claude: Anthropic's setup guide says Anthropic-managed usage counts toward a Google Cloud spend commitment the way other Marketplace purchases do. OpenAI and Google say OpenAI usage will draw down commitments and count toward Flexible Savings Plans. Neither guide says promotional credits apply, so check with Google before planning around credits."
+  ],
+  [
+   "Can I use an Anthropic API key with Claude on Google Cloud?",
+   "No. The Anthropic-managed option accepts Google Cloud credentials only, and setup creates a new Anthropic organization for your project that is separate from any Anthropic organization you already have, so usage history and zero data retention agreements do not carry over."
+  ]
+ ],
+ "image": {
+  "cluster": "AI model pricing",
+  "takeaway": "Claude costs the same on Google Cloud as on Anthropic's API; OpenAI models are in private preview there.",
+  "alt": "Claude and OpenAI on Google Cloud: Claude at Anthropic's list prices on your Google Cloud bill, OpenAI models in private preview",
+  "chart": {
+   "title": "Claude output price per million tokens on Google Cloud",
+   "subtitle": "List price per million output tokens on Google Cloud, read October 23, 2026.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Claude Haiku 5.5",
+     0.5
+    ],
+    [
+     "Claude Sonnet 5.5",
+     10
+    ],
+    [
+     "Claude Opus 5.5",
+     20
+    ],
+    [
+     "Opus 5.5 fast mode",
+     40
+    ],
+    [
+     "Claude Fable 5.1",
+     50
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 3,
+   "note": [
+    "Anthropic-managed",
+    "option only"
+   ],
+   "source": "Standard global rates; Haiku for prompts up to 100K tokens. Source: platform.claude.com, October 2026",
+   "alt": "Bar chart of Claude output prices per million tokens on Google Cloud: Haiku 5.5 0.50 dollars, Sonnet 5.5 10, Opus 5.5 20, Opus 5.5 fast mode 40 on the Anthropic-managed option only, and Fable 5.1 50.",
+   "after_heading": "What Claude costs on Google Cloud"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Anthropic-managed Claude on Google Cloud, generally available",
+    "value": "22 October 2026"
+   },
+   {
+    "label": "Claude Opus 5.5 on Google Cloud, per 1M tokens",
+    "value": "$4 in, $20 out",
+    "note": "same as Anthropic's API"
+   },
+   {
+    "label": "Claude Sonnet 5.5, per 1M tokens",
+    "value": "$2 in, $10 out"
+   },
+   {
+    "label": "Claude Haiku 5.5, per 1M tokens",
+    "value": "$0.10 in, $0.50 out",
+    "note": "prompts up to 100,000 tokens"
+   },
+   {
+    "label": "Claude Fable 5.1, per 1M tokens",
+    "value": "$10 in, $50 out"
+   },
+   {
+    "label": "Opus 5.5 fast mode, per 1M tokens",
+    "value": "$8 in, $40 out",
+    "note": "Anthropic-managed option only on Google Cloud"
+   },
+   {
+    "label": "US-only inference, Anthropic-managed option",
+    "value": "1.1x",
+    "note": "inference_geo multiplier"
+   },
+   {
+    "label": "Regional or multi-region endpoint, Google-managed option",
+    "value": "10 percent",
+    "note": "premium over global endpoints"
+   },
+   {
+    "label": "Claude Consumption Unit on your Google Cloud bill",
+    "value": "$0.01"
+   },
+   {
+    "label": "OpenAI GPT-6 models on Google Cloud",
+    "value": "Private preview",
+    "note": "general availability planned in the coming weeks"
+   },
+   {
+    "label": "GPT-6.1 Sol, OpenAI API list per 1M tokens",
+    "value": "$2 in, $10 out",
+    "note": "Google Cloud price not yet published"
+   }
+  ],
+  "source": "Prices and terms read on 23 October 2026 from Anthropic's pricing page and setup guide, Google Cloud's Agent Platform price list and blog, and OpenAI's API pricing page and announcement."
+ }
+}
