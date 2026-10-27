@@ -1,0 +1,127 @@
+{
+ "slug": "gpt-6-1-terra-pricing",
+ "title": "GPT-6.1 Terra Pricing: $1 In, $5 Out, and What 10,000 Emails Cost",
+ "desc": "OpenAI's GPT-6.1 Terra costs $1 per million input tokens and $5 output, half of GPT-6.1 Sol. What 10,000 personalized cold emails cost on Terra, Sol and Luna.",
+ "keywords": "gpt-6.1 terra pricing, gpt 6.1 terra, gpt-6.1 sol vs terra, gpt-6.1 terra batch price, gpt-6.1 terra cached input, openai api pricing october 2026, ai cold email personalization cost, gpt-6 luna vs terra",
+ "date": "2026-10-27",
+ "time": "12:40",
+ "read_time": 4,
+ "word_count": 640,
+ "cta": "Want AI personalization wired into your outbound?",
+ "body": "<p><strong>October 27, 2026.</strong> OpenAI released GPT-6.1 Terra on 26 October 2026 at $1 per million input tokens, $0.05 per million cached input tokens and $5 per million output tokens, which OpenAI says is 50 percent below the standard prices of GPT-5.6 Terra and GPT-6.1 Sol. It is pitched at visual reasoning, computer use and \"clear, natural writing\", the middle of an outbound stack: personalized first lines, reply drafts and CRM notes. At list price, 10,000 personalized openers of 2,000 input and 120 output tokens each cost about $26 on Terra and $13 through the Batch API, against $52 on GPT-6.1 Sol and $2.60 on GPT-6 Luna, before any reasoning tokens.</p><p><strong>What GPT-6.1 Terra costs</strong></p><p>The <a href=\"https://developers.openai.com/api/docs/models/gpt-6.1-terra\" target=\"_blank\" rel=\"noopener noreferrer\">model page</a> and OpenAI's <a href=\"https://openai.com/index/introducing-gpt-6-1-terra/\" target=\"_blank\" rel=\"noopener noreferrer\">launch post</a> list these terms, and <a href=\"https://www.marktechpost.com/2026/10/26/openai-gpt-6-1-terra/\" target=\"_blank\" rel=\"noopener noreferrer\">MarkTechPost's launch report</a> gives the same standard rates:</p><ol><li><strong>Standard rates:</strong> $1.00 input, $0.05 cached input and $5.00 output per million tokens. Cache writes cost $1.25 per million with 30-minute retention and $2.50 with 12-hour retention.</li><li><strong>Long prompts:</strong> above 272K input tokens, the whole request is billed at 2x the input and cache rates and 1.5x output.</li><li><strong>Discounts and premiums:</strong> Batch and Flex are 50 percent lower, Fast mode costs 2x Standard and regional processing adds 10 percent where available.</li><li><strong>Limits:</strong> a 1,050,000-token context window and 128,000 max output tokens. There is no free tier; the Build tier allows 5,000 requests and 1 million tokens a minute, Launch 10,000 and 4 million, Grow 15,000 and 40 million.</li><li><strong>Where it runs:</strong> the API as gpt-6.1-terra, plus ChatGPT Work and Codex for Plus, Pro, Enterprise and Edu users.</li></ol><p><strong>How it compares for writing at volume</strong></p><p>Against the models agencies already use for personalization, Terra sits in the middle. GPT-6 Luna and Claude Haiku 5.5 cost $0.10 input and $0.50 output per million tokens (Haiku at that rate for prompts up to 100,000 tokens), and GPT-6.1 Sol and Claude Sonnet 5.5 cost $2 and $10, per OpenAI's <a href=\"https://developers.openai.com/api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">API changelog</a> and Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>, so the 10,000-email job above costs $2.60 on Luna or Haiku and $52 on Sol or Sonnet. OpenAI's case for Terra is accuracy: on its internal benchmark of error-inducing prompts, the error rate at low reasoning effort fell from 53.6 percent with GPT-5.6 Terra to 16.7 percent with GPT-6.1 Terra. OpenAI still points the most complex coding work to GPT-6.1 Sol and GPT-6 Astra.</p><p><strong>The catch: reasoning tokens bill as output</strong></p><p>Terra's reasoning effort defaults to medium and runs from none to max. OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/reasoning\" target=\"_blank\" rel=\"noopener noreferrer\">reasoning guide</a> says reasoning tokens are not visible but are billed as output tokens, so at the default setting the bill depends on how much the model thinks, not only on the 120 visible tokens. For short copy, set effort to none or low and cap max_output_tokens.</p><p><strong>What it means for operators</strong></p><ol><li><strong>Test before you switch.</strong> Run 200 real prospects through Terra and Luna and pay Terra's rate only where replies show the difference.</li><li><strong>Batch the bulk work.</strong> Personalization is not real time, so the Batch API halves the bill.</li><li><strong>Put shared instructions first</strong> so repeated prompt prefixes bill at the $0.05 cached rate.</li><li><strong>Price voice separately.</strong> GPT-Live sessions bill $0.05 a minute, and the backend model they delegate to is billed on top at its normal rates; see our <a href=\"/blog/gpt-live-pricing/\">GPT-Live pricing</a> breakdown and how we build <a href=\"/ai-calling-home-services\">AI calling for home services</a>.</li><li><strong>Cheaper copy does not fix deliverability.</strong> Inbox placement still depends on your domains and <a href=\"/email-infrastructure\">email infrastructure</a>.</li></ol><p>We wire these models into outbound and CRM workflows as an <a href=\"/ai-automation-agency\">AI automation agency</a> and run the <a href=\"/cold-email-marketing\">cold email campaigns</a> they write for. For the caching math, see our <a href=\"/blog/openai-prompt-caching-pricing/\">OpenAI prompt caching pricing</a> guide.</p>",
+ "faqs": [
+  [
+   "How much does GPT-6.1 Terra cost?",
+   "$1 per million input tokens, $0.05 per million cached input tokens and $5 per million output tokens at standard rates. Cache writes cost $1.25 per million with 30-minute retention and $2.50 with 12-hour retention, and prompts over 272K input tokens bill at 2x input and 1.5x output."
+  ],
+  [
+   "Is GPT-6.1 Terra cheaper than GPT-6.1 Sol?",
+   "Yes. GPT-6.1 Sol lists at $2 input and $10 output per million tokens, so Terra is half the price at standard rates. OpenAI still recommends Sol and GPT-6 Astra for the most complex coding tasks."
+  ],
+  [
+   "Does GPT-6.1 Terra have a Batch discount?",
+   "Yes. OpenAI prices Batch and Flex 50 percent below Standard, so bulk jobs such as overnight email personalization cost half. Fast mode costs twice Standard."
+  ],
+  [
+   "What does it cost to personalize 10,000 cold emails with GPT-6.1 Terra?",
+   "About $26 at standard list prices if each request uses 2,000 input tokens and 120 output tokens with no caching or reasoning tokens, or about $13 through the Batch API. The same job costs about $52 on GPT-6.1 Sol and $2.60 on GPT-6 Luna."
+  ]
+ ],
+ "image": {
+  "cluster": "AI pricing",
+  "takeaway": "GPT-6.1 Terra costs $1 per million input tokens and $5 per million output tokens, half of GPT-6.1 Sol.",
+  "alt": "GPT-6.1 Terra pricing: $1 per million input tokens and $5 per million output tokens, compared with GPT-6.1 Sol, GPT-6 Luna and Claude models",
+  "chart": {
+   "title": "Cost of 10,000 personalized cold emails by model",
+   "subtitle": "10,000 requests of 2,000 input and 120 output tokens at standard list prices, no caching or reasoning tokens.",
+   "type": "hbar",
+   "rows": [
+    [
+     "GPT-6 Luna",
+     2.6
+    ],
+    [
+     "Claude Haiku 5.5",
+     2.6
+    ],
+    [
+     "GPT-6.1 Terra, Batch",
+     13.0
+    ],
+    [
+     "GPT-6.1 Terra",
+     26.0
+    ],
+    [
+     "GPT-6.1 Sol",
+     52.0
+    ],
+    [
+     "Claude Sonnet 5.5",
+     52.0
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 3,
+   "note": [
+    "Half of Sol at",
+    "standard rates"
+   ],
+   "source": "Our arithmetic on list prices. Source: developers.openai.com, platform.claude.com, October 2026",
+   "alt": "Bar chart of what 10,000 personalized cold emails cost by model: about $2.60 on GPT-6 Luna or Claude Haiku 5.5, $13 on GPT-6.1 Terra through Batch, $26 on GPT-6.1 Terra, and $52 on GPT-6.1 Sol or Claude Sonnet 5.5.",
+   "after_heading": "How it compares for writing at volume"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "GPT-6.1 Terra input, per million tokens",
+    "value": "$1.00"
+   },
+   {
+    "label": "GPT-6.1 Terra cached input, per million tokens",
+    "value": "$0.05"
+   },
+   {
+    "label": "GPT-6.1 Terra output, per million tokens",
+    "value": "$5.00"
+   },
+   {
+    "label": "Cache write, 30-minute or 12-hour retention",
+    "value": "$1.25 or $2.50",
+    "note": "per million tokens"
+   },
+   {
+    "label": "Batch and Flex discount",
+    "value": "50 percent"
+   },
+   {
+    "label": "Prompts over 272K input tokens",
+    "value": "2x input, 1.5x output"
+   },
+   {
+    "label": "Context window",
+    "value": "1,050,000 tokens"
+   },
+   {
+    "label": "GPT-6.1 Sol input and output, per million tokens",
+    "value": "$2 and $10"
+   },
+   {
+    "label": "GPT-6 Luna input and output, per million tokens",
+    "value": "$0.10 and $0.50"
+   },
+   {
+    "label": "10,000 personalized emails on Terra",
+    "value": "$26.00",
+    "note": "$13.00 through Batch, no caching"
+   },
+   {
+    "label": "Build tier rate limit",
+    "value": "5,000 RPM, 1M TPM"
+   }
+  ],
+  "source": "Prices and limits read on 27 October 2026 from OpenAI's GPT-6.1 Terra model page, API changelog and launch post, and Anthropic's pricing page; the email cost is our arithmetic."
+ }
+}
