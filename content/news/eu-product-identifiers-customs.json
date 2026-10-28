@@ -1,0 +1,128 @@
+{
+  "slug": "eu-product-identifiers-customs",
+  "title": "EU Product Identifiers: M-PID, NS-PID and S-PID From November 1",
+  "desc": "From November 1, 2026, EU customs needs an M-PID, an NS-PID and any barcode for each item sold to EU customers from outside the EU. How Shopify fills them in.",
+  "keywords": "eu product identifier, eu product identifiers, ns-pid, m-pid, s-pid, eu customs product identifiers, eu customs changes 2026, y081, shopify eu product identifiers, eu customs duty, eu handling fee",
+  "date": "2026-10-28",
+  "time": "10:24",
+  "read_time": 7,
+  "word_count": 1576,
+  "cta": "Need your Shopify catalog ready for EU customs?",
+  "body": "<p><strong>October 28, 2026.</strong> From November 1, 2026, EU customs requires product identifiers for each item sold online from outside the EU to customers in the EU: the merchant code assigned by the seller, marketplace or platform (M-PID), the manufacturer's code (NS-PID) and, where one exists, a standard barcode such as an EAN, UPC or GTIN (S-PID). The requirement sits in <a href=\"https://eur-lex.europa.eu/eli/reg_del/2026/1022/oj/eng\" target=\"_blank\" rel=\"noopener noreferrer\">Commission Delegated Regulation (EU) 2026/1022</a>, the Commission's guidance limits it to goods worth €150 or less, and enforcement starts in four days, at the end of a voluntary period that runs from July 1 to October 31. Shopify says that from November 1 it will not sell a Shopify Shipping or Managed Markets label for an EU parcel worth €150 or less while an item is missing them.</p><p><strong>What the EU now requires</strong></p><ol><li><strong>Three identifiers, defined in law.</strong> Article 1 of the regulation defines the merchant product identifier as one \"assigned by an online seller, marketplace or platform\", and the two manufacturer identifiers as codes \"assigned by a manufacturer, producer or product supplier\": one that \"does not rely on\" internationally recognised standards and one that \"relies on\" them.</li><li><strong>Per item, not per parcel.</strong> The annex note says the M-PID, the NS-PID and, \"if it exists for the item\", the S-PID \"shall be provided for each item\". Article 1(61) defines an item as goods in a consignment sharing \"the same tariff classification, description\" and, where it is given, origin. Goods in different tariff lines are separate items, and where two products share one item line the guidance says the identifiers of each product are reported.</li><li><strong>Mandatory from November 1, voluntary since July 1.</strong> Article 2(3) applies point (2)(a) and (b) of the annex, the notes that add the identifiers, from 1 November 2026, and lets operators send the data voluntarily from July 1. The Commission's <a href=\"https://taxation-customs.ec.europa.eu/document/download/053e5b4e-f0be-4f20-9a23-3e3b659a6676_en\" target=\"_blank\" rel=\"noopener noreferrer\">guidance of October 5, 2026</a> says no sanction could be imposed during the voluntary period and that \"Effective enforcement starts from 1 November 2026.\"</li><li><strong>The €150 ceiling comes from the guidance.</strong> The guidance applies the rule to \"goods sold in distance sales of imported goods with an intrinsic value not exceeding EUR 150\", says the Commission \"is in the process of amending Annex B\" to state that, and says business-to-business flows are \"in principle not concerned\". The note in the regulation as published does not carry the ceiling. <a href=\"https://community.ebay.com/forum/announcements-57928/topic/eu-customs-update-new-product-identifier-requirements-483242/\" target=\"_blank\" rel=\"noopener noreferrer\">eBay told its sellers on September 28</a> that the rule applies \"regardless of item value\", and <a href=\"https://tulli.fi/en/-/customs-duty-exemption-for-imports-of-small-value-removed-on-1-july-2026-new-codes-for-import-declarations\" target=\"_blank\" rel=\"noopener noreferrer\">Finnish Customs</a> says identifiers are obligatory \"for all consignments as of 1 November 2026\". The guidance itself says it \"does not constitute a legally binding act\".</li><li><strong>The goal is better controls.</strong> The Commission's <a href=\"https://taxation-customs.ec.europa.eu/news/guidance-and-legal-text-temporary-flat-fee-low-value-imports-which-will-apply-until-1-july-2028-2026-06-08_en\" target=\"_blank\" rel=\"noopener noreferrer\">June 8 announcement</a> says identifiers help customs \"detect and block unsafe or non-compliant goods\", and the guidance calls them a first step, to be followed by more product data requirements once the EU Customs Data Hub for e-commerce is deployed from July 2028.</li></ol><p>This is general information, not legal advice.</p><p><strong>The three identifiers and their customs codes</strong></p><p>C127 to C129 are customs document codes, and Y081 is an additional reference code that flags a missing barcode. The codes are from the Commission guidance and Finnish Customs' notice, updated October 5.</p><table><thead><tr><th>Identifier</th><th>Who assigns it</th><th>Customs code</th><th>When it is required</th><th>Typical example</th></tr></thead><tbody><tr><td>M-PID (merchant)</td><td>The online seller, marketplace or platform</td><td>C127</td><td>Always</td><td>Your Shopify product variant, an eBay listing ID</td></tr><tr><td>NS-PID (non-standardised manufacturer)</td><td>The manufacturer, producer or supplier</td><td>C128</td><td>Always</td><td>Model number, part number, style code</td></tr><tr><td>S-PID (standardised manufacturer)</td><td>The manufacturer, producer or supplier, under an international standard</td><td>C129</td><td>Where one exists</td><td>EAN, UPC, GTIN, ISBN</td></tr><tr><td>No S-PID exists</td><td>Flagged in the customs data (in Shopify, a product setting)</td><td>Y081</td><td>Only when the item has no standard barcode</td><td>A product with no GTIN, EAN, UPC or ISBN</td></tr></tbody></table><p>The guidance says the M-PID and NS-PID are required \"in all cases, with no exception\" and that the three are \"by definition and by design\" different. It calls a manufacturer that uses its barcode as its part number an \"exceptional\" case, in which C128 and C129 carry the same code. Shopify and eBay both let the standard barcode stand in for the NS-PID, and Shopify's last fallback for the NS-PID is the variant ID, the same value it uses for the M-PID. Each identifier also has to refer to exactly one variant: same brand, size, colour and packaging.</p><p><strong>How Shopify fills them in</strong></p><p>The <a href=\"https://changelog.shopify.com/posts/new-eu-product-identifiers-supported-on-shopify-shipping-managed-markets-labels\" target=\"_blank\" rel=\"noopener noreferrer\">Shopify changelog entry of October 24</a> and its <a href=\"https://help.shopify.com/en/manual/international/shipping/eu-product-identifiers\" target=\"_blank\" rel=\"noopener noreferrer\">Help Center page</a> set out how the admin maps your product data to the three codes:</p><ol><li><strong>M-PID:</strong> \"The product variant's ID is used, so you don't need to add anything.\"</li><li><strong>S-PID:</strong> a barcode saved with the GTIN, EAN, UPC or ISBN type. A barcode saved as Custom also counts when it is a valid GTIN of 8, 12, 13 or 14 digits. If the item has no standard barcode, you turn on \"Has no standardized identifier\" in the Shipping section's More details card, which customs reads as Y081.</li><li><strong>NS-PID:</strong> a barcode with the NS-PID type holding the manufacturer's model number, part number or style code; the changelog adds that \"You can also use your own product code or SKU.\" If there is none, Shopify falls back to the standard barcode, then any other barcode, then the SKU, then the variant ID.</li><li><strong>Labels:</strong> from November 1, a label for a parcel worth €150 or less cannot be bought while an item lacks a standard barcode or the no-barcode declaration. You can fix it on the label page under Edit customs declaration, and what you enter for a linked product is saved back to it.</li></ol><p><strong>Goods with lighter rules, and goods without</strong></p><p>The guidance sets an administrative tolerance for some goods, provided they are classified under listed commodity codes: unprocessed agricultural and perishable goods in chapters 1 to 15, listed handmade and artisanal goods, and antiques, collectibles, art, stamps and coins under headings 9701 to 9706. These are \"deemed administratively to comply\" when the text \"M-PID\" is declared in C127 and \"NS-PID\" in C128. Shopify says it uses HS codes to identify exempt products and applies the exemption for you, that you cannot mark a product exempt yourself, and it does not say what it sends to customs for those items.</p><p>Outside the listed codes, the guidance says second-hand, refurbished, custom, personalised and print-on-demand goods \"shall comply\". It asks for the original product's identifier on a second-hand good and says the identifier of the underlying textile \"should be provided\" for \"a textile personalised with an individual logo or name\", which matters for print-on-demand stores that ship from outside the EU.</p><p>This is general information, not legal advice.</p><p><strong>EU charges on a parcel from November 1</strong></p><p>The identifiers arrive on the same date as the €2 Union handling fee. The Commission's <a href=\"https://taxation-customs.ec.europa.eu/customs/eu-customs-reform_en\" target=\"_blank\" rel=\"noopener noreferrer\">customs reform page</a> says: \"From 1 November 2026, the EU will apply the €2 Union handling fee.\" The guidance says the fee applies per item, like the temporary €3 customs duty on goods in consignments up to €150 (from July 1, 2026 to July 1, 2028), but \"irrespective of the items' value\". Our <a href=\"/blog/eu-customs-handling-fee/\">explainer on the €2 handling fee</a> and our <a href=\"/blog/eu-customs-duty-low-value-parcels-news-july-8-2026/\">July report on the €3 duty</a> cover both charges. For a hypothetical parcel worth €150 or less, with each product in a different tariff line:</p><table><thead><tr><th>Items in the parcel</th><th>€3 duty</th><th>€2 handling fee</th><th>EU charges before VAT</th><th>Identifier entries (most)</th></tr></thead><tbody><tr><td>1</td><td>€3</td><td>€2</td><td>€5</td><td>3</td></tr><tr><td>2</td><td>€6</td><td>€4</td><td>€10</td><td>6</td></tr><tr><td>3</td><td>€9</td><td>€6</td><td>€15</td><td>9</td></tr><tr><td>4</td><td>€12</td><td>€8</td><td>€20</td><td>12</td></tr></tbody></table><p>The last column counts an M-PID, an NS-PID and an S-PID per item (Y081 replaces the third where no barcode exists). Carrier and broker charges are not included. If you are choosing between collecting duties at checkout and leaving them to the customer, our note on <a href=\"/blog/shopify-managed-markets-ddu-ddp-news-august-12-2026/\">Shopify's duty settings</a> is the related reading.</p><p><strong>What it means for operators</strong></p><p>Shopify's help page says a parcel missing identifiers \"can be held or rejected at customs\" and that you might be charged return-to-origin fees. With four days left, we would work through it in this order:</p><ol><li><strong>Find the EU-bound variants with no barcode</strong> and fill them in bulk; Shopify says you can import a CSV file or use the bulk editor.</li><li><strong>Add the manufacturer's part or model number as an NS-PID barcode</strong> wherever one exists. Shopify accepts your own code or SKU, but the guidance says the three identifiers differ by design, so we would not rely on the variant ID fallback. If unsure, ask your customs broker.</li><li><strong>Turn on \"Has no standardized identifier\" only for items that truly have no barcode.</strong> Shopify says that once it is on, no S-PID is sent for that item even if one is saved.</li><li><strong>Check HS codes.</strong> Shopify's help page says the HS code decides whether an item is exempt, and you cannot mark an exemption by hand.</li><li><strong>Ask your 3PL, carrier or broker how the identifiers should reach them</strong> if you buy labels outside Shopify, as Shopify advises. On eBay, where the listing ID is the M-PID, add the manufacturer part number and any GTIN, EAN, UPC or ISBN to your listings.</li></ol><p>For a catalog with hundreds of variants and no barcodes, this is a data job: matching supplier spreadsheets to variants and importing them. Our <a href=\"/hire-shopify-expert\">Shopify developers</a> can take on that clean-up as part of our <a href=\"/ecommerce\">e-commerce services</a>, and our <a href=\"/shopify-app-reviews\">Shopify app reviews</a> compare the apps merchants run their stores on. This is general information, not legal advice.</p>",
+  "faqs": [
+    [
+      "What are the EU product identifiers M-PID, S-PID and NS-PID?",
+      "From November 1, 2026, EU customs requires them for each item sold to EU customers from outside the EU (the Commission guidance limits this to goods worth €150 or less). The M-PID is assigned by the online seller, marketplace or platform, the NS-PID is a code from the manufacturer, producer or supplier such as a model or part number, and the S-PID is a standard barcode such as an EAN, UPC, GTIN or ISBN, where one exists. Customs reads them under codes C127, C128 and C129."
+    ],
+    [
+      "When do EU product identifiers become mandatory?",
+      "On November 1, 2026. Delegated Regulation (EU) 2026/1022 lets operators send them voluntarily from July 1, 2026, and the Commission's guidance says no sanction could be imposed during that voluntary period and that effective enforcement starts on November 1."
+    ],
+    [
+      "Do EU product identifiers apply to parcels over €150?",
+      "The Commission's guidance of October 5, 2026 limits the rule to goods with an intrinsic value not exceeding €150 and says Annex B is being amended to state that. The published regulation text does not carry the ceiling, eBay told sellers the rule applies regardless of item value, and Finnish Customs says all consignments, so we suggest adding identifiers to every product you ship to EU customers. This is general information, not legal advice."
+    ],
+    [
+      "What happens if a parcel to the EU has no product identifiers?",
+      "Shopify's help page says it can be held or rejected at customs and you might be charged return-to-origin fees. From November 1, Shopify will not sell a Shopify Shipping or Managed Markets label for an EU parcel worth €150 or less while an item lacks a standard barcode or the no-barcode declaration."
+    ],
+    [
+      "What if my product has no barcode?",
+      "Declare that no standardised identifier exists, which customs reads as code Y081; in Shopify the setting is \"Has no standardized identifier\" in the product's Shipping section. You still need the M-PID and the NS-PID, which the Commission guidance says are required in all cases."
+    ],
+    [
+      "Do EU product identifiers apply to B2B shipments?",
+      "The Commission's guidance says the requirement applies mainly to goods imported to customers in the EU (B2C) and that business-to-business flows are in principle not concerned. This is general information, not legal advice."
+    ]
+  ],
+  "image": {
+    "cluster": "EU customs",
+    "takeaway": "Each item sold to EU customers from outside the EU needs a merchant code and a manufacturer code.",
+    "alt": "EU product identifiers M-PID, NS-PID and S-PID, required from November 1, 2026 for items sold from outside the EU to EU customers",
+    "chart": {
+      "title": "EU charges on a parcel from November 1, by item count",
+      "subtitle": "Hypothetical parcel worth EUR 150 or less, each item in a different tariff line: EUR 3 duty plus EUR 2 handling fee per item, before VAT.",
+      "type": "hbar",
+      "rows": [
+        [
+          "1 item",
+          5
+        ],
+        [
+          "2 items",
+          10
+        ],
+        [
+          "3 items",
+          15
+        ],
+        [
+          "4 items",
+          20
+        ]
+      ],
+      "prefix": "EUR ",
+      "suffix": "",
+      "highlight": 2,
+      "note": [
+        "Three items:",
+        "EUR 9 duty + EUR 6 fee"
+      ],
+      "source": "Our arithmetic on the Commission guidance of 5 October 2026. Source: taxation-customs.ec.europa.eu, October 2026",
+      "alt": "Bar chart of EU charges on a hypothetical parcel worth 150 euros or less from November 1, 2026, each item in a different tariff line: 5 euros for one item, 10 for two, 15 for three and 20 for four, before VAT.",
+      "after_heading": "EU charges on a parcel from November 1"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Product identifiers mandatory from",
+        "value": "November 1, 2026"
+      },
+      {
+        "label": "Voluntary period",
+        "value": "July 1 to October 31, 2026",
+        "note": "no sanctions, per the Commission"
+      },
+      {
+        "label": "Identifiers per product (most)",
+        "value": "3",
+        "note": "M-PID and NS-PID always; S-PID where it exists"
+      },
+      {
+        "label": "Value covered, per the Commission guidance",
+        "value": "€150 or less"
+      },
+      {
+        "label": "Customs codes",
+        "value": "C127, C128, C129",
+        "note": "Y081 flags a missing barcode"
+      },
+      {
+        "label": "Valid GTIN length for a Shopify Custom barcode",
+        "value": "8, 12, 13 or 14 digits"
+      },
+      {
+        "label": "HS chapters with an administrative tolerance",
+        "value": "1 to 15",
+        "note": "unprocessed agricultural and perishable goods"
+      },
+      {
+        "label": "Temporary EU customs duty",
+        "value": "€3 per item",
+        "note": "consignments up to €150"
+      },
+      {
+        "label": "Union handling fee from November 1, 2026",
+        "value": "€2 per item",
+        "note": "any value, distance sales"
+      },
+      {
+        "label": "Hypothetical three-item parcel, EU charges before VAT",
+        "value": "€15",
+        "note": "each item in a different tariff line"
+      }
+    ],
+    "source": "Regulation text, Commission guidance (version of 5 October 2026), Finnish Customs, Shopify and eBay pages read on 28 October 2026; the parcel charge is our arithmetic."
+  }
+}

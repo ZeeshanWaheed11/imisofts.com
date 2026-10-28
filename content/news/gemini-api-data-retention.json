@@ -1,0 +1,103 @@
+{
+  "slug": "gemini-api-data-retention",
+  "title": "Gemini API Data Retention: New Projects Store Requests by Default",
+  "desc": "Since October 26, 2026, new paid Gemini API projects store Generate Content API requests by default, with 55-day logs. How to shorten it or set store=false.",
+  "keywords": "gemini api data retention, gemini api logging, gemini api privacy, gemini api store false, gemini api logs 55 days, google ai studio logs and datasets, gemini generate content api storage",
+  "date": "2026-10-28",
+  "time": "10:20",
+  "read_time": 3,
+  "word_count": 677,
+  "cta": "Want your AI integrations to keep only what they need?",
+  "body": "<p><strong>October 28, 2026.</strong> Since October 26, 2026, new Gemini API projects on the paid tier store Generate Content API requests by default, prompt and response included, and those logs expire and are marked for deletion after 55 days unless you shorten the window to 7, 14 or 28 days or turn storage off. Projects created before October 26 keep their old setting, which is off unless someone enabled logging in Google AI Studio. For a store or agency sending customer emails, orders or call notes through a new Gemini project, that is a stored copy of the data to account for.</p><p><strong>What Google changed</strong></p><ol><li><strong>Storage on by default for new projects.</strong> The <a href=\"https://ai.google.dev/gemini-api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini API release notes for October 26</a> say generateContent, streamGenerateContent and batchGenerateContent requests in new paid-tier projects are now stored by default (store=true), \"matching the Interactions API\".</li><li><strong>Existing projects are unchanged.</strong> The <a href=\"https://ai.google.dev/gemini-api/docs/logs-datasets\" target=\"_blank\" rel=\"noopener noreferrer\">Logs and datasets page</a> says older projects keep the Generate Content API at store=false unless logging was enabled in AI Studio.</li><li><strong>55 days by default.</strong> The page says logs \"will expire and be marked for deletion after a default retention window of 55 days\", and the window can be set to 7, 14, 28 or 55 days. Logs saved to a dataset do not expire.</li><li><strong>Two ways out.</strong> Set store=false on a request, which overrides the project setting, or turn off Generate Content API logging in the Settings panel of the logs dashboard. The per-request flag needs google-genai 2.33.0 or later for Python, @google/genai 2.31.0 or later for JavaScript, google-genai 1.79.0 or later for Java and google.golang.org/genai 1.76.0 or later for Go.</li></ol><p><strong>What is stored, and what Google does with it</strong></p><p>Google describes logging as a way to \"observe, debug, and optionally share usage feedback with Google\". In AI Studio you can \"inspect the full prompt and response from Gemini, and the context from the previous turns\", save logs to datasets, export datasets as CSV, JSONL or Google Sheets, and choose to share datasets with Google. Inputs containing videos, GIFs or PDFs, Imagen and Veo, Gemini embedding models, the Gemini Robotics model and Public Preview Agents are not logged. The page lists no fee for storage.</p><p>Google's <a href=\"https://ai.google.dev/gemini-api/terms\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini API Additional Terms</a> describe a further kind of logging. On paid services, Google says it does not use your prompts or responses to improve its products, and that it \"logs prompts and responses for a limited period of time, solely for detecting and preventing violations of the Prohibited Use Policy to maintain the safety and security of the Services, and any required legal or regulatory disclosures.\" Grounding with Google Search stores prompts, contextual information and output for 30 days. On the unpaid tier, Google says it uses your content to improve its products and that you should not submit sensitive, confidential or personal information.</p><p>This is general information, not legal advice.</p><p><strong>What it means for operators</strong></p><p>In our view the risk is a new project nobody configured: a staff member's prototype, a vibe-coded app, a client build. For a hypothetical store sending 300 requests a day through Gemini, the default window keeps about 16,500 stored requests at any time; a 7-day window keeps 2,100.</p><ol><li><strong>List every Gemini project created since October 26,</strong> plus older ones where someone enabled logging, and decide per project whether you want the logs for debugging.</li><li><strong>Shorten the window</strong> where you keep them, and set store=false in code for requests that carry customer data, so the choice survives a settings change.</li><li><strong>Check your privacy notice and client contracts</strong> for a stated retention period, and make sure 55 days fits it, remembering that datasets do not expire.</li></ol><p>For a law firm, those logs may hold client-confidential material. If you are planning <a href=\"/ai-intake-law-firms\">AI intake for a law firm</a> or <a href=\"/ai-calling-home-services\">AI calling for a home services business</a>, ask whoever builds it which projects hold the transcripts and for how long. Our <a href=\"/ai-automation-agency\">AI automation team</a> can review an existing Gemini integration. For related reading, see our pages on the <a href=\"/blog/gemini-api-free-tier-limits/\">Gemini API free tier limits</a> and on <a href=\"/blog/openai-api-hipaa-baa/\">whether the OpenAI API is HIPAA compliant</a>.</p>",
+  "faqs": [
+    [
+      "Does the Gemini API store my prompts?",
+      "For paid-tier projects created on or after October 26, 2026, Generate Content API requests are stored by default as project logs, prompt and response included; older projects keep that storage off unless logging was enabled in AI Studio, and the Interactions API stores requests by default. Separately, Google's terms say it logs paid-tier prompts and responses for a limited period for abuse detection, and Grounding with Google Search stores prompts for 30 days."
+    ],
+    [
+      "How long does Gemini keep API logs?",
+      "Project logs expire after a default window of 55 days, and you can set a project to 7, 14, 28 or 55 days. Logs you save to a dataset do not expire."
+    ],
+    [
+      "How do I turn off Gemini API logging?",
+      "Set store=false on each request, which overrides the project setting, or turn off Generate Content API logging in the Settings panel of the Logs and Datasets dashboard. The per-request flag needs google-genai 2.33.0 or later for Python or @google/genai 2.31.0 or later for JavaScript. This covers project logs only, not the abuse logging described in Google's terms."
+    ],
+    [
+      "Does Google use Gemini API prompts to improve its products?",
+      "Google's Gemini API Additional Terms say that on paid services it does not use your prompts or responses to improve its products, unless you choose to share datasets with Google. On the unpaid tier it says it does, and that you should not submit sensitive, confidential or personal information."
+    ]
+  ],
+  "image": {
+    "cluster": "AI data policy",
+    "takeaway": "New paid Gemini API projects now store requests by default; logs expire after 55 days.",
+    "alt": "Gemini API data retention: new paid-tier projects store Generate Content API requests by default since October 26, 2026, with a 55-day log window",
+    "chart": {
+      "title": "Stored Gemini requests at 300 a day, by log window",
+      "subtitle": "A hypothetical store sending 300 requests a day; logs saved to datasets, which do not expire, are not counted.",
+      "type": "hbar",
+      "rows": [
+        [
+          "7 days",
+          2100
+        ],
+        [
+          "14 days",
+          4200
+        ],
+        [
+          "28 days",
+          8400
+        ],
+        [
+          "55 days (default)",
+          16500
+        ]
+      ],
+      "prefix": "",
+      "suffix": "",
+      "highlight": 3,
+      "note": [
+        "55-day default",
+        "retention window"
+      ],
+      "source": "Our arithmetic on the retention options. Source: ai.google.dev, October 2026",
+      "alt": "Bar chart of stored Gemini API requests for a hypothetical store sending 300 a day: 2,100 at a 7-day window, 4,200 at 14 days, 8,400 at 28 days and 16,500 at the 55-day default.",
+      "after_heading": "What it means for operators"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Storage on by default for new paid projects",
+        "value": "October 26, 2026"
+      },
+      {
+        "label": "Default log retention window",
+        "value": "55 days"
+      },
+      {
+        "label": "Other retention windows",
+        "value": "7, 14 or 28 days"
+      },
+      {
+        "label": "Logs saved to a dataset",
+        "value": "do not expire"
+      },
+      {
+        "label": "Grounding with Google Search storage",
+        "value": "30 days"
+      },
+      {
+        "label": "Python SDK needed for store=false",
+        "value": "google-genai 2.33.0 or later",
+        "note": "JavaScript @google/genai 2.31.0 or later"
+      },
+      {
+        "label": "Hypothetical 300 requests a day, default window",
+        "value": "16,500",
+        "note": "2,100 at 7 days"
+      }
+    ],
+    "source": "Read on 28 October 2026 from the Gemini API release notes, the Logs and datasets page and the Gemini API Additional Terms; the stored-request counts are our arithmetic."
+  }
+}
