@@ -1,0 +1,103 @@
+{
+ "slug": "claude-sonnet-4-5-retirement",
+ "title": "Claude Sonnet 4.5 API Retires Nov 30: What Sonnet 5.5 Costs",
+ "desc": "Sonnet 4.5 leaves the Claude API on November 30, 2026. Sonnet 5.5 lists at $2/$10 per million tokens; on our math its tokenizer trims the saving to about 13%.",
+ "keywords": "claude sonnet 4.5 retirement, claude sonnet 4.5 deprecation, claude-sonnet-4-5-20250929, claude model deprecation, claude sonnet 5.5 pricing, sonnet 4.5 to sonnet 5.5 migration",
+ "date": "2026-10-30",
+ "time": "12:40",
+ "read_time": 4,
+ "word_count": 709,
+ "cta": "Moving AI agents off Sonnet 4.5?",
+ "body": "<p><strong>October 30, 2026.</strong> Anthropic retires Claude Sonnet 4.5 (claude-sonnet-4-5-20250929) on the Claude API on November 30, 2026, 31 days after October 30, and after that date requests to it fail. The recommended replacement, Claude Sonnet 5.5, lists at $2 input and $10 output per million tokens against $3 and $15. But Anthropic says Claude 4.7 and later models, which by version number include Sonnet 5.5, use a newer tokenizer that produces about 30% more tokens for the same text. On our arithmetic the saving on the same work could be closer to 13% than a third. Retell AI's October 29 notice says it replaces Claude Sonnet 4.5 with claude-5.5-sonnet and that existing configurations \"will be automatically migrated\".</p><p><strong>What Anthropic announced</strong></p><ol><li><strong>A dated retirement.</strong> Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/model-deprecations\" target=\"_blank\" rel=\"noopener noreferrer\">model deprecations page</a> says that on September 30, 2026 it notified developers using Claude Sonnet 4.5 of its retirement on the Claude API, set for November 30, 2026, with claude-sonnet-5-5 as the recommended replacement.</li><li><strong>Deprecated now, failing later.</strong> A deprecated model \"is still functional but no longer recommended\". The page adds: \"Requests to models past the retirement date will fail.\"</li><li><strong>Which platforms.</strong> The dates apply to the Claude API, Claude Platform on AWS, Claude Models on Google Cloud (Anthropic managed) and Microsoft Foundry. Amazon Bedrock and Google-managed Claude on Google Cloud \"set their own retirement schedules\", which we did not check.</li><li><strong>The alternatives' own dates.</strong> In the page's tentative retirement column, Claude Sonnet 4.6 is active with retirement \"not sooner than February 17, 2027\" and Sonnet 5.5 \"not sooner than September 28, 2027\".</li></ol><p><strong>What moving to Sonnet 5.5 costs</strong></p><table><thead><tr><th>Per million tokens</th><th>Sonnet 4.5 and 4.6</th><th>Sonnet 5.5</th></tr></thead><tbody><tr><td>Input</td><td>$3</td><td>$2</td></tr><tr><td>Output</td><td>$15</td><td>$10</td></tr><tr><td>5-minute cache write</td><td>$3.75</td><td>$2.50</td></tr><tr><td>1-hour cache write</td><td>$6</td><td>$4</td></tr><tr><td>Cache hit</td><td>$0.30</td><td>$0.10</td></tr></tbody></table><p>Prices are from <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Anthropic's pricing page</a> as listed on 30 October 2026. The catch is the tokenizer: Anthropic says Claude 4.7 and later models use a newer one that \"produces approximately 30% more tokens for the same text\", and that \"the exact increase depends on the content and workload shape\", while Sonnet 4.6 and earlier use the previous one. Take a hypothetical task of 3,000 input and 300 output tokens counted the old way. 1,000 of them cost $13.50 on Sonnet 4.5, $9.00 on Sonnet 5.5 if the count stayed the same, and about $11.70 with 30% more tokens, about 13% less than on Sonnet 4.5. Per token, cache hits are two thirds cheaper ($0.30 to $0.10); with about 30% more tokens that is about 57% less on the same text, so in our view workloads that lean on cache hits gain the most.</p><p><strong>If your voice agent runs on Retell</strong></p><p>Retell's <a href=\"https://docs.retellai.com/deprecation-notice/2026/10-29_model_replacements\" target=\"_blank\" rel=\"noopener noreferrer\">October 29 notice</a> says it \"replaces Claude Sonnet 4.5 (claude-4.5-sonnet) with claude-5.5-sonnet\" and that \"existing configurations will be automatically migrated\". On <a href=\"https://www.retellai.com/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Retell's pricing page</a> (Standard pricing, 30 October 2026) the voice LLM line is $0.08 a minute for Claude 4.5 Sonnet and $0.064 for Claude 5.5 Sonnet, 20% lower, or $16 less per 1,000 minutes. On our reading, because Retell prices that line by the minute, the tokenizer change does not show up on it. Its chat price per AI message falls from $0.03 to $0.02.</p><p><strong>What it means for operators</strong></p><ol><li><strong>Search your code and automations</strong> for claude-sonnet-4-5-20250929 and other names for it such as claude-4.5-sonnet, including n8n nodes, Make scenarios and any agency builds you inherited, and move them before November 30.</li><li><strong>Re-test on Sonnet 5.5, not just swap the name.</strong> With more tokens per text, we would recheck max_tokens settings, context budgets and per-run cost caps.</li><li><strong>Check Bedrock or Google-managed setups separately,</strong> because those platforms set their own dates.</li><li><strong>If you need the old token count for now,</strong> Sonnet 4.6 keeps the previous tokenizer and the same price as 4.5, with retirement not before February 17, 2027.</li><li><strong>On Retell, listen to a few calls.</strong> Retell says the migration is automatic, so we suggest confirming the agent still follows its script.</li></ol><p>If an AI agent answers your phones, our <a href=\"/ai-calling-home-services\">AI calling for home services businesses</a> page explains how we set those up, and our guides to the <a href=\"/blog/best-ai-voice-agents-2026/\">best AI voice agents in 2026</a> and to an <a href=\"/blog/ai-answering-service-for-hvac/\">AI answering service for HVAC</a> compare the platforms. For the full Retell bill, see <a href=\"/blog/retell-ai-pricing/\">Retell AI pricing</a>.</p>",
+ "faqs": [
+  [
+   "When is Claude Sonnet 4.5 retired?",
+   "Anthropic retires claude-sonnet-4-5-20250929 on the Claude API on November 30, 2026. It was deprecated on September 30, 2026, and requests to it after the retirement date will fail."
+  ],
+  [
+   "What replaces Claude Sonnet 4.5?",
+   "Anthropic recommends claude-sonnet-5-5. Sonnet 4.6 is also still active, with retirement not sooner than February 17, 2027, and it keeps the older tokenizer and the same price as Sonnet 4.5."
+  ],
+  [
+   "Is Claude Sonnet 5.5 cheaper than Sonnet 4.5?",
+   "Per token, yes: $2 input and $10 output per million tokens against $3 and $15. Anthropic says its newer tokenizer produces about 30% more tokens for the same text, so on the same work the saving is about 13% on our arithmetic, varying with content and workload."
+  ],
+  [
+   "Does the November 30 date apply to Amazon Bedrock?",
+   "Not automatically. Anthropic says Amazon Bedrock and Google-managed Claude on Google Cloud set their own retirement schedules, so check Bedrock's own page. The November 30 date covers the Claude API, Claude Platform on AWS, Anthropic-managed Google Cloud and Microsoft Foundry."
+  ]
+ ],
+ "image": {
+  "cluster": "AI cost",
+  "takeaway": "Claude API requests to Sonnet 4.5 fail after November 30, 2026; Sonnet 5.5 is the named replacement.",
+  "alt": "Claude Sonnet 4.5 retires on the Claude API on November 30, 2026; on our arithmetic Sonnet 5.5 costs about 13% less on the same text",
+  "chart": {
+   "title": "Cost of 1,000 tasks: Sonnet 4.5 vs Sonnet 5.5",
+   "subtitle": "Hypothetical task of 3,000 input and 300 output tokens on the old tokenizer, standard prices.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Sonnet 4.5",
+     13.5
+    ],
+    [
+     "Sonnet 5.5, same count",
+     9.0
+    ],
+    [
+     "Sonnet 5.5 +30% tokens",
+     11.7
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 2,
+   "note": [
+    "About 13% below",
+    "Sonnet 4.5"
+   ],
+   "source": "Our arithmetic on Anthropic list prices and its about 30% tokenizer note. Source: platform.claude.com, October 2026",
+   "alt": "Bar chart of the cost of 1,000 hypothetical tasks: $13.50 on Claude Sonnet 4.5, $9.00 on Sonnet 5.5 at the same token count, and about $11.70 on Sonnet 5.5 with 30% more tokens",
+   "after_heading": "What moving to Sonnet 5.5 costs"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Claude API retirement of claude-sonnet-4-5-20250929",
+    "value": "November 30, 2026"
+   },
+   {
+    "label": "Deprecation notice sent",
+    "value": "September 30, 2026"
+   },
+   {
+    "label": "Sonnet 4.5 price per million tokens",
+    "value": "$3 in, $15 out"
+   },
+   {
+    "label": "Sonnet 5.5 price per million tokens",
+    "value": "$2 in, $10 out"
+   },
+   {
+    "label": "Extra tokens from the newer tokenizer",
+    "value": "about 30%",
+    "note": "varies by content"
+   },
+   {
+    "label": "1,000 hypothetical tasks, Sonnet 4.5 vs 5.5",
+    "value": "$13.50 vs about $11.70"
+   },
+   {
+    "label": "Retell voice LLM, Claude 4.5 vs 5.5 Sonnet",
+    "value": "$0.08 vs $0.064 a minute",
+    "note": "Standard pricing"
+   },
+   {
+    "label": "Sonnet 4.6 retirement",
+    "value": "not sooner than February 17, 2027"
+   }
+  ],
+  "source": "Anthropic's deprecations and pricing pages and Retell AI's notice and pricing page read on 30 October 2026; task costs are our arithmetic."
+ }
+}

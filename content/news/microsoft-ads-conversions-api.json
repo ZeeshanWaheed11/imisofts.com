@@ -1,0 +1,66 @@
+{
+ "slug": "microsoft-ads-conversions-api",
+ "title": "Microsoft Ads Conversions API Is GA: What CRM Teams Need",
+ "desc": "Microsoft Ads said on October 28, 2026 that its Conversions API is generally available. Limits (1,000 events, 90 days), the HubSpot route and a CRM checklist.",
+ "keywords": "microsoft ads conversions api, microsoft advertising capi, microsoft ads offline conversions, bing ads offline conversions, microsoft ads conversion tracking, uet tag microsoft ads, hubspot microsoft ads conversion events",
+ "date": "2026-10-30",
+ "time": "12:35",
+ "read_time": 4,
+ "word_count": 720,
+ "cta": "Want closed deals feeding your ad bidding?",
+ "body": "<p><strong>October 30, 2026.</strong> Microsoft Advertising announced on October 28, 2026 that its Conversions API is generally available. It sends website, app, CRM and point-of-sale conversions to Microsoft server to server, alongside the UET tag, individually or in batches of up to 1,000 events, and Microsoft's developer guide, as updated on October 30, 2026, accepts events dated within the last 90 days. In our view, for a business buying Microsoft Advertising, it gives a server-to-server route for reporting a qualified lead or a closed deal recorded in the CRM.</p><p><strong>What Microsoft announced</strong></p><ol><li><strong>General availability announced.</strong> Microsoft's <a href=\"https://about.ads.microsoft.com/en/blog/post/october-2026/build-steer-and-measure-your-campaigns-with-ai-whats-new-in-microsoft-advertising-this-october\" target=\"_blank\" rel=\"noopener noreferrer\">October 28 product update</a> says Conversions API (CAPI) is \"now generally available\" and connects \"website, apps, CRM, and point-of-sale systems\" to Microsoft Advertising \"in real time through a server-to-server connection\".</li><li><strong>Alongside UET, not instead of it.</strong> The post says CAPI \"works alongside your Universal Event Tracking tag\", capturing activity \"that may be missed due to browser limitations\". Microsoft's <a href=\"https://learn.microsoft.com/en-us/advertising/guides/uet-conversion-api-integration\" target=\"_blank\" rel=\"noopener noreferrer\">CAPI developer guide</a> recommends using CAPI with UET \"whenever possible\", and a shared eventId when the same conversion can be sent by both, so it is not counted twice.</li><li><strong>Three ways in.</strong> Direct API, Google Tag Manager or server-side tag manager, or a partner. The blog names 10 partners, including Invoca, Segment by Twilio and Tealium.</li><li><strong>HubSpot is in the guide's partner table.</strong> The guide's \"Current partner integrations\" table, read on October 30, lists 10 partners including HubSpot, marks Adobe Real-Time CDP and Switch Growth \"Coming soon\", and shows Freshpaint as early access. Salesforce and GoHighLevel are in neither list.</li><li><strong>The working limits.</strong> Up to 1,000 events per batch; eventTime \"must be within the last 90 days\" in the guide as updated October 30; store the msclkid click ID with \"a suggested retention period of 90 days\"; and restate a conversion's revenue or retract it from the count when it carries a transactionId. The guide says \"we strongly recommend sending hashed email addresses and phone numbers\" when available: normalize first (for email, trim, remove dots and any +alias from the user portion, lowercase; for phone, E.164 format), then SHA-256.</li></ol><p><strong>The HubSpot route, in HubSpot's words</strong></p><p>The HubSpot article Microsoft links to, <a href=\"https://knowledge.hubspot.com/create-and-sync-ad-conversion-events-for-your-microsoft-advertising-account\" target=\"_blank\" rel=\"noopener noreferrer\">Create and sync ad conversion events for your Microsoft Advertising account</a> (last updated October 4, 2026), lists \"All products and plans\", though \"the number of ad conversion events you can create depends on your HubSpot subscription.\" It sends a conversion when a contact's lifecycle stage changes, for example to customer, with a value you set. Two conditions and one warning: each contact must have given permission for their data to be shared, \"only lifecycle stage changes that occur after you create the conversion event will be counted\", and totals in Microsoft \"may not match\" HubSpot's own. The article does not itself use the words Conversions API; Microsoft's guide is what lists it as a CAPI partner.</p><p><strong>What it means for operators</strong></p><p>In our view this is most useful where the sale happens after the click: a booked job, a signed retainer, a demo that closed. We think ads optimized only on form fills can keep buying leads that never convert, and a closed-won signal gives the bidding something better to aim at.</p><ol><li><strong>With auto-tagging on, capture msclkid on every form</strong> and store it on the contact record, so later events can carry it.</li><li><strong>Pick one or two events with a value,</strong> such as qualified lead and closed deal. If UET also fires the same conversion, send a shared eventId to avoid double counting.</li><li><strong>Check consent before you send hashed emails or phones.</strong> Microsoft's guide says identifiers go \"where available and permitted by policy, regulation, and customer consent\".</li><li><strong>Send events promptly.</strong> The 90-day limit is the outer edge; Microsoft prefers real-time delivery, and events must also fall inside the conversion goal's attribution window.</li></ol><p>If phone calls are your conversion, Invoca is on both lists; for answering those calls, see our <a href=\"/ai-calling-home-services\">AI calling for home services businesses</a>. For a CRM that is not on either list, such as GoHighLevel, Microsoft's guide lists three paths (direct API, tag manager or server-side tag manager, and partner integrations) and does not say whether any listed partner connects to GoHighLevel; talk to our <a href=\"/gohighlevel-services\">GoHighLevel services</a> team. For the same idea on another ad network, see <a href=\"/blog/chatgpt-ads-conversion-tracking/\">ChatGPT Ads conversion tracking</a> and our earlier note on <a href=\"/blog/chatgpt-ads-hubspot-crm-integration-news-july-14-2026/\">ChatGPT Ads and the HubSpot CRM</a>.</p>",
+ "faqs": [
+  [
+   "Is the Microsoft Ads Conversions API generally available?",
+   "Yes. Microsoft Advertising announced on October 28, 2026 that its Conversions API is generally available, sending website, app, CRM and point-of-sale conversions server to server alongside the UET tag. The announcement names no markets."
+  ],
+  [
+   "Does Microsoft Ads CAPI replace the UET tag?",
+   "No. Microsoft says CAPI works alongside UET and recommends using both, with a shared eventId on events that both send so the conversion is not counted twice."
+  ],
+  [
+   "How old can a conversion be when I send it through Microsoft CAPI?",
+   "Microsoft's developer guide says eventTime must be within the last 90 days, and the event must also fall inside the conversion goal's attribution window to count. Real-time delivery is preferred."
+  ],
+  [
+   "Does HubSpot work with the Microsoft Ads Conversions API?",
+   "Microsoft's CAPI guide lists HubSpot among its partner integrations, linking HubSpot's help article on syncing lifecycle stage changes to Microsoft Advertising as conversion events. HubSpot lists all products and plans, but the number of conversion events you can create depends on your subscription."
+  ]
+ ],
+ "image": {
+  "cluster": "Paid ads x CRM",
+  "takeaway": "Microsoft Ads CAPI takes up to 1,000 events per batch, each dated within the last 90 days, per its guide.",
+  "alt": "Microsoft Advertising announced on October 28, 2026 that its Conversions API is generally available, sending CRM and offline conversions server to server"
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Conversions API GA announced",
+    "value": "October 28, 2026"
+   },
+   {
+    "label": "Maximum events per batch upload",
+    "value": "1,000"
+   },
+   {
+    "label": "Oldest eventTime accepted",
+    "value": "90 days",
+    "note": "guide as updated October 30, 2026"
+   },
+   {
+    "label": "Suggested msclkid retention",
+    "value": "90 days"
+   },
+   {
+    "label": "Partners named in Microsoft's blog",
+    "value": "10"
+   },
+   {
+    "label": "Partners in the developer guide's table",
+    "value": "10",
+    "note": "2 marked Coming soon, HubSpot included"
+   }
+  ],
+  "source": "Microsoft's announcement, developer guide and HubSpot's help article read on 30 October 2026."
+ }
+}
