@@ -1,0 +1,88 @@
+{
+  "slug": "exchange-online-ews-deprecation",
+  "title": "Exchange Online EWS Deprecation: Re-enable Works Until April 2027",
+  "desc": "Microsoft began disabling Exchange Web Services in October 2026. Tenants now need an EWSAllowedAppIDs list and can re-enable EWS only until April 2027.",
+  "keywords": "exchange online ews deprecation, ews disabled exchange online, ewsallowedappids, ewsenabled false, re-enable ews exchange online, exchange web services retirement april 2027, ews application stopped working, microsoft 365 ews deprecation timeline, set-organizationconfig ewsenabled, crm email sync ews graph",
+  "date": "2026-11-02",
+  "time": "17:05",
+  "cta": "Rebuilding a sending stack around Microsoft 365 before the April 2027 EWS cutoff?",
+  "body": "<p><strong>November 2, 2026.</strong> Microsoft's deprecation of Exchange Web Services in Exchange Online began on 1 October 2026, tenant disablements had started by 21 October, and that day its Exchange Team published instructions for tenants whose \"EWS application stopped working.\" The mechanics matter for any sales team whose CRM, calendar sync, mailbox-reading tool or legacy add-in still talks to Microsoft 365 through EWS. Since early October, setting EWSEnabled to True \"will no longer be sufficient on its own\": a tenant also needs an allow list, EWSAllowedAppIDs, naming the apps permitted to use the protocol. Tenants that never set EWSEnabled get a seven-day warning in Message Center, then Microsoft fills the allow list from 60 days of usage and sets EWSEnabled to False. A tenant admin can re-enable EWS today in the admin center or PowerShell, and the change takes \"typically under 1 hour (but can be up to 4 hours)\", but the re-enable \"will stop working in April 2027\", after which \"EWS will not be an option that your client applications can use.\" Here is the timeline as Microsoft published it, the two re-enable routes, and the question to put to every vendor in your stack.</p>\n<p><strong>What changed on 1 October</strong></p>\n<p>The Exchange Team's post <a href=\"https://techcommunity.microsoft.com/blog/exchange/ews-deprecation-is-here-%E2%80%93-what-this-means-to-you/4561431\" target=\"_blank\" rel=\"noopener noreferrer\">\"EWS Deprecation Is Here\"</a>, dated 1 October 2026 and updated through 26 October, opens with \"the deprecation of EWS in Exchange Online starts today.\" The first change, from early October 2026: \"setting EWSEnabled to True will no longer be sufficient on its own to keep EWS working in the tenant: an AppID allow list (EWSAllowedAppIDs) will be required to specify apps that you want to permit access to EWS.\"</p>\n<p>The post then sets out what happens to each kind of tenant in Microsoft's worldwide multi-tenant cloud:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>EWSEnabled before October</th><th>What Microsoft says it does</th></tr></thead><tbody>\n<tr><td>True, with no allow list</td><td>\"We populated EWSAllowedAppIDs for all such tenants on October 10-11.\" After 11 October an admin who sets EWSEnabled to True \"must populate EWSAllowedAppIDs by themselves.\" A tenant already set to True sees no change to EWS availability \"until April 2027\" (note added 26 October).</td></tr>\n<tr><td>Never set (Null)</td><td>\"Tenants will get a 7-day warning in Message Center to tell them we will populate their EWSAllowedAppIDs (based on 60-day usage) and then set EWSEnabled = False. This process has now started.\"</td></tr>\n<tr><td>False</td><td>\"EWS is already disabled by tenant admin; Microsoft will make no changes.\"</td></tr>\n</tbody></table></div>\n<p>Sovereign cloud tenants are told to \"stay tuned for more detailed timeline.\" The post's own update log shows how fast the ground moved: 2 October, timing variability; 15 October, the table above; 21 October, \"EWS disablements have been started\"; 26 October, the April 2027 note for tenants already set to True.</p>\n<p><strong>How to tell EWS was turned off for you</strong></p>\n<p>The 21 October post, <a href=\"https://techcommunity.microsoft.com/blog/exchange/exchange-online-ews-application-stopped-working-do-this-/4566215\" target=\"_blank\" rel=\"noopener noreferrer\">\"Exchange Online EWS application stopped working? Do this.\"</a>, describes the symptoms: applications \"might give you various errors when EWS is turned off, from repeatedly asking for username or password, to giving you a clear error that EWS protocol is not available.\" The confirmation is in Message Center. Search for a post titled \"Action may be required: EWS will be disabled in your tenant in 7 days\" or \"EWS has been disabled in your tenant\", which \"will tell you when EWS was turned off in your tenant.\" Microsoft is explicit that \"Microsoft support cannot perform these steps for you. Only the tenant administrator can follow these steps and re-enable EWS.\"</p>\n<p><strong>The two ways to switch it back on</strong></p>\n<ol>\n<li><strong>Microsoft 365 admin center.</strong> Open the Baseline security mode page, find \"Block access to Exchange Web Services,\" uncheck \"Block your entire organization from using EWS\" and apply, then check it again and apply. Microsoft's description of the result: with the Block setting selected, \"the underlying setting on your tenant is now actually set to allow EWS (EWSEnabled = True) with a specific app(s) in the EWS allow list.\" The post points to the page's Scope Summary section for the apps that are excluded from the block.</li>\n<li><strong>Exchange Online PowerShell.</strong> Run <code>Get-OrganizationConfig | Fl EWSEnabled</code>; \"EwsEnabled : False\" confirms the problem. Then <code>Set-OrganizationConfig -EWSEnabled $true</code>. To see which apps Microsoft put on the list, run <code>Get-OrganizationConfig -RetrieveEwsOperationAccessPolicy | Fl EwsAllowedAppIDs</code>, which returns \"EWS applications that Microsoft has detected were in use within last 60 days in your tenant.\"</li>\n</ol>\n<p>Timing from the posts: changes to EWSEnabled take \"typically under 1 hour (but can be up to 4 hours)\"; changes to the allow list \"take 24 hours to take effect.\" A separate property, EWSAllowList, \"does not need to be configured and/or changed (it is not related to EWS deprecation).\"</p>\n<p><strong>The clock that matters: April 2027</strong></p>\n<p>Both posts say the re-enable is a bridge, not a fix. The 21 October post: \"The steps above will work only temporarily (until April 2027). We are now in the first stage of EWS disablement, where customers are still able to re-enable EWS. Re-enabling EWS will stop working in April 2027. The long-term solution is to update your applications to the application versions that do not use EWS. You must contact your application vendor to get the updated application version, or if you created the application yourself, you must change the code to not use EWS anymore. EWS will not be an option that your client applications can use after April 2027.\"</p>\n<p>Microsoft's own clients are on the same list. The 1 October post says Outlook for Windows users \"should be on latest builds (August 2026 build 16.0.20430.20092 or higher),\" that Outlook for Mac users should \"switch to the new Outlook for Mac,\" that classic Outlook for Mac needs the \"Microsoft Office\" AppID in the allow list, and that Excel Power Query has its own retirement page while \"PowerBI: we will provide an update soon.\"</p>\n<p><strong>What this means for a sales and outreach stack</strong></p>\n<ol>\n<li><strong>Ask every mailbox-connected vendor one question: does your Microsoft 365 integration still use EWS, and if so, when does the version without it ship?</strong> Microsoft's own advice is to \"contact your application vendor to get the updated application version.\" A no means nothing to do on this deadline; a yes means a vendor deadline of April 2027. In our experience CRM email sync, meeting schedulers and shared-inbox tools are the integrations to check first.</li>\n<li><strong>Check Message Center this week.</strong> If the disabled notice is there, EWS is off for every app until an admin re-enables it. Once re-enabled, only the apps Microsoft detected in the previous 60 days are on the allow list, so anything not used in that window has to be added, and allow-list changes take 24 hours.</li>\n<li><strong>Re-enable only to buy time, and write the date down.</strong> The admin center route keeps the block visible while allowing listed apps; the PowerShell route shows you the list. Either way, April 2027 is the end.</li>\n<li><strong>Do not confuse this with SMTP AUTH.</strong> EWS is the mailbox and calendar API. The retirement of Basic authentication for SMTP AUTH, which affects tools that send mail with a username and password, has its own separate date, covered in <a href=\"/blog/smtp-auth-basic-authentication-deprecation/\">SMTP AUTH Basic authentication deprecation</a>. The two changes hit different parts of a sending stack.</li>\n</ol>\n<p>The posts say nothing about sending limits on Microsoft 365 mailboxes; those are in <a href=\"/blog/microsoft-365-sending-limits/\">Microsoft 365 sending limits</a>. If an outreach stack is being rebuilt anyway, our <a href=\"/email-infrastructure\">email infrastructure</a> service sets up sending domains, authentication and mailboxes that do not depend on a retiring protocol, and <a href=\"/blog/email-hosting-cost/\">email hosting cost</a> compares what the mailbox layer costs by provider.</p>",
+  "faqs": [
+    [
+      "When does EWS stop working in Exchange Online?",
+      "Microsoft started disabling Exchange Web Services in Exchange Online tenants in October 2026. Tenant admins can re-enable it for now, but Microsoft says re-enabling will stop working in April 2027, after which EWS will not be an option for client applications."
+    ],
+    [
+      "How do I know if Microsoft disabled EWS in my tenant?",
+      "Search your Microsoft 365 Message Center for a post titled \"Action may be required: EWS will be disabled in your tenant in 7 days\" or \"EWS has been disabled in your tenant\". Applications may also prompt repeatedly for credentials or report that the EWS protocol is not available."
+    ],
+    [
+      "How do I turn EWS back on?",
+      "Either in the Microsoft 365 admin center's Baseline security mode page, by unchecking and re-checking \"Block your entire organization from using EWS\" and applying each time, or in Exchange Online PowerShell with Set-OrganizationConfig -EWSEnabled $true. The change usually takes under an hour and can take up to four. Only a tenant admin can do it."
+    ],
+    [
+      "What is EWSAllowedAppIDs?",
+      "An allow list of application IDs permitted to use EWS. Since early October 2026 a tenant with EWSEnabled set to True also needs this list. Microsoft populated it on 10 and 11 October 2026 for tenants that already had EWSEnabled set to True; the lists Microsoft builds are based on apps detected in use in the previous 60 days, and changes take 24 hours to apply."
+    ],
+    [
+      "Does this affect sending email from Microsoft 365?",
+      "Not directly. EWS is the mailbox and calendar API used by integrations such as CRM sync and scheduling tools. Sending with a username and password over SMTP AUTH has a separate Basic authentication retirement with its own date."
+    ],
+    [
+      "Which Microsoft apps still need EWS?",
+      "Microsoft's post says Outlook for Windows should be on the August 2026 build 16.0.20430.20092 or higher, classic Outlook for Mac needs the Microsoft Office AppID on the allow list while new Outlook for Mac is unaffected, Excel Power Query has its own retirement page, and a Power BI update is still to come."
+    ]
+  ],
+  "image": {
+    "cluster": "Email infrastructure",
+    "takeaway": "Microsoft began disabling EWS in Exchange Online in October 2026; admins can re-enable it only until April 2027.",
+    "alt": "Exchange Online EWS deprecation timeline: allow list required from October 2026, seven-day warnings, re-enable steps, and the April 2027 cutoff"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Date EWS deprecation started in Exchange Online",
+        "value": "1 October 2026",
+        "note": "Exchange Team Blog"
+      },
+      {
+        "label": "Days Microsoft filled EWSAllowedAppIDs for existing tenants",
+        "value": "10 and 11 October 2026",
+        "note": "tenants with EWSEnabled True"
+      },
+      {
+        "label": "Warning before Microsoft disables EWS in a tenant",
+        "value": "7 days",
+        "note": "Message Center post"
+      },
+      {
+        "label": "Usage window used to build the allow list",
+        "value": "60 days",
+        "note": "apps detected in use"
+      },
+      {
+        "label": "Time for an EWSEnabled change to apply",
+        "value": "under 1 hour, up to 4",
+        "note": ""
+      },
+      {
+        "label": "Time for an allow list change to apply",
+        "value": "24 hours",
+        "note": ""
+      },
+      {
+        "label": "Month re-enabling EWS stops working",
+        "value": "April 2027",
+        "note": "no EWS for client apps after"
+      },
+      {
+        "label": "Minimum Outlook for Windows build named",
+        "value": "16.0.20430.20092",
+        "note": "August 2026 build"
+      }
+    ],
+    "source": "Microsoft Exchange Team Blog posts of 1 October 2026 (updated 26 October) and 21 October 2026, read on 2 November 2026."
+  },
+  "word_count": 1247,
+  "read_time": 6
+}

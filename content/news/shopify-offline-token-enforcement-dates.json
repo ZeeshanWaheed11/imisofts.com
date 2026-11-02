@@ -1,0 +1,112 @@
+{
+  "slug": "shopify-offline-token-enforcement-dates",
+  "title": "Shopify Offline Token Deadlines: Jan 1 Delisting, April 1 403s",
+  "desc": "Shopify public apps on the Admin API must use expiring offline tokens by Jan 1, 2027: delisting that day, merchant warnings Jan 15, HTTP 403 from April 1.",
+  "keywords": "shopify offline access token deadline, shopify expiring offline access tokens, shopify app delisted january 2027, shopify admin api 403 april 2027, shopify app security update october 2026, shopify client credentials access token, shopify ip allowlist admin api, shopify network_access shopify.app.toml, shopify app security check, shopify public app migration",
+  "date": "2026-11-02",
+  "time": "17:05",
+  "cta": "Store depends on an app that has gone quiet about token migration?",
+  "body": "<p><strong>November 2, 2026.</strong> Shopify has put dates on what happens to a public app that keeps using a non-expiring offline access token. In a <a href=\"https://shopify.dev/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">developer changelog</a> post of 27 October 2026, Shopify said the migration deadline stays at 1 January 2027 for \"all public apps that call the Admin API,\" and shared what it calls an updated enforcement timeline for apps that miss it: on 1 January 2027 the app is \"delisted from the Shopify App Store and blocked from new installs,\" on 15 January 2027 \"merchants using the app see a warning in Shopify admin,\" and on 1 April 2027 \"Admin API requests using non-expiring offline access tokens return HTTP 403.\" Shopify's own gloss is blunt: the later dates \"give merchants time to prepare, and should not be treated as extra time to migrate.\" Custom apps, merchant-created apps and online access tokens are not affected. From today that is 60 days to the delisting date, 74 days to the merchant warning and 150 days to the hard failure. The same post shipped five new security features, including an IP allowlist for Admin API requests and a client-credentials path to obtain a new access token when a refresh token is lost. Here is what each date does and who has to act.</p>\n<p><strong>The three dates and what each one breaks</strong></p>\n<p>The <a href=\"https://shopify.dev/changelog/blog/app-security-updates-october-2026\" target=\"_blank\" rel=\"noopener noreferrer\">changelog post</a> opens by recalling that \"on October 20, we asked all app devs to secure their app, and told you we'd share more before any security change takes effect.\" The enforcement timeline is the \"more\":</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Date</th><th>What Shopify says happens to an unmigrated public app</th><th>Days from 2 November 2026</th></tr></thead><tbody>\n<tr><td>1 January 2027</td><td>\"Delisted from the Shopify App Store and blocked from new installs. Existing installs keep working.\"</td><td>60</td></tr>\n<tr><td>15 January 2027</td><td>\"Merchants using the app see a warning in Shopify admin.\"</td><td>74</td></tr>\n<tr><td>1 April 2027</td><td>\"Admin API requests using non-expiring offline access tokens return HTTP 403.\"</td><td>150</td></tr>\n</tbody></table></div>\n<p>The first date hits the developer's revenue: no App Store listing and no new installs. The second hits the developer's reputation: the merchant sees a warning in admin. The third hits the merchant's store: whatever the app did through the Admin API with an old token, syncing inventory, tagging orders, pushing reviews, stops with a 403 error. Shopify's own sequencing line: \"January 1 is the migration deadline: The later dates give merchants time to prepare, and should not be treated as extra time to migrate.\"</p>\n<p><strong>Who is affected and who is not</strong></p>\n<p>The rule covers \"all public apps that call the Admin API.\" The post lists what is out of scope in one line: \"Custom apps, merchant-created apps and online access tokens are not affected.\" So, in practice, a store's own custom integration keeps working with its current token, and apps that only use online tokens have nothing to change for this deadline. The migration target is \"expiring offline access tokens,\" and Shopify points developers to its migration guide rather than restating the steps in the changelog.</p>\n<p><strong>Five security features that shipped with the dates</strong></p>\n<p>The same post says Shopify \"rolled out several new features this week,\" and the first of them answers the main objection to expiring tokens:</p>\n<ol>\n<li><strong>Client credentials recovery.</strong> \"If your app loses a refresh token, your backend can now request a new access token signed with your app's private key, without waiting for a merchant to reopen your app.\" That removes the main objection to expiring tokens, which is a background job dying when a token lapses with no merchant in session.</li>\n<li><strong>IP allowlist.</strong> \"List the IP addresses your servers use, and we'll reject Admin API requests from any other IP, even if it has a valid access token.\" A leaked token becomes useless off your servers.</li>\n<li><strong>Network access declarations.</strong> A new [network_access] section of shopify.app.toml lists \"the servers your app's code loads from or sends requests to, wherever it runs on a store,\" which Shopify uses \"to spot requests your app didn't make,\" plus the sites you link customers to \"so those links skip the warning customers normally see before leaving the store.\"</li>\n<li><strong>Identity verification.</strong> \"We now verify your identity before installing apps on development and client-transfer stores.\"</li>\n<li><strong>An app security hub.</strong> \"Every app security practice now has its own page in the dev docs,\" with the instruction to \"run shopify app security check before every release.\"</li>\n</ol>\n<p>The post closes with the line that sets the liability: if you suspect a security issue, \"You are accountable to fix the problem and notify affected merchants.\"</p>\n<p><strong>What a merchant should do</strong></p>\n<ol>\n<li><strong>List your public apps that touch orders, products, customers or inventory.</strong> Those typically work through the Admin API. Themes and storefront-only widgets are a different question.</li>\n<li><strong>Ask each vendor one question in writing: \"Have you migrated to expiring offline access tokens?\"</strong> A yes before 1 January 2027 keeps the app listed; a no means the April 403 is your problem too.</li>\n<li><strong>Treat a 15 January admin warning as a 76-day notice.</strong> From that warning to 1 April is the window to replace the app or get it fixed.</li>\n<li><strong>Do not confuse this with the Knowledge Base app change.</strong> That is a separate Shopify deadline, covered in <a href=\"/blog/shopify-knowledge-base/\">Shopify Knowledge Base moves into admin</a>.</li>\n</ol>\n<p><strong>What a developer should do</strong></p>\n<p>Migrate before 1 January, not before 1 April. Then use the new tools in the order Shopify listed them: turn on client credentials so a lapsed refresh token does not strand a merchant, add the IP allowlist, declare network access in shopify.app.toml, and run the security check in CI. Shopify says it uses the [network_access] list to spot requests your app did not make, so an incomplete declaration could make legitimate traffic look suspicious.</p>\n<p>If your store depends on a public app whose developer has gone quiet, or you need a custom app built on expiring tokens with the allowlist and declarations in place, see our <a href=\"/shopify-app-reviews\">Shopify app service</a>. For Google's AI Mode checkout work with Shopify, read <a href=\"/blog/google-ai-mode-checkout-shopify/\">Google AI Mode checkout for Shopify</a>, and for the EU product identifier rule, <a href=\"/blog/eu-product-identifiers-customs/\">EU product identifiers and customs</a>.</p>",
+  "faqs": [
+    [
+      "When do Shopify's non-expiring offline access tokens stop working?",
+      "Admin API requests using non-expiring offline access tokens return HTTP 403 from 1 April 2027, according to Shopify's changelog post of 27 October 2026. The migration deadline itself is 1 January 2027."
+    ],
+    [
+      "What happens on 1 January 2027 if an app has not migrated?",
+      "The app is delisted from the Shopify App Store and blocked from new installs. Existing installs keep working at that point. On 15 January 2027 merchants using the app see a warning in Shopify admin."
+    ],
+    [
+      "Are custom apps affected by the offline token deadline?",
+      "No. Shopify says custom apps, merchant-created apps and online access tokens are not affected. The requirement covers all public apps that call the Admin API."
+    ],
+    [
+      "What is the client credentials feature Shopify added?",
+      "A way for an app's backend to request a new access token signed with the app's private key if it loses a refresh token, without waiting for a merchant to reopen the app. Shopify announced it in the same 27 October 2026 post."
+    ],
+    [
+      "What does the new IP allowlist do?",
+      "You list the IP addresses your servers use and Shopify rejects Admin API requests from any other IP, even if the request carries a valid access token."
+    ],
+    [
+      "How many days are left until each date?",
+      "Counting from 2 November 2026: 60 days to the 1 January 2027 delisting, 74 days to the 15 January merchant warning and 150 days to the 1 April HTTP 403 cutoff."
+    ]
+  ],
+  "image": {
+    "cluster": "Shopify",
+    "takeaway": "Unmigrated Shopify public apps are delisted on 1 January 2027; Admin API calls on old tokens fail with 403s on 1 April.",
+    "alt": "Shopify offline access token enforcement dates: delisting on 1 January 2027, merchant warnings on 15 January and HTTP 403 errors from 1 April 2027",
+    "chart": {
+      "title": "Days left before each Shopify token enforcement step",
+      "subtitle": "Counted from 2 November 2026 to the dates in Shopify's 27 October post.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Delisting, Jan 1",
+          60
+        ],
+        [
+          "Admin warning, Jan 15",
+          74
+        ],
+        [
+          "HTTP 403, Apr 1",
+          150
+        ]
+      ],
+      "prefix": "",
+      "suffix": " days",
+      "highlight": 0,
+      "note": [
+        "Jan 1 is the deadline;",
+        "later dates are not"
+      ],
+      "source": "Dates from Shopify's developer changelog. Source: shopify.dev, October 2026",
+      "alt": "Bar chart of days from 2 November 2026 to each Shopify enforcement date: 60 to delisting on 1 January, 74 to the admin warning on 15 January, 150 to HTTP 403 errors on 1 April 2027",
+      "after_heading": "The three dates and what each one breaks"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Migration deadline for public apps calling the Admin API",
+        "value": "1 January 2027",
+        "note": "expiring offline access tokens"
+      },
+      {
+        "label": "App Store delisting and new-install block",
+        "value": "1 January 2027",
+        "note": "existing installs keep working"
+      },
+      {
+        "label": "Merchant warning appears in Shopify admin",
+        "value": "15 January 2027",
+        "note": ""
+      },
+      {
+        "label": "Admin API requests with old tokens start failing",
+        "value": "1 April 2027",
+        "note": "HTTP 403"
+      },
+      {
+        "label": "Days from 2 November 2026 to the hard failure",
+        "value": "150",
+        "note": "60 to delisting, 74 to the warning"
+      },
+      {
+        "label": "New security features announced in the same post",
+        "value": "5",
+        "note": "client credentials, IP allowlist, network access, identity check, security hub"
+      },
+      {
+        "label": "Exemptions Shopify names",
+        "value": "3",
+        "note": "custom apps, merchant-created apps, online access tokens"
+      }
+    ],
+    "source": "Shopify developer changelog, \"Security update: Offline token dates, new security features\", dated 27 October 2026, read on 2 November 2026."
+  },
+  "word_count": 1011,
+  "read_time": 5
+}

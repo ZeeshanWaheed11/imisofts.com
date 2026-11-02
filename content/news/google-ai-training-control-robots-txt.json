@@ -1,0 +1,83 @@
+{
+  "slug": "google-ai-training-control-robots-txt",
+  "title": "Google to Support a Shared AI Training Control in robots.txt",
+  "desc": "Google plans to honor an IETF AIPREF training opt-out token in robots.txt in 2027. Used alone it would count as a Google-Extended disallow, ending grounding.",
+  "keywords": "google ai training control robots.txt, aipref robots.txt, __usage_ai-training, google-extended, shared ai training opt out, ietf aipref working group, gemini grounding google-extended, block ai training robots txt 2027, google ai training opt out, robots.txt ai policy token",
+  "date": "2026-11-02",
+  "time": "17:05",
+  "cta": "Want to be the page an assistant cites, not the one it skips?",
+  "body": "<p><strong>November 2, 2026.</strong> On 30 October 2026 Google announced plans to support \"a shared AI training control in robots.txt,\" a single \"policy token\" that tells participating AI companies at once whether a site's content may be used to train models. Google calls it a draft proposal, aims to support it \"along with other AI providers in 2027,\" and its crawler documentation names a robots.txt user-agent for the signal, \"user-agent: __usage_ai-training,\" for \"early 2027.\" The detail that matters for a business site is the default Google chose: if a site uses the shared token to opt out and says nothing about Google-Extended, \"Google plans to interpret that as if the publisher had disallowed Google-Extended.\" Google-Extended governs both training of Gemini models and grounding, the step where Gemini pulls pages from the Search index into an answer, and Google's post adds that \"websites that specifically allow Google-Extended are eligible to appear in responses and receive clicks via grounding in Gemini Apps.\" So a blanket training opt-out, left alone, would also take a site out of grounding in Gemini Apps. The surfaces at stake are Gemini Apps and Vertex AI grounding; Google's documentation says Google-Extended does not affect inclusion in Google Search, and says nothing about AI Overviews or AI Mode. Here is what was announced, what Google-Extended already does, and how to set the two so you keep the visibility you want.</p>\n<p><strong>What Google announced on 30 October</strong></p>\n<p>The post on the <a href=\"https://developers.google.com/search/blog/2026/10/ai-training-control\" target=\"_blank\" rel=\"noopener noreferrer\">Google Search Central Blog</a>, posted by John Mueller, Google's Search Advocate, describes a control \"based on work from the AIPREF working group at the Internet Engineering Task Force (IETF).\" Instead of writing a separate robots.txt group for every AI company, \"website owners will be able to use a shared 'policy token' within robots.txt to set broad preferences across participating AI providers.\" The announcement positions it as an addition, not a replacement: \"existing company-specific controls will continue to function alongside this new joint signal,\" so a site can \"express a broad choice using the industry signal, while also tailoring their instructions to individual AI developers like Google through controls such as Google-Extended.\"</p>\n<p>Google frames the move as a response to \"publishers, civil society groups, regulators and other stakeholders that have called for industry-wide controls on AI training,\" and says the proposal \"is consistent with the EU Code of Practice for General Purpose AI (GPAI) Model Providers under the EU AI Act that recognizes robots.txt as a primary method for web publishers to express machine-readable preferences.\" The timeline is the soft part: \"We aim to support this new control along with other AI providers in 2027, and will provide updates on our progress.\"</p>\n<p><strong>What Google-Extended already controls</strong></p>\n<p>Google's <a href=\"https://developers.google.com/crawling/docs/crawlers-fetchers/google-common-crawlers\" target=\"_blank\" rel=\"noopener noreferrer\">crawler documentation</a> is precise about the existing token, which Google has offered since 2023. Google-Extended \"doesn't have a separate HTTP request user agent string. Crawling is done with existing Google user agent strings; the robots.txt user-agent token is used in a control capacity.\" It lets publishers \"manage whether content Google crawls from their sites may be used for training future generations of Gemini models that power Gemini Apps and Vertex AI API for Gemini and for grounding (providing content from the Google Search index to the model at prompt time to improve factuality and relevancy) in Gemini Apps and Grounding with Google Search on Vertex AI.\"</p>\n<p>Two sentences in that documentation decide most business cases. First: \"Google-Extended does not impact a site's inclusion in Google Search nor is it used as a ranking signal in Google Search.\" Blocking it costs nothing in Google Search inclusion or ranking, per the documentation, which does not mention AI Overviews or AI Mode either way, so it is not a promise about those surfaces. Second, training and grounding travel together under one token: the documentation describes one token for both uses and no separate switch that would keep a site out of training while leaving it in grounding. The same page already carries the note that \"Google intends to support the AIPREF shared machine-readable training preference signal (with 'user-agent: __usage_ai-training') in early 2027.\"</p>\n<p><strong>The default that changes the Gemini math</strong></p>\n<p>Put the two documents together. A site that writes the shared opt-out token into robots.txt and leaves Google-Extended unmentioned would be, in Google's words, interpreted \"as if the publisher had disallowed Google-Extended.\" Disallowing Google-Extended removes the site from training and from grounding in Gemini Apps and Vertex AI. And the post is explicit that eligibility to \"appear in responses and receive clicks via grounding in Gemini Apps\" belongs to sites that \"specifically allow Google-Extended.\"</p>\n<p>That is the trade a small business site would be making in 2027 if it adopts the industry opt-out without a second line. The intent, keeping your pages out of model training, is reasonable. The side effect, disappearing from Gemini's grounding sources, is the opposite of what a business chasing AI-search visibility wants. We cover the difference between being cited and being ranked in <a href=\"/blog/aeo-vs-seo/\">AEO vs SEO</a>, and the tradeoffs by crawler in <a href=\"/blog/should-you-block-ai-crawlers/\">should you block AI crawlers</a>.</p>\n<p><strong>Three robots.txt postures for 2027</strong></p>\n<p>Because company-specific groups keep working beside the shared token, the combinations are small. Google's post describes two of them in words (\"opt out across all providers, or to pick and choose\"); the third is the status quo.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Posture</th><th>robots.txt content</th><th>What Google's documents say happens</th></tr></thead><tbody>\n<tr><td>Not disallowed</td><td>No shared token, no Google-Extended group</td><td>Pages may be used for Gemini training and grounding; Google attaches grounding eligibility to sites that \"specifically allow Google-Extended\" and does not say whether silence counts</td></tr>\n<tr><td>Opt out of all participating providers</td><td>Shared opt-out token only</td><td>Google plans to treat it as a Google-Extended disallow: out of training and out of grounding in Gemini Apps</td></tr>\n<tr><td>Pick and choose</td><td>Shared opt-out token plus an explicit Google-Extended allow</td><td>Other participating providers may honor the opt-out; Google's default does not apply because Google-Extended is explicitly specified</td></tr>\n</tbody></table></div>\n<p>The third row is the one Google's post exists to make possible. Its sentence is: \"So website owners can easily express a broad choice using the industry signal, while also tailoring their instructions to individual AI developers like Google through controls such as Google-Extended.\" The exact syntax of the shared token's robots.txt line is not in the announcement; the crawler documentation gives only the user-agent name. Wait for the published spec before editing a live file.</p>\n<p><strong>What to do before the token goes live</strong></p>\n<ol>\n<li><strong>Write down what you want from each AI surface.</strong> Training and grounding are one switch at Google today. If Gemini citations bring you enquiries, you want Google-Extended allowed, whatever you do about training elsewhere.</li>\n<li><strong>Check who currently blocks what.</strong> A CDN setting can block AI crawlers above your robots.txt; our guide to <a href=\"/blog/cloudflare-block-ai-bots/\">Cloudflare's AI bot settings</a> covers how to check it.</li>\n<li><strong>Keep the explicit Google-Extended group if you adopt the shared opt-out.</strong> The default only applies when \"Google-Extended is not explicitly specified,\" so one extra robots.txt group, 1 in all, preserves your choice.</li>\n<li><strong>Do not expect a ranking effect either way.</strong> Google's documentation says Google-Extended neither affects inclusion in Search nor acts as a ranking signal.</li>\n<li><strong>Watch the IETF draft.</strong> The post says the \"AI training definition developed at the IETF\" ships first \"while multistakeholder discussions continue on the rest of the AIPREF vocabulary,\" so more tokens may follow.</li>\n</ol>\n<p>If you want your pages to be the ones an assistant cites, most of the work is on the page rather than in robots.txt: clear answers, dated facts and sources an engine can verify. That is what our <a href=\"/ai-search-optimization\">AI search optimization service</a> works to get you named for, and what <a href=\"/blog/does-llms-txt-work/\">does llms.txt work</a> and <a href=\"/blog/how-to-correct-ai-overview/\">how to correct an AI Overview</a> cover from the publisher's side.</p>",
+  "faqs": [
+    [
+      "What did Google announce about AI training and robots.txt?",
+      "On 30 October 2026 Google said it plans to support a shared AI training control in robots.txt, a policy token based on the IETF's AIPREF working group that expresses a site's training preference to all participating AI providers at once. Google aims to support it with other providers in 2027; its crawler documentation names the token user-agent: __usage_ai-training for early 2027."
+    ],
+    [
+      "Will the shared opt-out token block Google from citing my site?",
+      "If you use the shared token to opt out and do not mention Google-Extended, Google plans to treat that as a Google-Extended disallow. Google-Extended controls both training and grounding in Gemini Apps and Vertex AI, and Google says sites that specifically allow Google-Extended are eligible to appear in responses and receive clicks via grounding in Gemini Apps."
+    ],
+    [
+      "Does blocking Google-Extended hurt my Google Search rankings?",
+      "No, according to Google's crawler documentation: Google-Extended does not impact a site's inclusion in Google Search and is not used as a ranking signal."
+    ],
+    [
+      "Can I opt out of training but stay in Gemini's answers?",
+      "Not with Google-Extended alone, because one token covers training and grounding together. You can opt out of other participating providers with the shared token while keeping an explicit Google-Extended allow group, which Google says will continue to function alongside the shared signal."
+    ],
+    [
+      "When does the new control take effect?",
+      "Google's post says it aims to support the control along with other AI providers in 2027, and its documentation says early 2027. Until the syntax is published, the existing Google-Extended group is the control to use."
+    ],
+    [
+      "What is Google-Extended?",
+      "A robots.txt product token Google has offered since 2023. It has no crawler of its own; Google's existing crawlers read it to decide whether crawled content may be used to train future Gemini models and for grounding in Gemini Apps and Grounding with Google Search on Vertex AI."
+    ]
+  ],
+  "image": {
+    "cluster": "AI search",
+    "takeaway": "Google plans to read a shared training opt-out used alone as a Google-Extended disallow, ending Gemini grounding too.",
+    "alt": "Google's shared AI training control in robots.txt: the AIPREF policy token, Google-Extended and what a blanket opt-out does to Gemini grounding"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Announcement date",
+        "value": "30 October 2026",
+        "note": "Google Search Central Blog"
+      },
+      {
+        "label": "Year Google plans to support the shared control",
+        "value": "2027",
+        "note": "documentation says early 2027"
+      },
+      {
+        "label": "Year Google-Extended was introduced",
+        "value": "2023",
+        "note": "per Google's post"
+      },
+      {
+        "label": "Shared token user-agent named in Google's docs",
+        "value": "__usage_ai-training",
+        "note": "AIPREF, IETF"
+      },
+      {
+        "label": "Uses governed by one Google-Extended token",
+        "value": "2",
+        "note": "Gemini training and grounding"
+      },
+      {
+        "label": "Effect of Google-Extended on Search ranking",
+        "value": "none",
+        "note": "not a ranking signal, per Google"
+      },
+      {
+        "label": "Extra robots.txt group to keep grounding under the opt-out",
+        "value": "1",
+        "note": "an explicit Google-Extended allow"
+      }
+    ],
+    "source": "Google Search Central Blog post of 30 October 2026 and Google's common crawlers documentation, read on 2 November 2026."
+  },
+  "word_count": 1276,
+  "read_time": 6
+}
