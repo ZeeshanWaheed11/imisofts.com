@@ -1,0 +1,128 @@
+{
+  "slug": "app-development-cost",
+  "title": "App Development Cost: $124 in Store Fees, AI Builds From $14,999",
+  "desc": "App development cost 2026: Apple $99 a year, Google Play $25 once, Apple's 30 or 15 percent commission, and our AI app builds at $14,999 to $49,999 plus usage.",
+  "keywords": "app development cost, how much does it cost to develop an app, app development cost 2026, apple developer program cost 99, google play developer fee 25, ai app development cost, mobile app development pricing, app store commission 30 percent 15 percent, cost to build an ai app, app development packages",
+  "date": "2026-11-02",
+  "time": "20:30",
+  "category": "Guides",
+  "affiliate_url": "",
+  "cta": "Want a scoped quote for an AI mobile app with the running cost per user modelled in?",
+  "body": "<p><strong>Short answer.</strong> The two store fees for publishing on Apple and Google are small and published: the Apple Developer Program is \"99 USD per membership year\" and Google Play charges \"a US$25 one-time registration fee,\" so a company publishing on both pays $124 in store fees in year one and $99 a year after that. Everything else depends on what you build. As one firm's published price list, our own <a href=\"/ai-mobile-apps\">AI mobile app packages</a> run $14,999 for an AI MVP in 3 to 4 weeks, $29,999 for a product-market-fit build in 4 to 6 weeks and $49,999 for a scale-and-reliability build in 6 to 10 weeks, with ongoing support at $4,999 a month, and our FAQ puts the range for AI mobile apps at $15,000 to $75,000. Then come the costs that scale with users: Apple's 30 percent commission on digital goods (15 percent if enrolled in the Small Business Program or a partner program, and for qualifying subscriptions) and the running cost, which our page puts at $0.47 per user per month on average. This guide walks through each layer with the published figure for it, and the questions that move a quote.</p>\n<h2 id=\"store-fees\">Layer one: what the stores charge</h2>\n<p>Apple's <a href=\"https://developer.apple.com/programs/whats-included/\" target=\"_blank\" rel=\"noopener noreferrer\">Developer Program page</a> states the membership price plainly: \"The Apple Developer Program is 99 USD per membership year, or in local currency where available.\" It also states the commission that applies once the app sells anything digital: \"The commission on the sale of digital goods and services through the App Store is 30% (15% if you're enrolled in the App Store Small Business Program, Video Partner Program, Mini Apps Partner Program, or News Partner Program) and 15% for qualifying subscriptions.\" Google's <a href=\"https://support.google.com/googleplay/android-developer/answer/6112435\" target=\"_blank\" rel=\"noopener noreferrer\">Play Console help page</a> lists registration as step three of account creation: \"There is a US$25 one-time registration fee.\" Cards are accepted, prepaid cards are not, the account holder must be at least 18, and personal accounts carry testing and device verification requirements before an app can be published.</p>\n<p>One practical point follows. The account should be the company's, not the developer's; the reasons, and the recovery problem when it is not, are in <a href=\"/blog/who-should-own-your-app-store-account/\">who should own your app store account</a>.</p>\n<h2 id=\"build\">Layer two: the build</h2>\n<p>There is no industry price list for building an app, and we will not invent one. What we can publish is our own, as it appears on our <a href=\"/ai-mobile-apps\">AI mobile apps page</a> today:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Package</th><th>Price</th><th>Timeline</th><th>What it covers</th></tr></thead><tbody>\n<tr><td>AI MVP</td><td>$14,999</td><td>3 to 4 weeks</td><td>Core flows and UI, a chat or voice feature</td></tr>\n<tr><td>Product-Market Fit</td><td>$29,999</td><td>4 to 6 weeks</td><td>Complete AI features, multiple AI modalities</td></tr>\n<tr><td>Scale and Reliability</td><td>$49,999</td><td>6 to 10 weeks</td><td>On-device inference, an MLOps pipeline</td></tr>\n<tr><td>Scale and Support</td><td>$4,999 a month</td><td>Ongoing</td><td>Observability and SLOs, infrastructure tuning</td></tr>\n</tbody></table></div>\n<p>Our FAQ on that page summarises the range: \"AI mobile app development ranges from $15,000 to $75,000 depending on features and complexity.\" The spread between the bottom and the top of that range is not hourly rate; it is scope. An MVP with one AI feature and a handful of screens is at the low end. Multiple modalities (text, voice, vision), on-device inference, offline behaviour, payments, and the pipeline to retrain and ship models push toward the top. A quote far below that range may omit items.</p>\n<h2 id=\"scope\">The five questions that move a quote</h2>\n<ol>\n<li><strong>How many AI modalities?</strong> A chat feature on a hosted model is the smallest unit of work. Adding voice means streaming audio, interruption handling and latency budgets; adding vision means camera pipelines and model selection. Each modality is a separate build.</li>\n<li><strong>Hosted or on-device inference?</strong> Hosted models are faster to ship and bill per use; on-device inference removes the per-call cost and the network dependency but adds model conversion, device testing and app size work, which is why it sits in the $49,999 package rather than the $14,999 one.</li>\n<li><strong>One platform or two?</strong> The store fees are trivial, but two native codebases or one cross-platform codebase with platform-specific fixes is a real scope decision.</li>\n<li><strong>Payments and subscriptions?</strong> Selling digital goods brings Apple's 30 percent or 15 percent commission into the business model and adds entitlement, restore and receipt handling to the build.</li>\n<li><strong>Who runs it after launch?</strong> An app with models in it drifts: providers change prices and deprecate versions, and usage patterns move. The $4,999 a month support package exists because that work does not stop at release.</li>\n</ol>\n<h2 id=\"running\">Layer three: the running cost per user</h2>\n<p>For an AI app, the recurring cost is the model and cloud usage behind each active user, and it is the number that decides whether a free tier is affordable. Our page puts it at $0.47 per user per month on average, optimised for cost efficiency. At 10,000 users that is $4,700 a month, which is why the architecture decisions above (hosted or on-device inference, the number of AI modalities) belong in the build conversation and not after launch. A per-user figure is specific to the app's features and traffic; treat ours as an example of the order of magnitude, not a benchmark for yours.</p>\n<h2 id=\"distribution\">Layer four: distribution, and the store that is not Apple or Google</h2>\n<p>Store fees buy a listing, not users. For consumer apps the acquisition cost is a marketing budget outside the scope of this guide. For software sold to merchants, there is a third store worth naming: the Shopify App Store, which sets its own rules. We cover the current enforcement dates in <a href=\"/blog/shopify-offline-token-enforcement-dates/\">Shopify's offline token enforcement timeline</a> and what is in our <a href=\"/shopify-app-reviews\">Shopify app reviews</a> service. For any app, the question to ask before the build is which store, which audience and what the first 1,000 users will cost to reach.</p>\n<h2 id=\"year-one\">A year-one example</h2>\n<p>A company shipping an AI MVP on both stores with hosted models and no in-app purchases: $14,999 for the build, $124 in store fees, and usage at $0.47 per user per month, so $470 a month at 1,000 users. If it moves to the support package after launch, add $4,999 a month. If it sells a subscription, Apple takes 15 percent of qualifying subscription revenue and 30 percent of other digital sales, or 15 percent if enrolled in one of its programs. Every rate and price there is from a page read on 2 November 2026; the totals are our arithmetic, and the one figure you cannot read anywhere is the scope of your own app, which is the number to pin down first.</p>\n<h2 id=\"quote\">What a complete quote should list</h2>\n<p>A fixed-price quote is only comparable to another if both list the same deliverables. A complete quote should itemise the following: the screens and flows in scope, named one by one; each AI feature with its modality and whether inference is hosted or on-device; the backend services the app needs (authentication, storage, push notifications, payments) and who pays for them each month; the platforms covered and how platform-specific differences are handled; store submission, including the review cycle and the assets the stores require; analytics and crash reporting from day one; and the handover, meaning source code, infrastructure credentials and documentation in the company's own accounts. A quote that leaves out submission or handover is not cheaper; it has moved those costs to a later invoice or to you.</p>\n<p>The same list is how to read the gap between two prices. If one vendor quotes $15,000 and another $40,000 for what sounds like the same app, put the two deliverable lists side by side and compare them line by line to see where the difference sits. Timelines tell the same story: our 3 to 4 week MVP and 6 to 10 week scale build differ by the work in them, not by how fast people type.</p>\n<h2 id=\"checklist\">Before you request a quote</h2>\n<ol>\n<li>Open the Apple and Google developer accounts in the company's name; budget $124 for year one.</li>\n<li>List the AI modalities and decide hosted or on-device for each.</li>\n<li>Decide whether the app sells digital goods, and if so model Apple's 30 or 15 percent commission into the price.</li>\n<li>Estimate users at 3, 6 and 12 months and multiply by a per-user usage figure to see the running cost.</li>\n<li>Decide who owns the app after launch and whether a support retainer is in scope.</li>\n</ol>",
+  "faqs": [
+    [
+      "How much does it cost to develop an app in 2026?",
+      "Store fees are published: $99 a year for the Apple Developer Program and a one-time $25 for Google Play. The build depends on scope; our own published packages for AI mobile apps are $14,999 (MVP, 3 to 4 weeks), $29,999 (product-market fit, 4 to 6 weeks) and $49,999 (scale and reliability, 6 to 10 weeks), with ongoing support at $4,999 a month, and our FAQ gives a range of $15,000 to $75,000."
+    ],
+    [
+      "How much does an Apple developer account cost?",
+      "Apple's page states that the Apple Developer Program is 99 USD per membership year, or in local currency where available."
+    ],
+    [
+      "How much does a Google Play developer account cost?",
+      "Google's Play Console help page lists a US$25 one-time registration fee, paid by card; prepaid cards are not accepted and the account holder must be at least 18."
+    ],
+    [
+      "What commission does Apple take on app sales?",
+      "Apple's page states a 30 percent commission on the sale of digital goods and services through the App Store, reduced to 15 percent for members of the App Store Small Business Program, Video Partner Program, Mini Apps Partner Program or News Partner Program, and 15 percent for qualifying subscriptions."
+    ],
+    [
+      "What does an AI app cost to run per user?",
+      "It depends on the features and traffic. Our page puts our apps at an average of $0.47 per user per month, optimised for cost efficiency, which is $470 a month at 1,000 users and $4,700 at 10,000. Treat that as an order of magnitude, not a benchmark for a different app."
+    ],
+    [
+      "Why do app development quotes vary so much?",
+      "Because scope varies: the number of AI modalities, hosted versus on-device inference, one platform or two, payments and subscriptions, and who runs the app after launch. Our price list runs from $14,999 to $49,999; our FAQ gives $15,000 to $75,000 depending on features and complexity."
+    ]
+  ],
+  "image": {
+    "cluster": "App development pricing",
+    "takeaway": "App development cost: $124 in year-one store fees, then our AI builds at $14,999 to $49,999, plus usage per user.",
+    "alt": "App development cost in 2026: Apple and Google developer fees, App Store commission rates, imisofts AI mobile app packages and per-user running cost",
+    "chart": {
+      "title": "imisofts AI mobile app packages, published prices",
+      "subtitle": "One firm's price list as published on 2 November 2026; monthly support shown as a monthly figure.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Scale and Reliability",
+          49999
+        ],
+        [
+          "Product-Market Fit",
+          29999
+        ],
+        [
+          "AI MVP",
+          14999
+        ],
+        [
+          "Support, per month",
+          4999
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 2,
+      "note": [
+        "Store fees add $124",
+        "in year one"
+      ],
+      "source": "imisofts.com/ai-mobile-apps; Apple Developer Program and Google Play Console pages. Source: imisofts.com, November 2026",
+      "alt": "Bar chart of imisofts AI mobile app packages: Scale and Reliability $49,999, Product-Market Fit $29,999, AI MVP $14,999, support $4,999 per month",
+      "after_heading": "Layer two: the build"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Apple Developer Program",
+        "value": "99 USD per membership year",
+        "note": "or in local currency where available"
+      },
+      {
+        "label": "Google Play registration",
+        "value": "US$25 one time",
+        "note": "card payment; prepaid cards not accepted"
+      },
+      {
+        "label": "App Store commission on digital goods",
+        "value": "30%",
+        "note": "15% for small business and partner programs and qualifying subscriptions"
+      },
+      {
+        "label": "Store fees, both platforms, year one",
+        "value": "$124",
+        "note": "$99 a year thereafter"
+      },
+      {
+        "label": "imisofts AI MVP",
+        "value": "$14,999",
+        "note": "3 to 4 weeks"
+      },
+      {
+        "label": "imisofts Product-Market Fit build",
+        "value": "$29,999",
+        "note": "4 to 6 weeks"
+      },
+      {
+        "label": "imisofts Scale and Reliability build",
+        "value": "$49,999",
+        "note": "6 to 10 weeks"
+      },
+      {
+        "label": "imisofts ongoing support",
+        "value": "$4,999 a month",
+        "note": "observability, SLOs, infrastructure tuning"
+      },
+      {
+        "label": "Average running cost across our AI apps",
+        "value": "$0.47 per user per month",
+        "note": "our page's figure; varies by app"
+      }
+    ],
+    "source": "Apple Developer Program page, Google Play Console help page and the imisofts AI mobile apps page, read on 2 November 2026."
+  },
+  "word_count": 1373,
+  "read_time": 7
+}
