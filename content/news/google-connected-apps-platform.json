@@ -1,0 +1,70 @@
+{
+  "slug": "google-connected-apps-platform",
+  "title": "Google Connected Apps Platform: Apps Inside Search and Gemini",
+  "desc": "Google opened a Connected Apps Platform preview on 28 October 2026 for apps inside Search and Gemini via MCP. Access, review, rules and what Google hasn't said.",
+  "keywords": "google connected apps platform, google connected console, connected apps gemini, connected apps google search, mcp server google search, gemini app integrations, appfunctions android mcp, ai search apps for business",
+  "date": "2026-11-03",
+  "time": "15:30",
+  "read_time": 3,
+  "word_count": 570,
+  "cta": "Want your business inside AI answers?",
+  "body": "<p><strong>November 3, 2026.</strong> On 28 October 2026 Google opened a preview of its Connected Apps Platform, which lets a business put its own service inside Google Search and the Gemini app. A user links an account once, then checks data or takes an action in that service from the conversation. The route in is a cloud-hosted MCP server, or Android MCP through the AppFunctions APIs, registered and submitted for review in the new Google Connected Console. Google says access opens in phases, and TechCrunch reports the preview is open to US developers who join a waitlist.</p><p><strong>What Google launched on 28 October</strong></p><p>Google's <a href=\"https://blog.google/innovation-and-ai/technology/developers-tools/connected-apps-one-place/\" target=\"_blank\" rel=\"noopener noreferrer\">announcement</a>, by Chips Mistry of Search and Mai Lowe of the Gemini app, and its <a href=\"https://developers.google.com/connected-apps\" target=\"_blank\" rel=\"noopener noreferrer\">developer overview</a> describe five pieces:</p><ol><li><strong>Two ways in.</strong> \"Developers integrate with a cloud-hosted MCP server or Android MCP using the AppFunctions APIs.\" The MCP route uses OAuth 2.1 so Gemini can act \"on behalf of users\".</li><li><strong>One console.</strong> The Google Connected Console handles tool registration, testing, usage analysis, review and publishing, with self-service onboarding during the preview.</li><li><strong>A choice of surfaces.</strong> \"Before review, developers choose whether it will go live in Search, the Gemini app, or both.\"</li><li><strong>Reporting and branding.</strong> Once an app is live, developers \"can track traffic, latency, and error rates\" and keep \"verified logos and authenticated accounts\".</li><li><strong>Phased access.</strong> Google will \"add more developers, markets, and Google products over the coming months\". It counts more than 50 Connected Apps across Search and Gemini; Adobe, Experian, Localiza and Peloton are live in Gemini and come to Search \"in the coming weeks\", and Calm is launching on both.</li></ol><p><strong>The rules that matter before you build</strong></p><p>Google's <a href=\"https://developers.google.com/connected-apps/connected-apps-policy\" target=\"_blank\" rel=\"noopener noreferrer\">platform policies</a> set limits on what a connected app can be:</p><ol><li><strong>No ads.</strong> Partners \"must not serve any third party advertising content or promotional material through their integrations\", though your own brand elements are allowed.</li><li><strong>No agent relays.</strong> An app \"must not act as a proxy for, connect to, or facilitate communication with other AI agents that can perform actions autonomously.\"</li><li><strong>Confirmation for risky actions.</strong> Tools that delete data, change access controls or \"execute financial transactions\" need the destructiveHint annotation or a required human confirmation.</li><li><strong>No dynamic tool lists.</strong> Tools \"must not expose dynamic discovery functions (e.g., list_tools, get_schema) or generic runtime dispatchers\".</li><li><strong>Enforcement.</strong> Google can reject an app at submission, suspend or remove it, or terminate the developer account.</li></ol><p>Google has not published a fee, review times or how Search chooses between competing apps in the pages we read.</p><p><strong>What it means for operators</strong></p><p><a href=\"https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/\" target=\"_blank\" rel=\"noopener noreferrer\">TechCrunch</a> compared it to SEO, calling it possibly \"one of the initial steps for businesses that want their services to be more visible to users on the agentic web\". Our view: this route suits businesses with something to connect, such as bookings, orders, accounts or quotes; a brochure site has no live account data or action to expose.</p><p>If you already run a customer portal or booking system, we would apply for the preview, start with one or two read-only tools, plan OAuth 2.1 sign-in from the start, and mark anything that writes data for confirmation. If you do not, being cited in AI answers is the other route; see our <a href=\"/ai-search-optimization\">AI search optimization</a> service. For an MCP server build, see <a href=\"/hire-ai-engineer\">hire an AI engineer</a>. Related: <a href=\"/blog/google-ai-training-control-robots-txt/\">Google's shared AI training control in robots.txt</a>, <a href=\"/blog/google-ads-in-ai-mode-expansion/\">ads in Google AI Mode</a> and <a href=\"/blog/track-ai-traffic-google-analytics/\">tracking AI traffic in GA4</a>.</p>",
+  "faqs": [
+    [
+      "What is Google's Connected Apps Platform?",
+      "A preview Google opened on 28 October 2026 that lets developers bring their apps into Google Search and the Gemini app. Users link an account once, then use the service's data and actions from a conversation. Developers connect through a cloud-hosted MCP server or Android MCP and manage the app in the Google Connected Console."
+    ],
+    [
+      "How do I add my app to Google Search and Gemini?",
+      "Apply for the preview at developers.google.com/connected-apps, build an MCP server (with OAuth 2.1 for account access) or an Android MCP integration through the AppFunctions APIs, then register, test and submit it for review in the Google Connected Console, choosing Search, the Gemini app or both. TechCrunch reports the preview is open to US developers on a waitlist."
+    ],
+    [
+      "Does it cost anything to list a connected app?",
+      "Google has not published a fee for the Connected Apps Platform in its announcement, developer overview or policy page. It has also not said how Search or Gemini chooses between competing apps."
+    ],
+    [
+      "Can a connected app show ads?",
+      "No. Google's policy says partners must not serve third-party advertising content or promotional material through their integrations, and each app must deliver standalone value free of any advertising content. Your own brand elements are allowed."
+    ]
+  ],
+  "image": {
+    "cluster": "AI search",
+    "takeaway": "Google's Connected Apps preview lets admitted developers submit an MCP app for Search and Gemini, after review.",
+    "alt": "Google Connected Apps Platform: a preview opened on 28 October 2026 that lets developers bring apps into Google Search and the Gemini app through an MCP server or Android MCP"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Connected Apps Platform preview opened",
+        "value": "28 October 2026",
+        "note": "phased access"
+      },
+      {
+        "label": "Connected Apps live across Search and Gemini",
+        "value": "more than 50",
+        "note": "per Google"
+      },
+      {
+        "label": "Integration routes",
+        "value": "2",
+        "note": "MCP server, or Android MCP via AppFunctions"
+      },
+      {
+        "label": "Authorization standard for the MCP route",
+        "value": "OAuth 2.1",
+        "note": "Google's implementation guide"
+      },
+      {
+        "label": "Partners named as live in Gemini",
+        "value": "4",
+        "note": "Adobe, Experian, Localiza, Peloton"
+      },
+      {
+        "label": "Fee to list an app",
+        "value": "not published",
+        "note": "in the pages we read"
+      }
+    ],
+    "source": "Google's blog post, developer overview and policy page, and TechCrunch's report, read on 3 November 2026."
+  }
+}
