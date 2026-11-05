@@ -1,0 +1,64 @@
+{
+ "slug": "meta-pixel-on-device-conversions",
+ "title": "Meta Pixel On-Device Conversions: On by Default, Nov 12 Start",
+ "desc": "Meta's Measure conversions on customer devices is on by default for eligible pixels, not for EU and UK users. PPC Land reports a Nov 12 start. How to opt out.",
+ "keywords": "meta pixel update, measure conversions on customer devices, meta pixel, meta conversions api, meta pixel on-device conversions, meta events manager, shopify meta pixel",
+ "date": "2026-11-05",
+ "time": "11:10",
+ "read_time": 3,
+ "word_count": 537,
+ "cta": "Want ad numbers you can check against real orders?",
+ "body": "<p><strong>November 5, 2026.</strong> Meta has added a Meta Pixel setting called Measure conversions on customer devices, and its <a href=\"https://www.facebook.com/business/help/4237575203200036\" target=\"_blank\" rel=\"noopener noreferrer\">Business Help Center</a> says it \"is turned on by default.\" <a href=\"https://ppc.land/meta-pixel-will-count-more-conversions-from-nov-12-unless-advertisers-opt-out/\" target=\"_blank\" rel=\"noopener noreferrer\">PPC Land reports</a> that the Events Manager panel reads \"Measurement starting November 12, 2026\", one week from today. Meta says the setting helps it count purchases it \"can't always connect\" to an ad today, so reported conversions on eligible pixels may rise from that date with no change in real sales. Meta says it is not active for people located in the EU and UK.</p><p><strong>What Meta says the setting does</strong></p><ol><li><strong>The match happens on the shopper's device.</strong> It uses information the customer \"already shared with you (like an email)\" and \"temporary, non-identifying device information.\" Meta \"only receives confirmation that a purchase happened and which campaign to attribute it to.\"</li><li><strong>It adds to your setup.</strong> It \"works alongside your existing Pixel and Conversions API setup and doesn't replace it.\"</li><li><strong>Attribution rules stay the same.</strong> \"Your attribution window and attribution model don't change.\" Meta says it changes which conversions can be measured, not how they are credited.</li><li><strong>Not every pixel qualifies.</strong> Meta's <a href=\"https://www.facebook.com/business/help/2192875204996675\" target=\"_blank\" rel=\"noopener noreferrer\">setup article</a> says the Pixel must sit directly on the page, \"not inside an iframe or as an image-only (img) pixel\", and \"Your website must require people to log in to an account using an email or mobile phone number.\"</li><li><strong>It is a per-pixel switch.</strong> Events Manager, Data sources, your pixel, Settings, then Measure conversions on customer devices under Meta Pixel settings. It is on by default for eligible pixels and can be turned off at any time.</li></ol><p><strong>What it means for operators</strong></p><p>Meta pitches two gains: \"See more of the conversions you drive in your campaign reporting\" and \"Improve campaign performance with a stronger signal.\" PPC Land reports Meta \"has not said if recovered sales feed bidding\", so the clearest effect is in reporting. PPC Land puts it plainly: \"The numbers in Ads Manager could go up without anything changing in the shop.\" If a client's cost per purchase drops after November 12, the campaign may not be the reason.</p><ul><li><strong>Take a baseline this week.</strong> Export conversions by campaign for the days before November 12 and pull real orders or closed leads for the same days from Shopify or the CRM, then compare the same pairs after.</li><li><strong>Check which pixels qualify.</strong> PPC Land notes that the login condition, \"taken literally, would leave out shops where a purchase can be completed without an account.\" Meta does not say how it treats guest checkout.</li><li><strong>Do not assume leads are covered.</strong> Meta's examples refer only to purchases. It does not say whether lead or registration events are measured this way.</li><li><strong>Decide per client.</strong> It is a per-pixel setting you can turn off at any time. Write the decision and the date into the client's report notes.</li></ul><p>If you send clients Meta numbers through a <a href=\"/gohighlevel-white-label-saas\">white-label GoHighLevel SaaS</a> dashboard, annotate November 12 there as well. For a second look at Pixel and Conversions API setup, talk to our <a href=\"/ecommerce\">Shopify store team</a>; our <a href=\"/lead-generation\">lead generation</a> service is measured in qualified B2B appointments rather than platform conversions. More on ad measurement: <a href=\"/blog/chatgpt-ads-conversion-tracking/\">ChatGPT Ads conversion tracking</a> and the <a href=\"/blog/microsoft-ads-conversions-api/\">Microsoft Ads Conversions API</a>.</p>",
+ "faqs": [
+  [
+   "When does Meta start measuring conversions on customer devices?",
+   "PPC Land reports that the Events Manager panel reads \"Measurement starting November 12, 2026\". Meta's own help articles describe the setting but do not print a date."
+  ],
+  [
+   "Is Measure conversions on customer devices on by default?",
+   "Yes. Meta says the setting is turned on by default for eligible pixels. It is not active for people located in the EU and UK."
+  ],
+  [
+   "How do I turn off measure conversions on customer devices?",
+   "In Meta Events Manager, click Data sources, select your pixel, click Settings, and switch off Measure conversions on customer devices below the Meta Pixel settings section. Meta says you can turn it off at any time."
+  ],
+  [
+   "Does it change my attribution window?",
+   "No. Meta says your attribution window and attribution model do not change; the setting affects which conversions can be measured, not how they are credited to your ads."
+  ]
+ ],
+ "image": {
+  "cluster": "Ad tracking",
+  "takeaway": "Meta's on-device conversion setting is on by default for eligible pixels; PPC Land reports a November 12 start.",
+  "alt": "Meta Pixel Measure conversions on customer devices setting, on by default with measurement from November 12, 2026"
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Measurement start shown in Events Manager",
+    "value": "November 12, 2026",
+    "note": "as reported by PPC Land"
+   },
+   {
+    "label": "Default setting",
+    "value": "On",
+    "note": "for eligible pixels"
+   },
+   {
+    "label": "Not active for",
+    "value": "People located in the EU and UK"
+   },
+   {
+    "label": "Change to attribution window or model",
+    "value": "None",
+    "note": "per Meta"
+   },
+   {
+    "label": "Login requirement for eligibility",
+    "value": "Email or mobile phone number",
+    "note": "the website must require an account login"
+   }
+  ],
+  "source": "Meta Business Help Center articles read on 5 November 2026; start date as reported by PPC Land on 27 October 2026."
+ }
+}

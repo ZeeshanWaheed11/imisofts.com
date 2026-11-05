@@ -1,0 +1,63 @@
+{
+ "slug": "stripe-mcp-server",
+ "title": "Stripe MCP Server Needs Agent API Keys or OAuth After November 30",
+ "desc": "Stripe's MCP server stops accepting full-access secret keys and untagged restricted keys in December. Move AI agents to agent API keys or OAuth by November 30.",
+ "keywords": "stripe mcp, stripe mcp server, stripe agent api key, stripe restricted key, stripe api keys, stripe secret key, stripe mcp oauth",
+ "date": "2026-11-05",
+ "time": "11:20",
+ "read_time": 3,
+ "word_count": 594,
+ "cta": "Need help connecting AI agents to Stripe?",
+ "body": "<p><strong>November 5, 2026.</strong> Stripe's MCP server, the endpoint at mcp.stripe.com that lets AI agents read and write Stripe data, stops accepting full-access secret keys and restricted keys without the Agent tag in December. Stripe's <a href=\"https://docs.stripe.com/mcp\" target=\"_blank\" rel=\"noopener noreferrer\">MCP documentation</a> says \"Migrate by 30 November 2026\" and that requests using an unsupported key \"receive a 401 response with an OAuth discovery challenge.\" An agent still connected with an old key has 25 days to migrate; Stripe says the refusals start in December.</p><p><strong>What Stripe's docs say</strong></p><ol><li><strong>Two ways in.</strong> OAuth for interactive clients, which \"lets you authorise and revoke a client without sharing an API key\", and agent API keys for autonomous clients that cannot use OAuth. Agent keys carry an Agent badge in the Dashboard and go in the Authorization header as a bearer token.</li><li><strong>Agent keys come with approval rules.</strong> Stripe's <a href=\"https://docs.stripe.com/keys\" target=\"_blank\" rel=\"noopener noreferrer\">API keys page</a> says agent-tagged keys \"are automatically subject to approval rules, which require a designated reviewer to approve sensitive actions before they take effect\", with default rules \"covering elevated-risk actions such as payouts and refunds.\"</li><li><strong>Unapproved requests expire.</strong> On the MCP page, Stripe says it \"can require you to review and approve the request in the Dashboard\" before an agent completes certain actions. After you approve, \"you need to tell the agent to retry the operation\", and \"If you don't approve the action within 24 hours, it expires.\"</li><li><strong>Connected accounts need a key, not OAuth.</strong> \"MCP doesn't support OAuth when acting on behalf of connected accounts.\" Stripe says Connect platforms should use a platform agent API key with only the connected-account permissions the agent needs.</li><li><strong>Admins can switch MCP off.</strong> Access can be turned on or off for a whole team, separately for live mode and sandboxes.</li></ol><p>Developers Digest's <a href=\"https://www.developersdigest.tech/mcp-servers/stripe\" target=\"_blank\" rel=\"noopener noreferrer\">Stripe MCP setup guide</a>, which logged the docs as of October 17, reports the same December cutoff. Stripe still labels the server Public preview. The new step is the key cutoff; the rest is how Stripe documents the options today.</p><p><strong>What it means for operators</strong></p><p>The notice covers the MCP server only. It says nothing about keys used directly against the Stripe API, such as a checkout integration. What it does catch is the shortcut of pasting a live secret key into an AI assistant's MCP settings so it can look up customers or issue refunds.</p><ul><li><strong>Interactive clients: reconnect with OAuth.</strong> Stripe recommends OAuth for MCP clients a person uses directly, such as a coding assistant.</li><li><strong>Autonomous agents: replace the key with the smallest permissions that work.</strong> Stripe's steps: create an agent API key with only the permissions the client needs, test the new configuration in a sandbox, then expire the old key. When Stripe asks what the key is for, pick \"Giving an AI agent access to operate your account\".</li><li><strong>Plan for the pause.</strong> Agent keys come with approval rules for actions such as payouts and refunds, so an unattended refund agent will wait for a person. Name a reviewer who acts within 24 hours, and after approval tell the agent to retry.</li><li><strong>Turn on client approval.</strong> Stripe asks you to turn on your MCP client's tool-approval setting and warns about prompt injection when Stripe MCP runs alongside other servers.</li></ul><p>Agencies that resell a <a href=\"/gohighlevel-white-label-saas\">white-label GoHighLevel SaaS</a> billed through Stripe should still check whether anyone on the team gave an AI assistant the account's live key. If you are wiring agents into payments, our <a href=\"/hire-ai-engineer\">AI engineers</a> can help scope keys and approvals, and our <a href=\"/launch-your-saas\">SaaS launch package</a> includes Stripe payments. For another change to an agent platform, see <a href=\"/blog/openai-agent-builder-shutdown/\">OpenAI's Agent Builder shutdown</a>.</p>",
+ "faqs": [
+  [
+   "Does the Stripe MCP server still accept secret keys?",
+   "Agent-tagged keys, yes. Full-access secret keys and restricted keys without the Agent tag only until the November 30, 2026 migration date: Stripe says that starting in December its MCP server will stop accepting them. Use OAuth for interactive clients or an agent API key for autonomous ones."
+  ],
+  [
+   "What is a Stripe agent API key?",
+   "A secret key tagged for an AI agent that needs persistent access to your account. It enforces permissions like other secret keys, carries an Agent badge in the Dashboard, and is automatically subject to approval rules, with defaults covering elevated-risk actions such as payouts and refunds."
+  ],
+  [
+   "What happens if I do not migrate by November 30?",
+   "Stripe says requests using an unsupported key receive a 401 response with an OAuth discovery challenge, so the agent's Stripe tool calls will fail until you reconnect with OAuth or a new agent API key."
+  ],
+  [
+   "Can I use OAuth for connected accounts with Stripe MCP?",
+   "No. Stripe says MCP does not support OAuth when acting on behalf of connected accounts. Connect platforms authenticate with a platform agent API key that has only the connected-account permissions the agent needs."
+  ]
+ ],
+ "image": {
+  "cluster": "AI agents",
+  "takeaway": "From December, Stripe MCP refuses full-access secret keys and restricted keys without the Agent tag.",
+  "alt": "Stripe MCP server needs agent API keys or OAuth after the November 30, 2026 migration date"
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Migrate by",
+    "value": "November 30, 2026",
+    "note": "25 days after this article"
+   },
+   {
+    "label": "Old keys refused from",
+    "value": "December 2026",
+    "note": "full-access secret keys and untagged restricted keys"
+   },
+   {
+    "label": "Response to an unsupported key",
+    "value": "HTTP 401",
+    "note": "with an OAuth discovery challenge"
+   },
+   {
+    "label": "Unapproved agent action expires after",
+    "value": "24 hours"
+   },
+   {
+    "label": "Server status",
+    "value": "Public preview"
+   }
+  ],
+  "source": "Stripe's MCP and API keys documentation, read on 5 November 2026."
+ }
+}

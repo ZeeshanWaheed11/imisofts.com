@@ -1,0 +1,123 @@
+{
+ "slug": "gemini-2-5-deprecation",
+ "title": "Gemini 2.5 Pro and Flash Deprecation: What Changes on December 1",
+ "desc": "Google deprecated Gemini 2.5 Pro and 2.5 Flash in the Gemini API on November 2. From December 1 calls go to 3.8 Flash and 3.5 Flash-Lite, with breaking changes.",
+ "keywords": "gemini 2.5 pro deprecation, gemini 2.5 flash deprecation, gemini 2.5 flash, gemini 2.5 pro, gemini 3.5 flash lite, gemini 3.8 flash, gemini api pricing, gemini 2.5 flash pricing, gemini 2.5 flash api",
+ "date": "2026-11-05",
+ "time": "11:30",
+ "read_time": 8,
+ "word_count": 1573,
+ "cta": "Want your Gemini workflows moved before December 1?",
+ "body": "<p><strong>November 5, 2026.</strong> Google deprecated Gemini 2.5 Pro and Gemini 2.5 Flash in its <a href=\"https://ai.google.dev/gemini-api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini API release notes</a> on November 2, 2026. From December 1, every API request that still names <code>gemini-2.5-pro</code> is answered by <code>gemini-3.8-flash</code>, and every request that names <code>gemini-2.5-flash</code> is answered by <code>gemini-3.5-flash-lite</code>, each billed at the new model's rates. The model names keep resolving, but to models that reject some request shapes, and routed 2.5 Pro calls are billed at different rates, so a workflow pinned to 2.5 can change its output, and for Pro its cost, on December 1 without anyone editing it. That is 26 days from today.</p><p><strong>What Google changed on November 2</strong></p><ol><li><strong>Gemini 2.5 Pro routes to Gemini 3.8 Flash.</strong> Google's <a href=\"https://ai.google.dev/gemini-api/docs/deprecations\" target=\"_blank\" rel=\"noopener noreferrer\">deprecations page</a> says: \"Effective December 1, 2026, all API requests to gemini-2.5-pro will automatically route to gemini-3.8-flash and be billed at Gemini 3.8 Flash rates.\" It adds that API access \"is limited to existing users who have actively used it in the past.\"</li><li><strong>Gemini 2.5 Flash routes to Gemini 3.5 Flash-Lite.</strong> Same date, billed at Gemini 3.5 Flash-Lite rates. The replacement is a Flash-Lite model, not 3.8 Flash.</li><li><strong>Neither model can be picked in Google AI Studio.</strong> Both notices say the model \"is no longer available to select in Google AI Studio\".</li><li><strong>Gemini 2.5 Flash-Lite is not part of it.</strong> Google says <code>gemini-2.5-flash-lite</code> \"is not deprecated and remains available through the API until further notice.\"</li><li><strong>Google names the breaking changes itself.</strong> The release note says the breaking API changes include \"function calling and thought_signature validation, thinking_level replacing thinking_budget, and removed sampling parameters and prefilled model turns.\"</li></ol><p>Data Studios' <a href=\"https://www.datastudios.org/post/gemini-api-reroutes-gemini-2-5-pro-2-5-flash-december-1-3-8-flash-3-5-flash-lite\" target=\"_blank\" rel=\"noopener noreferrer\">independent write-up</a> reads the same routing from the release notes and points out that the notices cover the Gemini Developer API and \"do not describe the model lifecycle on Vertex AI, which Google documents separately.\"</p><p><strong>What the replacement models change in your requests</strong></p><p>Google's migration guides for <a href=\"https://aistudio.google.com/docs/whats-new-gemini-3.6\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini 3.5 Flash-Lite</a> and <a href=\"https://aistudio.google.com/docs/whats-new-gemini-3.8\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini 3.8 Flash</a> list what changes inside the request. These are the items most likely to touch an existing automation:</p><ul><li><strong>Sampling parameters.</strong> \"temperature, top_p, and top_k are deprecated and ignored\", and \"In future model generations, supplying these parameters returns an HTTP 400 error.\" A step that relied on a low temperature for consistent answers loses that control. Google's advice is a system instruction \"with explicit rules for your specific use case.\"</li><li><strong>Prefilled model turns.</strong> \"If the last non-empty turn in the request is a model turn, the API returns a 400 error.\" Google says workflows that prefilled a reply to force JSON should use system_instruction or structured outputs instead.</li><li><strong>Thinking settings.</strong> Both guides say to replace thinking_budget with thinking_level. Gemini 3.5 Flash-Lite's default is \"minimal\", and Google recommends \"medium\" or \"high\" for subagents with tool calls \"to prevent premature tool termination.\" Gemini 3.8 Flash defaults to medium and does not support minimal.</li><li><strong>Function calling.</strong> Both guides say to audit function calls. The 3.8 Flash guide adds, for generateContent users: \"Ensure all FunctionResponse objects include call_id and name.\" candidate_count is unsupported from Gemini 3 on.</li><li><strong>Token use.</strong> Google says Gemini 3.8 Flash \"can use more tokens on longer running and complex tasks, by design\", because it \"takes smaller reasoning steps, calls tools iteratively, and verifies its work along the way.\" As on 2.5, thinking tokens are billed as output.</li></ul><p>Google also publishes a quality claim for the Flash route: its guide says 3.5 Flash-Lite beats 2.5 Flash on HLE (18.0% versus 11.0%) and CharXIV (74.5% versus 63.7%). Those are Google's benchmarks for a model it sells, not a test of your prompts.</p><p><strong>What the bill looks like after December 1</strong></p><p>Standard paid-tier prices per million tokens on Google's <a href=\"https://ai.google.dev/gemini-api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini API pricing page</a>, read November 5, 2026:</p><table style=\"font-size:14px\"><thead><tr><th>Model</th><th>Input</th><th>Output</th><th>Cached input</th></tr></thead><tbody><tr><td>Gemini 2.5 Pro until November 30, prompts up to 200K tokens</td><td>$1.25</td><td>$10.00</td><td>$0.125</td></tr><tr><td>Gemini 2.5 Pro until November 30, prompts over 200K tokens</td><td>$2.50</td><td>$15.00</td><td>$0.25</td></tr><tr><td>Gemini 3.8 Flash, December 1 to 31</td><td>$0.75</td><td>$3.75</td><td>$0.075</td></tr><tr><td>Gemini 3.8 Flash from January 1, 2027</td><td>$1.50</td><td>$7.50</td><td>$0.15</td></tr><tr><td>Gemini 2.5 Flash until November 30</td><td>$0.30 text, image, video; $1.00 audio</td><td>$2.50</td><td>$0.03 text, image, video; $0.10 audio</td></tr><tr><td>Gemini 3.5 Flash-Lite</td><td>$0.30, audio included</td><td>$2.50</td><td>$0.03</td></tr></tbody></table><p>For 2.5 Flash users the token price does not move for text, image and video, and audio input falls from $1.00 to $0.30, 70 percent less. For 2.5 Pro users December is cheaper and January is mixed: the 3.8 Flash January input price, $1.50, is 20 percent above 2.5 Pro's $1.25 for prompts up to 200K tokens, while its output price, $7.50, is 25 percent below 2.5 Pro's $10.00. The 3.8 Flash table shows one rate with no 200K band.</p><p>Two hypothetical monthly workloads with prompts up to 200K tokens, priced at Standard rates with the same token counts on each model:</p><ul><li><strong>Document reading, 50 million input and 1 million output tokens:</strong> $72.50 on 2.5 Pro today, $41.25 on 3.8 Flash in December, $82.50 on 3.8 Flash from January 1.</li><li><strong>Agent writing, 10 million input and 2 million output tokens:</strong> $32.50 on 2.5 Pro today, $15.00 in December, $30.00 from January 1.</li></ul><p>The arithmetic gives a rule of thumb for prompts up to 200K tokens: at equal token counts, a step that reads more than 10 input tokens for every output token costs more on 3.8 Flash at the January rate than it did on 2.5 Pro. Token counts may not stay equal, since Google says 3.8 Flash can use more tokens by design.</p><p><strong>Grounding with Google Search is billed differently</strong></p><p>On the paid tier, 2.5 Pro and 2.5 Flash include 1,500 grounded prompts a day free (for 2.5 Flash the limit is shared with Flash-Lite), then charge $35 per 1,000 grounded prompts. Gemini 3.8 Flash and 3.5 Flash-Lite include \"5,000 free search requests per month (shared across all Gemini 3 and newer models)\", then charge $14 per 1,000 requests, with a daily cap of 1,500 requests. The unit changes as well: a footnote on the 3.5 Flash-Lite table says a request \"may result in one or more queries to Google Search. You will be charged for each individual search query performed.\"</p><p>Take a hypothetical workflow that grounds 1,000 prompts a day, 30,000 a month. Under 2.5's daily allowance it pays nothing for search. On the new models it pays $14 per 1,000 on the 25,000 searches left after the 5,000 free ones, $350 a month, if each prompt runs one search, and more if prompts run several. On the free tier, 2.5 Flash included grounding up to 500 requests a day; the 3.5 Flash-Lite free tier lists grounding as \"Not available\".</p><p><strong>Who is affected, and who is not</strong></p><ul><li><strong>Affected:</strong> any Gemini Developer API request that names <code>gemini-2.5-pro</code> or <code>gemini-2.5-flash</code>, whether it comes from your own code, an SDK or an automation tool's Gemini step, as long as it calls the Gemini Developer API. Google's wording covers \"all API requests\" to those names.</li><li><strong>Not affected by this notice:</strong> <code>gemini-2.5-flash-lite</code>. Gemini 2.5 Flash Image has its own notice, with shutdown on March 15, 2027.</li><li><strong>Check separately:</strong> Gemini on Vertex AI. Data Studios notes that these notices do not describe the Vertex AI lifecycle, which Google documents separately.</li></ul><p><strong>What it means for agencies and the workflows they run</strong></p><p>The routing makes the switch for you, on Google's date and to Google's choice of model. We would rather make it on our own schedule. Here is the order we suggest:</p><ol><li><strong>Find every model string.</strong> Search workflows, code and environment variables for <code>gemini-2.5-pro</code> and <code>gemini-2.5-flash</code>. A plain text search for the Flash name also matches <code>gemini-2.5-flash-lite</code>, which is not deprecated, and <code>gemini-2.5-flash-image</code>, which has its own March 15, 2027 shutdown, so treat those separately.</li><li><strong>Pick the target model yourself.</strong> Run your own test set on 3.5 Flash-Lite or 3.8 Flash, or on another model, then change the string explicitly before December 1.</li><li><strong>Clean the request.</strong> Remove temperature, top_p, top_k and candidate_count, replace prefilled model turns with a system instruction or structured outputs, and set thinking_level. On Flash-Lite, Google advises \"medium\" or \"high\" for autonomous subagents with tool calls, code execution or multi-step reasoning.</li><li><strong>Re-price at the January rate.</strong> Pro workloads that read far more than they write need the 10 to 1 check above, and grounded workflows need a look at the 5,000 monthly allowance.</li><li><strong>Tell clients before the invoice does.</strong> Retainers that include model costs should show the December and January numbers now.</li></ol><p>This is general information from Google's documentation as of November 5; recheck the release notes before you commit a client budget.</p><p>If you would rather hand the audit off, our <a href=\"/hire-n8n-developer\">n8n developers</a> can help find and re-point model calls inside existing workflows, and our <a href=\"/ai-automation-agency\">AI automation agency</a> team can re-test and re-price client stacks across providers. A step that writes call summaries or qualifies leads behind an AI receptionist is caught by this too if it runs on Gemini 2.5; see how we set up <a href=\"/ai-calling-home-services\">AI call answering for home services</a>. Related: the <a href=\"/blog/gemini-flash-price-increase/\">Gemini Flash price increase on January 1</a>, <a href=\"/blog/gemini-api-free-tier-limits/\">Gemini API free tier limits</a> and the <a href=\"/blog/claude-sonnet-4-5-retirement/\">Claude Sonnet 4.5 retirement</a>.</p><p><strong>What we do not know yet</strong></p><p>Google's guides say to replace thinking_budget but do not say whether a routed request that still sends it gets an error or has it ignored, or whether routed 2.5 Flash calls take 3.5 Flash-Lite's minimal default. This article uses Standard prices; Batch, Flex and Priority rates are listed separately on Google's pricing page.</p>",
+ "faqs": [
+  [
+   "When is Gemini 2.5 Flash deprecated?",
+   "Google deprecated gemini-2.5-flash on November 2, 2026. From December 1, 2026, API requests to it route to gemini-3.5-flash-lite and are billed at Gemini 3.5 Flash-Lite rates, $0.30 input and $2.50 output per million tokens on the Standard paid tier. It can no longer be selected in Google AI Studio."
+  ],
+  [
+   "Will Gemini 2.5 Pro API calls stop working on December 1?",
+   "The model name keeps resolving: Google says requests to gemini-2.5-pro will automatically route to gemini-3.8-flash. But Google's Gemini 3 migration guidance says a request that ends with a prefilled model turn gets a 400 error and that temperature, top_p and top_k are ignored, so some requests may fail or behave differently. Google does not say whether a leftover thinking_budget is rejected or ignored."
+  ],
+  [
+   "What does Gemini 2.5 Pro cost after it routes to 3.8 Flash?",
+   "Routed calls are billed at Gemini 3.8 Flash rates: $0.75 input and $3.75 output per million tokens through December 31, 2026, then $1.50 and $7.50 from January 1, 2027. Gemini 2.5 Pro costs $1.25 input and $10.00 output for prompts up to 200K tokens, so from January the input side costs 20 percent more and the output side 25 percent less."
+  ],
+  [
+   "Is Gemini 2.5 Flash-Lite being deprecated too?",
+   "No. Google's deprecations page says gemini-2.5-flash-lite is not deprecated and remains available through the API until further notice."
+  ],
+  [
+   "Does the change affect Gemini on Vertex AI?",
+   "Google's November 2 notices are in the Gemini Developer API documentation. Data Studios, which reported the change, notes they do not describe the model lifecycle on Vertex AI, which Google documents separately, so check Google's Vertex AI documentation before assuming the same dates."
+  ],
+  [
+   "What code changes do I need before December 1?",
+   "Change the model string, remove temperature, top_p, top_k and candidate_count, remove prefilled model turns, replace thinking_budget with thinking_level, and audit function calling. On 3.8 Flash with the generateContent API, every FunctionResponse needs call_id and name."
+  ]
+ ],
+ "image": {
+  "cluster": "AI model retirement",
+  "takeaway": "From December 1, Gemini API calls to 2.5 Pro route to 3.8 Flash, and calls to 2.5 Flash route to 3.5 Flash-Lite.",
+  "alt": "Gemini 2.5 Pro and 2.5 Flash deprecation: API requests route to Gemini 3.8 Flash and 3.5 Flash-Lite from December 1, 2026",
+  "chart": {
+   "title": "Hypothetical document workload, monthly cost",
+   "subtitle": "50M input and 1M output tokens a month, prompts up to 200K, same token counts on each model.",
+   "type": "hbar",
+   "rows": [
+    [
+     "2.5 Pro, today",
+     72.5
+    ],
+    [
+     "3.8 Flash, December",
+     41.25
+    ],
+    [
+     "3.8 Flash, from Jan 1",
+     82.5
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 2,
+   "note": [
+    "January input rate $1.50",
+    "vs 2.5 Pro's $1.25"
+   ],
+   "source": "Our calculation at Standard paid-tier rates. Source: ai.google.dev, November 2026",
+   "alt": "Bar chart: a hypothetical workload of 50 million input and 1 million output tokens costs $72.50 on Gemini 2.5 Pro, $41.25 on Gemini 3.8 Flash in December 2026 and $82.50 on Gemini 3.8 Flash from January 1, 2027",
+   "after_heading": "Grounding with Google Search is billed differently"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Deprecation announced",
+    "value": "November 2, 2026",
+    "note": "Gemini API release notes"
+   },
+   {
+    "label": "Requests start routing",
+    "value": "December 1, 2026",
+    "note": "26 days after this article"
+   },
+   {
+    "label": "gemini-2.5-pro routes to",
+    "value": "gemini-3.8-flash"
+   },
+   {
+    "label": "gemini-2.5-flash routes to",
+    "value": "gemini-3.5-flash-lite"
+   },
+   {
+    "label": "Gemini 2.5 Pro, per 1M tokens",
+    "value": "$1.25 in, $10.00 out",
+    "note": "prompts up to 200K tokens"
+   },
+   {
+    "label": "Gemini 3.8 Flash to December 31, per 1M tokens",
+    "value": "$0.75 in, $3.75 out"
+   },
+   {
+    "label": "Gemini 3.8 Flash from January 1, 2027",
+    "value": "$1.50 in, $7.50 out"
+   },
+   {
+    "label": "Gemini 2.5 Flash and 3.5 Flash-Lite, per 1M tokens",
+    "value": "$0.30 in, $2.50 out",
+    "note": "text, image and video input"
+   },
+   {
+    "label": "Search grounding, Gemini 2.5 Pro and 2.5 Flash",
+    "value": "1,500 a day free",
+    "note": "paid tier, then $35 per 1,000 grounded prompts"
+   },
+   {
+    "label": "Search grounding, Gemini 3 and newer",
+    "value": "5,000 a month free",
+    "note": "shared across models, then $14 per 1,000 requests"
+   }
+  ],
+  "source": "Gemini API release notes, deprecations page, pricing page and migration guides, read on 5 November 2026 (Standard paid tier)."
+ }
+}
