@@ -1,0 +1,40 @@
+# One-off test, 2026-11-06 (Zeeshan approved: "All recommended: 1, 2, 4, 6, 7, 9", item 2, canary).
+# One page only (claude-for-startups): the Inter font link changes from display=swap to
+# display=optional so text no longer jumps when the font arrives (PageSpeed CLS 0.178 on
+# mobile in the 6 Nov audit). Checked in PageSpeed before the other blog pages follow.
+name: One-off 2026-11-06 font canary
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1106-font-canary.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: display=optional on claude-for-startups
+        run: |
+          python3 - <<'PY'
+          import re
+          p = 'blog/claude-for-startups/index.html'
+          s = open(p, encoding='utf-8').read()
+          t = re.sub(r'(fonts\.googleapis\.com/css2\?family=Inter:wght@400;500(?:&amp;|&))display=swap', r'\1display=optional', s)
+          if t != s: open(p, 'w', encoding='utf-8').write(t)
+          print('changed:', t != s)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "imisofts-nav-bot"
+          git config user.email "nav-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "fix: font display=optional on claude-for-startups, CLS canary (owner approved 2026-11-06)"
+            git pull --rebase origin main
+            git push
+          fi
