@@ -1,0 +1,140 @@
+{
+ "slug": "stir-shaken-attestation",
+ "title": "STIR/SHAKEN Attestation: A, B, C and What Earns an A",
+ "desc": "STIR/SHAKEN attestation grades a signed call A, B or C. Who sets it, what earns an A on Twilio and Telnyx, and what the FCC proposed for the grades in May 2026.",
+ "date": "2026-11-06",
+ "time": "17:30",
+ "keywords": "stir shaken attestation, stir shaken, stir and shaken, a level attestation, stir shaken attestation levels, stir shaken compliance, stir shaken caller id, shaken stir, full attestation, partial attestation, fcc 26-32, close shaken stir, apollo business profile, twilio shaken stir, telnyx attestation, spam likely",
+ "category": "Guides",
+ "affiliate_url": "https://refer.close.com/nkoci03o4zz4-fetl0j",
+ "cta": "Calling prospects at volume? Start with a free audit",
+ "word_count": 2886,
+ "read_time": 13,
+ "body": "<p><strong>Short answer.</strong> STIR/SHAKEN attestation is the grade the provider that signs your call gives its caller ID: A when it knows you and has verified your right to the number, B when it knows you but not the number, C when it cannot vouch for the caller. On our reading of the FCC's rules that provider sets the grade, not the business placing the call, and none of the Close, Apollo or HighLevel help pages we read names a grade. On Twilio's rules (Twilio is Apollo's telephony provider and, on our reading, Close's), an A needs an approved Business Profile and SHAKEN/STIR Trust Product with the number assigned to both, and a non-Twilio number tops out at B; neither Close nor Apollo says how its own registration or business profile maps to those steps. The FCC proposed on 20 May 2026 (FCC 26-32) to codify the grades; we found no final order as of 6 November 2026.</p>\n<p>We earn a commission if you buy Close or Apollo through our links and hold a HighLevel referral link not used here; we have no affiliate program with Twilio, Telnyx, Numeracle or TNS. We read every source on 6 November 2026 (Telnyx last updated its page on 4 September 2026, HighLevel its article on 9 September 2026). This is general information, not legal advice.</p>\n\n<h2 id=\"grades\">What A, B and C attestation mean</h2>\n<p>The FCC's <a href=\"https://www.federalregister.gov/documents/2026/07/09/2026-13874/enhancing-know-your-upstream-provider-requirements-and-strengthening-stirshaken-call-authentication\" target=\"_blank\" rel=\"noopener\">May 2026 proposal</a> puts it this way: \"An attestation is a voice service provider's assertion about the knowledge it has of its customer and the customer's right to use a telephone number.\" A provider may assert A-level, or “full”, attestation when it \"(1) is responsible for the origination of the call onto the IP network, (2) has a direct authenticated relationship with its customer and can identify the customer, and (3) has established a verified association between its customer and the telephone number used for the call.\" B, or “partial”, is the first two without the third. C, or “gateway”, covers a provider with \"no relationship with the originator of a call\", such as an international gateway, and the ATIS standards also allow a C when a provider cannot meet A or B.</p>\n<table>\n<thead><tr><th>Grade</th><th>What the signing provider vouches for</th><th>Examples from published rules</th></tr></thead>\n<tbody>\n<tr><td>A (full)</td><td>It originated the call, can identify you, and verified your right to the number</td><td>A Twilio number assigned to an approved Business Profile and Trust Product; a number bought from Telnyx (customers \"should expect\" an A, though HVSD traffic \"can also expect a B attestation\")</td></tr>\n<tr><td>B (partial)</td><td>It originated the call and knows you, but has not verified the number</td><td>A number from another carrier (Twilio: B at most, with an approved profile and Trust Product; Telnyx: B unless ported in or considered under its exception route)</td></tr>\n<tr><td>C (gateway)</td><td>It did not originate the call, or it cannot identify the caller</td><td>International gateway calls; on Twilio, no approved (or a rejected) profile and Trust Product</td></tr>\n</tbody>\n</table>\n<p>B and C calls \"are not necessarily spoofed\", the FCC adds; the lower grade means the provider \"lacks sufficient knowledge to conclusively determine that fact.\" Today the FCC's caller ID authentication rules (<a href=\"https://www.ecfr.gov/current/title-47/chapter-I/subchapter-B/part-64/subpart-HH\" target=\"_blank\" rel=\"noopener\">47 CFR Part 64, Subpart HH</a>) do not define the grades: the definitions in 64.6300 run from (a) to (o) and none is a grade. The grades come from ATIS industry standards (the proposed definition of an improper attestation cites ATIS-1000074), which the FCC proposes to codify.</p>\n\n<h2 id=\"who-signs\">Who signs the call and sets the grade</h2>\n<p>Under 47 CFR 64.6301(a), \"Except as provided in §§ 64.6304 and 64.6306, not later than June 30, 2021, a voice service provider shall fully implement the STIR/SHAKEN authentication framework in its internet Protocol networks.\" A provider may hire a third party to sign, but it still \"Makes all attestation-level decisions\" for the calls it originates. On our reading, a business that is not itself a voice service provider has no signing duty; the provider that originates its calls decides the grade.</p>\n<p>The FCC also names a gap a team can fall into. In its Scenario 1, the signing provider \"is a separate entity from the telephone number service provider (TNSP) that provisioned the telephone numbers to the customer\", for example when a team keeps its main number at one carrier and dials through another. The signer knows the customer but has not verified the number, which on the definitions above is a B. In Scenario 2 the end user buys service from \"an intermediary provider, such as a reseller\", and the FCC proposes that all voice service providers \"serving end users directly\" make the attestation decision, which on our reading could reach calling platforms that resell voice service.</p>\n<p>Apollo says \"New phone numbers are provisioned through Apollo's telephony provider, Twilio.\" Close's <a href=\"https://help.close.com/feature-guide/calling/porting-your-number\" target=\"_blank\" rel=\"noopener\">porting guide</a> calls a port from Twilio \"an internal transfer between Twilio projects\", so we read Close as running on Twilio too. Twilio's <a href=\"https://www.twilio.com/docs/voice/trusted-calling-with-shakenstir/shakenstir-onboarding\" target=\"_blank\" rel=\"noopener\">attestation rules</a> sign a call A when the customer has an approved Business Profile, an approved SHAKEN/STIR Trust Product linked to it, and \"Phone number(s) assigned to both\"; vetting takes \"24 hours for Business Profile and 72 hours for SHAKEN/STIR Trust Product\". B is \"the highest level of attestation possible if a customer is using non-Twilio phone numbers\", because \"Twilio can't attest to a customer's right to use a phone number if it is not a Twilio phone number.\" Twilio's onboarding page treats a company whose \"customers are responsible for making the calls using your product\" as an ISV/Reseller, not a Direct Customer, and neither Close nor Apollo says how its registration maps to these steps.</p>\n<p><a href=\"https://telnyx.com/resources/shaken-stir-explained\" target=\"_blank\" rel=\"noopener\">Telnyx</a>, which has no affiliate program with us, says customers who bought numbers from Telnyx \"should expect to receive an A attestation\", a customer using a number \"not on the Telnyx portal\" \"will be assigned a B attestation\", and customers with \"HVSD (high volume short duration) traffic can also expect a B attestation\"; on our reading, busy power or parallel dialing can produce such traffic (see <a href=\"/blog/is-parallel-dialing-legal/\">is parallel dialing legal</a>). To reach an A, customers \"should consider porting their numbers\"; otherwise a customer must meet conditions, such as having no \"Traceback complaints or subpoenas related to fraud\", \"to be considered for increased attestation\". Customers \"will not be notified of the attestation their calls receive\".</p>\n\n<h2 id=\"platforms\">What Close, Apollo and HighLevel document</h2>\n<p>None of the three names a grade. Close's guide to <a href=\"https://help.close.com/feature-guide/calling/increase-call-connections\" target=\"_blank\" rel=\"noopener\">call connection rates</a> mentions SHAKEN 14 times and attestation 0 times; Apollo's <a href=\"https://knowledge.apollo.io/hc/en-us/articles/45502145803149-Protect-Your-Caller-Reputation-and-Stay-Compliant\" target=\"_blank\" rel=\"noopener\">caller reputation</a> and <a href=\"https://knowledge.apollo.io/hc/en-us/articles/26604621629069-Get-an-Apollo-Phone-Number\" target=\"_blank\" rel=\"noopener\">phone number</a> guides mention neither; HighLevel's <a href=\"https://help.gohighlevel.com/support/solutions/articles/155000006429-what-is-shaken-stir-\" target=\"_blank\" rel=\"noopener\">SHAKEN/STIR article</a> never says attestation. What they document is registration:</p>\n<table>\n<thead><tr><th>Platform</th><th>Carrier (named, or our reading)</th><th>What you register</th><th>A number you already have</th></tr></thead>\n<tbody>\n<tr><td>Close (partner)</td><td>Twilio, on our reading of its porting guide</td><td>Trusted Calling in the US Compliance tab; \"Registration is free\"; for US-based customers; already done if your organization passed A2P 10DLC</td><td>Verify it as caller ID \"for outbound calls only\", or port it in (a request \"can take 2-4 weeks\")</td></tr>\n<tr><td>Apollo (partner)</td><td>Twilio (\"Apollo's telephony provider\")</td><td>A business profile, added under Settings, Phone numbers; once submitted it \"applies to all users dialing from that number's country\"</td><td>\"It isn't possible to port existing phone numbers into Apollo.\"</td></tr>\n<tr><td>HighLevel (referral link, not used here)</td><td>Not named on the page</td><td>Trust Center; EIN required; after a qualifying A2P registration, eligible numbers \"may be enrolled in SHAKEN/STIR automatically\"</td><td>Not covered on that page</td></tr>\n</tbody>\n</table>\n<p>Close does not say which grade any call gets, or how Trusted Calling maps to Twilio's A criteria. On our reading (Close on Twilio), an external number you <a href=\"https://help.close.com/feature-guide/calling/outbound-caller-id\" target=\"_blank\" rel=\"noopener\">verify as caller ID</a> tops out at B under Twilio's rule; porting your main line in would take it out of Twilio's non-Twilio-number rule, but Close does not say whether ported or Close-issued numbers are signed A, or when. A port request can take 2 to 4 weeks, and \"Porting a number into Close will stop service of that number with your existing provider.\" Choosing a dialer for US calls? <a href=\"https://refer.close.com/nkoci03o4zz4-fetl0j\" target=\"_blank\" rel=\"sponsored noopener\">Sign up for Close (partner link)</a> and open the US Compliance tab before the first campaign.</p>\n<p>The two Apollo help pages we read never mention SHAKEN/STIR or attestation. Apollo documents a business profile, which \"shares verified business information with carriers and helps establish credibility for your calls\", and \"An approved business profile is required to set a caller ID.\" Apollo does not say whether the profile affects the grade, and you cannot port your existing number in. If that suits you, <a href=\"https://get.apollo.io/u5ocuv7me9t2\" target=\"_blank\" rel=\"noopener noreferrer sponsored\">compare Apollo's plans (partner link)</a>.</p>\n\n<h2 id=\"spam-labels\">Why an A may not clear Spam Likely</h2>\n<p>HighLevel's article, which elsewhere says SHAKEN/STIR \"helps avoid getting flagged as spam\", is plain here: it \"does not directly remove “Spam Likely” or other nuisance labels.\" Close says SHAKEN/STIR \"should help with your connection rate\" but \"does not make you immune from spam labeling\", and Apollo says \"no system can guarantee that calls won't be flagged.\" Twilio's <a href=\"https://www.twilio.com/docs/voice/trusted-calling-with-shakenstir\" target=\"_blank\" rel=\"noopener\">trusted calling page</a> is more upbeat: high attestation levels \"help guarantee that critical notifications, like appointment reminders or emergency alerts, are seen and answered by your customers.\" We would plan on the cautious reading, because a grade describes identity, not calling behavior.</p>\n<p>Data cited in the FCC's proposal shows that an A is no proof of a good caller. The FCC quotes figures that \"48 percent of illegal calls are A-attested\" and that \"93.4% of robocall traffic from the most prolific robocall signers now carry A-level attestations\", attributed in a <a href=\"https://docs.fcc.gov/public/attachments/FCC-26-32A1.txt\" target=\"_blank\" rel=\"noopener\">footnote in the FCC's full text</a> to a Numeracle filing dated \"Oct. 21\" (year not given); Numeracle sells caller ID branding and spam-label remediation. Transaction Network Services, which sells branded calling, reported from internal data covering the first half of 2025 that \"certain top tier carriers had marked around 8% of their invalid number calls with A-level attestation\", against 57% at \"non-top tier carriers\". And the FCC found that Lingo Telecom \"applied A-level attestations to 3,978 spoofed robocalls\" carrying a deepfake voice message purporting to be from then-President Joe Biden. For the labels themselves, see <a href=\"/blog/why-is-my-business-number-showing-as-spam/\">why a business number shows as spam</a> and <a href=\"/blog/twilio-voice-integrity/\">Twilio Voice Integrity</a>.</p>\n\n<h2 id=\"fcc-proposal\">What the FCC proposed in May 2026</h2>\n<p>FCC 26-32 is a further notice of proposed rulemaking, adopted on 20 May 2026 and published in the <a href=\"https://www.federalregister.gov/documents/2026/07/09/2026-13874/enhancing-know-your-upstream-provider-requirements-and-strengthening-stirshaken-call-authentication\" target=\"_blank\" rel=\"noopener\">Federal Register</a> on 9 July (91 FR 42602); comments were due by 10 August and replies by 8 September 2026. Its title begins \"Enhancing Know-Your-Upstream-Provider Requirements\", but on our reading five parts would affect a business that makes calls, through its provider:</p>\n<ul>\n<li><strong>The grades would become rules.</strong> A revised 64.6301(b) would say a provider \"shall not willfully apply attestation levels inconsistent with\" the A, B and C criteria.</li>\n<li><strong>Your number, your carrier.</strong> The proposed number test for an A \"shall presumptively be satisfied if the provider assigned the telephone number to the customer\".</li>\n<li><strong>No checkbox promises.</strong> Under the proposal it \"shall not be satisfied by a business agreement or certification that includes a general statement\" about the customer's numbers, \"essentially the mechanism that Lingo Telecom used\", in the FCC's words.</li>\n<li><strong>A possible route for outside numbers.</strong> Delegate certificates (ATIS-1000092) come from the number's carrier and show an entity's \"authority to use the number\". The FCC proposes \"finding that delegate certificates are a viable method\" when the customer \"is an initiating provider\" (itself a voice provider), and seeks comment on using them for \"an end user customer, such as a non-voice service provider enterprise\".</li>\n<li><strong>Know your customer.</strong> The direct-relationship element would require satisfying 64.1200(n)(4) and (5); the FCC says (n)(4) \"establishes the current KYC requirement\" and (n)(5) \"establishes a KYUP requirement\".</li>\n</ul>\n<p>It also asks, without proposing it, whether stricter rules would justify prohibiting \"blocking or spam labeling of calls with A-level attestations\". We found no final order as of 6 November 2026; neither the <a href=\"https://www.fcc.gov/October2026\" target=\"_blank\" rel=\"noopener\">October</a> nor the <a href=\"https://www.fcc.gov/November2026\" target=\"_blank\" rel=\"noopener\">November 2026</a> open meeting agenda lists one (we did not check circulation votes). This is general information, not legal advice.</p>\n\n<h2 id=\"checklist\">Our five-step checklist for a small sales team</h2>\n<ol>\n<li><strong>Dial from numbers your carrier issued,</strong> or port in the number customers know (Close says a port request can take 2 to 4 weeks and does not say which grade ported numbers get; Apollo takes no ports). On Twilio's rules an outside number is capped at B; Telnyx gives it a B unless you port it or are considered under its exception route.</li>\n<li><strong>Finish each platform's documented registration:</strong> Close's Trusted Calling or HighLevel's Trust Center (EIN required; HighLevel names the Free Caller Registry as the alternative). Apollo documents a business profile instead, which it ties to caller ID and to \"credibility for your calls\"; its pages never mention SHAKEN/STIR. Our <a href=\"/blog/10dlc-registration-cost/\">10DLC registration cost</a> guide covers texting.</li>\n<li><strong>Check the grade you get.</strong> Telnyx, for one, does not notify customers. Our suggestion: call a number on a Twilio account you control and read the StirVerstat value (such as TN-Validation-Passed-A) that Twilio says appears \"in incoming webhooks\".</li>\n<li><strong>Treat labels as a separate job:</strong> Voice Integrity (HighLevel requires SHAKEN/STIR first) and caller name (CNAM) registration. Close caps a CNAM name at 15 ASCII characters; Apollo says a caller ID update can take 12 to 48 hours.</li>\n<li><strong>Keep consent separate.</strong> An A says who you are, not whether you may call (see the <a href=\"/blog/tcpa-compliance-checklist/\">TCPA compliance checklist</a> and <a href=\"/blog/is-local-presence-dialing-legal/\">is local presence dialing legal</a>).</li>\n</ol>\n<p>If an AI voice agent places your calls, on our reading the grade still comes from the provider that originates the call, and consent is a separate question. Our page on <a href=\"/tcpa-compliant-ai-calling\">AI calling built around TCPA consent</a> covers the consent, suppression and opt-out layer we build under an AI dialer; see also <a href=\"/ai-calling-home-services\">AI calling for home services</a>, the <a href=\"/blog/best-ai-voice-agents-2026/\">AI voice agents comparison</a> and the <a href=\"/blog/ai-answering-service-for-hvac/\">HVAC answering service guide</a>. Twilio says its SHAKEN/STIR support \"is currently only deployed in United States and France\"; for rules elsewhere see, for example, the <a href=\"/blog/cold-calling-laws-south-africa/\">cold calling laws in South Africa</a>.</p>\n<p>To see Close's US Compliance tab for yourself, <a href=\"https://refer.close.com/nkoci03o4zz4-fetl0j\" target=\"_blank\" rel=\"sponsored noopener\">sign up for Close (partner link)</a>. This is general information, not legal advice.</p>",
+ "faqs": [
+  [
+   "What is STIR/SHAKEN attestation?",
+   "It is the grade the signing provider gives a call's caller ID under the STIR/SHAKEN framework: A (full), B (partial) or C (gateway). In its May 2026 proposal (FCC 26-32), the FCC describes an attestation as a provider's \"assertion about the knowledge it has of its customer and the customer's right to use a telephone number.\" The grades come from ATIS industry standards; the FCC's current caller ID authentication rules do not define them. Subject to exceptions in 47 CFR 64.6304 and 64.6306, voice service providers had to fully implement STIR/SHAKEN in their IP networks by 30 June 2021."
+  ],
+  [
+   "What does A-level attestation mean?",
+   "The provider originated the call, has a direct authenticated relationship with the customer and can identify it, and has verified the customer's right to use the number. On 20 May 2026 the FCC proposed (FCC 26-32) to write those three criteria into its rules and to presume the number test is met when the provider assigned the number to the customer. It is still a proposal; we found no final order as of 6 November 2026."
+  ],
+  [
+   "How do I get A-level attestation for my business calls?",
+   "It depends on the provider that originates your calls; Close, Apollo and HighLevel do not say which grade their calls get. On Twilio, an A needs an approved Business Profile, an approved SHAKEN/STIR Trust Product and the number assigned to both (vetting times of 24 and 72 hours). Telnyx says customers who bought numbers from Telnyx \"should expect to receive an A attestation\", though customers with high volume short duration traffic \"can also expect a B attestation\". On Twilio a non-Twilio number tops out at B; Telnyx gives a number not on its portal a B unless you port it or are considered under its exception route."
+  ],
+  [
+   "Does A-level attestation stop Spam Likely labels?",
+   "Not on its own. HighLevel says a number \"can be successfully authenticated and still display as “Spam Likely,” “Potential Spam,” or another nuisance label\", and Close says SHAKEN/STIR \"does not make you immune from spam labeling\". In FCC 26-32 (May 2026), the FCC quoted a Numeracle filing (dated \"Oct. 21\", year not given; Numeracle sells caller ID branding and spam-label remediation) saying \"48 percent of illegal calls are A-attested\". On our reading, an A alone is weak evidence of a good caller."
+  ],
+  [
+   "Do small businesses have to comply with STIR/SHAKEN?",
+   "47 CFR 64.6301 places the implementation duty on \"a voice service provider\". On our reading, a business that only places calls through a provider has no signing duty of its own; its provider signs and decides the grade. Platforms set their own registration terms: HighLevel requires an EIN for its documented SHAKEN/STIR registration, and Close says its registration is free and for US-based customers."
+  ],
+  [
+   "What attestation do calls from Close or Apollo get?",
+   "Neither says. The six Close and Apollo help pages we searched on 6 November 2026 never use the word attestation. Apollo names Twilio as its telephony provider; Close's porting guide calls a port from Twilio \"an internal transfer between Twilio projects\", so we read Close as running on Twilio too. Twilio's rule makes B \"the highest level of attestation possible if a customer is using non-Twilio phone numbers\", so on our reading an external number verified as caller ID in Close tops out at B. Neither platform says whether its own numbers are signed A."
+  ]
+ ],
+ "image": {
+  "cluster": "Calling compliance",
+  "takeaway": "The provider that signs a call grades it A, B or C; on Twilio's rules a non-Twilio number tops out at B.",
+  "alt": "STIR/SHAKEN attestation: the provider that signs a call grades it A, B or C, and on Twilio's rules a non-Twilio number tops out at B",
+  "chart": {
+   "title": "Problem calls signed at A, in data the FCC quoted",
+   "subtitle": "Carrier bars: invalid-number calls, first half of 2025 (TNS; top-tier is \"around 8%\"). Middle: illegal calls (Numeracle, undated).",
+   "type": "hbar",
+   "rows": [
+    [
+     "Non-top-tier carriers",
+     57
+    ],
+    [
+     "Illegal calls",
+     48
+    ],
+    [
+     "Some top-tier carriers",
+     8
+    ]
+   ],
+   "prefix": "",
+   "suffix": "%",
+   "highlight": 1,
+   "note": [
+    "48% of illegal calls are A-attested,",
+    "per a Numeracle filing the FCC quoted."
+   ],
+   "source": "TNS sells branded calling; Numeracle sells caller ID branding. Source: FCC 26-32, Federal Register and FCC full text, 2026",
+   "alt": "Bar chart of problem calls signed at A in data the FCC quoted: 57% of non-top-tier carriers' invalid-number calls and around 8% of certain top-tier carriers' invalid-number calls in the first half of 2025, and 48% of illegal calls.",
+   "after_heading": "What the FCC proposed in May 2026"
+  }
+ },
+ "key_numbers": {
+  "title": "Key numbers",
+  "rows": [
+   {
+    "label": "STIR/SHAKEN deadline for voice service providers",
+    "value": "30 June 2021",
+    "note": "47 CFR 64.6301(a), IP networks; exceptions in 64.6304 and 64.6306"
+   },
+   {
+    "label": "FCC 26-32 adopted (proposal to codify A, B and C)",
+    "value": "20 May 2026",
+    "note": "Federal Register 9 July 2026; replies due by 8 September 2026"
+   },
+   {
+    "label": "Final order on FCC 26-32 found",
+    "value": "None",
+    "note": "as of 6 November 2026; October and November agendas checked, not circulation votes"
+   },
+   {
+    "label": "Twilio vetting: Business Profile, SHAKEN/STIR product",
+    "value": "24 hours and 72 hours",
+    "note": "an A also needs the number assigned to both"
+   },
+   {
+    "label": "Best grade for a non-Twilio number on Twilio",
+    "value": "B",
+    "note": "Twilio cannot attest to a customer's right to use a non-Twilio number"
+   },
+   {
+    "label": "Telnyx grade for high volume short duration traffic",
+    "value": "B",
+    "note": "such traffic \"can also expect a B attestation\"; numbers bought from Telnyx \"should expect\" an A"
+   },
+   {
+    "label": "Attestation grade named in Close and Apollo help pages",
+    "value": "None",
+    "note": "0 mentions of attestation in the six Close and Apollo pages we searched"
+   },
+   {
+    "label": "Close SHAKEN/STIR and Voice Integrity registration",
+    "value": "Free",
+    "note": "for US-based customers; done already after A2P 10DLC approval"
+   },
+   {
+    "label": "Close port-in time for a US number",
+    "value": "2 to 4 weeks",
+    "note": "per Close, a request can take this long; international 2 to 6 weeks"
+   },
+   {
+    "label": "Porting an existing number into Apollo",
+    "value": "Not possible",
+    "note": "per Apollo's FAQ"
+   },
+   {
+    "label": "Illegal calls that were A-attested, in data the FCC quoted",
+    "value": "48%",
+    "note": "Numeracle filing, year not given; Numeracle sells caller ID branding"
+   },
+   {
+    "label": "Spoofed robocalls Lingo Telecom signed at A",
+    "value": "3,978",
+    "note": "the deepfake Biden calls, per FCC 26-32"
+   }
+  ],
+  "source": "Read on 6 November 2026 from eCFR, the Federal Register, the FCC, and the Twilio, Telnyx, Close, Apollo and HighLevel help pages."
+ }
+}
