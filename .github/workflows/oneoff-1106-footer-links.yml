@@ -1,0 +1,56 @@
+# One-off site-wide fix, 2026-11-06 (Zeeshan approved: "All recommended: 1, 2, 4, 6, 7, 9", item 4).
+# Adds 4 footer links on every page that has the standard footer: "AI Automation Agency"
+# first in the Growth column, and the 3 free tools after "Free Audit" in Resources.
+# Only adds lines inside <footer>; nothing is removed. Idempotent: a re-run changes nothing.
+name: One-off 2026-11-06 footer links
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1106-footer-links.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Add AI Automation Agency and the 3 free tools to the footer
+        run: |
+          python3 - <<'PY'
+          import re, subprocess
+          files = subprocess.run(['git', 'ls-files', '*.html'], capture_output=True, text=True).stdout.split()
+          changed = 0
+          for rel in files:
+              s = open(rel, encoding='utf-8', errors='ignore').read()
+              fm = re.search(r'<footer.*?</footer>', s, re.S)
+              if not fm or 'footer-heading">Growth<' not in fm.group(0): continue
+              f = fm.group(0); f0 = f
+              if '/ai-automation-agency"' not in f:
+                  f = re.sub(r'(<span class="footer-heading">Growth</span>\s*<ul class="footer-links">)(\s*)',
+                             lambda m: m.group(1) + m.group(2) + '<li><a href="/ai-automation-agency">AI Automation Agency</a></li>' + m.group(2), f, count=1)
+              if '/dns-propagation-checker"' not in f:
+                  f = re.sub(r'(<li><a href="/free-audit">Free Audit</a></li>)(\s*)',
+                             lambda m: m.group(1) + m.group(2) + '<li><a href="/dns-propagation-checker">DNS Propagation Checker</a></li>' + m.group(2)
+                             + '<li><a href="/spf-dkim-dmarc-checker">SPF, DKIM &amp; DMARC Checker</a></li>' + m.group(2)
+                             + '<li><a href="/send-to-webhook">Send to Webhook</a></li>' + m.group(2), f, count=1)
+              if f != f0:
+                  s = s.replace(f0, f); open(rel, 'w', encoding='utf-8').write(s); changed += 1
+          print('files changed:', changed)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "imisofts-nav-bot"
+          git config user.email "nav-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "fix: footer links to AI Automation Agency and the 3 free tools (owner approved 2026-11-06)"
+            git pull --rebase origin main
+            git push
+          fi
