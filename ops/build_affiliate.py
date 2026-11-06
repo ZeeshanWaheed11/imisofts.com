@@ -46,6 +46,12 @@ def esc(t): return (t or '').replace('&','&amp;')
 def human_date(iso): return _dtmod.date.fromisoformat(iso[:10]).strftime('%B %-d, %Y')
 
 def submit_indexnow(urls):
+    _q = os.environ.get("INDEXNOW_QUEUE")
+    if _q:  # proposed 2026-11-06: queue now, submit after the deploy is live (ops/indexnow_after_deploy.py)
+        _prev = json.load(open(_q)) if os.path.exists(_q) else []
+        json.dump(list(dict.fromkeys(_prev + list(urls))), open(_q, "w"))
+        print("indexnow: queued %d url(s) for after the deploy" % len(urls))
+        return
     import urllib.request
     KEY="8f91c62405dc13875a9db237c23b51f6"; urls=list(dict.fromkeys(urls))
     try:
