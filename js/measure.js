@@ -13,6 +13,10 @@
  *   contact_click       email / phone / WhatsApp link click (contact_method)
  *   affiliate_click     click on a rel="sponsored" link (affiliate_program)
  *
+ * The random GA client ID is also passed into the ClickUp contact form's hidden
+ * "GA client ID" field, so a lead's later stages (qualified, won) can be imported
+ * into GA4 for that visitor. No name, email or other personal data is passed.
+ *
  * Mark a browser as internal (excluded by the GA4 internal-traffic filter):
  * open any page once with ?internal=1 . Undo with ?internal=0 .
  */
@@ -220,6 +224,34 @@
       }
     }, 0);
   });
+
+  // ---- lead stages: pass the GA client ID into the ClickUp contact form ----
+  // The form has a hidden "GA client ID" field (ClickUp fills hidden fields from the
+  // form URL). A daily upload then sends qualify_lead, close_convert_lead and the other
+  // lead-stage events to GA4 for that client ID. A form is never reloaded once someone
+  // has started typing in it.
+  function clientIdFromCookie() {
+    var m = /(?:^|;\s*)_ga=GA\d\.\d\.(\d+\.\d+)/.exec(document.cookie || '');
+    return m ? m[1] : '';
+  }
+  function tagForms(cid) {
+    var frames = document.querySelectorAll('iframe');
+    for (var i = 0; i < frames.length; i++) {
+      var f = frames[i];
+      var src = f.getAttribute('src') || '';
+      if (!/^https:\/\/forms\.clickup\.com\//.test(src) || /GA%20client%20ID=/.test(src)) continue;
+      if (formStarted || document.activeElement === f) continue;
+      f.setAttribute('src', src + (src.indexOf('?') === -1 ? '?' : '&') + 'GA%20client%20ID=' + cid);
+    }
+  }
+  var cidTries = 0;
+  function pollClientId() {
+    var cid = clientIdFromCookie();
+    if (cid) { tagForms(cid); return; }
+    if (++cidTries < 40) setTimeout(pollClientId, 500);
+  }
+  if (document.readyState === 'complete') pollClientId();
+  else window.addEventListener('load', pollClientId);
 
   // ---- load gtag.js after the page has finished loading ----
   var loaded = false;
