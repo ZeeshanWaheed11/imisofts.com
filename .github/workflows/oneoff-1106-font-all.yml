@@ -1,0 +1,42 @@
+# One-off fix, 2026-11-06 (Zeeshan approved: "All recommended: 1, 2, 4, 6, 7, 9", item 2, rollout).
+# After the claude-for-startups canary: every blog page's Inter font link changes from
+# display=swap to display=optional (no layout jump when the font arrives). The news and
+# affiliate builds use a blog page as their template, so new pages inherit it. Idempotent.
+name: One-off 2026-11-06 font rollout
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1106-font-all.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: display=optional on all blog pages
+        run: |
+          python3 - <<'PY'
+          import glob, re
+          n = 0
+          for p in glob.glob('blog/*/index.html'):
+              s = open(p, encoding='utf-8').read()
+              t = re.sub(r'(fonts\.googleapis\.com/css2\?family=Inter:wght@400;500(?:&amp;|&))display=swap', r'\1display=optional', s)
+              if t != s:
+                  open(p, 'w', encoding='utf-8').write(t); n += 1
+          print('blog pages changed:', n)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "imisofts-nav-bot"
+          git config user.email "nav-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "fix: font display=optional on all blog pages, no layout jump (owner approved 2026-11-06)"
+            git pull --rebase origin main
+            git push
+          fi
