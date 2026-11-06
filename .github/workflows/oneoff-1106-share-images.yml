@@ -1,0 +1,52 @@
+# One-off fix, 2026-11-06 (Zeeshan approved: "All recommended: 1, 2, 4, 6, 7, 9", item 6).
+# Six posts used SVG share images, which Facebook, LinkedIn and X do not display. New
+# 1200x630 JPGs were uploaded to /assets/og/ first; this points og:image, twitter:image
+# and the schema image URL of those six pages at the JPGs. Idempotent.
+name: One-off 2026-11-06 share images
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1106-share-images.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Point six share images at the new JPGs
+        run: |
+          python3 - <<'PY'
+          import os, re
+          pages = {'cold-email-deliverability-inbox-placement-2026': 'cold-email-deliverability-inbox-placement-2026',
+                   'cold-email-domain-warmup-2026': 'cold-email-domain-warmup-2026',
+                   'cold-email-marketing-instantly-ai-2025': 'instantly-ai-cold-email-2025',
+                   'cold-email-templates-5m-revenue-2025': 'cold-email-templates-5m-revenue-2025',
+                   'how-many-domains-cold-email-2026': 'how-many-domains-cold-email-2026',
+                   'saleshandy-vs-instantly-vs-smartlead-2025': 'saleshandy-vs-instantly-vs-smartlead-2025'}
+          changed = 0
+          for slug, img in pages.items():
+              if not os.path.exists('assets/og/%s.jpg' % img):
+                  print('MISSING JPG, skipped', img); continue
+              p = 'blog/%s/index.html' % slug
+              s = open(p, encoding='utf-8').read()
+              t = s.replace('/assets/og/%s.svg' % img, '/assets/og/%s.jpg' % img)
+              t = re.sub(r'(<meta property="og:image:type" content=")image/svg\+xml(")', r'\1image/jpeg\2', t)
+              if t != s:
+                  open(p, 'w', encoding='utf-8').write(t); changed += 1; print('updated', p)
+          print('files changed:', changed)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "imisofts-nav-bot"
+          git config user.email "nav-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "fix: JPG share images for 6 posts (owner approved 2026-11-06)"
+            git pull --rebase origin main
+            git push
+          fi
