@@ -1,0 +1,91 @@
+# One-off fix, 2026-11-06 (Zeeshan approved: "All recommended: 1, 2, 4, 6, 7, 9", item 1).
+# Removes writing-process notes that were published by mistake on 26 static articles:
+# "FAQ Schema" labels, "Internal Links" / "External Links & Affiliate URLs" lists of bare
+# (not clickable) URLs, "Image Alt (Text) Suggestions" lists, "Word Count: N" lines, the
+# "CTA:" prefix on closing headings, and their table-of-contents entries. Headings above
+# real partner links are renamed "Tools mentioned in this guide"; the links stay.
+# Safety: a page is only written if its title, H1, meta tags, JSON-LD, FAQ items and
+# sponsored links are unchanged. Idempotent: a re-run finds nothing to change.
+name: One-off 2026-11-06 draft notes cleanup
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1106-draft-notes.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Remove published draft notes
+        run: |
+          python3 - <<'PY'
+          import re, glob
+          def words(x): return len(re.sub(r'<[^>]+>', ' ', x).split())
+          def cnt(p, x): return len(re.findall(p, x))
+          changed = 0; skipped = []
+          for f in sorted(glob.glob('blog/*/index.html')):
+              s = open(f, encoding='utf-8').read(); orig = s
+              m = re.search(r'<article.*?</article>', s, re.S)
+              if not m: continue
+              art = m.group(0); a0 = art; removed_ids = []; renamed = {}
+              for lab in [r'Internal Links', r'External Links (?:&amp;|&) Affiliate URLs', r'Image Alt Suggestions']:
+                  pat = re.compile(r'\s*<h3[^>]*>\s*' + lab + r'\s*</h3>\s*<ul>.*?</ul>', re.S)
+                  art = pat.sub(lambda mm: mm.group(0) if '<a ' in mm.group(0) else '', art)
+              art = re.sub(r'\s*<h3[^>]*>\s*FAQ Schema\s*</h3>', '', art)
+              art = re.sub(r'\s*<p>\s*Word Count:\s*[\d,]+\s*</p>', '', art)
+              for lab, tag in [(r'External Links (?:&amp;|&) Affiliates', 'ul'), (r'Image Alt Text Suggestions', 'ol')]:
+                  pat = re.compile(r'\s*<h2 id="([^"]+)"[^>]*>\s*' + lab + r'\s*</h2>\s*<' + tag + r'>.*?</' + tag + '>', re.S)
+                  def rep(mm):
+                      if '<a ' in mm.group(0): return mm.group(0)
+                      removed_ids.append(mm.group(1)); return ''
+                  art = pat.sub(rep, art)
+              def cta(mm):
+                  renamed[mm.group(1)] = mm.group(2)
+                  return mm.group(0).replace('CTA: ' + mm.group(2), mm.group(2))
+              art = re.sub(r'<h2 id="([^"]+)"[^>]*>CTA:\s*(.*?)</h2>', cta, art)
+              def ren(mm):
+                  renamed[mm.group(1)] = 'Tools mentioned in this guide'
+                  return '<h2 id="%s">Tools mentioned in this guide</h2>' % mm.group(1)
+              art = re.sub(r'<h2 id="(external-links-affiliate-urls)">\s*External Links (?:&amp;|&) Affiliate URLs\s*</h2>(?=\s*<ul>\s*<li><a )', ren, art)
+              pat = re.compile(r'\s*<h2[^>]*>\s*Internal Links\s*</h2>(?=\s*<div[^>]*>\s*<h3[^>]*>\s*Related Resources)', re.S)
+              if pat.search(art):
+                  mid = re.search(r'<h2 id="([^"]+)"[^>]*>\s*Internal Links', a0)
+                  if mid: removed_ids.append(mid.group(1))
+                  art = pat.sub('', art)
+              if art == a0: continue
+              s = s.replace(a0, art)
+              for rid in removed_ids:
+                  s = re.sub(r'\s*<li><a href="#%s">.*?</a></li>' % re.escape(rid), '', s)
+              for rid, txt in renamed.items():
+                  s = re.sub(r'(<li><a href="#%s">).*?(</a></li>)' % re.escape(rid), lambda mm: mm.group(1) + txt + mm.group(2), s)
+              ok = (re.search(r'<title>.*?</title>', orig, re.S).group(0) == re.search(r'<title>.*?</title>', s, re.S).group(0)
+                    and re.findall(r'<h1[^>]*>.*?</h1>', orig, re.S) == re.findall(r'<h1[^>]*>.*?</h1>', s, re.S)
+                    and re.findall(r'<meta[^>]+>', orig) == re.findall(r'<meta[^>]+>', s)
+                    and re.findall(r'<script type="application/ld\+json">.*?</script>', orig, re.S) == re.findall(r'<script type="application/ld\+json">.*?</script>', s, re.S)
+                    and cnt(r'class="faq-item"', orig) == cnt(r'class="faq-item"', s)
+                    and cnt(r'sponsored', orig) == cnt(r'sponsored', s))
+              if not ok:
+                  skipped.append(f); continue
+              open(f, 'w', encoding='utf-8').write(s); changed += 1
+              print('cleaned', f, words(a0), '->', words(art), 'words')
+          print('files changed:', changed, '| skipped by safety check:', skipped)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "imisofts-nav-bot"
+          git config user.email "nav-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "fix: remove published draft notes from 26 articles (owner approved 2026-11-06)"
+            git pull --rebase origin main
+            git push
+          fi
