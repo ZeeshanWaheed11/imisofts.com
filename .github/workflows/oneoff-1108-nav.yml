@@ -1,0 +1,271 @@
+# One-off site-wide update, 2026-11-08 (owner request: "Products" page in the header next to Services,
+# and new service pages for YouTube automation, AI filmmaking, AI reels and ads, SEO and AI citation).
+#   - header: Products link; Services mega menu gains SEO and AI Citation (Growth) and a new AI Content tab;
+#     mobile menu gets the same items; the mobile Services list is no longer cut off at 800px
+#   - footer: the 5 new services under Growth
+#   - sitemap.xml: the 5 new URLs; /products lastmod updated (page rebuilt today)
+#   - ops/build_llms.py lists the new pages, then llms.txt and llms-full.txt are regenerated
+#   - ops/restructure_nav.py PANELS updated to match, so a future run keeps the new items
+# Only adds markup; nothing on any page is removed. Idempotent: a re-run changes nothing.
+name: One-off 2026-11-08 nav, Products and new services
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1108-nav.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  nav:
+    runs-on: ubuntu-latest
+    env:
+      INDEXNOW_QUEUE: /tmp/indexnow_queue.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Add Products and the 5 new services to nav, footer, sitemap and the nav and llms scripts
+        run: |
+          python3 - <<'PY'
+          import re, os, json, subprocess
+
+          TODAY = '2026-11-08'
+          SERVICE_URLS = ['/seo-services', '/ai-citation-services', '/youtube-automation', '/ai-filmmaking', '/ai-ugc-ads']
+
+          def svg(cls, d):
+              return ('<svg class="%s" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" '
+                      'stroke-linejoin="round" stroke-width="1.5" d="%s"></path></svg>') % (cls, d)
+
+          ICON = {
+           'seo':  'M3 3v18h18M7 15l4-4 3 3 6-7',
+           'cite': 'M8 10h8M8 14h5M21 12c0 4.4-4 8-9 8-1.5 0-3-.3-4.2-.9L3 20l1.3-3.9C3.5 14.9 3 13.5 3 12c0-4.4 4-8 9-8s9 3.6 9 8z',
+           'yt':   'M3 7a3 3 0 013-3h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V7zM10 9l5 3-5 3V9z',
+           'film': 'M4 6h16v12H4zM4 10h16M8 6l2 4M13 6l2 4',
+           'ads':  'M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15 9a3 3 0 010 6M18 6a7 7 0 010 12',
+           'tab':  'M15 10l4.5-2.5v9L15 14M3 7h12v10H3z',
+          }
+          ITEMS = {
+           'seo':  ('/seo-services', 'SEO Services', 'Rankings that bring in leads'),
+           'cite': ('/ai-citation-services', 'AI Citation Services', 'Get cited by ChatGPT and Perplexity'),
+           'yt':   ('/youtube-automation', 'YouTube Automation', 'Faceless channels, done for you'),
+           'film': ('/ai-filmmaking', 'AI Filmmaking', 'AI commercials and brand films'),
+           'ads':  ('/ai-ugc-ads', 'AI Reels &amp; Ads', 'AI UGC ads and reels that sell'),
+          }
+          NAV_FIT = ('<style id="nav-fit-1108">.mobile-section-content.active{max-height:2400px}'
+                     '.mega-panel,.mega-sidebar{max-height:min(80vh,620px)}'
+                     '@media (max-width:1180px){.nav-menu{gap:20px}}'
+                     '@media (max-width:1024px){.nav-menu{display:none}.mobile-menu-toggle{display:block}}</style>')
+
+          def mega_item(key, ind, icons=True):
+              href, title, desc = ITEMS[key]
+              ic = (ind + '  ' + svg('mega-item-icon', ICON[key])) if icons else ''
+              return ('%s<a href="%s" class="mega-item">%s%s  <div><div class="mega-item-title">%s</div>%s  <div class="mega-item-desc">%s</div></div>%s</a>'
+                      % (ind, href, ic, ind, title, ind, desc, ind))
+
+          def update(s):
+              hits = []
+              hm = re.search(r'<header>.*?</header>', s, re.S)
+              if hm:
+                  h = hm.group(0); h0 = h
+                  # 1. Products link next to Services (desktop)
+                  if 'href="/products" class="nav-link"' not in h:
+                      m = re.search(r'(\n[ \t]*)(<!-- Industries Dropdown -->|<div class="nav-dropdown" id="industriesDropdown">)', h)
+                      if m:
+                          h = h[:m.start()] + m.group(1) + '<a href="/products" class="nav-link">Products</a>' + h[m.start():]
+                          hits.append('nav-products')
+                  # 2. Growth panel: SEO and AI citation after its last item
+                  if '/seo-services" class="mega-item"' not in h and 'id="panel-growth"' in h:
+                      a = h.index('id="panel-growth"')
+                      b = h.find('class="mega-panel', a + 10)
+                      seg_end = b if b != -1 else len(h)
+                      last = h.rfind('</a>', a, seg_end)
+                      first_item = re.search(r'(\n[ \t]*)<a href="[^"]+" class="mega-item">', h[a:seg_end])
+                      if last != -1 and first_item:
+                          ind = first_item.group(1)
+                          icons = 'mega-item-icon' in h[a:seg_end]
+                          h = h[:last + 4] + mega_item('seo', ind, icons) + mega_item('cite', ind, icons) + h[last + 4:]
+                          hits.append('mega-growth')
+                  # 3. New "AI Content" tab after AI & Automation (after Growth on older menus)
+                  if 'data-tab="content"' not in h:
+                      m = (re.search(r'(\n[ \t]*)<div class="mega-tab" data-tab="ai">(.*?)</div>', h, re.S)
+                           or re.search(r'(\n[ \t]*)<div class="mega-tab active" data-tab="growth">(.*?)</div>', h, re.S))
+                      if m:
+                          tab = m.group(0)
+                          new = re.sub(r'class="mega-tab( active)?" data-tab="(ai|growth)"', 'class="mega-tab" data-tab="content"', tab, count=1)
+                          new = re.sub(r'<span>[^<]*</span>', '<span>AI Content</span>', new, count=1)
+                          if 'mega-tab-icon' in new:
+                              new = re.sub(r'<svg class="mega-tab-icon".*?</svg>', svg('mega-tab-icon', ICON['tab']), new, count=1, flags=re.S)
+                          h = h[:m.end()] + new + h[m.end():]
+                          hits.append('mega-tab')
+                  # 4. Panel with the 3 content services
+                  if 'id="panel-content"' not in h:
+                      m = re.search(r'(\n[ \t]*)<div class="mega-panel" id="panel-development">', h)
+                      if m:
+                          ind = m.group(1); ind2 = ind + '  '; ind3 = ind2 + '  '
+                          icons = 'mega-item-icon' in h
+                          panel = (ind + '<div class="mega-panel" id="panel-content">' + ind2 + '<div class="mega-grid">'
+                                   + mega_item('yt', ind3, icons) + mega_item('film', ind3, icons) + mega_item('ads', ind3, icons)
+                                   + ind2 + '</div>' + ind + '</div>')
+                          h = h[:m.start()] + panel + h[m.start():]
+                          hits.append('mega-panel')
+                  # 5. Mobile menu
+                  if 'href="/seo-services" class="mobile-service-link"' not in h:
+                      m = re.search(r'(\n[ \t]*)<a href="/gohighlevel-white-label-saas" class="mobile-service-link">[^<]*</a>', h)
+                      if m:
+                          ind = m.group(1)
+                          h = (h[:m.end()] + ind + '<a href="/seo-services" class="mobile-service-link">SEO Services</a>'
+                               + ind + '<a href="/ai-citation-services" class="mobile-service-link">AI Citation Services</a>' + h[m.end():])
+                          hits.append('mobile-growth')
+                  if '<div class="mobile-section-group">AI Content</div>' not in h:
+                      m = re.search(r'(\n[ \t]*)<div class="mobile-section-group">Development</div>', h)
+                      if m:
+                          ind = m.group(1)
+                          grp = (ind + '<div class="mobile-section-group">AI Content</div>'
+                                 + ind + '<a href="/youtube-automation" class="mobile-service-link">YouTube Automation</a>'
+                                 + ind + '<a href="/ai-filmmaking" class="mobile-service-link">AI Filmmaking</a>'
+                                 + ind + '<a href="/ai-ugc-ads" class="mobile-service-link">AI Reels &amp; Ads</a>')
+                          h = h[:m.start()] + grp + h[m.start():]
+                          hits.append('mobile-content')
+                  if 'href="/products" class="mobile-nav-link"' not in h:
+                      m = re.search(r'(\n[ \t]*)<div class="mobile-services">\s*<div class="mobile-services-title"[^>]*>\s*Industries', h)
+                      if m:
+                          h = h[:m.start()] + m.group(1) + '<a href="/products" class="mobile-nav-link">Products</a>' + h[m.start():]
+                          hits.append('mobile-products')
+                  if h != h0:
+                      s = s.replace(h0, h, 1)
+              # Header fit (see NAV_FIT)
+              if hm and 'id="nav-fit-1108"' not in s and 'class="nav-menu"' in s and '</head>' in s:
+                  s = s.replace('</head>', '  ' + NAV_FIT + '\n</head>', 1)
+                  hits.append('nav-fit')
+              fm = re.search(r'<footer.*?</footer>', s, re.S)
+              if fm:
+                  f = fm.group(0); f0 = f
+                  if '<a href="/seo-services">' not in f:
+                      m = re.search(r'(\n[ \t]*)<li><a href="/ai-search-optimization">AI Search Optimization</a></li>', f)
+                      if m:
+                          ind = m.group(1)
+                          add = ''.join(ind + '<li><a href="%s">%s</a></li>' % (ITEMS[k][0], ITEMS[k][1]) for k in ['seo', 'cite', 'yt', 'film', 'ads'])
+                          f = f[:m.end()] + add + f[m.end():]
+                          hits.append('footer-growth')
+                  if '<a href="/products">' not in f:
+                      m = re.search(r'(\n[ \t]*)<li><a href="/case-studies">Case Studies</a></li>', f)
+                      if m:
+                          f = f[:m.end()] + m.group(1) + '<li><a href="/products">Products</a></li>' + f[m.end():]
+                          hits.append('footer-products')
+                  if f != f0:
+                      s = s.replace(f0, f, 1)
+              return s, hits
+
+          def html_files():
+              out = subprocess.run(['git', 'ls-files', '*.html'], capture_output=True, text=True).stdout.split()
+              if not out:  # local dry run outside git
+                  for d, _, fs in os.walk('.'):
+                      out += [os.path.relpath(os.path.join(d, f)) for f in fs if f.endswith('.html')]
+              return sorted(set(out))
+
+          def nav():
+              counts, changed, skipped = {}, 0, []
+              for rel in html_files():
+                  raw = open(rel, 'rb').read()
+                  try:
+                      s = raw.decode('utf-8')
+                  except UnicodeDecodeError:
+                      skipped.append(rel); continue
+                  s2, hits = update(s)
+                  for k in hits:
+                      counts[k] = counts.get(k, 0) + 1
+                  if s2 != s:
+                      open(rel, 'wb').write(s2.encode('utf-8')); changed += 1
+              print('nav: %d html files changed %s; skipped (not utf-8): %s' % (changed, counts, skipped))
+
+          def sitemap():
+              p = 'sitemap.xml'
+              x = open(p, encoding='utf-8').read(); x0 = x
+              for u in SERVICE_URLS:
+                  loc = 'https://imisofts.com' + u
+                  if '<loc>%s</loc>' % loc in x:
+                      continue
+                  x = x.replace('</urlset>', '<url>\n<loc>%s</loc>\n<lastmod>%s</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n</urlset>' % (loc, TODAY), 1)
+              x = re.sub(r'(<loc>https://imisofts\.com/products</loc>\s*<lastmod>)[^<]*(</lastmod>)', lambda m: m.group(1) + TODAY + m.group(2), x, count=1)
+              if x != x0:
+                  open(p, 'w', encoding='utf-8').write(x)
+              print('sitemap:', 'updated' if x != x0 else 'unchanged')
+
+          def sub_once(s, old, new, name):
+              if s.count(old) != 1:
+                  raise SystemExit('%s: anchor not found exactly once: %r' % (name, old[:60]))
+              return s.replace(old, new, 1)
+
+          def llms_groups():
+              # llms.txt is generated by ops/build_llms.py from its curated URL list, so the new pages go there
+              p = 'ops/build_llms.py'
+              s = open(p, encoding='utf-8').read()
+              if "'/seo-services'" in s:
+                  print('build_llms: already lists the new pages'); return
+              anchor = "    ('Web, e-commerce and product', ["
+              add = ("    ('SEO and AI citations', [\n        '/seo-services', '/ai-citation-services',\n    ]),\n"
+                     "    ('AI video and content', [\n        '/youtube-automation', '/ai-filmmaking', '/ai-ugc-ads',\n    ]),\n")
+              s = sub_once(s, anchor, add + anchor, 'build_llms')
+              open(p, 'w', encoding='utf-8').write(s)
+              print('build_llms: added 2 service groups')
+
+          def restructure_sync():
+              # Keep ops/restructure_nav.py in step with the live menu, so a future run cannot drop the new items.
+              # Its marker is deliberately NOT bumped: every page already has the new structure.
+              p = 'ops/restructure_nav.py'
+              s = open(p, encoding='utf-8').read()
+              if '"/seo-services"' in s:
+                  print('restructure_nav: already in step'); return
+              s = sub_once(s, '"/email-infrastructure", "/gohighlevel-services", "/gohighlevel-white-label-saas"]),',
+                           '"/email-infrastructure", "/gohighlevel-services", "/gohighlevel-white-label-saas",\n'
+                           '                          "/seo-services", "/ai-citation-services"]),', 'restructure growth')
+              s = sub_once(s, '"/ai-search-optimization", "/openclaw-setup"]),',
+                           '"/ai-search-optimization", "/openclaw-setup"]),\n'
+                           '    ("content", "AI Content", ["/youtube-automation", "/ai-filmmaking", "/ai-ugc-ads"]),', 'restructure content')
+              s = sub_once(s, '    "development": "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",',
+                           '    "content":     "%s",\n    "development": "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",' % ICON['tab'], 'restructure icon')
+              s = sub_once(s, 'Services mega-menu, 4 categories, none larger than 6:\n',
+                           'Services mega-menu, 5 categories (8 Nov 2026: SEO and AI citation joined Growth, new AI Content tab;\n'
+                           'applied to every page by .github/workflows/oneoff-1108-nav.yml, so MARKER was left as it is):\n', 'restructure doc')
+              s = sub_once(s, 'GHL services, white-label SaaS\n', 'GHL services, white-label SaaS, SEO, AI citation\n', 'restructure doc growth')
+              s = sub_once(s, '  AI & Automation    ai automation, voice agents, TCPA calling, AI search, OpenClaw\n',
+                           '  AI & Automation    ai automation, voice agents, TCPA calling, AI search, OpenClaw\n'
+                           '  AI Content         YouTube automation, AI filmmaking, AI reels and ads\n', 'restructure doc 2')
+              open(p, 'w', encoding='utf-8').write(s)
+              print('restructure_nav: PANELS updated to match the live menu')
+
+          def indexnow_queue():
+              q = os.environ.get('INDEXNOW_QUEUE', '/tmp/indexnow_queue.json')
+              json.dump(['https://imisofts.com' + u for u in ['/products'] + SERVICE_URLS], open(q, 'w'))
+              print('indexnow: queued', q)
+
+          missing = [u for u in SERVICE_URLS + ['/products'] if not os.path.exists(u.lstrip('/') + '.html')]
+          if missing:
+              raise SystemExit('new pages are not in the repo yet: %s' % missing)
+          nav()
+          sitemap()
+          llms_groups()
+          restructure_sync()
+          indexnow_queue()
+          PY
+      - name: Regenerate llms.txt and llms-full.txt
+        run: python3 ops/build_llms.py
+        continue-on-error: true
+      - name: Commit
+        run: |
+          git config user.name "imisofts-nav-bot"
+          git config user.email "nav-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "nav: Products next to Services, 5 new service pages in the menu and footer, sitemap and llms.txt (owner request 2026-11-08)"
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Ping IndexNow once the new pages are live
+        run: python3 ops/indexnow_after_deploy.py
+        continue-on-error: true
+        timeout-minutes: 20
