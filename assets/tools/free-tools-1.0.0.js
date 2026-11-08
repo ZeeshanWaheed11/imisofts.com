@@ -129,6 +129,7 @@
   }
   var LABEL = { ok: 'OK', redirect: 'Redirect', blocked: 'Blocked', broken: 'Broken' };
   function statusText(s) {
+    if (s.status === 530) return 'Domain not found (530)';
     if (s.status) return String(s.status) + (s.chain && s.chain.length ? ' after ' + s.chain.join(' > ') : '');
     return s.error || 'No response';
   }

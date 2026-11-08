@@ -54,6 +54,7 @@ SERVICE_GROUPS = [
     ]),
     ('Free tools', [
         '/dns-propagation-checker', '/spf-dkim-dmarc-checker', '/send-to-webhook',
+        '/free-seo-tools', '/broken-link-checker', '/xml-sitemap-generator', '/website-change-monitor',
     ]),
 ]
 COMPANY_PAGES = ['/pricing', '/about', '/case-studies', '/contact', '/free-audit', '/faq',

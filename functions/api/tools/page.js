@@ -91,7 +91,7 @@ export async function readText(res, max) {
   return { text: new TextDecoder('utf-8').decode(buf), bytes: size, truncated };
 }
 
-const NAMED = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', ndash: '-', mdash: '-', hellip: '...', copy: '(c)', rsquo: "'", lsquo: "'", rdquo: '"', ldquo: '"' };
+const NAMED = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', ndash: '-', mdash: '-', hellip: '...', copy: '\u00a9', reg: '\u00ae', trade: '\u2122', rsquo: "'", lsquo: "'", rdquo: '"', ldquo: '"', rarr: '\u2192', larr: '\u2190', uarr: '\u2191', darr: '\u2193', harr: '\u2194', bull: '\u2022', middot: '\u00b7', laquo: '\u00ab', raquo: '\u00bb', times: '\u00d7', deg: '\u00b0', euro: '\u20ac', pound: '\u00a3', yen: '\u00a5', cent: '\u00a2', sect: '\u00a7', shy: '', zwj: '', zwnj: '', thinsp: ' ', ensp: ' ', emsp: ' ' };
 export function decode(s) {
   return String(s).replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e) => {
     if (e[0] === '#') {
