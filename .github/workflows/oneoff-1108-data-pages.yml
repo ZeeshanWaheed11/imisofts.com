@@ -1,0 +1,76 @@
+# One-off, 2026-11-08 (owner: "Get the api keys and everything and launch it please"): publish the 14 free SEO data tools.
+# Pages, functions/api/tools/data.js and assets/tools/data-tools-1.0.0.js are uploaded before this runs.
+# Adds the 14 URLs to sitemap.xml and to the "Free tools" group in ops/build_llms.py, regenerates llms.txt,
+# then pings IndexNow. Only adds; idempotent.
+name: One-off 2026-11-08 data tools pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1108-data-pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      INDEXNOW_QUEUE: /tmp/indexnow_queue.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Sitemap and llms list
+        run: |
+          python3 - <<'PY2'
+          import os, json
+          TODAY = '2026-11-08'
+          NEW = ['/keyword-generator', '/keyword-difficulty-checker', '/serp-checker', '/keyword-rank-checker', '/website-traffic-checker', '/youtube-keyword-tool', '/amazon-keyword-tool', '/bing-keyword-tool', '/backlink-checker', '/website-authority-checker', '/ai-overview-tracker', '/ai-mode-tracker', '/ai-visibility-checker', '/plagiarism-checker']
+          missing = [u for u in NEW if not os.path.exists(u.lstrip('/') + '.html')]
+          if missing:
+              raise SystemExit('pages not in the repo yet: %s' % missing)
+          for f in ['functions/api/tools/data.js', 'assets/tools/data-tools-1.0.0.js']:
+              if not os.path.exists(f):
+                  raise SystemExit('missing ' + f)
+          p = 'sitemap.xml'
+          x = open(p, encoding='utf-8').read(); x0 = x
+          for u in NEW:
+              loc = 'https://imisofts.com' + u
+              if '<loc>%s</loc>' % loc in x:
+                  continue
+              x = x.replace('</urlset>', '<url>\n<loc>%s</loc>\n<lastmod>%s</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n</urlset>' % (loc, TODAY), 1)
+          if x != x0:
+              open(p, 'w', encoding='utf-8').write(x)
+          print('sitemap:', 'updated' if x != x0 else 'unchanged')
+          p = 'ops/build_llms.py'
+          s = open(p, encoding='utf-8').read()
+          if "'/backlink-checker'" not in s:
+              anchor = "        '/free-seo-tools', '/broken-link-checker', '/xml-sitemap-generator', '/website-change-monitor',\n"
+              if s.count(anchor) != 1:
+                  raise SystemExit('build_llms anchor not found')
+              add = ''.join("        '%s',\n" % u for u in NEW)
+              s = s.replace(anchor, anchor + add, 1)
+              open(p, 'w', encoding='utf-8').write(s)
+              print('build_llms: added the 14 data tools to Free tools')
+          json.dump(['https://imisofts.com' + u for u in ['/free-seo-tools'] + NEW], open(os.environ.get('INDEXNOW_QUEUE', '/tmp/indexnow_queue.json'), 'w'))
+          PY2
+      - name: Regenerate llms.txt and llms-full.txt
+        run: python3 ops/build_llms.py
+        continue-on-error: true
+      - name: Commit
+        run: |
+          git config user.name "imisofts-tools-bot"
+          git config user.email "tools-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "tools: 14 free SEO data tools in sitemap.xml and llms.txt (owner request 2026-11-08)"
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Ping IndexNow once the pages are live
+        run: python3 ops/indexnow_after_deploy.py
+        continue-on-error: true
+        timeout-minutes: 20
