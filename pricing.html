@@ -1892,6 +1892,148 @@
 @media(max-width:900px){.dropdown-simple{grid-template-columns:1fr;min-width:0;padding:14px}}
 </style>
   <script src="/js/measure.js" defer></script>
+  <style id="p2-pricing">
+/* ===== imisofts pricing v2: homepage design language (scoped .p2) ===== */
+.p2{color:#1a1a1a}
+.p2 *{box-sizing:border-box}
+.p2 .wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+.p2 .todo{color:#c9c9ce}
+.p2 .sec{padding:80px 0}
+.p2 .sec-w{background:#fff}
+.p2 .sec-g{background:#f9fafb}
+.p2 .head{text-align:center;margin-bottom:48px}
+.p2 .head h2{font-size:36px;font-weight:500;line-height:1.25;margin:0 0 16px;letter-spacing:-.01em}
+.p2 .head p{font-size:18px;color:#666;margin:0;line-height:1.6}
+.p2 .pill-g{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:8px 16px;background:#e8f9e9;border-radius:50px}
+.p2 .pill-g i{width:8px;height:8px;background:#10b981;border-radius:50%;animation:p2pulse 2s infinite}
+.p2 .pill-g span{color:#059669;font-size:14px;font-weight:500}
+@keyframes p2pulse{0%,100%{opacity:1}50%{opacity:.4}}
+/* buttons */
+.p2 .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 24px;border-radius:8px;font-weight:500;font-size:16px;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.p2 .btn-o{background:#F45407;color:#fff}
+.p2 .btn-o:hover{background:#e34a00;transform:translateY(-1px);box-shadow:0 6px 18px rgba(244,84,7,.28)}
+.p2 .btn-w{background:#fff;color:#333;border:1px solid #e5e5e5}
+.p2 .btn-w:hover{border-color:#d4d4d4;transform:translateY(-1px)}
+/* hero */
+.p2-hero{padding:120px 0 80px;background:linear-gradient(to bottom,#fff,#f9fafb)}
+.p2-hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.p2-badge{display:inline-flex;align-items:center;padding:6px 12px;background:#fff5f3;border-radius:50px;margin-bottom:24px}
+.p2-badge i{width:8px;height:8px;background:#F45407;border-radius:50%;margin-right:8px}
+.p2-badge span{color:#F45407;font-size:14px;font-weight:500}
+.p2-hero h1{font-size:48px;font-weight:600;line-height:1.2;margin:0 0 24px;letter-spacing:-.01em}
+.p2-hero h1 span{color:#F45407}
+.p2-hero .lead{font-size:18px;color:#666;line-height:1.6;margin:0 0 32px}
+.p2-hero .ctas{display:flex;gap:16px;margin-bottom:48px;flex-wrap:wrap}
+.p2-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.p2-stats b{display:block;font-size:24px;font-weight:500}
+.p2-stats span{font-size:14px;color:#999}
+.p2-snap{background:#fff;border-radius:16px;padding:24px;box-shadow:0 20px 40px rgba(0,0,0,.1);border:1px solid #f0f0f0}
+.p2-snap .lbl{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:#999;margin-bottom:24px}
+.p2-snap .rows{display:flex;flex-direction:column;gap:20px}
+.p2-snap .row{display:flex;justify-content:space-between;align-items:center;font-size:14px;color:#666}
+.p2-snap .row b{font-weight:500;color:#1a1a1a}
+.p2-snap .ft{margin-top:24px;padding-top:24px;border-top:1px solid #f0f0f0;font-size:12px;color:#999}
+/* switcher */
+.p2-switch{display:flex;justify-content:center;margin:-16px 0 40px}
+.p2-tabs{position:relative;display:inline-flex;gap:2px;padding:4px;background:#eef0f3;border-radius:12px;max-width:100%;overflow-x:auto;scrollbar-width:none}
+.p2-tabs::-webkit-scrollbar{display:none}
+.p2-ind{position:absolute;top:4px;left:4px;height:calc(100% - 8px);background:#fff;border-radius:9px;box-shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.06);transition:transform .35s cubic-bezier(.2,.8,.2,1),width .35s cubic-bezier(.2,.8,.2,1);z-index:0}
+.p2-tab{position:relative;z-index:1;border:0;background:transparent;cursor:pointer;padding:11px 22px;border-radius:9px;font:500 15px/1.2 Inter,system-ui,sans-serif;color:#666;white-space:nowrap;transition:color .2s}
+.p2-tab:hover{color:#1a1a1a}
+.p2-tab[aria-selected=true]{color:#1a1a1a}
+.p2-tab:focus-visible{outline:2px solid #F45407;outline-offset:2px}
+.js .p2-panel:not(.is-on){display:none}
+.p2-panel{animation:p2in .4s ease-out}
+@keyframes p2in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.p2-intro{text-align:center;margin:0 auto 40px;max-width:760px}
+.p2-intro h3{font-size:24px;font-weight:500;margin:0 0 8px}
+.p2-intro p{font-size:16px;color:#666;line-height:1.6;margin:0}
+.p2-intro a{color:#F45407;font-weight:500;text-decoration:none;white-space:nowrap}
+.p2-intro a:hover{text-decoration:underline}
+/* plan cards (homepage package cards) */
+.p2-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;align-items:stretch}
+.p2-card{position:relative;display:flex;flex-direction:column;background:#fff;padding:32px;border-radius:16px;border:1px solid #e5e5e5;transition:box-shadow .25s ease,transform .25s ease}
+.p2-card:hover{box-shadow:0 12px 32px rgba(0,0,0,.06);transform:translateY(-2px)}
+.p2-card.pop{border:2px solid #F45407}
+.p2-pop{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#F45407;color:#fff;padding:4px 12px;border-radius:50px;font-size:12px;white-space:nowrap}
+.p2-card h3{font-size:24px;font-weight:500;margin:0;line-height:1.3}
+.p2-card .for{color:#666;font-size:14px;margin-top:8px}
+.p2-card .price{margin:16px 0}
+.p2-card .amt{font-size:32px;font-weight:500;letter-spacing:-.01em}
+.p2-card .unit{color:#999;font-size:14px;margin-left:4px}
+.p2-card .from{color:#999;font-size:14px;margin-right:4px}
+.p2-card .desc{font-size:14px;color:#666;margin:0 0 24px;line-height:1.55;min-height:44px}
+.p2-inc{background:#f9fafb;padding:16px;border-radius:8px;margin-bottom:24px}
+.p2-inc .t{display:block;font-size:14px;font-weight:500;margin-bottom:12px}
+.p2-inc ul{font-size:14px;color:#666;list-style:none;padding:0;margin:0}
+.p2-inc li{margin-bottom:10px;display:flex;align-items:flex-start}
+.p2-inc li:last-child{margin-bottom:0}
+.p2-inc li:before{content:"\2713";color:#10b981;font-weight:500;margin-right:8px}
+.p2-inc strong{font-weight:500;color:#1a1a1a}
+.p2-inc small{display:block;font-size:12px;color:#999;margin-top:2px}
+.p2-inc .one{color:#444;line-height:1.45}
+.p2-best{font-size:13px;color:#666;line-height:1.5;margin:0 0 20px}
+.p2-best b{font-weight:500;color:#1a1a1a}
+.p2-onb{display:inline-block;align-self:flex-start;font-size:12px;color:#F45407;background:#fff5f3;border-radius:50px;padding:4px 10px;margin:-8px 0 20px}
+.p2-grid + .p2-grid{margin-top:32px}
+.p2-grid.six{row-gap:40px}
+.p2-cta{display:block;margin-top:auto;text-align:center;padding:14px 20px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;min-height:48px;line-height:1.4;transition:transform .2s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+.p2-cta.pri{background:#F45407;color:#fff;box-shadow:0 4px 12px rgba(244,84,7,.25)}
+.p2-cta.pri:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(244,84,7,.32);background:#e34a00}
+.p2-cta.sec2{background:#f5f5f5;color:#1a1a1a;border:1px solid #e5e5e5}
+.p2-cta.sec2:hover{background:#F45407;color:#fff;border-color:#F45407}
+.p2-note{display:flex;justify-content:center;gap:10px;max-width:860px;margin:32px auto 0;font-size:14px;color:#999;line-height:1.6;text-align:center}
+.p2-note b{color:#666;font-weight:500}
+/* custom band (homepage enterprise block) */
+.p2-dark{margin-top:48px;background:#1a1a1a;border-radius:16px;padding:48px;text-align:center}
+.p2-dark h2{font-size:28px;font-weight:500;color:#fff;margin:0 0 16px}
+.p2-dark p{font-size:16px;color:#ccc;margin:0 auto 24px;max-width:600px;line-height:1.6}
+.p2-dark a{display:inline-block;padding:14px 32px;background:#fff;color:#1a1a1a;border-radius:8px;font-weight:500;text-decoration:none;transition:transform .2s ease}
+.p2-dark a:hover{transform:translateY(-1px)}
+/* includes (homepage service cards) */
+.p2-four{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.p2-box{background:#fff;padding:24px 20px;border-radius:12px;border:1px solid #e5e5e5}
+.p2-box .k{font-size:14px;color:#F45407;font-weight:500;margin-bottom:8px}
+.p2-box h3{font-size:18px;font-weight:500;margin:0 0 6px}
+.p2-box p{font-size:14px;color:#666;margin:0;line-height:1.5}
+/* timeline (homepage process) */
+.p2-tl{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.p2-tl:before{content:"";position:absolute;top:32px;left:10%;right:10%;height:2px;background:#ffd4c4;z-index:0}
+.p2-step{position:relative;z-index:1}
+.p2-num{width:64px;height:64px;background:#fff;border:2px solid #F45407;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 0 0 4px #f9fafb;font-size:24px;font-weight:500;color:#F45407}
+.p2-step:first-child .p2-num{background:#F45407;color:#fff;box-shadow:0 0 0 4px #fff,0 0 0 5px #F45407}
+.p2-step h3{font-size:20px;font-weight:500;margin:0 0 8px}
+.p2-step .when{font-size:14px;color:#999;font-weight:500;margin:0 0 16px}
+.p2-step:first-child .when{color:#F45407}
+.p2-step ul{font-size:14px;color:#666;list-style:none;padding:0;margin:0}
+.p2-step li{margin-bottom:8px;display:flex;align-items:flex-start}
+.p2-step li:before{content:"\2022";color:#bbb;margin-right:8px}
+.p2-step:first-child li:before{color:#F45407}
+.p2-kpis{margin-top:48px;background:#fff;border:1px solid #e5e5e5;border-radius:16px;padding:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.p2-kpis b{display:block;font-size:32px;font-weight:500;color:#F45407}
+.p2-kpis span{font-size:14px;color:#666}
+/* faq */
+.p2-faq{max-width:820px;margin:0 auto;border-top:1px solid #e5e5e5}
+.p2-faq details{border-bottom:1px solid #e5e5e5}
+.p2-faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:24px 4px;font-size:18px;font-weight:500;color:#1a1a1a}
+.p2-faq summary::-webkit-details-marker{display:none}
+.p2-faq summary:after{content:"";flex:none;width:12px;height:12px;border-right:1.5px solid #999;border-bottom:1.5px solid #999;transform:rotate(45deg) translateY(-3px);transition:transform .25s ease}
+.p2-faq details[open] summary:after{transform:rotate(-135deg) translateY(-3px)}
+.p2-faq summary:hover{color:#F45407}
+.p2-faq details p{margin:0;padding:0 4px 24px;font-size:16px;line-height:1.7;color:#666;max-width:720px}
+/* final */
+.p2-final{text-align:center}
+.p2-final h2{font-size:36px;font-weight:500;margin:0 0 16px}
+.p2-final p{font-size:18px;color:#666;margin:0 auto 32px;max-width:620px;line-height:1.6}
+.p2-final .ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.p2-final small{display:block;margin-top:20px;font-size:14px;color:#999}
+/* responsive */
+@media (max-width:1024px){.p2-grid{gap:24px}.p2-card{padding:28px 24px}}
+@media (max-width:900px){.p2-hero-grid{grid-template-columns:1fr}.p2-grid{grid-template-columns:1fr;max-width:540px;margin:0 auto}.p2-four{grid-template-columns:repeat(2,1fr)}.p2-tl{grid-template-columns:repeat(2,1fr);row-gap:40px}.p2-tl:before{display:none}.p2-kpis{grid-template-columns:repeat(2,1fr)}.p2-card .desc{min-height:0}}
+@media (max-width:640px){.p2-hero .ctas .btn{flex:1 1 140px}.p2-hero{padding:100px 0 56px}.p2-hero h1{font-size:36px}.p2-stats{grid-template-columns:repeat(2,1fr)}.p2 .head h2,.p2-final h2{font-size:28px}.p2 .sec{padding:64px 0}.p2-switch{justify-content:flex-start}.p2-tab{padding:10px 16px;font-size:14px}.p2-four,.p2-tl{grid-template-columns:1fr}.p2-dark{padding:36px 24px}}
+@media (prefers-reduced-motion:reduce){.p2 *{animation:none!important;transition:none!important}}
+  </style>
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
@@ -2246,401 +2388,124 @@
   </nav>
   </header>
 
-  <main>
+  <main class="p2">
 
   <!-- ============= PRICING HERO ============= -->
-  <section class="hero" style="padding-bottom: 40px;">
-    <div class="container">
-      <div style="text-align:center;max-width:720px;margin:0 auto;">
-        <span class="hero-badge">Pricing</span>
-        <h1>Transparent Pricing. No Hidden Fees.</h1>
-        <p class="hero-lead">Choose the service that fits your growth stage. All plans are month-to-month with no long-term contracts. Start within 48 hours.</p>
-        <div class="hero-stats" style="justify-content:center;">
-          <div class="hero-stat">
-            <div class="hero-stat-value">48hr</div>
-            <div class="hero-stat-label">Kickoff Time</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value">0</div>
-            <div class="hero-stat-label">Long-term Contracts</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value">100+</div>
-            <div class="hero-stat-label">Active Clients</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value">4.9/5</div>
-            <div class="hero-stat-label">Client Rating</div>
-          </div>
+  <section class="p2-hero">
+    <div class="wrap p2-hero-grid">
+      <div>
+        <div class="p2-badge"><i></i><span>Month to month. No long-term contracts.</span></div>
+        <h1>Transparent Pricing. <span>No Hidden Fees.</span></h1>
+        <p class="lead">Clear plans for cold email, AI search, AI agents and development. Pick a service, see exactly what is included, and get started within 48 hours.</p>
+        <div class="ctas">
+          <a class="btn btn-o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="hero">Book a Free Call &rarr;</a>
+          <a class="btn btn-w" href="#plans">Compare Plans</a>
         </div>
+        <div class="p2-stats">
+          <div><b>100+</b><span>Active Clients</span></div>
+          <div><b>4.9/5</b><span>Client Rating</span></div>
+          <div><b>95%+</b><span>Client Retention</span></div>
+          <div><b>10M+</b><span>Cold Emails Sent</span></div>
+        </div>
+      </div>
+      <div class="p2-snap" aria-label="How our pricing works">
+        <div class="lbl">How our pricing works</div>
+        <div class="rows">
+          <div class="row"><span>Contract</span><b>Month to month</b></div>
+          <div class="row"><span>Notice period</span><b>30 days</b></div>
+          <div class="row"><span>Kickoff</span><b>Within 48 hours</b></div>
+          <div class="row"><span>Reporting</span><b>Weekly</b></div>
+          <div class="row"><span>Hidden fees</span><b>None</b></div>
+        </div>
+        <div class="ft">Cold Email &bull; AI Search &bull; AI Agents &bull; Development</div>
       </div>
     </div>
   </section>
 
-  <!-- ============= PRICING CARDS ============= -->
-  <section class="solution-section" style="padding-top:20px;">
-    <div class="container">
-
-      <!-- Pricing Tabs -->
-      <div class="pricing-tabs">
-        <button class="pricing-tab active" onclick="showPricingCategory('growth')">Growth Services</button>
-        <button class="pricing-tab" onclick="showPricingCategory('development')">Development</button>
-        <button class="pricing-tab" onclick="showPricingCategory('specialists')">Hire a Specialist</button>
+  <!-- ============= PLANS ============= -->
+  <section class="sec sec-g" id="plans">
+    <div class="wrap">
+      <div class="head">
+        <h2>Plans for every stage of growth</h2>
+        <p>Choose a service to see its plans and exactly what is included.</p>
       </div>
-
-      <!-- Growth Services -->
-      <div class="pricing-category active" id="pricing-growth">
-        <div class="pricing-grid">
-          <div class="pricing-card">
-            <div class="pricing-card-name">Cold Email Marketing</div>
-            <div class="pricing-card-desc">Done-for-you outbound campaigns that book qualified demos on your calendar.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$2,497</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Growth plan. Scale from $4,997/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Infrastructure setup (domains, IPs, auth)</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Prospect list building and verification</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Email copywriting and A/B testing</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Campaign management and optimization</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Weekly reporting and analytics</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>95%+ inbox placement guaranteed</li>
-            </ul>
-            <a href="/cold-email-marketing" class="btn-secondary-outline">Learn More</a>
-          </div>
-
-          <div class="pricing-card featured">
-            <div class="pricing-card-name">Lead Generation</div>
-            <div class="pricing-card-desc">Multi-channel lead generation for agencies and B2B companies. Fills your pipeline consistently.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$1,997</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Growth plan. Scale from $3,997/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Cold email + LinkedIn outreach</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom ICP research and targeting</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Appointment setting and qualification</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>CRM integration and lead handoff</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Pipeline tracking and reporting</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Dedicated account manager</li>
-            </ul>
-            <a href="/free-audit" class="btn-primary">Get Started</a>
-          </div>
-
-          <div class="pricing-card">
-            <div class="pricing-card-name">GoHighLevel Services</div>
-            <div class="pricing-card-desc">Full GHL automation: CRM setup, workflows, funnels, AI voice agents, and ongoing optimization.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$1,497</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Standard plan. Pro from $2,997/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Complete CRM and pipeline setup</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Workflow automation design</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Funnel and landing page building</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Calendar and booking setup</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI voice agent configuration</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Monthly optimization and support</li>
-            </ul>
-            <a href="/gohighlevel-services" class="btn-secondary-outline">Learn More</a>
-          </div>
+      <div class="p2-switch">
+        <div class="p2-tabs" role="tablist" aria-label="Choose a service">
+          <span class="p2-ind" aria-hidden="true"></span>
+          <button class="p2-tab" role="tab" id="p2t-cold" aria-controls="p2p-cold" aria-selected="true" data-key="cold-email">Cold Email</button><button class="p2-tab" role="tab" id="p2t-aeo" aria-controls="p2p-aeo" aria-selected="false" tabindex="-1" data-key="ai-search">AI Search (AEO)</button><button class="p2-tab" role="tab" id="p2t-agents" aria-controls="p2p-agents" aria-selected="false" tabindex="-1" data-key="ai-agents">AI Agents &amp; Automation</button><button class="p2-tab" role="tab" id="p2t-dev" aria-controls="p2p-dev" aria-selected="false" tabindex="-1" data-key="development">Development</button>
         </div>
       </div>
-
-      <!-- Development Services -->
-      <div class="pricing-category" id="pricing-development">
-        <div class="pricing-grid">
-          <div class="pricing-card">
-            <div class="pricing-card-name">n8n Automation</div>
-            <div class="pricing-card-desc">Custom workflow automations, API integrations, and data pipelines using n8n.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$2,497</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Standard plan. Enterprise from $4,997/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom workflow design and build</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>API integrations (any platform)</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Data pipeline automation</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Self-hosted or cloud deployment</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Monitoring and error handling</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Ongoing maintenance and support</li>
-            </ul>
-            <a href="/hire-n8n-developer" class="btn-secondary-outline">Learn More</a>
-          </div>
-
-          <div class="pricing-card featured">
-            <div class="pricing-card-name">AI Development</div>
-            <div class="pricing-card-desc">Custom AI agents, LLM integrations, RAG systems, and ML pipelines for your business.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$3,997</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Standard plan. Enterprise from $6,997/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom AI agent development</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>LLM integration (GPT, Claude, etc.)</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>RAG systems and knowledge bases</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>ML model training and deployment</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Production infrastructure setup</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Ongoing iteration and optimization</li>
-            </ul>
-            <a href="/free-audit" class="btn-primary">Get Started</a>
-          </div>
-
-          <div class="pricing-card">
-            <div class="pricing-card-name">Shopify Development</div>
-            <div class="pricing-card-desc">Custom theme builds, store optimization, app integrations, and Shopify Plus development.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$2,497</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Standard plan. Plus from $4,497/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom Liquid theme development</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Conversion rate optimization</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>App integration and custom apps</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Platform migration support</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Performance and SEO optimization</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Ongoing maintenance and support</li>
-            </ul>
-            <a href="/ecommerce" class="btn-secondary-outline">Learn More</a>
-          </div>
-
-          <!-- Web Development row -->
-          <div class="pricing-card">
-            <div class="pricing-card-name">Web Development</div>
-            <div class="pricing-card-desc">Custom websites, web applications, SaaS platforms, and full-stack development.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$2,997</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Standard plan. Enterprise from $5,997/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom website design and build</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>React / Next.js / Node.js stack</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Database design and API development</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Hosting and deployment setup</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>SEO and performance optimization</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Ongoing updates and maintenance</li>
-            </ul>
-            <a href="/web-development" class="btn-secondary-outline">Learn More</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Hire a Specialist -->
-      <div class="pricing-category" id="pricing-specialists">
-        <div class="pricing-grid">
-          <div class="pricing-card">
-            <div class="pricing-card-name">Cold Email Expert</div>
-            <div class="pricing-card-desc">A dedicated outbound specialist who handles infrastructure, deliverability, copywriting, and campaigns.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$2,497</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Expert. Team from $4,497/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Full sending infrastructure setup</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Deliverability monitoring (95%+)</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Copywriting and sequence design</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>List building and campaign management</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Weekly reporting</li>
-            </ul>
-            <a href="/hire-cold-email-expert" class="btn-secondary-outline">Learn More</a>
-          </div>
-
-          <div class="pricing-card">
-            <div class="pricing-card-name">GoHighLevel Developer</div>
-            <div class="pricing-card-desc">A certified GHL specialist for CRM, automation, funnels, AI voice agents, and integrations.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$1,997</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Developer. Team from $3,497/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Complete CRM and pipeline setup</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Workflow automation design</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Funnel and landing page builds</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI voice agent configuration</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Ongoing optimization</li>
-            </ul>
-            <a href="/hire-gohighlevel-developer" class="btn-secondary-outline">Learn More</a>
-          </div>
-
-          <div class="pricing-card featured">
-            <div class="pricing-card-name">AI Engineer</div>
-            <div class="pricing-card-desc">An ML and LLM specialist for custom AI agents, RAG systems, and production-ready AI solutions.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$3,997</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Engineer. Team from $6,997/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom AI agent development</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>LLM integration and fine-tuning</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>RAG systems and knowledge bases</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Production deployment</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Ongoing iteration</li>
-            </ul>
-            <a href="/hire-ai-engineer" class="btn-secondary-outline">Learn More</a>
-          </div>
-
-          <div class="pricing-card">
-            <div class="pricing-card-name">n8n Developer</div>
-            <div class="pricing-card-desc">A workflow automation engineer for custom n8n automations, API integrations, and data pipelines.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$2,497</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Developer. Team from $4,497/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom workflow design and build</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>API integrations (any platform)</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Self-hosted or cloud deployment</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Monitoring and error handling</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Ongoing maintenance</li>
-            </ul>
-            <a href="/hire-n8n-developer" class="btn-secondary-outline">Learn More</a>
-          </div>
-
-          <div class="pricing-card">
-            <div class="pricing-card-name">Shopify Expert</div>
-            <div class="pricing-card-desc">A dedicated Shopify developer for custom themes, store optimization, and Shopify Plus builds.</div>
-            <div class="pricing-card-price">
-              <span class="pricing-amount">$2,497</span>
-              <span class="pricing-period">/month</span>
-            </div>
-            <div class="pricing-note">Expert. Team from $4,497/mo.</div>
-            <ul class="pricing-features">
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom theme development</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Conversion rate optimization</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>App integrations and custom apps</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Platform migration</li>
-              <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Ongoing support</li>
-            </ul>
-            <a href="/hire-shopify-expert" class="btn-secondary-outline">Learn More</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Enterprise Card -->
-      <div class="enterprise-card" style="margin-top:40px;">
-        <div>
-          <div class="pricing-card-name" style="font-size:1.4rem;">Enterprise &amp; Custom Packages</div>
-          <div class="pricing-card-desc">Need multiple services, larger teams, or a custom scope? We build tailored packages for companies that need more than a single service.</div>
-          <ul class="pricing-features">
-            <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Bundle multiple services with volume discounts</li>
-            <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Dedicated project manager and priority support</li>
-            <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom SLAs and reporting cadence</li>
-            <li><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>White-label and reseller options available</li>
-          </ul>
-        </div>
-        <div style="text-align:center;">
-          <div class="pricing-amount" style="font-size:1.6rem;margin-bottom:8px;">Custom Pricing</div>
-          <div class="pricing-card-desc">Tailored to your requirements</div>
-          <a href="/free-audit" class="btn-primary" style="display:inline-block;margin-top:16px;">Request a Quote &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Guarantee -->
-      <div class="pricing-guarantee">
-        <h2>30-Day Results Guarantee</h2>
-        <p>If you are not satisfied with our work in the first 30 days, we will refund your payment in full. No questions asked. We are confident in our results because our clients consistently see ROI within the first month.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============= FAQ SECTION ============= -->
-  <section class="faq-section" id="faq">
-    <div class="container">
-      <div class="faq-container">
-        <div class="section-header">
-          <span class="section-eyebrow">FAQ</span>
-          <h2>Pricing Questions Answered</h2>
-          <p>Everything you need to know about our pricing, billing, and how we work.</p>
-        </div>
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>Do you require long-term contracts? <span>+</span></summary>
-            <p>No. All imisofts services are month-to-month. You can cancel anytime with 30 days notice. We believe in earning your business every month, not locking you into contracts. Most clients stay for 6+ months because of results, not obligations.</p>
-          </details>
-          <details class="faq-item">
-            <summary>What is included in the monthly price? <span>+</span></summary>
-            <p>Each plan includes the full scope of work described, a dedicated specialist or team, weekly reporting and communication, all tools and software needed for execution, and ongoing optimization. There are no hidden fees, setup charges, or surprise costs.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Can I switch between plans or services? <span>+</span></summary>
-            <p>Yes. You can upgrade, downgrade, or switch services at any time. Changes take effect at the start of your next billing cycle. If you need a custom combination of services, we can create a tailored package during your discovery call.</p>
-          </details>
-          <details class="faq-item">
-            <summary>How quickly can you start? <span>+</span></summary>
-            <p>Most services begin within 48 hours of signing. Your dedicated specialist is assigned immediately, conducts an initial audit or discovery session, and starts active work in the first week. Full setup and first measurable results typically arrive within 2 to 4 weeks depending on the service.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Do you offer discounts for annual commitments? <span>+</span></summary>
-            <p>While we do not require annual contracts, clients who commit to 6 or 12 months receive a 10 to 15 percent discount on their monthly rate. This is entirely optional. You can start month-to-month and switch to an annual plan at any time to lock in savings.</p>
-          </details>
-        </div>
+      <div class="p2-panel is-on" role="tabpanel" id="p2p-cold" aria-labelledby="p2t-cold"><div class="p2-intro"><h3>Cold Email Infrastructure</h3><p>Sending domains, warmed inboxes and full authentication, built for cold outreach at any volume. <a href="/cold-email-marketing">How our cold email infrastructure works &rarr;</a></p></div><div class="p2-grid six"><article class="p2-card"><h3>Starter</h3><div class="for">Includes 10 domains &amp; 50 professional inboxes</div><div class="price"><span class="amt">$489</span><span class="unit">/year</span></div><p class="desc">Reliable infrastructure for early-stage campaigns.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">10 sending domains with 50 warmed inboxes</div></li><li><div class="one">DNS authentication (SPF, DKIM, DMARC) handled</div></li><li><div class="one">IP rotation &amp; reputation safeguards</div></li><li><div class="one">14-day automated warm-up protocol</div></li><li><div class="one">Instantly/Smartlead integration and QA</div></li><li><div class="one">Monthly deliverability health snapshot</div></li></ul></div><p class="p2-best"><b>Best for:</b> Agencies testing cold email with healthy sender reputation</p><a class="p2-cta sec2" href="https://pay.ziina.com/imisoft/_z7AN9HyY" target="_blank" rel="noopener noreferrer" data-plan="cold-starter">Get Started &rarr;</a></article><article class="p2-card"><h3>Professional</h3><div class="for">Includes 25 domains &amp; 125 professional inboxes</div><div class="price"><span class="amt">$1,225</span><span class="unit">/year</span></div><p class="desc">Scaled infrastructure with redundancy &amp; monitoring.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">25 sending domains with geo &amp; risk segmentation</div></li><li><div class="one">Dedicated tracking &amp; bounce handling infrastructure</div></li><li><div class="one">Multi-provider routing (Google, Microsoft, custom)</div></li><li><div class="one">Automated warm-up with blacklist monitoring</div></li><li><div class="one">Monthly deliverability review with analyst</div></li><li><div class="one">Priority Slack support during business hours</div></li></ul></div><p class="p2-best"><b>Best for:</b> Agencies &amp; SaaS teams scaling outbound volume responsibly</p><a class="p2-cta sec2" href="https://pay.ziina.com/imisoft/KpYeBB4m5" target="_blank" rel="noopener noreferrer" data-plan="cold-professional">Get Started &rarr;</a></article><article class="p2-card"><h3>Enterprise</h3><div class="for">Includes 50 domains &amp; 250 professional inboxes</div><div class="price"><span class="amt">$2,450+</span><span class="unit">/year</span></div><p class="desc">Custom infrastructure for large-scale, multi-brand outbound.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">50 domains with automated scaling playbooks</div></li><li><div class="one">Dedicated server cluster &amp; custom routing rules</div></li><li><div class="one">Advanced warming schedules &amp; IP warming</div></li><li><div class="one">Deliverability command center &amp; dashboards</div></li><li><div class="one">24/7 priority escalation &amp; remediation</div></li><li><div class="one">Quarterly strategy workshops &amp; training</div></li></ul></div><p class="p2-best"><b>Best for:</b> Enterprise sales teams needing bulletproof deliverability at volume</p><a class="p2-cta sec2" href="https://pay.ziina.com/imisoft/-LLRAX4Sj" target="_blank" rel="noopener noreferrer" data-plan="cold-enterprise">Get Started &rarr;</a></article><article class="p2-card"><h3>Scale</h3><div class="for">Includes 100 domains &amp; 500 professional inboxes</div><div class="price"><span class="amt">$4,900</span><span class="unit">/year</span></div><p class="desc">High-volume infrastructure for scaling teams.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">100 sending domains with 500 warmed inboxes</div></li><li><div class="one">Multi-provider routing (Google, Microsoft, custom)</div></li><li><div class="one">Full DNS authentication (SPF, DKIM, DMARC)</div></li><li><div class="one">Geo &amp; risk domain segmentation</div></li><li><div class="one">Automated warm-up with blacklist monitoring</div></li><li><div class="one">Weekly deliverability reviews with analyst</div></li></ul></div><p class="p2-best"><b>Best for:</b> Growing teams scaling cold outbound to 10,000+ emails/day</p><a class="p2-cta sec2" href="https://pay.ziina.com/imisoft/riiJRIXRu" target="_blank" rel="noopener noreferrer" data-plan="cold-scale">Get Started &rarr;</a></article><article class="p2-card pop"><div class="p2-pop">MOST POPULAR</div><h3>Agency</h3><div class="for">Includes 300 domains &amp; 1,500 professional inboxes</div><div class="price"><span class="amt">$14,700</span><span class="unit">/year</span></div><p class="desc">Massive infrastructure with dedicated management.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">300 sending domains with 1,500 warmed inboxes</div></li><li><div class="one">Dedicated server cluster &amp; custom routing rules</div></li><li><div class="one">Advanced warming schedules &amp; IP warming</div></li><li><div class="one">Multi-brand domain architecture</div></li><li><div class="one">Deliverability command center &amp; dashboards</div></li><li><div class="one">Bi-weekly strategy reviews &amp; priority support</div></li></ul></div><p class="p2-best"><b>Best for:</b> Agencies &amp; teams sending 30,000+ emails/day across multiple campaigns</p><p class="p2-onb">Custom onboarding required</p><a class="p2-cta pri" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="cold-agency">Contact Us &rarr;</a></article><article class="p2-card"><h3>Ultimate</h3><div class="for">Includes 500 domains &amp; 2,500 professional inboxes</div><div class="price"><span class="amt">$24,500</span><span class="unit">/year</span></div><p class="desc">Full white-glove infrastructure at maximum scale.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">500 sending domains with 2,500 warmed inboxes</div></li><li><div class="one">Full white-glove infrastructure management</div></li><li><div class="one">Dedicated deliverability engineer assigned</div></li><li><div class="one">Custom routing architecture &amp; failover systems</div></li><li><div class="one">Real-time monitoring &amp; instant remediation</div></li><li><div class="one">Quarterly strategy workshops &amp; executive reporting</div></li></ul></div><p class="p2-best"><b>Best for:</b> Enterprise operations running massive multi-brand outbound at scale</p><p class="p2-onb">Custom onboarding required</p><a class="p2-cta sec2" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="cold-ultimate">Contact Us &rarr;</a></article></div><p class="p2-note"><span><b>All packages include 1 year of free technical support</b> for every domain and inbox in your plan. Want us to run the campaigns too? Ask about done-for-you campaign management on a call.</span></p></div><div class="p2-panel" role="tabpanel" id="p2p-aeo" aria-labelledby="p2t-aeo"><div class="p2-intro"><h3>AI Search Optimization (AEO)</h3><p>Get your business named when buyers ask ChatGPT, Google AI, Perplexity and Copilot who to hire. <a href="/ai-search-optimization">How AI search optimization works &rarr;</a></p></div><div class="p2-grid"><article class="p2-card"><h3>AEO Foundation</h3><div class="for">Delivered in 2 to 4 weeks</div><div class="price"><span class="from">from</span><span class="amt">$2,497</span><span class="unit">one-time</span></div><p class="desc">Fix the entity and make your site citable.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">Entity audit across every surface a model reads</div></li><li><div class="one">One consistent identity, bio and contact path</div></li><li><div class="one">Direct-answer and FAQ structure on money pages</div></li><li><div class="one">Organization, Service, Person and FAQ schema</div></li><li><div class="one">AI crawler access check and llms.txt</div></li><li><div class="one">Baseline AI visibility report</div></li></ul></div><a class="p2-cta sec2" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="aeo-foundation">Book a 30-Minute Call &rarr;</a></article><article class="p2-card pop"><div class="p2-pop">MOST POPULAR</div><h3>Managed AEO</h3><div class="for">Ongoing, billed monthly</div><div class="price"><span class="from">from</span><span class="amt">$1,997</span><span class="unit">/month</span></div><p class="desc">The ongoing mention and citation work that moves the number.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">Everything in the foundation, maintained</div></li><li><div class="one">Monthly third-party mention building</div></li><li><div class="one">Directory and review profile programme</div></li><li><div class="one">Expert commentary and listicle placement</div></li><li><div class="one">New citable pages on buyer questions</div></li><li><div class="one">AI referral tracking and monthly reporting</div></li></ul></div><a class="p2-cta pri" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="aeo-managed">Book a 30-Minute Call &rarr;</a></article><article class="p2-card"><h3>Multi-Brand and Enterprise</h3><div class="for">For groups and category leaders</div><div class="price"><span class="amt">Custom</span><span class="unit">scoped with you</span></div><p class="desc">Several brands, markets or a category-leader position.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">Multi-brand or multi-market entity work</div></li><li><div class="one">Competitive AI share-of-answer analysis</div></li><li><div class="one">Digital PR and data-study programme</div></li><li><div class="one">Internal team training and playbooks</div></li><li><div class="one">Custom reporting for stakeholders</div></li><li><div class="one">Founder-level personal brand work</div></li></ul></div><a class="p2-cta sec2" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="aeo-enterprise">Book a 30-Minute Call &rarr;</a></article></div><p class="p2-note"><span><b>No fake guarantees.</b> We do not sell guaranteed placement in AI answers, because no agency can control what a model outputs. Directory, review platform and PR distribution fees are paid by you directly, so you own every profile we build.</span></p></div><div class="p2-panel" role="tabpanel" id="p2p-agents" aria-labelledby="p2t-agents"><div class="p2-intro"><h3>AI Voice Agents</h3><p>Compliant AI calling agents that answer, qualify and book, live on your own phone line and CRM. <a href="/ai-voice-agents">How our AI voice agents work &rarr;</a></p></div><div class="p2-grid"><article class="p2-card"><h3>Voice Agent Build</h3><div class="for">Live in 2 to 4 weeks</div><div class="price"><span class="from">from</span><span class="amt">$2,497</span><span class="unit">one-time</span></div><p class="desc">A complete, compliant AI calling system live on your stack.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">Discovery, call flows and scripts for your offer</div></li><li><div class="one">Consent capture and logging wired into your forms</div></li><li><div class="one">National DNC and opt-out scrubbing upstream of the dialer</div></li><li><div class="one">A2P 10DLC registration on the SMS leg</div></li><li><div class="one">CRM, calendar and pipeline integration</div></li><li><div class="one">Recording, transcription and handoff rules</div></li></ul></div><a class="p2-cta sec2" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="voice-build">Book a 30-Minute Call &rarr;</a></article><article class="p2-card pop"><div class="p2-pop">MOST POPULAR</div><h3>Managed Operations</h3><div class="for">Ongoing, billed monthly</div><div class="price"><span class="from">from</span><span class="amt">$1,997</span><span class="unit">/month</span></div><p class="desc">We run it, tune it and keep it compliant while you take the meetings.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">Everything in the build, kept running</div></li><li><div class="one">Script and objection tuning against real outcomes</div></li><li><div class="one">Ongoing DNC and suppression list hygiene</div></li><li><div class="one">Number and caller reputation monitoring</div></li><li><div class="one">Connect, qualification and booking reporting</div></li><li><div class="one">Direct access to the team that built it</div></li></ul></div><a class="p2-cta pri" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="voice-managed">Book a 30-Minute Call &rarr;</a></article><article class="p2-card"><h3>White Label for Agencies</h3><div class="for">For agencies reselling AI calling</div><div class="price"><span class="amt">Custom</span><span class="unit">scoped with you</span></div><p class="desc">Resell AI calling to your own clients under your own brand.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">Multi-client sub-account architecture</div></li><li><div class="one">Your branding, your pricing, your client relationship</div></li><li><div class="one">Compliance defaults baked into every client build</div></li><li><div class="one">Snapshot so each new client deploys fast</div></li><li><div class="one">Billing and plan gating configured</div></li><li><div class="one">Built by a certified GoHighLevel developer</div></li></ul></div><a class="p2-cta sec2" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="voice-whitelabel">Book a 30-Minute Call &rarr;</a></article></div><p class="p2-note"><span><b>You keep the margin and the control.</b> Telephony, voice engine and CRM usage are paid directly to those vendors. Looking for workflow, DM or document automation instead? See <a href="/ai-automation">AI automation services</a>.</span></p></div><div class="p2-panel" role="tabpanel" id="p2p-dev" aria-labelledby="p2t-dev"><div class="p2-intro"><h3>Web, SaaS and Shopify Development</h3><p>Stores, SaaS products and marketing sites built to load fast, rank and convert. <a href="/web-development">How we build &rarr;</a></p></div><div class="p2-grid"><article class="p2-card"><h3>Starter Store</h3><div class="for">Shopify store, launch in 2 weeks</div><div class="price"><span class="amt">$2,999</span><span class="unit">one-time</span></div><p class="desc">A Shopify store set up and ready to sell.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">Shopify setup &amp; theme configuration</div></li><li><div class="one">Payment &amp; shipping setup</div></li><li><div class="one">Up to 50 products</div></li><li><div class="one">Essential apps &amp; checkout optimization</div></li><li><div class="one">1 recovery flow</div></li></ul></div><p class="p2-best"><b>Best for:</b> Testing product-market fit</p><a class="p2-cta sec2" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="dev-starter-store">Get Started &rarr;</a></article><article class="p2-card pop"><div class="p2-pop">MOST POPULAR</div><h3>Launch Package</h3><div class="for">SaaS: Idea → Product → First Customer</div><div class="price"><span class="amt">$4,997</span><span class="unit">one-time</span></div><p class="desc">Your SaaS built, launched and taken to its first paying customer.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">Complete SaaS application built &amp; deployed</div></li><li><div class="one">User authentication &amp; Stripe billing</div></li><li><div class="one">Admin dashboard &amp; analytics</div></li><li><div class="one">ICP definition &amp; 1,000+ verified leads</div></li><li><div class="one">Cold email infrastructure &amp; outbound sequences</div></li><li><div class="one">First paying customer acquisition</div></li><li><div class="one">100% source code ownership</div></li><li><div class="one">30 days post-launch support</div></li></ul></div><a class="p2-cta pri" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="dev-saas-launch">Get Started &rarr;</a></article><article class="p2-card"><h3>Startup Site</h3><div class="for">Marketing website, launch in 2-3 weeks</div><div class="price"><span class="amt">$7,999</span><span class="unit">one-time</span></div><p class="desc">A 5-8 page marketing site for a new business.</p><div class="p2-inc"><span class="t">What&#39;s included:</span><ul><li><div class="one">5-8 page marketing site</div></li><li><div class="one">CMS for blog/resources</div></li><li><div class="one">Contact forms &amp; integrations</div></li><li><div class="one">Basic animations</div></li><li><div class="one">Analytics setup</div></li></ul></div><p class="p2-best"><b>Best for:</b> New businesses</p><a class="p2-cta sec2" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="dev-startup-site">Get Started &rarr;</a></article></div><p class="p2-note"><span><b>Need something smaller or bigger?</b> A single landing page (<a href="/web-development">Landing Sprint</a>) is $2,999 and launches in 7 days. CRM builds start at $4,999 with <a href="/crm-development">CRM Quickstart</a>. Larger stores and platforms are scoped on a call.</span></p></div>
+      <div class="p2-dark">
+        <h2>Need Something Custom?</h2>
+        <p>Need several services together, a larger team or a custom scope? We build one tailored package, with volume pricing.</p>
+        <a href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="custom">Discuss a Custom Package &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- ============= FINAL CTA SECTION ============= -->
-  <section class="final-cta">
-    <div class="container">
-      <div class="cta-grid">
-        <div class="cta-content">
-          <h2>Not Sure Which Service Is Right for You?</h2>
-          <p>Book a free 30-minute discovery call. We will learn about your business, goals, and challenges, then recommend the right service and plan. No pressure, no hard sell.</p>
-          <ul class="cta-benefits">
-            <li>
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              Free 30-minute consultation
-            </li>
-            <li>
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              Custom recommendation for your business
-            </li>
-            <li>
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              Start within 48 hours of signing
-            </li>
-            <li>
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              30-day results guarantee
-            </li>
-            <li>
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-              No long-term contracts
-            </li>
-          </ul>
-          <div class="cta-trust">
-            <div class="cta-trust-item">
-              <div class="cta-trust-value">100+</div>
-              <div class="cta-trust-label">Active Clients</div>
-            </div>
-            <div class="cta-trust-item">
-              <div class="cta-trust-value">4.9/5</div>
-              <div class="cta-trust-label">Client Rating</div>
-            </div>
-            <div class="cta-trust-item">
-              <div class="cta-trust-value">95%+</div>
-              <div class="cta-trust-label">Client Retention</div>
-            </div>
-          </div>
-        </div>
-        <div class="cta-action">
-          <h3>Schedule a Free Discovery Call</h3>
-          <p>Tell us about your business goals and challenges. We will recommend the right service and have your specialist operational within 48 hours. No cost, no obligation.</p>
-          <a href="/free-audit" class="btn-primary">Book Free Consultation &rarr;</a>
-          <p class="cta-subtext">30-minute call. Custom recommendation. No strings attached.</p>
-        </div>
+  <!-- ============= EVERY PLAN INCLUDES ============= -->
+  <section class="sec sec-w">
+    <div class="wrap">
+      <div class="head">
+        <h2>Every plan includes</h2>
+        <p>Whichever service you choose, this is how we work with you.</p>
       </div>
+      <div class="p2-four">
+        <div class="p2-box"><div class="k">Flexible</div><h3>Month to month</h3><p>No long-term contract. Cancel with 30 days&#39; notice.</p></div>
+        <div class="p2-box"><div class="k">Personal</div><h3>A dedicated specialist</h3><p>One person who knows your account, not a ticket queue.</p></div>
+        <div class="p2-box"><div class="k">Transparent</div><h3>Weekly reporting</h3><p>Clear numbers on what was done and what it produced.</p></div>
+        <div class="p2-box"><div class="k">Fast</div><h3>Start within 48 hours</h3><p>Most services begin within 48 hours of signing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= HOW IT WORKS ============= -->
+  <section class="sec sec-g">
+    <div class="wrap">
+      <div class="head">
+        <h2>From first call to first results</h2>
+        <p>A simple process, with the price agreed in writing before anything starts.</p>
+        <div class="pill-g"><i></i><span>Cancel anytime with 30 days&#39; notice</span></div>
+      </div>
+      <div class="p2-tl">
+        <div class="p2-step"><div class="p2-num">1</div><h3>Discovery call</h3><p class="when">30 minutes</p><ul><li>Your goals and numbers</li><li>Which service fits</li><li>An honest yes or no</li></ul></div>
+        <div class="p2-step"><div class="p2-num">2</div><h3>Written plan</h3><p class="when">Before you pay</p><ul><li>Scope and timeline</li><li>Price in writing</li><li>No surprises later</li></ul></div>
+        <div class="p2-step"><div class="p2-num">3</div><h3>Kickoff</h3><p class="when">Within 48 hours of signing</p><ul><li>Specialist assigned</li><li>Initial audit</li><li>Work starts in week one</li></ul></div>
+        <div class="p2-step"><div class="p2-num">4</div><h3>Results</h3><p class="when">Typically weeks 2 to 4</p><ul><li>First results arrive</li><li>Weekly reports</li><li>Ongoing optimization</li></ul></div>
+      </div>
+      <div class="p2-kpis">
+        <div><b>100+</b><span>Active clients</span></div>
+        <div><b>4.9/5</b><span>Client rating</span></div>
+        <div><b>95%+</b><span>Client retention</span></div>
+        <div><b>10M+</b><span>Cold emails sent</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= FAQ ============= -->
+  <section class="sec sec-w" id="faq">
+    <div class="wrap">
+      <div class="head">
+        <h2>Pricing Questions Answered</h2>
+        <p>Everything you need to know about our pricing, billing and how we work.</p>
+      </div>
+      <div class="p2-faq">
+        <details open><summary>Do you require long-term contracts?</summary><p>No. All imisofts services are month-to-month. You can cancel anytime with 30 days notice. We believe in earning your business every month, not locking you into contracts. Most clients stay because of results, not obligations.</p></details><details><summary>What is included in the monthly price?</summary><p>Each plan includes the full scope of work described, a dedicated specialist or team, weekly reporting and communication, all tools and software needed for execution, and ongoing optimization. There are no hidden fees or surprise charges.</p></details><details><summary>Can I switch between plans?</summary><p>Yes. You can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle. If you need a custom combination of services, we can create a tailored package during your discovery call.</p></details><details><summary>How quickly can you start?</summary><p>Most services begin within 48 hours of signing. Your dedicated specialist is assigned immediately, conducts an initial audit, and starts work in the first week. Full setup and first results typically arrive within 2-4 weeks depending on the service.</p></details><details><summary>Do you offer custom enterprise pricing?</summary><p>Yes. For companies needing multiple services, larger teams, or custom requirements, we offer tailored enterprise packages with volume discounts. Contact us for a custom quote based on your specific needs and scale.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============= FINAL CTA ============= -->
+  <section class="sec sec-g">
+    <div class="wrap p2-final">
+      <h2>Not sure which plan fits?</h2>
+      <p>Book a free 30-minute call. We look at your business, your goals and your numbers, then recommend the one service that will move them. No pressure, no hard sell.</p>
+      <div class="ctas">
+        <a class="btn btn-o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="final">Book a Free Call &rarr;</a>
+        <a class="btn btn-w" href="/free-audit">Get a Free Audit</a>
+      </div>
+      <small>30 minutes. Custom recommendation. No strings attached.</small>
     </div>
   </section>
 
@@ -2887,12 +2752,64 @@
 
   <!-- Pricing Tab Switcher -->
   <script>
-    function showPricingCategory(category) {
-      document.querySelectorAll('.pricing-category').forEach(function(el) { el.classList.remove('active'); });
-      document.querySelectorAll('.pricing-tab').forEach(function(el) { el.classList.remove('active'); });
-      document.getElementById('pricing-' + category).classList.add('active');
-      event.target.classList.add('active');
+  (function () {
+    var tabs = [].slice.call(document.querySelectorAll('.p2-tab'));
+    var ind = document.querySelector('.p2-ind');
+    var bar = document.querySelector('.p2-tabs');
+    if (!tabs.length) return;
+    function place(t) {
+      if (!ind || !t) return;
+      ind.style.width = t.offsetWidth + 'px';
+      ind.style.transform = 'translateX(' + (t.offsetLeft - 4) + 'px)';
     }
+    function select(t, user) {
+      tabs.forEach(function (x) {
+        var on = x === t;
+        x.setAttribute('aria-selected', on ? 'true' : 'false');
+        x.tabIndex = on ? 0 : -1;
+        var p = document.getElementById(x.getAttribute('aria-controls'));
+        if (p) p.classList.toggle('is-on', on);
+      });
+      place(t);
+      if (bar && bar.scrollWidth > bar.clientWidth) {
+        bar.scrollLeft = Math.max(0, t.offsetLeft - (bar.clientWidth - t.offsetWidth) / 2);
+      }
+      if (user) {
+        try { history.replaceState(null, '', '#' + t.getAttribute('data-key')); } catch (e) {}
+        if (window.gtag) { try { gtag('event', 'pricing_tab', { service: t.getAttribute('data-key') }); } catch (e) {} }
+      }
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t, true); });
+      t.addEventListener('keydown', function (e) {
+        var k = e.key, n = null;
+        if (k === 'ArrowRight') n = tabs[(i + 1) % tabs.length];
+        if (k === 'ArrowLeft') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (k === 'Home') n = tabs[0];
+        if (k === 'End') n = tabs[tabs.length - 1];
+        if (n) { e.preventDefault(); select(n, true); n.focus(); }
+      });
+    });
+    var start = tabs[0], h = (location.hash || '').slice(1);
+    tabs.forEach(function (t) { if (t.getAttribute('data-key') === h) start = t; });
+    select(start, false);
+    function re() { place(document.querySelector('.p2-tab[aria-selected="true"]')); }
+    window.addEventListener('resize', re);
+    window.addEventListener('load', re);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(re);
+    [].slice.call(document.querySelectorAll('[data-px-cal], .p2-cta')).forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (window.gtag) { try { gtag('event', 'pricing_cta', { plan: a.getAttribute('data-plan') || '' }); } catch (x) {} }
+        if (!a.hasAttribute('data-px-cal')) return;
+        try {
+          if (window.Cal && Cal.ns && Cal.ns['30min']) {
+            e.preventDefault();
+            Cal.ns['30min']('modal', { calLink: 'zeeshanwaheed/30min', config: { layout: 'month_view' } });
+          }
+        } catch (x) {}
+      });
+    });
+  })();
   </script>
 
   <!-- Cal floating-popup embed code begins -->
