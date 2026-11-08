@@ -1,0 +1,74 @@
+# One-off, 2026-11-08 (owner: "Get everything done"): publish the 44 AI writing tool pages and /ai-writing-tools.
+# Pages are uploaded before this runs. Adds the 45 URLs to sitemap.xml and an "AI writing tools" group to
+# ops/build_llms.py, regenerates llms.txt, then pings IndexNow. Only adds; idempotent.
+name: One-off 2026-11-08 writing tools pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1108-writing-pages.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      INDEXNOW_QUEUE: /tmp/indexnow_queue.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Sitemap and llms list
+        run: |
+          python3 - <<'PY'
+          import re, os, json
+          TODAY = '2026-11-08'
+          NEW = ['/ai-writing-tools', '/acronym-generator', '/ai-content-detector', '/ai-humanizer', '/grammar-checker', '/conclusion-generator', '/emoji-translator', '/lorem-ipsum-generator', '/outline-generator', '/paragraph-generator', '/paragraph-rewriter', '/paraphrasing-tool', '/rewording-tool', '/sentence-rewriter', '/summarizer', '/blog-post-ideas-generator', '/blog-title-generator', '/content-idea-generator', '/alt-text-generator', '/meta-description-generator', '/seo-title-generator', '/video-script-generator', '/hook-generator', '/instagram-bio-generator', '/instagram-caption-generator', '/instagram-hashtag-generator', '/instagram-name-generator', '/tiktok-hashtag-generator', '/tiktok-username-generator', '/social-media-bio-generator', '/social-media-caption-generator', '/hashtag-generator', '/username-generator', '/youtube-channel-description-generator', '/youtube-name-generator', '/youtube-description-generator', '/brand-name-generator', '/business-name-generator', '/google-ads-copy-generator', '/product-description-generator', '/product-name-generator', '/resignation-letter-generator', '/slogan-generator', '/landing-page-generator', '/website-copy-generator']
+          missing = [u for u in NEW if not os.path.exists(u.lstrip('/') + '.html')]
+          if missing:
+              raise SystemExit('pages not in the repo yet: %s' % missing)
+          p = 'sitemap.xml'
+          x = open(p, encoding='utf-8').read(); x0 = x
+          for u in NEW:
+              loc = 'https://imisofts.com' + u
+              if '<loc>%s</loc>' % loc in x:
+                  continue
+              x = x.replace('</urlset>', '<url>\n<loc>%s</loc>\n<lastmod>%s</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n</urlset>' % (loc, TODAY), 1)
+          if x != x0:
+              open(p, 'w', encoding='utf-8').write(x)
+          print('sitemap:', 'updated' if x != x0 else 'unchanged')
+          p = 'ops/build_llms.py'
+          s = open(p, encoding='utf-8').read()
+          if "'/ai-writing-tools'" not in s:
+              anchor = "COMPANY_PAGES = ["
+              if s.count(anchor) != 1:
+                  raise SystemExit('build_llms anchor not found')
+              i = s.index(anchor)
+              j = s.rindex(']', 0, i)
+              group = "    ('AI writing tools', [\n" + ''.join("        '%s',\n" % u for u in NEW) + "    ]),\n"
+              s = s[:j] + group + s[j:]
+              open(p, 'w', encoding='utf-8').write(s)
+              print('build_llms: added the AI writing tools group')
+          json.dump(['https://imisofts.com' + u for u in NEW], open(os.environ.get('INDEXNOW_QUEUE', '/tmp/indexnow_queue.json'), 'w'))
+          PY
+      - name: Regenerate llms.txt and llms-full.txt
+        run: python3 ops/build_llms.py
+        continue-on-error: true
+      - name: Commit
+        run: |
+          git config user.name "imisofts-tools-bot"
+          git config user.email "tools-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "tools: 44 AI writing tool pages and /ai-writing-tools in sitemap.xml and llms.txt (owner request 2026-11-08)"
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Ping IndexNow once the pages are live
+        run: python3 ops/indexnow_after_deploy.py
+        continue-on-error: true
+        timeout-minutes: 20
