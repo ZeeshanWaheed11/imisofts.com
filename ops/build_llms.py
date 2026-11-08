@@ -41,6 +41,12 @@ SERVICE_GROUPS = [
         '/hire-ai-engineer', '/hire-n8n-developer', '/openclaw-setup', '/ai-automation-ecommerce',
         '/crm-development',
     ]),
+    ('SEO and AI citations', [
+        '/seo-services', '/ai-citation-services',
+    ]),
+    ('AI video and content', [
+        '/youtube-automation', '/ai-filmmaking', '/ai-ugc-ads',
+    ]),
     ('Web, e-commerce and product', [
         '/web-development', '/ecommerce', '/shopify-apps', '/hire-shopify-expert',
         '/ai-mobile-apps', '/launch-your-saas', '/digital-marketing', '/shopify-app-reviews',

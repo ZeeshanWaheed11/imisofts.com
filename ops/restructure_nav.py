@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """Navigation structure and styling.
 
-Services mega-menu, 4 categories, none larger than 6:
-  Growth             cold email, lead gen, digital marketing, email infra, GHL services, white-label SaaS
+Services mega-menu, 5 categories (8 Nov 2026: SEO and AI citation joined Growth, new AI Content tab;
+applied to every page by .github/workflows/oneoff-1108-nav.yml, so MARKER was left as it is):
+  Growth             cold email, lead gen, digital marketing, email infra, GHL services, white-label SaaS, SEO, AI citation
   AI & Automation    ai automation, voice agents, TCPA calling, AI search, OpenClaw
+  AI Content         YouTube automation, AI filmmaking, AI reels and ads
   Development        unchanged
   Hire a Specialist  unchanged
 
@@ -23,9 +25,11 @@ MARKER = "nav-cat-fix-3"
 
 PANELS = [
     ("growth", "Growth", ["/cold-email-marketing", "/lead-generation", "/digital-marketing",
-                          "/email-infrastructure", "/gohighlevel-services", "/gohighlevel-white-label-saas"]),
+                          "/email-infrastructure", "/gohighlevel-services", "/gohighlevel-white-label-saas",
+                          "/seo-services", "/ai-citation-services"]),
     ("ai", "AI &amp; Automation", ["/ai-automation", "/ai-voice-agents", "/tcpa-compliant-ai-calling",
                                    "/ai-search-optimization", "/openclaw-setup"]),
+    ("content", "AI Content", ["/youtube-automation", "/ai-filmmaking", "/ai-ugc-ads"]),
     ("development", "Development", ["/web-development", "/ecommerce", "/crm-development",
                                     "/shopify-apps", "/ai-mobile-apps", "/launch-your-saas"]),
     ("specialist", "Hire a Specialist", ["/hire-cold-email-expert", "/hire-gohighlevel-developer",
@@ -36,6 +40,7 @@ PANELS = [
 TAB_ICONS = {
     "growth":      "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
     "ai":          "M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2M3 15h2m14-6h2m-2 6h2M7 7h10v10H7zM10.5 10.5h3v3h-3z",
+    "content":     "M15 10l4.5-2.5v9L15 14M3 7h12v10H3z",
     "development": "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
     "specialist":  "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z",
 }
