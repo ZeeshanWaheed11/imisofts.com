@@ -1414,6 +1414,201 @@
   </style>
   <script src="/js/measure.js" defer></script>
   <style id="nav-fit-1108">.mobile-section-content.active{max-height:2400px}.mega-panel,.mega-sidebar{max-height:min(80vh,620px)}@media (max-width:1180px){.nav-menu{gap:20px}}@media (max-width:1024px){.nav-menu{display:none}.mobile-menu-toggle{display:block}}</style>
+  <style id="tp-legacy">
+    /* premium layout, same look as the free tool pages (2026-11-09) */
+    .container{max-width:1280px}
+    nav.navbar{background:rgba(255,255,255,.97);box-shadow:0 1px 0 rgba(17,17,19,.06)}
+    .xl-wrap{--xl-ink:#111113;--xl-text:#55595f;--xl-muted:#6b6b73;--xl-line:#ebebee;font-family:Inter,system-ui,-apple-system,sans-serif}
+    /* hero */
+    .xl-hero{background:#0b0b0d;color:#fff;padding:132px 0 76px}
+    .xl-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 420px at 88% -12%,rgba(244,84,7,.30),transparent 62%),radial-gradient(620px 360px at -6% 8%,rgba(255,255,255,.07),transparent 60%)}
+    .xl-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(to bottom,#000,transparent 72%);mask-image:linear-gradient(to bottom,#000,transparent 72%)}
+    .xl-hero>.container{position:relative;z-index:1}
+    .xl-hero h1{font-size:54px;line-height:1.06;letter-spacing:-.035em;font-weight:700;color:#fff}
+    .dp-hero h1{font-size:58px;line-height:1.04;letter-spacing:-.035em;font-weight:700;color:#fff;max-width:920px}
+    .xl-hero h1 .xl-hl{color:#ff6a24}
+    .xl-hero .xl-lead{font-size:18.5px;line-height:1.6;color:#b8b8be}
+    .xl-hero .xl-pill{display:inline-flex;align-items:center;gap:9px;padding:6px 13px 6px 11px;background:rgba(244,84,7,.12);border:1px solid rgba(244,84,7,.38);color:#ffb08a;font-size:13px;font-weight:500}
+    .xl-hero .xl-pill::before{content:'';width:7px;height:7px;border-radius:50%;background:#F45407;box-shadow:0 0 0 4px rgba(244,84,7,.22);flex:none}
+    .xl-hero .xl-product{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12);box-shadow:none}
+    .xl-hero .xl-product-name{color:#fff}
+    .xl-hero .xl-product-by{color:#a9a9b0}
+    .xl-hero .xl-note{color:#8d8d93}
+    .xl-hero .xl-trust li{color:#c4c4c9;font-size:14px}
+    .xl-hero .xl-trust svg{color:#22c55e}
+    .xl-hero-visual img{filter:drop-shadow(0 40px 80px rgba(0,0,0,.55)) drop-shadow(0 0 48px rgba(244,84,7,.14))}
+    .xl-hero .xl-stats{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);box-shadow:none}
+    .xl-hero .xl-stat-value{color:#ff8a4c;font-weight:700;letter-spacing:-.02em}
+    .xl-hero .xl-stat-label{color:#a9a9b0}
+    .dp-hero .xl-head{max-width:none;margin:0;text-align:left}
+    .dp-hero .xl-lead{max-width:760px;margin:0 0 26px}
+    .dp-hero .xl-trust{justify-content:flex-start}
+    /* buttons */
+    .xl-wrap .xl-btn{min-height:54px;padding:12px 24px;border-radius:14px;font-size:16px;font-weight:600;letter-spacing:-.01em}
+    .xl-wrap .xl-btn-install{background:linear-gradient(180deg,#ff6a24,#F45407);box-shadow:0 10px 24px rgba(244,84,7,.32),inset 0 1px 0 rgba(255,255,255,.22)}
+    .xl-wrap .xl-btn-install:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(244,84,7,.38),inset 0 1px 0 rgba(255,255,255,.22)}
+    .xl-hero .xl-btn-ghost,.xl-service .xl-btn-ghost{background:rgba(255,255,255,.08);color:#fff !important;border:1px solid rgba(255,255,255,.18)}
+    .xl-hero .xl-btn-ghost:hover,.xl-service .xl-btn-ghost:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28);box-shadow:none}
+    .xl-hero .xl-btn-soon{background:rgba(255,255,255,.05);color:#d4d4d8 !important;border:1px dashed rgba(255,255,255,.28)}
+    /* sections */
+    .xl-section{padding:104px 0}
+    .xl-tint{background:#f7f7f9;border-top:0;border-bottom:0}
+    .xl-head{max-width:760px;margin:0 auto 52px}
+    .xl-eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.09em;margin-bottom:14px}
+    .xl-h2{font-size:42px;line-height:1.12;letter-spacing:-.03em;font-weight:600;color:#111113}
+    .xl-sub{font-size:17.5px;line-height:1.65;color:#55595f}
+    .xl-center{font-size:15.5px;color:#55595f}
+    .xl-steps{gap:20px}
+    .xl-step{border-color:#ebebee;border-radius:18px;padding:30px 28px 28px;box-shadow:none}
+    .xl-step-num{width:38px;height:38px;border-radius:11px;background:#111113;border:0;color:#fff;font-weight:600;font-size:15px;margin-bottom:20px;box-shadow:0 6px 16px rgba(17,17,19,.18)}
+    .xl-step h3{font-size:18.5px;font-weight:600;letter-spacing:-.01em}
+    .xl-step p{font-size:15.5px;line-height:1.65}
+    .xl-chips{gap:10px;margin-top:40px}
+    .xl-chips li{padding:9px 18px;border:1px solid #ebebee;font-weight:600;font-size:15px;box-shadow:0 1px 2px rgba(16,16,20,.04)}
+    .xl-chips li.xl-chip-soft{border-style:dashed;border-color:#d9d9df}
+    .xl-cards{gap:20px}
+    .xl-card,.xl-good div,.dp-records div{border-color:#ebebee;border-radius:18px;box-shadow:none;transition:transform .2s,box-shadow .2s,border-color .2s}
+    .xl-card:hover,.xl-good div:hover,.dp-records div:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+    .xl-card{padding:30px 28px}
+    .xl-card h3{font-size:20px;font-weight:600;letter-spacing:-.015em;margin-bottom:12px}
+    .xl-card p{font-size:15.5px;line-height:1.7;margin:0}
+    .xl-list li{font-size:15.5px}
+    .xl-good,.dp-records{max-width:none;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .xl-good div,.dp-records div{display:block;padding:26px 28px}
+    .xl-good dt,.dp-records dt{font-size:17px;font-weight:600;letter-spacing:-.01em;margin:0 0 8px}
+    .xl-good dd,.dp-records dd{font-size:15.5px;line-height:1.7;color:#55595f}
+    .xl-good div:last-child:nth-child(odd),.dp-records div:last-child:nth-child(odd){grid-column:1/-1}
+    .xl-callout{max-width:none;margin:20px 0 0;padding:18px 22px;border-radius:14px;font-size:15.5px}
+    .xl-feature h3{font-size:34px;line-height:1.18;font-weight:600;letter-spacing:-.025em}
+    .xl-feature p{font-size:17px}
+    /* demo video and transcript */
+    .xl-video{max-width:none}
+    .xl-transcript{max-width:none;margin:24px 0 0;border:1px solid #ebebee;border-radius:16px}
+    .xl-transcript summary,.xl-faq summary{display:block;position:relative;padding:20px 58px 20px 22px;font-size:16.5px;font-weight:600;line-height:1.45;color:#111113}
+    .xl-transcript summary::after,.xl-faq summary::after{content:'';position:absolute;right:20px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:8px;background:#f4f4f6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5v10M5 10h10' stroke='%23F45407' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .2s,background-color .2s}
+    .xl-transcript[open] summary::after,.xl-faq details[open] summary::after{transform:rotate(45deg);background-color:#fff1e9}
+    .xl-transcript-body{display:grid;grid-template-columns:240px minmax(0,1fr);gap:16px 40px;padding:4px 22px 26px}
+    .xl-transcript-body h3,.xl-transcript-body h3:first-child{margin:0;font-size:15px;font-weight:600;line-height:1.75}
+    .xl-transcript-body p{max-width:820px;color:#55595f}
+    /* JSON sample: copy on the left, code on the right */
+    .xl-code{background:#0b0b0d;border:1px solid #1d1d22;border-radius:18px;box-shadow:0 30px 70px rgba(17,17,19,.22)}
+    .xl-section .container:has(>.xl-code){display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);grid-template-areas:"head code" "call code";grid-template-rows:auto 1fr;gap:0 48px;align-items:start}
+    .xl-section .container:has(>.xl-code)>.xl-head{grid-area:head;max-width:none;margin:0;text-align:left}
+    .xl-section .container:has(>.xl-code)>.xl-code{grid-area:code;max-width:none;margin:0;font-size:13px;white-space:pre-wrap}
+    .xl-section .container:has(>.xl-code)>.xl-callout{grid-area:call;margin:28px 0 0}
+    /* FAQ: heading on the left, questions on the right */
+    .xl-section .container:has(>.xl-faq){display:grid;grid-template-columns:380px minmax(0,1fr);gap:64px;align-items:start}
+    .xl-section .container:has(>.xl-faq)>.xl-head{position:sticky;top:100px;max-width:none;margin:0;text-align:left}
+    .xl-section .container:has(>.xl-faq)>.xl-head .xl-h2{font-size:38px}
+    .xl-section .container:has(>.xl-faq)>.xl-faq{max-width:none;margin:0}
+    .xl-faq details,.xl-faq details:first-child{background:#fff;border:1px solid #ebebee;border-radius:16px;margin:0 0 12px;transition:border-color .15s,box-shadow .15s}
+    .xl-faq details[open]{border-color:#f0d3c3;box-shadow:0 14px 34px rgba(17,17,19,.06)}
+    .xl-faq details p{margin:0;padding:0 22px 22px;font-size:15.5px;line-height:1.75;color:#55595f;max-width:none}
+    /* other extension, service band, closing card */
+    .xl-other{max-width:none;grid-template-columns:420px minmax(0,1fr);gap:44px;padding:24px;border-color:#ebebee;border-radius:22px}
+    .xl-other:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+    .xl-other img{border-radius:14px}
+    .xl-other-title{font-size:26px;font-weight:600;letter-spacing:-.02em;margin:0 0 10px}
+    .xl-other-text{font-size:16.5px;line-height:1.7;margin:0 0 16px;max-width:620px}
+    .xl-other-link{font-weight:600}
+    .xl-service{position:relative;overflow:hidden;background:#0b0b0d;border-radius:24px;padding:56px;gap:40px}
+    .xl-service::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(560px 320px at 100% 0%,rgba(244,84,7,.34),transparent 70%),radial-gradient(420px 260px at 0% 100%,rgba(255,255,255,.05),transparent 70%)}
+    .xl-service>*{position:relative}
+    .xl-service h2{font-size:32px;line-height:1.2;font-weight:600;letter-spacing:-.025em}
+    .xl-service p{color:#b8b8be}
+    .xl-legal{color:#8a8a92}
+    .xl-final{padding:8px 0 104px;background:#fff;border-top:0}
+    .xl-tint+.xl-final{padding-top:104px}
+    .xl-final>.container{position:relative;overflow:hidden;width:calc(100% - 40px);max-width:1240px;padding:76px 48px;border-radius:28px;background:linear-gradient(135deg,#fff4ec 0%,#fffaf6 45%,#fff 100%);border:1px solid #f4dccd}
+    .xl-final>.container::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(560px 300px at 50% -30%,rgba(244,84,7,.18),transparent 70%)}
+    .xl-final>.container::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(244,84,7,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(244,84,7,.07) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%);mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%)}
+    .xl-final>.container>*{position:relative;z-index:1}
+    .xl-final .xl-h2{max-width:760px;margin:0 auto 14px}
+    .xl-final .xl-trust li{color:#4b4b52}
+
+    /* DNS checker card */
+    .dp-hero .dp-tool{max-width:none;margin:36px 0 0;border:0;border-radius:22px;padding:26px;color:#111113;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}
+    .dp-form{grid-template-columns:minmax(0,1.6fr) 140px minmax(0,1.25fr) auto;gap:12px}
+    .dp-field label{font-size:13.5px;font-weight:500;color:#4b4b52;margin:0 0 8px}
+    .dp-field input,.dp-field select{height:58px;border-radius:14px;background:#f7f7f9;border:1px solid #e6e6ea;font-size:16.5px;padding:0 18px;transition:border-color .15s,box-shadow .15s,background .15s}
+    .dp-field input:focus,.dp-field select:focus{background:#fff;border-color:#F45407;box-shadow:0 0 0 4px rgba(244,84,7,.12)}
+    .dp-tool .dp-go{height:58px;padding:0 28px;border-radius:14px}
+    .dp-providers{font-size:13.5px;color:#8a8a92}
+    /* ui-kit dropdown */
+    .ui-sel{position:relative;display:inline-block;min-width:170px;vertical-align:middle}
+    .ui-sel select.ui-native{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;left:0;bottom:0}
+    .ui-sel-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:42px;padding:0 12px 0 14px;border:1px solid #e3e3e8;border-radius:11px;background:#fff;color:#111113;font:inherit;font-size:14.5px;font-weight:500;cursor:pointer;text-align:left;box-shadow:0 1px 2px rgba(16,16,20,.04);transition:border-color .15s,box-shadow .15s}
+    .ui-sel-btn:hover{border-color:#cfcfd6}
+    .ui-sel-btn:focus-visible,.ui-sel.open .ui-sel-btn{outline:none;border-color:#F45407;box-shadow:0 0 0 4px rgba(244,84,7,.12)}
+    .ui-sel-btn .v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .ui-sel-btn svg{width:16px;height:16px;flex:none;color:#8a8a92;transition:transform .2s}
+    .ui-sel.open .ui-sel-btn svg{transform:rotate(180deg);color:#F45407}
+    .ui-pop{position:absolute;z-index:60;top:calc(100% + 8px);left:0;min-width:100%;width:max-content;max-width:min(340px,92vw);background:#fff;border:1px solid #e7e7ec;border-radius:14px;box-shadow:0 24px 60px rgba(16,16,24,.16),0 4px 12px rgba(16,16,24,.06);padding:6px;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .14s,transform .14s}
+    .ui-sel.open .ui-pop{opacity:1;transform:none;pointer-events:auto}
+    .ui-sel.up .ui-pop{top:auto;bottom:calc(100% + 8px)}
+    .ui-search{display:flex;align-items:center;gap:8px;margin:2px 2px 6px;padding:0 10px;height:38px;border:1px solid #ececf1;border-radius:10px;background:#f7f7f9}
+    .ui-search svg{width:15px;height:15px;color:#9a9aa2;flex:none}
+    .ui-search input{border:0;background:transparent;outline:none;font:inherit;font-size:14px;width:100%;color:#111113}
+    .ui-list{max-height:264px;overflow:auto;overscroll-behavior:contain}
+    .ui-opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border-radius:9px;font-size:14.5px;color:#26262b;cursor:pointer;white-space:nowrap}
+    .ui-opt svg{width:16px;height:16px;color:#F45407;opacity:0;flex:none}
+    .ui-opt.on{font-weight:600;color:#111113}.ui-opt.on svg{opacity:1}
+    .ui-opt.act{background:#fff3ec;color:#111113}
+    .ui-empty{padding:12px;font-size:13.5px;color:#8a8a92}
+    .dp-type .ui-sel{display:block;width:100%;min-width:0}
+    .dp-type .ui-sel-btn{height:58px;border-radius:14px;background:#f7f7f9;border-color:#e6e6ea;box-shadow:none;font-size:16px;font-weight:600;padding:0 14px 0 18px}
+    .dp-type .ui-pop{min-width:180px}
+
+    @media(max-width:1100px){
+      .xl-hero h1{font-size:46px}
+      .xl-feature h3{font-size:30px}
+      .xl-section .container:has(>.xl-faq){grid-template-columns:300px minmax(0,1fr);gap:40px}
+    }
+    @media(max-width:900px){
+      .xl-hero{padding:112px 0 56px}
+      .xl-hero h1,.dp-hero h1{font-size:44px}
+      .xl-h2{font-size:34px}
+      .xl-feature h3{font-size:28px}
+      .xl-section .container:has(>.xl-faq){grid-template-columns:1fr;gap:28px}
+      .xl-section .container:has(>.xl-faq)>.xl-head{position:static}
+      .xl-section .container:has(>.xl-faq)>.xl-head .xl-h2{font-size:34px}
+      .xl-section .container:has(>.xl-code){grid-template-columns:minmax(0,1fr);grid-template-areas:"head" "code" "call";grid-template-rows:auto}
+      .xl-section .container:has(>.xl-code)>.xl-head{margin:0 0 32px}
+      .xl-section .container:has(>.xl-code)>.xl-code{white-space:pre}
+      .xl-section .container:has(>.xl-code)>.xl-callout{margin:20px 0 0}
+      .xl-other{grid-template-columns:300px minmax(0,1fr);gap:28px}
+      .xl-service{padding:40px 30px}
+      .xl-final>.container{padding:60px 32px}
+      .dp-form{grid-template-columns:minmax(0,1fr) 140px}
+    }
+    @media(max-width:768px){
+      .xl-final>.container{width:calc(100% - 32px)}
+    }
+    @media(max-width:640px){
+      .xl-hero{padding:100px 0 44px}
+      .xl-hero h1,.dp-hero h1{font-size:34px}
+      .xl-hero .xl-lead{font-size:16.5px}
+      .dp-hero .xl-lead{margin-bottom:22px}
+      .xl-hero .xl-trust{gap:8px 18px}
+      .xl-hero .xl-trust li{font-size:13px}
+      .xl-section{padding:72px 0}
+      .xl-head{margin-bottom:36px}
+      .xl-h2,.xl-section .container:has(>.xl-faq)>.xl-head .xl-h2{font-size:29px}
+      .xl-feature h3{font-size:26px}
+      .xl-good,.dp-records{grid-template-columns:1fr}
+      .xl-transcript-body{grid-template-columns:1fr;gap:6px}
+      .xl-transcript-body p{margin-bottom:12px}
+      .xl-other{grid-template-columns:1fr;gap:20px;padding:18px}
+      .xl-service{padding:32px 22px;border-radius:20px}
+      .xl-service h2{font-size:26px}
+      .xl-final{padding-bottom:72px}
+      .xl-tint+.xl-final{padding-top:72px}
+      .xl-final>.container{padding:52px 22px;border-radius:22px}
+      .xl-section .container:has(>.xl-code)>.xl-code{font-size:12.5px}
+      .dp-hero .dp-tool{padding:16px;border-radius:18px}
+      .dp-form{grid-template-columns:minmax(0,1fr) 116px}
+    }
+  </style>
 </head>
 <body>
   <!-- ============= NAVBAR ============= -->
@@ -1833,7 +2028,7 @@
             </div>
             <div class="dp-field dp-type">
               <label for="dp-type">Type</label>
-              <select id="dp-type">
+              <select id="dp-type" aria-label="Record type">
                 <option>A</option><option>CNAME</option><option>TXT</option><option>MX</option><option>NS</option><option>AAAA</option>
               </select>
             </div>
@@ -2287,5 +2482,6 @@
   <script src="/assets/tools/dns-propagation/propagation-1.1.0.js" defer></script>
   <script src="/assets/tools/dns-propagation/propui-1.1.0.js" defer></script>
   <script src="/assets/tools/dns-propagation/checker-1.js" defer></script>
+  <script src="/assets/tools/ui-kit-1.0.0.js" defer></script>
 </body>
 </html>
