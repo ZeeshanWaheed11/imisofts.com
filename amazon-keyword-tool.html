@@ -2268,6 +2268,152 @@
 .dt-cta-btn:hover{background:#e34a00}
 @media(max-width:900px){.dt-plats{grid-template-columns:1fr}}
 @media(max-width:640px){.dt-grid{grid-template-columns:1fr}.dt-two{grid-template-columns:1fr}.dt-hero{flex-direction:column;text-align:center}.dt-submit,.dt-submit button{width:100%}.dt-opt{width:100%}.dt-opt input{flex:1;width:auto}.dt-bars>div{grid-template-columns:70px 1fr 54px}}
+
+/* premium tool pages (tp-) */
+nav.navbar{background:rgba(255,255,255,.97);box-shadow:0 1px 0 rgba(17,17,19,.06)}
+.tp{--tp-ink:#111113;--tp-body:#55595f;--tp-line:#ebebee;--tp-soft:#f7f7f9;--tp-o:#F45407;--tp-o2:#ff7a3d;font-family:Inter,system-ui,-apple-system,sans-serif}
+.tp .wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+.tp-hero{position:relative;overflow:hidden;background:#0b0b0d;color:#fff;padding:132px 0 76px}
+.tp-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 420px at 88% -12%,rgba(244,84,7,.30),transparent 62%),radial-gradient(620px 360px at -6% 8%,rgba(255,255,255,.07),transparent 60%)}
+.tp-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(to bottom,#000,transparent 72%);mask-image:linear-gradient(to bottom,#000,transparent 72%)}
+.tp-hero .wrap{position:relative;z-index:1}
+.tp-crumbs{font-size:13px;color:#8d8d93;margin:0 0 22px}.tp-crumbs a{color:#c4c4c9;text-decoration:none}.tp-crumbs a:hover{color:#fff}.tp-crumbs span{color:#8d8d93}
+.tp-badge{display:inline-flex;align-items:center;gap:9px;padding:6px 13px 6px 11px;border-radius:999px;background:rgba(244,84,7,.12);border:1px solid rgba(244,84,7,.38);color:#ffb08a;font-size:13px;font-weight:500;margin:0 0 20px}
+.tp-badge i{width:7px;height:7px;border-radius:50%;background:var(--tp-o);box-shadow:0 0 0 4px rgba(244,84,7,.22)}
+.tp-hero h1{font-size:58px;line-height:1.04;letter-spacing:-.035em;font-weight:700;margin:0 0 18px;color:#fff;max-width:920px}
+.tp-lead{font-size:18.5px;line-height:1.6;color:#b8b8be;max-width:760px;margin:0 0 34px}
+.tp-card{position:relative;background:#fff;color:var(--tp-ink);border-radius:22px;padding:26px;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}
+.tp-trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin:22px 0 0;padding:0;list-style:none;font-size:14px;color:#a9a9b0}
+.tp-trust li{display:inline-flex;align-items:center;gap:8px}.tp-trust svg{width:17px;height:17px;color:#2fd47a;flex:none}
+/* tool controls inside the card */
+.tp-card .ft-input{gap:12px}
+.tp-card .ft-input input,.tp-card .wt-label input[type=text],.tp-card .wt-label input[type=number],.tp-card .wt-label textarea,.tp-card .dt-area,.tp-card .dt-grid input,.tp-card .dt-opt input{background:#f7f7f9;border:1px solid #e6e6ea;color:var(--tp-ink);transition:border-color .15s,box-shadow .15s,background .15s}
+.tp-card .ft-input input{height:58px;border-radius:14px;font-size:16.5px;padding:0 18px}
+.tp-card .ft-input input:focus,.tp-card .wt-label input:focus,.tp-card .wt-label textarea:focus,.tp-card .dt-area:focus,.tp-card .dt-grid input:focus,.tp-card .dt-opt input:focus{background:#fff;border-color:var(--tp-o);box-shadow:0 0 0 4px rgba(244,84,7,.12);outline:none}
+.tp-card .ft-input button,.tp-card .dt-submit button,.tp-card .wt-submit button{height:58px;padding:0 28px;border:0;border-radius:14px;background:linear-gradient(180deg,#ff6a24,#F45407);color:#fff;font-weight:600;font-size:16px;letter-spacing:-.01em;box-shadow:0 10px 24px rgba(244,84,7,.32),inset 0 1px 0 rgba(255,255,255,.22);cursor:pointer;transition:transform .15s,box-shadow .15s,filter .15s}
+.tp-card .ft-input button:hover,.tp-card .dt-submit button:hover,.tp-card .wt-submit button:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(244,84,7,.38),inset 0 1px 0 rgba(255,255,255,.22);filter:saturate(1.05)}
+.tp-card .ft-opts{gap:12px 20px;margin-top:16px;font-size:13.5px;color:#6b6b73}
+.tp-card .ft-opts label{display:inline-flex;align-items:center;gap:10px;font-weight:500}
+.tp-card .ft-opts .ck{gap:8px}
+.tp-card .ft-opts input[type=checkbox]{width:17px;height:17px;border-radius:5px;accent-color:var(--tp-o)}
+.tp-card .dt-opt input{height:42px;border-radius:11px;width:200px}
+.tp-card .dt-area{border-radius:14px;padding:14px 18px}
+.tp-card .dt-grid input{height:54px;border-radius:13px}
+.tp-card .dt-grid label{font-size:13.5px;color:#4b4b52}
+.tp-card .wt-label{font-size:13.5px;color:#4b4b52}
+.tp-card .wt-label textarea,.tp-card .wt-label input[type=text],.tp-card .wt-label input[type=number]{border-radius:13px}
+.tp-card .ft-error{border-radius:12px}
+.tp-card .ft-results{margin-top:24px;border-top:1px solid var(--tp-line);padding-top:22px}
+/* ui-kit dropdown */
+.ui-sel{position:relative;display:inline-block;min-width:170px;vertical-align:middle}
+.ui-sel select.ui-native{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;left:0;bottom:0}
+.ui-sel-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:42px;padding:0 12px 0 14px;border:1px solid #e3e3e8;border-radius:11px;background:#fff;color:#111113;font:inherit;font-size:14.5px;font-weight:500;cursor:pointer;text-align:left;box-shadow:0 1px 2px rgba(16,16,20,.04);transition:border-color .15s,box-shadow .15s}
+.ui-sel-btn:hover{border-color:#cfcfd6}
+.ui-sel-btn:focus-visible,.ui-sel.open .ui-sel-btn{outline:none;border-color:#F45407;box-shadow:0 0 0 4px rgba(244,84,7,.12)}
+.ui-sel-btn .v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ui-sel-btn svg{width:16px;height:16px;flex:none;color:#8a8a92;transition:transform .2s}
+.ui-sel.open .ui-sel-btn svg{transform:rotate(180deg);color:#F45407}
+.ui-pop{position:absolute;z-index:60;top:calc(100% + 8px);left:0;min-width:100%;width:max-content;max-width:min(340px,92vw);background:#fff;border:1px solid #e7e7ec;border-radius:14px;box-shadow:0 24px 60px rgba(16,16,24,.16),0 4px 12px rgba(16,16,24,.06);padding:6px;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .14s,transform .14s}
+.ui-sel.open .ui-pop{opacity:1;transform:none;pointer-events:auto}
+.ui-sel.up .ui-pop{top:auto;bottom:calc(100% + 8px)}
+.ui-search{display:flex;align-items:center;gap:8px;margin:2px 2px 6px;padding:0 10px;height:38px;border:1px solid #ececf1;border-radius:10px;background:#f7f7f9}
+.ui-search svg{width:15px;height:15px;color:#9a9aa2;flex:none}
+.ui-search input{border:0;background:transparent;outline:none;font:inherit;font-size:14px;width:100%;color:#111113}
+.ui-list{max-height:264px;overflow:auto;overscroll-behavior:contain}
+.ui-opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border-radius:9px;font-size:14.5px;color:#26262b;cursor:pointer;white-space:nowrap}
+.ui-opt svg{width:16px;height:16px;color:#F45407;opacity:0;flex:none}
+.ui-opt.on{font-weight:600;color:#111113}.ui-opt.on svg{opacity:1}
+.ui-opt.act{background:#fff3ec;color:#111113}
+.ui-empty{padding:12px;font-size:13.5px;color:#8a8a92}
+.ft-opts .ui-sel{min-width:190px}
+.wt-label .ui-sel{display:block;width:100%}
+.wt-label .ui-sel-btn{height:50px;border-radius:13px;font-size:15px;background:#f7f7f9;border-color:#e6e6ea;box-shadow:none}
+/* sections */
+.tp-sec{padding:104px 0}.tp-sec.alt{background:var(--tp-soft)}
+.tp-sec-cta{padding:8px 0 104px}.tp-sec.alt+.tp-sec-cta{padding-top:104px}
+.tp-head{max-width:760px;margin:0 auto 52px;text-align:center}
+.tp-eyebrow{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--tp-o);margin:0 0 14px}
+.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:42px;line-height:1.12;letter-spacing:-.03em;font-weight:600;color:var(--tp-ink);margin:0 0 14px}
+.tp-head p{font-size:17.5px;line-height:1.65;color:var(--tp-body);margin:0}
+.tp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tp-step{position:relative;background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:30px 28px 28px}
+.tp-sec.alt .tp-step,.tp-sec.alt .tp-feat{background:#fff}
+.tp-step .n{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:11px;background:#111113;color:#fff;font-weight:600;font-size:15px;margin:0 0 20px;box-shadow:0 6px 16px rgba(17,17,19,.18)}
+.tp-step h3,.tp-feat h3{font-size:18.5px;line-height:1.35;font-weight:600;letter-spacing:-.01em;color:var(--tp-ink);margin:0 0 8px}
+.tp-step p,.tp-feat p{font-size:15.5px;line-height:1.65;color:var(--tp-body);margin:0}
+.tp-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tp-feat{background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:30px 28px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.tp-feat:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+.tp-feat .ic{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#fff3ec,#ffe2d2);color:var(--tp-o);display:flex;align-items:center;justify-content:center;margin:0 0 20px;box-shadow:inset 0 0 0 1px rgba(244,84,7,.12)}
+.tp-feat .ic svg{width:22px;height:22px}
+.tp-doc{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;align-items:start}
+.tp-doc .ft-article{max-width:none;margin:0}
+.tp-doc .ft-article h2{font-size:32px;font-weight:600;letter-spacing:-.025em;margin:48px 0 14px;scroll-margin-top:100px}
+.tp-doc .ft-article h2:first-child{margin-top:0}
+.tp-doc .ft-article h3{font-size:21px;font-weight:600;margin:30px 0 8px}
+.tp-doc .ft-article p,.tp-doc .ft-article li{font-size:17px;line-height:1.8;color:#3f4247}
+.tp-aside{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
+.tp-box{border:1px solid var(--tp-line);border-radius:18px;padding:24px;background:#fff}
+.tp-box h4{margin:0 0 12px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#8a8a92}
+.tp-toc{list-style:none;margin:0;padding:0;border-left:2px solid var(--tp-line)}
+.tp-toc a{display:block;padding:7px 0 7px 14px;margin-left:-2px;border-left:2px solid transparent;font-size:14.5px;line-height:1.45;color:#4b4b52;text-decoration:none;transition:color .15s,border-color .15s}
+.tp-toc a:hover{color:var(--tp-o);border-left-color:var(--tp-o)}
+.tp-box.dark{position:relative;overflow:hidden;background:#0b0b0d;border-color:#0b0b0d;color:#fff}
+.tp-box.dark::before{content:'';position:absolute;inset:0;background:radial-gradient(300px 200px at 100% 0%,rgba(244,84,7,.35),transparent 70%);pointer-events:none}
+.tp-box.dark>*{position:relative}
+.tp-box.dark h4{color:#ff9a66}
+.tp-box.dark b{display:block;font-size:20px;line-height:1.3;font-weight:600;letter-spacing:-.015em;margin:0 0 8px}
+.tp-box.dark p{font-size:14.5px;line-height:1.6;color:#b8b8be;margin:0 0 18px}
+.tp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.tp-btn svg{width:17px;height:17px}
+.tp-btn.o{background:linear-gradient(180deg,#ff6a24,#F45407);color:#fff;box-shadow:0 10px 24px rgba(244,84,7,.32)}
+.tp-btn.o:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(244,84,7,.4)}
+.tp-btn.w{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.tp-btn.w:hover{background:rgba(255,255,255,.14)}
+.tp-btn.full{width:100%}
+.tp-faq{display:grid;grid-template-columns:380px minmax(0,1fr);gap:64px;align-items:start}
+.tp-faq-side{position:sticky;top:100px}
+.tp-faq-side h2{font-size:38px}
+.tp-faq-side p{font-size:16.5px;line-height:1.65;color:var(--tp-body);margin:0 0 22px}
+.tp-faq-side a{color:var(--tp-o);font-weight:600;text-decoration:none}
+.tp-faq-list details{background:#fff;border:1px solid var(--tp-line);border-radius:16px;margin:0 0 12px;transition:border-color .15s,box-shadow .15s}
+.tp-faq-list details[open]{border-color:#f0d3c3;box-shadow:0 14px 34px rgba(17,17,19,.06)}
+.tp-faq-list summary{list-style:none;cursor:pointer;position:relative;padding:20px 58px 20px 22px;font-size:16.5px;font-weight:600;line-height:1.45;color:var(--tp-ink)}
+.tp-faq-list summary::-webkit-details-marker{display:none}
+.tp-faq-list summary::after{content:'';position:absolute;right:20px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:8px;background:#f4f4f6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5v10M5 10h10' stroke='%23F45407' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .2s,background-color .2s}
+.tp-faq-list details[open] summary::after{transform:rotate(45deg);background-color:#fff1e9}
+.tp-faq-list details p{margin:0;padding:0 22px 22px;font-size:15.5px;line-height:1.75;color:var(--tp-body)}
+.tp-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tp-tool{display:flex;flex-direction:column;background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:24px;text-decoration:none;color:var(--tp-ink);transition:transform .2s,box-shadow .2s,border-color .2s}
+.tp-tool:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+.tp-tool .ic{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#fff3ec,#ffe2d2);color:var(--tp-o);display:flex;align-items:center;justify-content:center}
+.tp-tool .ic svg{width:21px;height:21px}
+.tp-tool b{font-size:16.5px;font-weight:600;margin:16px 0 6px;letter-spacing:-.01em}
+.tp-tool span{flex:1;font-size:14.5px;line-height:1.55;color:var(--tp-body)}
+.tp-tool em{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-style:normal;font-size:14px;font-weight:600;color:var(--tp-o)}
+.tp-tool em svg{width:15px;height:15px;transition:transform .2s}.tp-tool:hover em svg{transform:translateX(3px)}
+.tp-more{text-align:center;margin:36px 0 0}
+.tp-more a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--tp-ink);text-decoration:none;border-bottom:1px solid #d9d9df;padding-bottom:3px}
+.tp-more a:hover{color:var(--tp-o);border-color:var(--tp-o)}
+.tp-more svg{width:16px;height:16px}
+.tp-cta{position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(135deg,#fff4ec 0%,#fffaf6 45%,#ffffff 100%);border:1px solid #f4dccd;color:var(--tp-ink);padding:76px 48px;text-align:center}
+.tp-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(560px 300px at 50% -30%,rgba(244,84,7,.18),transparent 70%)}
+.tp-cta::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(244,84,7,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(244,84,7,.07) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%);mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%)}
+.tp-cta>*{position:relative;z-index:1}
+.tp-cta h2{color:var(--tp-ink);max-width:760px;margin:0 auto 14px}
+.tp-cta p{font-size:17.5px;line-height:1.65;color:var(--tp-body);max-width:640px;margin:0 auto 32px}
+.tp-cta .row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.tp-cta .tp-btn.w{background:#fff;color:var(--tp-ink);border:1px solid #e3e3e8;box-shadow:0 1px 2px rgba(16,16,20,.05)}
+.tp-cta .tp-btn.w:hover{border-color:#cfcfd6;background:#fff}
+.tp-cta small{display:block;margin-top:20px;font-size:13.5px;color:#8a8a92}
+.tp-grid-hub{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tp-cat{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 20px;padding-top:8px}
+.tp-cat h2{font-size:28px;font-weight:600;letter-spacing:-.02em;margin:0;color:var(--tp-ink)}
+.tp-cat span{font-size:14px;color:#8a8a92}
+.tp-cat-block+.tp-cat-block{margin-top:56px}
+@media(max-width:1100px){.tp-doc{grid-template-columns:minmax(0,1fr) 300px;gap:40px}.tp-tools{grid-template-columns:repeat(2,1fr)}.tp-faq{grid-template-columns:300px minmax(0,1fr);gap:40px}}
+@media(max-width:900px){.tp-hero{padding:112px 0 56px}.tp-hero h1{font-size:44px}.tp-steps,.tp-feats{grid-template-columns:1fr 1fr}.tp-doc{grid-template-columns:1fr}.tp-aside{position:static}.tp-faq{grid-template-columns:1fr;gap:28px}.tp-faq-side{position:static}.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:34px}.tp-grid-hub{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.tp-hero{padding:100px 0 44px}.tp-hero h1{font-size:34px}.tp-lead{font-size:16.5px;margin-bottom:26px}.tp-card{padding:16px;border-radius:18px}.tp-card .ft-input{flex-direction:column}.tp-card .ft-input input,.tp-card .ft-input button{flex:0 0 auto;height:54px;width:100%}.tp-card .ft-opts{flex-direction:column;align-items:stretch}.tp-card .ft-opts label{justify-content:space-between}.ft-opts .ui-sel{min-width:0;flex:1}.tp-card .dt-opt input{width:auto;flex:1}.tp-sec{padding:72px 0}.tp-steps,.tp-feats,.tp-tools,.tp-grid-hub{grid-template-columns:1fr}.tp-head{margin-bottom:36px}.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:29px}.tp-cta{padding:56px 22px;border-radius:22px}.tp-doc .ft-article h2{font-size:26px}.tp-doc .ft-article p,.tp-doc .ft-article li{font-size:16px}.tp-trust{gap:8px 18px;font-size:13px}.ui-pop{max-width:calc(100vw - 48px)}}
   </style>
   <script>document.documentElement.classList.add('js');</script>
   <style id="nav-fit-1108">.mobile-section-content.active{max-height:2400px}.mega-panel,.mega-sidebar{max-height:min(80vh,620px)}@media (max-width:1180px){.nav-menu{gap:20px}}@media (max-width:1024px){.nav-menu{display:none}.mobile-menu-toggle{display:block}}</style>
@@ -2667,64 +2813,66 @@
   </nav>
   </header>
 
-  <main class="p2">
+  <main class="p2 tp">
 
-  <section class="p2-hero ft-hero">
+  <section class="tp-hero">
     <div class="wrap">
-      <nav class="ft-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/free-seo-tools">Free SEO Tools</a> / <span>Amazon Keyword Tool</span></nav>
-      <div class="p2-badge"><i></i><span>Free tool, no sign-up</span></div>
+      <nav class="tp-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/free-seo-tools">Free SEO Tools</a> / <span>Amazon Keyword Tool</span></nav>
+      <div class="tp-badge"><i></i>Free tool, no sign-up</div>
       <h1>Free Amazon Keyword Tool</h1>
-      <p class="lead">Find the search terms shoppers use on Amazon. Enter a product keyword and get up to 100 related terms with estimated monthly Amazon search volume.</p>
-      <div class="ft-box" data-dtool="amazon-keyword-tool">
+      <p class="tp-lead">Find the search terms shoppers use on Amazon. Enter a product keyword and get up to 100 related terms with estimated monthly Amazon search volume.</p>
+      <div class="tp-card ft-box" data-dtool="amazon-keyword-tool">
         <form class="ft-form" novalidate>
           <div class="ft-input"><input name="keyword" type="text" autocomplete="off" maxlength="80" placeholder="Enter a product, e.g. yoga mat" aria-label="Product keyword"><button type="submit">Find Amazon keywords</button></div><div class="ft-opts"><label>Marketplace<select name="country"><option value="us">Amazon.com (US)</option><option value="uk">Amazon.co.uk</option><option value="ca">Amazon.ca</option><option value="de">Amazon.de</option><option value="fr">Amazon.fr</option><option value="es">Amazon.es</option><option value="it">Amazon.it</option><option value="in">Amazon.in</option><option value="au">Amazon.com.au</option></select></label></div>
         </form>
         <p class="ft-error" role="alert" hidden></p>
         <div class="ft-progress" hidden><div class="ft-progress-bar"><span></span></div><p class="ft-progress-text" aria-live="polite"></p></div>
         <div class="ft-results" hidden aria-live="polite"></div>
+        
       </div>
-      <p class="ft-fine">Free and no sign-up. 9 Amazon marketplaces. Export to CSV.</p>
+      <ul class="tp-trust"><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Free, no sign-up</li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>9 Amazon marketplaces</li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Export to CSV</li></ul>
     </div>
   </section>
 
-  <section class="sec sec-w">
+  <section class="tp-sec">
     <div class="wrap">
-      <div class="head"><h2>How to use the Amazon keyword tool</h2><p>Three steps, and results in under a minute.</p></div>
-      <div class="p2-three"><div class="p2-box"><div class="k">Step 1</div><h3>Enter a product keyword</h3><p>Type what a shopper would search for, such as &quot;yoga mat&quot; or &quot;stainless steel water bottle&quot;.</p></div><div class="p2-box"><div class="k">Step 2</div><h3>Choose a marketplace</h3><p>Pick Amazon US, UK, Canada, Germany, France, Spain, Italy, India or Australia.</p></div><div class="p2-box"><div class="k">Step 3</div><h3>Sort and export</h3><p>Related terms are sorted by estimated monthly Amazon searches. Export the list to CSV for your listing work.</p></div></div>
+      <div class="tp-head"><span class="tp-eyebrow">How it works</span><h2>How to use the Amazon keyword tool</h2><p>Three steps, and results in under a minute.</p></div>
+      <div class="tp-steps"><div class="tp-step"><div class="n">1</div><h3>Enter a product keyword</h3><p>Type what a shopper would search for, such as &quot;yoga mat&quot; or &quot;stainless steel water bottle&quot;.</p></div><div class="tp-step"><div class="n">2</div><h3>Choose a marketplace</h3><p>Pick Amazon US, UK, Canada, Germany, France, Spain, Italy, India or Australia.</p></div><div class="tp-step"><div class="n">3</div><h3>Sort and export</h3><p>Related terms are sorted by estimated monthly Amazon searches. Export the list to CSV for your listing work.</p></div></div>
     </div>
   </section>
 
-  <section class="sec sec-g">
+  <section class="tp-sec alt">
     <div class="wrap">
-      <div class="head"><h2>Keyword research for Amazon listings</h2><p>Search terms and demand estimates from Amazon, not from Google.</p></div>
-      <div class="p2-three"><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 4h2l2.4 11h10.8l2-8H6.3M9 20.5a1 1 0 100-2 1 1 0 000 2zM18 20.5a1 1 0 100-2 1 1 0 000 2z"></path></svg></div><h3>Amazon search terms</h3><p>Up to 100 related terms that shoppers search for on Amazon.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 20V11M10 20V5M16 20v-6M3 20h18"></path></svg></div><h3>Amazon search volume</h3><p>An estimate of monthly Amazon searches for each term, sorted from highest to lowest.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 7a4 4 0 11-3.9 4.9L4 19v2h3v-2h2v-2h2l1.1-1.1A4 4 0 0115 7zM16 10h.01"></path></svg></div><h3>Your keyword&#x27;s volume</h3><p>The estimated monthly Amazon searches for the exact keyword you entered.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"></path></svg></div><h3>9 marketplaces</h3><p>US, UK, Canada, Germany, France, Spain, Italy, India and Australia.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 20h4L19 9a2.8 2.8 0 00-4-4L4 16v4zM13.5 6.5l4 4"></path></svg></div><h3>Words for your listing</h3><p>Find terms for your title, bullet points, description and backend search terms.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 4h16v16H4zM4 10h16M10 4v16"></path></svg></div><h3>CSV export</h3><p>Download every term with its search volume to work on in a spreadsheet.</p></div></div>
+      <div class="tp-head"><span class="tp-eyebrow">What you get</span><h2>Keyword research for Amazon listings</h2><p>Search terms and demand estimates from Amazon, not from Google.</p></div>
+      <div class="tp-feats"><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 4h2l2.4 11h10.8l2-8H6.3M9 20.5a1 1 0 100-2 1 1 0 000 2zM18 20.5a1 1 0 100-2 1 1 0 000 2z"></path></svg></div><h3>Amazon search terms</h3><p>Up to 100 related terms that shoppers search for on Amazon.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 20V11M10 20V5M16 20v-6M3 20h18"></path></svg></div><h3>Amazon search volume</h3><p>An estimate of monthly Amazon searches for each term, sorted from highest to lowest.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 7a4 4 0 11-3.9 4.9L4 19v2h3v-2h2v-2h2l1.1-1.1A4 4 0 0115 7zM16 10h.01"></path></svg></div><h3>Your keyword&#x27;s volume</h3><p>The estimated monthly Amazon searches for the exact keyword you entered.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"></path></svg></div><h3>9 marketplaces</h3><p>US, UK, Canada, Germany, France, Spain, Italy, India and Australia.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 20h4L19 9a2.8 2.8 0 00-4-4L4 16v4zM13.5 6.5l4 4"></path></svg></div><h3>Words for your listing</h3><p>Find terms for your title, bullet points, description and backend search terms.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 4h16v16H4zM4 10h16M10 4v16"></path></svg></div><h3>CSV export</h3><p>Download every term with its search volume to work on in a spreadsheet.</p></div></div>
     </div>
   </section>
 
-  <section class="sec sec-w">
+  <section class="tp-sec">
     <div class="wrap">
-      <article class="ft-article">
-<h2>Find the words shoppers type into Amazon</h2>
+      <div class="tp-doc">
+        <article class="ft-article">
+<h2 id="find-the-words-shoppers-type-into-amazon">Find the words shoppers type into Amazon</h2>
 <p>People who search on Amazon are usually ready to shop, so their searches tend to name the product and the details they care about: size, material, color or who it is for. On Google, the same product also draws research searches such as reviews and comparisons. That is why Amazon keyword research works best with Amazon data.</p>
 <p>This Amazon keyword tool takes a product keyword and a marketplace and returns up to 100 related Amazon search terms. Each term comes with an estimate of monthly searches on Amazon, sorted from highest to lowest, and you also see the volume for the keyword you entered.</p>
-<h2>How to read your results</h2>
+<h2 id="how-to-read-your-results">How to read your results</h2>
 <p>The number at the top is the estimated monthly Amazon search volume for the exact keyword you entered. The table below shows the other ways shoppers search for the same kind of product, sorted by volume. If a related term has more searches than your seed and describes your product just as well, consider making it your main term.</p>
 <p>Some related terms may name other brands or products close to yours. They show what shoppers compare you with, which is useful for your copy and your ads, but keep other brands' names out of your listing.</p>
-<h2>How to use Amazon search volume</h2>
+<h2 id="how-to-use-amazon-search-volume">How to use Amazon search volume</h2>
 <p>The volumes are estimates of monthly Amazon searches in the marketplace you chose. Use them to compare terms with each other and to decide which words earn the most visible spots in your listing. They are not exact counts, so do not read much into small differences. A term that matches your product exactly can be worth more than a broader term with far more searches, because the shoppers behind it want what you sell.</p>
 <ul>
 <li><strong>High volume terms</strong> usually describe the core product. They belong in your title.</li>
 <li><strong>Mid volume terms</strong> add details buyers care about. Use them in bullet points and the description.</li>
 <li><strong>Low volume, specific terms</strong> often come from buyers who know exactly what they want. Make sure they appear in the listing or in your backend search terms.</li>
 </ul>
-<h2>Where to put keywords in your listing</h2>
+<h2 id="where-to-put-keywords-in-your-listing">Where to put keywords in your listing</h2>
 <ol>
 <li><strong>Title.</strong> Include your brand and the main product term, then the most important details. Keep it readable, since a title stuffed with keywords is harder for shoppers to scan.</li>
 <li><strong>Bullet points.</strong> Work related terms into clear benefits and features. Write for the shopper first.</li>
 <li><strong>Description.</strong> Cover secondary terms and use cases in full sentences.</li>
 <li><strong>Backend search terms.</strong> In Seller Central, add relevant terms that do not fit naturally on the page, such as synonyms and alternate spellings. Do not repeat words you already used, and leave out other brands' names.</li>
 </ol>
-<h2>How to build your keyword list</h2>
+<h2 id="how-to-build-your-keyword-list">How to build your keyword list</h2>
 <ol>
 <li><strong>Start broad.</strong> Enter the plain product name, such as "yoga mat", to see the full range of related terms.</li>
 <li><strong>Remove what does not fit.</strong> Delete terms for sizes, features or uses your product does not have. Showing up for the wrong search wastes clicks and can lead to returns.</li>
@@ -2733,37 +2881,44 @@
 <li><strong>Research every marketplace.</strong> Shoppers in the UK, Germany or India use different words, and in some markets a different language, so run your keywords in each marketplace you sell in.</li>
 <li><strong>Plan with the CSV.</strong> Export the list, mark each term for the title, bullet points, description or backend search terms, and keep the file to compare with your next round of research.</li>
 </ol>
-<h2>Use Amazon keywords beyond your listing</h2>
+<h2 id="use-amazon-keywords-beyond-your-listing">Use Amazon keywords beyond your listing</h2>
 <p>If you run Sponsored Products ads, the same list helps you choose search terms to bid on and spot irrelevant ones to add as negative keywords. The words shoppers use on Amazon also help with product pages on your own store and with product videos.</p>
 <p>To see how the same product is searched on Google, run it through the <a href="/keyword-generator">keyword generator</a>. For review and how-to video ideas, try the <a href="/youtube-keyword-tool">YouTube keyword tool</a>.</p>
 <p>Search behavior shifts with seasons, trends and new competitors. Re-run your main keywords every few months and before busy shopping periods, and update your listing when new terms climb the list. More free research tools are on our <a href="/free-seo-tools">free SEO tools</a> page.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="sec sec-g" id="faq">
-    <div class="wrap">
-      <div class="head"><h2>Amazon Keyword Tool FAQ</h2><p>Straight answers to the questions we hear most.</p></div>
-      <div class="p2-faq"><details open><summary>Is the Amazon keyword tool free?</summary><p>Yes. It is free with no sign-up and no email needed. Each visitor gets a daily allowance of free checks that resets at 00:00 UTC.</p></details><details><summary>Is the search volume from Amazon or Google?</summary><p>From Amazon. Each term shows an estimate of monthly searches on Amazon in the marketplace you chose, not Google search volume.</p></details><details><summary>Which Amazon marketplaces are supported?</summary><p>Nine: United States, United Kingdom, Canada, Germany, France, Spain, Italy, India and Australia.</p></details><details><summary>How many keywords do I get?</summary><p>Up to 100 related Amazon search terms per search, sorted by estimated monthly search volume. You also see the volume for the keyword you entered.</p></details><details><summary>Where does the data come from?</summary><p>We use live data from DataForSEO, a data provider used by many SEO tools. The volumes are estimates, so use them to compare terms rather than as exact counts.</p></details><details><summary>Can I export the keywords?</summary><p>Yes. Export CSV downloads every term with its estimated monthly Amazon search volume.</p></details><details><summary>Why did I get few or no results?</summary><p>Very specific or new product terms may have little Amazon search data. Try a broader product keyword or another marketplace.</p></details></div>
-    </div>
-  </section>
-
-  <section class="sec sec-w">
-    <div class="wrap">
-      <div class="head"><h2>More free tools</h2><p>Free tools we use in our own SEO, AI search and automation work. <a href="/free-seo-tools">See all free SEO tools</a>.</p></div>
-      <div class="ft-tools"><a class="ft-tool" href="/keyword-generator"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 7a4 4 0 11-3.9 4.9L4 19v2h3v-2h2v-2h2l1.1-1.1A4 4 0 0115 7zM16 10h.01"></path></svg></div><b>Keyword Generator</b><span>Get up to 100 keyword ideas with volume, difficulty and CPC.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/youtube-keyword-tool"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 6h12v12H3zM15 10l6-3v10l-6-3"></path></svg></div><b>YouTube Keyword Tool</b><span>Find what people search for on YouTube, plus the top videos.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/bing-keyword-tool"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4"></path></svg></div><b>Bing Keyword Tool</b><span>Keyword ideas with Bing search volume, CPC and competition.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/website-traffic-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 20V11M10 20V5M16 20v-6M3 20h18"></path></svg></div><b>Website Traffic Checker</b><span>Estimate any site&#x27;s organic traffic, top keywords and top pages.</span><em>Open tool &rarr;</em></a></div>
-    </div>
-  </section>
-
-  <section class="sec sec-g">
-    <div class="wrap p2-final">
-      <h2>Selling on Amazon or your own store?</h2>
-      <p>Our ecommerce team builds growth systems for online sellers, from keyword-led product pages to the automation behind them.</p>
-      <div class="ctas">
-        <a class="btn btn-o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="amazon-keyword-tool-final">Book a Free Call &rarr;</a>
-        <a class="btn btn-w" href="/ecommerce">See Ecommerce Services</a>
+        </article>
+        <aside class="tp-aside"><div class="tp-box"><h4>On this page</h4><ul class="tp-toc"><li><a href="#find-the-words-shoppers-type-into-amazon">Find the words shoppers type into Amazon</a></li><li><a href="#how-to-read-your-results">How to read your results</a></li><li><a href="#how-to-use-amazon-search-volume">How to use Amazon search volume</a></li><li><a href="#where-to-put-keywords-in-your-listing">Where to put keywords in your listing</a></li><li><a href="#how-to-build-your-keyword-list">How to build your keyword list</a></li><li><a href="#use-amazon-keywords-beyond-your-listing">Use Amazon keywords beyond your listing</a></li></ul></div><div class="tp-box dark"><h4>Free audit</h4><b>Get a free audit of your site</b><p>We review your SEO, content and conversion gaps and send a prioritized plan within 24 hours. No obligation.</p><a class="tp-btn o full" href="/free-audit">Get my free audit <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></aside>
       </div>
-      <small>30 minutes. Custom recommendation. No strings attached.</small>
+    </div>
+  </section>
+
+  <section class="tp-sec alt" id="faq">
+    <div class="wrap">
+      <div class="tp-faq">
+        <div class="tp-faq-side"><span class="tp-eyebrow">FAQ</span><h2>Amazon Keyword Tool FAQ</h2><p>Straight answers to the questions we hear most. Still stuck? <a href="/contact">Ask our team</a>.</p></div>
+        <div class="tp-faq-list"><details open><summary>Is the Amazon keyword tool free?</summary><p>Yes. It is free with no sign-up and no email needed. Each visitor gets a daily allowance of free checks that resets at 00:00 UTC.</p></details><details><summary>Is the search volume from Amazon or Google?</summary><p>From Amazon. Each term shows an estimate of monthly searches on Amazon in the marketplace you chose, not Google search volume.</p></details><details><summary>Which Amazon marketplaces are supported?</summary><p>Nine: United States, United Kingdom, Canada, Germany, France, Spain, Italy, India and Australia.</p></details><details><summary>How many keywords do I get?</summary><p>Up to 100 related Amazon search terms per search, sorted by estimated monthly search volume. You also see the volume for the keyword you entered.</p></details><details><summary>Where does the data come from?</summary><p>We use live data from DataForSEO, a data provider used by many SEO tools. The volumes are estimates, so use them to compare terms rather than as exact counts.</p></details><details><summary>Can I export the keywords?</summary><p>Yes. Export CSV downloads every term with its estimated monthly Amazon search volume.</p></details><details><summary>Why did I get few or no results?</summary><p>Very specific or new product terms may have little Amazon search data. Try a broader product keyword or another marketplace.</p></details></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tp-sec">
+    <div class="wrap">
+      <div class="tp-head"><span class="tp-eyebrow">Keep going</span><h2>More free tools</h2><p>Free tools we use in our own SEO, AI search and automation work.</p></div>
+      <div class="tp-tools"><a class="tp-tool" href="/keyword-generator"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 7a4 4 0 11-3.9 4.9L4 19v2h3v-2h2v-2h2l1.1-1.1A4 4 0 0115 7zM16 10h.01"></path></svg></div><b>Keyword Generator</b><span>Get up to 100 keyword ideas with volume, difficulty and CPC.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/youtube-keyword-tool"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 6h12v12H3zM15 10l6-3v10l-6-3"></path></svg></div><b>YouTube Keyword Tool</b><span>Find what people search for on YouTube, plus the top videos.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/bing-keyword-tool"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4"></path></svg></div><b>Bing Keyword Tool</b><span>Keyword ideas with Bing search volume, CPC and competition.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/website-traffic-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 20V11M10 20V5M16 20v-6M3 20h18"></path></svg></div><b>Website Traffic Checker</b><span>Estimate any site&#x27;s organic traffic, top keywords and top pages.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a></div>
+      <p class="tp-more"><a href="/free-seo-tools">See all free SEO tools <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="tp-sec tp-sec-cta">
+    <div class="wrap">
+      <div class="tp-cta">
+        <h2>Selling on Amazon or your own store?</h2>
+        <p>Our ecommerce team builds growth systems for online sellers, from keyword-led product pages to the automation behind them.</p>
+        <div class="row">
+          <a class="tp-btn o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="amazon-keyword-tool-final">Book a free call <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="tp-btn w" href="/ecommerce">See Ecommerce Services</a>
+        </div>
+        <small>30 minutes. Custom recommendation. No strings attached.</small>
+      </div>
     </div>
   </section>
 
@@ -3031,6 +3186,7 @@
   })();
   </script>
   <script src="/assets/tools/data-tools-1.0.1.js" defer></script>
+  <script src="/assets/tools/ui-kit-1.0.0.js" defer></script>
 
   <!-- Cal floating-popup embed code begins -->
   <script type="text/javascript">

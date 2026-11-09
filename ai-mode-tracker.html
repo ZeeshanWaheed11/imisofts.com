@@ -2268,6 +2268,152 @@
 .dt-cta-btn:hover{background:#e34a00}
 @media(max-width:900px){.dt-plats{grid-template-columns:1fr}}
 @media(max-width:640px){.dt-grid{grid-template-columns:1fr}.dt-two{grid-template-columns:1fr}.dt-hero{flex-direction:column;text-align:center}.dt-submit,.dt-submit button{width:100%}.dt-opt{width:100%}.dt-opt input{flex:1;width:auto}.dt-bars>div{grid-template-columns:70px 1fr 54px}}
+
+/* premium tool pages (tp-) */
+nav.navbar{background:rgba(255,255,255,.97);box-shadow:0 1px 0 rgba(17,17,19,.06)}
+.tp{--tp-ink:#111113;--tp-body:#55595f;--tp-line:#ebebee;--tp-soft:#f7f7f9;--tp-o:#F45407;--tp-o2:#ff7a3d;font-family:Inter,system-ui,-apple-system,sans-serif}
+.tp .wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+.tp-hero{position:relative;overflow:hidden;background:#0b0b0d;color:#fff;padding:132px 0 76px}
+.tp-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 420px at 88% -12%,rgba(244,84,7,.30),transparent 62%),radial-gradient(620px 360px at -6% 8%,rgba(255,255,255,.07),transparent 60%)}
+.tp-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(to bottom,#000,transparent 72%);mask-image:linear-gradient(to bottom,#000,transparent 72%)}
+.tp-hero .wrap{position:relative;z-index:1}
+.tp-crumbs{font-size:13px;color:#8d8d93;margin:0 0 22px}.tp-crumbs a{color:#c4c4c9;text-decoration:none}.tp-crumbs a:hover{color:#fff}.tp-crumbs span{color:#8d8d93}
+.tp-badge{display:inline-flex;align-items:center;gap:9px;padding:6px 13px 6px 11px;border-radius:999px;background:rgba(244,84,7,.12);border:1px solid rgba(244,84,7,.38);color:#ffb08a;font-size:13px;font-weight:500;margin:0 0 20px}
+.tp-badge i{width:7px;height:7px;border-radius:50%;background:var(--tp-o);box-shadow:0 0 0 4px rgba(244,84,7,.22)}
+.tp-hero h1{font-size:58px;line-height:1.04;letter-spacing:-.035em;font-weight:700;margin:0 0 18px;color:#fff;max-width:920px}
+.tp-lead{font-size:18.5px;line-height:1.6;color:#b8b8be;max-width:760px;margin:0 0 34px}
+.tp-card{position:relative;background:#fff;color:var(--tp-ink);border-radius:22px;padding:26px;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}
+.tp-trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin:22px 0 0;padding:0;list-style:none;font-size:14px;color:#a9a9b0}
+.tp-trust li{display:inline-flex;align-items:center;gap:8px}.tp-trust svg{width:17px;height:17px;color:#2fd47a;flex:none}
+/* tool controls inside the card */
+.tp-card .ft-input{gap:12px}
+.tp-card .ft-input input,.tp-card .wt-label input[type=text],.tp-card .wt-label input[type=number],.tp-card .wt-label textarea,.tp-card .dt-area,.tp-card .dt-grid input,.tp-card .dt-opt input{background:#f7f7f9;border:1px solid #e6e6ea;color:var(--tp-ink);transition:border-color .15s,box-shadow .15s,background .15s}
+.tp-card .ft-input input{height:58px;border-radius:14px;font-size:16.5px;padding:0 18px}
+.tp-card .ft-input input:focus,.tp-card .wt-label input:focus,.tp-card .wt-label textarea:focus,.tp-card .dt-area:focus,.tp-card .dt-grid input:focus,.tp-card .dt-opt input:focus{background:#fff;border-color:var(--tp-o);box-shadow:0 0 0 4px rgba(244,84,7,.12);outline:none}
+.tp-card .ft-input button,.tp-card .dt-submit button,.tp-card .wt-submit button{height:58px;padding:0 28px;border:0;border-radius:14px;background:linear-gradient(180deg,#ff6a24,#F45407);color:#fff;font-weight:600;font-size:16px;letter-spacing:-.01em;box-shadow:0 10px 24px rgba(244,84,7,.32),inset 0 1px 0 rgba(255,255,255,.22);cursor:pointer;transition:transform .15s,box-shadow .15s,filter .15s}
+.tp-card .ft-input button:hover,.tp-card .dt-submit button:hover,.tp-card .wt-submit button:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(244,84,7,.38),inset 0 1px 0 rgba(255,255,255,.22);filter:saturate(1.05)}
+.tp-card .ft-opts{gap:12px 20px;margin-top:16px;font-size:13.5px;color:#6b6b73}
+.tp-card .ft-opts label{display:inline-flex;align-items:center;gap:10px;font-weight:500}
+.tp-card .ft-opts .ck{gap:8px}
+.tp-card .ft-opts input[type=checkbox]{width:17px;height:17px;border-radius:5px;accent-color:var(--tp-o)}
+.tp-card .dt-opt input{height:42px;border-radius:11px;width:200px}
+.tp-card .dt-area{border-radius:14px;padding:14px 18px}
+.tp-card .dt-grid input{height:54px;border-radius:13px}
+.tp-card .dt-grid label{font-size:13.5px;color:#4b4b52}
+.tp-card .wt-label{font-size:13.5px;color:#4b4b52}
+.tp-card .wt-label textarea,.tp-card .wt-label input[type=text],.tp-card .wt-label input[type=number]{border-radius:13px}
+.tp-card .ft-error{border-radius:12px}
+.tp-card .ft-results{margin-top:24px;border-top:1px solid var(--tp-line);padding-top:22px}
+/* ui-kit dropdown */
+.ui-sel{position:relative;display:inline-block;min-width:170px;vertical-align:middle}
+.ui-sel select.ui-native{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;left:0;bottom:0}
+.ui-sel-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:42px;padding:0 12px 0 14px;border:1px solid #e3e3e8;border-radius:11px;background:#fff;color:#111113;font:inherit;font-size:14.5px;font-weight:500;cursor:pointer;text-align:left;box-shadow:0 1px 2px rgba(16,16,20,.04);transition:border-color .15s,box-shadow .15s}
+.ui-sel-btn:hover{border-color:#cfcfd6}
+.ui-sel-btn:focus-visible,.ui-sel.open .ui-sel-btn{outline:none;border-color:#F45407;box-shadow:0 0 0 4px rgba(244,84,7,.12)}
+.ui-sel-btn .v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ui-sel-btn svg{width:16px;height:16px;flex:none;color:#8a8a92;transition:transform .2s}
+.ui-sel.open .ui-sel-btn svg{transform:rotate(180deg);color:#F45407}
+.ui-pop{position:absolute;z-index:60;top:calc(100% + 8px);left:0;min-width:100%;width:max-content;max-width:min(340px,92vw);background:#fff;border:1px solid #e7e7ec;border-radius:14px;box-shadow:0 24px 60px rgba(16,16,24,.16),0 4px 12px rgba(16,16,24,.06);padding:6px;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .14s,transform .14s}
+.ui-sel.open .ui-pop{opacity:1;transform:none;pointer-events:auto}
+.ui-sel.up .ui-pop{top:auto;bottom:calc(100% + 8px)}
+.ui-search{display:flex;align-items:center;gap:8px;margin:2px 2px 6px;padding:0 10px;height:38px;border:1px solid #ececf1;border-radius:10px;background:#f7f7f9}
+.ui-search svg{width:15px;height:15px;color:#9a9aa2;flex:none}
+.ui-search input{border:0;background:transparent;outline:none;font:inherit;font-size:14px;width:100%;color:#111113}
+.ui-list{max-height:264px;overflow:auto;overscroll-behavior:contain}
+.ui-opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border-radius:9px;font-size:14.5px;color:#26262b;cursor:pointer;white-space:nowrap}
+.ui-opt svg{width:16px;height:16px;color:#F45407;opacity:0;flex:none}
+.ui-opt.on{font-weight:600;color:#111113}.ui-opt.on svg{opacity:1}
+.ui-opt.act{background:#fff3ec;color:#111113}
+.ui-empty{padding:12px;font-size:13.5px;color:#8a8a92}
+.ft-opts .ui-sel{min-width:190px}
+.wt-label .ui-sel{display:block;width:100%}
+.wt-label .ui-sel-btn{height:50px;border-radius:13px;font-size:15px;background:#f7f7f9;border-color:#e6e6ea;box-shadow:none}
+/* sections */
+.tp-sec{padding:104px 0}.tp-sec.alt{background:var(--tp-soft)}
+.tp-sec-cta{padding:8px 0 104px}.tp-sec.alt+.tp-sec-cta{padding-top:104px}
+.tp-head{max-width:760px;margin:0 auto 52px;text-align:center}
+.tp-eyebrow{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--tp-o);margin:0 0 14px}
+.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:42px;line-height:1.12;letter-spacing:-.03em;font-weight:600;color:var(--tp-ink);margin:0 0 14px}
+.tp-head p{font-size:17.5px;line-height:1.65;color:var(--tp-body);margin:0}
+.tp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tp-step{position:relative;background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:30px 28px 28px}
+.tp-sec.alt .tp-step,.tp-sec.alt .tp-feat{background:#fff}
+.tp-step .n{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:11px;background:#111113;color:#fff;font-weight:600;font-size:15px;margin:0 0 20px;box-shadow:0 6px 16px rgba(17,17,19,.18)}
+.tp-step h3,.tp-feat h3{font-size:18.5px;line-height:1.35;font-weight:600;letter-spacing:-.01em;color:var(--tp-ink);margin:0 0 8px}
+.tp-step p,.tp-feat p{font-size:15.5px;line-height:1.65;color:var(--tp-body);margin:0}
+.tp-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tp-feat{background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:30px 28px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.tp-feat:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+.tp-feat .ic{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#fff3ec,#ffe2d2);color:var(--tp-o);display:flex;align-items:center;justify-content:center;margin:0 0 20px;box-shadow:inset 0 0 0 1px rgba(244,84,7,.12)}
+.tp-feat .ic svg{width:22px;height:22px}
+.tp-doc{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;align-items:start}
+.tp-doc .ft-article{max-width:none;margin:0}
+.tp-doc .ft-article h2{font-size:32px;font-weight:600;letter-spacing:-.025em;margin:48px 0 14px;scroll-margin-top:100px}
+.tp-doc .ft-article h2:first-child{margin-top:0}
+.tp-doc .ft-article h3{font-size:21px;font-weight:600;margin:30px 0 8px}
+.tp-doc .ft-article p,.tp-doc .ft-article li{font-size:17px;line-height:1.8;color:#3f4247}
+.tp-aside{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
+.tp-box{border:1px solid var(--tp-line);border-radius:18px;padding:24px;background:#fff}
+.tp-box h4{margin:0 0 12px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#8a8a92}
+.tp-toc{list-style:none;margin:0;padding:0;border-left:2px solid var(--tp-line)}
+.tp-toc a{display:block;padding:7px 0 7px 14px;margin-left:-2px;border-left:2px solid transparent;font-size:14.5px;line-height:1.45;color:#4b4b52;text-decoration:none;transition:color .15s,border-color .15s}
+.tp-toc a:hover{color:var(--tp-o);border-left-color:var(--tp-o)}
+.tp-box.dark{position:relative;overflow:hidden;background:#0b0b0d;border-color:#0b0b0d;color:#fff}
+.tp-box.dark::before{content:'';position:absolute;inset:0;background:radial-gradient(300px 200px at 100% 0%,rgba(244,84,7,.35),transparent 70%);pointer-events:none}
+.tp-box.dark>*{position:relative}
+.tp-box.dark h4{color:#ff9a66}
+.tp-box.dark b{display:block;font-size:20px;line-height:1.3;font-weight:600;letter-spacing:-.015em;margin:0 0 8px}
+.tp-box.dark p{font-size:14.5px;line-height:1.6;color:#b8b8be;margin:0 0 18px}
+.tp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.tp-btn svg{width:17px;height:17px}
+.tp-btn.o{background:linear-gradient(180deg,#ff6a24,#F45407);color:#fff;box-shadow:0 10px 24px rgba(244,84,7,.32)}
+.tp-btn.o:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(244,84,7,.4)}
+.tp-btn.w{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.tp-btn.w:hover{background:rgba(255,255,255,.14)}
+.tp-btn.full{width:100%}
+.tp-faq{display:grid;grid-template-columns:380px minmax(0,1fr);gap:64px;align-items:start}
+.tp-faq-side{position:sticky;top:100px}
+.tp-faq-side h2{font-size:38px}
+.tp-faq-side p{font-size:16.5px;line-height:1.65;color:var(--tp-body);margin:0 0 22px}
+.tp-faq-side a{color:var(--tp-o);font-weight:600;text-decoration:none}
+.tp-faq-list details{background:#fff;border:1px solid var(--tp-line);border-radius:16px;margin:0 0 12px;transition:border-color .15s,box-shadow .15s}
+.tp-faq-list details[open]{border-color:#f0d3c3;box-shadow:0 14px 34px rgba(17,17,19,.06)}
+.tp-faq-list summary{list-style:none;cursor:pointer;position:relative;padding:20px 58px 20px 22px;font-size:16.5px;font-weight:600;line-height:1.45;color:var(--tp-ink)}
+.tp-faq-list summary::-webkit-details-marker{display:none}
+.tp-faq-list summary::after{content:'';position:absolute;right:20px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:8px;background:#f4f4f6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5v10M5 10h10' stroke='%23F45407' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .2s,background-color .2s}
+.tp-faq-list details[open] summary::after{transform:rotate(45deg);background-color:#fff1e9}
+.tp-faq-list details p{margin:0;padding:0 22px 22px;font-size:15.5px;line-height:1.75;color:var(--tp-body)}
+.tp-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tp-tool{display:flex;flex-direction:column;background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:24px;text-decoration:none;color:var(--tp-ink);transition:transform .2s,box-shadow .2s,border-color .2s}
+.tp-tool:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+.tp-tool .ic{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#fff3ec,#ffe2d2);color:var(--tp-o);display:flex;align-items:center;justify-content:center}
+.tp-tool .ic svg{width:21px;height:21px}
+.tp-tool b{font-size:16.5px;font-weight:600;margin:16px 0 6px;letter-spacing:-.01em}
+.tp-tool span{flex:1;font-size:14.5px;line-height:1.55;color:var(--tp-body)}
+.tp-tool em{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-style:normal;font-size:14px;font-weight:600;color:var(--tp-o)}
+.tp-tool em svg{width:15px;height:15px;transition:transform .2s}.tp-tool:hover em svg{transform:translateX(3px)}
+.tp-more{text-align:center;margin:36px 0 0}
+.tp-more a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--tp-ink);text-decoration:none;border-bottom:1px solid #d9d9df;padding-bottom:3px}
+.tp-more a:hover{color:var(--tp-o);border-color:var(--tp-o)}
+.tp-more svg{width:16px;height:16px}
+.tp-cta{position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(135deg,#fff4ec 0%,#fffaf6 45%,#ffffff 100%);border:1px solid #f4dccd;color:var(--tp-ink);padding:76px 48px;text-align:center}
+.tp-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(560px 300px at 50% -30%,rgba(244,84,7,.18),transparent 70%)}
+.tp-cta::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(244,84,7,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(244,84,7,.07) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%);mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%)}
+.tp-cta>*{position:relative;z-index:1}
+.tp-cta h2{color:var(--tp-ink);max-width:760px;margin:0 auto 14px}
+.tp-cta p{font-size:17.5px;line-height:1.65;color:var(--tp-body);max-width:640px;margin:0 auto 32px}
+.tp-cta .row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.tp-cta .tp-btn.w{background:#fff;color:var(--tp-ink);border:1px solid #e3e3e8;box-shadow:0 1px 2px rgba(16,16,20,.05)}
+.tp-cta .tp-btn.w:hover{border-color:#cfcfd6;background:#fff}
+.tp-cta small{display:block;margin-top:20px;font-size:13.5px;color:#8a8a92}
+.tp-grid-hub{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tp-cat{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 20px;padding-top:8px}
+.tp-cat h2{font-size:28px;font-weight:600;letter-spacing:-.02em;margin:0;color:var(--tp-ink)}
+.tp-cat span{font-size:14px;color:#8a8a92}
+.tp-cat-block+.tp-cat-block{margin-top:56px}
+@media(max-width:1100px){.tp-doc{grid-template-columns:minmax(0,1fr) 300px;gap:40px}.tp-tools{grid-template-columns:repeat(2,1fr)}.tp-faq{grid-template-columns:300px minmax(0,1fr);gap:40px}}
+@media(max-width:900px){.tp-hero{padding:112px 0 56px}.tp-hero h1{font-size:44px}.tp-steps,.tp-feats{grid-template-columns:1fr 1fr}.tp-doc{grid-template-columns:1fr}.tp-aside{position:static}.tp-faq{grid-template-columns:1fr;gap:28px}.tp-faq-side{position:static}.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:34px}.tp-grid-hub{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.tp-hero{padding:100px 0 44px}.tp-hero h1{font-size:34px}.tp-lead{font-size:16.5px;margin-bottom:26px}.tp-card{padding:16px;border-radius:18px}.tp-card .ft-input{flex-direction:column}.tp-card .ft-input input,.tp-card .ft-input button{flex:0 0 auto;height:54px;width:100%}.tp-card .ft-opts{flex-direction:column;align-items:stretch}.tp-card .ft-opts label{justify-content:space-between}.ft-opts .ui-sel{min-width:0;flex:1}.tp-card .dt-opt input{width:auto;flex:1}.tp-sec{padding:72px 0}.tp-steps,.tp-feats,.tp-tools,.tp-grid-hub{grid-template-columns:1fr}.tp-head{margin-bottom:36px}.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:29px}.tp-cta{padding:56px 22px;border-radius:22px}.tp-doc .ft-article h2{font-size:26px}.tp-doc .ft-article p,.tp-doc .ft-article li{font-size:16px}.tp-trust{gap:8px 18px;font-size:13px}.ui-pop{max-width:calc(100vw - 48px)}}
   </style>
   <script>document.documentElement.classList.add('js');</script>
   <style id="nav-fit-1108">.mobile-section-content.active{max-height:2400px}.mega-panel,.mega-sidebar{max-height:min(80vh,620px)}@media (max-width:1180px){.nav-menu{gap:20px}}@media (max-width:1024px){.nav-menu{display:none}.mobile-menu-toggle{display:block}}</style>
@@ -2667,47 +2813,49 @@
   </nav>
   </header>
 
-  <main class="p2">
+  <main class="p2 tp">
 
-  <section class="p2-hero ft-hero">
+  <section class="tp-hero">
     <div class="wrap">
-      <nav class="ft-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/free-seo-tools">Free SEO Tools</a> / <span>AI Mode Tracker</span></nav>
-      <div class="p2-badge"><i></i><span>Free tool, no sign-up</span></div>
+      <nav class="tp-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/free-seo-tools">Free SEO Tools</a> / <span>AI Mode Tracker</span></nav>
+      <div class="tp-badge"><i></i>Free tool, no sign-up</div>
       <h1>Free AI Mode Tracker</h1>
-      <p class="lead">See the answer Google AI Mode gives to any question, the sources it cites, and whether your website is one of them.</p>
-      <div class="ft-box" data-dtool="ai-mode-tracker">
+      <p class="tp-lead">See the answer Google AI Mode gives to any question, the sources it cites, and whether your website is one of them.</p>
+      <div class="tp-card ft-box" data-dtool="ai-mode-tracker">
         <form class="ft-form" novalidate>
           <div class="ft-input"><input name="keyword" type="text" autocomplete="off" maxlength="200" placeholder="Enter a question, e.g. best cold email tools for agencies" aria-label="Question or keyword"><button type="submit">Check AI Mode</button></div><div class="ft-opts"><label class="dt-opt">Your site (optional)<input name="domain" type="text" autocomplete="off" maxlength="120" placeholder="example.com"></label><label>Country<select name="country"><option value="us">United States</option><option value="uk">United Kingdom</option><option value="ca">Canada</option><option value="au">Australia</option><option value="in">India</option><option value="ae">United Arab Emirates</option><option value="pk">Pakistan</option><option value="sg">Singapore</option><option value="nz">New Zealand</option><option value="ie">Ireland</option><option value="za">South Africa</option><option value="sa">Saudi Arabia</option><option value="de">Germany</option><option value="fr">France</option><option value="es">Spain</option><option value="it">Italy</option><option value="nl">Netherlands</option><option value="br">Brazil</option><option value="mx">Mexico</option></select></label></div>
         </form>
         <p class="ft-error" role="alert" hidden></p>
         <div class="ft-progress" hidden><div class="ft-progress-bar"><span></span></div><p class="ft-progress-text" aria-live="polite"></p></div>
         <div class="ft-results" hidden aria-live="polite"></div>
+        
       </div>
-      <p class="ft-fine">Free and no sign-up. AI Mode availability differs by country.</p>
+      <ul class="tp-trust"><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Free, no sign-up</li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Mode availability differs by country</li></ul>
     </div>
   </section>
 
-  <section class="sec sec-w">
+  <section class="tp-sec">
     <div class="wrap">
-      <div class="head"><h2>How to use the AI Mode tracker</h2><p>Three steps, and results in under a minute.</p></div>
-      <div class="p2-three"><div class="p2-box"><div class="k">Step 1</div><h3>Enter a keyword or question</h3><p>Type a search the way your customers would ask it. Full questions work well, since AI Mode is built for conversation.</p></div><div class="p2-box"><div class="k">Step 2</div><h3>Add your domain and country</h3><p>Add your domain to check for a citation, and pick the country your customers search from.</p></div><div class="p2-box"><div class="k">Step 3</div><h3>Read the answer and sources</h3><p>See the full AI Mode answer, every source it cites and, if you are cited, your source number.</p></div></div>
+      <div class="tp-head"><span class="tp-eyebrow">How it works</span><h2>How to use the AI Mode tracker</h2><p>Three steps, and results in under a minute.</p></div>
+      <div class="tp-steps"><div class="tp-step"><div class="n">1</div><h3>Enter a keyword or question</h3><p>Type a search the way your customers would ask it. Full questions work well, since AI Mode is built for conversation.</p></div><div class="tp-step"><div class="n">2</div><h3>Add your domain and country</h3><p>Add your domain to check for a citation, and pick the country your customers search from.</p></div><div class="tp-step"><div class="n">3</div><h3>Read the answer and sources</h3><p>See the full AI Mode answer, every source it cites and, if you are cited, your source number.</p></div></div>
     </div>
   </section>
 
-  <section class="sec sec-g">
+  <section class="tp-sec alt">
     <div class="wrap">
-      <div class="head"><h2>What the AI Mode tracker shows</h2><p>The live AI Mode answer and the sources behind it.</p></div>
-      <div class="p2-three"><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3v3M7 9h10a2 2 0 012 2v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7a2 2 0 012-2zM9 14h.01M15 14h.01"></path></svg></div><h3>The AI Mode answer</h3><p>The full answer Google AI Mode gives to your keyword or question.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 14a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1.5 1.5M14 10a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1.5-1.5"></path></svg></div><h3>Cited sources</h3><p>Every source AI Mode cites for that answer, numbered.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3a9 9 0 110 18 9 9 0 010-18zM12 8a4 4 0 110 8 4 4 0 010-8zM12 12h.01"></path></svg></div><h3>Your citation</h3><p>Whether your domain is cited, and as which source number.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12zM12 15a3 3 0 100-6 3 3 0 000 6z"></path></svg></div><h3>Who else is cited</h3><p>The other sites AI Mode cites for your topic, so you know who you compete with for citations.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3zM19 15l.8 1.9L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-1.1L19 15z"></path></svg></div><h3>Questions, not just keywords</h3><p>Enter a short keyword or the full question a buyer would ask.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11zM12 12a2 2 0 100-4 2 2 0 000 4z"></path></svg></div><h3>Country choice</h3><p>Check the country your customers search from. AI Mode availability differs by country.</p></div></div>
+      <div class="tp-head"><span class="tp-eyebrow">What you get</span><h2>What the AI Mode tracker shows</h2><p>The live AI Mode answer and the sources behind it.</p></div>
+      <div class="tp-feats"><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3v3M7 9h10a2 2 0 012 2v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7a2 2 0 012-2zM9 14h.01M15 14h.01"></path></svg></div><h3>The AI Mode answer</h3><p>The full answer Google AI Mode gives to your keyword or question.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 14a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1.5 1.5M14 10a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1.5-1.5"></path></svg></div><h3>Cited sources</h3><p>Every source AI Mode cites for that answer, numbered.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3a9 9 0 110 18 9 9 0 010-18zM12 8a4 4 0 110 8 4 4 0 010-8zM12 12h.01"></path></svg></div><h3>Your citation</h3><p>Whether your domain is cited, and as which source number.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12zM12 15a3 3 0 100-6 3 3 0 000 6z"></path></svg></div><h3>Who else is cited</h3><p>The other sites AI Mode cites for your topic, so you know who you compete with for citations.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3zM19 15l.8 1.9L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-1.1L19 15z"></path></svg></div><h3>Questions, not just keywords</h3><p>Enter a short keyword or the full question a buyer would ask.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11zM12 12a2 2 0 100-4 2 2 0 000 4z"></path></svg></div><h3>Country choice</h3><p>Check the country your customers search from. AI Mode availability differs by country.</p></div></div>
     </div>
   </section>
 
-  <section class="sec sec-w">
+  <section class="tp-sec">
     <div class="wrap">
-      <article class="ft-article">
-<h2>What is Google AI Mode?</h2>
+      <div class="tp-doc">
+        <article class="ft-article">
+<h2 id="what-is-google-ai-mode">What is Google AI Mode?</h2>
 <p>AI Mode is Google's conversational AI search experience. Instead of a list of links, you get a written answer to your question, with links to the sources it cites, and you can ask follow-up questions. It is separate from AI Overviews, the summaries that appear above the normal results for some searches. AI Mode availability differs by country.</p>
 <p>For a business, the question is simple: when a buyer asks AI Mode about your category, does the answer cite your website? This tracker shows you, for any keyword or question.</p>
-<h2>How to check if Google AI Mode cites your website</h2>
+<h2 id="how-to-check-if-google-ai-mode-cites-your-website">How to check if Google AI Mode cites your website</h2>
 <p>Enter a keyword or a full question, add your domain, and pick the country your customers search from. The tracker gets the live AI Mode answer and shows you:</p>
 <ul>
 <li>the full answer AI Mode gives</li>
@@ -2715,7 +2863,7 @@
 <li>whether your domain is cited, and as which source number</li>
 </ul>
 <p>The domain is optional. Leave it out if you only want to see the answer and its sources, for example to see which sites AI Mode cites on a topic before you write about it.</p>
-<h2>What to look for in the answer</h2>
+<h2 id="what-to-look-for-in-the-answer">What to look for in the answer</h2>
 <p>The answer tells you more than whether you are cited. Read it the way a buyer would:</p>
 <ul>
 <li><strong>Is your brand named?</strong> Search the answer for your brand name. An AI answer can mention a brand without citing its website, or cite a page without naming the brand.</li>
@@ -2723,7 +2871,7 @@
 <li><strong>How does it describe your category?</strong> The answer shows how AI Mode explains the problem you solve and which options it suggests. If it leaves out something you do well, that is a content gap.</li>
 <li><strong>Is it accurate?</strong> If the answer gets facts about your business wrong, check that your own site states them clearly and that other sites repeat them correctly.</li>
 </ul>
-<h2>How to improve your chances of being cited</h2>
+<h2 id="how-to-improve-your-chances-of-being-cited">How to improve your chances of being cited</h2>
 <p>There is no switch that makes AI Mode cite you. These steps make your pages easier to find, trust and quote:</p>
 <ol>
 <li><strong>Answer real questions directly.</strong> Build pages around the questions buyers ask, with a clear answer near the top and detail below.</li>
@@ -2733,9 +2881,9 @@
 <li><strong>Keep your brand facts consistent.</strong> Your name, what you do and who you serve should read the same on your site, your profiles and the directories you are listed in.</li>
 </ol>
 <p>This is the core of our <a href="/ai-search-optimization">AI search optimization</a> work. Our <a href="/ai-citation-services">AI citation services</a> focus on earning mentions on the sources AI answers rely on.</p>
-<h2>AI Mode, AI Overviews and other AI assistants</h2>
+<h2 id="ai-mode-ai-overviews-and-other-ai-assistants">AI Mode, AI Overviews and other AI assistants</h2>
 <p>AI Mode and AI Overviews can cite different sources for the same search, so it is worth checking both. Use the <a href="/ai-overview-tracker">AI Overviews tracker</a> to see whether a keyword triggers an AI Overview and which sources it cites. To see how ChatGPT, Gemini and Perplexity answer a buyer question, use the <a href="/ai-visibility-checker">AI visibility checker</a>.</p>
-<h2>Tips for tracking AI Mode</h2>
+<h2 id="tips-for-tracking-ai-mode">Tips for tracking AI Mode</h2>
 <p>A single check tells you little on its own. These habits make your tracking more useful:</p>
 <ul>
 <li><strong>Test several phrasings.</strong> AI Mode is built for conversation, so try the full question a buyer would ask as well as the short keyword.</li>
@@ -2743,33 +2891,40 @@
 <li><strong>Check on a schedule.</strong> AI answers can change from day to day. Check your key questions regularly and keep a simple log of whether you were cited and as which source number.</li>
 <li><strong>Check each market.</strong> If you sell in several countries, run the same question for each country where AI Mode is available.</li>
 </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="sec sec-g" id="faq">
-    <div class="wrap">
-      <div class="head"><h2>AI Mode Tracker FAQ</h2><p>Straight answers to the questions we hear most.</p></div>
-      <div class="p2-faq"><details open><summary>Is the AI Mode tracker free?</summary><p>Yes. It is free with no sign-up and no email needed. Each visitor gets a daily allowance of free checks that resets at 00:00 UTC.</p></details><details><summary>What is Google AI Mode?</summary><p>AI Mode is Google&#x27;s conversational AI search experience. You ask a question, and it replies with a written answer and links to the sources it cites.</p></details><details><summary>Is AI Mode available in every country?</summary><p>No. AI Mode availability differs by country, so pick the country your customers search from.</p></details><details><summary>How is AI Mode different from AI Overviews?</summary><p>AI Overviews are summaries that appear above the normal results for some searches. AI Mode is a separate, conversational experience with its own answers and sources, so check both.</p></details><details><summary>Do I have to enter my domain?</summary><p>No. Without a domain you still see the full answer and every source. Add your domain to check whether you are cited and as which source number.</p></details><details><summary>Where does the data come from?</summary><p>Live data from DataForSEO, a data provider used by many SEO tools. Answers are cached for up to 24 hours, so opening a recent check again is instant.</p></details><details><summary>Why does the answer change between checks?</summary><p>AI answers can change from day to day. Treat each check as a snapshot, and track your key questions over time.</p></details></div>
-    </div>
-  </section>
-
-  <section class="sec sec-w">
-    <div class="wrap">
-      <div class="head"><h2>More free tools</h2><p>Free tools we use in our own SEO, AI search and automation work. <a href="/free-seo-tools">See all free SEO tools</a>.</p></div>
-      <div class="ft-tools"><a class="ft-tool" href="/ai-overview-tracker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3zM19 15l.8 1.9L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-1.1L19 15z"></path></svg></div><b>AI Overviews Tracker</b><span>See if Google&#x27;s AI Overview cites your site for a search.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/ai-visibility-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3v3M7 9h10a2 2 0 012 2v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7a2 2 0 012-2zM9 14h.01M15 14h.01"></path></svg></div><b>AI Visibility Checker</b><span>See if ChatGPT, Gemini and Perplexity mention your brand.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/serp-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4"></path></svg></div><b>SERP Checker</b><span>See the live Google top 10 for any keyword and country.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/keyword-generator"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 7a4 4 0 11-3.9 4.9L4 19v2h3v-2h2v-2h2l1.1-1.1A4 4 0 0115 7zM16 10h.01"></path></svg></div><b>Keyword Generator</b><span>Get up to 100 keyword ideas with volume, difficulty and CPC.</span><em>Open tool &rarr;</em></a></div>
-    </div>
-  </section>
-
-  <section class="sec sec-g">
-    <div class="wrap p2-final">
-      <h2>Want AI Mode to cite your website?</h2>
-      <p>Our AI search team improves your pages and the mentions across the web that AI answers draw on, to give your brand a real chance to be cited.</p>
-      <div class="ctas">
-        <a class="btn btn-o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="ai-mode-tracker-final">Book a Free Call &rarr;</a>
-        <a class="btn btn-w" href="/ai-search-optimization">See AI Search Optimization</a>
+        </article>
+        <aside class="tp-aside"><div class="tp-box"><h4>On this page</h4><ul class="tp-toc"><li><a href="#what-is-google-ai-mode">What is Google AI Mode?</a></li><li><a href="#how-to-check-if-google-ai-mode-cites-your-website">How to check if Google AI Mode cites your website</a></li><li><a href="#what-to-look-for-in-the-answer">What to look for in the answer</a></li><li><a href="#how-to-improve-your-chances-of-being-cited">How to improve your chances of being cited</a></li><li><a href="#ai-mode-ai-overviews-and-other-ai-assistants">AI Mode, AI Overviews and other AI assistants</a></li><li><a href="#tips-for-tracking-ai-mode">Tips for tracking AI Mode</a></li></ul></div><div class="tp-box dark"><h4>Free audit</h4><b>Get a free audit of your site</b><p>We review your SEO, content and conversion gaps and send a prioritized plan within 24 hours. No obligation.</p><a class="tp-btn o full" href="/free-audit">Get my free audit <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></aside>
       </div>
-      <small>30 minutes. Custom recommendation. No strings attached.</small>
+    </div>
+  </section>
+
+  <section class="tp-sec alt" id="faq">
+    <div class="wrap">
+      <div class="tp-faq">
+        <div class="tp-faq-side"><span class="tp-eyebrow">FAQ</span><h2>AI Mode Tracker FAQ</h2><p>Straight answers to the questions we hear most. Still stuck? <a href="/contact">Ask our team</a>.</p></div>
+        <div class="tp-faq-list"><details open><summary>Is the AI Mode tracker free?</summary><p>Yes. It is free with no sign-up and no email needed. Each visitor gets a daily allowance of free checks that resets at 00:00 UTC.</p></details><details><summary>What is Google AI Mode?</summary><p>AI Mode is Google&#x27;s conversational AI search experience. You ask a question, and it replies with a written answer and links to the sources it cites.</p></details><details><summary>Is AI Mode available in every country?</summary><p>No. AI Mode availability differs by country, so pick the country your customers search from.</p></details><details><summary>How is AI Mode different from AI Overviews?</summary><p>AI Overviews are summaries that appear above the normal results for some searches. AI Mode is a separate, conversational experience with its own answers and sources, so check both.</p></details><details><summary>Do I have to enter my domain?</summary><p>No. Without a domain you still see the full answer and every source. Add your domain to check whether you are cited and as which source number.</p></details><details><summary>Where does the data come from?</summary><p>Live data from DataForSEO, a data provider used by many SEO tools. Answers are cached for up to 24 hours, so opening a recent check again is instant.</p></details><details><summary>Why does the answer change between checks?</summary><p>AI answers can change from day to day. Treat each check as a snapshot, and track your key questions over time.</p></details></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tp-sec">
+    <div class="wrap">
+      <div class="tp-head"><span class="tp-eyebrow">Keep going</span><h2>More free tools</h2><p>Free tools we use in our own SEO, AI search and automation work.</p></div>
+      <div class="tp-tools"><a class="tp-tool" href="/ai-overview-tracker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3zM19 15l.8 1.9L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-1.1L19 15z"></path></svg></div><b>AI Overviews Tracker</b><span>See if Google&#x27;s AI Overview cites your site for a search.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/ai-visibility-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3v3M7 9h10a2 2 0 012 2v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7a2 2 0 012-2zM9 14h.01M15 14h.01"></path></svg></div><b>AI Visibility Checker</b><span>See if ChatGPT, Gemini and Perplexity mention your brand.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/serp-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4"></path></svg></div><b>SERP Checker</b><span>See the live Google top 10 for any keyword and country.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/keyword-generator"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 7a4 4 0 11-3.9 4.9L4 19v2h3v-2h2v-2h2l1.1-1.1A4 4 0 0115 7zM16 10h.01"></path></svg></div><b>Keyword Generator</b><span>Get up to 100 keyword ideas with volume, difficulty and CPC.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a></div>
+      <p class="tp-more"><a href="/free-seo-tools">See all free SEO tools <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="tp-sec tp-sec-cta">
+    <div class="wrap">
+      <div class="tp-cta">
+        <h2>Want AI Mode to cite your website?</h2>
+        <p>Our AI search team improves your pages and the mentions across the web that AI answers draw on, to give your brand a real chance to be cited.</p>
+        <div class="row">
+          <a class="tp-btn o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="ai-mode-tracker-final">Book a free call <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="tp-btn w" href="/ai-search-optimization">See AI Search Optimization</a>
+        </div>
+        <small>30 minutes. Custom recommendation. No strings attached.</small>
+      </div>
     </div>
   </section>
 
@@ -3037,6 +3192,7 @@
   })();
   </script>
   <script src="/assets/tools/data-tools-1.0.1.js" defer></script>
+  <script src="/assets/tools/ui-kit-1.0.0.js" defer></script>
 
   <!-- Cal floating-popup embed code begins -->
   <script type="text/javascript">
