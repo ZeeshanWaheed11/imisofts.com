@@ -1,0 +1,117 @@
+{
+  "slug": "gemini-omni-flash-pricing",
+  "title": "Gemini Omni 1.2 Flash Pricing: $0.07 a 720p Second, 30% Less",
+  "desc": "Gemini Omni 1.2 Flash is out at $12 per 1M output tokens, about $0.07 a second of 720p video and 30% under Omni 1.1, whose API calls route to 1.2 on December 3.",
+  "keywords": "gemini omni flash pricing, gemini omni, gemini omni 1.2 flash, gemini omni 1.1 flash, ai video generation cost, ai video ad cost",
+  "date": "2026-11-09",
+  "time": "11:30",
+  "read_time": 3,
+  "word_count": 551,
+  "cta": "Want AI video ads made and tested for you?",
+  "body": "<p><strong>November 9, 2026.</strong> Google made Gemini Omni 1.2 Flash generally available on November 5 at $12.00 per 1M output tokens, which Google puts at about $0.07 a second of 720p video, 30% less than Omni 1.1. A 15-second 720p clip, the longest single generation, comes to about $1.04. From December 3, every Gemini API request still sent to gemini-omni-1.1-flash will \"automatically route to gemini-omni-1.2-flash\" and bill at 1.2 rates, per the <a href=\"https://ai.google.dev/gemini-api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">release notes</a>. If you make short video ads through the API, that is 24 days before your 1.1 requests switch to 1.2.</p>\n<p><strong>What changed on November 5</strong></p>\n<ol>\n<li><strong>A 30% lower price.</strong> \"We have dropped the price 30% from Gemini Omni 1.1 making it available at $0.07 per second for 720p video,\" says Google's <a href=\"https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/\" target=\"_blank\" rel=\"noopener noreferrer\">launch post</a>. The <a href=\"https://ai.google.dev/gemini-api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a> lists Omni 1.1 Flash at \"approximately $0.10 per second\" for 720p video.</li>\n<li><strong>Longer clips.</strong> Up to 15 seconds in a single generation, \"up from 10 seconds with Omni 1.1,\" set in one-second steps from 3 to 15. Per-turn extensions of 3 to 10 seconds can take a video \"up to 30 seconds total length,\" per the release notes.</li>\n<li><strong>More consistency.</strong> Improved character and subject consistency \"across up to 6 reference images.\"</li>\n<li><strong>Higher limits.</strong> Doubled paid-tier rate limits.</li>\n<li><strong>Where it runs.</strong> The pricing page calls it \"generally available to developers on the paid tier of the Gemini API,\" and the launch post says it is available \"across the Gemini API and Gemini for business.\"</li>\n<li><strong>Watermarked.</strong> Outputs \"carry an imperceptible SynthID watermark.\"</li>\n</ol>\n<p><strong>What a clip costs by resolution</strong></p>\n<p>Google bills Omni by output tokens per second of video. We multiplied its published token rates by $12.00 per 1M tokens (Standard pricing) and by 15 seconds; 1080p and 4K include upsampling.</p>\n<table><thead><tr><th>Resolution</th><th>Tokens per second</th><th>Per second</th><th>15-second clip</th></tr></thead><tbody>\n<tr><td>360p</td><td>1,931</td><td>about $0.023</td><td>about $0.35</td></tr>\n<tr><td>720p</td><td>5,792</td><td>about $0.07</td><td>about $1.04</td></tr>\n<tr><td>1080p, upsampled</td><td>8,688</td><td>about $0.104</td><td>about $1.56</td></tr>\n<tr><td>4K, upsampled</td><td>17,376</td><td>about $0.209</td><td>about $3.13</td></tr>\n</tbody></table>\n<p>Google's suggested workflow is to \"draft fast at 360p or 720p, fix a detail with a follow-up edit instead of re-generating the entire clip, and then upscale your best creations to 1080p or 4K.\" As a hypothetical, 100 fifteen-second drafts at 360p plus 10 finals at 720p come to about $45, or about $4.50 per final. <a href=\"https://www.technobezz.com/news/google-gemini-omni-flash-cuts-video-price\" target=\"_blank\" rel=\"noopener noreferrer\">Technobezz</a> reported the same $0.07 and 30% figures.</p>\n<p><strong>What to do before December 3</strong></p>\n<p>We suggest four steps:</p>\n<ol>\n<li><strong>Find every 1.1 call.</strong> Search your code and your n8n or Make scenarios for gemini-omni-1.1-flash. From December 3 those requests run on 1.2 without a code change; on our reading, outputs can change because a different model answers.</li>\n<li><strong>Re-run your best prompts on 1.2 now</strong> with the same reference images, and compare faces, packaging text and brand colors, which Google says now stay consistent \"across camera angles.\"</li>\n<li><strong>Re-price per ad, not per second.</strong> A 10-second 720p clip that cost about $1.00 on 1.1 is about $0.70 on 1.2. If you resell video ads to clients, for example through a <a href=\"/gohighlevel-white-label-saas\">white-label GoHighLevel SaaS</a>, we would price per final ad rather than per generation.</li>\n<li><strong>Check ad labeling rules.</strong> If the clips run as Google ads, see our <a href=\"/blog/google-ads-ai-label/\">Google Ads AI label</a> brief.</li>\n</ol>\n<p>Our <a href=\"/ai-ugc-ads\">AI UGC ads</a> service scripts, produces and tests AI UGC-style ads and reels, and our <a href=\"/ai-automation-agency\">AI automation agency</a> team builds API workflows.</p>",
+  "faqs": [
+    [
+      "How much does Gemini Omni 1.2 Flash cost?",
+      "$12.00 per 1M output tokens on the Gemini API's paid tier, under Standard pricing. At 5,792 tokens per second of 720p video that is about $0.07 a second, or about $1.04 for a 15-second clip. 360p is about $0.023 a second and 4K with upsampling about $0.209."
+    ],
+    [
+      "What happens to Gemini Omni 1.1 Flash on December 3, 2026?",
+      "Google says all API requests to gemini-omni-1.1-flash automatically route to gemini-omni-1.2-flash from December 3 and are billed at 1.2 rates, about $0.07 a second for 720p video instead of about $0.10."
+    ],
+    [
+      "How long can a Gemini Omni 1.2 Flash video be?",
+      "Up to 15 seconds in one generation, set in one-second steps from 3 to 15 seconds. Per-turn extensions of 3 to 10 seconds can take a video up to 30 seconds in total, per Google's release notes. Omni 1.1 generated up to 10 seconds."
+    ],
+    [
+      "Is Gemini Omni 1.2 Flash free to use?",
+      "Google's pricing page describes it as generally available to developers on the paid tier of the Gemini API. We could not confirm whether any free tier applies."
+    ]
+  ],
+  "image": {
+    "cluster": "AI video cost",
+    "takeaway": "API requests to Omni 1.1 Flash route to 1.2 on December 3; 1.2 costs about $0.07 a second of 720p video.",
+    "alt": "Gemini Omni 1.2 Flash pricing per second and per 15-second clip by resolution",
+    "chart": {
+      "title": "Gemini Omni 1.2 Flash: cost of one 15-second clip",
+      "subtitle": "Output tokens per second x $12.00 per 1M tokens x 15 seconds, by resolution.",
+      "type": "hbar",
+      "rows": [
+        [
+          "360p",
+          0.35
+        ],
+        [
+          "720p",
+          1.04
+        ],
+        [
+          "1080p, upsampled",
+          1.56
+        ],
+        [
+          "4K, upsampled",
+          3.13
+        ]
+      ],
+      "prefix": "$",
+      "highlight": 1,
+      "note": [
+        "About $0.07",
+        "a second"
+      ],
+      "source": "imisofts calculation from Google's token rates, Standard pricing. Source: Gemini API pricing page, November 2026",
+      "alt": "Bar chart: a 15-second Gemini Omni 1.2 Flash clip costs about $0.35 at 360p, $1.04 at 720p, $1.56 at 1080p upsampled and $3.13 at 4K upsampled.",
+      "after_heading": "What a clip costs by resolution"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Omni 1.2 Flash output price",
+        "value": "$12.00 per 1M tokens",
+        "note": "paid tier, Standard"
+      },
+      {
+        "label": "720p video, per second",
+        "value": "About $0.07",
+        "note": "5,792 tokens a second"
+      },
+      {
+        "label": "15-second 720p clip",
+        "value": "About $1.04"
+      },
+      {
+        "label": "Omni 1.1 Flash, 720p per second",
+        "value": "About $0.10"
+      },
+      {
+        "label": "Price cut against Omni 1.1",
+        "value": "30%",
+        "note": "per Google"
+      },
+      {
+        "label": "Longest single generation",
+        "value": "15 seconds",
+        "note": "up from 10 seconds on 1.1"
+      },
+      {
+        "label": "Reference images for consistency",
+        "value": "Up to 6"
+      },
+      {
+        "label": "360p, per second",
+        "value": "About $0.023"
+      },
+      {
+        "label": "4K with upsampling, per second",
+        "value": "About $0.209"
+      },
+      {
+        "label": "API requests to Omni 1.1 Flash route to 1.2",
+        "value": "December 3, 2026",
+        "note": "billed at 1.2 rates"
+      }
+    ],
+    "source": "Prices and dates read on 9 November 2026 from the Gemini API pricing page, the Gemini API release notes and Google's launch post."
+  }
+}

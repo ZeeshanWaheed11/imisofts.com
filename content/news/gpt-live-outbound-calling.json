@@ -1,0 +1,129 @@
+{
+  "slug": "gpt-live-outbound-calling",
+  "title": "GPT-Live Outbound Calling: Setup, Cost and TCPA Rules",
+  "desc": "OpenAI's GPT-Live can now place phone calls through your SIP trunk. How the Live API dials, what 1,000 two-minute calls would cost and the TCPA rules to check.",
+  "keywords": "gpt live outbound calling, ai outbound calling, gpt live, openai sip, ai phone calls, gpt-live-1, tcpa ai voice",
+  "date": "2026-11-09",
+  "time": "11:40",
+  "read_time": 7,
+  "word_count": 1469,
+  "cta": "Want an AI agent calling back your inbound leads?",
+  "body": "<p><strong>November 9, 2026.</strong> OpenAI's GPT-Live voice agents can now place outbound phone calls: the API changelog files it under November 2, \"Outbound SIP calling is now available to all organizations through the Live API.\" You bring your own SIP trunk (OpenAI's Justin Uberti names Telnyx and Twilio as examples), and GPT-Live voice time costs $0.05 a minute, billed per second, with the phone line and backend usage billed separately. In the US, the FCC's 2024 ruling says calls that use AI technologies that generate human voices \"require the prior express consent of the called party,\" and the rules below set out where that applies. For a home services company or an agency, we think the first use is calling back inbound leads who asked to hear from you.</p>\n<p><strong>What OpenAI shipped</strong></p>\n<ol>\n<li><strong>Outbound calls through the Live API.</strong> The <a href=\"https://developers.openai.com/api/docs/changelog\" target=\"_blank\" rel=\"noopener noreferrer\">API changelog</a> lists the change under November 2 for gpt-live-1 and the v1/live/sessions endpoint. OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/voice-sip?api=live#place-an-outbound-call\" target=\"_blank\" rel=\"noopener noreferrer\">Telephony and SIP guide</a> adds that it runs \"through the Live API, not the Realtime API call-creation endpoint.\"</li>\n<li><strong>Called generally available on November 4.</strong> OpenAI's Justin Uberti wrote: \"Just promoted our new GPT-Live outbound telephony API to GA, allowing developers to make phone calls from their Live voice agent, via any SIP trunk provider (e.g, Telnyx or Twilio).\" OpenAI's Greg Brockman <a href=\"https://x.com/gdb/status/2118204795219489172\" target=\"_blank\" rel=\"noopener noreferrer\">quoted the post on X</a>. An independent report from <a href=\"https://www.tokenpost.com/news/technology/49921\" target=\"_blank\" rel=\"noopener noreferrer\">TokenPost</a> on November 6 gives the same date and the same $0.05 rate.</li>\n<li><strong>Your trunk, OpenAI's voice.</strong> The trunk must support TLS signaling and SDES-SRTP audio. Numbers go in E.164 format, such as +14155550123, and \"SIP URI destinations aren't supported.\"</li>\n<li><strong>Hard limits.</strong> \"Ringing is limited to 3 minutes, and a connected call is limited to 2 hours. These limits aren't configurable in the creation request.\"</li>\n<li><strong>Call controls.</strong> Your backend can send and receive keypad tones (DTMF), transfer the call to a phone number or SIP address, and hang up.</li>\n</ol>\n<p><strong>How an outbound GPT-Live call works</strong></p>\n<p>We break the flow in OpenAI's guide into four steps, all run from your server:</p>\n<ol>\n<li><strong>Create the session.</strong> Send POST /v1/live/sessions with transport type \"sip\", the number to call, your trunk's sips: address, your SIP username and password, and a caller_number, which the guide defines as \"The caller phone number to send to your provider, in E.164 format.\" You pick the voice and the delegation mode here.</li>\n<li><strong>Attach a sideband connection at once.</strong> The 200 OK \"doesn't mean the call has been answered.\" Progress arrives as transport.ringing, transport.answered or transport.failed, and the sideband \"only replays events from the preceding 3 seconds,\" so a late attachment can miss them.</li>\n<li><strong>Run the conversation.</strong> The voice agent carries the call; per the guide, your backend handles \"session configuration, call controls, and business logic.\"</li>\n<li><strong>Transfer or hang up.</strong> A refer request hands the call to a tel: number or a SIP address, for example a dispatcher; a hangup request ends it. Keep the sideband open \"for session.closed and final usage.\"</li>\n</ol>\n<p>Two things the guide does not cover: voicemail or answering machine detection, and consent. Neither \"voicemail\" nor \"consent\" appears on the page, so, on our reading, both are yours to handle.</p>\n<p><strong>What an outbound call costs</strong></p>\n<p>OpenAI's <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a> lists gpt-live-1 at $0.05 per minute: \"GPT-Live 1 voice sessions are billed per second, without rounding up to a whole minute. Backend model and tool usage is charged separately.\" Its <a href=\"https://developers.openai.com/api/docs/guides/voice-latency-cost\" target=\"_blank\" rel=\"noopener noreferrer\">voice cost guide</a> counts active time when either side speaks, when \"both are silent, or the backend is working.\" The trunk is a separate bill: <a href=\"https://www.twilio.com/en-us/sip-trunking/pricing/us\" target=\"_blank\" rel=\"noopener noreferrer\">Twilio's US Elastic SIP Trunking page</a> lists termination, the outbound leg, \"Starting at $0.0011 / min\" and a local number at $1.15 a month.</p>\n<table><thead><tr><th>Hypothetical: 1,000 answered calls of 2 minutes in a month</th><th>Cost</th></tr></thead><tbody>\n<tr><td>GPT-Live voice time, 2,000 minutes at $0.05</td><td>$100.00</td></tr>\n<tr><td>Twilio SIP termination, 2,000 minutes at the $0.0011 starting rate</td><td>$2.20</td></tr>\n<tr><td>One Twilio local number, one month</td><td>$1.15</td></tr>\n<tr><td><strong>Total before backend model and tool usage</strong></td><td><strong>$103.35</strong></td></tr>\n</tbody></table>\n<p>That is about 10 cents an answered call, and GPT-Live voice time is about 97% of it. Several costs are open:</p>\n<ul>\n<li><strong>Ringing.</strong> OpenAI's pages do not say whether the up to 3 minutes of ringing count as billed session time; if they did, a call that rings out would add up to $0.15.</li>\n<li><strong>Your real trunk rate.</strong> Twilio's figure is a \"Starting at\" rate.</li>\n<li><strong>Setup time.</strong> The cost guide says creating a WebRTC session \"bills 15 seconds of voice duration while the session initializes,\" credited once it runs; it does not say whether anything similar applies to SIP calls that fail or ring out.</li>\n<li><strong>Backend usage,</strong> which OpenAI charges separately.</li>\n</ul>\n<p>We would place a handful of test calls and read the final usage before pricing a campaign. Our <a href=\"/blog/gpt-live-pricing/\">GPT-Live pricing breakdown</a> covers the inbound side and custom voices.</p>\n<p><strong>The TCPA rules before an AI voice dials</strong></p>\n<p>In the US, in <a href=\"https://www.fcc.gov/document/fcc-confirms-tcpa-applies-ai-technologies-generate-human-voices\" target=\"_blank\" rel=\"noopener noreferrer\">FCC 24-17</a>, adopted February 2, 2024, the FCC confirmed that the TCPA's restrictions on an \"artificial or prerecorded voice\" encompass \"current AI technologies that generate human voices.\" On our reading, a GPT-Live agent's voice is one of them, so the rules in <a href=\"https://www.ecfr.gov/current/title-47/chapter-I/subchapter-B/part-64/subpart-L/section-64.1200\" target=\"_blank\" rel=\"noopener noreferrer\">47 CFR 64.1200</a> apply:</p>\n<ul>\n<li><strong>Consent.</strong> Under (a)(1), a call using an artificial or prerecorded voice to a number listed in (a)(1)(iii), which includes \"cellular telephone service,\" needs the called party's prior express consent unless it is made for emergency purposes. If the call \"includes or introduces an advertisement or constitutes telemarketing,\" (a)(2) requires prior express written consent for those numbers, with carve-outs for tax-exempt nonprofits and \"health care\" messages, and (a)(3) requires it for residential lines. Under (a)(3), a residential artificial-voice call that \"exceeds the applicable numerical limitation on calls\" in (a)(3)(ii) through (v) also needs prior express consent.</li>\n<li><strong>Say who is calling.</strong> Paragraph (b) covers \"All artificial or prerecorded voice telephone messages.\" Under (b)(1), state the business's registered name \"At the beginning of the message.\" Under (b)(2), during or after the message, state the business's telephone number \"(other than that of the autodialer or prerecorded message player that placed the call).\"</li>\n<li><strong>Offer an opt-out within 2 seconds.</strong> (b)(3) applies when an artificial-voice message is made under the exemptions in (a)(3)(ii) through (v), or includes or introduces an advertisement or constitutes telemarketing and reaches a residential line or a number in (a)(1)(i) through (iii). It requires an \"automated, interactive voice- and/or key press-activated opt-out mechanism,\" \"including brief explanatory instructions,\" \"within two (2) seconds\" of the (b)(1) identification, and the mechanism must automatically record the number to your do-not-call list. GPT-Live receives keypad tones, so, on our reading, a key press opt-out can be built, with the do-not-call recording done in your backend.</li>\n<li><strong>Hours and the registry.</strong> No telephone solicitation to a residential subscriber \"before the hour of 8 a.m. or after 9 p.m.\" in the called party's local time under (c)(1), or to a residential subscriber who has registered the number on the national do-not-call registry under (c)(2).</li>\n</ul>\n<p>For state rules, see <a href=\"/blog/telemarketing-laws-by-state/\">telemarketing laws by state</a>. Our <a href=\"/blog/tcpa-compliance-checklist/\">TCPA compliance checklist</a> has 12 checks before an AI agent dials, and <a href=\"/blog/is-ai-cold-calling-legal/\">is AI cold calling legal</a> covers cold outreach. Outside the US, see country guides such as <a href=\"/blog/cold-calling-laws-south-africa/\">cold calling laws in South Africa</a>. This is general information, not legal advice.</p>\n<p><strong>What it means for operators</strong></p>\n<p>For a plumber, an HVAC company or an agency running calls for clients, we think the strongest uses are calls people asked for:</p>\n<ol>\n<li><strong>Callbacks to inbound leads.</strong> A web form can trigger a GPT-Live call once the lead submits it. If the callback \"includes or introduces an advertisement or constitutes telemarketing,\" (a)(2) and (a)(3) call for prior express written consent, which (f)(9) defines as \"an agreement, in writing, bearing the signature of the person called.\"</li>\n<li><strong>Confirmations and reminders</strong> to customers who gave prior express consent, with the (b)(1) and (b)(2) identification, the (b)(3) opt-out where it applies, and a transfer to a person whenever the called person asks.</li>\n<li><strong>Caller ID.</strong> The request carries a caller_number \"to send to your provider.\" OpenAI's guide does not say which numbers are accepted or how they display, so confirm with your provider. Related: our <a href=\"/blog/stir-shaken-attestation/\">STIR/SHAKEN attestation</a> guide.</li>\n<li><strong>Measure booked jobs, not minutes.</strong> At about 10 cents for an answered two-minute call before backend usage, we would track jobs booked per hundred calls rather than cost per minute.</li>\n</ol>\n<p>This is general information, not legal advice. We offer <a href=\"/ai-calling-home-services\">AI call answering and lead callbacks for home services</a> and <a href=\"/tcpa-compliant-ai-calling\">AI calling built around TCPA consent</a>, and our <a href=\"/ai-automation-agency\">AI automation agency</a> team wires the CRM side. Comparing vendors first? See our <a href=\"/blog/best-ai-voice-agents-2026/\">AI voice agents comparison</a> and <a href=\"/blog/ai-answering-service-for-hvac/\">AI answering services for HVAC</a>.</p>\n<p><strong>What OpenAI's guide and pricing pages do not say</strong></p>\n<ul>\n<li>Whether ringing time is billed as session time.</li>\n<li>Any outbound concurrency or rate limit specific to SIP calls.</li>\n<li>Whether voicemail or answering machine detection is planned.</li>\n<li>Whether OpenAI or your provider restricts which caller_number values a session can send.</li>\n</ul>",
+  "faqs": [
+    [
+      "Can GPT-Live make outbound phone calls?",
+      "Yes. OpenAI's API changelog for November 2, 2026 says outbound SIP calling is available to all organizations through the Live API. You create a session with SIP transport and your own SIP trunk, such as Twilio or Telnyx; the trunk must support TLS signaling and SDES-SRTP audio, and numbers go in E.164 format."
+    ],
+    [
+      "How much does a GPT-Live outbound call cost?",
+      "GPT-Live voice time is $0.05 a minute, billed per second, and backend model and tool usage is charged separately. In a hypothetical month of 1,000 answered two-minute calls, using Twilio's US termination starting rate of $0.0011 a minute and one $1.15 local number, the total is $103.35 before backend usage, about 10 cents a call. OpenAI does not say whether ringing time is billed."
+    ],
+    [
+      "Is it legal to use GPT-Live for cold calls?",
+      "In the US, 47 CFR 64.1200(a)(2) and (a)(3) bar an artificial-voice call that \"includes or introduces an advertisement or constitutes telemarketing\" to mobile numbers or residential lines without prior express written consent, apart from carve-outs for tax-exempt nonprofits and health care messages, and the FCC confirmed in FCC 24-17 that those rules cover AI technologies that generate human voices. This is general information, not legal advice."
+    ],
+    [
+      "How long can a GPT-Live outbound call ring or last?",
+      "OpenAI limits ringing to 3 minutes and a connected call to 2 hours, and these limits are not configurable in the creation request."
+    ],
+    [
+      "Does GPT-Live detect voicemail on outbound calls?",
+      "OpenAI's SIP guide does not mention voicemail or answering machine detection. We suggest testing how your agent behaves when a call reaches voicemail before you launch a campaign."
+    ],
+    [
+      "Can a GPT-Live agent transfer an outbound call to a person?",
+      "Yes. Your backend sends a refer request with a tel: phone number or a SIP address, and your SIP provider completes the transfer. Your backend can also send and receive keypad tones during the call."
+    ]
+  ],
+  "image": {
+    "cluster": "AI calling",
+    "takeaway": "OpenAI's GPT-Live now places outbound calls through your SIP trunk, with voice time at $0.05 a minute.",
+    "alt": "GPT-Live outbound calling through a SIP trunk: setup, cost per call and TCPA consent rules",
+    "chart": {
+      "title": "1,000 two-minute GPT-Live calls: cost by line item",
+      "subtitle": "Hypothetical answered calls in a month, before backend model and tool usage.",
+      "type": "hbar",
+      "rows": [
+        [
+          "GPT-Live voice time",
+          100.0
+        ],
+        [
+          "Twilio SIP termination",
+          2.2
+        ],
+        [
+          "Local number, 1 month",
+          1.15
+        ]
+      ],
+      "prefix": "$",
+      "highlight": 0,
+      "note": [
+        "About 97% of",
+        "the $103.35 total"
+      ],
+      "source": "2,000 minutes at $0.05 and $0.0011, one number. Source: OpenAI and Twilio pricing pages, November 2026",
+      "alt": "Bar chart: GPT-Live voice time $100.00, Twilio SIP termination $2.20 and one local number $1.15 for 1,000 two-minute calls.",
+      "after_heading": "What an outbound call costs"
+    }
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Changelog date for outbound SIP calling",
+        "value": "November 2, 2026",
+        "note": "OpenAI API changelog"
+      },
+      {
+        "label": "Called generally available by OpenAI staff",
+        "value": "November 4, 2026",
+        "note": "post on X"
+      },
+      {
+        "label": "GPT-Live voice time",
+        "value": "$0.05 a minute",
+        "note": "billed per second"
+      },
+      {
+        "label": "Twilio US SIP termination",
+        "value": "From $0.0011 a minute",
+        "note": "starting rate"
+      },
+      {
+        "label": "Twilio US local number",
+        "value": "$1.15 a month"
+      },
+      {
+        "label": "Ringing limit per call",
+        "value": "3 minutes",
+        "note": "not configurable in the creation request"
+      },
+      {
+        "label": "Connected call limit",
+        "value": "2 hours",
+        "note": "not configurable in the creation request"
+      },
+      {
+        "label": "Sideband event replay window",
+        "value": "3 seconds",
+        "note": "attach right after creating the call"
+      },
+      {
+        "label": "Opt-out on covered AI-voice calls, 64.1200(b)(3)",
+        "value": "Within 2 seconds",
+        "note": "of the (b)(1) identification"
+      },
+      {
+        "label": "1,000 answered two-minute calls, voice, trunk, number",
+        "value": "$103.35",
+        "note": "hypothetical, before backend usage"
+      },
+      {
+        "label": "FCC ruling on AI voices (FCC 24-17) adopted",
+        "value": "February 2, 2024"
+      }
+    ],
+    "source": "Prices, limits and rules read on 9 November 2026 from OpenAI's changelog, SIP guide and pricing page, Twilio's US SIP trunking prices, the FCC and eCFR."
+  }
+}
