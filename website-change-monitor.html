@@ -2200,6 +2200,152 @@
 .ft-cat + .ft-tools{margin-bottom:44px}
 @media(max-width:900px){.ft-tools{grid-template-columns:1fr 1fr}.p2 .ft-hero h1{font-size:38px}}
 @media(max-width:640px){.p2 .ft-hero{padding:96px 0 40px}.p2 .ft-hero h1{font-size:30px}.p2 .ft-hero .lead{font-size:16px}.ft-box{padding:16px}.ft-input{flex-direction:column}.ft-input button{width:100%}.ft-tools{grid-template-columns:1fr}.ft-table{font-size:12px}.ft-url{max-width:230px}.ft-article h2{font-size:24px}.ft-opts{gap:10px 16px}}
+
+/* premium tool pages (tp-) */
+nav.navbar{background:rgba(255,255,255,.97);box-shadow:0 1px 0 rgba(17,17,19,.06)}
+.tp{--tp-ink:#111113;--tp-body:#55595f;--tp-line:#ebebee;--tp-soft:#f7f7f9;--tp-o:#F45407;--tp-o2:#ff7a3d;font-family:Inter,system-ui,-apple-system,sans-serif}
+.tp .wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+.tp-hero{position:relative;overflow:hidden;background:#0b0b0d;color:#fff;padding:132px 0 76px}
+.tp-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 420px at 88% -12%,rgba(244,84,7,.30),transparent 62%),radial-gradient(620px 360px at -6% 8%,rgba(255,255,255,.07),transparent 60%)}
+.tp-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(to bottom,#000,transparent 72%);mask-image:linear-gradient(to bottom,#000,transparent 72%)}
+.tp-hero .wrap{position:relative;z-index:1}
+.tp-crumbs{font-size:13px;color:#8d8d93;margin:0 0 22px}.tp-crumbs a{color:#c4c4c9;text-decoration:none}.tp-crumbs a:hover{color:#fff}.tp-crumbs span{color:#8d8d93}
+.tp-badge{display:inline-flex;align-items:center;gap:9px;padding:6px 13px 6px 11px;border-radius:999px;background:rgba(244,84,7,.12);border:1px solid rgba(244,84,7,.38);color:#ffb08a;font-size:13px;font-weight:500;margin:0 0 20px}
+.tp-badge i{width:7px;height:7px;border-radius:50%;background:var(--tp-o);box-shadow:0 0 0 4px rgba(244,84,7,.22)}
+.tp-hero h1{font-size:58px;line-height:1.04;letter-spacing:-.035em;font-weight:700;margin:0 0 18px;color:#fff;max-width:920px}
+.tp-lead{font-size:18.5px;line-height:1.6;color:#b8b8be;max-width:760px;margin:0 0 34px}
+.tp-card{position:relative;background:#fff;color:var(--tp-ink);border-radius:22px;padding:26px;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}
+.tp-trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin:22px 0 0;padding:0;list-style:none;font-size:14px;color:#a9a9b0}
+.tp-trust li{display:inline-flex;align-items:center;gap:8px}.tp-trust svg{width:17px;height:17px;color:#2fd47a;flex:none}
+/* tool controls inside the card */
+.tp-card .ft-input{gap:12px}
+.tp-card .ft-input input,.tp-card .wt-label input[type=text],.tp-card .wt-label input[type=number],.tp-card .wt-label textarea,.tp-card .dt-area,.tp-card .dt-grid input,.tp-card .dt-opt input{background:#f7f7f9;border:1px solid #e6e6ea;color:var(--tp-ink);transition:border-color .15s,box-shadow .15s,background .15s}
+.tp-card .ft-input input{height:58px;border-radius:14px;font-size:16.5px;padding:0 18px}
+.tp-card .ft-input input:focus,.tp-card .wt-label input:focus,.tp-card .wt-label textarea:focus,.tp-card .dt-area:focus,.tp-card .dt-grid input:focus,.tp-card .dt-opt input:focus{background:#fff;border-color:var(--tp-o);box-shadow:0 0 0 4px rgba(244,84,7,.12);outline:none}
+.tp-card .ft-input button,.tp-card .dt-submit button,.tp-card .wt-submit button{height:58px;padding:0 28px;border:0;border-radius:14px;background:linear-gradient(180deg,#ff6a24,#F45407);color:#fff;font-weight:600;font-size:16px;letter-spacing:-.01em;box-shadow:0 10px 24px rgba(244,84,7,.32),inset 0 1px 0 rgba(255,255,255,.22);cursor:pointer;transition:transform .15s,box-shadow .15s,filter .15s}
+.tp-card .ft-input button:hover,.tp-card .dt-submit button:hover,.tp-card .wt-submit button:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(244,84,7,.38),inset 0 1px 0 rgba(255,255,255,.22);filter:saturate(1.05)}
+.tp-card .ft-opts{gap:12px 20px;margin-top:16px;font-size:13.5px;color:#6b6b73}
+.tp-card .ft-opts label{display:inline-flex;align-items:center;gap:10px;font-weight:500}
+.tp-card .ft-opts .ck{gap:8px}
+.tp-card .ft-opts input[type=checkbox]{width:17px;height:17px;border-radius:5px;accent-color:var(--tp-o)}
+.tp-card .dt-opt input{height:42px;border-radius:11px;width:200px}
+.tp-card .dt-area{border-radius:14px;padding:14px 18px}
+.tp-card .dt-grid input{height:54px;border-radius:13px}
+.tp-card .dt-grid label{font-size:13.5px;color:#4b4b52}
+.tp-card .wt-label{font-size:13.5px;color:#4b4b52}
+.tp-card .wt-label textarea,.tp-card .wt-label input[type=text],.tp-card .wt-label input[type=number]{border-radius:13px}
+.tp-card .ft-error{border-radius:12px}
+.tp-card .ft-results{margin-top:24px;border-top:1px solid var(--tp-line);padding-top:22px}
+/* ui-kit dropdown */
+.ui-sel{position:relative;display:inline-block;min-width:170px;vertical-align:middle}
+.ui-sel select.ui-native{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;left:0;bottom:0}
+.ui-sel-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:42px;padding:0 12px 0 14px;border:1px solid #e3e3e8;border-radius:11px;background:#fff;color:#111113;font:inherit;font-size:14.5px;font-weight:500;cursor:pointer;text-align:left;box-shadow:0 1px 2px rgba(16,16,20,.04);transition:border-color .15s,box-shadow .15s}
+.ui-sel-btn:hover{border-color:#cfcfd6}
+.ui-sel-btn:focus-visible,.ui-sel.open .ui-sel-btn{outline:none;border-color:#F45407;box-shadow:0 0 0 4px rgba(244,84,7,.12)}
+.ui-sel-btn .v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ui-sel-btn svg{width:16px;height:16px;flex:none;color:#8a8a92;transition:transform .2s}
+.ui-sel.open .ui-sel-btn svg{transform:rotate(180deg);color:#F45407}
+.ui-pop{position:absolute;z-index:60;top:calc(100% + 8px);left:0;min-width:100%;width:max-content;max-width:min(340px,92vw);background:#fff;border:1px solid #e7e7ec;border-radius:14px;box-shadow:0 24px 60px rgba(16,16,24,.16),0 4px 12px rgba(16,16,24,.06);padding:6px;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .14s,transform .14s}
+.ui-sel.open .ui-pop{opacity:1;transform:none;pointer-events:auto}
+.ui-sel.up .ui-pop{top:auto;bottom:calc(100% + 8px)}
+.ui-search{display:flex;align-items:center;gap:8px;margin:2px 2px 6px;padding:0 10px;height:38px;border:1px solid #ececf1;border-radius:10px;background:#f7f7f9}
+.ui-search svg{width:15px;height:15px;color:#9a9aa2;flex:none}
+.ui-search input{border:0;background:transparent;outline:none;font:inherit;font-size:14px;width:100%;color:#111113}
+.ui-list{max-height:264px;overflow:auto;overscroll-behavior:contain}
+.ui-opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border-radius:9px;font-size:14.5px;color:#26262b;cursor:pointer;white-space:nowrap}
+.ui-opt svg{width:16px;height:16px;color:#F45407;opacity:0;flex:none}
+.ui-opt.on{font-weight:600;color:#111113}.ui-opt.on svg{opacity:1}
+.ui-opt.act{background:#fff3ec;color:#111113}
+.ui-empty{padding:12px;font-size:13.5px;color:#8a8a92}
+.ft-opts .ui-sel{min-width:190px}
+.wt-label .ui-sel{display:block;width:100%}
+.wt-label .ui-sel-btn{height:50px;border-radius:13px;font-size:15px;background:#f7f7f9;border-color:#e6e6ea;box-shadow:none}
+/* sections */
+.tp-sec{padding:104px 0}.tp-sec.alt{background:var(--tp-soft)}
+.tp-sec-cta{padding:8px 0 104px}.tp-sec.alt+.tp-sec-cta{padding-top:104px}
+.tp-head{max-width:760px;margin:0 auto 52px;text-align:center}
+.tp-eyebrow{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--tp-o);margin:0 0 14px}
+.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:42px;line-height:1.12;letter-spacing:-.03em;font-weight:600;color:var(--tp-ink);margin:0 0 14px}
+.tp-head p{font-size:17.5px;line-height:1.65;color:var(--tp-body);margin:0}
+.tp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tp-step{position:relative;background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:30px 28px 28px}
+.tp-sec.alt .tp-step,.tp-sec.alt .tp-feat{background:#fff}
+.tp-step .n{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:11px;background:#111113;color:#fff;font-weight:600;font-size:15px;margin:0 0 20px;box-shadow:0 6px 16px rgba(17,17,19,.18)}
+.tp-step h3,.tp-feat h3{font-size:18.5px;line-height:1.35;font-weight:600;letter-spacing:-.01em;color:var(--tp-ink);margin:0 0 8px}
+.tp-step p,.tp-feat p{font-size:15.5px;line-height:1.65;color:var(--tp-body);margin:0}
+.tp-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tp-feat{background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:30px 28px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.tp-feat:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+.tp-feat .ic{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#fff3ec,#ffe2d2);color:var(--tp-o);display:flex;align-items:center;justify-content:center;margin:0 0 20px;box-shadow:inset 0 0 0 1px rgba(244,84,7,.12)}
+.tp-feat .ic svg{width:22px;height:22px}
+.tp-doc{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;align-items:start}
+.tp-doc .ft-article{max-width:none;margin:0}
+.tp-doc .ft-article h2{font-size:32px;font-weight:600;letter-spacing:-.025em;margin:48px 0 14px;scroll-margin-top:100px}
+.tp-doc .ft-article h2:first-child{margin-top:0}
+.tp-doc .ft-article h3{font-size:21px;font-weight:600;margin:30px 0 8px}
+.tp-doc .ft-article p,.tp-doc .ft-article li{font-size:17px;line-height:1.8;color:#3f4247}
+.tp-aside{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
+.tp-box{border:1px solid var(--tp-line);border-radius:18px;padding:24px;background:#fff}
+.tp-box h4{margin:0 0 12px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#8a8a92}
+.tp-toc{list-style:none;margin:0;padding:0;border-left:2px solid var(--tp-line)}
+.tp-toc a{display:block;padding:7px 0 7px 14px;margin-left:-2px;border-left:2px solid transparent;font-size:14.5px;line-height:1.45;color:#4b4b52;text-decoration:none;transition:color .15s,border-color .15s}
+.tp-toc a:hover{color:var(--tp-o);border-left-color:var(--tp-o)}
+.tp-box.dark{position:relative;overflow:hidden;background:#0b0b0d;border-color:#0b0b0d;color:#fff}
+.tp-box.dark::before{content:'';position:absolute;inset:0;background:radial-gradient(300px 200px at 100% 0%,rgba(244,84,7,.35),transparent 70%);pointer-events:none}
+.tp-box.dark>*{position:relative}
+.tp-box.dark h4{color:#ff9a66}
+.tp-box.dark b{display:block;font-size:20px;line-height:1.3;font-weight:600;letter-spacing:-.015em;margin:0 0 8px}
+.tp-box.dark p{font-size:14.5px;line-height:1.6;color:#b8b8be;margin:0 0 18px}
+.tp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.tp-btn svg{width:17px;height:17px}
+.tp-btn.o{background:linear-gradient(180deg,#ff6a24,#F45407);color:#fff;box-shadow:0 10px 24px rgba(244,84,7,.32)}
+.tp-btn.o:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(244,84,7,.4)}
+.tp-btn.w{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.tp-btn.w:hover{background:rgba(255,255,255,.14)}
+.tp-btn.full{width:100%}
+.tp-faq{display:grid;grid-template-columns:380px minmax(0,1fr);gap:64px;align-items:start}
+.tp-faq-side{position:sticky;top:100px}
+.tp-faq-side h2{font-size:38px}
+.tp-faq-side p{font-size:16.5px;line-height:1.65;color:var(--tp-body);margin:0 0 22px}
+.tp-faq-side a{color:var(--tp-o);font-weight:600;text-decoration:none}
+.tp-faq-list details{background:#fff;border:1px solid var(--tp-line);border-radius:16px;margin:0 0 12px;transition:border-color .15s,box-shadow .15s}
+.tp-faq-list details[open]{border-color:#f0d3c3;box-shadow:0 14px 34px rgba(17,17,19,.06)}
+.tp-faq-list summary{list-style:none;cursor:pointer;position:relative;padding:20px 58px 20px 22px;font-size:16.5px;font-weight:600;line-height:1.45;color:var(--tp-ink)}
+.tp-faq-list summary::-webkit-details-marker{display:none}
+.tp-faq-list summary::after{content:'';position:absolute;right:20px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:8px;background:#f4f4f6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5v10M5 10h10' stroke='%23F45407' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .2s,background-color .2s}
+.tp-faq-list details[open] summary::after{transform:rotate(45deg);background-color:#fff1e9}
+.tp-faq-list details p{margin:0;padding:0 22px 22px;font-size:15.5px;line-height:1.75;color:var(--tp-body)}
+.tp-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tp-tool{display:flex;flex-direction:column;background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:24px;text-decoration:none;color:var(--tp-ink);transition:transform .2s,box-shadow .2s,border-color .2s}
+.tp-tool:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+.tp-tool .ic{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#fff3ec,#ffe2d2);color:var(--tp-o);display:flex;align-items:center;justify-content:center}
+.tp-tool .ic svg{width:21px;height:21px}
+.tp-tool b{font-size:16.5px;font-weight:600;margin:16px 0 6px;letter-spacing:-.01em}
+.tp-tool span{flex:1;font-size:14.5px;line-height:1.55;color:var(--tp-body)}
+.tp-tool em{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-style:normal;font-size:14px;font-weight:600;color:var(--tp-o)}
+.tp-tool em svg{width:15px;height:15px;transition:transform .2s}.tp-tool:hover em svg{transform:translateX(3px)}
+.tp-more{text-align:center;margin:36px 0 0}
+.tp-more a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--tp-ink);text-decoration:none;border-bottom:1px solid #d9d9df;padding-bottom:3px}
+.tp-more a:hover{color:var(--tp-o);border-color:var(--tp-o)}
+.tp-more svg{width:16px;height:16px}
+.tp-cta{position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(135deg,#fff4ec 0%,#fffaf6 45%,#ffffff 100%);border:1px solid #f4dccd;color:var(--tp-ink);padding:76px 48px;text-align:center}
+.tp-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(560px 300px at 50% -30%,rgba(244,84,7,.18),transparent 70%)}
+.tp-cta::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(244,84,7,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(244,84,7,.07) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%);mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%)}
+.tp-cta>*{position:relative;z-index:1}
+.tp-cta h2{color:var(--tp-ink);max-width:760px;margin:0 auto 14px}
+.tp-cta p{font-size:17.5px;line-height:1.65;color:var(--tp-body);max-width:640px;margin:0 auto 32px}
+.tp-cta .row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.tp-cta .tp-btn.w{background:#fff;color:var(--tp-ink);border:1px solid #e3e3e8;box-shadow:0 1px 2px rgba(16,16,20,.05)}
+.tp-cta .tp-btn.w:hover{border-color:#cfcfd6;background:#fff}
+.tp-cta small{display:block;margin-top:20px;font-size:13.5px;color:#8a8a92}
+.tp-grid-hub{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tp-cat{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 20px;padding-top:8px}
+.tp-cat h2{font-size:28px;font-weight:600;letter-spacing:-.02em;margin:0;color:var(--tp-ink)}
+.tp-cat span{font-size:14px;color:#8a8a92}
+.tp-cat-block+.tp-cat-block{margin-top:56px}
+@media(max-width:1100px){.tp-doc{grid-template-columns:minmax(0,1fr) 300px;gap:40px}.tp-tools{grid-template-columns:repeat(2,1fr)}.tp-faq{grid-template-columns:300px minmax(0,1fr);gap:40px}}
+@media(max-width:900px){.tp-hero{padding:112px 0 56px}.tp-hero h1{font-size:44px}.tp-steps,.tp-feats{grid-template-columns:1fr 1fr}.tp-doc{grid-template-columns:1fr}.tp-aside{position:static}.tp-faq{grid-template-columns:1fr;gap:28px}.tp-faq-side{position:static}.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:34px}.tp-grid-hub{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.tp-hero{padding:100px 0 44px}.tp-hero h1{font-size:34px}.tp-lead{font-size:16.5px;margin-bottom:26px}.tp-card{padding:16px;border-radius:18px}.tp-card .ft-input{flex-direction:column}.tp-card .ft-input input,.tp-card .ft-input button{flex:0 0 auto;height:54px;width:100%}.tp-card .ft-opts{flex-direction:column;align-items:stretch}.tp-card .ft-opts label{justify-content:space-between}.ft-opts .ui-sel{min-width:0;flex:1}.tp-card .dt-opt input{width:auto;flex:1}.tp-sec{padding:72px 0}.tp-steps,.tp-feats,.tp-tools,.tp-grid-hub{grid-template-columns:1fr}.tp-head{margin-bottom:36px}.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:29px}.tp-cta{padding:56px 22px;border-radius:22px}.tp-doc .ft-article h2{font-size:26px}.tp-doc .ft-article p,.tp-doc .ft-article li{font-size:16px}.tp-trust{gap:8px 18px;font-size:13px}.ui-pop{max-width:calc(100vw - 48px)}}
   </style>
   <script>document.documentElement.classList.add('js');</script>
   <style id="nav-fit-1108">.mobile-section-content.active{max-height:2400px}.mega-panel,.mega-sidebar{max-height:min(80vh,620px)}@media (max-width:1180px){.nav-menu{gap:20px}}@media (max-width:1024px){.nav-menu{display:none}.mobile-menu-toggle{display:block}}</style>
@@ -2599,15 +2745,15 @@
   </nav>
   </header>
 
-  <main class="p2">
+  <main class="p2 tp">
 
-  <section class="p2-hero ft-hero">
+  <section class="tp-hero">
     <div class="wrap">
-      <nav class="ft-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/free-seo-tools">Free SEO Tools</a> / <span>Website Change Monitor</span></nav>
-      <div class="p2-badge"><i></i><span>Free tool, no sign-up</span></div>
+      <nav class="tp-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/free-seo-tools">Free SEO Tools</a> / <span>Website Change Monitor</span></nav>
+      <div class="tp-badge"><i></i>Free tool, no sign-up</div>
       <h1>Free Website Change Monitor</h1>
-      <p class="lead">Save a version of any web page, come back later and see exactly what changed: new text in green, removed text in red. Track competitor pricing, terms, product pages and your own site.</p>
-      <div class="ft-box" data-tool="change-monitor">
+      <p class="tp-lead">Save a version of any web page, come back later and see exactly what changed: new text in green, removed text in red. Track competitor pricing, terms, product pages and your own site.</p>
+      <div class="tp-card ft-box" data-tool="change-monitor">
         <form class="ft-form" novalidate>
           <div class="ft-input"><input name="url" type="text" inputmode="url" autocomplete="url" placeholder="Enter the page to monitor, e.g. example.com/pricing" aria-label="Page address"><button type="submit">Check for changes</button></div>
           <div class="ft-opts">
@@ -2616,31 +2762,32 @@
         </form>
         <p class="ft-error" role="alert" hidden></p>
         <div class="ft-progress" hidden><div class="ft-progress-bar"><span></span></div><p class="ft-progress-text" aria-live="polite"></p></div>
-        <div class="ft-results" hidden></div>
+        <div class="ft-results" hidden aria-live="polite"></div>
         <div class="ft-watchlist" hidden></div>
       </div>
-      <p class="ft-fine">Free and no sign-up. Saved versions stay in this browser.</p>
+      <ul class="tp-trust"><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Free, no sign-up</li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Saved versions stay in this browser</li></ul>
     </div>
   </section>
 
-  <section class="sec sec-w">
+  <section class="tp-sec">
     <div class="wrap">
-      <div class="head"><h2>How to use the website change monitor</h2><p>Three steps, and results in a few minutes.</p></div>
-      <div class="p2-three"><div class="p2-box"><div class="k">Step 1</div><h3>Enter a page address</h3><p>The first check saves the text of the page as it is today.</p></div><div class="p2-box"><div class="k">Step 2</div><h3>Come back and check again</h3><p>Click &quot;Check for changes&quot; any time. The tool compares the live page with your saved version.</p></div><div class="p2-box"><div class="k">Step 3</div><h3>See what changed</h3><p>Added text shows in green and removed text in red. Save the new version when you have reviewed it.</p></div></div>
+      <div class="tp-head"><span class="tp-eyebrow">How it works</span><h2>How to use the website change monitor</h2><p>Three steps, and results in a few minutes.</p></div>
+      <div class="tp-steps"><div class="tp-step"><div class="n">1</div><h3>Enter a page address</h3><p>The first check saves the text of the page as it is today.</p></div><div class="tp-step"><div class="n">2</div><h3>Come back and check again</h3><p>Click &quot;Check for changes&quot; any time. The tool compares the live page with your saved version.</p></div><div class="tp-step"><div class="n">3</div><h3>See what changed</h3><p>Added text shows in green and removed text in red. Save the new version when you have reviewed it.</p></div></div>
     </div>
   </section>
 
-  <section class="sec sec-g">
+  <section class="tp-sec alt">
     <div class="wrap">
-      <div class="head"><h2>Built for quick, private checks</h2><p>No account and no extension. Your saved versions never leave your browser.</p></div>
-      <div class="p2-three"><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 5v14M5 12h14"></path></svg></div><h3>Word-level highlights</h3><p>See the exact words that were added or removed, with a few lines of context around each change.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5.6 5.6l12.8 12.8M12 3a9 9 0 110 18 9 9 0 010-18z"></path></svg></div><h3>Ignores the noise</h3><p>Scripts, styles, menus and footers are left out, so you see changes to the content that matters.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg></div><h3>Your watch list</h3><p>Every page you monitor is listed here. Click one to check it again.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7l8-4z"></path></svg></div><h3>Private by design</h3><p>Saved versions are stored in your own browser, not on our servers.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11zM12 12a2 2 0 100-4 2 2 0 000 4z"></path></svg></div><h3>Any public page</h3><p>Pricing pages, terms, product listings, job posts, documentation or your own site.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 7v5l3 2M12 3a9 9 0 110 18 9 9 0 010-18z"></path></svg></div><h3>Check any time</h3><p>Compare today with the version from last week or last month, whenever you need to.</p></div></div>
+      <div class="tp-head"><span class="tp-eyebrow">What you get</span><h2>Built for quick, private checks</h2><p>No account and no extension. Your saved versions never leave your browser.</p></div>
+      <div class="tp-feats"><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 5v14M5 12h14"></path></svg></div><h3>Word-level highlights</h3><p>See the exact words that were added or removed, with a few lines of context around each change.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M5.6 5.6l12.8 12.8M12 3a9 9 0 110 18 9 9 0 010-18z"></path></svg></div><h3>Ignores the noise</h3><p>Scripts, styles, menus and footers are left out, so you see changes to the content that matters.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"></path></svg></div><h3>Your watch list</h3><p>Every page you monitor is listed here. Click one to check it again.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7l8-4z"></path></svg></div><h3>Private by design</h3><p>Saved versions are stored in your own browser, not on our servers.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11zM12 12a2 2 0 100-4 2 2 0 000 4z"></path></svg></div><h3>Any public page</h3><p>Pricing pages, terms, product listings, job posts, documentation or your own site.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 7v5l3 2M12 3a9 9 0 110 18 9 9 0 010-18z"></path></svg></div><h3>Check any time</h3><p>Compare today with the version from last week or last month, whenever you need to.</p></div></div>
     </div>
   </section>
 
-  <section class="sec sec-w">
+  <section class="tp-sec">
     <div class="wrap">
-      <article class="ft-article">
-<h2>What you can track with a website change monitor</h2>
+      <div class="tp-doc">
+        <article class="ft-article">
+<h2 id="what-you-can-track-with-a-website-change-monitor">What you can track with a website change monitor</h2>
 <ul>
 <li><strong>Competitor pricing and plans.</strong> See when a competitor changes a price, a plan or a feature list.</li>
 <li><strong>Terms, policies and legal pages.</strong> Catch edits to terms of service, privacy policies or partner rules that affect you.</li>
@@ -2648,39 +2795,46 @@
 <li><strong>Your own site.</strong> Confirm that a release changed only what it should, or find text that changed without anyone noticing.</li>
 <li><strong>Regulations and documentation.</strong> Follow pages from regulators, platforms and APIs that publish changes without announcing them.</li>
 </ul>
-<h2>How the comparison works</h2>
+<h2 id="how-the-comparison-works">How the comparison works</h2>
 <p>The tool reads the text of the page, leaves out scripts and, if you choose, menus and footers, then compares it line by line with your saved version. Changed lines are compared word by word, so a new price or a single edited sentence stands out.</p>
-<h2>What it does not do yet</h2>
+<h2 id="what-it-does-not-do-yet">What it does not do yet</h2>
 <p>Checks run when you click the button. There are no email alerts yet, pages behind a login cannot be checked, and text that a page loads with JavaScript after it opens may not appear, because the tool reads the HTML the server sends.</p>
-<h2>Need automatic alerts?</h2>
+<h2 id="need-automatic-alerts">Need automatic alerts?</h2>
 <p>We build monitoring automations that check pages on a schedule and send changes to email, Slack or your CRM, using tools such as n8n. See <a href="/ai-automation">AI automation services</a> if you want this running on its own.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="sec sec-g" id="faq">
-    <div class="wrap">
-      <div class="head"><h2>Website Change Monitor FAQ</h2><p>Straight answers to the questions we hear most.</p></div>
-      <div class="p2-faq"><details open><summary>Is this website change monitor free?</summary><p>Yes. It is free with no sign-up.</p></details><details><summary>Where are my saved versions stored?</summary><p>In your own browser, using local storage. They are not uploaded to our servers. Clearing your browser data or using private browsing removes them.</p></details><details><summary>Will it email me when a page changes?</summary><p>Not yet. Checks run when you click &quot;Check for changes&quot;. If you need scheduled checks with email or Slack alerts, we can build that for you.</p></details><details><summary>Can I monitor a competitor&#x27;s website?</summary><p>Yes, any public page that loads without a login. The tool reads the page the same way a visitor would.</p></details><details><summary>Why do some changes not show up?</summary><p>The tool compares the text in the HTML the server sends. Text added by JavaScript after the page opens, images and styling changes are not compared.</p></details><details><summary>How do I stop monitoring a page?</summary><p>Click Remove next to the page in your watch list. That deletes the saved version from your browser.</p></details></div>
-    </div>
-  </section>
-
-  <section class="sec sec-w">
-    <div class="wrap">
-      <div class="head"><h2>More free tools</h2><p>Free tools we use in our own SEO, email and automation work.</p></div>
-      <div class="ft-tools"><a class="ft-tool" href="/broken-link-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 14a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1.5 1.5M14 10a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1.5-1.5"></path></svg></div><b>Broken Link Checker</b><span>Find dead links, 404s and redirect chains on any page or site.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/xml-sitemap-generator"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"></path></svg></div><b>XML Sitemap Generator</b><span>Crawl your site and download a clean sitemap.xml.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/dns-propagation-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18M12 3a9 9 0 110 18 9 9 0 010-18z"></path></svg></div><b>DNS Propagation Checker</b><span>Check DNS records against resolvers around the world.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/spf-dkim-dmarc-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3zM9 12l2 2 4-4"></path></svg></div><b>SPF, DKIM and DMARC Checker</b><span>Check any domain&#x27;s email authentication in one click. Chrome extension.</span><em>Open tool &rarr;</em></a></div>
-    </div>
-  </section>
-
-  <section class="sec sec-g">
-    <div class="wrap p2-final">
-      <h2>Want changes sent to you automatically?</h2>
-      <p>We build monitoring automations that check pages on a schedule and alert your team by email, Slack or CRM the moment something changes.</p>
-      <div class="ctas">
-        <a class="btn btn-o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="website-change-monitor-final">Book a Free Call &rarr;</a>
-        <a class="btn btn-w" href="/ai-automation">See AI Automation</a>
+        </article>
+        <aside class="tp-aside"><div class="tp-box"><h4>On this page</h4><ul class="tp-toc"><li><a href="#what-you-can-track-with-a-website-change-monitor">What you can track with a website change monitor</a></li><li><a href="#how-the-comparison-works">How the comparison works</a></li><li><a href="#what-it-does-not-do-yet">What it does not do yet</a></li><li><a href="#need-automatic-alerts">Need automatic alerts?</a></li></ul></div><div class="tp-box dark"><h4>Free audit</h4><b>Get a free audit of your site</b><p>We review your SEO, content and conversion gaps and send a prioritized plan within 24 hours. No obligation.</p><a class="tp-btn o full" href="/free-audit">Get my free audit <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></aside>
       </div>
-      <small>30 minutes. Custom recommendation. No strings attached.</small>
+    </div>
+  </section>
+
+  <section class="tp-sec alt" id="faq">
+    <div class="wrap">
+      <div class="tp-faq">
+        <div class="tp-faq-side"><span class="tp-eyebrow">FAQ</span><h2>Website Change Monitor FAQ</h2><p>Straight answers to the questions we hear most. Still stuck? <a href="/contact">Ask our team</a>.</p></div>
+        <div class="tp-faq-list"><details open><summary>Is this website change monitor free?</summary><p>Yes. It is free with no sign-up.</p></details><details><summary>Where are my saved versions stored?</summary><p>In your own browser, using local storage. They are not uploaded to our servers. Clearing your browser data or using private browsing removes them.</p></details><details><summary>Will it email me when a page changes?</summary><p>Not yet. Checks run when you click &quot;Check for changes&quot;. If you need scheduled checks with email or Slack alerts, we can build that for you.</p></details><details><summary>Can I monitor a competitor&#x27;s website?</summary><p>Yes, any public page that loads without a login. The tool reads the page the same way a visitor would.</p></details><details><summary>Why do some changes not show up?</summary><p>The tool compares the text in the HTML the server sends. Text added by JavaScript after the page opens, images and styling changes are not compared.</p></details><details><summary>How do I stop monitoring a page?</summary><p>Click Remove next to the page in your watch list. That deletes the saved version from your browser.</p></details></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tp-sec">
+    <div class="wrap">
+      <div class="tp-head"><span class="tp-eyebrow">Keep going</span><h2>More free tools</h2><p>Free tools we use in our own SEO, email and automation work.</p></div>
+      <div class="tp-tools"><a class="tp-tool" href="/broken-link-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 14a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1.5 1.5M14 10a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1.5-1.5"></path></svg></div><b>Broken Link Checker</b><span>Find dead links, 404s and redirect chains on any page or site.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/xml-sitemap-generator"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"></path></svg></div><b>XML Sitemap Generator</b><span>Crawl your site and download a clean sitemap.xml.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/dns-propagation-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 12h18M12 3a15 15 0 010 18M12 3a15 15 0 000 18M12 3a9 9 0 110 18 9 9 0 010-18z"></path></svg></div><b>DNS Propagation Checker</b><span>Check DNS records against resolvers around the world.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/spf-dkim-dmarc-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3zM9 12l2 2 4-4"></path></svg></div><b>SPF, DKIM and DMARC Checker</b><span>Check any domain&#x27;s email authentication in one click. Chrome extension.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a></div>
+      <p class="tp-more"><a href="/free-seo-tools">See all free SEO tools <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="tp-sec tp-sec-cta">
+    <div class="wrap">
+      <div class="tp-cta">
+        <h2>Want changes sent to you automatically?</h2>
+        <p>We build monitoring automations that check pages on a schedule and alert your team by email, Slack or CRM the moment something changes.</p>
+        <div class="row">
+          <a class="tp-btn o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="website-change-monitor-final">Book a free call <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="tp-btn w" href="/ai-automation">See AI Automation</a>
+        </div>
+        <small>30 minutes. Custom recommendation. No strings attached.</small>
+      </div>
     </div>
   </section>
 
@@ -2948,6 +3102,7 @@
   })();
   </script>
   <script src="/assets/tools/free-tools-1.1.0.js" defer></script>
+  <script src="/assets/tools/ui-kit-1.0.0.js" defer></script>
 
   <!-- Cal floating-popup embed code begins -->
   <script type="text/javascript">

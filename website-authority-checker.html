@@ -2268,6 +2268,152 @@
 .dt-cta-btn:hover{background:#e34a00}
 @media(max-width:900px){.dt-plats{grid-template-columns:1fr}}
 @media(max-width:640px){.dt-grid{grid-template-columns:1fr}.dt-two{grid-template-columns:1fr}.dt-hero{flex-direction:column;text-align:center}.dt-submit,.dt-submit button{width:100%}.dt-opt{width:100%}.dt-opt input{flex:1;width:auto}.dt-bars>div{grid-template-columns:70px 1fr 54px}}
+
+/* premium tool pages (tp-) */
+nav.navbar{background:rgba(255,255,255,.97);box-shadow:0 1px 0 rgba(17,17,19,.06)}
+.tp{--tp-ink:#111113;--tp-body:#55595f;--tp-line:#ebebee;--tp-soft:#f7f7f9;--tp-o:#F45407;--tp-o2:#ff7a3d;font-family:Inter,system-ui,-apple-system,sans-serif}
+.tp .wrap{max-width:1280px;margin:0 auto;padding:0 20px}
+.tp-hero{position:relative;overflow:hidden;background:#0b0b0d;color:#fff;padding:132px 0 76px}
+.tp-hero::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(760px 420px at 88% -12%,rgba(244,84,7,.30),transparent 62%),radial-gradient(620px 360px at -6% 8%,rgba(255,255,255,.07),transparent 60%)}
+.tp-hero::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:linear-gradient(to bottom,#000,transparent 72%);mask-image:linear-gradient(to bottom,#000,transparent 72%)}
+.tp-hero .wrap{position:relative;z-index:1}
+.tp-crumbs{font-size:13px;color:#8d8d93;margin:0 0 22px}.tp-crumbs a{color:#c4c4c9;text-decoration:none}.tp-crumbs a:hover{color:#fff}.tp-crumbs span{color:#8d8d93}
+.tp-badge{display:inline-flex;align-items:center;gap:9px;padding:6px 13px 6px 11px;border-radius:999px;background:rgba(244,84,7,.12);border:1px solid rgba(244,84,7,.38);color:#ffb08a;font-size:13px;font-weight:500;margin:0 0 20px}
+.tp-badge i{width:7px;height:7px;border-radius:50%;background:var(--tp-o);box-shadow:0 0 0 4px rgba(244,84,7,.22)}
+.tp-hero h1{font-size:58px;line-height:1.04;letter-spacing:-.035em;font-weight:700;margin:0 0 18px;color:#fff;max-width:920px}
+.tp-lead{font-size:18.5px;line-height:1.6;color:#b8b8be;max-width:760px;margin:0 0 34px}
+.tp-card{position:relative;background:#fff;color:var(--tp-ink);border-radius:22px;padding:26px;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.08)}
+.tp-trust{display:flex;flex-wrap:wrap;gap:10px 26px;margin:22px 0 0;padding:0;list-style:none;font-size:14px;color:#a9a9b0}
+.tp-trust li{display:inline-flex;align-items:center;gap:8px}.tp-trust svg{width:17px;height:17px;color:#2fd47a;flex:none}
+/* tool controls inside the card */
+.tp-card .ft-input{gap:12px}
+.tp-card .ft-input input,.tp-card .wt-label input[type=text],.tp-card .wt-label input[type=number],.tp-card .wt-label textarea,.tp-card .dt-area,.tp-card .dt-grid input,.tp-card .dt-opt input{background:#f7f7f9;border:1px solid #e6e6ea;color:var(--tp-ink);transition:border-color .15s,box-shadow .15s,background .15s}
+.tp-card .ft-input input{height:58px;border-radius:14px;font-size:16.5px;padding:0 18px}
+.tp-card .ft-input input:focus,.tp-card .wt-label input:focus,.tp-card .wt-label textarea:focus,.tp-card .dt-area:focus,.tp-card .dt-grid input:focus,.tp-card .dt-opt input:focus{background:#fff;border-color:var(--tp-o);box-shadow:0 0 0 4px rgba(244,84,7,.12);outline:none}
+.tp-card .ft-input button,.tp-card .dt-submit button,.tp-card .wt-submit button{height:58px;padding:0 28px;border:0;border-radius:14px;background:linear-gradient(180deg,#ff6a24,#F45407);color:#fff;font-weight:600;font-size:16px;letter-spacing:-.01em;box-shadow:0 10px 24px rgba(244,84,7,.32),inset 0 1px 0 rgba(255,255,255,.22);cursor:pointer;transition:transform .15s,box-shadow .15s,filter .15s}
+.tp-card .ft-input button:hover,.tp-card .dt-submit button:hover,.tp-card .wt-submit button:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(244,84,7,.38),inset 0 1px 0 rgba(255,255,255,.22);filter:saturate(1.05)}
+.tp-card .ft-opts{gap:12px 20px;margin-top:16px;font-size:13.5px;color:#6b6b73}
+.tp-card .ft-opts label{display:inline-flex;align-items:center;gap:10px;font-weight:500}
+.tp-card .ft-opts .ck{gap:8px}
+.tp-card .ft-opts input[type=checkbox]{width:17px;height:17px;border-radius:5px;accent-color:var(--tp-o)}
+.tp-card .dt-opt input{height:42px;border-radius:11px;width:200px}
+.tp-card .dt-area{border-radius:14px;padding:14px 18px}
+.tp-card .dt-grid input{height:54px;border-radius:13px}
+.tp-card .dt-grid label{font-size:13.5px;color:#4b4b52}
+.tp-card .wt-label{font-size:13.5px;color:#4b4b52}
+.tp-card .wt-label textarea,.tp-card .wt-label input[type=text],.tp-card .wt-label input[type=number]{border-radius:13px}
+.tp-card .ft-error{border-radius:12px}
+.tp-card .ft-results{margin-top:24px;border-top:1px solid var(--tp-line);padding-top:22px}
+/* ui-kit dropdown */
+.ui-sel{position:relative;display:inline-block;min-width:170px;vertical-align:middle}
+.ui-sel select.ui-native{position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;left:0;bottom:0}
+.ui-sel-btn{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;height:42px;padding:0 12px 0 14px;border:1px solid #e3e3e8;border-radius:11px;background:#fff;color:#111113;font:inherit;font-size:14.5px;font-weight:500;cursor:pointer;text-align:left;box-shadow:0 1px 2px rgba(16,16,20,.04);transition:border-color .15s,box-shadow .15s}
+.ui-sel-btn:hover{border-color:#cfcfd6}
+.ui-sel-btn:focus-visible,.ui-sel.open .ui-sel-btn{outline:none;border-color:#F45407;box-shadow:0 0 0 4px rgba(244,84,7,.12)}
+.ui-sel-btn .v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ui-sel-btn svg{width:16px;height:16px;flex:none;color:#8a8a92;transition:transform .2s}
+.ui-sel.open .ui-sel-btn svg{transform:rotate(180deg);color:#F45407}
+.ui-pop{position:absolute;z-index:60;top:calc(100% + 8px);left:0;min-width:100%;width:max-content;max-width:min(340px,92vw);background:#fff;border:1px solid #e7e7ec;border-radius:14px;box-shadow:0 24px 60px rgba(16,16,24,.16),0 4px 12px rgba(16,16,24,.06);padding:6px;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity .14s,transform .14s}
+.ui-sel.open .ui-pop{opacity:1;transform:none;pointer-events:auto}
+.ui-sel.up .ui-pop{top:auto;bottom:calc(100% + 8px)}
+.ui-search{display:flex;align-items:center;gap:8px;margin:2px 2px 6px;padding:0 10px;height:38px;border:1px solid #ececf1;border-radius:10px;background:#f7f7f9}
+.ui-search svg{width:15px;height:15px;color:#9a9aa2;flex:none}
+.ui-search input{border:0;background:transparent;outline:none;font:inherit;font-size:14px;width:100%;color:#111113}
+.ui-list{max-height:264px;overflow:auto;overscroll-behavior:contain}
+.ui-opt{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border-radius:9px;font-size:14.5px;color:#26262b;cursor:pointer;white-space:nowrap}
+.ui-opt svg{width:16px;height:16px;color:#F45407;opacity:0;flex:none}
+.ui-opt.on{font-weight:600;color:#111113}.ui-opt.on svg{opacity:1}
+.ui-opt.act{background:#fff3ec;color:#111113}
+.ui-empty{padding:12px;font-size:13.5px;color:#8a8a92}
+.ft-opts .ui-sel{min-width:190px}
+.wt-label .ui-sel{display:block;width:100%}
+.wt-label .ui-sel-btn{height:50px;border-radius:13px;font-size:15px;background:#f7f7f9;border-color:#e6e6ea;box-shadow:none}
+/* sections */
+.tp-sec{padding:104px 0}.tp-sec.alt{background:var(--tp-soft)}
+.tp-sec-cta{padding:8px 0 104px}.tp-sec.alt+.tp-sec-cta{padding-top:104px}
+.tp-head{max-width:760px;margin:0 auto 52px;text-align:center}
+.tp-eyebrow{display:inline-block;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--tp-o);margin:0 0 14px}
+.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:42px;line-height:1.12;letter-spacing:-.03em;font-weight:600;color:var(--tp-ink);margin:0 0 14px}
+.tp-head p{font-size:17.5px;line-height:1.65;color:var(--tp-body);margin:0}
+.tp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tp-step{position:relative;background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:30px 28px 28px}
+.tp-sec.alt .tp-step,.tp-sec.alt .tp-feat{background:#fff}
+.tp-step .n{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:11px;background:#111113;color:#fff;font-weight:600;font-size:15px;margin:0 0 20px;box-shadow:0 6px 16px rgba(17,17,19,.18)}
+.tp-step h3,.tp-feat h3{font-size:18.5px;line-height:1.35;font-weight:600;letter-spacing:-.01em;color:var(--tp-ink);margin:0 0 8px}
+.tp-step p,.tp-feat p{font-size:15.5px;line-height:1.65;color:var(--tp-body);margin:0}
+.tp-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tp-feat{background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:30px 28px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.tp-feat:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+.tp-feat .ic{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,#fff3ec,#ffe2d2);color:var(--tp-o);display:flex;align-items:center;justify-content:center;margin:0 0 20px;box-shadow:inset 0 0 0 1px rgba(244,84,7,.12)}
+.tp-feat .ic svg{width:22px;height:22px}
+.tp-doc{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:64px;align-items:start}
+.tp-doc .ft-article{max-width:none;margin:0}
+.tp-doc .ft-article h2{font-size:32px;font-weight:600;letter-spacing:-.025em;margin:48px 0 14px;scroll-margin-top:100px}
+.tp-doc .ft-article h2:first-child{margin-top:0}
+.tp-doc .ft-article h3{font-size:21px;font-weight:600;margin:30px 0 8px}
+.tp-doc .ft-article p,.tp-doc .ft-article li{font-size:17px;line-height:1.8;color:#3f4247}
+.tp-aside{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
+.tp-box{border:1px solid var(--tp-line);border-radius:18px;padding:24px;background:#fff}
+.tp-box h4{margin:0 0 12px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#8a8a92}
+.tp-toc{list-style:none;margin:0;padding:0;border-left:2px solid var(--tp-line)}
+.tp-toc a{display:block;padding:7px 0 7px 14px;margin-left:-2px;border-left:2px solid transparent;font-size:14.5px;line-height:1.45;color:#4b4b52;text-decoration:none;transition:color .15s,border-color .15s}
+.tp-toc a:hover{color:var(--tp-o);border-left-color:var(--tp-o)}
+.tp-box.dark{position:relative;overflow:hidden;background:#0b0b0d;border-color:#0b0b0d;color:#fff}
+.tp-box.dark::before{content:'';position:absolute;inset:0;background:radial-gradient(300px 200px at 100% 0%,rgba(244,84,7,.35),transparent 70%);pointer-events:none}
+.tp-box.dark>*{position:relative}
+.tp-box.dark h4{color:#ff9a66}
+.tp-box.dark b{display:block;font-size:20px;line-height:1.3;font-weight:600;letter-spacing:-.015em;margin:0 0 8px}
+.tp-box.dark p{font-size:14.5px;line-height:1.6;color:#b8b8be;margin:0 0 18px}
+.tp-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+.tp-btn svg{width:17px;height:17px}
+.tp-btn.o{background:linear-gradient(180deg,#ff6a24,#F45407);color:#fff;box-shadow:0 10px 24px rgba(244,84,7,.32)}
+.tp-btn.o:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(244,84,7,.4)}
+.tp-btn.w{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.tp-btn.w:hover{background:rgba(255,255,255,.14)}
+.tp-btn.full{width:100%}
+.tp-faq{display:grid;grid-template-columns:380px minmax(0,1fr);gap:64px;align-items:start}
+.tp-faq-side{position:sticky;top:100px}
+.tp-faq-side h2{font-size:38px}
+.tp-faq-side p{font-size:16.5px;line-height:1.65;color:var(--tp-body);margin:0 0 22px}
+.tp-faq-side a{color:var(--tp-o);font-weight:600;text-decoration:none}
+.tp-faq-list details{background:#fff;border:1px solid var(--tp-line);border-radius:16px;margin:0 0 12px;transition:border-color .15s,box-shadow .15s}
+.tp-faq-list details[open]{border-color:#f0d3c3;box-shadow:0 14px 34px rgba(17,17,19,.06)}
+.tp-faq-list summary{list-style:none;cursor:pointer;position:relative;padding:20px 58px 20px 22px;font-size:16.5px;font-weight:600;line-height:1.45;color:var(--tp-ink)}
+.tp-faq-list summary::-webkit-details-marker{display:none}
+.tp-faq-list summary::after{content:'';position:absolute;right:20px;top:50%;width:26px;height:26px;margin-top:-13px;border-radius:8px;background:#f4f4f6 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 5v10M5 10h10' stroke='%23F45407' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .2s,background-color .2s}
+.tp-faq-list details[open] summary::after{transform:rotate(45deg);background-color:#fff1e9}
+.tp-faq-list details p{margin:0;padding:0 22px 22px;font-size:15.5px;line-height:1.75;color:var(--tp-body)}
+.tp-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tp-tool{display:flex;flex-direction:column;background:#fff;border:1px solid var(--tp-line);border-radius:18px;padding:24px;text-decoration:none;color:var(--tp-ink);transition:transform .2s,box-shadow .2s,border-color .2s}
+.tp-tool:hover{transform:translateY(-3px);box-shadow:0 22px 50px rgba(17,17,19,.08);border-color:#f2d4c4}
+.tp-tool .ic{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#fff3ec,#ffe2d2);color:var(--tp-o);display:flex;align-items:center;justify-content:center}
+.tp-tool .ic svg{width:21px;height:21px}
+.tp-tool b{font-size:16.5px;font-weight:600;margin:16px 0 6px;letter-spacing:-.01em}
+.tp-tool span{flex:1;font-size:14.5px;line-height:1.55;color:var(--tp-body)}
+.tp-tool em{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-style:normal;font-size:14px;font-weight:600;color:var(--tp-o)}
+.tp-tool em svg{width:15px;height:15px;transition:transform .2s}.tp-tool:hover em svg{transform:translateX(3px)}
+.tp-more{text-align:center;margin:36px 0 0}
+.tp-more a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--tp-ink);text-decoration:none;border-bottom:1px solid #d9d9df;padding-bottom:3px}
+.tp-more a:hover{color:var(--tp-o);border-color:var(--tp-o)}
+.tp-more svg{width:16px;height:16px}
+.tp-cta{position:relative;overflow:hidden;border-radius:28px;background:linear-gradient(135deg,#fff4ec 0%,#fffaf6 45%,#ffffff 100%);border:1px solid #f4dccd;color:var(--tp-ink);padding:76px 48px;text-align:center}
+.tp-cta::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(560px 300px at 50% -30%,rgba(244,84,7,.18),transparent 70%)}
+.tp-cta::after{content:'';position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(244,84,7,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(244,84,7,.07) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%);mask-image:radial-gradient(ellipse at 50% 0%,#000,transparent 65%)}
+.tp-cta>*{position:relative;z-index:1}
+.tp-cta h2{color:var(--tp-ink);max-width:760px;margin:0 auto 14px}
+.tp-cta p{font-size:17.5px;line-height:1.65;color:var(--tp-body);max-width:640px;margin:0 auto 32px}
+.tp-cta .row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.tp-cta .tp-btn.w{background:#fff;color:var(--tp-ink);border:1px solid #e3e3e8;box-shadow:0 1px 2px rgba(16,16,20,.05)}
+.tp-cta .tp-btn.w:hover{border-color:#cfcfd6;background:#fff}
+.tp-cta small{display:block;margin-top:20px;font-size:13.5px;color:#8a8a92}
+.tp-grid-hub{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tp-cat{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:0 0 20px;padding-top:8px}
+.tp-cat h2{font-size:28px;font-weight:600;letter-spacing:-.02em;margin:0;color:var(--tp-ink)}
+.tp-cat span{font-size:14px;color:#8a8a92}
+.tp-cat-block+.tp-cat-block{margin-top:56px}
+@media(max-width:1100px){.tp-doc{grid-template-columns:minmax(0,1fr) 300px;gap:40px}.tp-tools{grid-template-columns:repeat(2,1fr)}.tp-faq{grid-template-columns:300px minmax(0,1fr);gap:40px}}
+@media(max-width:900px){.tp-hero{padding:112px 0 56px}.tp-hero h1{font-size:44px}.tp-steps,.tp-feats{grid-template-columns:1fr 1fr}.tp-doc{grid-template-columns:1fr}.tp-aside{position:static}.tp-faq{grid-template-columns:1fr;gap:28px}.tp-faq-side{position:static}.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:34px}.tp-grid-hub{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.tp-hero{padding:100px 0 44px}.tp-hero h1{font-size:34px}.tp-lead{font-size:16.5px;margin-bottom:26px}.tp-card{padding:16px;border-radius:18px}.tp-card .ft-input{flex-direction:column}.tp-card .ft-input input,.tp-card .ft-input button{flex:0 0 auto;height:54px;width:100%}.tp-card .ft-opts{flex-direction:column;align-items:stretch}.tp-card .ft-opts label{justify-content:space-between}.ft-opts .ui-sel{min-width:0;flex:1}.tp-card .dt-opt input{width:auto;flex:1}.tp-sec{padding:72px 0}.tp-steps,.tp-feats,.tp-tools,.tp-grid-hub{grid-template-columns:1fr}.tp-head{margin-bottom:36px}.tp-head h2,.tp-faq-side h2,.tp-cta h2{font-size:29px}.tp-cta{padding:56px 22px;border-radius:22px}.tp-doc .ft-article h2{font-size:26px}.tp-doc .ft-article p,.tp-doc .ft-article li{font-size:16px}.tp-trust{gap:8px 18px;font-size:13px}.ui-pop{max-width:calc(100vw - 48px)}}
   </style>
   <script>document.documentElement.classList.add('js');</script>
   <style id="nav-fit-1108">.mobile-section-content.active{max-height:2400px}.mega-panel,.mega-sidebar{max-height:min(80vh,620px)}@media (max-width:1180px){.nav-menu{gap:20px}}@media (max-width:1024px){.nav-menu{display:none}.mobile-menu-toggle{display:block}}</style>
@@ -2667,47 +2813,49 @@
   </nav>
   </header>
 
-  <main class="p2">
+  <main class="p2 tp">
 
-  <section class="p2-hero ft-hero">
+  <section class="tp-hero">
     <div class="wrap">
-      <nav class="ft-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/free-seo-tools">Free SEO Tools</a> / <span>Website Authority Checker</span></nav>
-      <div class="p2-badge"><i></i><span>Free tool, no sign-up</span></div>
+      <nav class="tp-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/free-seo-tools">Free SEO Tools</a> / <span>Website Authority Checker</span></nav>
+      <div class="tp-badge"><i></i>Free tool, no sign-up</div>
       <h1>Free Website Authority Checker</h1>
-      <p class="lead">See how strong any domain is: a 0 to 100 authority score based on its backlink profile, with the backlinks, referring domains and spam score behind it.</p>
-      <div class="ft-box" data-dtool="website-authority-checker">
+      <p class="tp-lead">See how strong any domain is: a 0 to 100 authority score based on its backlink profile, with the backlinks, referring domains and spam score behind it.</p>
+      <div class="tp-card ft-box" data-dtool="website-authority-checker">
         <form class="ft-form" novalidate>
           <div class="ft-input"><input name="domain" type="text" inputmode="url" autocomplete="url" maxlength="253" placeholder="Enter a domain, e.g. example.com" aria-label="Domain"><button type="submit">Check authority</button></div>
         </form>
         <p class="ft-error" role="alert" hidden></p>
         <div class="ft-progress" hidden><div class="ft-progress-bar"><span></span></div><p class="ft-progress-text" aria-live="polite"></p></div>
         <div class="ft-results" hidden aria-live="polite"></div>
+        
       </div>
-      <p class="ft-fine">Free and no sign-up. Our own score, not Moz DA or Ahrefs DR.</p>
+      <ul class="tp-trust"><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Free, no sign-up</li><li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Our own score, not Moz DA or Ahrefs DR</li></ul>
     </div>
   </section>
 
-  <section class="sec sec-w">
+  <section class="tp-sec">
     <div class="wrap">
-      <div class="head"><h2>How to use the website authority checker</h2><p>Three steps, and results in under a minute.</p></div>
-      <div class="p2-three"><div class="p2-box"><div class="k">Step 1</div><h3>Enter a domain</h3><p>Type a domain such as example.com. The score covers the whole domain, not a single page.</p></div><div class="p2-box"><div class="k">Step 2</div><h3>Read the score and label</h3><p>Get a score from 0 to 100 and a label from Low to Very strong, so you see where the site stands at a glance.</p></div><div class="p2-box"><div class="k">Step 3</div><h3>Check what is behind it</h3><p>Look at the backlinks, referring domains, dofollow share, spam score and the date the first backlink was seen.</p></div></div>
+      <div class="tp-head"><span class="tp-eyebrow">How it works</span><h2>How to use the website authority checker</h2><p>Three steps, and results in under a minute.</p></div>
+      <div class="tp-steps"><div class="tp-step"><div class="n">1</div><h3>Enter a domain</h3><p>Type a domain such as example.com. The score covers the whole domain, not a single page.</p></div><div class="tp-step"><div class="n">2</div><h3>Read the score and label</h3><p>Get a score from 0 to 100 and a label from Low to Very strong, so you see where the site stands at a glance.</p></div><div class="tp-step"><div class="n">3</div><h3>Check what is behind it</h3><p>Look at the backlinks, referring domains, dofollow share, spam score and the date the first backlink was seen.</p></div></div>
     </div>
   </section>
 
-  <section class="sec sec-g">
+  <section class="tp-sec alt">
     <div class="wrap">
-      <div class="head"><h2>What the authority checker shows</h2><p>One clear score, and the backlink data that explains it.</p></div>
-      <div class="p2-three"><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 14l4-4M5 18.4A8.5 8.5 0 1119 18.4M12 14h.01"></path></svg></div><h3>Authority score</h3><p>A score from 0 to 100 based on the domain&#x27;s backlink profile, built on DataForSEO&#x27;s domain rank.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM17 6h3v2a3 3 0 01-3 3M7 6H4v2a3 3 0 003 3"></path></svg></div><h3>Plain labels</h3><p>Low, Fair, Good, Strong or Very strong, so you can read a score without a lookup table.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 14a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1.5 1.5M14 10a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1.5-1.5"></path></svg></div><h3>Backlinks and referring domains</h3><p>The total links to the domain and the number of different websites they come from.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3zM9 12l2 2 4-4"></path></svg></div><h3>Spam score and link mix</h3><p>Spam score, the share of dofollow links and the number of referring IPs.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"></path></svg></div><h3>Top TLDs and countries</h3><p>Which domain endings and countries the domain&#x27;s links come from most.</p></div><div class="p2-box"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 7v5l3 2M12 3a9 9 0 110 18 9 9 0 010-18z"></path></svg></div><h3>First backlink seen</h3><p>The date the first backlink to the domain was seen, a rough guide to how long it has been earning links.</p></div></div>
+      <div class="tp-head"><span class="tp-eyebrow">What you get</span><h2>What the authority checker shows</h2><p>One clear score, and the backlink data that explains it.</p></div>
+      <div class="tp-feats"><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 14l4-4M5 18.4A8.5 8.5 0 1119 18.4M12 14h.01"></path></svg></div><h3>Authority score</h3><p>A score from 0 to 100 based on the domain&#x27;s backlink profile, built on DataForSEO&#x27;s domain rank.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0V4zM17 6h3v2a3 3 0 01-3 3M7 6H4v2a3 3 0 003 3"></path></svg></div><h3>Plain labels</h3><p>Low, Fair, Good, Strong or Very strong, so you can read a score without a lookup table.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 14a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1.5 1.5M14 10a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1.5-1.5"></path></svg></div><h3>Backlinks and referring domains</h3><p>The total links to the domain and the number of different websites they come from.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3zM9 12l2 2 4-4"></path></svg></div><h3>Spam score and link mix</h3><p>Spam score, the share of dofollow links and the number of referring IPs.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"></path></svg></div><h3>Top TLDs and countries</h3><p>Which domain endings and countries the domain&#x27;s links come from most.</p></div><div class="tp-feat"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 7v5l3 2M12 3a9 9 0 110 18 9 9 0 010-18z"></path></svg></div><h3>First backlink seen</h3><p>The date the first backlink to the domain was seen, a rough guide to how long it has been earning links.</p></div></div>
     </div>
   </section>
 
-  <section class="sec sec-w">
+  <section class="tp-sec">
     <div class="wrap">
-      <article class="ft-article">
-<h2>What is website authority?</h2>
+      <div class="tp-doc">
+        <article class="ft-article">
+<h2 id="what-is-website-authority">What is website authority?</h2>
 <p>Website authority is a score that sums up how strong a domain's backlink profile is. A site that earns links from many established, trusted websites scores higher. A site with few links, or with links mostly from weak sites, scores lower.</p>
 <p>The score is an estimate made by SEO tools, not a number from Google. Google does not use any third-party authority score to rank pages. It is still useful: links are one of the signals search engines use, and a single number makes it quick to compare sites and to track your own progress.</p>
-<h2>How our authority score works</h2>
+<h2 id="how-our-authority-score-works">How our authority score works</h2>
 <p>The checker gives each domain a score from 0 to 100. It is based on DataForSEO's domain rank, which is calculated from the domain's backlink profile. Every score also gets a label, so you can read it at a glance:</p>
 <ul>
 <li><strong>0 to 19:</strong> Low</li>
@@ -2717,13 +2865,13 @@
 <li><strong>80 to 100:</strong> Very strong</li>
 </ul>
 <p>Next to the score you see the data behind it: total backlinks, referring domains, the share of dofollow links, referring IPs, spam score, the top referring TLDs and countries, and the date the first backlink was seen. Because the score comes from links, a new site starts low even when its content is excellent.</p>
-<h2>Is this the same as Domain Authority or Domain Rating?</h2>
+<h2 id="is-this-the-same-as-domain-authority-or-domain-rating">Is this the same as Domain Authority or Domain Rating?</h2>
 <p>No. If you searched for a domain authority checker or a domain rating checker, this tool answers the same question: how strong is this site's link profile? But the number is our own measure. It is not Moz Domain Authority and not Ahrefs Domain Rating, and the numbers will differ.</p>
 <p>Each SEO tool has its own link data and its own formula, so the same site can score quite differently from one tool to the next. That is normal. The rule is simple: compare sites with the same tool, and do not compare our score with a DA or DR number.</p>
-<h2>What is a good website authority score?</h2>
+<h2 id="what-is-a-good-website-authority-score">What is a good website authority score?</h2>
 <p>There is no single good number. A local plumber does not need the authority of a national news site to rank in its own city, and a software company competes against very different sites than a recipe blog does. What matters is how you compare with the sites you compete against in search.</p>
 <p>To find your real benchmark, run your main keyword through the <a href="/serp-checker">SERP checker</a> to see which domains rank in the Google top 10, then check those domains here so every score comes from the same tool. If the sites above you score far higher, links are likely part of the gap. If they score about the same, look at your content and search intent first.</p>
-<h2>How to use the authority checker</h2>
+<h2 id="how-to-use-the-authority-checker">How to use the authority checker</h2>
 <p>The score is most useful when you compare. Here are four practical ways to use it:</p>
 <ol>
 <li><strong>Benchmark your site.</strong> Check your domain and your main competitors, and note each score, label and number of referring domains.</li>
@@ -2731,7 +2879,7 @@
 <li><strong>Look at a domain's history.</strong> The date the first backlink was seen is a rough guide to how long a site has been earning links, which helps when you judge a partner or a domain you plan to buy.</li>
 <li><strong>Track your progress.</strong> Check your domain again every month or so. Authority grows as you earn links from new referring domains, so watch that number alongside the score.</li>
 </ol>
-<h2>How to raise your website authority</h2>
+<h2 id="how-to-raise-your-website-authority">How to raise your website authority</h2>
 <p>Because the score comes from links, the lasting way to raise it is to earn links from relevant, trusted websites. Buying links that pass ranking value goes against Google's spam policies and can do more harm than good.</p>
 <ul>
 <li><strong>Publish things people cite:</strong> original data, clear guides, tools and templates in your field.</li>
@@ -2740,33 +2888,40 @@
 <li><strong>Keep linked pages alive:</strong> make sure pages that earned links still load, or redirect them to the closest live page.</li>
 </ul>
 <p>Raising authority takes steady work over months, not a single campaign. If you want a team to plan and earn those links with you, see our <a href="/seo-services">SEO services</a>.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="sec sec-g" id="faq">
-    <div class="wrap">
-      <div class="head"><h2>Website Authority Checker FAQ</h2><p>Straight answers to the questions we hear most.</p></div>
-      <div class="p2-faq"><details open><summary>Is the website authority checker free?</summary><p>Yes. It is free with no sign-up and no email needed. Each visitor gets a daily allowance of free checks that resets at 00:00 UTC.</p></details><details><summary>Is this the same as Moz DA or Ahrefs DR?</summary><p>No. It is our own measure, based on DataForSEO&#x27;s domain rank, so the numbers will differ from Moz Domain Authority and Ahrefs Domain Rating. Compare sites with the same tool.</p></details><details><summary>What is a good website authority score?</summary><p>It depends on your market. Compare your score with the sites that rank for your main keywords rather than with a fixed number.</p></details><details><summary>Does Google use authority scores?</summary><p>No. Google does not use third-party authority scores to rank pages. The score is an estimate of backlink strength that helps you compare sites and track progress.</p></details><details><summary>Where does the data come from?</summary><p>Live data from DataForSEO, a data provider used by many SEO tools. Backlink data is cached for up to 3 days, so repeat checks are instant.</p></details><details><summary>Why has my score not changed after I earned new links?</summary><p>Crawlers need time to find new links, and results are cached for up to 3 days. Check again in a few weeks and watch the trend rather than a single day.</p></details><details><summary>Can I check the authority of a single page?</summary><p>This tool scores whole domains. To see the links that point to one page, use the backlink checker with the full page URL.</p></details></div>
-    </div>
-  </section>
-
-  <section class="sec sec-w">
-    <div class="wrap">
-      <div class="head"><h2>More free tools</h2><p>Free tools we use in our own SEO, AI search and automation work. <a href="/free-seo-tools">See all free SEO tools</a>.</p></div>
-      <div class="ft-tools"><a class="ft-tool" href="/backlink-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 14a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1.5 1.5M14 10a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1.5-1.5"></path></svg></div><b>Backlink Checker</b><span>See the strongest backlinks to any website or page.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/serp-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4"></path></svg></div><b>SERP Checker</b><span>See the live Google top 10 for any keyword and country.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/website-traffic-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 20V11M10 20V5M16 20v-6M3 20h18"></path></svg></div><b>Website Traffic Checker</b><span>Estimate any site&#x27;s organic traffic, top keywords and top pages.</span><em>Open tool &rarr;</em></a><a class="ft-tool" href="/keyword-difficulty-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 14l4-4M5 18.4A8.5 8.5 0 1119 18.4M12 14h.01"></path></svg></div><b>Keyword Difficulty Checker</b><span>See how hard it is to reach the top 10 for any keyword.</span><em>Open tool &rarr;</em></a></div>
-    </div>
-  </section>
-
-  <section class="sec sec-g">
-    <div class="wrap p2-final">
-      <h2>Want to build authority the right way?</h2>
-      <p>Our SEO team earns quality links from relevant, trusted sites through outreach and content people want to cite.</p>
-      <div class="ctas">
-        <a class="btn btn-o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="website-authority-checker-final">Book a Free Call &rarr;</a>
-        <a class="btn btn-w" href="/seo-services">See SEO Services</a>
+        </article>
+        <aside class="tp-aside"><div class="tp-box"><h4>On this page</h4><ul class="tp-toc"><li><a href="#what-is-website-authority">What is website authority?</a></li><li><a href="#how-our-authority-score-works">How our authority score works</a></li><li><a href="#is-this-the-same-as-domain-authority-or-domain-rating">Is this the same as Domain Authority or Domain Rating?</a></li><li><a href="#what-is-a-good-website-authority-score">What is a good website authority score?</a></li><li><a href="#how-to-use-the-authority-checker">How to use the authority checker</a></li><li><a href="#how-to-raise-your-website-authority">How to raise your website authority</a></li></ul></div><div class="tp-box dark"><h4>Free audit</h4><b>Get a free audit of your site</b><p>We review your SEO, content and conversion gaps and send a prioritized plan within 24 hours. No obligation.</p><a class="tp-btn o full" href="/free-audit">Get my free audit <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></aside>
       </div>
-      <small>30 minutes. Custom recommendation. No strings attached.</small>
+    </div>
+  </section>
+
+  <section class="tp-sec alt" id="faq">
+    <div class="wrap">
+      <div class="tp-faq">
+        <div class="tp-faq-side"><span class="tp-eyebrow">FAQ</span><h2>Website Authority Checker FAQ</h2><p>Straight answers to the questions we hear most. Still stuck? <a href="/contact">Ask our team</a>.</p></div>
+        <div class="tp-faq-list"><details open><summary>Is the website authority checker free?</summary><p>Yes. It is free with no sign-up and no email needed. Each visitor gets a daily allowance of free checks that resets at 00:00 UTC.</p></details><details><summary>Is this the same as Moz DA or Ahrefs DR?</summary><p>No. It is our own measure, based on DataForSEO&#x27;s domain rank, so the numbers will differ from Moz Domain Authority and Ahrefs Domain Rating. Compare sites with the same tool.</p></details><details><summary>What is a good website authority score?</summary><p>It depends on your market. Compare your score with the sites that rank for your main keywords rather than with a fixed number.</p></details><details><summary>Does Google use authority scores?</summary><p>No. Google does not use third-party authority scores to rank pages. The score is an estimate of backlink strength that helps you compare sites and track progress.</p></details><details><summary>Where does the data come from?</summary><p>Live data from DataForSEO, a data provider used by many SEO tools. Backlink data is cached for up to 3 days, so repeat checks are instant.</p></details><details><summary>Why has my score not changed after I earned new links?</summary><p>Crawlers need time to find new links, and results are cached for up to 3 days. Check again in a few weeks and watch the trend rather than a single day.</p></details><details><summary>Can I check the authority of a single page?</summary><p>This tool scores whole domains. To see the links that point to one page, use the backlink checker with the full page URL.</p></details></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tp-sec">
+    <div class="wrap">
+      <div class="tp-head"><span class="tp-eyebrow">Keep going</span><h2>More free tools</h2><p>Free tools we use in our own SEO, AI search and automation work.</p></div>
+      <div class="tp-tools"><a class="tp-tool" href="/backlink-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M10 14a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1.5 1.5M14 10a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1.5-1.5"></path></svg></div><b>Backlink Checker</b><span>See the strongest backlinks to any website or page.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/serp-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M11 4a7 7 0 100 14 7 7 0 000-14zM20 20l-4-4"></path></svg></div><b>SERP Checker</b><span>See the live Google top 10 for any keyword and country.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/website-traffic-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 20V11M10 20V5M16 20v-6M3 20h18"></path></svg></div><b>Website Traffic Checker</b><span>Estimate any site&#x27;s organic traffic, top keywords and top pages.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a><a class="tp-tool" href="/keyword-difficulty-checker"><div class="ic"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 14l4-4M5 18.4A8.5 8.5 0 1119 18.4M12 14h.01"></path></svg></div><b>Keyword Difficulty Checker</b><span>See how hard it is to reach the top 10 for any keyword.</span><em>Open tool <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></em></a></div>
+      <p class="tp-more"><a href="/free-seo-tools">See all free SEO tools <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="tp-sec tp-sec-cta">
+    <div class="wrap">
+      <div class="tp-cta">
+        <h2>Want to build authority the right way?</h2>
+        <p>Our SEO team earns quality links from relevant, trusted sites through outreach and content people want to cite.</p>
+        <div class="row">
+          <a class="tp-btn o" href="https://cal.com/zeeshanwaheed/30min" data-px-cal data-plan="website-authority-checker-final">Book a free call <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="tp-btn w" href="/seo-services">See SEO Services</a>
+        </div>
+        <small>30 minutes. Custom recommendation. No strings attached.</small>
+      </div>
     </div>
   </section>
 
@@ -3034,6 +3189,7 @@
   })();
   </script>
   <script src="/assets/tools/data-tools-1.0.1.js" defer></script>
+  <script src="/assets/tools/ui-kit-1.0.0.js" defer></script>
 
   <!-- Cal floating-popup embed code begins -->
   <script type="text/javascript">
