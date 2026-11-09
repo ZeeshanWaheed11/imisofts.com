@@ -183,6 +183,15 @@ function crumbHost(bc) {
   const m = str(bc).replace(/\s+/g, ' ').trim().match(/^(?:https?:\/\/)?((?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,63})(?=$|[\s›/>:])/i);
   return m ? bare(m[1]) : '';
 }
+// Sites whose Google result shows a name instead of a URL (forums, social, video).
+const KNOWN = { reddit: 'reddit.com', youtube: 'youtube.com', quora: 'quora.com', linkedin: 'linkedin.com', facebook: 'facebook.com',
+  instagram: 'instagram.com', tiktok: 'tiktok.com', x: 'x.com', twitter: 'x.com', medium: 'medium.com', wikipedia: 'wikipedia.org',
+  github: 'github.com', 'stack overflow': 'stackoverflow.com', g2: 'g2.com', capterra: 'capterra.com', trustpilot: 'trustpilot.com',
+  clutch: 'clutch.co', upwork: 'upwork.com', fiverr: 'fiverr.com', indeed: 'indeed.com', amazon: 'amazon.com', pinterest: 'pinterest.com' };
+function knownHost(name) {
+  const k = str(name).split(/\s[\u00b7\u203a|-]\s|\s\u00b7|\u00b7/)[0].trim().toLowerCase();
+  return Object.prototype.hasOwnProperty.call(KNOWN, k) ? KNOWN[k] : '';
+}
 export function where(i) {
   const url = str(i && i.url);
   const dom = bare(i && i.domain);
@@ -192,7 +201,7 @@ export function where(i) {
     for (const k of ['url', 'q', 'u']) { const v = u.searchParams.get(k); if (v && /^https?:\/\//i.test(v)) return { url: v, domain: hostOf(v) }; }
   } catch (e) { /* fall through */ }
   if (dom && !GOOGLE.test(dom)) return { url, domain: dom };
-  return { url, domain: crumbHost(i && i.breadcrumb) || crumbHost(i && i.website_name) };
+  return { url, domain: crumbHost(i && i.breadcrumb) || crumbHost(i && i.website_name) || knownHost(i && i.website_name) || knownHost(i && i.source) };
 }
 
 function organic(items, limit) {
