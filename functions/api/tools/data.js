@@ -7,11 +7,11 @@
 const API = 'https://api.dataforseo.com/v3/';
 const ORIGINS = [/^https:\/\/imisofts\.com$/, /^https:\/\/www\.imisofts\.com$/, /^https:\/\/[a-z0-9-]+\.imisofts-com\.pages\.dev$/];
 const DAY = 86400;
-const VISITOR_UNITS = 25;   // per visitor (IP) per UTC day; cached answers are free
+const VISITOR_UNITS = 40;   // per visitor (IP) per UTC day; cached answers are free
 const COLO_UNITS = 800;     // per Cloudflare data center per UTC day; the DataForSEO daily cap sits behind this
 const CACHE_NAME = 'imisofts-data-tools';
 const KEY_BASE = 'https://imisofts.com/__data-tools/';
-const V = 'v1';             // bump to drop every cached answer
+const V = 'v2';             // bump to drop every cached answer
 
 class UserError extends Error {}
 class ApiError extends Error {
@@ -173,16 +173,41 @@ function trend(ki) {
 
 function serpItems(res) { return (res && res[0] && Array.isArray(res[0].items)) ? res[0].items : []; }
 
+// Google now wraps result links as google.com/goto?url=<token>. The link still works for a click,
+// but the real site has to come from the breadcrumb (or the domain field when it is not Google's).
+const GOOGLE = /(^|\.)google\.[a-z]{2,3}(\.[a-z]{2})?$/;
+function isWrapped(url) {
+  try { const u = new URL(url); return GOOGLE.test(u.hostname) && /^\/(goto|url)$/.test(u.pathname); } catch (e) { return false; }
+}
+function crumbHost(bc) {
+  const m = str(bc).replace(/\s+/g, ' ').trim().match(/^(?:https?:\/\/)?((?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,63})(?=$|[\s›/>:])/i);
+  return m ? bare(m[1]) : '';
+}
+export function where(i) {
+  const url = str(i && i.url);
+  const dom = bare(i && i.domain);
+  if (!isWrapped(url)) return { url, domain: dom || hostOf(url) };
+  try {
+    const u = new URL(url);
+    for (const k of ['url', 'q', 'u']) { const v = u.searchParams.get(k); if (v && /^https?:\/\//i.test(v)) return { url: v, domain: hostOf(v) }; }
+  } catch (e) { /* fall through */ }
+  if (dom && !GOOGLE.test(dom)) return { url, domain: dom };
+  return { url, domain: crumbHost(i && i.breadcrumb) || crumbHost(i && i.website_name) };
+}
+
 function organic(items, limit) {
-  return (items || []).filter((i) => i && i.type === 'organic').slice(0, limit || 100).map((i) => ({
-    pos: num(i.rank_group), title: clip(i.title, 160), url: str(i.url), domain: bare(i.domain || hostOf(i.url)), desc: clip(i.description, 280),
-  }));
+  return (items || []).filter((i) => i && i.type === 'organic').slice(0, limit || 100).map((i) => {
+    const w = where(i);
+    return { pos: num(i.rank_group), title: clip(i.title, 160), url: w.url, domain: w.domain, site: clip(i.website_name, 60) || null, crumb: clip(i.breadcrumb, 120) || null, desc: clip(i.description, 280) };
+  });
 }
 
 function mdToText(md) {
   return clip(str(md)
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/\[\]\([^)]*\)/g, '')
+    .replace(/`+/g, '')
     .replace(/\[\d+(,\s*\d+)*\]/g, '')
     .replace(/^#{1,6}\s*/gm, '')
     .replace(/\*\*|__/g, '')
@@ -204,7 +229,8 @@ function aiSources(item) {
     if (Array.isArray(node)) { node.forEach((n) => walk(n, depth + 1)); return; }
     if (typeof node.url === 'string' && /^https?:\/\//.test(node.url)) {
       const key = node.url.split('#')[0];
-      const row = { title: clip(node.title || node.source || hostOf(node.url), 140), url: node.url, domain: hostOf(node.url), source: node.source ? clip(node.source, 60) : null };
+      const w = where(node);
+      const row = { title: clip(node.title || node.source || w.domain || 'Source', 140), url: w.url, domain: w.domain, source: node.source ? clip(node.source, 60) : null };
       if (node.type === 'ai_overview_reference' && !seen.has(key)) { seen.add(key); refs.push(row); }
       else if (node.type === 'link_element' && !seen.has('l:' + key)) { seen.add('l:' + key); links.push(row); }
     }
@@ -213,6 +239,16 @@ function aiSources(item) {
   const have = new Set(refs.map((r) => r.url.split('#')[0]));
   links.forEach((l) => { if (!have.has(l.url.split('#')[0])) { have.add(l.url.split('#')[0]); refs.push(l); } });
   return refs.slice(0, 30);
+}
+
+function compact(s) { return str(s).toLowerCase().replace(/[^a-z0-9]/g, ''); }
+// A cited source belongs to the user's site when its domain matches, or (for Google-wrapped links with
+// no domain) when the source name is the site's name, e.g. "Imisofts" for imisofts.com.
+function isMine(s, dom) {
+  if (!s || !dom) return false;
+  if (s.domain) return sameSite(s.domain, dom);
+  const base = compact(dom.split('.')[0]);
+  return base.length >= 3 && (compact(s.source) === base || compact(s.title) === base);
 }
 
 function llmText(res) {
@@ -394,8 +430,8 @@ export const TOOLS = {
       const lists = await Promise.all(n.keywords.map(async (k) => {
         try {
           const res = await call('serp/google/organic/live/regular', { keyword: enc(k), location_code: loc, language_code: lang, device: n.device, depth: 100 });
-          return { keyword: k, results: organic(serpItems(res), 100).map((o) => ({ pos: o.pos, url: o.url, domain: o.domain, title: o.title })) };
-        } catch (e) { if (isFatal(e)) throw e; return { keyword: k, error: true, results: [] }; }
+          return { keyword: k, results: organic(serpItems(res), 100).map((o) => ({ pos: o.pos, url: o.url, domain: o.domain, title: o.title, crumb: o.crumb })) };
+        } catch (e) { if (isFatal(e)) throw e; return { keyword: k, error: true, code: String(e && e.code != null ? e.code : 'error'), results: [] }; }
       }));
       if (lists.every((l) => l.error)) throw new ApiError('allfailed', 'All keyword checks failed');
       return { country: n.country, device: n.device, lists };
@@ -404,9 +440,9 @@ export const TOOLS = {
       return {
         domain: n.domain, country: d.country, device: d.device,
         rows: d.lists.map((l) => {
-          if (l.error) return { keyword: l.keyword, error: true };
+          if (l.error) return { keyword: l.keyword, error: true, code: l.code || null };
           const mine = l.results.filter((o) => sameSite(o.domain, n.domain));
-          return { keyword: l.keyword, pos: mine.length ? mine[0].pos : null, url: mine.length ? mine[0].url : null, title: mine.length ? mine[0].title : null, more: mine.slice(1, 4).map((m) => m.pos), top: l.results.slice(0, 3), checked: l.results.length };
+          return { keyword: l.keyword, pos: mine.length ? mine[0].pos : null, url: mine.length ? mine[0].url : null, title: mine.length ? mine[0].title : null, crumb: mine.length ? mine[0].crumb : null, domain: mine.length ? mine[0].domain : null, more: mine.slice(1, 4).map((m) => m.pos), top: l.results.slice(0, 3), checked: l.results.length };
         }),
       };
     },
@@ -484,7 +520,7 @@ export const TOOLS = {
     post(d, n) {
       d.domain = n.domain;
       if (n.domain) {
-        const hit = (d.sources || []).findIndex((s) => sameSite(s.domain, n.domain));
+        const hit = (d.sources || []).findIndex((s) => isMine(s, n.domain));
         d.cited = d.has ? (hit >= 0 ? hit + 1 : 0) : null;
         const o = d.organic.find((x) => sameSite(x.domain, n.domain));
         d.your_pos = o ? o.pos : null;
@@ -507,7 +543,7 @@ export const TOOLS = {
     post(d, n) {
       d.domain = n.domain;
       if (n.domain) {
-        const hit = d.sources.findIndex((s) => sameSite(s.domain, n.domain));
+        const hit = d.sources.findIndex((s) => isMine(s, n.domain));
         d.cited = d.has ? (hit >= 0 ? hit + 1 : 0) : null;
       }
       return d;
@@ -537,7 +573,7 @@ export const TOOLS = {
           const x = llmText(await call(path, task, 80000));
           if (!x.text) return { id, name, ok: false };
           return { id, name, ok: true, text: clip(x.text, 6000), sources: x.sources.slice(0, 20) };
-        } catch (e) { if (isFatal(e)) throw e; return { id, name, ok: false }; }
+        } catch (e) { if (isFatal(e)) throw e; return { id, name, ok: false, code: String(e && e.code != null ? e.code : 'error') }; }
       }));
       if (!platforms.some((p) => p.ok)) throw new ApiError('allfailed', 'No assistant answered');
       return { prompt: n.prompt, country: n.country, platforms };
@@ -606,9 +642,12 @@ export const TOOLS = {
         rows.push({ k, v: num((kd.keyword_info || {}).search_volume), depth: num(it.depth) });
       });
       rows.sort((a, b) => (b.v || 0) - (a.v || 0));
+      const seedWords = n.keyword.split(' ').filter((w) => w.length >= 3);
+      const close = rows.filter((r) => seedWords.some((w) => (' ' + r.k + ' ').includes(' ' + w)));
+      const keep = close.length >= 10 ? close : rows;
       const sd = res.seed_keyword_data || null;
       const sinfo = sd ? (sd.keyword_info || (sd.keyword_data || {}).keyword_info || {}) : {};
-      return { keyword: n.keyword, country: n.country, seed: sd ? { k: n.keyword, v: num(sinfo.search_volume) } : null, rows };
+      return { keyword: n.keyword, country: n.country, seed: sd ? { k: n.keyword, v: num(sinfo.search_volume) } : null, rows: keep };
     },
   },
 
@@ -647,8 +686,8 @@ export const TOOLS = {
         try {
           const res = await call('serp/google/organic/live/regular', { keyword: '"' + enc(s) + '"', location_code: 2840, language_code: 'en', depth: 10 });
           const r0 = res[0] || {};
-          return { s, spell: (r0.spell && r0.spell.type) || null, hits: organic(r0.items || [], 10).map((o) => ({ url: o.url, title: o.title, domain: o.domain, desc: o.desc })) };
-        } catch (e) { if (isFatal(e)) throw e; return { s, error: true, hits: [] }; }
+          return { s, spell: (r0.spell && r0.spell.type) || null, hits: organic(r0.items || [], 10).map((o) => ({ url: o.url, title: o.title, domain: o.domain, crumb: o.crumb, desc: o.desc })) };
+        } catch (e) { if (isFatal(e)) throw e; return { s, error: true, code: String(e && e.code != null ? e.code : 'error'), hits: [] }; }
       }));
       if (rows.every((r) => r.error)) throw new ApiError('allfailed', 'All sentence checks failed');
       return { rows };
@@ -657,9 +696,9 @@ export const TOOLS = {
       const agg = {};
       const rows = d.rows.map((r) => {
         const fallback = r.spell && /no_results|showing_results|including_results/.test(r.spell);
-        const matches = (r.error || fallback) ? [] : r.hits.filter((h) => !(n.exclude && sameSite(h.domain, n.exclude)) && phraseHit(r.s, h.title + ' ' + h.desc)).map((h) => ({ url: h.url, title: h.title, domain: h.domain }));
-        matches.forEach((m) => { const k = m.url; agg[k] = agg[k] || { url: m.url, title: m.title, domain: m.domain, count: 0 }; agg[k].count++; });
-        return { s: r.s, error: !!r.error, matches: matches.slice(0, 5) };
+        const matches = (r.error || fallback) ? [] : r.hits.filter((h) => !(n.exclude && sameSite(h.domain, n.exclude)) && phraseHit(r.s, h.title + ' ' + h.desc)).map((h) => ({ url: h.url, title: h.title, domain: h.domain, crumb: h.crumb }));
+        matches.forEach((m) => { const k = m.url; agg[k] = agg[k] || { url: m.url, title: m.title, domain: m.domain, crumb: m.crumb, count: 0 }; agg[k].count++; });
+        return { s: r.s, error: !!r.error, code: r.code || null, matches: matches.slice(0, 5) };
       });
       const checked = rows.filter((r) => !r.error).length;
       const found = rows.filter((r) => r.matches.length).length;
