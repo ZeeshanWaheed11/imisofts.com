@@ -11,7 +11,7 @@ const VISITOR_UNITS = 40;   // per visitor (IP) per UTC day; cached answers are 
 const COLO_UNITS = 800;     // per Cloudflare data center per UTC day; the DataForSEO daily cap sits behind this
 const CACHE_NAME = 'imisofts-data-tools';
 const KEY_BASE = 'https://imisofts.com/__data-tools/';
-const V = 'v2';             // bump to drop every cached answer
+const V = 'v3';             // bump to drop every cached answer
 
 class UserError extends Error {}
 class ApiError extends Error {
@@ -212,15 +212,16 @@ function organic(items, limit) {
 }
 
 function mdToText(md) {
+  // Citation markers go first: Google writes them as [[1]](url), which would otherwise leave [](url) behind.
   return clip(str(md)
+    .replace(/\[\d+(,\s*\d+)*\]/g, '')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
     .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
     .replace(/\[\]\([^)]*\)/g, '')
     .replace(/`+/g, '')
-    .replace(/\[\d+(,\s*\d+)*\]/g, '')
-    .replace(/^#{1,6}\s*/gm, '')
+    .replace(/^#{1,6}[ \t]*/gm, '')
     .replace(/\*\*|__/g, '')
-    .replace(/^\s*[*-]\s+/gm, '• ')
+    .replace(/^[ \t]*[*-][ \t]+/gm, '• ')
     .replace(/[ \t]+\n/g, '\n')
     .replace(/\n{3,}/g, '\n\n'), 6000);
 }
@@ -579,7 +580,14 @@ export const TOOLS = {
       ];
       const platforms = await Promise.all(P.map(async ([id, name, path, task]) => {
         try {
-          const x = llmText(await call(path, task, 80000));
+          let res;
+          try { res = await call(path, task, 80000); }
+          catch (e) {
+            // Gemini's web search sometimes fails upstream (50301); one retry without it still gives an answer.
+            if (isFatal(e) || !task.web_search || id !== 'gemini') throw e;
+            res = await call(path, Object.assign({}, task, { web_search: false }), 60000);
+          }
+          const x = llmText(res);
           if (!x.text) return { id, name, ok: false };
           return { id, name, ok: true, text: clip(x.text, 6000), sources: x.sources.slice(0, 20) };
         } catch (e) { if (isFatal(e)) throw e; return { id, name, ok: false, code: String(e && e.code != null ? e.code : 'error') }; }
