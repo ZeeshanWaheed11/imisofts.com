@@ -1,0 +1,49 @@
+# One-off, 2026-11-09: point the 14 data tool pages at data-tools-1.0.1.js (shows the real site for Google's
+# new google.com/goto result links). /assets/* is cached for a year, so the fix ships under a new file name.
+# Only replaces the script path; idempotent.
+name: One-off 2026-11-09 data tools script 1.0.1
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1109-data-js.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  swap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Swap the script path
+        run: |
+          python3 - <<'PY'
+          import os
+          PAGES = ['keyword-generator', 'keyword-difficulty-checker', 'serp-checker', 'keyword-rank-checker', 'website-traffic-checker', 'youtube-keyword-tool', 'amazon-keyword-tool', 'bing-keyword-tool', 'backlink-checker', 'website-authority-checker', 'ai-overview-tracker', 'ai-mode-tracker', 'ai-visibility-checker', 'plagiarism-checker']
+          if not os.path.exists('assets/tools/data-tools-1.0.1.js'):
+              raise SystemExit('upload assets/tools/data-tools-1.0.1.js first')
+          old, new = '/assets/tools/data-tools-1.0.0.js', '/assets/tools/data-tools-1.0.1.js'
+          changed = 0
+          for slug in PAGES:
+              p = slug + '.html'
+              s = open(p, encoding='utf-8').read()
+              if new in s:
+                  continue
+              if s.count(old) != 1:
+                  raise SystemExit('unexpected script tag count in ' + p)
+              open(p, 'w', encoding='utf-8').write(s.replace(old, new))
+              changed += 1
+          print('pages switched to 1.0.1:', changed)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "imisofts-tools-bot"
+          git config user.email "tools-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "tools: data tool pages load data-tools-1.0.1.js"
+            git pull --rebase origin main
+            git push
+          fi
