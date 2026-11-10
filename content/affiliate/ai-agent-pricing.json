@@ -1,0 +1,123 @@
+{
+ "slug": "ai-agent-pricing",
+ "title": "AI Agent Pricing: Agentforce, Copilot Studio, Fin, Zendesk",
+ "desc": "AI agent pricing from the vendors' own pages: Agentforce $0.10 an action, Copilot Studio $0.01 a credit, Fin $0.99 an outcome, Zendesk resolution allowances.",
+ "date": "2026-11-10",
+ "time": "13:45",
+ "keywords": "ai agent pricing, ai agent cost, how much does an ai agent cost, agentforce pricing, copilot studio pricing, fin ai agent pricing, zendesk ai agent pricing, pay per resolution, ai agent pricing models",
+ "category": "Guides",
+ "affiliate_url": "",
+ "cta": "Want your chat volume priced against each AI agent meter before you pick a platform?",
+ "read_time": 8,
+ "body": "<p><strong>Short answer.</strong> AI agent pricing now runs on a handful of meters: per action, per credit, per outcome or resolution, per conversation and per user. On their own pages on 10 November 2026, <a href=\"https://www.salesforce.com/agentforce/pricing/\" rel=\"noopener\">Salesforce sells Agentforce Flex Credits at $500 per 100,000</a>, which works out to $0.10 for a standard agent action, <a href=\"https://azure.microsoft.com/en-us/pricing/details/copilot-studio/\" rel=\"noopener\">Microsoft bills Copilot Studio at $0.01 per Copilot Credit</a> on pay as you go, and <a href=\"https://fin.ai/pricing\" rel=\"noopener\">Intercom charges $0.99 per Fin outcome</a>. Zendesk bills its AI agents by automated resolution and gives each plan a dollar allowance per agent seat.</p>\n<p>In our hypothetical, the same 1,000 customer chats cost about $110, $300 or $594 a month depending on the meter, so the meter matters more than the headline rate. This guide reads each vendor's own pricing page, runs the arithmetic on a hypothetical small support team, and lists what each price leaves out.</p>\n<h2 id=\"how-vendors-meter-agents\">How vendors meter AI agents</h2>\n<p>Every vendor below sells roughly the same job: an agent that answers a question, looks something up and takes an action such as updating a record. What differs is the unit on the invoice.</p>\n<ol>\n<li><strong>Per action.</strong> You pay for each step the agent takes. Salesforce's Flex Credits work this way: one action, such as answering a product question or updating a record, draws a fixed number of credits.</li>\n<li><strong>Per credit, weighted by feature.</strong> Microsoft charges a different number of credits for a scripted answer, a generative answer and an action, so cost depends on how the agent is built.</li>\n<li><strong>Per outcome or resolution.</strong> You pay when the agent resolves the conversation, as the vendor defines it. Intercom's Fin and Zendesk's AI agents both bill this way, with different rules for what counts.</li>\n<li><strong>Per conversation.</strong> A flat price per customer conversation. Salesforce offers this as Agentforce Conversations, priced through sales.</li>\n<li><strong>Per user.</strong> Licenses for employees who use agents inside their own work, such as Salesforce's $125 a user a month Agentforce add-on.</li>\n</ol>\n<p>Consumption meters are used for both customer and employee agents. Per-user licenses cover employee use.</p>\n<h2 id=\"salesforce-agentforce-pricing\">Salesforce Agentforce: $0.10 an action on Flex Credits</h2>\n<p>Salesforce's <a href=\"https://www.salesforce.com/agentforce/pricing/\" rel=\"noopener\">Agentforce pricing page</a> offers consumption pricing (Flex Credits or Conversations) or per-user licensing. Flex Credits cost $500 per 100,000, which is $0.005 a credit. The page says \"Agentforce actions are 20 Flex Credits, while Agentforce Voice actions are 30 Flex Credits,\" so a standard action costs $0.10 and a voice action $0.15.</p>\n<p>Salesforce publishes worked examples, and we rechecked three of them in Python. A \"Where is My Order\" agent that takes 2 actions per request, 20 times a day for 30 days, uses 24,000 credits and costs $120 a month. A voice agent that takes 4 actions per call on 300 calls a month uses 36,000 credits and costs $180, which is $0.60 a call. Salesforce calls these illustrative and says actual usage may vary.</p>\n<p>The Conversations option, a flat price per customer conversation, is listed as \"Contact us\" with no public rate. For employees, the Agentforce add-ons for Sales, Service and Field Service list at $125 a user a month with unmetered Agentforce usage for employees, and the Agentforce User License is $5 a user a month but still requires Flex Credits. Salesforce also offers Agentforce on its Foundations tier for $0 to get started.</p>\n<h2 id=\"microsoft-copilot-studio-pricing\">Microsoft Copilot Studio: $0.01 a credit</h2>\n<p>Microsoft prices Copilot Studio agents in Copilot Credits. The <a href=\"https://azure.microsoft.com/en-us/pricing/details/copilot-studio/\" rel=\"noopener\">Azure pay as you go page</a> lists $0.01 per credit, and the <a href=\"https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/copilot-studio\" rel=\"noopener\">Copilot Studio plans page</a> also offers a $200 license and a pre-purchase plan that it says can save up to 20%. An Azure subscription is required, and agents on outside channels need a standalone Copilot Studio plan.</p>\n<p>The credits per feature come from Microsoft's <a href=\"https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management\" rel=\"noopener\">billing rates page</a>, last updated 31 October 2026:</p>\n<table style=\"font-size:14px\"><thead><tr><th>Copilot Studio feature</th><th>Credits</th><th>At $0.01 a credit</th></tr></thead><tbody>\n<tr><td>Classic answer</td><td>1</td><td>$0.01</td></tr>\n<tr><td>Generative answer</td><td>2</td><td>$0.02</td></tr>\n<tr><td>Agent action</td><td>5</td><td>$0.05</td></tr>\n<tr><td>Tenant graph grounding, per message</td><td>10</td><td>$0.10</td></tr>\n<tr><td>Agent flow actions, per 100</td><td>13</td><td>$0.13</td></tr>\n</tbody></table>\n<p>Microsoft's own example: an agent grounded in the tenant graph can use 12 credits (10 for grounding and 2 for the generative answer) on one complex prompt, which is $0.12 on pay as you go. Use by employees who hold a Microsoft 365 Copilot license is marked No charge in the same table, under conditions in its footnotes.</p>\n<h2 id=\"intercom-fin-pricing\">Intercom Fin: $0.99 per outcome</h2>\n<p><a href=\"https://fin.ai/pricing\" rel=\"noopener\">Fin's pricing page</a> lists $0.99 per outcome, charged \"at most once per conversation, even if Fin takes multiple actions or answers multiple questions.\" If the conversation is later reopened, the outcome is refunded. Fin Voice is sold through sales at $1.99 per voice outcome. Intercom says Fin works with other helpdesks, including Salesforce and Zendesk.</p>\n<p>Intercom's own cost estimator on that page turns your conversation volume and Fin's resolution rate into a count of outcomes, so in practice you pay for the chats Fin resolves. The catch is that a resolved chat costs the same $0.99 whether it took one answer or ten actions. We cover Fin alongside Tidio, Chatbase and Botpress in our breakdown of <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot costs for business</a>.</p>\n<h2 id=\"zendesk-ai-agent-pricing\">Zendesk: a resolution allowance per seat</h2>\n<p>Zendesk's <a href=\"https://www.zendesk.com/pricing/\" rel=\"noopener\">pricing page</a> says its AI agents \"are included in every Suite and Support plan, with pricing based on the successful outcomes they deliver,\" billed in automated resolutions, meaning requests the AI agent resolved \"without any escalation to a human agent.\"</p>\n<p>Since 18 May 2026, Zendesk sorts those into tiers, according to its <a href=\"https://support.zendesk.com/hc/en-us/articles/9570369117338\" rel=\"noopener\">help article on resolution tiers</a>. Assisted escalations and contained resolutions do not count against your allowance. The article describes the third tier, a verified resolution, as one the AI agent resolved that also passes a check by a large language model. On email, a conversation ends 72 hours after the first email; on messaging the default is 2 hours, adjustable up to 72.</p>\n<p>Each plan includes a dollar allowance, per the <a href=\"https://support.zendesk.com/hc/en-us/articles/10479587390106\" rel=\"noopener\">resolution allowance article</a>: $10 per agent seat a month on Suite Enterprise and Enterprise Plus, $5 on Suite Growth and Professional, and $2 on Suite Team and on Support Team, Professional and Enterprise, capped at $5,000 a year. Zendesk's own example: 20 seats on Suite Enterprise get $200 a month. Past the allowance you can buy add-ons, allow overage billing, or pause the AI agent. We did not find the dollar rate per resolution tier on the pages we read.</p>\n<h2 id=\"same-volume-four-meters\">The same 1,000 conversations on each meter</h2>\n<p>To compare, take a hypothetical small support team with 1,000 customer chats a month and a customer-facing agent. On Copilot Studio we assume three generative answers and one action per chat; on Agentforce, three actions per chat on pay as you go; on Fin, that 60% of chats are billed as outcomes. These assumptions are ours, not the vendors', and the meters do not count the same events.</p>\n<table style=\"font-size:14px\"><thead><tr><th>Vendor and meter</th><th>How we counted</th><th>Monthly cost</th></tr></thead><tbody>\n<tr><td>Copilot Studio, pay as you go</td><td>3 generative answers + 1 action = 11 credits a chat</td><td>$110</td></tr>\n<tr><td>Agentforce, Flex Credits</td><td>3 actions x 20 credits = 60 credits a chat</td><td>$300 (PayGo; $500 if bought as one 100,000 block)</td></tr>\n<tr><td>Intercom Fin, 60% billed as outcomes</td><td>600 outcomes x $0.99</td><td>$594</td></tr>\n<tr><td>Intercom Fin, every chat an outcome</td><td>1,000 outcomes x $0.99</td><td>$990</td></tr>\n</tbody></table>\n<h2 id=\"what-the-arithmetic-says\">What the arithmetic says</h2>\n<p>Per-action and per-credit meters reward a well-built agent: fewer steps per chat means a smaller bill, whether or not the customer's problem was solved. Per-outcome meters reward a high resolution rate, and every outcome is billed at the full rate however many steps it took. On these assumptions Copilot Studio pay as you go is cheapest, and it requires an Azure subscription.</p>\n<p>Voice shows the gap more sharply. Salesforce's own voice example costs $180 for 300 calls. The same 300 calls billed as Fin Voice outcomes would be 300 x $1.99 = $597 if every call counted as an outcome. We did not check whether telephony is included in either price, and neither includes platform seats. For phone-first teams, see also our page on <a href=\"/ai-calling-home-services\">AI calling for home services</a>.</p>\n<p>None of these numbers is a quote. They show how the meters behave, and we suggest running the same arithmetic on your own chat volume, steps per chat and resolution rate before you sign.</p>\n<h2 id=\"costs-not-on-the-price-card\">Costs not on the price card</h2>\n<ul>\n<li><strong>The platform underneath.</strong> Agentforce runs on Salesforce, Copilot Studio needs Azure, Zendesk's allowance comes with Zendesk seats, and Fin runs on Intercom or on another helpdesk such as Salesforce or Zendesk.</li>\n<li><strong>Building the agent.</strong> Knowledge sources, actions that touch your systems and testing are work that no meter covers. See what the tools and the build cost in our <a href=\"/blog/business-process-automation/\">business process automation guide</a>.</li>\n<li><strong>Model and token costs on custom builds.</strong> If you build on a model API instead, OpenAI's own figures on <a href=\"/blog/what-does-it-cost-to-run-an-ai-agent/\">what an AI agent costs to run</a> and our note on <a href=\"/blog/openai-agents-api-cost/\">OpenAI Agents API costs</a> are a better starting point for custom builds.</li>\n<li><strong>Prices not on the page.</strong> Agentforce Conversations has no public price, Fin Voice is sold via sales, and Zendesk's add-on and per-tier resolution prices were not on the pages we read.</li>\n</ul>\n<h2 id=\"how-to-choose-a-meter\">How to choose a meter</h2>\n<p>We would start from the system you already pay for. A team on Salesforce or Zendesk gets an agent where its data already lives, and Zendesk includes an allowance with every plan. A team on Microsoft 365 can look at Copilot Studio, which had the lowest per-chat cost in our hypothetical. A team that wants to pay only for resolved chats, on any helpdesk, has Fin.</p>\n<p>For sales rather than support work, see our comparison of <a href=\"/blog/sales-automation-software/\">sales automation software</a>, and for phone agents our ranking of <a href=\"/blog/best-ai-voice-agents-2026/\">the best AI voice agents</a>.</p>\n<h2 id=\"how-imisofts-helps\">How imisofts can help</h2>\n<p>imisofts is an <a href=\"/ai-automation-agency\">AI automation agency</a> for small businesses and agencies. We build AI voice agents, WhatsApp chatbots, n8n workflows and CRM automation. If you are choosing a platform, we suggest running your own chat volume through the arithmetic above, and we can do that with you.</p>\n<p>Prices in this guide were read on 10 November 2026 from each vendor's own pages. Check current prices before you buy. This is general information, not financial advice.</p>",
+ "faqs": [
+  [
+   "How much does an AI agent cost per month?",
+   "It depends on the meter. On the vendors' own pages on 10 November 2026, Copilot Studio was $0.01 a credit, Agentforce Flex Credits $500 per 100,000 ($0.10 an action) and Intercom Fin $0.99 per outcome. In our hypothetical of 1,000 chats a month, that is about $110, $300 (PayGo) and $594 at 60% billed as outcomes."
+  ],
+  [
+   "What is the price of Salesforce Agentforce?",
+   "Flex Credits cost $500 per 100,000. A standard Agentforce action uses 20 credits ($0.10) and a voice action 30 ($0.15). The Sales, Service and Field Service add-ons for employees list at $125 a user a month, and the per-conversation option is priced through sales."
+  ],
+  [
+   "How is Microsoft Copilot Studio priced?",
+   "In Copilot Credits at $0.01 each on pay as you go. A classic answer uses 1 credit, a generative answer 2, an agent action 5 and tenant graph grounding 10, per Microsoft's billing rates page updated 31 October 2026. An Azure subscription is required."
+  ],
+  [
+   "What does pay per resolution mean for AI agents?",
+   "You pay when the agent resolves the customer's request, as the vendor defines it. Intercom Fin charges $0.99 per outcome, at most once per conversation. Zendesk bills automated resolutions, requests resolved without escalation to a human, against a dollar allowance of $2 to $10 per agent seat a month."
+  ],
+  [
+   "Is per-resolution or per-action pricing cheaper?",
+   "It depends on how many steps each chat takes and how many the agent resolves. In our hypothetical, 1,000 chats at 3 actions each cost $300 on Agentforce Flex Credits (PayGo), while 600 chats billed as Fin outcomes cost $594."
+  ],
+  [
+   "Do Zendesk AI agents cost extra?",
+   "Zendesk says AI agents are included in every Suite and Support plan, with an allowance of $2 to $10 per agent seat a month, capped at $5,000 a year. Beyond that you buy add-ons, allow overage billing or pause the agent."
+  ]
+ ],
+ "image": {
+  "cluster": "AI agent costs",
+  "takeaway": "In our hypothetical, 1,000 chats cost about $110 on Copilot Studio, $300 on Agentforce credits and $594 on Fin.",
+  "alt": "AI agent pricing: monthly cost of 1,000 hypothetical customer chats in four scenarios across three vendors",
+  "chart": {
+   "title": "1,000 chats a month, three vendors",
+   "subtitle": "US dollars a month; hypothetical; Fin with 60% of chats, then all chats, billed as outcomes.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Copilot Studio",
+     110
+    ],
+    [
+     "Agentforce credits",
+     300
+    ],
+    [
+     "Fin, 60% outcomes",
+     594
+    ],
+    [
+     "Fin, all outcomes",
+     990
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "source": "Our arithmetic on the Salesforce, Azure and Intercom pricing pages and Microsoft Learn billing rates, read 10 November 2026. Source: vendor pricing pages, November 2026",
+   "alt": "Bar chart: Copilot Studio $110, Agentforce Flex Credits $300, Fin with 60% of chats as outcomes $594, Fin with every chat an outcome $990",
+   "after_heading": "The same 1,000 conversations on each meter"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Agentforce Flex Credits",
+    "value": "$500 per 100,000",
+    "note": "$0.005 a credit"
+   },
+   {
+    "label": "Agentforce action",
+    "value": "$0.10",
+    "note": "20 credits; voice action 30 credits, $0.15"
+   },
+   {
+    "label": "Agentforce Sales or Service add-on",
+    "value": "$125 a user a month",
+    "note": "unmetered employee use"
+   },
+   {
+    "label": "Copilot Studio credit",
+    "value": "$0.01",
+    "note": "pay as you go, Azure page"
+   },
+   {
+    "label": "Copilot Studio agent action",
+    "value": "5 credits",
+    "note": "generative answer 2, classic answer 1"
+   },
+   {
+    "label": "Intercom Fin",
+    "value": "$0.99 per outcome",
+    "note": "at most once per conversation"
+   },
+   {
+    "label": "Fin Voice",
+    "value": "$1.99 per voice outcome",
+    "note": "sold via sales"
+   },
+   {
+    "label": "Zendesk resolution allowance",
+    "value": "$2 to $10 per seat a month",
+    "note": "capped at $5,000 a year"
+   },
+   {
+    "label": "1,000 chats, hypothetical",
+    "value": "$110 to $594",
+    "note": "Copilot Studio to Fin at 60% outcomes; $990 if every chat is one"
+   }
+  ],
+  "source": "Salesforce Agentforce pricing, Microsoft Copilot Studio plans, Azure pay as you go and Microsoft Learn billing rates (updated 31 October 2026), Intercom Fin pricing, and Zendesk pricing and help articles (edited September 2026), all read 10 November 2026; the hypothetical is our arithmetic."
+ },
+ "word_count": 1687
+}
