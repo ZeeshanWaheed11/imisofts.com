@@ -1,0 +1,132 @@
+{
+ "slug": "claude-fable-5-2-pricing",
+ "title": "Claude Fable 5.2 Pricing: $8 In, $40 Out per 1M Tokens",
+ "desc": "Claude Fable 5.2 costs $8 per 1M input and $40 per 1M output tokens, 20% below Fable 5.1. Fast mode, Batch and cache prices, and what one agent task costs.",
+ "keywords": "claude fable 5.2 pricing, claude fable 5.2, claude fable pricing, claude api pricing, anthropic pricing, claude fable 5.2 fast mode",
+ "date": "2026-11-10",
+ "time": "11:02",
+ "read_time": 3,
+ "word_count": 691,
+ "cta": "Want Claude agents built into your workflows?",
+ "body": "<p><strong>November 10, 2026.</strong> Anthropic released Claude Fable 5.2 on November 9 at $8 per million input tokens and $40 per million output tokens, 20% below the $10 and $50 that Claude Fable 5.1 still lists on Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener noreferrer\">pricing page</a>. Cache hits drop from $0.25 to $0.20 per million tokens, an optional fast mode costs $16 and $80, and the Batch API halves the standard rate to $4 and $20. For an agency running agents for clients, Fable 5.2 is now 20% cheaper per token than Fable 5.1, while Claude Opus 5.5 lists at half Fable 5.2's per-token price.</p>\n<p><strong>What changed on November 9</strong></p>\n<ol>\n<li><strong>Lower token prices.</strong> Anthropic's <a href=\"https://www.anthropic.com/claude-fable-and-mythos-5-2\" target=\"_blank\" rel=\"noopener noreferrer\">launch post</a> says Fable 5.2 and Mythos 5.2 \"generate outputs up to 30% faster than Claude Fable 5.1 and Claude Mythos 5.1, and they're available at a lower price: $8 per million input tokens and $40 per million output tokens.\" <a href=\"https://thenewstack.io/anthropic-fable-coding-upgrade/\" target=\"_blank\" rel=\"noopener noreferrer\">The New Stack</a> reported the same 20% cut the same day.</li>\n<li><strong>Cheaper caching.</strong> Five-minute cache writes fall from $12.50 to $10, one-hour writes from $20 to $16, and hits from $0.25 to $0.20. On Fable 5.2, Mythos 5.2, Fable 5.1 and Mythos 5.1, \"a cache hit costs 2.5 percent of the standard input price.\"</li>\n<li><strong>A fast mode at twice the price.</strong> Anthropic says the optional fast mode \"speeds up token generation by up to 2.5 times.\" It costs $16 input and $80 output per million tokens and runs on Claude Code, the Claude Platform, Claude Models on Google Cloud and Microsoft Foundry.</li>\n<li><strong>Limits and availability.</strong> Fable 5.2 has a 1M-token context window and a 128K-token maximum output. Anthropic says it is \"available today on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure,\" and developers can use claude-fable-5-2 on the Claude Platform.</li>\n<li><strong>Extra Fable usage for subscribers this week.</strong> In Anthropic's words: \"This week, we're giving subscribers on eligible paid plans extra Fable usage. Plans and seats that include Fable models get one to three Fable resets based on how long they've subscribed, and Fable is included for up to 50% of weekly usage limits for Pro plans and standard seats on the Team plan.\"</li>\n</ol>\n<p><strong>What one agent task costs</strong></p>\n<p>Take a hypothetical agent task that reads 200,000 input tokens and writes 20,000 output tokens, with no caching, at list prices:</p>\n<table>\n<thead><tr><th>Model and mode</th><th>Input / output per 1M</th><th>One task</th><th>1,000 tasks</th></tr></thead>\n<tbody>\n<tr><td>Claude Fable 5.1</td><td>$10 / $50</td><td>$3.00</td><td>$3,000</td></tr>\n<tr><td>Claude Fable 5.2</td><td>$8 / $40</td><td>$2.40</td><td>$2,400</td></tr>\n<tr><td>Claude Fable 5.2, fast mode</td><td>$16 / $80</td><td>$4.80</td><td>$4,800</td></tr>\n<tr><td>Claude Fable 5.2, Batch API</td><td>$4 / $20</td><td>$1.20</td><td>$1,200</td></tr>\n<tr><td>Claude Opus 5.5</td><td>$4 / $20</td><td>$1.20</td><td>$1,200</td></tr>\n</tbody>\n</table>\n<p>Claude Sonnet 5.5 lists at $2 and $10. Token counts are not equal across models, so treat this as a price table, not a forecast. Anthropic says that \"In early testing on the FrontierCode 2.0 evaluation, Fable 5.2 at High effort scored about level with Opus 5.5 at Max effort, for roughly half the cost per task.\" That is Anthropic's own test of its own model, so check it on your workload. Anthropic also applies a 1.1x multiplier \"For Claude 4.6 and later models\" when you specify US-only inference through the inference_geo parameter, which would make Fable 5.2 $8.80 and $44.</p>\n<p><strong>What it means for agencies and small teams</strong></p>\n<p>Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/models/overview\" target=\"_blank\" rel=\"noopener noreferrer\">models overview</a> says: \"If you're unsure which model to use, start with Claude Opus 5.5 for most workloads. Use Claude Fable 5.2 for demanding reasoning and long-horizon agentic work, or when your evals on Claude Opus 5.5 at higher effort still fall short.\" We would follow that order: run the client's real tasks on Opus 5.5 first, move the long-horizon or failing workflows to Fable 5.2, send overnight jobs through the Batch API, and cache long system prompts. Our earlier pages cover <a href=\"/blog/claude-fable-5-1-cache-pricing-agents/\">Fable 5.1 cache pricing</a>, <a href=\"/blog/claude-fast-mode-pricing/\">Claude fast mode pricing</a>, <a href=\"/blog/claude-api-rate-limits/\">Claude API rate limits</a> and <a href=\"/blog/what-does-it-cost-to-run-an-ai-agent/\">what an AI agent costs to run</a>; for a customer-facing bot budget, see our <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot cost guide</a>.</p>\n<p>Our <a href=\"/ai-automation-agency\">AI automation agency</a> team builds Claude agents into client workflows, and we also offer <a href=\"/ai-search-optimization\">AI search optimization</a> for businesses that want to appear in assistant answers.</p>\n",
+ "faqs": [
+  [
+   "How much does Claude Fable 5.2 cost?",
+   "On the Claude API, Claude Fable 5.2 costs $8 per million input tokens and $40 per million output tokens. Five-minute cache writes cost $10, one-hour writes $16 and cache hits $0.20 per million tokens. The Batch API halves the standard rate to $4 and $20, and the optional fast mode costs $16 and $80. Prices read on Anthropic's pricing page on November 10, 2026."
+  ],
+  [
+   "Is Claude Fable 5.2 cheaper than Fable 5.1?",
+   "Yes, per token. Fable 5.1 lists at $10 per million input tokens and $50 per million output tokens, so Fable 5.2's $8 and $40 are 20% lower on both. Cache hits fall from $0.25 to $0.20 and cache writes fall 20% as well."
+  ],
+  [
+   "What does Claude Fable 5.2 fast mode cost?",
+   "Fast mode costs $16 per million input tokens and $80 per million output tokens, twice the standard rate. Anthropic says it speeds up token generation by up to 2.5 times. Anthropic lists it on Claude Code, the Claude Platform, Claude Models on Google Cloud (Anthropic managed and Google managed) and Microsoft Foundry (Anthropic hosted)."
+  ],
+  [
+   "Should I use Claude Fable 5.2 or Claude Opus 5.5?",
+   "Anthropic's models overview says that if you are unsure, start with Claude Opus 5.5 for most workloads, and use Fable 5.2 for demanding reasoning and long-horizon agentic work, or when Opus 5.5 at higher effort still falls short in your evals. Opus 5.5 lists at $4 and $20 per million tokens, half of Fable 5.2's per-token price."
+  ]
+ ],
+ "image": {
+  "cluster": "AI pricing",
+  "takeaway": "Claude Fable 5.2 costs $8 per 1M input tokens and $40 per 1M output, 20% below Fable 5.1 (November 2026).",
+  "alt": "Claude Fable 5.2 pricing: $8 input, $40 output per million tokens, imisofts news card",
+  "chart": {
+   "title": "Claude output price per 1M tokens, November 2026",
+   "subtitle": "Fable 5.2 against Fable 5.1, its fast and Batch modes, Opus 5.5 and Sonnet 5.5.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Fable 5.2 fast mode",
+     80
+    ],
+    [
+     "Fable 5.1",
+     50
+    ],
+    [
+     "Fable 5.2",
+     40
+    ],
+    [
+     "Fable 5.2 Batch API",
+     20
+    ],
+    [
+     "Opus 5.5",
+     20
+    ],
+    [
+     "Sonnet 5.5",
+     10
+    ]
+   ],
+   "prefix": "$",
+   "highlight": 2,
+   "note": [
+    "20% below Fable 5.1",
+    "on input and output"
+   ],
+   "source": "List price per 1M output tokens, global routing. Source: platform.claude.com, November 2026",
+   "alt": "Bar chart of Claude output prices per 1M tokens: Fable 5.2 fast mode $80, Fable 5.1 $50, Fable 5.2 $40, Fable 5.2 Batch $20, Opus 5.5 $20, Sonnet 5.5 $10.",
+   "after_heading": "What one agent task costs"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Claude Fable 5.2, input per 1M tokens",
+    "value": "$8",
+    "note": "was $10 on Fable 5.1"
+   },
+   {
+    "label": "Claude Fable 5.2, output per 1M tokens",
+    "value": "$40",
+    "note": "was $50 on Fable 5.1"
+   },
+   {
+    "label": "Price cut against Fable 5.1",
+    "value": "20%",
+    "note": "input, output and cache"
+   },
+   {
+    "label": "Cache hit per 1M tokens",
+    "value": "$0.20",
+    "note": "was $0.25"
+   },
+   {
+    "label": "Five-minute cache write per 1M tokens",
+    "value": "$10",
+    "note": "one-hour write $16"
+   },
+   {
+    "label": "Fast mode, input and output per 1M",
+    "value": "$16 and $80",
+    "note": "Anthropic says up to 2.5 times faster generation"
+   },
+   {
+    "label": "Batch API, input and output per 1M",
+    "value": "$4 and $20",
+    "note": "50% discount"
+   },
+   {
+    "label": "Claude Opus 5.5, input and output per 1M",
+    "value": "$4 and $20"
+   },
+   {
+    "label": "Context window and max output",
+    "value": "1M and 128K tokens"
+   },
+   {
+    "label": "Hypothetical task, 200K in and 20K out",
+    "value": "$2.40",
+    "note": "$3.00 on Fable 5.1, $1.20 on Opus 5.5"
+   },
+   {
+    "label": "Launch date",
+    "value": "November 9, 2026"
+   }
+  ],
+  "source": "Prices read on 10 November 2026 from Anthropic's launch post, Claude Platform pricing page and models overview."
+ }
+}
