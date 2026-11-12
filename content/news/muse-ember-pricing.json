@@ -1,0 +1,101 @@
+{
+ "slug": "muse-ember-pricing",
+ "title": "Muse Ember Pricing: $0.10 In, $0.50 Out per 1M Tokens",
+ "desc": "Meta's Muse Ember costs $0.10 per 1M input and $0.50 output tokens, three times as much over 200K. Cached input, context size, and what 10,000 runs cost.",
+ "keywords": "muse ember pricing, muse ember, meta muse ember api, meta model api pricing, meta muse, cheap llm for agents",
+ "date": "2026-11-12",
+ "time": "17:55",
+ "read_time": 4,
+ "word_count": 591,
+ "cta": "Want AI steps in your workflows priced before you build?",
+ "body": "<p><strong>November 12, 2026.</strong> Meta released Muse Ember on November 9 at $0.10 per million input tokens and $0.50 per million output tokens on the Meta Model API, with cached input at $0.004 per million and a 1M-token context window. Prompts over 200K tokens cost three times as much: $0.30 in and $1.50 out. For an agency running high-volume automation steps, a hypothetical 10,000 workflow runs of 2,000 input and 300 output tokens each comes to $3.50 at Meta's published prices.</p>\n<p><strong>What Meta released on November 9</strong></p>\n<ol>\n<li><strong>A small model for repeat agent work.</strong> Meta's <a href=\"https://research.meta.ai/blog/muse-ember\" target=\"_blank\" rel=\"noopener noreferrer\">launch post</a> calls Muse Ember its \"smallest and most efficient model designed for complex reasoning execution and the work agents repeat all day: tool calls, coding subtasks, routing, extraction, and long document parsing.\"</li>\n<li><strong>Where to get it.</strong> It is available \"on Muse Code and Meta Model API as muse-ember-1.0,\" and Meta says Muse Ember, Muse Spark and Muse Wonder are now on Google Cloud and Oracle Cloud.</li>\n<li><strong>Limits.</strong> A 1M-token context window and up to 512K output tokens per call.</li>\n<li><strong>Meta's comparison.</strong> Meta says Ember \"delivers more intelligence per dollar than Claude Haiku 5.5 or GPT-6 Luna at any reasoning setting: it matches Haiku's best score at about a third of the cost and beats every Luna setting.\" Meta sells the model, and one of its charts notes that Ember's costs there \"are estimates at proposed pricing.\"</li>\n<li><strong>Independent report.</strong> <a href=\"https://sg.finance.yahoo.com/news/metas-10-cent-ai-model-151700704.html\" target=\"_blank\" rel=\"noopener noreferrer\">TheStreet</a> reported the same 10 cents and 50 cents per million tokens on November 11.</li>\n</ol>\n<p><strong>Muse Ember price by prompt size</strong></p>\n<table>\n<thead><tr><th>Per 1M tokens</th><th>Prompts up to 200K</th><th>Prompts over 200K</th></tr></thead>\n<tbody>\n<tr><td>Input</td><td>$0.10</td><td>$0.30</td></tr>\n<tr><td>Cached input</td><td>$0.004</td><td>$0.012</td></tr>\n<tr><td>Output</td><td>$0.50</td><td>$1.50</td></tr>\n</tbody>\n</table>\n<p>Cached input is 96% cheaper than fresh input at both sizes. A single long-document job of 300,000 input tokens and 5,000 output tokens works out to about $0.0975, or roughly 10 cents, if the higher rates apply to the whole request, which is our reading of Meta's \"For longer prompts\" line.</p>\n<p><strong>What it means for automation builds</strong></p>\n<p>The jobs Meta lists, routing, extraction, tool calls and document parsing, are the kind of steps that can run thousands of times a month inside an n8n or Make workflow: classifying inbound leads, pulling fields out of emails, tagging tickets. In our view, at $3.50 for the 10,000-run example above, the model fee is unlikely to be the line item that decides whether an automation pays for itself. We would still test it on 50 to 100 of your own real inputs before switching, because a cheaper step that fails more often can cost more in retries and manual fixes than it saves.</p>\n<p>Three habits help keep the bill down. Keep prompts under 200K tokens, since longer prompts are billed at three times the rates. Check how Meta applies its $0.004 cached-input price before you design around it, since the launch post lists the price but not the caching rules. And leave planning and judgment calls to a larger model; for the hardest problems Meta suggests pairing Ember with Muse Wonder: \"Muse Wonder plans, Muse Ember handles the volume.\" For background on Meta Muse itself, see <a href=\"/blog/meta-muse-explained-for-businesses/\">Meta Muse explained for businesses</a>; for a frontier-model comparison, see <a href=\"/blog/gemini-4-carbon/\">Gemini 4 Carbon pricing</a>.</p>\n<p>Our <a href=\"/hire-n8n-developer\">n8n developers</a> build LLM steps into client workflows, and for agencies adding AI features to a <a href=\"/gohighlevel-white-label-saas\">white-label SaaS</a>, a low per-token rate keeps model fees a small share of the plan price, in our view. If you are weighing where AI fits in your sales process, our <a href=\"/blog/sales-automation-software/\">sales automation software</a> guide covers the tools around it.</p>",
+ "faqs": [
+  [
+   "How much does Muse Ember cost?",
+   "Meta lists Muse Ember at $0.10 per million input tokens, $0.004 per million cached input tokens and $0.50 per million output tokens for prompts up to 200K tokens. Longer prompts cost $0.30, $0.012 and $1.50."
+  ],
+  [
+   "What is Muse Ember good for?",
+   "Meta says it is built for the work agents repeat all day: tool calls, coding subtasks, routing, extraction and long document parsing. It has a 1M-token context window and up to 512K output tokens."
+  ],
+  [
+   "Where can I use Muse Ember?",
+   "Meta says it is available on Muse Code and the Meta Model API as muse-ember-1.0, and that Muse Ember, Spark and Wonder are on Google Cloud and Oracle Cloud."
+  ]
+ ],
+ "image": {
+  "cluster": "AI pricing",
+  "takeaway": "Muse Ember costs $0.10 per 1M input and $0.50 per 1M output tokens for prompts up to 200K.",
+  "alt": "Muse Ember pricing: $0.10 input, $0.50 output per million tokens, imisofts news card",
+  "chart": {
+   "title": "Muse Ember price per 1M tokens, November 2026",
+   "subtitle": "Meta's list prices for prompts up to 200K tokens and for longer prompts.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Output, over 200K",
+     1.5
+    ],
+    [
+     "Output, up to 200K",
+     0.5
+    ],
+    [
+     "Input, over 200K",
+     0.3
+    ],
+    [
+     "Input, up to 200K",
+     0.1
+    ]
+   ],
+   "prefix": "$",
+   "highlight": 3,
+   "note": [
+    "Cached input is $0.004",
+    "for prompts up to 200K"
+   ],
+   "source": "Meta Model API list prices, muse-ember-1.0. Source: research.meta.ai, November 2026",
+   "alt": "Bar chart of Muse Ember prices per 1M tokens: output over 200K $1.50, output up to 200K $0.50, input over 200K $0.30, input up to 200K $0.10.",
+   "after_heading": "Muse Ember price by prompt size"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Input per 1M tokens, prompts up to 200K",
+    "value": "$0.10",
+    "note": "$0.30 over 200K"
+   },
+   {
+    "label": "Output per 1M tokens, prompts up to 200K",
+    "value": "$0.50",
+    "note": "$1.50 over 200K"
+   },
+   {
+    "label": "Cached input per 1M tokens",
+    "value": "$0.004",
+    "note": "$0.012 over 200K"
+   },
+   {
+    "label": "Context window and max output",
+    "value": "1M and 512K tokens"
+   },
+   {
+    "label": "Model ID",
+    "value": "muse-ember-1.0",
+    "note": "Muse Code and Meta Model API"
+   },
+   {
+    "label": "Launch date",
+    "value": "November 9, 2026"
+   },
+   {
+    "label": "Hypothetical 10,000 runs, 2,000 in and 300 out",
+    "value": "$3.50",
+    "note": "Meta's published prices, prompts under 200K"
+   }
+  ],
+  "source": "Prices read on 12 November 2026 from Meta's November 9 Muse Ember launch post."
+ }
+}
