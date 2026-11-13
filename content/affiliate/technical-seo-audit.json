@@ -1,0 +1,127 @@
+{
+ "slug": "technical-seo-audit",
+ "title": "Technical SEO Audit: Google's 3 Checks, Tools From $0",
+ "desc": "A technical SEO audit from Google's own docs: the 3 indexing requirements, Core Web Vitals targets, audit tool prices and the published SEO hourly rates.",
+ "date": "2026-11-13",
+ "time": "13:30",
+ "keywords": "technical seo audit, seo audit, technical seo, technical seo checklist, seo audit cost, local seo audit, core web vitals, site audit",
+ "category": "Guides",
+ "affiliate_url": "",
+ "cta": "Want a technical SEO audit of your site?",
+ "read_time": 8,
+ "word_count": 1868,
+ "body": "<p><strong>Short answer.</strong> A technical SEO audit checks whether Google can crawl and index your pages, and how fast they load for real visitors. Google's own minimum bar has three parts: Googlebot isn't blocked, the page returns an HTTP 200, and it has indexable content. Most of the checks run free in Search Console and PageSpeed Insights. Crawlers start free (Ahrefs Free, Screaming Frog up to 500 URLs), and the cheapest paid plans we found cost $216 to $279 a year on 13 November 2026.</p>\n<p>This guide walks the checks Google's documentation describes, with the thresholds Google publishes, then sets out what the tools and an outside audit cost. If you want the wider picture of SEO fees first, our <a href=\"/blog/seo-pricing/\">SEO pricing guide</a> covers retainers and hourly rates.</p>\n<h2 id=\"what-a-technical-seo-audit-checks\">What a technical SEO audit checks</h2>\n<p>An on-page review looks at words: titles, headings, copy. A technical audit looks at the plumbing underneath them. In practice it answers five questions:</p>\n<ol>\n<li>Can Google reach the page, or is it blocked?</li>\n<li>Does the page return a working status code?</li>\n<li>Is it indexed, and if not, which reason does Search Console give?</li>\n<li>Does the mobile version carry the same content as the desktop one?</li>\n<li>Do real visitors get a fast, stable page?</li>\n</ol>\n<p>Google lists \"Review of your site content or structure\" and \"Technical advice on website development: for example, hosting, redirects, error pages, use of JavaScript\" among the useful services an SEO can provide, on its <a href=\"https://developers.google.com/search/docs/fundamentals/do-i-need-seo\">Do you need an SEO?</a> page.</p>\n<h2 id=\"google-minimum-technical-requirements\">Google's three minimum technical requirements</h2>\n<p>Google's <a href=\"https://developers.google.com/search/docs/essentials/technical\">technical requirements</a> page opens bluntly: \"It costs nothing to get your page in search results, no matter what anyone tries to tell you.\" A page is eligible to be indexed when:</p>\n<ul>\n<li><strong>Googlebot isn't blocked.</strong> Google only indexes pages that are public and that don't block its crawler.</li>\n<li><strong>The page works.</strong> \"Google only indexes pages that are served with an HTTP 200 (success) status code. Client and server error pages aren't indexed.\"</li>\n<li><strong>The page has indexable content.</strong> The text is in a file type Google supports and does not break its spam policies.</li>\n</ul>\n<p>Meeting all three makes a page eligible, nothing more. In Google's words, \"indexing isn't guaranteed\". So every audit should start here, because a fix further down the list is wasted on a page Google cannot reach.</p>\n<h2 id=\"step-1-page-indexing-report\">Step 1: read the Page Indexing report</h2>\n<p>Google says to use both the Page Indexing report and the Crawl Stats report in Search Console, because \"each report may contain different information about your URLs\", and to test single pages with the <a href=\"https://support.google.com/webmasters/answer/9012289\">URL Inspection tool</a>. The <a href=\"https://support.google.com/webmasters/answer/7440203\">Page indexing report</a> gives a reason for URLs that are not indexed. Four statuses worth knowing:</p>\n<table style=\"font-size:14px\"><thead><tr><th>Status in Search Console</th><th>What Google says it means</th><th>Would we fix it?</th></tr></thead><tbody>\n<tr><td>Crawled, currently not indexed</td><td>Crawled but not indexed; Google says this is common and \"doesn't necessarily indicate an issue\"</td><td>Only for pages you need in Search</td></tr>\n<tr><td>Discovered, currently not indexed</td><td>Found but not crawled yet; typically Google expected the crawl to overload the site and rescheduled it</td><td>Yes if it covers many pages</td></tr>\n<tr><td>Duplicate without user-selected canonical</td><td>Google chose another page as canonical and \"will not serve this page in Search\"</td><td>Yes: set the canonical you want</td></tr>\n<tr><td>Soft 404</td><td>A \"not found\" message served without a 404 code</td><td>Yes: return a real 404</td></tr>\n</tbody></table>\n<p>For a page you have just fixed, URL Inspection lets you request indexing. Google's help page says indexing \"typically takes only a day or so, but can take much longer in some cases\", that a request does not promise inclusion, and that there is a daily limit on requests. For many pages, it points you to a sitemap instead. We timed this on our own site in <a href=\"/blog/how-long-does-google-take-to-index-a-page/\">how long Google takes to index a page</a>.</p>\n<h2 id=\"step-2-robots-noindex-status-codes\">Step 2: robots.txt, noindex and status codes</h2>\n<p>One mix-up worth checking is using robots.txt to hide a page. Google's <a href=\"https://developers.google.com/search/docs/crawling-indexing/robots/intro\">robots.txt guide</a> says the file is \"used mainly to avoid overloading your site with requests; it is not a mechanism for keeping a web page out of Google\". Its technical requirements page adds that a blocked URL \"might still appear in search results\". To keep a page out, use noindex and let Google crawl the URL so it can see the tag, or put the page behind a password.</p>\n<p>We would check three things here: that robots.txt does not block pages you want found, that noindex sits only on pages you mean to hide, and that pages you want indexed return 200 rather than a redirect chain or an error.</p>\n<h2 id=\"step-3-sitemaps-and-duplicates\">Step 3: sitemaps and duplicate pages</h2>\n<p>Google's <a href=\"https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap\">sitemap guide</a> sets hard limits: \"All formats limit a single sitemap to 50MB (uncompressed) or 50,000 URLs\", and the file \"must be UTF-8 encoded\". A larger site splits its list across several sitemaps, as Google requires.</p>\n<p>An audit compares three lists: the URLs in the sitemap, the URLs a crawler finds by following links, and the URLs Search Console reports as indexed. Pages in the sitemap that are not linked from anywhere, and linked pages missing from the sitemap, are typical things to look for. Duplicates show up as the \"Duplicate without user-selected canonical\" status above; the fix is to tell Google which version you prefer.</p>\n<p>Structured data is part of the same pass. Our <a href=\"/blog/schema-markup/\">schema markup guide</a> lists which types Google still supports.</p>\n<h2 id=\"step-4-core-web-vitals\">Step 4: Core Web Vitals thresholds</h2>\n<p>Google's <a href=\"https://developers.google.com/search/docs/appearance/core-web-vitals\">Core Web Vitals page</a> says it \"highly recommend[s]\" good scores for \"success with Search\", and gives three targets:</p>\n<table style=\"font-size:14px\"><thead><tr><th>Metric</th><th>What it measures</th><th>Google's target</th></tr></thead><tbody>\n<tr><td>Largest Contentful Paint (LCP)</td><td>Loading</td><td>Within 2.5 seconds</td></tr>\n<tr><td>Interaction to Next Paint (INP)</td><td>Responsiveness</td><td>Less than 200 milliseconds</td></tr>\n<tr><td>Cumulative Layout Shift (CLS)</td><td>Visual stability</td><td>Less than 0.1</td></tr>\n</tbody></table>\n<p>Google announced INP as a Core Web Vital on 10 May 2023. Measure with <a href=\"https://developers.google.com/speed/docs/insights/v5/about\">PageSpeed Insights</a>, which reports real users' experience \"over the previous 28-day collection period\" and shows the 75th percentile, chosen \"so that developers can understand the most frustrating user experiences on their site\". A page needs enough real-user data in CrUX to show field data at all. PageSpeed also shows Lighthouse lab results, which are a test run rather than real-user data.</p>\n<h2 id=\"step-5-mobile-parity\">Step 5: check mobile and desktop match</h2>\n<p>Google \"uses the mobile version of a site's content, crawled with the smartphone agent, for indexing and ranking\", per its <a href=\"https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing\">mobile-first indexing guide</a>. Google asks for the same content, the same structured data and the same robots meta tags on both versions.</p>\n<h2 id=\"when-crawl-budget-matters\">When crawl budget matters (rarely)</h2>\n<p>Some audit reports include a crawl budget section. Google's <a href=\"https://developers.google.com/crawling/docs/crawl-budget\">crawl budget guide</a> says many sites don't need it: if your pages are crawled the day they are published, \"keeping your sitemap up to date and checking the Page Indexing report regularly is adequate\". The guide is aimed at sites with 1 million+ unique pages that change weekly, sites with 10,000+ pages that change daily, or sites with a large share of URLs at the Discovered, currently not indexed status. Google adds that these \"are not exact thresholds\". For a 50-page business site, we would treat a crawl budget section in an audit as padding.</p>\n<h2 id=\"what-audit-tools-cost\">What technical SEO audit tools cost</h2>\n<p>Search Console and PageSpeed Insights are free. A crawler adds a whole-site view: every status code, title, redirect and canonical in one list. Entry-level prices, read on each vendor's own page on 13 November 2026:</p>\n<table style=\"font-size:14px\"><thead><tr><th>Tool</th><th>Entry price</th><th>Audit limit at that price</th></tr></thead><tbody>\n<tr><td><a href=\"https://ahrefs.com/webmaster-tools\">Ahrefs Free</a> (formerly Webmaster Tools)</td><td>$0, verified sites only</td><td>5K crawl credits a month per project; 170+ issue checks</td></tr>\n<tr><td><a href=\"https://www.screamingfrog.co.uk/seo-spider/pricing/\">Screaming Frog SEO Spider</a></td><td>Free, or $279 a year</td><td>500 URLs free; paid licence lifts the cap</td></tr>\n<tr><td><a href=\"https://sitebulb.com/pricing/\">Sitebulb</a> Lite / Pro</td><td>$18 / $42 a month</td><td>10,000 / 500,000 URLs per audit</td></tr>\n<tr><td><a href=\"https://www.semrush.com/prices/\">Semrush</a> Pro</td><td>$139 a month, or $117.33 a month billed yearly</td><td>Site Audit included; up to 5 websites</td></tr>\n</tbody></table>\n<p>Over a year that is $0, $279, $216 or $504, and $1,668 for Semrush Pro on monthly billing ($1,407.96 billed yearly). Screaming Frog works out to $23.25 a month. All four vendors sell SEO tools, and Google notes that it \"doesn't evaluate or endorse third-party SEO tools, and these tools don't have access to Google's internal ranking data\". We would treat a crawler's findings as the vendor's view and Search Console as Google's.</p>\n<h2 id=\"what-an-agency-audit-costs\">What an outside technical SEO audit costs</h2>\n<p>We found no neutral survey of technical audit fees on their own. Two published sources come close. Clutch's <a href=\"https://clutch.co/seo-firms/pricing\">SEO pricing guide</a>, updated 21 September 2026, lists technical SEO at $25 to $49 an hour and says most SEO agencies on Clutch charge $100 to $149 an hour. Clutch runs a paid directory. Ahrefs' <a href=\"https://ahrefs.com/blog/seo-pricing/\">poll of 439 people</a>, updated 15 August 2024, found $75 to $100 the most popular hourly rate (24% of respondents) and $2,501 to $5,000 the most popular fee for one-off projects (21.2%), with 50.6% charging $2,000 or less per project. Ahrefs did not break out audits.</p>\n<p>Applied to a hypothetical audit of 10 or 20 hours, those rates give:</p>\n<table style=\"font-size:14px\"><thead><tr><th>Hourly band (source)</th><th>10 hours</th><th>20 hours</th></tr></thead><tbody>\n<tr><td>$25 to $49 (Clutch, technical SEO)</td><td>$250 to $490</td><td>$500 to $980</td></tr>\n<tr><td>$75 to $100 (Ahrefs, most popular)</td><td>$750 to $1,000</td><td>$1,500 to $2,000</td></tr>\n<tr><td>$100 to $149 (Clutch, most agencies)</td><td>$1,000 to $1,490</td><td>$2,000 to $2,980</td></tr>\n</tbody></table>\n<p>The hours are an illustration, not a quote. In our view, scope drives the number: page count, JavaScript rendering, how many templates the site uses, and whether fixes are included or only listed.</p>\n<h2 id=\"what-to-ask-before-you-hire\">What to ask before you hire an auditor</h2>\n<p>Google's hiring page has three rules for audits. Give an auditor read access to Search Console only: \"at this stage, don't grant them write access\". The report \"should be about giving you realistic estimates of improvement, and an estimate of the work involved\". And if anyone promises their changes will put you in first place, Google's advice is to \"find someone else\".</p>\n<p>We would also ask for the findings ranked by effect, with the Search Console status or the Core Web Vitals reading behind each one, so you can check the work yourself. A running business site also needs someone to make the fixes; our <a href=\"/blog/website-maintenance-cost/\">website maintenance cost</a> guide covers that side. A business with one location may want a local check too, which our <a href=\"/blog/local-seo/\">local SEO guide</a> covers.</p>\n<h2 id=\"how-imisofts-can-help\">How imisofts can help</h2>\n<p>imisofts offers <a href=\"/seo-services\">SEO services</a> and <a href=\"/ai-search-optimization\">AI search optimization</a>. For a technical audit we would start where this guide does: Search Console, Core Web Vitals and a crawl, with the fixes ranked. No one can promise a ranking. If an AI assistant on your site is also on the list, our <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot cost guide</a> sets out what those cost. Tell us your site and what you want it to show up for.</p>\n<p>Sources: <a href=\"https://developers.google.com/search/docs/essentials/technical\">Google Search Central, technical requirements</a>; <a href=\"https://developers.google.com/search/docs/appearance/core-web-vitals\">Google Search Central, Core Web Vitals</a>; <a href=\"https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap\">Google Search Central, build a sitemap</a>; <a href=\"https://developers.google.com/search/docs/crawling-indexing/robots/intro\">Google Search Central, robots.txt</a>; <a href=\"https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing\">Google Search Central, mobile-first indexing</a>; <a href=\"https://developers.google.com/crawling/docs/crawl-budget\">Google, crawl budget</a>; <a href=\"https://developers.google.com/search/docs/fundamentals/do-i-need-seo\">Google Search Central, Do you need an SEO?</a>; <a href=\"https://support.google.com/webmasters/answer/9012289\">Search Console Help, URL Inspection tool</a>; <a href=\"https://support.google.com/webmasters/answer/7440203\">Search Console Help, Page indexing report</a>; <a href=\"https://developers.google.com/speed/docs/insights/v5/about\">About PageSpeed Insights</a>; <a href=\"https://www.screamingfrog.co.uk/seo-spider/pricing/\">Screaming Frog pricing</a>; <a href=\"https://sitebulb.com/pricing/\">Sitebulb pricing</a>; <a href=\"https://ahrefs.com/webmaster-tools\">Ahrefs Webmaster Tools</a>; <a href=\"https://www.semrush.com/prices/\">Semrush pricing</a>; <a href=\"https://clutch.co/seo-firms/pricing\">Clutch, SEO Agency Pricing Guide 2026</a>; <a href=\"https://ahrefs.com/blog/seo-pricing/\">Ahrefs, SEO pricing poll</a>.</p>",
+ "faqs": [
+  [
+   "What is a technical SEO audit?",
+   "A check of whether Google can crawl and index your pages and how they perform for real visitors. Google's minimum bar is three things: Googlebot isn't blocked, the page returns HTTP 200, and it has indexable content. Indexing still isn't guaranteed."
+  ],
+  [
+   "How much does a technical SEO audit cost?",
+   "No neutral survey prices audits on their own. Clutch lists technical SEO at $25 to $49 an hour (guide updated 21 September 2026); An Ahrefs poll (article updated August 2024) found $75 to $100 the most popular hourly rate, and Clutch says most agencies charge $100 to $149. A hypothetical 10-hour audit comes to $250 to $1,490 across the three bands."
+  ],
+  [
+   "Can I do a technical SEO audit for free?",
+   "Mostly, yes. Search Console's Page Indexing report and URL Inspection tool, and PageSpeed Insights, are free. Screaming Frog crawls up to 500 URLs free, and Ahrefs Free gives verified sites 5K crawl credits a month per project."
+  ],
+  [
+   "What are good Core Web Vitals scores?",
+   "Google's targets are LCP within 2.5 seconds, INP under 200 milliseconds and CLS under 0.1. PageSpeed Insights reports the 75th percentile of real visits over the previous 28 days."
+  ],
+  [
+   "Can ChatGPT do an SEO audit?",
+   "We would use a chatbot to help read a crawl export or a Search Console download you give it, not as the audit itself. For third-party SEO tools, Google notes they don't have access to its internal ranking data, so we would check every finding against Search Console."
+  ],
+  [
+   "Does robots.txt keep a page out of Google?",
+   "No. Google says robots.txt is not a mechanism for keeping a page out of Google, and a blocked URL might still appear in results. Use noindex and let Google crawl the page, or password-protect it."
+  ]
+ ],
+ "image": {
+  "cluster": "SEO",
+  "takeaway": "Google's minimum bar: Googlebot not blocked, an HTTP 200, and indexable content. Indexing still isn't guaranteed.",
+  "alt": "Technical SEO audit tool costs per year",
+  "chart": {
+   "title": "Yearly price of technical SEO audit tool plans",
+   "subtitle": "Vendor pricing pages, monthly billing where offered, read 13 November 2026.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Ahrefs Free",
+     0
+    ],
+    [
+     "Sitebulb Lite",
+     216
+    ],
+    [
+     "Screaming Frog",
+     279
+    ],
+    [
+     "Sitebulb Pro",
+     504
+    ],
+    [
+     "Semrush Pro",
+     1668
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "source": "Ahrefs, Screaming Frog, Sitebulb and Semrush pricing pages, read 13 November 2026. Source: vendor pricing pages, November 2026",
+   "alt": "Bar chart of yearly entry prices: Ahrefs Free $0, Sitebulb Lite $216, Screaming Frog $279, Sitebulb Pro $504, Semrush Pro $1,668",
+   "after_heading": "What technical SEO audit tools cost"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Google's minimum technical requirements",
+    "value": "3",
+    "note": "not blocked, HTTP 200, indexable content"
+   },
+   {
+    "label": "LCP target",
+    "value": "2.5 seconds",
+    "note": "within, Google"
+   },
+   {
+    "label": "INP target",
+    "value": "Under 200 ms",
+    "note": "Google"
+   },
+   {
+    "label": "CLS target",
+    "value": "Under 0.1",
+    "note": "Google"
+   },
+   {
+    "label": "Sitemap limit",
+    "value": "50,000 URLs",
+    "note": "or 50MB uncompressed per file"
+   },
+   {
+    "label": "PageSpeed field data window",
+    "value": "28 days",
+    "note": "75th percentile of real visits"
+   },
+   {
+    "label": "Screaming Frog free crawl",
+    "value": "500 URLs",
+    "note": "$279 a year to lift the cap"
+   },
+   {
+    "label": "Clutch technical SEO rate",
+    "value": "$25 to $49/hr",
+    "note": "guide updated 21 Sep 2026"
+   },
+   {
+    "label": "Most popular SEO hourly rate",
+    "value": "$75 to $100",
+    "note": "24% of 439 polled, Ahrefs, updated Aug 2024"
+   }
+  ],
+  "source": "Google Search Central, Search Console Help, PageSpeed Insights docs, Screaming Frog, Sitebulb, Ahrefs, Semrush and Clutch, read 13 November 2026."
+ }
+}
