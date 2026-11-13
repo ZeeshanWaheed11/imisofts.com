@@ -1,0 +1,74 @@
+{
+ "slug": "notion-fireworks-breach",
+ "title": "Fireworks AI Breach: Notion AI Chats May Have Been Exposed",
+ "desc": "Notion says AI chats from under 1% of workspaces may have been exposed via Fireworks AI. What was in them, why ZDR did not cover them, which keys to rotate.",
+ "keywords": "notion fireworks breach, notion data breach, notion ai security incident, fireworks ai breach, notion ai chats exposed, zero data retention",
+ "date": "2026-11-13",
+ "time": "13:05",
+ "read_time": 3,
+ "word_count": 657,
+ "cta": "Adding AI to client work? Check where the data goes.",
+ "body": "<p><strong>November 13, 2026.</strong> Notion says a security incident at Fireworks AI, an inference provider it used, affects fewer than 1% of Notion workspaces, and it told affected customers that \"some unattributable chat sessions with Notion AI may have been exposed.\" It is now acting on credentials found inside those chats: according to its <a href=\"https://www.notion.com/security/advisories/security-incident-involving-a-third-party-ai-vendor\" target=\"_blank\" rel=\"noopener noreferrer\">security advisory</a>, Notion revoked exposed Notion API keys on November 11 and, on November 12, reported exposed third-party API keys to the vendors that issued them. For affected workspaces, Notion's advice is to rotate any passwords, API keys or other credentials pasted into Notion AI during the incident timeframe.</p>\n<p><strong>What happened, in Notion's and Fireworks' words</strong></p>\n<ol>\n<li><strong>October.</strong> Fireworks has reported two October incidents. It first disclosed unauthorized use of internal credentials on October 9. Its <a href=\"https://fireworks.ai/security/bulletins/october-2026-security-incident-update\" target=\"_blank\" rel=\"noopener noreferrer\">November 9 update</a> adds that a third-party cloud provider hosting its R&amp;D machines had a security incident on October 23, which an unauthorized party used the next day to reach Fireworks development machines, and links the activity to \"LLMJacking\", selling stolen access to AI models. Neither company has said which incident reached Notion's data.</li>\n<li><strong>November 2 to 4.</strong> Fireworks told Notion a small set of data had been accessed; Notion says that set was synthetic testing data. Notion disconnected from Fireworks by the morning of November 3 and deleted its data there on November 4.</li>\n<li><strong>November 6 to 9.</strong> Fireworks said customer data may have been accessed, confirmed the final dataset on November 8, and Notion contacted affected customers on November 9.</li>\n<li><strong>What was in it.</strong> Notion AI chat transcripts used for Insights, a feature that shows admins how members use AI. Notion has disabled Insights during the investigation.</li>\n</ol>\n<p>Notion says the transcripts were, for \"the vast majority of impacted workspaces\", \"unattributable\", meaning not labeled with who wrote them or which workspace they came from. <a href=\"https://www.theregister.com/cyber-crime/2026/11/10/fireworks-ai-gets-burned-twice-as-customer-data-exposure-widens/5308722\" target=\"_blank\" rel=\"noopener noreferrer\">The Register</a> reported that Reddit users pointed out the conversations themselves could contain identifying details, and Notion's key revocations show some chats contained API keys. Notion also says AI Meeting Notes data was not affected unless it was used as an input in a Notion AI chat.</p>\n<p><strong>Why zero data retention did not cover these chats</strong></p>\n<p>Notion's <a href=\"https://www.notion.com/help/security-incident-involving-a-third-party-ai-vendor\" target=\"_blank\" rel=\"noopener noreferrer\">help center FAQ</a> says zero data retention (ZDR) is its commitment for enterprise customers and \"applies to the API requests we send to third party model vendors.\" Features that need stored prompts and replies, \"including features like chat history and Insights\", are \"not intended\" to be covered, and for Insights Notion \"sent the stored requests and responses from Notion AI use to a third party model provider, Fireworks in this case.\" Fireworks, for its part, says it has \"not detected any impact to Inference, Training SDK and Nexus, which are all zero data retention (ZDR) by default.\" In our view, the question to ask any AI vendor is which features store prompts and which subprocessors see that stored data, not only whether live model calls are ZDR.</p>\n<p><strong>What to do this week</strong></p>\n<ol>\n<li><strong>Check for an email from Notion.</strong> Notion says that if neither you nor your workspace owner heard from it, \"no action is needed right now.\"</li>\n<li><strong>If affected, download the data.</strong> Owners open Security incident review in the sidebar on a desktop browser. The member list CSV includes names, emails and row counts; the content CSVs need a verified domain.</li>\n<li><strong>Rotate what the file flags.</strong> The annotated CSV's analysis column \"flags potential sensitive information in each affected conversation so you can rotate affected credentials right away.\" Notion recommends treating the data \"as if it were exposed.\"</li>\n<li><strong>Add stored-data questions to vendor reviews.</strong> We suggest asking every AI tool for its subprocessor list and which features keep chat history.</li>\n</ol>\n<p>If you are adding AI to client intake, where confidentiality matters, see our <a href=\"/ai-intake-law-firms\">AI intake for law firms</a> page, and our <a href=\"/ai-automation-agency\">AI automation agency</a> page for automations built on model APIs. For budgeting, see what an <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot for business costs</a> and our <a href=\"/blog/chatgpt-business-pricing/\">ChatGPT Business pricing</a> guide.</p>",
+ "faqs": [
+  [
+   "Was Notion hacked?",
+   "Notion says \"this was not a breach of our systems.\" The incident was at Fireworks AI, an inference provider Notion used. Fireworks has reported two October 2026 incidents, and neither company has said which one reached Notion's data."
+  ],
+  [
+   "What data was exposed in the Notion Fireworks breach?",
+   "Notion AI chat transcripts used for the Insights feature, from fewer than 1% of Notion workspaces, may have been exposed. Notion says the vast majority were unattributable, but on November 11 it revoked exposed Notion API keys found in affected user messages."
+  ],
+  [
+   "How do I know if my Notion workspace was affected?",
+   "Notion contacted affected customers starting November 9. If neither you nor your workspace owner heard from Notion, it says no action is needed right now. Affected owners can open Security incident review in the workspace sidebar on a desktop browser."
+  ],
+  [
+   "Does Notion's zero data retention cover this incident?",
+   "No. Notion says its enterprise ZDR applies to API requests sent to model vendors, and is not intended to cover features that store prompts and replies, such as chat history and Insights, which is where these transcripts came from."
+  ]
+ ],
+ "image": {
+  "cluster": "AI security",
+  "takeaway": "Notion says its enterprise ZDR covers model requests, not the stored chats it sent to Fireworks for Insights.",
+  "alt": "Fireworks AI breach and Notion AI chats: what may have been exposed, imisofts news card"
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Share of Notion workspaces affected",
+    "value": "under 1%",
+    "note": "per Notion"
+   },
+   {
+    "label": "Incident at a cloud provider hosting Fireworks R&D",
+    "value": "October 23, 2026",
+    "note": "one of two October incidents"
+   },
+   {
+    "label": "Fireworks first notified Notion",
+    "value": "November 2, 2026"
+   },
+   {
+    "label": "Notion disconnected from Fireworks",
+    "value": "November 3, 2026"
+   },
+   {
+    "label": "Final impacted dataset confirmed",
+    "value": "November 8, 2026"
+   },
+   {
+    "label": "Notion contacted affected customers",
+    "value": "November 9, 2026"
+   },
+   {
+    "label": "Exposed Notion API keys revoked",
+    "value": "November 11, 2026"
+   },
+   {
+    "label": "Third-party API keys reported to issuers",
+    "value": "November 12, 2026"
+   }
+  ],
+  "source": "Notion's security advisory and help center, and Fireworks AI's November 9 bulletin, read on 13 November 2026."
+ }
+}

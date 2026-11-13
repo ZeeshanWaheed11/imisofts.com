@@ -1,0 +1,88 @@
+{
+ "slug": "microsoft-outage",
+ "title": "Microsoft Outage: Exchange Online and Outlook Access Disrupted",
+ "desc": "Microsoft 365 incident EX1550543 disrupted Exchange Online, Outlook access, Copilot and Graph from Nov 12. What Microsoft listed, the timeline, what to do.",
+ "keywords": "microsoft outage, outlook outage, is outlook down, microsoft 365 outage, exchange online outage, microsoft 365 status, outlook down today",
+ "date": "2026-11-13",
+ "time": "13:00",
+ "read_time": 6,
+ "word_count": 1410,
+ "cta": "Run outbound on Microsoft 365? Plan a second route.",
+ "body": "<p><strong>November 13, 2026.</strong> Microsoft opened a Microsoft 365 incident at 17:54 UTC on November 12 (12:54 p.m. Eastern), when its status account said it was investigating reports of problems accessing Exchange Online mailboxes. At its 06:17 UTC update on November 13, about 12.4 hours later, Microsoft's public status page still showed \"Service degradation\", said users \"may be unable to connect to multiple Microsoft 365 services\", and listed 19 services, including Exchange Online, Microsoft Copilot 365 and Microsoft Graph, whose features that interact with Exchange Online are impacted. For a business that runs on Microsoft 365, the line that matters is Microsoft's own: \"email delivery may be delayed.\" Under the SMTP standard, mail that cannot be delivered is queued and retried by the sending server, so a delay is not the same as a lost message while the sender keeps retrying.</p>\n<p><strong>What Microsoft says is affected</strong></p>\n<p>Microsoft posts the incident on <a href=\"https://status.cloud.microsoft\" target=\"_blank\" rel=\"noopener noreferrer\">status.cloud.microsoft</a> \"because Microsoft 365 administrators may be unable to access the admin center to get Service health information.\" It ties the impact to one dependency: \"Features of the Microsoft 365 services below that interact with Exchange Online and email services are impacted.\" In our view, these are the items that matter most for a small team, as listed in the 06:17 UTC update:</p>\n<ol>\n<li><strong>Outlook and Exchange Online.</strong> Users \"may be unable to access their mailbox using Outlook on the web, Outlook desktop (MAPI), Exchange ActiveSync (EAS), or REST-based connections, and email delivery may be delayed.\"</li>\n<li><strong>Microsoft Copilot 365.</strong> Users \"may be unable to load Copilot Chat or receive responses\", and Copilot \"may be unable to access work data such as email, calendar, and files.\"</li>\n<li><strong>Microsoft Graph.</strong> \"API requests that access Exchange Online data, such as mail, calendar, and contacts, may time out\" and can block some Teams management through Graph. Automations, CRM syncs and sending tools that read or send mail through Graph sit on this path.</li>\n<li><strong>Defender for Office 365.</strong> \"Users clicking on wrapped/rewritten URLs typically processed by Safe Links will result in a failure to navigate.\" Releasing mail from quarantine can fail, and message traces may be delayed.</li>\n<li><strong>Teams.</strong> \"Most of the core functionality including joining calls, meetings, group chats, and channel messages are not impacted\", but Microsoft lists calendar failures with scheduling, invites, viewing and meeting edits, which depend on Exchange Online.</li>\n<li><strong>SharePoint and the admin center.</strong> \"Accessing files stored directly in SharePoint Online remains functional.\" Some admin center pages may not load.</li>\n</ol>\n<p>On the consumer side, Microsoft's page showed \"Microsoft 365 (Consumer)\" as degraded at its 04:24 UTC update, while the separate Outlook.com and Microsoft Copilot entries read \"Operational\" when we checked at about 06:10 UTC. Azure showed \"No Azure issues detected at this time.\"</p>\n<p><strong>The timeline from Microsoft's own posts</strong></p>\n<p>Times are UTC, quoted or summarized from the <a href=\"https://x.com/MSFT365Status/status/2120941584220827979\" target=\"_blank\" rel=\"noopener noreferrer\">Microsoft 365 Status thread</a> and the status page.</p>\n<table>\n<thead><tr><th>Time (UTC)</th><th>What Microsoft said</th></tr></thead>\n<tbody>\n<tr><td>Nov 12, 17:54</td><td>Investigating reports of issues accessing Exchange Online mailboxes \"in the Americas\" (EX1550543)</td></tr>\n<tr><td>Nov 12, 18:07</td><td>The issue \"may affect Microsoft 365 service connectivity for users in any region\"</td></tr>\n<tr><td>Nov 12, 18:35</td><td>\"Elevated load across multiple regions\"; second incident ID MO1550821</td></tr>\n<tr><td>Nov 12, 19:12</td><td>\"We've paused all deployments\", moving traffic and restarting servers</td></tr>\n<tr><td>Nov 12, 19:31</td><td>The load \"isn't driven by an increase in traffic, but by a number of servers being unexpectedly unavailable\"</td></tr>\n<tr><td>Nov 12, 20:19</td><td>\"We've not identified any recent change correlated with the start of impact\"; a component that processes server health suspected</td></tr>\n<tr><td>Nov 12, 21:00</td><td>An alternative health check method returned \"a subset of affected servers\" to service</td></tr>\n<tr><td>Nov 12, 21:40</td><td>Assessing whether reverting \"a small number of recent configuration updates\" could help</td></tr>\n<tr><td>Nov 12, 22:09</td><td>\"Our actions taken thus far have not provided the anticipated relief\"; \"a core process on affected servers is becoming overwhelmed\"</td></tr>\n<tr><td>Nov 13, 00:06</td><td>Returned servers \"can become unresponsive again once they receive traffic\"</td></tr>\n<tr><td>Nov 13, 04:36</td><td>\"Partial recovery across regions\" where traffic measures were applied</td></tr>\n<tr><td>Nov 13, 05:46</td><td>Working to \"pinpoint the underlying cause of the traffic influx\"; \"not aware of any malicious activity\"</td></tr>\n<tr><td>Nov 13, 06:12</td><td>\"Continuing to work on recovering our frontend servers\"</td></tr>\n<tr><td>Nov 13, 06:17</td><td>Evaluating \"traffic throttling, protocol adjustments, and failover routing\"; next update promised by 07:00 UTC</td></tr>\n</tbody>\n</table>\n<p><a href=\"https://www.cnbc.com/2026/11/12/microsoft-outage-outlook-aws-google.html\" target=\"_blank\" rel=\"noopener noreferrer\">CNBC</a>, in a story first published at 20:54 UTC on November 12, said the outage \"began shortly before 1 p.m.\" and that \"At the time, about 130,000 users reported issues with Outlook\" on Downdetector. Amazon told users that an \"unrelated disruption elsewhere on the internet\" was prompting inaccurate reports about AWS. Separately, Microsoft opened a Teams incident in North America (TM1550488) at 15:40 UTC, about two hours before the Exchange posts, and said at 16:13 UTC that automated recovery was reducing its impact. Microsoft has not said the two incidents are connected.</p>\n<p><strong>What it means for email you send and receive</strong></p>\n<p>Start with inbound mail. The SMTP standard, <a href=\"https://www.rfc-editor.org/rfc/rfc5321.html\" target=\"_blank\" rel=\"noopener noreferrer\">RFC 5321</a>, says \"mail that cannot be transmitted immediately MUST be queued and periodically retried by the sender\", that \"the retry interval SHOULD be at least 30 minutes\", and that \"the give-up time generally needs to be at least 4-5 days.\" Each sending provider sets its own schedule, so the exact window varies, and a sender can give up. We suggest checking for a bounce message before asking a customer to resend, because a resend on top of a queued original can arrive twice once service returns.</p>\n<p>Then outbound links. If your recipients' organizations use Defender for Office 365 Safe Links, Microsoft's 06:17 UTC update said clicks on rewritten links fail to navigate. Click and reply numbers from Microsoft 365 recipients for November 12 and 13 may understate real interest, so we would not judge a campaign, a subject line or a landing page on those two days.</p>\n<p><strong>If you send cold email or sales sequences</strong></p>\n<p>Sending tools that connect to Microsoft 365 inboxes through Outlook connections or the Graph API depend on the parts Microsoft lists as affected. We suggest pausing sequences that send from Microsoft 365 inboxes until Microsoft marks the incident resolved, then resuming at your normal daily volume rather than catching up in one burst. Volume rules still apply after an outage; our guide to <a href=\"/blog/microsoft-365-sending-limits/\">Microsoft 365 sending limits</a> covers the caps a tenant works under, and the <a href=\"/blog/smtp-auth-basic-authentication-deprecation/\">SMTP AUTH deprecation</a> piece covers another Microsoft change on outbound tools' calendar.</p>\n<p>In our view, the wider lesson is that one mailbox provider is one point of failure. Inboxes on a second provider would not have depended on Exchange Online to send, though delivery to Microsoft 365 recipients could still be delayed. Our <a href=\"/email-infrastructure\">email infrastructure</a> page covers domains, inboxes and SPF, DKIM and DMARC for outbound, and the <a href=\"/blog/email-hosting-cost/\">email hosting cost</a> guide compares what a business mailbox costs per user.</p>\n<p><strong>What admins and agencies can do now</strong></p>\n<ol>\n<li><strong>Use the public status page.</strong> <a href=\"https://status.cloud.microsoft\" target=\"_blank\" rel=\"noopener noreferrer\">status.cloud.microsoft</a> carries the incident when the admin center will not load. The IDs to quote in tickets are EX1550543 and MO1550821.</li>\n<li><strong>Move urgent work to what Microsoft lists as working.</strong> Microsoft's 06:17 UTC update said most core Teams functionality, including joining calls and meetings and chats, was not impacted, and that files stored directly in SharePoint Online remained reachable.</li>\n<li><strong>Pause automations that write mail or calendar events through Graph.</strong> We suggest re-running them after recovery and checking for duplicates, since a timeout can leave a run half done.</li>\n<li><strong>Give clients times, not guesses.</strong> Quote Microsoft's latest update and its promised next update rather than a fix time Microsoft has not given.</li>\n<li><strong>Read the Post-Incident Report.</strong> Microsoft says that once the issue is mitigated it will provide \"full details of the root cause, defense-in-depth repair items, and more within a Post-Incident Report.\"</li>\n</ol>\n<p><strong>What we do not know yet</strong></p>\n<p>As of Microsoft's 06:17 UTC update on November 13, there was no published root cause, no restoration time and no count of affected tenants. At 05:46 UTC Microsoft said it was still working to \"pinpoint the underlying cause of the traffic influx\", and at 06:17 UTC it was \"evaluating traffic controls that can be applied to increase capacity and stability.\" It said: \"As of now, we are not aware of any malicious activity that is causing this incident.\" This page reflects Microsoft's posts up to that 06:17 UTC update. If the outage exposed gaps in how your outbound is set up, read what an <a href=\"/blog/email-deliverability-consultant-cost/\">email deliverability consultant costs</a> before you hire one, and see <a href=\"/blog/exchange-online-ews-deprecation/\">the EWS deprecation timeline</a> if your tools still connect to Exchange Online the old way.</p>",
+ "faqs": [
+  [
+   "Is Microsoft Outlook down right now?",
+   "At its 06:17 UTC update on November 13, 2026, Microsoft's status page listed Microsoft 365 (Business or Enterprise) as \"Service degradation\" and said users \"may be unable to access their mailbox using Outlook on the web, Outlook desktop (MAPI), Exchange ActiveSync (EAS), or REST-based connections.\" The consumer Outlook.com entry read \"Operational\" when we checked at about 06:10 UTC. Check status.cloud.microsoft for the latest."
+  ],
+  [
+   "What caused the Microsoft 365 outage?",
+   "Microsoft has not published a root cause. Its posts say the elevated load came from \"a number of servers being unexpectedly unavailable\", that servers were failing automated health checks, and that \"a core process on affected servers is becoming overwhelmed.\" At 05:46 UTC on November 13 it was still working to \"pinpoint the underlying cause of the traffic influx\" and said it was \"not aware of any malicious activity.\" A Post-Incident Report is promised once the issue is mitigated."
+  ],
+  [
+   "Will emails sent during the Outlook outage be lost?",
+   "Microsoft says \"email delivery may be delayed.\" Under RFC 5321, mail that cannot be delivered must be queued and retried by the sending server, with a give-up time that \"generally needs to be at least 4-5 days\", although each provider sets its own schedule. Check for a bounce message before resending."
+  ],
+  [
+   "Is Microsoft Teams down too?",
+   "Microsoft's 06:17 UTC update said most core Teams functionality, including joining calls and meetings, group chats and channel messages, was not impacted, while calendar scheduling, invites and meeting edits that depend on Exchange Online failed. Microsoft also opened a separate North America Teams incident, TM1550488, at 15:40 UTC on November 12 and has not said the two are connected."
+  ],
+  [
+   "Is Microsoft Copilot affected by the outage?",
+   "Microsoft's 06:17 UTC update listed Microsoft Copilot 365, the work version, as affected: users \"may be unable to load Copilot Chat or receive responses\", and Copilot may be unable to reach email, calendar and files. The consumer Microsoft Copilot entry read \"Operational\" when we checked at about 06:10 UTC."
+  ],
+  [
+   "Where can I check Microsoft 365 status if the admin center will not load?",
+   "Use status.cloud.microsoft and the Microsoft 365 Status account on X. The incident IDs are EX1550543 and MO1550821."
+  ]
+ ],
+ "image": {
+  "cluster": "Email infrastructure",
+  "takeaway": "Microsoft listed Exchange Online, Copilot 365 and Graph among 19 affected services; email delivery may be delayed.",
+  "alt": "Microsoft outage: Exchange Online and Outlook access incident, imisofts news card"
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "First Exchange Online status post",
+    "value": "17:54 UTC, Nov 12",
+    "note": "incident EX1550543"
+   },
+   {
+    "label": "Second incident ID",
+    "value": "MO1550821",
+    "note": "posted 18:35 UTC"
+   },
+   {
+    "label": "Hours from first post to the 06:17 UTC update",
+    "value": "about 12.4",
+    "note": "still degraded"
+   },
+   {
+    "label": "Microsoft 365 services listed as affected",
+    "value": "19",
+    "note": "those that interact with Exchange Online"
+   },
+   {
+    "label": "Outlook reports on Downdetector, per CNBC",
+    "value": "about 130,000",
+    "note": "\"at the time\" the outage began"
+   },
+   {
+    "label": "Latest status page update read for this article",
+    "value": "06:17 UTC, Nov 13",
+    "note": "still Service degradation"
+   },
+   {
+    "label": "SMTP retry interval in RFC 5321",
+    "value": "at least 30 minutes",
+    "note": "\"in general\", a SHOULD"
+   },
+   {
+    "label": "SMTP give-up time in RFC 5321",
+    "value": "at least 4-5 days",
+    "note": "each sender sets its own"
+   }
+  ],
+  "source": "Microsoft's status page (06:17 UTC update) and Microsoft 365 Status posts read on 13 November 2026 at about 06:35 UTC, plus RFC 5321 and CNBC."
+ }
+}
