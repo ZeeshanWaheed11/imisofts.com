@@ -1,0 +1,95 @@
+{
+  "slug": "llm-seo",
+  "title": "LLM SEO: What Google, OpenAI and Bing Say Gets You Cited",
+  "desc": "LLM SEO from the vendors' own docs: Google's no-extra-requirements rule, the AI crawler names to allow, Bing's GEO guidelines and how to measure citations.",
+  "date": "2026-11-13",
+  "time": "15:40",
+  "keywords": "llm seo, chatgpt seo, generative engine optimization, ai search optimization, ai overviews seo, llm optimization, oai-searchbot, ai crawlers robots.txt",
+  "category": "Guides",
+  "affiliate_url": "",
+  "cta": "Want your site cited in AI answers?",
+  "read_time": 9,
+  "word_count": 2169,
+  "body": "<p><strong>Short answer.</strong> LLM SEO is the work of getting your pages cited inside AI answers such as Google's AI Overviews, ChatGPT search, Microsoft Copilot, Perplexity and Claude. On 13 November 2026, the vendors' own documentation says the same thing in different words: Google lists \"no additional requirements\" for AI Overviews or AI Mode beyond being indexed and eligible for a snippet, and Bing says Copilot runs on \"the same core crawling, indexing, and ranking foundation as traditional search.\" The new part is crawler access: OpenAI, Perplexity and Anthropic each run their own search bots, and blocking one keeps you out of that assistant's answers.</p>\n<p>This guide sets out what each company publishes about how its AI picks sources, the crawler names to allow, and a short checklist. No vendor publishes a citation formula, so anyone who promises one is guessing. For the classic side of the job, our <a href=\"/blog/technical-seo-audit/\">technical SEO audit guide</a> covers the checks Google's own tools run.</p>\n<h2 id=\"what-llm-seo-is\">What LLM SEO is, and what else it is called</h2>\n<p>LLM stands for large language model, the kind of model behind ChatGPT, Gemini, Copilot and Claude. When one of these assistants answers a question with live web results, it searches, reads a handful of pages and cites some of them. LLM SEO is making your pages the ones it reads and names.</p>\n<p>The same work goes by several labels: GEO (generative engine optimization), AEO (answer engine optimization), AI search optimization and LLMO. Microsoft now uses one of them in an official document. Bing's Webmaster Guidelines say \"Generative Engine Optimization (GEO) focuses on content eligibility for grounding and reference in AI responses.\" Grounding means the assistant pulls a page into its answer at the moment someone asks.</p>\n<p>The practical difference from classic SEO is the outcome you measure. A blue link earns a click. An AI answer may cite you and send no click at all, which Bing's guidelines acknowledge: \"A decline in clicks does not always indicate a loss of visibility.\"</p>\n<h2 id=\"google-ai-overviews\">What Google says about AI Overviews and AI Mode</h2>\n<p>Google's page \"AI features and your website\" is the plainest statement from any vendor. It says: \"There are no additional requirements to appear in AI Overviews or AI Mode, nor other special optimizations necessary.\"</p>\n<p>The eligibility rule is one sentence: \"To be eligible to be shown as a supporting link in AI Overviews or AI Mode, a page must be indexed and eligible to be shown in Google Search with a snippet ...\" Google adds that \"Indexing and serving isn't guaranteed.\"</p>\n<p>Three details on that page matter for planning:</p>\n<ol>\n<li><strong>Query fan-out.</strong> Google says both features may use a \"query fan-out\" technique, issuing several related searches across subtopics to build one answer. A page that answers a narrow sub-question well can be pulled in even when it does not rank for the main query.</li>\n<li><strong>No special files.</strong> \"You don't need to create new machine readable files, AI text files, or markup to appear in these features. There's also no special schema.org structured data that you need to add.\" Our look at <a href=\"/blog/does-llms-txt-work/\">whether llms.txt works</a> covers that file in detail.</li>\n<li><strong>Your CDN counts.</strong> Google's checklist asks you to make sure crawling is allowed in robots.txt and \"by any CDN or hosting infrastructure.\" A firewall rule that challenges bots can block you without any change to robots.txt.</li>\n</ol>\n<p>Google also notes that AI Overviews \"often don't trigger,\" because they show only when Google judges them additive to the normal results.</p>\n<h2 id=\"openai-chatgpt-search\">What OpenAI says about ChatGPT search</h2>\n<p>OpenAI's crawler page lists four user agents and says each setting is independent. The one that decides ChatGPT search visibility is OAI-SearchBot: \"Sites that are opted out of OAI-SearchBot will not be shown in ChatGPT search answers, though can still appear as navigational links.\" OpenAI recommends allowing it in robots.txt and allowing requests from its published IP ranges.</p>\n<p>GPTBot is a separate bot that collects content \"that may be used in training our generative AI foundation models.\" OpenAI's own example is a site that allows OAI-SearchBot to appear in search while disallowing GPTBot to opt out of training. So you do not have to feed model training to be found in ChatGPT search.</p>\n<p>ChatGPT-User fetches a page when a person asks ChatGPT about it. OpenAI says \"robots.txt rules may not apply\" to it and that it \"is not used to determine whether content may appear in Search.\" After you edit robots.txt, OpenAI says it \"can take ~24 hours\" for search to adjust.</p>\n<p>OpenAI also runs a free listing for businesses. Our page on the <a href=\"/blog/chatgpt-business-hub/\">ChatGPT Business Hub</a> covers how to claim yours.</p>\n<h2 id=\"bing-and-copilot\">What Microsoft says about Bing and Copilot</h2>\n<p>Microsoft rewrote the Bing Webmaster Guidelines to cover Copilot, a change Search Engine Journal reported on 27 February 2026. The current version has 22 numbered sections and opens by saying it covers \"Bing search experiences, Copilot, and grounding API results.\"</p>\n<p>Several sections read like a writing brief for AI answers:</p>\n<ul>\n<li><strong>Stand alone.</strong> \"URLs are more likely to be selected for grounding queries and citations when content stands on its own.\" Facts and definitions should be explicit, not implied.</li>\n<li><strong>Answer early.</strong> \"Place essential information near the top of the URL\" and \"Avoid long introductions before addressing the main topic.\"</li>\n<li><strong>Name things the same way.</strong> Use clear, consistent names for people, organizations, products and places.</li>\n<li><strong>Tell Bing about changes.</strong> Use IndexNow when URLs are added, updated or removed, which Bing says helps \"reduce outdated or incorrect URL references in Copilot responses.\"</li>\n</ul>\n<p>The guidelines also carry a warning: \"GEO does not guarantee grounding or citations in AI experiences.\" Manipulative tactics can lead to \"suppressed grounding visibility, loss of grounding eligibility, ignored structured data, or removal from the Bing index.\"</p>\n<h2 id=\"perplexity-and-claude\">What Perplexity and Anthropic say</h2>\n<p><strong>Perplexity</strong> names two agents. PerplexityBot \"is designed to surface and link websites in search results on Perplexity\" and, Perplexity says, is not used to crawl content for AI foundation models. Perplexity-User fetches pages when a person asks a question, and \"generally ignores robots.txt rules.\" Robots.txt changes can take \"up to 24 hours\" to apply.</p>\n<p>Perplexity's docs include a warning that matters for any site behind Cloudflare: \"Cloudflare's Bot Fight Mode can't be skipped with WAF custom rules. If Bot Fight Mode is enabled, it can still challenge Perplexity bots that match this rule.\"</p>\n<p><strong>Anthropic</strong> lists three robots for Claude. ClaudeBot collects content that could be used for training. Claude-SearchBot indexes content for search, and Anthropic says disabling it \"may reduce your site's visibility and accuracy in user search results.\" Claude-User fetches pages when a person asks Claude something. Anthropic adds that blocking its IP addresses instead of using robots.txt \"may not work correctly.\"</p>\n<h2 id=\"ai-crawler-names\">The AI crawler names to know</h2>\n<p>This table lists the agents each company documents, split by what they do. Rows come from each vendor's own crawler page, read 13 November 2026.</p>\n<table>\n<thead><tr><th>Company</th><th>Search or answer bot</th><th>Training bot</th><th>User-triggered fetcher</th></tr></thead>\n<tbody>\n<tr><td>Google</td><td>Googlebot (AI Overviews, AI Mode)</td><td>Google-Extended token (Gemini training and grounding)</td><td>Not listed for this</td></tr>\n<tr><td>OpenAI</td><td>OAI-SearchBot</td><td>GPTBot</td><td>ChatGPT-User</td></tr>\n<tr><td>Microsoft</td><td>Bing crawler (not named in the guidelines)</td><td>Not covered in the guidelines we read</td><td>Not covered in the guidelines we read</td></tr>\n<tr><td>Perplexity</td><td>PerplexityBot</td><td>No training crawler listed</td><td>Perplexity-User</td></tr>\n<tr><td>Anthropic</td><td>Claude-SearchBot</td><td>ClaudeBot</td><td>Claude-User</td></tr>\n</tbody>\n</table>\n<p>OpenAI also runs OAI-AdsBot, which only visits landing pages submitted as ChatGPT ads. If you want to appear in AI answers, the column that matters most is the first one. Blocking a bot in that column is the most direct way to drop out of that assistant.</p>\n<h2 id=\"training-vs-search\">Opting out of training without leaving AI search</h2>\n<p>Many site owners want two things at once: to be cited in AI answers, and to keep their content out of model training. The vendors split these controls, so you can.</p>\n<ul>\n<li><strong>Google.</strong> Google-Extended controls Gemini training and grounding in Gemini Apps, and Google says it \"does not impact a site's inclusion in Google Search nor is it used as a ranking signal.\" AI Overviews are controlled through Googlebot and snippet rules such as nosnippet and max-snippet.</li>\n<li><strong>OpenAI.</strong> Disallow GPTBot, allow OAI-SearchBot.</li>\n<li><strong>Anthropic.</strong> Disallow ClaudeBot, allow Claude-SearchBot and Claude-User.</li>\n</ul>\n<p>A shared signal is also arriving. Anthropic says that \"As of October 30, 2026,\" it has begun recognizing a machine-readable \"no AI training\" preference based on an IETF aipref working group draft. Google's crawler page says it intends to support the AIPREF training preference signal in early 2027. Both are about training, not about whether you are cited.</p>\n<h2 id=\"llm-seo-checklist\">An LLM SEO checklist for a small business site</h2>\n<p>Every step below comes from one of the vendor pages above. The order is ours.</p>\n<ol>\n<li><strong>Get indexed in Google and Bing first.</strong> Both say AI answers sit on their normal index. Check pages in Search Console's URL Inspection and in Bing Webmaster Tools.</li>\n<li><strong>Read your robots.txt line by line.</strong> Confirm Googlebot, Bing's crawler, OAI-SearchBot, PerplexityBot and Claude-SearchBot are not disallowed.</li>\n<li><strong>Check your CDN and firewall.</strong> Google asks you to check \"any CDN or hosting infrastructure,\" and Perplexity warns about Cloudflare's Bot Fight Mode.</li>\n<li><strong>Put the answer at the top.</strong> Lead with the fact or number the page exists to give, as Bing's section 18 asks.</li>\n<li><strong>Make each page stand on its own.</strong> State definitions and figures in text, not only in images, so each page answers without relying on implied content.</li>\n<li><strong>Keep structured data honest.</strong> Google wants it to match \"the visible text on the page.\" Our <a href=\"/blog/schema-markup/\">schema markup guide</a> lists what Google still supports.</li>\n<li><strong>Ping changes.</strong> Use IndexNow for Bing and Copilot, and request recrawls in Search Console after a big update.</li>\n<li><strong>Keep business listings current.</strong> Google names Merchant Center and Business Profile in its AI features checklist.</li>\n</ol>\n<h2 id=\"measure-ai-citations\">How to measure LLM SEO</h2>\n<p>Google counts AI Overviews and AI Mode traffic inside the normal Performance report, under the \"Web\" search type. Google does not split it out there, so watch impressions and clicks on the pages you expect to be cited. Google also says clicks from results pages with AI Overviews are \"higher quality,\" meaning people spend more time on the site; that is Google's own claim.</p>\n<p>Bing goes further. On 10 February 2026 it launched AI Performance in Bing Webmaster Tools as a public preview, which shows \"how often your content is cited in generative answers\" across Microsoft Copilot, AI summaries in Bing and select partner integrations, and which URLs are referenced. If you track one new report for LLM SEO, start there.</p>\n<p>For ChatGPT, Perplexity and Claude, your server logs show whether their search bots visit. A page those bots never fetch is unlikely to be cited by those assistants.</p>\n<h2 id=\"how-imisofts-can-help\">How imisofts can help</h2>\n<p>imisofts works on <a href=\"/ai-search-optimization\">AI search optimization</a> and <a href=\"/seo-services\">SEO services</a>: robots.txt and CDN checks for the AI crawlers, page structure that puts the answer first, structured data that matches the page, and Bing and Search Console setup so you can see citations. Some teams pair this with an assistant on their own site; our <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot cost guide</a> sets out what that costs. Tell us your site and the questions you want to be cited for.</p>\n<p>Sources: <a href=\"https://developers.google.com/search/docs/appearance/ai-features\">Google Search Central, AI features and your website</a>; <a href=\"https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers\">Google, common crawlers (Google-Extended)</a>; <a href=\"https://platform.openai.com/docs/bots\">OpenAI, Overview of OpenAI Crawlers</a>; <a href=\"https://www.bing.com/webmasters/help/webmaster-guidelines-30fba23a\">Bing Webmaster Guidelines</a>; <a href=\"https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview\">Bing Webmaster Blog, AI Performance public preview (10 February 2026)</a>; <a href=\"https://www.searchenginejournal.com/bing-adds-geo-to-official-guidelines-expands-ai-abuse-definitions/568442/\">Search Engine Journal, Bing adds GEO to official guidelines (27 February 2026)</a>; <a href=\"https://docs.perplexity.ai/guides/bots\">Perplexity Crawlers</a>; <a href=\"https://support.claude.com/en/articles/8896518\">Anthropic, Claude Help Center on Anthropic's crawlers</a>.</p>",
+  "faqs": [
+    [
+      "What is LLM SEO?",
+      "LLM SEO is the work of getting your pages cited in answers from AI assistants built on large language models, such as Google's AI Overviews, ChatGPT search, Copilot, Perplexity and Claude. Google says AI Overviews have no additional requirements beyond being indexed and eligible for a snippet."
+    ],
+    [
+      "What is LLM SEO also called?",
+      "GEO (generative engine optimization), AEO (answer engine optimization), AI search optimization or LLMO. Bing's Webmaster Guidelines, as reported by Search Engine Journal in February 2026, use GEO and define it as content eligibility for grounding and reference in AI responses."
+    ],
+    [
+      "What is the difference between SEO and LLM SEO?",
+      "The foundation is the same: Google and Bing both say their AI answers run on their normal index. The differences are extra crawlers to allow (OAI-SearchBot, PerplexityBot, Claude-SearchBot) and a different outcome, a citation that may not bring a click."
+    ],
+    [
+      "Do I need llms.txt or special schema for AI Overviews?",
+      "Not for Google. Its AI features page says you don't need new machine readable files, AI text files or markup, and there is no special schema.org structured data to add. Structured data should match the visible text."
+    ],
+    [
+      "How do I get my site into ChatGPT search?",
+      "Allow OAI-SearchBot in robots.txt and allow OpenAI's published IP ranges. OpenAI says sites that opt out of OAI-SearchBot will not be shown in ChatGPT search answers, and robots.txt changes take about 24 hours to apply."
+    ],
+    [
+      "Can I block AI training but still appear in AI answers?",
+      "Yes. Disallow GPTBot but allow OAI-SearchBot for OpenAI, disallow ClaudeBot but allow Claude-SearchBot for Anthropic, and use Google-Extended for Gemini training, which Google says does not affect Search inclusion or ranking."
+    ]
+  ],
+  "image": {
+    "cluster": "AI search",
+    "takeaway": "Google lists no additional requirements for AI Overviews: a page must be indexed and eligible for a snippet.",
+    "alt": "LLM SEO: what Google, OpenAI and Bing say gets a page cited in AI answers"
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Extra requirements for AI Overviews",
+        "value": "None",
+        "note": "beyond indexed and snippet eligible, Google"
+      },
+      {
+        "label": "OpenAI user agents listed",
+        "value": "4",
+        "note": "OAI-SearchBot decides ChatGPT search"
+      },
+      {
+        "label": "ChatGPT search robots.txt lag",
+        "value": "About 24 hours",
+        "note": "OpenAI"
+      },
+      {
+        "label": "Perplexity robots.txt lag",
+        "value": "Up to 24 hours",
+        "note": "Perplexity"
+      },
+      {
+        "label": "Anthropic robots listed",
+        "value": "3",
+        "note": "ClaudeBot, Claude-SearchBot, Claude-User"
+      },
+      {
+        "label": "Bing Webmaster Guidelines sections",
+        "value": "22",
+        "note": "rewrite reported Feb 2026, Copilot"
+      },
+      {
+        "label": "Bing AI Performance report",
+        "value": "10 Feb 2026",
+        "note": "public preview, Copilot citations"
+      },
+      {
+        "label": "Anthropic AI training signal",
+        "value": "30 Oct 2026",
+        "note": "aipref draft, recognized from"
+      },
+      {
+        "label": "Google AIPREF support",
+        "value": "Early 2027",
+        "note": "intended, Google crawler docs"
+      }
+    ],
+    "source": "Google Search Central, OpenAI, Perplexity, Anthropic and Bing documentation, read 13 November 2026."
+  }
+}
