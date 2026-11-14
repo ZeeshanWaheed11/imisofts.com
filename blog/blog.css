@@ -1119,3 +1119,24 @@
     }
   }
 }
+
+/* ============= DESKTOP SCREENS (2026-11-14) ============= 1200px and wider.
+   Nine tables with four to six columns were wider than the article column, and one long code
+   string pushed a page past the screen. A wide table now scrolls inside its own box and a long
+   word or code string wraps. A page where everything already fits looks the same as before. */
+@media (min-width: 1200px) {
+  .blog-wrapper { overflow-wrap: break-word; }
+  .article-content > table:has(tr > :nth-child(4)) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    container-type: inline-size;
+  }
+  @container (min-width: 0px) {
+    .article-content > table:has(tr > :nth-child(4))::before {
+      content: "";
+      display: table-caption;
+      min-width: 100cqw;
+    }
+  }
+}
