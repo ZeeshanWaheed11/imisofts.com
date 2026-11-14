@@ -16,6 +16,7 @@ TEMPLATE = os.path.join(ROOT, 'blog', 'signal-based-outbound-news-june-2026', 'i
 CONTENT_DIR = os.path.join(ROOT, 'content', 'news')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import publish_time as PT   # 2026-11-14: real publish time for new articles (see ops/publish_time.py)
+import news_template as NT   # 2026-11-14: news template 2 for new news articles (see ops/news_template.py)
 
 def _pubdate(m):
     """RSS pubDate: the real publish moment for new articles, the typed date and time for old ones."""
@@ -120,7 +121,9 @@ def build_article(meta, tpl):
     s=re.sub(r'<span class="current">[^<]*</span>',f'<span class="current">{TH}</span>',s,count=1)
     s=re.sub(r'<h1>[^<]*</h1>',f'<h1>{TH}</h1>',s,count=1)
     faq_section=f'<section class="faq-section" id="faq">\n<h2>Frequently Asked Questions</h2>\n{faq_items_html(faqs)}\n</section>'
-    body=(PT.fix_dateline(meta['body'],PUB) if PUB else meta['body'])+'\n'+cta_html(meta.get('cta','Want this built for your business?'))+'\n'+faq_section
+    _text=(PT.fix_dateline(meta['body'],PUB) if PUB else meta['body'])
+    if meta.get('_tpl2'): body=_text+'\n'+NT.after_body(meta, ROOT)+'\n'+faq_section   # new articles: related coverage and the About box
+    else: body=_text+'\n'+cta_html(meta.get('cta','Want this built for your business?'))+'\n'+faq_section
     i=s.find('<article class="article-content">'); j=s.find('</article>')
     s=s[:i]+'<article class="article-content">\n'+body+'\n'+s[j:]
     # ---- images (2026-09-26): only specs that carry an "image" block get a hero (+ optional chart).
@@ -140,6 +143,7 @@ def build_article(meta, tpl):
         print('key numbers skipped for %s: %s'%(slug,_ke))
     s=fix_chrome(s, DP)
     if PUB: s=PT.og_times(s, PUB)
+    if meta.get('_tpl2'): s=NT.finish(s, meta)
     s=re.sub(r'(\d+)\s*min read', '%d min read'%meta.get('read_time',6), s, count=1)
     # validate
     mainpart=s[s.find('<article'):s.find('</article>')]
@@ -176,6 +180,7 @@ def main():
         out=os.path.join(ROOT,'blog',meta['slug'],'index.html')
         _st=PT.resolve(out)   # now for a new article, the stored stamp on a rebuild, None for pages built before 2026-11-14
         if _st: meta['_pub']=_st; meta['date']=PT.date(_st)
+        meta['_tpl2']=bool(_st) and NT.wants(out)   # template 2 only for articles first built with it
         if (not os.path.exists(out)) or (os.path.getmtime(f) > os.path.getmtime(out)):
             try:
                 _html=build_article(meta,tpl)
