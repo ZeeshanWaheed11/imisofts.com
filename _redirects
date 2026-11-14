@@ -286,6 +286,58 @@
 /blog/an-ai-just-sent-me-a-client/                                                    /blog/an-ai-sent-me-a-client/  301
 
 # ---------------------------------------------------------------------------
+# Added 2026-11-15. Addresses that Search Console listed as "Not found (404)" and that
+#     have a live page: links from other sites that leave out /blog/, and old WordPress
+#     posts of the kinds already redirected above. Exact-match rules only, so they sit
+#     before the splat rules.
+# ---------------------------------------------------------------------------
+/home/                                                                                /                                      301
+/privacy                                                                              /privacy-policy                        301
+/privacy/                                                                             /privacy-policy                        301
+/cold-email-laws-australia                                                            /blog/cold-email-laws-australia/       301
+/cold-email-laws-australia/                                                           /blog/cold-email-laws-australia/       301
+/cold-email-laws-canada                                                               /blog/cold-email-laws-canada/          301
+/cold-email-laws-canada/                                                              /blog/cold-email-laws-canada/          301
+/cold-email-laws-united-states                                                        /blog/cold-email-laws-united-states/   301
+/cold-email-laws-united-states/                                                       /blog/cold-email-laws-united-states/   301
+/email-warmup-strategy                                                                /blog/cold-email-warmup-strategy/      301
+/email-warmup-strategy/                                                               /blog/cold-email-warmup-strategy/      301
+/how-to-use-facebook-retargeting-ads-to-boost-sales                                   /digital-marketing                     301
+/how-to-use-facebook-retargeting-ads-to-boost-sales/                                  /digital-marketing                     301
+/does-social-media-marketing-cost                                                     /digital-marketing                     301
+/does-social-media-marketing-cost/                                                    /digital-marketing                     301
+/how-to-do-social-media-marketing                                                     /digital-marketing                     301
+/how-to-do-social-media-marketing/                                                    /digital-marketing                     301
+/clickfunnels-is-it-a-worthy-one-for-your-business                                    /digital-marketing                     301
+/clickfunnels-is-it-a-worthy-one-for-your-business/                                   /digital-marketing                     301
+/the-5-must-have-shopify-apps-to-boost-sales-in-2022                                  /shopify-apps                          301
+/the-5-must-have-shopify-apps-to-boost-sales-in-2022/                                 /shopify-apps                          301
+/close-is-a-shopify-store                                                             /ecommerce                             301
+/close-is-a-shopify-store/                                                            /ecommerce                             301
+/use-square-with-shopify                                                              /ecommerce                             301
+/use-square-with-shopify/                                                             /ecommerce                             301
+/ins-and-outs-of-shopify                                                              /ecommerce                             301
+/ins-and-outs-of-shopify/                                                             /ecommerce                             301
+/high-ticket-dropshipping-the-ultimate-guide-2022                                     /ecommerce                             301
+/high-ticket-dropshipping-the-ultimate-guide-2022/                                    /ecommerce                             301
+/make-money-on-shopify                                                                /ecommerce                             301
+/make-money-on-shopify/                                                               /ecommerce                             301
+/how-to-backup-your-wordpress-woocommerce-store                                       /ecommerce                             301
+/how-to-backup-your-wordpress-woocommerce-store/                                      /ecommerce                             301
+/how-to-optimize-your-shopify-product-page-for-high-conversions                       /ecommerce                             301
+/how-to-optimize-your-shopify-product-page-for-high-conversions/                      /ecommerce                             301
+/top-5-hot-dropshipping-niches-in-2022                                                /ecommerce                             301
+/top-5-hot-dropshipping-niches-in-2022/                                               /ecommerce                             301
+/add-products-to-shopify                                                              /ecommerce                             301
+/add-products-to-shopify/                                                             /ecommerce                             301
+/customers-buy-from-shopify                                                           /ecommerce                             301
+/customers-buy-from-shopify/                                                          /ecommerce                             301
+/add-social-share-buttons-to-shopify                                                  /ecommerce                             301
+/add-social-share-buttons-to-shopify/                                                 /ecommerce                             301
+/shopify-store-development                                                            /ecommerce                             301
+/shopify-store-development/                                                           /ecommerce                             301
+
+# ---------------------------------------------------------------------------
 #     Splat (dynamic) rules, moved to the end on 2026-09-28. Cloudflare Pages
 #     counts every rule after the first splat as dynamic and allows only 100,
 #     so they must come last. No exact-match rule shares these prefixes, so
