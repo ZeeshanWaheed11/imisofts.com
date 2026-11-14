@@ -373,7 +373,7 @@ def build():
     head.append('')
     head.append('Key facts:')
     head.append('- Website: %s. Founder and CEO: Zeeshan Waheed (%s%s).' % (SITE, SITE, AUTHOR_PATH))
-    head.append('- Location: Dubai, United Arab Emirates, with a remote team of 10 to 49 people. Founded 2019. Wikidata: https://www.wikidata.org/wiki/Q140782827.')
+    head.append('- Location: The Prism Tower, 19th Floor, Business Bay, Dubai, United Arab Emirates, with a remote team of 10 to 49 people. Founded 2019. Wikidata: https://www.wikidata.org/wiki/Q140782827.')
     head.append('- Contact: growth@imisofts.com. Book a 30 minute call: https://cal.com/zeeshanwaheed/30min. Free audit: %s/free-audit.' % SITE)
     head.append('- Pricing is published at %s/pricing: month-to-month, growth services from $1,497 per month, builds from $2,497, dedicated specialists from $1,997 per month.' % SITE)
     head.append('- Content: %d articles at %s/blog (newest %s), including cold email law guides for %d countries, daily AI and outbound news, tool comparisons and reviews. RSS: %s/feed.xml. Sitemap: %s/sitemap.xml.'

@@ -16,6 +16,10 @@ beat is guessed from the title, keywords and slug.
 Later on 2026-11-14 (audit items D3 and the rest of D4): two trackers, one per beat, built from
 content/news/tracker-rules.jsonl and content/news/tracker-prices.jsonl (one JSON row per line; a
 broken line is skipped and reported, never fatal), and pictures in the news feed.
+
+2026-11-15 (audit item "homepage Latest block"): the three Industry News cards in the homepage
+block "Latest insights" show the three newest news stories. Only the link and the title of those
+three cards change. If the block does not look as expected, the homepage is left alone.
 """
 import glob, html, json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -331,7 +335,27 @@ def main():
         try: made.append(tracker_page(t, tracks[t['slug']]))
         except Exception as e: print('tracker: %s not rebuilt (%s)' % (t['slug'], e))
     feed(news); sitemap(news, [(t, tracks[t['slug']]) for t in live])
+    try: home_latest(news)
+    except Exception as e: print('home latest: skipped (%s)' % e)
     print('newsdesk: built', len(made), 'pages | news articles', len(news), '| with a real publish time', sum(1 for a in news if a['stamp']), '| beats', {b['slug']: sum(1 for a in news if a['beat'] == b['slug']) for b in BEATS}, '| in no beat', sum(1 for a in news if not a['beat']))
+
+_HOME_CARD = re.compile(r'(<a href=")/blog/[^"]+(" style="[^"]*">\s*<span style="[^"]*">Industry News</span>\s*<span style="[^"]*">)[^<]*(</span>)')
+
+def home_latest(news):
+    """Homepage block "Latest insights": its three Industry News cards carry the three newest news stories."""
+    p = os.path.join(ROOT, 'index.html')
+    try: s = open(p, encoding='utf-8').read()
+    except OSError: return
+    a = s.find('aria-label="Latest insights"'); b = s.find('</section>', a)
+    if a < 0 or b < 0: print('home latest: block not found, homepage left alone'); return
+    blk = s[a:b]; n = len(_HOME_CARD.findall(blk))
+    if n != 3 or len(news) < 3: print('home latest: expected 3 news cards, found %d, homepage left alone' % n); return
+    it = iter(news[:3]); txt = lambda t: t.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+    def card(m):
+        x = next(it); return m.group(1) + '/blog/%s/' % x['slug'] + m.group(2) + txt(x['title']) + m.group(3)
+    new = _HOME_CARD.sub(card, blk)
+    if new != blk:
+        open(p, 'w', encoding='utf-8').write(s[:a] + new + s[b:]); print('home latest: 3 stories set on the homepage')
 
 def rfc822(stamp):
     y, mo, d = int(stamp[:4]), int(stamp[5:7]), int(stamp[8:10])
