@@ -1087,3 +1087,35 @@
     white-space: normal !important;
   }
 }
+
+/* ============= TABLET SCREENS (2026-11-14) =============
+   768px to 1199px, where the article is a single column.
+   Same idea as the phone rules: nothing in an article may be wider than the screen. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* A long word, link or address wraps instead of pushing the page wide. */
+  .blog-wrapper {
+    overflow-wrap: break-word;
+  }
+
+  .article-content > table code {
+    overflow-wrap: anywhere;
+  }
+
+  /* A table with four or more columns scrolls inside its own box when it is too wide.
+     Tables that fit keep their full width. */
+  .article-content > table:has(tr > :nth-child(4)) {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    container-type: inline-size;
+  }
+
+  @container (min-width: 0px) {
+    .article-content > table:has(tr > :nth-child(4))::before {
+      content: "";
+      display: table-caption;
+      min-width: 100cqw;
+    }
+  }
+}
