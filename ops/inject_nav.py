@@ -6,6 +6,10 @@ places so the markup and indentation match the surrounding nav exactly, then rew
 href / title / description / icon. Skips any file that already links the new page, and
 any file that has no nav.
 
+Since 2026-11-14 it also adds top-level pages that are not services (see TOP): one plain
+link in the desktop menu, one in the mobile menu and one in the footer, each placed right
+after the link it follows. Same rules: additive, idempotent, nothing else is touched.
+
 Run from the repo root:  python3 ops/inject_nav.py
 """
 import os, re, sys
@@ -41,6 +45,17 @@ NEW = [
 ]
 
 ANCHOR = "/ai-automation"   # clone the entry for this page, insert directly after it
+
+# Top-level pages that are not services: (slug, menu label, footer label, slug of the link it follows)
+TOP = [
+    ("/clients", "Clients", "Our Clients", "/case-studies"),
+]
+
+# Spacing of the desktop menu, so nine links stay on one line at every desktop width.
+# Before "Clients" was added (2026-11-14) the tighter 20px spacing applied up to 1180px only.
+# Now: 20px up to 1260px, and 12px up to 1100px (the desktop menu starts at 1025px).
+NAV_FIT_OLD = "@media (max-width:1180px){.nav-menu{gap:20px}}"
+NAV_FIT_NEW = "@media (max-width:1260px){.nav-menu{gap:20px}}@media (max-width:1100px){.nav-menu{gap:12px}}"
 
 SKIP_DIRS = {".git", ".github", "node_modules", "ops", "content", "assets", "data"}
 
@@ -118,6 +133,32 @@ def process(path, report):
                 '<li><a href="%s">%s</a></li>' % (slug, foot) + html[fend:]
             report["footer"] += 1
 
+    for slug, label, foot, after in TOP:
+        # desktop menu, mobile menu: a plain link right after the link it follows, same indentation
+        for cls in ("nav-link", "mobile-nav-link"):
+            if '<a href="%s" class="%s">' % (slug, cls) in html:
+                continue
+            k = html.find('<a href="%s" class="%s">' % (after, cls))
+            if k == -1:
+                continue
+            end = html.find("</a>", k) + 4
+            ls = html.rfind("\n", 0, k)
+            indent = "" if ls == -1 else "\n" + re.match(r"[ \t]*", html[ls + 1:k]).group(0)
+            html = html[:end] + indent + '<a href="%s" class="%s">%s</a>' % (slug, cls, label) + html[end:]
+            report["top"] += 1
+        # footer
+        if '<li><a href="%s">' % slug not in html:
+            f = html.find('<li><a href="%s">' % after)
+            if f != -1:
+                fend = html.find("</li>", f) + 5
+                ls = html.rfind("\n", 0, f)
+                indent = "" if ls == -1 else "\n" + re.match(r"[ \t]*", html[ls + 1:f]).group(0)
+                html = html[:fend] + indent + '<li><a href="%s">%s</a></li>' % (slug, foot) + html[fend:]
+                report["top"] += 1
+        # keep the longer desktop menu on one line
+        if '<a href="%s" class="nav-link">' % slug in html and NAV_FIT_OLD in html:
+            html = html.replace(NAV_FIT_OLD, NAV_FIT_NEW)
+
     if html != orig:
         open(path, "w", encoding="utf-8").write(html)
         return True
@@ -125,7 +166,7 @@ def process(path, report):
 
 
 def main():
-    report = {"mega": 0, "mobile": 0, "footer": 0}
+    report = {"mega": 0, "mobile": 0, "footer": 0, "top": 0}
     changed = scanned = 0
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
@@ -138,6 +179,7 @@ def main():
     print("scanned %d html files | updated %d" % (scanned, changed))
     print("insertions -> mega-menu %d | mobile %d | footer %d"
           % (report["mega"], report["mobile"], report["footer"]))
+    print("top-level links added -> %d" % report["top"])
     if changed == 0:
         print("nothing to do (already wired)")
     return 0
