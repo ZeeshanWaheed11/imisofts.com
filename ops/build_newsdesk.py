@@ -327,9 +327,10 @@ def main():
     # ---- text pages
     for slug, name, desc, body in TEXT_PAGES:
         p = '/newsdesk/' + slug + '/'
+        meta = TEXT_META.get(slug, desc)   # search snippet only; the line under the headline stays `desc`
         m = ('<main id="main" class="nd-page">\n<section class="nd-hero nd-hero--slim"><div class="container">%s<p class="nd-eyebrow">imisofts Newsdesk</p><h1>%s</h1><p class="nd-lead">%s</p></div></section>\n'
              '<div class="container"><article class="nd-prose">%s</article></div>\n</main>\n') % (crumbs([('Home', '/'), ('Newsdesk', '/newsdesk/'), (name, None)]), esc(name), esc(desc), body)
-        made.append(render(p, '%s | imisofts Newsdesk' % name, desc, m, ld_page(p, name, desc, [('Home', '/'), ('Newsdesk', '/newsdesk/'), (name, None)])))
+        made.append(render(p, '%s | imisofts Newsdesk' % name, meta, m, ld_page(p, name, meta, [('Home', '/'), ('Newsdesk', '/newsdesk/'), (name, None)])))
     # ---- trackers
     for t in live:
         try: made.append(tracker_page(t, tracks[t['slug']]))
@@ -399,6 +400,13 @@ def sitemap(news, trackers=()):
             if k == -1: return
             s = s[:k] + entry + '\n' + s[k:]
     if s != orig: open(p, 'w', encoding='utf-8').write(s)
+
+# Meta descriptions of the three policy pages. Built only from sentences and headings that are on the page itself.
+TEXT_META = {
+ 'how-we-report': 'Where a story starts, how it is checked, and what you can hold us to: primary sources, exact quotes, a check before publishing, and dated notes.',
+ 'editorial-standards': 'The rules every story on the newsdesk follows: accuracy first, sources named and linked, opinion labelled, and coverage that is not for sale.',
+ 'corrections': 'How to tell us we got something wrong, and how we fix it: we check the point against the source, correct the story, and add a dated note.',
+}
 
 TEXT_PAGES = [
  ('how-we-report', 'How we report', 'Where a story starts, how it is checked, and what you can hold us to.', '''
