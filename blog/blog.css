@@ -1035,11 +1035,14 @@
     container-type: inline-size;
   }
 
-  /* Keeps a small table as wide as the text column, as it was before. */
-  .article-content > table::before {
-    content: "";
-    display: table-caption;
-    min-width: 100cqw;
+  /* Keeps a small table as wide as the text column, as it was before.
+     Inside @container on purpose: the rule is used only where the browser really measures the table itself. */
+  @container (min-width: 0px) {
+    .article-content > table::before {
+      content: "";
+      display: table-caption;
+      min-width: 100cqw;
+    }
   }
 
   .article-content > table code {
