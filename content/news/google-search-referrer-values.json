@@ -1,0 +1,65 @@
+{
+ "slug": "google-search-referrer-values",
+ "title": "Google Search Referrer Values: Two Patterns to Match",
+ "desc": "Google's new Search page, added Nov 12, lists the Referer values Search sends: google.com or a local Google domain, and one Android app string. How to match.",
+ "keywords": "google search referrer, google search referer header, android-app://com.google.android.googlequicksearchbox, identify google search traffic, google organic traffic in analytics, search console clicks vs analytics sessions",
+ "date": "2026-11-14",
+ "time": "14:10",
+ "read_time": 3,
+ "word_count": 746,
+ "cta": "Want search tracking you can rely on?",
+ "body": "<p><strong>November 14, 2026.</strong> Google added a page to its Search documentation on November 12 that lists the HTTP Referer values Google Search sends when someone clicks through to a site. By our count the table comes down to two patterns to match: the Google origin, <code>https://www.google.com/</code> or a local Google domain, and one Android app string, <code>android-app://com.google.android.googlequicksearchbox/https/www.google.com</code>. The <a href=\"https://developers.google.com/search/docs/monitor-debug/identify-google-search-traffic\" target=\"_blank\" rel=\"noopener noreferrer\">new page</a> also says the header does not include the search query, and that the data in analytics or server logs \"often doesn't match 1:1 with the clicks reported in Search Console.\"</p>\n<p><strong>What Google published</strong></p>\n<p>Google's <a href=\"https://developers.google.com/search/updates\" target=\"_blank\" rel=\"noopener noreferrer\">documentation changelog</a> dates the addition November 12, 2026 and describes it as \"a new page about identifying traffic from Google Search using HTTP Referer headers.\" The page itself is stamped \"Last updated 2026-11-12 UTC.\"</p>\n<p>Google Search uses the origin referrer policy, the page says, \"which means that the Referer header contains only the scheme and host of the referring page, without the URL path or query parameters.\" The page also states that the header \"doesn't include the search query that the user entered.\" For queries, Google points to the Performance report in Search Console.</p>\n<p><strong>The Referer values by source</strong></p>\n<table>\n<thead><tr><th>Where the click happened</th><th>Referer value Google lists</th></tr></thead>\n<tbody>\n<tr><td>Google Search on the web</td><td><code>https://www.google.com/</code> or a local Google domain, such as <code>https://www.google.co.uk/</code> or <code>https://www.google.co.jp/</code></td></tr>\n<tr><td>Google app on Android</td><td><code>android-app://com.google.android.googlequicksearchbox/https/www.google.com</code> when the app opens the link in a browser tab, or <code>https://www.google.com/</code> or a local Google domain</td></tr>\n<tr><td>Google app on iOS</td><td><code>https://www.google.com/</code> or a local Google domain</td></tr>\n</tbody>\n</table>\n<p>Two notes sit next to the table. The Google app on Android can send either pattern. And other Google services on the same origins, Google Images for example, \"send the same Referer values\", so Google says that traffic \"is also included when you match these patterns.\" Discover traffic \"uses the same values as the surface where the user viewed Discover\". Our reading is that Discover clicks made on those surfaces will match the same patterns.</p>\n<p><strong>What the page does not cover</strong></p>\n<p>We searched the page text on November 14 and found no mention of AI Mode or AI Overviews. The page gives no separate Referer value for either, so it does not tell you how to separate those clicks from ordinary Search clicks.</p>\n<p><strong>Why the Referer can be blank</strong></p>\n<p>Google gives four examples of cases where the browser or operating system omits the header by default: private browsing modes and anti-fingerprinting protections, opening search results in a new tab \"in some browsers\", moving from a native mobile search widget to an external browser, and privacy extensions or strict browser settings. A visit that arrives with no Referer cannot be matched to Google by this method.</p>\n<p><strong>Three checks from Google's page</strong></p>\n<ol>\n<li><strong>Analytics rules.</strong> Google says most web analytics systems recognise these values on their own. If Search traffic is missing or shows up as referral or direct traffic, it tells you to check whether \"custom channel rules, referral exclusions, or filters\" in your configuration are reclassifying it.</li>\n<li><strong>Server logs.</strong> Google says to match the Referer field against the values it lists and to look only at requests for the landing pages themselves. For images, CSS and JavaScript files the browser sends your own page's URL as the Referer, it notes.</li>\n<li><strong>Redirects.</strong> A JavaScript or meta refresh redirect \"may replace the Referer with your own page's URL\", and a redirect that does not preserve the query string drops URL parameters such as gclid.</li>\n</ol>\n<p><strong>Why the totals still differ</strong></p>\n<p>Google lists four common technical reasons for a gap with Search Console: privacy settings and consent choices, redirects on your site, different measurement methods, and paid traffic. On method, the page says \"Search Console records a click when a user selects a link in Google Search, whereas web analytics tools record a visit or session only after the destination page loads and executes the tracking code.\" Search Console also reports organic clicks only, while an analytics total can include Google Ads traffic, depending on how it is configured.</p>\n<p>On our own site, GA4 uses a custom channel group with a separate channel for AI assistants. If you run custom channels like that, we suggest using Google's page as a prompt to check that the rules for Google traffic still sit where you expect.</p>\n<p>Related on our site: <a href=\"/blog/track-ai-traffic-google-analytics/\">how to track AI traffic in Google Analytics</a>, our <a href=\"/blog/perplexity-seo/\">Perplexity SEO audit</a> and our <a href=\"/blog/technical-seo-audit/\">technical SEO audit</a> guide. For help with search visibility, see our <a href=\"/seo-services\">SEO services</a> and <a href=\"/ai-search-optimization\">AI search optimization</a> pages.</p>",
+ "faqs": [
+  [
+   "What referrer does Google Search send?",
+   "Google's documentation lists https://www.google.com/ or a local Google domain, such as https://www.google.co.uk/, for Google Search on the web and for the Google app on iOS. The Google app on Android can also send android-app://com.google.android.googlequicksearchbox/https/www.google.com when it opens the link in a browser tab."
+  ],
+  [
+   "Does the Google referrer include the search query?",
+   "No. Google Search uses the origin referrer policy, so the Referer header carries only the scheme and host of the referring page. Google says to use the Performance report in Search Console to see which queries bring users to your site."
+  ],
+  [
+   "What is android-app://com.google.android.googlequicksearchbox in my referrals?",
+   "It is the Referer value the Google app on Android sends when it opens a search result in a browser tab, according to the page Google added to its Search documentation on November 12, 2026. Google lists it among the Referer values that Google Search sends."
+  ],
+  [
+   "Why do Search Console clicks not match my analytics sessions?",
+   "Google lists four common technical reasons: privacy settings and consent choices, redirects on your site, different measurement methods, and paid traffic. Search Console records a click when a user selects a link in Google Search, while an analytics tool records a session only after the page loads and runs the tracking code."
+  ]
+ ],
+ "image": {
+  "cluster": "SEO",
+  "takeaway": "Google Search sends two Referer patterns: the Google origin, google.com or a local domain, and one Android app string.",
+  "alt": "Google Search referrer values listed in Google's documentation, imisofts news card"
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Page added to Google's Search documentation",
+    "value": "November 12, 2026",
+    "note": "Google's documentation changelog"
+   },
+   {
+    "label": "Referer patterns to match",
+    "value": "2",
+    "note": "our count: the Google origin and one Android app string"
+   },
+   {
+    "label": "Examples of the Referer being omitted by default",
+    "value": "4",
+    "note": "as given by Google, not presented as complete"
+   },
+   {
+    "label": "Common reasons for a gap with Search Console",
+    "value": "4",
+    "note": "as listed by Google, not presented as complete"
+   },
+   {
+    "label": "Mentions of AI Mode or AI Overviews on the page",
+    "value": "0",
+    "note": "our text search on November 14, 2026"
+   }
+  ],
+  "source": "Google Search Central, Identify Google Search traffic in your web analytics or server logs, last updated 2026-11-12 UTC, read November 14, 2026"
+ }
+}
