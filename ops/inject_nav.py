@@ -10,6 +10,9 @@ Since 2026-11-14 it also adds top-level pages that are not services (see TOP): o
 link in the desktop menu, one in the mobile menu and one in the footer, each placed right
 after the link it follows. Same rules: additive, idempotent, nothing else is touched.
 
+It also adds footer-only links (see FOOT): one link in the site footer and no menu entry.
+Used for the newsdesk, because the desktop menu is full at nine links.
+
 Run from the repo root:  python3 ops/inject_nav.py
 """
 import os, re, sys
@@ -56,6 +59,13 @@ TOP = [
 # Now: 20px up to 1260px, and 12px up to 1100px (the desktop menu starts at 1025px).
 NAV_FIT_OLD = "@media (max-width:1180px){.nav-menu{gap:20px}}"
 NAV_FIT_NEW = "@media (max-width:1260px){.nav-menu{gap:20px}}@media (max-width:1100px){.nav-menu{gap:12px}}"
+
+# Footer-only links: (href, footer label, the footer items it may follow, first one found wins).
+# The whole item is compared (href and label), and only inside <footer>, so a breadcrumb or a
+# list in the page body that links to the same address is never mistaken for it or changed.
+FOOT = [
+    ("/newsdesk/", "News", ('<li><a href="/blog">Blog</a></li>', '<li><a href="/blog/">Blog</a></li>')),
+]
 
 SKIP_DIRS = {".git", ".github", "node_modules", "ops", "content", "assets", "data"}
 
@@ -159,6 +169,38 @@ def process(path, report):
         if '<a href="%s" class="nav-link">' % slug in html and NAV_FIT_OLD in html:
             html = html.replace(NAV_FIT_OLD, NAV_FIT_NEW)
 
+    for href, label, afters in FOOT:
+        item = '<li><a href="%s">%s</a></li>' % (href, label)
+        done = False
+        for m in re.finditer(r"<footer\b", html):
+            fi = m.start()
+            fe = html.find("</footer>", fi)
+            if fe == -1:
+                fe = len(html)
+            if item in html[fi:fe]:
+                done = True          # already there
+                break
+        if done:
+            continue
+        for m in re.finditer(r"<footer\b", html):
+            fi = m.start()
+            fe = html.find("</footer>", fi)
+            if fe == -1:
+                fe = len(html)
+            for after in afters:
+                f = html.find(after, fi, fe)
+                if f == -1:
+                    continue
+                fend = f + len(after)
+                ls = html.rfind("\n", 0, f)
+                indent = "" if ls == -1 else "\n" + re.match(r"[ \t]*", html[ls + 1:f]).group(0)
+                html = html[:fend] + indent + item + html[fend:]
+                report["foot"] += 1
+                done = True
+                break
+            if done:
+                break
+
     if html != orig:
         open(path, "w", encoding="utf-8").write(html)
         return True
@@ -166,7 +208,7 @@ def process(path, report):
 
 
 def main():
-    report = {"mega": 0, "mobile": 0, "footer": 0, "top": 0}
+    report = {"mega": 0, "mobile": 0, "footer": 0, "top": 0, "foot": 0}
     changed = scanned = 0
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
@@ -180,6 +222,7 @@ def main():
     print("insertions -> mega-menu %d | mobile %d | footer %d"
           % (report["mega"], report["mobile"], report["footer"]))
     print("top-level links added -> %d" % report["top"])
+    print("footer-only links added -> %d" % report["foot"])
     if changed == 0:
         print("nothing to do (already wired)")
     return 0
