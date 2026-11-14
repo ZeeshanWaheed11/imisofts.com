@@ -1140,3 +1140,28 @@
     }
   }
 }
+
+/* ============= PHONE SCREENS, TABLES IN A SCROLL BOX (2026-11-15) =============
+   Up to 767px. A table with two or three columns that sits in a scroll box gets the same treatment
+   as a table placed straight in the article: its header may wrap and the cells sit a little closer,
+   so most of these tables fit the screen with no sideways swipe. Tables with four or more columns
+   are not touched and scroll in their box as before. */
+@media (max-width: 767px) {
+  .article-content .table-wrapper > table:not(:has(tr > :nth-child(4))) th,
+  .article-content div[style*="overflow-x"] > table:not(:has(tr > :nth-child(4))) th {
+    white-space: normal;
+  }
+
+  .article-content .table-wrapper > table:not(:has(tr > :nth-child(4))) th,
+  .article-content .table-wrapper > table:not(:has(tr > :nth-child(4))) td,
+  .article-content div[style*="overflow-x"] > table:not(:has(tr > :nth-child(4))) th,
+  .article-content div[style*="overflow-x"] > table:not(:has(tr > :nth-child(4))) td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .article-content .table-wrapper > table code,
+  .article-content div[style*="overflow-x"] > table code {
+    overflow-wrap: anywhere;
+  }
+}
