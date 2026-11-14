@@ -1133,6 +1133,10 @@
       }
 
     }
+    /* Phone screens (2026-11-14): the footer links sit in two columns, as on the other articles. */
+    @media (max-width: 768px) {
+      .footer-links-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 24px !important; }
+    }
   </style>
 <style id="nav-cat-fix-3">
 /* space between the category list and the Contact Us card */
