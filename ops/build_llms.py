@@ -118,7 +118,7 @@ SERVICE_GROUPS = [
         '/website-copy-generator',
     ]),
 ]
-COMPANY_PAGES = ['/pricing', '/about', '/case-studies', '/contact', '/free-audit', '/faq',
+COMPANY_PAGES = ['/pricing', '/about', '/case-studies', '/clients', '/contact', '/free-audit', '/faq',
                  '/support', '/careers', '/api-docs']
 AUTHOR_PATH = '/author/zeeshan-waheed/'
 
