@@ -250,6 +250,13 @@ def main():
     # ---- blog/index.html cards ----
     subprocess.run([sys.executable, os.path.join(ROOT,'ops','sync_blog_index.py')], check=False)
     print('indexes updated; news-sitemap has %d fresh url(s)'%fresh_count)
+    # ---- newsdesk section (2026-11-14): /newsdesk/, beat pages, editorial pages, news-only feed.
+    # Inside try/except on purpose: a problem there must never block an article from publishing.
+    try:
+        import build_newsdesk
+        build_newsdesk.main()
+    except Exception as e:
+        print('newsdesk: skipped (%s)' % e)
     # ---- IndexNow auto-submit (best-effort; pings Bing -> ChatGPT retrieval) ----
     # 2026-09-26: only pages whose HTML changed in this run. Re-submitting all spec URLs every
     # day is what IndexNow asks publishers not to do, and it dilutes the signal for the new ones.

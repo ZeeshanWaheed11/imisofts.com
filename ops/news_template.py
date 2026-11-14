@@ -7,7 +7,7 @@ data-news-template="2". Every older page keeps the old template, byte for byte.
 What a template 2 article gets:
   - markup: author and editor, publisher tied to the company entity (@id) with the real logo,
     isAccessibleForFree, inLanguage, optional "about" from the spec;
-  - a byline block (see BYLINE);
+  - a byline block (see BYLINE) whose name links to the newsdesk section, /newsdesk/;
   - after the body: Related coverage (three stories, linked by their exact titles) and one small
     "About this article" box (who wrote it, who edits it, that imisofts sells services, how to
     report an error), in place of the sales banner;
@@ -24,6 +24,8 @@ BYLINE = 'newsdesk'          # 'newsdesk' = "imisofts Newsdesk, Editor: Zeeshan 
 AUTHOR_URL = SITE + '/author/zeeshan-waheed/'
 ORG_ID = SITE + '/#organization'
 PERSON_ID = AUTHOR_URL + '#person'
+NEWSDESK_URL = SITE + '/newsdesk/'          # the newsdesk section (ops/build_newsdesk.py)
+NEWSDESK_ID = NEWSDESK_URL + '#newsdesk'
 LOGO = {"@type": "ImageObject", "url": SITE + "/favicon-512.png", "width": 512, "height": 512}
 _LABEL = 'font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#98A2B3'
 ABOUT = ('<aside class="about-this-article" ' + MARK + ' style="margin:24px 0 8px;padding:16px 18px;border:1px solid #EAECF0;'
@@ -31,7 +33,7 @@ ABOUT = ('<aside class="about-this-article" ' + MARK + ' style="margin:24px 0 8p
          '<div style="' + _LABEL + ';margin-bottom:6px">About this article</div>'
          'Written by imisofts Newsdesk from the primary sources linked above. Editor: Zeeshan Waheed. '
          'imisofts is an agency and sells services related to the topics it covers, including any service linked here. '
-         '<a href="/contact" style="color:#475467;text-decoration:underline">Report an error</a>.</aside>')
+         '<a href="/newsdesk/corrections/" style="color:#475467;text-decoration:underline">Report an error</a>.</aside>')
 _REL_RX = re.compile(r'<section class="related-coverage".*?</section>', re.S)
 
 
@@ -106,12 +108,13 @@ def _markup(html, meta):
             return m.group(0)
         person = {"@type": "Person", "@id": PERSON_ID, "name": "Zeeshan Waheed", "url": AUTHOR_URL}
         if BYLINE == 'newsdesk':
-            o['author'] = {"@type": "Organization", "name": "imisofts Newsdesk", "url": SITE + "/about",
+            o['author'] = {"@type": "Organization", "@id": NEWSDESK_ID, "name": "imisofts Newsdesk", "url": NEWSDESK_URL,
                            "parentOrganization": {"@id": ORG_ID}}
             o['editor'] = person
         else:
             o['author'] = person
         o['publisher'] = {"@type": "Organization", "@id": ORG_ID, "name": "imisofts", "url": SITE + "/", "logo": LOGO}
+        o['publishingPrinciples'] = NEWSDESK_URL + 'editorial-standards/'
         o['isAccessibleForFree'] = True
         o['inLanguage'] = 'en'
         ab = meta.get('about')
@@ -129,7 +132,7 @@ def _byline(html):
     m = rx.search(html)
     if not m:
         return html
-    new = ('<span style="font-weight:500">imisofts Newsdesk</span> <span style="color:#98A2B3">&middot;</span> Editor: '
+    new = ('<a href="/newsdesk/" style="font-weight:500;color:inherit;text-decoration:none">imisofts Newsdesk</a> <span style="color:#98A2B3">&middot;</span> Editor: '
            '<a href="/author/zeeshan-waheed/"%s>Zeeshan Waheed</a>') % m.group(1)
     html = html[:m.start()] + new + html[m.end():]
     return re.sub(r'(<meta property="article:author" content=")[^"]*(")', lambda x: x.group(1) + 'imisofts Newsdesk' + x.group(2), html, count=1)
