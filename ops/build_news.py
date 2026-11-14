@@ -15,6 +15,19 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE = os.path.join(ROOT, 'blog', 'signal-based-outbound-news-june-2026', 'index.html')
 CONTENT_DIR = os.path.join(ROOT, 'content', 'news')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import publish_time as PT   # 2026-11-14: real publish time for new articles (see ops/publish_time.py)
+
+def _pubdate(m):
+    """RSS pubDate: the real publish moment for new articles, the typed date and time for old ones."""
+    return PT.rfc822(m['_pub']) if m.get('_pub') else _rfc822(m['date'], m.get('time','09:00'))
+
+def _lastmod(m):
+    """Sitemap lastmod: full timestamp for new articles, bare date for old ones."""
+    return PT.iso(m['_pub']) if m.get('_pub') else m['date']
+
+def _sk(m):
+    """Sort key: date, then the real publish time for new articles (the typed time for old ones)."""
+    return (m['date'], PT.hm(m['_pub']) if m.get('_pub') else m.get('time',''))
 
 def esc(t): return (t or '').replace('&','&amp;')
 
@@ -61,8 +74,12 @@ def human_date(iso):
 
 def fix_chrome(s, date_iso):
     """Heal the visible byline date and the client-count claim. Idempotent."""
-    dp=date_iso[:10]
-    s=re.sub(r'<time datetime="[^"]*">[^<]*</time>', '<time datetime="%s">%s</time>'%(dp, human_date(dp)), s, count=1)
+    _pt=PT.parse(date_iso)   # 2026-11-14: a page with a full publish stamp shows its date AND time
+    if _pt:
+        s=re.sub(r'<time datetime="[^"]*">[^<]*</time>', lambda m: PT.time_tag(_pt), s, count=1)
+    else:
+        dp=date_iso[:10]
+        s=re.sub(r'<time datetime="[^"]*">[^<]*</time>', '<time datetime="%s">%s</time>'%(dp, human_date(dp)), s, count=1)
     s=s.replace('Join 500+ businesses','Join 200+ businesses')
     s=s.replace('#F45407;">500+</div>','#F45407;">200+</div>')
     return s
@@ -81,6 +98,7 @@ def cta_html(h2):
 def build_article(meta, tpl):
     slug=meta['slug']; URL=f'https://imisofts.com/blog/{slug}/'
     T=meta['title']; TH=esc(T); DESC=meta['desc']; DATE=meta['date']; KW=meta.get('keywords','')
+    PUB=meta.get('_pub'); DP=PT.iso(PUB) if PUB else DATE   # full stamp for new articles, bare date for old ones
     faqs=[(q,a) for q,a in meta['faqs']]
     s=tpl
     s=s.replace('https://imisofts.com/blog/signal-based-outbound-news-june-2026/',URL)
@@ -89,7 +107,7 @@ def build_article(meta, tpl):
         s=re.sub(r'(<meta (?:property|name)="'+pat+r'" content=")[^"]*(")',lambda m:m.group(1)+DESC+m.group(2),s,count=1)
     for pat in ['og:title','twitter:title']:
         s=re.sub(r'(<meta (?:property|name)="'+pat+r'" content=")[^"]*(")',lambda m:m.group(1)+TH+m.group(2),s,count=1)
-    news=json.dumps({"@context":"https://schema.org","@type":"NewsArticle","headline":T,"description":DESC,"url":URL,"mainEntityOfPage":URL,"datePublished":DATE,"dateModified":DATE,"author":{"@type":"Person","name":"Zeeshan Waheed","url":"https://imisofts.com/author/zeeshan-waheed/"},"publisher":{"@type":"Organization","name":"imisofts","url":"https://imisofts.com","logo":{"@type":"ImageObject","url":"https://imisofts.com/og-image.jpg"}},"image":"https://imisofts.com/og-image.jpg","articleSection":"Industry News","keywords":KW},indent=1)
+    news=json.dumps({"@context":"https://schema.org","@type":"NewsArticle","headline":T,"description":DESC,"url":URL,"mainEntityOfPage":URL,"datePublished":DP,"dateModified":DP,"author":{"@type":"Person","name":"Zeeshan Waheed","url":"https://imisofts.com/author/zeeshan-waheed/"},"publisher":{"@type":"Organization","name":"imisofts","url":"https://imisofts.com","logo":{"@type":"ImageObject","url":"https://imisofts.com/og-image.jpg"}},"image":"https://imisofts.com/og-image.jpg","articleSection":"Industry News","keywords":KW},indent=1)
     crumb=json.dumps({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://imisofts.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://imisofts.com/blog/"},{"@type":"ListItem","position":3,"name":"Industry News","item":"https://imisofts.com/blog/?cat=industry-news"},{"@type":"ListItem","position":4,"name":T,"item":URL}]},indent=1)
     faqsch=json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faqs]},indent=1)
     def repl(m):
@@ -102,7 +120,7 @@ def build_article(meta, tpl):
     s=re.sub(r'<span class="current">[^<]*</span>',f'<span class="current">{TH}</span>',s,count=1)
     s=re.sub(r'<h1>[^<]*</h1>',f'<h1>{TH}</h1>',s,count=1)
     faq_section=f'<section class="faq-section" id="faq">\n<h2>Frequently Asked Questions</h2>\n{faq_items_html(faqs)}\n</section>'
-    body=meta['body']+'\n'+cta_html(meta.get('cta','Want this built for your business?'))+'\n'+faq_section
+    body=(PT.fix_dateline(meta['body'],PUB) if PUB else meta['body'])+'\n'+cta_html(meta.get('cta','Want this built for your business?'))+'\n'+faq_section
     i=s.find('<article class="article-content">'); j=s.find('</article>')
     s=s[:i]+'<article class="article-content">\n'+body+'\n'+s[j:]
     # ---- images (2026-09-26): only specs that carry an "image" block get a hero (+ optional chart).
@@ -120,7 +138,8 @@ def build_article(meta, tpl):
         if _s2!=s: s=_s2; print('key numbers: %d rows'%len(key_numbers.spec_block(meta)['rows']))
     except Exception as _ke:
         print('key numbers skipped for %s: %s'%(slug,_ke))
-    s=fix_chrome(s, DATE)
+    s=fix_chrome(s, DP)
+    if PUB: s=PT.og_times(s, PUB)
     s=re.sub(r'(\d+)\s*min read', '%d min read'%meta.get('read_time',6), s, count=1)
     # validate
     mainpart=s[s.find('<article'):s.find('</article>')]
@@ -155,6 +174,8 @@ def main():
     for f in sorted(glob.glob(os.path.join(CONTENT_DIR,'*.json'))):
         meta=json.load(open(f,encoding='utf-8'))
         out=os.path.join(ROOT,'blog',meta['slug'],'index.html')
+        _st=PT.resolve(out)   # now for a new article, the stored stamp on a rebuild, None for pages built before 2026-11-14
+        if _st: meta['_pub']=_st; meta['date']=PT.date(_st)
         if (not os.path.exists(out)) or (os.path.getmtime(f) > os.path.getmtime(out)):
             try:
                 _html=build_article(meta,tpl)
@@ -172,7 +193,7 @@ def main():
     pj=os.path.join(ROOT,'blog','posts-index.json')
     d=json.load(open(pj,encoding='utf-8')); posts=d if isinstance(d,list) else d['posts']
     have={p.get('slug') for p in posts}
-    for meta in sorted(metas,key=lambda m:(m['date'],m.get('time','')), reverse=True):
+    for meta in sorted(metas,key=_sk, reverse=True):
         if meta['slug'] in have: continue
         kw=meta.get('keywords','')
         posts.insert(0,{"number":0,"filename":f"000-{meta['slug']}.txt","title":meta['title'],"meta_description":meta['desc'],"url_slug":f"/blog/{meta['slug']}","primary_keyword":kw.split(',')[0].strip(),"secondary_keywords":", ".join(k.strip() for k in kw.split(',')[1:]),"category":"Industry News","word_count_target":meta.get('word_count',900),"schema_type":"NewsArticle","author":"Zeeshan Waheed","date":meta['date'],"slug":meta['slug'],"word_count":meta.get('word_count',900),"read_time":meta.get('read_time',6),"has_faq":True,"category_normalized":"industry-news"})
@@ -182,10 +203,12 @@ def main():
     add=''
     for meta in metas:
         u=f'https://imisofts.com/blog/{meta["slug"]}/'
-        if u not in sm: add+=f'<url>\n<loc>{u}</loc>\n<lastmod>{meta["date"]}</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n'
+        if u not in sm: add+=f'<url>\n<loc>{u}</loc>\n<lastmod>{_lastmod(meta)}</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n'
     if add: sm=sm.replace('</urlset>',add+'</urlset>'); open(os.path.join(ROOT,'sitemap.xml'),'w').write(sm)
     # ---- news-sitemap.xml: merge existing fresh entries + new specs, keep only <48h of newest ----
-    def dt(m): return datetime.datetime.fromisoformat(m['date']+'T'+m.get('time','09:00')+':00')
+    def dt(m):
+        if m.get('_pub'): return PT.naive(m['_pub'])   # the real publish moment, in site time
+        return datetime.datetime.fromisoformat(m['date']+'T'+m.get('time','09:00')+':00')
     entries={}  # loc -> (datetime, title)
     nsp=os.path.join(ROOT,'news-sitemap.xml')
     if os.path.exists(nsp):
@@ -210,14 +233,14 @@ def main():
     f=open(os.path.join(ROOT,'feed.xml')).read(); m0=re.search(r'<item>.*?</item>',f,re.S)
     if m0:
         items=''
-        for meta in sorted(metas,key=lambda m:(m['date'],m.get('time','')), reverse=True):
+        for meta in sorted(metas,key=_sk, reverse=True):
             u=f'https://imisofts.com/blog/{meta["slug"]}/'
             if u in f: continue
-            items+=f'<item>\n<title>{esc(meta["title"])}</title>\n<link>{u}</link>\n<guid isPermaLink="true">{u}</guid>\n<pubDate>{_rfc822(meta["date"], meta.get("time","09:00"))}</pubDate>\n<description>{esc(meta["desc"])}</description>\n</item>\n'
+            items+=f'<item>\n<title>{esc(meta["title"])}</title>\n<link>{u}</link>\n<guid isPermaLink="true">{u}</guid>\n<pubDate>{_pubdate(meta)}</pubDate>\n<description>{esc(meta["desc"])}</description>\n</item>\n'
         if items:
             f=f.replace(m0.group(0),items+m0.group(0),1)
-            _nm=sorted(metas,key=lambda m:(m['date'],m.get('time','')), reverse=True)[0]
-            f=_bump_channel(f, _rfc822(_nm['date'], _nm.get('time','09:00')))
+            _nm=sorted(metas,key=_sk, reverse=True)[0]
+            f=_bump_channel(f, _pubdate(_nm))
             open(os.path.join(ROOT,'feed.xml'),'w').write(f)
     # ---- blog/index.html cards ----
     subprocess.run([sys.executable, os.path.join(ROOT,'ops','sync_blog_index.py')], check=False)

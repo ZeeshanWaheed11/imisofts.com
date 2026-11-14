@@ -109,12 +109,46 @@ def wire_sitemap(specs):
         if loc in s:
             continue
         block = ("<url>\n<loc>%s</loc>\n<lastmod>%s</lastmod>\n"
-                 "<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n") % (loc, sp['date'])
+                 "<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n") % (loc, sp.get('_lastmod', sp['date']))
         s = s.replace('</urlset>', block + '</urlset>', 1)
         added.append(sp['slug'])
     if added:
         open(SITEMAP, 'w', encoding='utf-8').write(s)
     return added
+
+
+def add_publish_time(specs):
+    """2026-11-14 (audit A1): a NEW byline page gets the real publish moment from this script's clock: date and
+    time on the page, the full timestamp in the article markup and in <head>. "New" means not yet in
+    posts-index.json. A page stamped on an earlier run keeps its stamp; if the page is re-uploaded without it,
+    the stamp is read back from the sitemap. Pages wired before this change are never touched."""
+    import publish_time as PT
+    posts = json.load(open(PJSON, encoding='utf-8'))
+    have = {p.get('slug') for p in (posts.get('posts', []) if isinstance(posts, dict) else posts)}
+    sm = open(SITEMAP, encoding='utf-8').read() if os.path.exists(SITEMAP) else ''
+    done = []
+    for sp in specs:
+        slug = sp['slug']
+        path = os.path.join(ROOT, 'blog', slug, 'index.html')
+        if not os.path.exists(path):
+            continue
+        html = open(path, encoding='utf-8').read()
+        stamp = PT.from_html(html)
+        if stamp is None:
+            m = re.search(r'<loc>https://imisofts\.com/blog/%s/</loc>\s*<lastmod>([^<]+)</lastmod>' % re.escape(slug), sm)
+            stored = PT.parse(m.group(1)) if m else None
+            if stored is None and slug in have:
+                continue                      # wired before this change: hands off
+            stamp = stored or PT.now()
+            new = PT.stamp_page(html, stamp)
+            if new is None:
+                print('publish time: no visible date found in %s, left as is' % slug)
+                continue
+            open(path, 'w', encoding='utf-8').write(new)
+            done.append(slug)
+        sp['_lastmod'] = PT.iso(stamp)
+        sp['date'] = PT.date(stamp)
+    return done
 
 
 def ensure_tab():
@@ -200,6 +234,7 @@ def main():
         print('no byline specs found; nothing to do')
         return 0
     before = open(IDX, encoding='utf-8').read().count('class="post-card"')
+    pt = add_publish_time(specs)   # first, so every later step sees the real publish date
     im = add_images(specs)
     kn = add_key_numbers(specs)
     pi = wire_posts_index(specs)
@@ -210,8 +245,8 @@ def main():
     after = open(IDX, encoding='utf-8').read().count('class="post-card"')
     # SAFETY: the grid must never shrink, and our new cards must have landed.
     assert after >= before + len(pi), 'card count sanity failed: %d -> %d (added %d)' % (before, after, len(pi))
-    print('posts-index +%d %s | sitemap +%d %s | tab_added=%s | cards %d -> %d | images +%d %s | key numbers +%d %s'
-          % (len(pi), pi, len(sm), sm, tab, before, after, len(im), im, len(kn), kn))
+    print('posts-index +%d %s | sitemap +%d %s | tab_added=%s | cards %d -> %d | images +%d %s | key numbers +%d %s | publish time +%d %s'
+          % (len(pi), pi, len(sm), sm, tab, before, after, len(im), im, len(kn), kn, len(pt), pt))
     # ---- IndexNow auto-submit for newly wired pages only (best-effort) ----
     if pi:
         submit_indexnow(['https://imisofts.com/blog/%s/' % s for s in pi] + ['https://imisofts.com/', 'https://imisofts.com/blog/'])

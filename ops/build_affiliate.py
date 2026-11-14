@@ -34,6 +34,15 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE = os.path.join(ROOT, 'blog', 'signal-based-outbound-news-june-2026', 'index.html')
 CONTENT_DIR = os.path.join(ROOT, 'content', 'affiliate')
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import publish_time as PT   # 2026-11-14: real publish time for new articles (see ops/publish_time.py)
+
+def _pubdate(m):
+    """RSS pubDate: the real publish moment for new articles, the typed date and time for old ones."""
+    return PT.rfc822(m['_pub']) if m.get('_pub') else _rfc822(m['date'], m.get('time','09:00'))
+
+def _lastmod(m):
+    """Sitemap lastmod: full timestamp for new articles, bare date for old ones."""
+    return PT.iso(m['_pub']) if m.get('_pub') else m['date']
 
 DISCLOSURE = ('<p class="affiliate-disclosure" style="font-size:14px;line-height:1.6;'
               'color:#475569;background:#f8fafc;border-left:3px solid #F45407;'
@@ -79,6 +88,7 @@ def normalize_affiliate(body, aff_url):
 def build_article(meta, tpl):
     slug=meta['slug']; URL=f'https://imisofts.com/blog/{slug}/'
     T=meta['title']; TH=esc(T); DESC=meta['desc']; DATE=meta['date']; KW=meta.get('keywords','')
+    PUB=meta.get('_pub'); DP=PT.iso(PUB) if PUB else DATE   # full stamp for new articles, bare date for old ones
     CAT=meta.get('category','Reviews'); CATN=CAT.lower().replace(' ','-')
     faqs=[(q,a) for q,a in meta['faqs']]
     s=tpl
@@ -88,7 +98,7 @@ def build_article(meta, tpl):
         s=re.sub(r'(<meta (?:property|name)="'+pat+r'" content=")[^"]*(")',lambda m:m.group(1)+DESC+m.group(2),s,count=1)
     for pat in ['og:title','twitter:title']:
         s=re.sub(r'(<meta (?:property|name)="'+pat+r'" content=")[^"]*(")',lambda m:m.group(1)+TH+m.group(2),s,count=1)
-    art=json.dumps({"@context":"https://schema.org","@type":"Article","headline":T,"description":DESC,"url":URL,"mainEntityOfPage":URL,"datePublished":DATE,"dateModified":DATE,"author":{"@type":"Person","name":"Zeeshan Waheed","url":"https://imisofts.com/author/zeeshan-waheed/"},"publisher":{"@type":"Organization","name":"imisofts","url":"https://imisofts.com","logo":{"@type":"ImageObject","url":"https://imisofts.com/og-image.jpg"}},"image":"https://imisofts.com/og-image.jpg","articleSection":CAT,"keywords":KW},indent=1)
+    art=json.dumps({"@context":"https://schema.org","@type":"Article","headline":T,"description":DESC,"url":URL,"mainEntityOfPage":URL,"datePublished":DP,"dateModified":DP,"author":{"@type":"Person","name":"Zeeshan Waheed","url":"https://imisofts.com/author/zeeshan-waheed/"},"publisher":{"@type":"Organization","name":"imisofts","url":"https://imisofts.com","logo":{"@type":"ImageObject","url":"https://imisofts.com/og-image.jpg"}},"image":"https://imisofts.com/og-image.jpg","articleSection":CAT,"keywords":KW},indent=1)
     crumb=json.dumps({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://imisofts.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://imisofts.com/blog/"},{"@type":"ListItem","position":3,"name":CAT,"item":f"https://imisofts.com/blog/?cat={CATN}"},{"@type":"ListItem","position":4,"name":T,"item":URL}]},indent=1)
     faqsch=json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faqs]},indent=1)
     def repl(m):
@@ -121,7 +131,10 @@ def build_article(meta, tpl):
         if _s2!=s: s=_s2; print('key numbers: %d rows'%len(key_numbers.spec_block(meta)['rows']))
     except Exception as _ke:
         print('key numbers skipped for %s: %s'%(slug,_ke))
-    s=re.sub(r'<time datetime="[^"]*">[^<]*</time>','<time datetime="%s">%s</time>'%(DATE[:10],human_date(DATE[:10])),s,count=1)
+    if PUB:   # 2026-11-14: new articles show date AND time, and carry the same stamp in <head>
+        s=PT.og_times(re.sub(r'<time datetime="[^"]*">[^<]*</time>',lambda m: PT.time_tag(PUB),s,count=1), PUB)
+    else:
+        s=re.sub(r'<time datetime="[^"]*">[^<]*</time>','<time datetime="%s">%s</time>'%(DATE[:10],human_date(DATE[:10])),s,count=1)
     s=re.sub(r'(\d+)\s*min read','%d min read'%meta.get('read_time',8),s,count=1)
     mainpart=s[s.find('<article'):s.find('</article>')]
     assert mainpart.count(chr(8212))==0, f'{slug}: em-dash in body'
@@ -145,6 +158,8 @@ def main():
     for f in sorted(glob.glob(os.path.join(CONTENT_DIR,'*.json'))):
         meta=json.load(open(f,encoding='utf-8'))
         out=os.path.join(ROOT,'blog',meta['slug'],'index.html')
+        _st=PT.resolve(out)   # now for a new article, the stored stamp on a rebuild, None for pages built before 2026-11-14
+        if _st: meta['_pub']=_st; meta['date']=PT.date(_st)
         if (not os.path.exists(out)) or (os.path.getmtime(f)>os.path.getmtime(out)):
             try:
                 _html=build_article(meta,tpl)
@@ -183,12 +198,12 @@ def main():
     for meta in metas:
         u=f'https://imisofts.com/blog/{meta["slug"]}/'
         if u not in sm:
-            add+=f'<url>\n<loc>{u}</loc>\n<lastmod>{meta["date"]}</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n'
+            add+=f'<url>\n<loc>{u}</loc>\n<lastmod>{_lastmod(meta)}</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n'
         else:
             # REFRESH: keep <lastmod> equal to the spec date (idempotent: no diff
             # unless the spec date actually moved), so refreshed evergreen posts
             # send a real freshness signal instead of a stale one.
-            def _bump(m,_d=meta["date"]):
+            def _bump(m,_d=_lastmod(meta)):
                 return re.sub(r'<lastmod>[^<]*</lastmod>','<lastmod>%s</lastmod>'%_d,m.group(0),count=1)
             sm=re.sub(r'<url>\s*<loc>'+re.escape(u)+r'</loc>.*?</url>',_bump,sm,count=1,flags=re.S)
     open(os.path.join(ROOT,'sitemap.xml'),'w').write(sm.replace('</urlset>',add+'</urlset>') if add else sm)
@@ -199,11 +214,11 @@ def main():
             for meta in sorted(metas,key=lambda m:m['date'],reverse=True):
                 u=f'https://imisofts.com/blog/{meta["slug"]}/'
                 if u in ff: continue
-                items+=f'<item>\n<title>{esc(meta["title"])}</title>\n<link>{u}</link>\n<guid isPermaLink="true">{u}</guid>\n<pubDate>{_rfc822(meta["date"], meta.get("time","09:00"))}</pubDate>\n<description>{esc(meta["desc"])}</description>\n</item>\n'
+                items+=f'<item>\n<title>{esc(meta["title"])}</title>\n<link>{u}</link>\n<guid isPermaLink="true">{u}</guid>\n<pubDate>{_pubdate(meta)}</pubDate>\n<description>{esc(meta["desc"])}</description>\n</item>\n'
             if items:
                 ff=ff.replace(m0.group(0),items+m0.group(0),1)
                 _nm=sorted(metas,key=lambda m:m['date'],reverse=True)[0]
-                ff=_bump_channel(ff, _rfc822(_nm['date'], _nm.get('time','09:00')))
+                ff=_bump_channel(ff, _pubdate(_nm))
                 open(os.path.join(ROOT,'feed.xml'),'w').write(ff)
     except Exception as e: print('feed skip',e)
     subprocess.run([sys.executable,os.path.join(ROOT,'ops','sync_blog_index.py')],check=False)
