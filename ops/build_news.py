@@ -181,6 +181,7 @@ def main():
         _st=PT.resolve(out)   # now for a new article, the stored stamp on a rebuild, None for pages built before 2026-11-14
         if _st: meta['_pub']=_st; meta['date']=PT.date(_st)
         meta['_tpl2']=bool(_st) and NT.wants(out)   # template 2 only for articles first built with it
+        meta['_upd']=NT.update_stamps(meta, out) if meta['_tpl2'] else []   # Updated and Correction notes (template 2 only)
         if (not os.path.exists(out)) or (os.path.getmtime(f) > os.path.getmtime(out)):
             try:
                 _html=build_article(meta,tpl)
@@ -210,6 +211,8 @@ def main():
         u=f'https://imisofts.com/blog/{meta["slug"]}/'
         if u not in sm: add+=f'<url>\n<loc>{u}</loc>\n<lastmod>{_lastmod(meta)}</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.7</priority>\n</url>\n'
     if add: sm=sm.replace('</urlset>',add+'</urlset>'); open(os.path.join(ROOT,'sitemap.xml'),'w').write(sm)
+    try: NT.sitemap_lastmods(ROOT, metas)   # 2026-11-14: a story with an Updated note carries that time as lastmod
+    except Exception as _se: print('sitemap lastmod for updates skipped (%s)' % _se)
     # ---- news-sitemap.xml: merge existing fresh entries + new specs, keep only <48h of newest ----
     def dt(m):
         if m.get('_pub'): return PT.naive(m['_pub'])   # the real publish moment, in site time

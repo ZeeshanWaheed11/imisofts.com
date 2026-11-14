@@ -12,6 +12,10 @@ new article changes nothing.
 Chrome (head, menu, footer) is copied from clients.html so the pages match the rest of the site.
 A news spec may name its beat: "beat": "outbound-compliance" or "outbound-tools". Without it the
 beat is guessed from the title, keywords and slug.
+
+Later on 2026-11-14 (audit items D3 and the rest of D4): two trackers, one per beat, built from
+content/news/tracker-rules.jsonl and content/news/tracker-prices.jsonl (one JSON row per line; a
+broken line is skipped and reported, never fatal), and pictures in the news feed.
 """
 import glob, html, json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,6 +38,11 @@ def guess_beat(text):
     if re.search(_TOOLS, text): return 'outbound-tools'
     return None
 
+def beat_for(o):
+    """The beat of a spec: the one it names, else the guess. Also used by ops/news_template.py for the breadcrumb."""
+    if o.get('beat') in [b['slug'] for b in BEATS]: return o['beat']
+    return guess_beat((str(o.get('title', '')) + ' ' + str(o.get('keywords', '')) + ' ' + str(o.get('slug', ''))).lower())
+
 def load_news():
     out = []
     for f in glob.glob(os.path.join(ROOT, 'content', 'news', '*.json')):
@@ -46,10 +55,10 @@ def load_news():
         stamp = m.group(1) if m else None                      # only articles the builder time-stamped carry an hour
         date = (stamp or str(o.get('date', '')))[:10]
         if not re.match(r'\d{4}-\d\d-\d\d$', date): continue
-        text = (o['title'] + ' ' + str(o.get('keywords', '')) + ' ' + slug).lower()
-        beat = o.get('beat') if o.get('beat') in [b['slug'] for b in BEATS] else guess_beat(text)
+        beat = beat_for(o)
+        im = re.search(r'<meta property="og:image" content="(https://imisofts\.com/assets/blog/[^"]+\.jpg)"', h)   # the article's own picture, if it has one
         out.append({'slug': slug, 'title': o['title'], 'desc': o.get('desc', ''), 'date': date, 'stamp': stamp, 'beat': beat,
-                    'sort': stamp or (date + 'T00:00:00+04:00')})
+                    'sort': stamp or (date + 'T00:00:00+04:00'), 'image': im.group(1) if im else None})
     out.sort(key=lambda a: (a['sort'], a['slug']), reverse=True)
     return out
 
@@ -116,8 +125,29 @@ CSS = '''
 .nd-prose ul{margin:0 0 18px;padding-left:22px}
 .nd-prose li{margin-bottom:8px}
 .nd-prose a{color:var(--orange-text);text-decoration:underline;text-underline-offset:3px}
+.nd-trackmeta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--soft);margin:0 0 18px}
+.nd-trackmeta b{color:var(--ink);font-weight:600}
+.nd-track{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;table-layout:fixed;font-size:15px}
+.nd-track th{text-align:left;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);background:var(--grey-2);padding:14px 16px;border-bottom:1px solid var(--line)}
+.nd-track td{padding:16px;vertical-align:top;border-bottom:1px solid var(--line);color:#333;line-height:1.55}
+.nd-track tr:last-child td{border-bottom:0}
+.nd-track th:nth-child(1){width:13%}.nd-track th:nth-child(2){width:18%}.nd-track th:nth-child(4){width:13%}.nd-track th:nth-child(5){width:21%}
+.nd-track time,.nd-track strong{display:block;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.nd-track td small{display:block;font-size:12.5px;color:var(--soft);margin-top:3px;line-height:1.45}
+.nd-track td a{display:block;color:var(--orange-text);text-decoration:underline;text-underline-offset:3px;font-size:14px;line-height:1.45}
+.nd-track td a+a{margin-top:8px}
+.nd-how{margin-top:28px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.nd-how div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.nd-how h3{font-size:17px;font-weight:700;color:var(--ink);margin:0 0 8px}
+.nd-how p{font-size:15px;color:var(--muted);margin:0 0 8px}
+.nd-how p:last-child{margin:0}
+.nd-how a{color:var(--orange-text);text-decoration:underline;text-underline-offset:3px}
 .nd-note{margin-top:36px;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--grey-2);font-size:14.5px;color:var(--muted)}
-@media (max-width:900px){.nd-story{grid-template-columns:1fr auto}.nd-story time{grid-column:1/-1}.nd-cards--3{grid-template-columns:1fr}}
+@media (max-width:900px){.nd-story{grid-template-columns:1fr auto}.nd-story time{grid-column:1/-1}.nd-cards--3{grid-template-columns:1fr}
+.nd-track,.nd-track tbody,.nd-track tr,.nd-track td{display:block;width:auto}.nd-track thead{display:none}.nd-track{border:0;background:none;border-radius:0;overflow:visible}
+.nd-track tr{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:0 0 14px}.nd-track td{padding:0;border:0}.nd-track td+td{margin-top:12px}
+.nd-track td[data-th]::before{content:attr(data-th);display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--soft);margin-bottom:3px}
+.nd-track td.nd-empty{display:none}.nd-how{grid-template-columns:1fr}}
 @media (max-width:767px){.nd-hero{padding:112px 0 48px}.nd-hero h1{font-size:34px!important}.nd-lead{font-size:16.5px}.nd-section{padding:52px 0}.nd-head h2{font-size:25px}.nd-lede{padding:22px 20px}.nd-lede h3{font-size:22px}.nd-cards{grid-template-columns:1fr}.nd-story{grid-template-columns:1fr;padding:16px 18px}.nd-story .nd-chip{justify-self:start}.nd-prose{padding:40px 0 64px}.nd-prose h2{font-size:21px}}
 '''
 
@@ -176,8 +206,86 @@ def story(a, chip=True):
     c = '<span class="nd-chip">%s</span>' % esc(bname[a['beat']]) if chip and a['beat'] else '<span></span>'
     return '<li><a class="nd-story" href="/blog/%s/">%s<strong>%s</strong>%s</a></li>' % (a['slug'], when(a), esc(a['title']), c)
 
+TRACKERS = [
+    {'slug': 'outbound-rules-tracker', 'file': 'tracker-rules.jsonl', 'beat': 'outbound-compliance', 'name': 'Outbound rules tracker',
+     'title': 'Outbound Rules Tracker: Call, Text and Email Law Changes',
+     'desc': 'A dated log of law, regulator, court and carrier rule changes for sales calls, texts and email. Every row links the primary source and our story.',
+     'lead': 'Law, regulator, court and carrier changes that affect sales calls, texts and email. Every row links the primary source and the story where we reported it.',
+     'card': 'Every rule change we have reported for sales calls, texts and email, in one dated table.',
+     'who': 'Who and where', 'tail': 'This is general information, not legal advice.'},
+    {'slug': 'outbound-price-tracker', 'file': 'tracker-prices.jsonl', 'beat': 'outbound-tools', 'name': 'Outbound tool price tracker',
+     'title': 'Outbound Tool Price Tracker: Price and Limit Changes',
+     'desc': 'A dated log of price, limit and shutdown changes in the AI models, voice tools, email platforms and CRMs outbound teams run on, each with its source.',
+     'lead': 'Price, limit and shutdown changes in the tools outbound teams run on: AI models, voice and phone AI, email platforms, CRMs and messaging. Every row links the vendor\'s own page and our story.',
+     'card': 'Every price, limit and shutdown change we have reported for outbound tools, in one dated table.',
+     'who': 'Vendor and product', 'tail': 'Prices are the list prices the vendor published. Your contract may differ.'},
+]
+_ISO = re.compile(r'\d{4}-\d\d-\d\d$')
+
+def load_rows(t):
+    """Rows of one tracker, newest first. A line that is not valid JSON, misses a field, or names a story that has no page is skipped and reported."""
+    rows = []
+    try: lines = open(os.path.join(ROOT, 'content', 'news', t['file']), encoding='utf-8').read().split('\n')
+    except OSError: return rows
+    for i, l in enumerate(lines):
+        if not l.strip(): continue
+        try:
+            r = json.loads(l)
+            ok = (_ISO.match(str(r.get('date', ''))) and _ISO.match(str(r.get('added', ''))) and (not r.get('effective') or _ISO.match(str(r['effective'])))
+                  and all(str(r.get(k, '')).strip() for k in ('who', 'place', 'type', 'change', 'date_label', 'source_name', 'story'))
+                  and str(r.get('source_url', '')).startswith('https://') and re.match(r'[a-z0-9-]+$', str(r['story']))
+                  and os.path.exists(os.path.join(ROOT, 'blog', r['story'], 'index.html')))
+            if not ok: raise ValueError('a field is missing or wrong')
+        except Exception as e:
+            print('tracker: line %d of %s skipped (%s)' % (i + 1, t['file'], e)); continue
+        rows.append(r)
+    rows.sort(key=lambda r: (r['date'], r['added'], r['story'], r['change']), reverse=True)
+    return rows
+
+def day(iso, month_only=False):
+    y, m, d = iso.split('-')
+    return '%s %s' % (MONTHS[int(m) - 1], y) if month_only else '%s %d, %s' % (MONTHS[int(m) - 1][:3], int(d), y)
+
+def story_title(slug):
+    try: h = open(os.path.join(ROOT, 'blog', slug, 'index.html'), encoding='utf-8').read()
+    except OSError: return slug
+    m = re.search(r'<h1[^>]*>(.*?)</h1>', h, re.S)
+    return html.unescape(re.sub(r'<[^>]+>', '', m.group(1))).strip() if m else slug
+
+def tracker_page(t, rows):
+    p = '/newsdesk/' + t['slug'] + '/'; trs = []
+    for r in rows:
+        mo = r.get('date_precision') == 'month'
+        sub = ' &middot; '.join(esc(x) for x in (r['place'], r.get('channel'), r['type']) if x)
+        key = ('<td data-th="Key date"><strong><time datetime="%s">%s</time></strong><small>%s</small></td>' % (r['effective'], day(r['effective']), esc(r.get('effective_label') or 'Key date'))) if r.get('effective') else '<td class="nd-empty"></td>'
+        trs.append('<tr><td data-th="Date"><time datetime="%s">%s</time><small>%s</small></td><td data-th="%s"><strong>%s</strong><small>%s</small></td><td data-th="What changed">%s</td>%s'
+                   '<td data-th="Source and story"><a href="%s" rel="noopener">Source: %s</a><a href="/blog/%s/">Our story: %s</a></td></tr>'
+                   % (r['date'][:7] if mo else r['date'], day(r['date'], mo), esc(r['date_label']), esc(t['who']), esc(r['who']), sub, esc(r['change']), key,
+                      esc(r['source_url']), esc(r['source_name']), r['story'], esc(story_title(r['story']))))
+    newest = max(r['added'] for r in rows)
+    shown = lambda r: day(r['date'], r.get('date_precision') == 'month')
+    first = shown(min(rows, key=lambda r: r['date'])); last = shown(max(rows, key=lambda r: r['date']))
+    m = ('<main id="main" class="nd-page">\n<section class="nd-hero nd-hero--slim"><div class="container">%s<p class="nd-eyebrow">Newsdesk tracker</p><h1>%s</h1><p class="nd-lead">%s</p></div></section>\n'
+         '<section class="nd-section"><div class="container"><div class="nd-wrap">'
+         '<p class="nd-trackmeta"><span><b>%d</b> changes</span><span>From <b>%s</b> to <b>%s</b></span><span>Last row added <b><time datetime="%s">%s</time></b></span></p>'
+         '<table class="nd-track"><thead><tr><th scope="col">Date</th><th scope="col">%s</th><th scope="col">What changed</th><th scope="col">Key date</th><th scope="col">Source and story</th></tr></thead>\n<tbody>\n%s\n</tbody></table>'
+         '<div class="nd-how"><div><h3>How to read this table</h3><p>Each row is one dated change that we reported in a story. Date is the day the source announced, decided or published it. Key date is the day it starts or the next deadline, when the source gave one.</p><p>%s</p></div>'
+         '<div><h3>How rows get here</h3><p>A row is added when we publish a story about the change. It links the page that owns the fact and our story. Rules and prices move after a row is written, so check the source before you act.</p>'
+         '<p>Seen an error? <a href="/newsdesk/corrections/">Tell us</a>. More in this beat: <a href="/newsdesk/%s/">%s</a>.</p></div></div>'
+         '</div></div></section>\n</main>\n'
+         ) % (crumbs([('Home', '/'), ('Newsdesk', '/newsdesk/'), (t['name'], None)]), esc(t['name']), esc(t['lead']), len(rows), first, last, newest, day(newest),
+              esc(t['who']), '\n'.join(trs), esc(t['tail']), t['beat'], esc(bname[t['beat']]))
+    seen = []; items = []
+    for r in rows:
+        if r['story'] not in seen: seen.append(r['story']); items.append({'slug': r['story'], 'title': story_title(r['story'])})
+    ld = ld_page(p, t['name'], t['desc'], [('Home', '/'), ('Newsdesk', '/newsdesk/'), (t['name'], None)], itemlist(p, items))
+    ld['@graph'][0]['dateModified'] = newest
+    return render(p, t['title'], t['desc'], m, ld)
+
 def main():
     news = load_news(); made = []
+    tracks = {t['slug']: load_rows(t) for t in TRACKERS}
+    live = [t for t in TRACKERS if tracks[t['slug']]]            # a tracker with no valid row is not built or linked
     # ---- /newsdesk
     top, rest = news[0], news[1:13]
     beats = ''.join('<a class="nd-card" href="/newsdesk/%s/"><h3>%s</h3><p>%s</p><span>%d stories &rarr;</span></a>' % (b['slug'], esc(b['name']), esc(b['line']), sum(1 for a in news if a['beat'] == b['slug'])) for b in BEATS)
@@ -193,17 +301,23 @@ def main():
          '<a class="nd-lede" href="/blog/%s/"><div class="nd-meta">%s%s</div><h3>%s</h3><p>%s</p></a>'
          '<ul class="nd-list">%s</ul><a class="nd-more" href="/blog">All articles <span aria-hidden="true">&rarr;</span></a> <a class="nd-more" href="/newsdesk/feed.xml" style="margin-left:22px">RSS feed</a></div></div></section>\n'
          '<section class="nd-section nd-section--grey" aria-labelledby="nd-beats"><div class="container"><div class="nd-wrap"><div class="nd-head"><h2 id="nd-beats">What we cover</h2><p>The two areas this desk follows</p></div><div class="nd-cards">%s</div></div></div></section>\n'
-         '<section class="nd-section" aria-labelledby="nd-desk"><div class="container"><div class="nd-wrap"><div class="nd-head"><h2 id="nd-desk">How this desk works</h2><p>Editor: <a href="/author/zeeshan-waheed/" style="text-decoration:underline">Zeeshan Waheed</a></p></div><div class="nd-cards nd-cards--3">%s</div></div></div></section>\n</main>\n'
-         ) % (crumbs([('Home', '/'), ('Newsdesk', None)]), top['slug'], when(top), ('<span class="nd-chip">%s</span>' % esc(bname[top['beat']])) if top['beat'] else '', esc(top['title']), esc(top['desc']), ''.join(story(a) for a in rest), beats, desk)
+         '%s'
+         '<section class="nd-section%s" aria-labelledby="nd-desk"><div class="container"><div class="nd-wrap"><div class="nd-head"><h2 id="nd-desk">How this desk works</h2><p>Editor: <a href="/author/zeeshan-waheed/" style="text-decoration:underline">Zeeshan Waheed</a></p></div><div class="nd-cards nd-cards--3">%s</div></div></div></section>\n</main>\n'
+         ) % (crumbs([('Home', '/'), ('Newsdesk', None)]), top['slug'], when(top), ('<span class="nd-chip">%s</span>' % esc(bname[top['beat']])) if top['beat'] else '', esc(top['title']), esc(top['desc']), ''.join(story(a) for a in rest), beats,
+              ('<section class="nd-section" aria-labelledby="nd-trackers"><div class="container"><div class="nd-wrap"><div class="nd-head"><h2 id="nd-trackers">Trackers</h2><p>One dated table per beat. A row is added with every story</p></div><div class="nd-cards">%s</div></div></div></section>\n'
+               % ''.join('<a class="nd-card" href="/newsdesk/%s/"><h3>%s</h3><p>%s</p><span>%d changes &rarr;</span></a>' % (t['slug'], esc(t['name']), esc(t['card']), len(tracks[t['slug']])) for t in live)) if live else '',
+              ' nd-section--grey' if live else '', desk)
     d = 'News for outbound sales teams from the imisofts Newsdesk: rule changes, platform changes and price changes, reported from the primary source with real publish times.'
     made.append(render('/newsdesk/', 'imisofts Newsdesk: News for Outbound Sales Teams', d, m, ld_page('/newsdesk/', 'imisofts Newsdesk', d, [('Home', '/'), ('Newsdesk', None)], itemlist('/newsdesk/', news[:13]))))
     # ---- beat pages
     for b in BEATS:
         arts = [a for a in news if a['beat'] == b['slug']]; p = '/newsdesk/' + b['slug'] + '/'
         m = ('<main id="main" class="nd-page">\n<section class="nd-hero nd-hero--slim"><div class="container">%s<p class="nd-eyebrow">Newsdesk beat</p><h1>%s</h1><p class="nd-lead">%s</p></div></section>\n'
-             '<section class="nd-section"><div class="container"><div class="nd-wrap"><div class="nd-head"><h2>Latest in this beat</h2><p>%d stories in all. Times are Dubai time, GMT+4</p></div><ul class="nd-list">%s</ul>'
+             '<section class="nd-section"><div class="container"><div class="nd-wrap"><div class="nd-head"><h2>Latest in this beat</h2><p>%d stories in all. Times are Dubai time, GMT+4</p></div>%s<ul class="nd-list">%s</ul>'
              '<a class="nd-more" href="/blog">Older stories are in the blog <span aria-hidden="true">&rarr;</span></a></div></div></section>\n</main>\n'
-             ) % (crumbs([('Home', '/'), ('Newsdesk', '/newsdesk/'), (b['name'], None)]), esc(b['name']), esc(b['line']), len(arts), ''.join(story(a, False) for a in arts[:40]))
+             ) % (crumbs([('Home', '/'), ('Newsdesk', '/newsdesk/'), (b['name'], None)]), esc(b['name']), esc(b['line']), len(arts),
+                  ''.join('<a class="nd-more" style="margin:0 0 4px" href="/newsdesk/%s/">%s: %d dated changes in one table <span aria-hidden="true">&rarr;</span></a>' % (t['slug'], esc(t['name']), len(tracks[t['slug']])) for t in live if t['beat'] == b['slug']),
+                  ''.join(story(a, False) for a in arts[:40]))
         t = '%s News | imisofts Newsdesk' % b['name']
         made.append(render(p, t, b['line'], m, ld_page(p, t, b['line'], [('Home', '/'), ('Newsdesk', '/newsdesk/'), (b['name'], None)], itemlist(p, arts[:40]))))
     # ---- text pages
@@ -212,7 +326,11 @@ def main():
         m = ('<main id="main" class="nd-page">\n<section class="nd-hero nd-hero--slim"><div class="container">%s<p class="nd-eyebrow">imisofts Newsdesk</p><h1>%s</h1><p class="nd-lead">%s</p></div></section>\n'
              '<div class="container"><article class="nd-prose">%s</article></div>\n</main>\n') % (crumbs([('Home', '/'), ('Newsdesk', '/newsdesk/'), (name, None)]), esc(name), esc(desc), body)
         made.append(render(p, '%s | imisofts Newsdesk' % name, desc, m, ld_page(p, name, desc, [('Home', '/'), ('Newsdesk', '/newsdesk/'), (name, None)])))
-    feed(news); sitemap(news)
+    # ---- trackers
+    for t in live:
+        try: made.append(tracker_page(t, tracks[t['slug']]))
+        except Exception as e: print('tracker: %s not rebuilt (%s)' % (t['slug'], e))
+    feed(news); sitemap(news, [(t, tracks[t['slug']]) for t in live])
     print('newsdesk: built', len(made), 'pages | news articles', len(news), '| with a real publish time', sum(1 for a in news if a['stamp']), '| beats', {b['slug']: sum(1 for a in news if a['beat'] == b['slug']) for b in BEATS}, '| in no beat', sum(1 for a in news if not a['beat']))
 
 def rfc822(stamp):
@@ -225,19 +343,20 @@ def feed(news):
     """News-only feed. Only stories with a stored publish time are listed, so every time in it is real."""
     items = [a for a in news if a['stamp']][:40]
     if not items: return
-    x = ['<?xml version="1.0" encoding="UTF-8"?>', '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">', '<channel>',
+    x = ['<?xml version="1.0" encoding="UTF-8"?>', '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">', '<channel>',
          '<title>imisofts Newsdesk</title>', '<link>%s/newsdesk/</link>' % SITE,
          '<description>News for outbound sales teams: rule changes, platform changes and price changes, reported from the primary source.</description>',
          '<language>en</language>', '<lastBuildDate>%s</lastBuildDate>' % rfc822(items[0]['stamp']),
          '<atom:link href="%s/newsdesk/feed.xml" rel="self" type="application/rss+xml"/>' % SITE]
     for a in items:
         u = '%s/blog/%s/' % (SITE, a['slug'])
-        x.append('<item><title>%s</title><link>%s</link><guid isPermaLink="true">%s</guid><pubDate>%s</pubDate><description>%s</description></item>' % (esc(a['title']), u, u, rfc822(a['stamp']), esc(a['desc'])))
+        pic = ('<media:content url="%s" medium="image" type="image/jpeg" width="1200" height="675"/>' % esc(a['image'])) if a.get('image') else ''
+        x.append('<item><title>%s</title><link>%s</link><guid isPermaLink="true">%s</guid><pubDate>%s</pubDate><description>%s</description>%s</item>' % (esc(a['title']), u, u, rfc822(a['stamp']), esc(a['desc']), pic))
     x += ['</channel>', '</rss>', '']
     put(os.path.join(ROOT, 'newsdesk', 'feed.xml'), '\n'.join(x))
 
-def sitemap(news):
-    """Keep one sitemap entry per newsdesk page. List pages carry the date of their newest story."""
+def sitemap(news, trackers=()):
+    """Keep one sitemap entry per newsdesk page. List pages carry the date of their newest story, a tracker the date its newest row was added."""
     p = os.path.join(ROOT, 'sitemap.xml')
     try: s = open(p, encoding='utf-8').read()
     except OSError: return
@@ -245,6 +364,7 @@ def sitemap(news):
     want = [('/newsdesk/', newest(news), 'daily', '0.8')]
     want += [('/newsdesk/%s/' % b['slug'], newest([a for a in news if a['beat'] == b['slug']]), 'daily', '0.6') for b in BEATS]
     want += [('/newsdesk/%s/' % t[0], '2026-11-14', 'monthly', '0.4') for t in TEXT_PAGES]
+    want += [('/newsdesk/%s/' % t['slug'], max(r['added'] for r in rows), 'weekly', '0.6') for t, rows in trackers]
     orig = s
     for path, lastmod, freq, prio in want:
         loc = '<loc>%s%s</loc>' % (SITE, path); entry = '<url>\n%s\n<lastmod>%s</lastmod>\n<changefreq>%s</changefreq>\n<priority>%s</priority>\n</url>' % (loc, lastmod, freq, prio)

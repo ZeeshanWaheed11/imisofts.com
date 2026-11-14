@@ -121,7 +121,8 @@ SERVICE_GROUPS = [
 COMPANY_PAGES = ['/pricing', '/about', '/case-studies', '/clients', '/contact', '/free-audit', '/faq',
                  '/support', '/careers', '/api-docs',
                  '/newsdesk/', '/newsdesk/outbound-compliance/', '/newsdesk/outbound-tools/',
-                 '/newsdesk/how-we-report/', '/newsdesk/editorial-standards/', '/newsdesk/corrections/']
+                 '/newsdesk/how-we-report/', '/newsdesk/editorial-standards/', '/newsdesk/corrections/',
+                 '/newsdesk/outbound-rules-tracker/', '/newsdesk/outbound-price-tracker/']
 AUTHOR_PATH = '/author/zeeshan-waheed/'
 
 # Article clusters, in the order they should appear. Anything not listed lands in
