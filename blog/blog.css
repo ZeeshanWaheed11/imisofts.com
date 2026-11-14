@@ -1015,3 +1015,72 @@
     font-size: 15px;
   }
 }
+
+/* ============= PHONE SCREENS (2026-11-14) =============
+   Nothing in an article may be wider than the screen.
+   Every rule below applies at phone widths only (up to 767px); wider screens are not touched. */
+@media (max-width: 767px) {
+  /* A long word, link or address wraps instead of pushing the page wide. */
+  .blog-wrapper {
+    overflow-wrap: break-word;
+  }
+
+  /* A table placed straight in the article scrolls inside its own box,
+     like the tables that already sit in .table-wrapper. */
+  .article-content > table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    container-type: inline-size;
+  }
+
+  /* Keeps a small table as wide as the text column, as it was before. */
+  .article-content > table::before {
+    content: "";
+    display: table-caption;
+    min-width: 100cqw;
+  }
+
+  .article-content > table code {
+    overflow-wrap: anywhere;
+  }
+
+  /* With two or three columns the header may wrap and the cells sit a little closer,
+     so most of these tables fit with no sideways scrolling at all. */
+  .article-content > table:not(:has(tr > :nth-child(4))) th {
+    white-space: normal;
+  }
+
+  .article-content > table:not(:has(tr > :nth-child(4))) th,
+  .article-content > table:not(:has(tr > :nth-child(4))) td {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /* Key numbers: each row keeps the item on the left and the number on the right.
+     A long number wraps instead of pushing the table out of its box. */
+  .article-content .key-numbers > table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .article-content .key-numbers > table > thead,
+  .article-content .key-numbers > table > tbody {
+    display: block;
+  }
+
+  .article-content .key-numbers > table tr {
+    display: flex;
+  }
+
+  .article-content .key-numbers > table tr > :first-child {
+    flex: 1 1 0;
+  }
+
+  .article-content .key-numbers > table tr > :last-child {
+    flex: 0 1 auto;
+    max-width: 58%;
+    white-space: normal !important;
+  }
+}
