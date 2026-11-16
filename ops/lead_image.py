@@ -21,8 +21,8 @@ EXTS = ('.png', '.jpg', '.jpeg', '.webp')
 _CHART_RX = re.compile(r'<figure class="post-chart"[^>]*><img src="(/assets/blog/[^"]+/chart-[0-9a-f]+)\.webp"[^>]*>(?:<figcaption[^>]*>(.*?)</figcaption>)?</figure>\n?', re.S)
 
 
-def source_file(slug, root):
-    base = os.path.join(root, 'content', 'news', slug + '.lead')
+def source_file(slug, root, folder='news'):
+    base = os.path.join(root, 'content', folder, slug + '.lead')
     for e in EXTS:
         if os.path.exists(base + e):
             return base + e
@@ -46,11 +46,12 @@ def _fit(im, w, h, fit):
     return back
 
 
-def ensure(meta, root, html=''):
-    """Returns the lead picture for this article as a dict, or None when it has none."""
+def ensure(meta, root, html='', folder='news'):
+    """Returns the lead picture for this article as a dict, or None when it has none.
+    folder: 'news' (default, news articles) or 'affiliate' (guides, via ops/guide_media.py, 2026-11-17)."""
     slug = meta['slug']
     spec = meta.get('lead') if isinstance(meta.get('lead'), dict) else {}
-    src = source_file(slug, root)
+    src = source_file(slug, root, folder)
     kind, alt, caption, credit, fit = 'file', spec.get('alt') or meta.get('title', ''), spec.get('caption', ''), spec.get('credit', ''), spec.get('fit', 'contain')
     if not src:
         m = _CHART_RX.search(html or '')

@@ -131,6 +131,12 @@ def build_article(meta, tpl):
         if _s2!=s: s=_s2; print('key numbers: %d rows'%len(key_numbers.spec_block(meta)['rows']))
     except Exception as _ke:
         print('key numbers skipped for %s: %s'%(slug,_ke))
+    # ---- lead picture and figures (2026-11-17, GTA 6 desk): opt-in, so older specs build exactly as before.
+    try:
+        import guide_media
+        s=guide_media.apply(s, meta, ROOT)
+    except Exception as _ge:
+        print('guide media skipped for %s: %s'%(slug,_ge))
     if PUB:   # 2026-11-14: new articles show date AND time, and carry the same stamp in <head>
         s=PT.og_times(re.sub(r'<time datetime="[^"]*">[^<]*</time>',lambda m: PT.time_tag(PUB),s,count=1), PUB)
     else:
