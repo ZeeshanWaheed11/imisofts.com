@@ -1,0 +1,131 @@
+{
+  "slug": "openai-api-free-tier",
+  "title": "OpenAI API Free Tier: Prepaid Billing and a $5 Minimum",
+  "desc": "Is the OpenAI API free? Mostly not: new accounts prepay, $5 minimum. Free paths: Moderation, data sharing tokens for eligible orgs, ChatGPT API credits.",
+  "date": "2026-11-16",
+  "time": "23:59",
+  "keywords": "openai api free tier, openai api free, openai api key free, openai free api key, openai free credits, chatgpt api free, openai api cost, openai usage tiers, openai data sharing free tokens, openai moderation api free",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "Is the OpenAI API free, and what does a new account get without paying?",
+  "qtype": "cost",
+  "cta": "Building on the OpenAI API? Talk to us about your build",
+  "image": {
+    "cluster": "AI cost and limits",
+    "takeaway": "New OpenAI API accounts prepay from $5; eligible Launch and Grow orgs sharing data get up to 10M free tokens a day.",
+    "alt": "OpenAI API free tier in 2026: $5 minimum purchase and the free paths, including daily data sharing tokens",
+    "chart": {
+      "title": "Requests $5 buys on each GPT-6 model",
+      "subtitle": "Our arithmetic: 1,000 input and 500 output tokens per request, standard prices on 16 Nov 2026.",
+      "type": "hbar",
+      "rows": [
+        [
+          "gpt-6-astra",
+          142
+        ],
+        [
+          "gpt-6.1-sol",
+          714
+        ],
+        [
+          "gpt-6.1-terra",
+          1428
+        ],
+        [
+          "gpt-6-luna",
+          14285
+        ]
+      ],
+      "prefix": "",
+      "suffix": "",
+      "highlight": 3,
+      "note": [
+        "14,285 requests",
+        "on gpt-6-luna for $5"
+      ],
+      "source": "Source: OpenAI API pricing page, read 16 Nov 2026; imisofts arithmetic",
+      "alt": "Bar chart of how many requests of 1,000 input and 500 output tokens $5 buys: gpt-6-astra 142, gpt-6.1-sol 714, gpt-6.1-terra 1,428 and gpt-6-luna 14,285.",
+      "after_heading": "What $5 buys on each GPT-6 model"
+    }
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Minimum API credit purchase",
+        "value": "$5",
+        "note": "default amount $10"
+      },
+      {
+        "label": "Free tier monthly usage limit",
+        "value": "$100",
+        "note": "users in an allowed geography"
+      },
+      {
+        "label": "Build tier threshold",
+        "value": "$5",
+        "note": "$500 monthly usage limit"
+      },
+      {
+        "label": "Data sharing tokens, Build",
+        "value": "250,000 / 2.5 million a day",
+        "note": "first / second model group"
+      },
+      {
+        "label": "Data sharing tokens, Launch and Grow",
+        "value": "1 million / 10 million a day",
+        "note": "first / second model group"
+      },
+      {
+        "label": "Free shared eval runs",
+        "value": "Up to 7 a week",
+        "note": "when evals are shared with OpenAI"
+      },
+      {
+        "label": "ChatGPT-linked API credit",
+        "value": "$20 to $500 a month",
+        "note": "Pro and Business; Business capped at $500"
+      },
+      {
+        "label": "Purchased credit expiry",
+        "value": "1 year",
+        "note": "180 days if bought in Japan after 13 Nov 2026"
+      },
+      {
+        "label": "Moderation endpoint",
+        "value": "Free",
+        "note": "not counted toward usage limits"
+      }
+    ],
+    "source": "Sources: OpenAI rate limits guide, pricing page and Help Center articles on prepaid billing, data sharing, Moderation and ChatGPT-linked API credits. Read 16 November 2026."
+  },
+  "body": "<p><strong>Short answer.</strong> Mostly not. As of November 16, 2026, new OpenAI API accounts use <a href=\"https://help.openai.com/en/articles/8264644-setting-up-and-managing-prepaid-api-billing\">prepaid billing</a>, the minimum purchase is $5, and OpenAI's <a href=\"https://help.openai.com/en/articles/10306912-sharing-feedback-evaluation-and-fine-tuning-data-and-api-inputs-and-outputs-with-openai\">data sharing help page</a> says \"You need a positive account balance to use OpenAI models and the free tokens.\" There is still a Free usage tier with a $100 monthly limit, and four ways to run some API traffic without paying per token, though most have conditions (a positive balance, eligibility, or a paid ChatGPT plan). The largest is up to 10 million complimentary tokens a day for eligible Launch and Grow organizations that share data with OpenAI (2.5 million for Build).</p>\n<p>This guide is for founders, developers and small teams who searched for a free OpenAI API key and want the honest version: what a new account gets, which free paths exist and who qualifies, what $5 buys on each GPT-6 model, and the billing settings to check before the first call. Every OpenAI figure links to the page we read on 16 November 2026; worked examples are our arithmetic.</p>\n<h2 id=\"new-account\">What a new OpenAI API account gets</h2>\n<p>Using the API requires credit. The billing help page states that \"New API accounts use prepaid billing,\" so you buy credit first and every billable call draws it down. \"The minimum purchase is $5, and the default amount is $10.\"</p>\n<p>When the balance hits zero, calls stop. OpenAI's wording: \"When a prepaid account runs out of credits, API requests begin returning a billing error,\" with the code <code>credit_balance_exhausted</code>.</p>\n<p>The same page says \"If your account has free credits, those are used before purchased credits.\" The billing page does not describe a sign-up credit; the free credits it mentions come from the programs below.</p>\n<h2 id=\"tiers\">The Free tier and the three paid tiers</h2>\n<p>OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/rate-limits\">rate limits guide</a> lists four tiers. The Free tier row is a usage limit, not a credit grant, and moving to Build takes $5 in purchases. Your tier \"upgrades automatically as its total credit purchases reach each threshold.\"</p>\n<table>\n<thead><tr><th>Tier</th><th>Qualification</th><th>Monthly usage limit</th></tr></thead>\n<tbody>\n<tr><td>Free</td><td>User must be in an allowed geography</td><td>$100</td></tr>\n<tr><td>Build</td><td>$5 in total credit purchases</td><td>$500</td></tr>\n<tr><td>Launch</td><td>$100 in total credit purchases</td><td>$5,000</td></tr>\n<tr><td>Grow</td><td>$500 in total credit purchases</td><td>$200,000</td></tr>\n</tbody>\n</table>\n<p>On Build, the standard limits are 5,000 requests a minute for Astra, Sol, Terra and Luna, with 1,000,000 tokens a minute on Astra, Sol and Terra and 2,000,000 on Luna. For what changed in OpenAI's tiers on 6 October, see our page on <a href=\"/blog/openai-api-usage-tiers/\">OpenAI API usage tiers</a>; we do not repeat it here.</p>\n<h2 id=\"free-paths\">Four ways to get API usage without paying per token</h2>\n<table>\n<thead><tr><th>Free path</th><th>What you get</th><th>Who qualifies</th></tr></thead>\n<tbody>\n<tr><td>Moderation endpoint</td><td>Free, and does not count toward monthly usage limits</td><td>OpenAI API users</td></tr>\n<tr><td>Data sharing tokens</td><td>250,000 to 10 million tokens a day on listed models</td><td>Eligible organizations that opt in, with a positive balance</td></tr>\n<tr><td>Shared evals</td><td>Up to 7 eval runs a week at no cost</td><td>Organizations sharing evals with OpenAI (currently)</td></tr>\n<tr><td>ChatGPT-linked credits</td><td>$20 to $500 a month in API credit</td><td>Eligible paid ChatGPT Pro and Business subscribers</td></tr>\n</tbody>\n</table>\n<p>The <a href=\"https://help.openai.com/en/articles/4936833-is-the-moderation-endpoint-free-to-use\">Moderation endpoint</a> is the simplest of the four: \"the Moderation endpoint is free for OpenAI API users, and usage of this tool doesn't count towards your monthly usage limits.\" If you screen user input or chatbot replies before they reach a model, that step costs nothing.</p>\n<p>The other three are worth real money, but each has a condition. They are below.</p>\n<h2 id=\"data-sharing\">Data sharing tokens: up to 10 million a day</h2>\n<p>OpenAI's <a href=\"https://help.openai.com/en/articles/10306912-sharing-feedback-evaluation-and-fine-tuning-data-and-api-inputs-and-outputs-with-openai\">data sharing help page</a> says \"Some organizations may qualify for daily complimentary tokens on traffic shared with OpenAI.\" You opt in to share your API inputs and outputs, and the qualifying traffic is not charged up to a daily quota.</p>\n<ul>\n<li><strong>Build organizations:</strong> up to 250,000 tokens a day on the first model group and 2.5 million on the second.</li>\n<li><strong>Launch and Grow organizations:</strong> up to 1 million a day on the first group and 10 million on the second.</li>\n<li><strong>First group:</strong> includes gpt-6-astra, gpt-6.1-sol, gpt-6-sol and gpt-6-luna.</li>\n<li><strong>Second group:</strong> includes gpt-5.6-terra, gpt-5.6-luna, gpt-5.4-mini and gpt-4o-mini.</li>\n</ul>\n<p>The conditions matter more than the headline:</p>\n<ul>\n<li>Eligibility is shown on your data sharing settings page. \"If you do not see this language on your data sharing page, you are not eligible for the complimentary tokens at this time.\"</li>\n<li>You still need a positive account balance.</li>\n<li>Only an organization owner can opt in, and \"Accounts with Zero Data Retention enabled cannot opt in\".</li>\n<li>\"Fine-tuned models, fine-tuning training, evals, and tool use are not included.\"</li>\n<li>The quota is checked per request: \"If a single request would make your daily total exceed the token quota, that entire request is billed at normal rates.\"</li>\n<li>OpenAI says it \"will give 30 days notice before terminating this program.\"</li>\n</ul>\n<p>Sharing data means OpenAI receives your prompts and completions. Do not opt in if your organization's traffic includes client records, health or legal data, or anything your contracts say must stay private.</p>\n<h2 id=\"worth\">What the free daily tokens are worth</h2>\n<p>Our arithmetic, at OpenAI's <a href=\"https://developers.openai.com/api/docs/pricing\">standard prices</a> on 16 November 2026, for a typical request of 1,000 input tokens and 500 output tokens (1,500 in total). 250,000 tokens cover 166 such requests a day; 1 million cover 666.</p>\n<table>\n<thead><tr><th>Model (first group)</th><th>Cost per request</th><th>Build, 250K a day, 30 days</th><th>Launch or Grow, 1M a day, 30 days</th></tr></thead>\n<tbody>\n<tr><td>gpt-6-astra</td><td>$0.035</td><td>$174.30</td><td>$699.30</td></tr>\n<tr><td>gpt-6.1-sol</td><td>$0.007</td><td>$34.86</td><td>$139.86</td></tr>\n<tr><td>gpt-6-luna</td><td>$0.00035</td><td>$1.74</td><td>$6.99</td></tr>\n</tbody>\n</table>\n<p>These values are our arithmetic, not OpenAI figures, and assume the daily quota counts input plus output tokens. The program is worth little on Luna, which is already cheap, and a lot on Astra. It only pays if your daily traffic actually uses the quota, and the models named in the 10 million group are mostly mini, nano and GPT-5.x.</p>\n<h2 id=\"chatgpt-credits\">API credits that come with ChatGPT Pro and Business</h2>\n<p>Another source of free credit is tied to a paid ChatGPT plan. OpenAI's <a href=\"https://help.openai.com/en/articles/20001626-api-credits-benefit-for-eligible-chatgpt-subscriptions\">help page</a> says \"Eligible paid ChatGPT Pro and ChatGPT Business subscribers can claim free API credits as a subscription benefit.\"</p>\n<ul>\n<li>Pro: $100, $200 or $500 a month, matching the $100, $200 and $500 tiers.</li>\n<li>Business: $20 per paid Standard seat and $100 per paid Premium seat, with a $500 monthly cap for the workspace ($6,000 a year when billed annually).</li>\n<li>ChatGPT Plus and free-trial subscriptions do not qualify, and the subscription must have been active for at least 7 days before claiming.</li>\n<li>\"Monthly grants expire at the end of the subscription billing cycle. Unused credits do not roll over.\"</li>\n</ul>\n<p>If your team already pays for ChatGPT Business, this is API budget you are already paying for, if your plan is eligible and you claim it. The full eligibility and linking steps are in our guide to <a href=\"/blog/chatgpt-api-credits/\">ChatGPT API credits</a>.</p>\n<h2 id=\"five-dollars\">What $5 buys on each GPT-6 model</h2>\n<p>If none of the free paths fit, the $5 minimum is the real entry price. Using the same 1,000 input and 500 output token request:</p>\n<table>\n<thead><tr><th>Model</th><th>Input / output per 1M tokens</th><th>Requests for $5</th></tr></thead>\n<tbody>\n<tr><td>gpt-6-astra</td><td>$10.00 / $50.00</td><td>142</td></tr>\n<tr><td>gpt-6.1-sol</td><td>$2.00 / $10.00</td><td>714</td></tr>\n<tr><td>gpt-6.1-terra</td><td>$1.00 / $5.00</td><td>1,428</td></tr>\n<tr><td>gpt-6-luna</td><td>$0.10 / $0.50</td><td>14,285</td></tr>\n</tbody>\n</table>\n<p>For a prototype, a chatbot test or a first automation, $5 on Luna or Terra goes a long way. Cached input is cheaper again (gpt-6-luna lists $0.01 per 1M cached tokens); our page on <a href=\"/blog/openai-prompt-caching-pricing/\">OpenAI prompt caching pricing</a> shows when that applies.</p>\n<h2 id=\"traps\">Billing traps on a new account</h2>\n<ul>\n<li><strong>Auto-reload is on by default.</strong> OpenAI tells you to \"Review Use auto-reload before confirming your purchase. It is turned on by default during setup.\" Turn it off if you want $5 to mean $5.</li>\n<li><strong>Credits expire.</strong> \"Purchased credits expire after one year. Credits purchased in Japan after November 13, 2026 expire after 180 days.\" Buy small.</li>\n<li><strong>Credits are not refunded</strong> \"unless required by law or contract, or an approved exception applies.\"</li>\n<li><strong>Rate limits are set per organization and project,</strong> not per user.</li>\n<li><strong>A hard spend limit stops traffic.</strong> Once it is reached, \"Affected API requests return a 429 error.\"</li>\n</ul>\n<h2 id=\"start\">How to start for $5 and keep it at $5</h2>\n<ol>\n<li>Create the API organization and a project for each app or client.</li>\n<li>Add payment details and buy the $5 minimum (the form defaults to $10).</li>\n<li>Switch off auto-reload before you confirm.</li>\n<li>Set a hard spend limit so a loop cannot run up a bill.</li>\n<li>Start on gpt-6-luna or gpt-6.1-terra and move up only where quality needs it.</li>\n<li>Check your data sharing settings page for the complimentary token offer, and do not opt in if any of your organization's traffic is sensitive.</li>\n<li>Route user input through the free Moderation endpoint first.</li>\n</ol>\n<h2 id=\"small-teams\">What this means for a small team</h2>\n<p>There is no free OpenAI API key for production work, but the starting cost is small: $5 covers more than 14,000 short Luna requests in our example. The bigger levers are ChatGPT-linked credits they already pay for, and daily data sharing tokens on projects with nothing private in them.</p>\n<p>If you compare providers, see our page on <a href=\"/blog/gemini-api-free-tier-limits/\">Gemini API free tier limits</a>. For voice agents, see <a href=\"/blog/gpt-live-pricing/\">GPT-Live pricing</a>.</p>\n<h2 id=\"imisofts\">How imisofts can help</h2>\n<p>imisofts builds AI agents, chatbots and automations on the OpenAI API for small businesses, and our <a href=\"/ai-automation-agency\">AI automation agency</a> page describes that work, and our guide to <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot for business cost</a> shows what a full project costs. If you want your business to show up in AI search answers, see <a href=\"/ai-search-optimization\">AI search optimization</a>.</p>\n<h2 id=\"not-verified\">What we could not verify</h2>\n<ul>\n<li>Whether a brand-new account with a $0 balance can make any model call at all on the Free tier. OpenAI's pages say a positive balance is needed to use models and the free tokens; we state no more than that.</li>\n<li>Per-token prices for the gpt-5.6 models in the 10 million token group, which were not in the pricing table we read.</li>\n<li>Which models the Free tier can call today.</li>\n</ul>",
+  "faqs": [
+    [
+      "Does the OpenAI API have a free tier?",
+      "Yes, in name. OpenAI's rate limits guide lists a Free tier with a $100 monthly usage limit for users in an allowed geography. But new accounts use prepaid billing, and OpenAI says you need a positive balance to use its models, so in practice you start with the $5 minimum purchase."
+    ],
+    [
+      "Can I get a free OpenAI API key?",
+      "Not one that runs models at no cost. OpenAI says you need a positive account balance to use its models, and a prepaid account that runs out of credits gets a billing error (credit_balance_exhausted). The free routes are the Moderation endpoint, complimentary data sharing tokens for eligible organizations, up to 7 free shared eval runs a week, and API credits for eligible paid ChatGPT Pro and Business plans."
+    ],
+    [
+      "How many free tokens does OpenAI give for data sharing?",
+      "Eligible Build organizations get up to 250,000 tokens a day on the first model group and 2.5 million on the second. Eligible Launch and Grow organizations get up to 1 million and 10 million. You must be shown as eligible on your data sharing page, opt in as an organization owner, keep a positive balance, and not use Zero Data Retention."
+    ],
+    [
+      "What is the minimum to start using the OpenAI API?",
+      "$5. OpenAI's prepaid billing page says the minimum purchase is $5 and the default is $10. Auto-reload is on by default during setup, so turn it off if you want to cap spend at your first purchase."
+    ],
+    [
+      "Do OpenAI API credits expire?",
+      "Yes. Purchased credits expire after one year, and credits purchased in Japan after November 13, 2026 expire after 180 days. Monthly API grants that come with ChatGPT Pro and Business expire at the end of the subscription billing cycle and do not roll over."
+    ],
+    [
+      "Is the OpenAI Moderation API free?",
+      "Yes. OpenAI says the Moderation endpoint is free for API users and does not count toward monthly usage limits."
+    ]
+  ],
+  "word_count": 1639,
+  "read_time": 7
+}
