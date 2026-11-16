@@ -1,0 +1,135 @@
+{
+  "slug": "chatgpt-error-in-message-stream",
+  "title": "ChatGPT Error in Message Stream: 10 Fixes, Fastest First",
+  "desc": "ChatGPT's Error in message stream means a reply broke off mid-stream. Wait 30 to 60 seconds, click Regenerate, start a new chat, check OpenAI's status page.",
+  "date": "2026-11-16",
+  "keywords": "error in message stream chatgpt, chatgpt error in message stream, error in message stream, is chatgpt down, chatgpt status, chatgpt network error, chatgpt not responding, openai status page, openai api streaming error, openai api retry exponential backoff, openai api timeout, openai background mode",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "What does ChatGPT's \"Error in message stream\" mean, and how do you fix it?",
+  "qtype": "howto",
+  "cta": "Want your daily AI work to keep running when ChatGPT fails?",
+  "word_count": 2175,
+  "read_time": 10,
+  "body": "<p><strong>Short answer.</strong> \"Error in message stream\" means the reply ChatGPT was sending you, piece by piece, broke off before it finished. OpenAI's help pages do not list this exact message, but for failed or stuck replies they say to wait 30 to 60 seconds, click Regenerate, start a new chat and check <a href=\"https://status.openai.com/\" target=\"_blank\" rel=\"noopener\">status.openai.com</a>, which logged a rise in ChatGPT conversation errors for 52 minutes on 9 November 2026. If the error follows you to other browsers, devices and networks, OpenAI asks for a HAR file and a support ticket.</p>\n<p>We read OpenAI's Help Center, status page and API docs on 16 November 2026. Anything OpenAI does not say is labeled as our suggestion or a likely cause.</p>\n<h2 id=\"what-it-means\">What Error in message stream means</h2>\n<p>ChatGPT shows its answer while it is still being written, rather than all at once. OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/streaming-responses\" target=\"_blank\" rel=\"noopener\">streaming guide</a> for developers describes the same idea: streaming lets an app show the start of an answer while the model keeps generating the rest. The error appears when that flow stops before the answer is done. In short, the reply broke off before it finished; wait 30 to 60 seconds, then click Regenerate.</p>\n<p>OpenAI has used the exact phrase itself. A <a href=\"https://status.openai.com/incidents/01JXGAK0HF25FWGFPG613DF5KG\" target=\"_blank\" rel=\"noopener\">status page incident</a> titled \"ChatGPT errors (Error in message stream)\" says users saw more of these errors from 11:50 a.m. PDT on 11 June 2025; OpenAI rolled back a change and recovered at 12:15 p.m., 25 minutes later. The <a href=\"https://help.openai.com/en/articles/6825453-chatgpt-release-notes\" target=\"_blank\" rel=\"noopener\">ChatGPT release notes</a> for 27 February 2026 also list a bug fix for increased message streaming errors in GPT-5.2 Thinking. In both cases the fix was on OpenAI's side.</p>\n<p>The other side is your connection. OpenAI's <a href=\"https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps\" target=\"_blank\" rel=\"noopener\">network guide</a> says some ChatGPT features use secure WebSocket connections, and that a network which blocks that traffic can make features stall, disconnect or fail to stream updates.</p>\n<p>Two likely causes we cannot confirm from OpenAI's pages are long reasoning runs and long chats. On OpenAI's community forum, users reported in September 2026 that short requests worked while complex, high-reasoning requests ran for several minutes and then failed with this error (<a href=\"https://community.openai.com/t/gpt-5-6-sol-high-reasoning-repeatedly-fails-with-error-in-message-stream-on-complex-requests/1399859\" target=\"_blank\" rel=\"noopener\">one thread</a>, <a href=\"https://community.openai.com/t/repeated-error-in-message-stream-in-project-chats-and-branches-while-work-remains-usable/1395555\" target=\"_blank\" rel=\"noopener\">another</a>). Treat that as a pattern users report, not an OpenAI finding. OpenAI does say to start a new chat when a conversation is long or has many turns.</p>\n<h2 id=\"fixes-in-order\">10 fixes in order, quickest first</h2>\n<p>These steps are based on OpenAI's sequence for a reply that hangs or fails, with the status check moved up, from its <a href=\"https://help.openai.com/en/articles/7996703-troubleshooting-chatgpt-error-messages\" target=\"_blank\" rel=\"noopener\">troubleshooting article</a>, plus checks from two other Help Center pages. Stop when one works; none of them costs anything.</p>\n<ol>\n<li><strong>Wait, then regenerate.</strong> Give it 30 to 60 seconds. If nothing moves, click Stop generating, then Regenerate. OpenAI says a failed response may be a one-time error.</li>\n<li><strong>Check the status page.</strong> Open status.openai.com. If ChatGPT shows an open incident, the fix is on OpenAI's side; wait for the resolved notice.</li>\n<li><strong>Start a new chat.</strong> Copy your prompt, open a new chat and send it again. OpenAI suggests this when a conversation is long or has many turns.</li>\n<li><strong>Hard refresh, restart or sign in again.</strong> Press Cmd or Ctrl, Shift and R together in the browser, or reload the desktop app or restart the phone app. If that fails, sign out of ChatGPT and back in.</li>\n<li><strong>Try a different model.</strong> OpenAI's <a href=\"https://help.openai.com/en/articles/9047779-why-is-my-chatgpt-taking-so-long-to-respond\" target=\"_blank\" rel=\"noopener\">slow response guide</a> says to switch models and start a brand-new chat to see whether the problem is tied to one model or to your whole account.</li>\n<li><strong>Open a private window with extensions off.</strong> OpenAI names privacy and security tools, and extensions that block scripts or ads, as ones that can interfere.</li>\n<li><strong>Turn off VPN, proxy and secure DNS.</strong> OpenAI gives Web Protect as an example of a security filter to switch off while you test.</li>\n<li><strong>Clear ChatGPT's cookies and site data.</strong> Clear the site data for ChatGPT, not only the cache, then sign in again.</li>\n<li><strong>Change browser, device or network.</strong> OpenAI's network guide suggests a phone hotspot as the test network.</li>\n<li><strong>Collect evidence and contact support.</strong> See the support section below.</li>\n</ol>\n<p>On the Android app, OpenAI's <a href=\"https://help.openai.com/en/articles/7996703-troubleshooting-chatgpt-error-messages\" target=\"_blank\" rel=\"noopener\">troubleshooting article</a> points to reinstalling the app if tools keep freezing or returning errors.</p>\n<h2 id=\"outage-or-local\">Outage or your setup: how to tell</h2>\n<p>OpenAI's <a href=\"https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps\" target=\"_blank\" rel=\"noopener\">network guide</a> suggests two checks. Is it only your machine, or others on your network too? And does the error go away when you switch from office WiFi to a phone hotspot? If others see it on every network, look at the status page. If only your office network fails, it is likely a network filter.</p>\n<p>A green status page does not rule out an OpenAI problem. Each page we read on <a href=\"https://status.openai.com/\" target=\"_blank\" rel=\"noopener\">OpenAI's status site</a> carries a note that availability is reported in aggregate across tiers, models and error types, and that one customer's availability can vary by plan, model and features. So if the error only happens on one model, try another before you blame your browser. On 16 November 2026 the page read fully operational.</p>\n<p>Between 9 and 16 November 2026, no incident was titled \"Error in message stream\", but three touched ChatGPT replies or the API:</p>\n<ul>\n<li><a href=\"https://status.openai.com/incidents/01M70RDA2GWD2WXE58ANY0WV5R\" target=\"_blank\" rel=\"noopener\">Higher ChatGPT conversation errors</a> on 9 November, open from 10:16 to 11:08 a.m. PT, 52 minutes from first update to resolved. The first update already said a fix had been applied, so the errors may have started earlier.</li>\n<li><a href=\"https://status.openai.com/incidents/01M7193DWYRFWQM5W6E3VZ7TM7\" target=\"_blank\" rel=\"noopener\">Higher error rates on the API</a> the same day, 3:08 to 3:50 p.m. PT, across 14 API components.</li>\n<li><a href=\"https://status.openai.com/incidents/01M765MJQK7F85SC82RMTYN0V3\" target=\"_blank\" rel=\"noopener\">An outage of logins, sign-ups and some ChatGPT features</a> on 11 November, 12:43 to 12:52 p.m. PT, which also covered errors when creating conversations through the API.</li>\n</ul>\n<p>OpenAI did not post causes for these, and the pages do not say whether users saw this exact message during them.</p>\n<p>Over a longer window, partial problems are common. The <a href=\"https://status.openai.com/\" target=\"_blank\" rel=\"noopener\">status page</a> showed these figures for 18 August to 16 November 2026:</p>\n<table>\n<thead><tr><th>Component</th><th>Uptime</th><th>Full outage days</th><th>Partial outage days</th><th>Degraded days</th></tr></thead>\n<tbody>\n<tr><td>ChatGPT, all 16 components</td><td>99.26%</td><td>1</td><td>10</td><td>46</td></tr>\n<tr><td>ChatGPT Conversations</td><td>99.95%</td><td>None listed</td><td>2</td><td>20</td></tr>\n<tr><td>ChatGPT Login</td><td>99.93%</td><td>None listed</td><td>5</td><td>8</td></tr>\n<tr><td>OpenAI APIs, all 14 components</td><td>99.97%</td><td>None listed</td><td>2</td><td>19</td></tr>\n</tbody>\n</table>\n<p>OpenAI's status page logged degraded ChatGPT performance on 46 days in that window, about half of it, counting any of its 16 components. That is why the status page is step 2, not step 10. If your team relies on ChatGPT, use the Subscribe to updates button on the status page.</p>\n<h2 id=\"company-networks\">Company networks, VPNs and long replies</h2>\n<p>If the error hits everyone in an office but not on a phone hotspot, send IT OpenAI's <a href=\"https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps\" target=\"_blank\" rel=\"noopener\">network recommendations</a>. The page asks admins to allow WebSocket traffic over TCP port 443, to let the \"Upgrade: websocket\" handshake through, and to allow wss://ws.chatgpt.com, which ChatGPT uses for conversation updates and notifications. It also lists domains to allowlist, including *.chatgpt.com, *.openai.com and *.oaistatic.com.</p>\n<p>The same page warns that TLS inspection, SSL decryption, web filtering and proxies can block, rewrite or close the long-running connection early. When sessions connect and later stall or disconnect, it tells admins to check idle timeouts and frame or message size limits. It names common filtering tools, including Zscaler Internet Access, Cisco Umbrella and Fortiguard URL Filtering. In our view, a proxy idle timeout that cuts a slow reply is a likely cause of this error on office networks; OpenAI's page does not say so directly.</p>\n<p>On the macOS desktop app, SSL inspection can block access, and OpenAI's <a href=\"https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps\" target=\"_blank\" rel=\"noopener\">network page</a> suggests using ChatGPT on the web as a workaround.</p>\n<h2 id=\"contact-support\">When to contact OpenAI support</h2>\n<p>If the error follows you across browsers, devices and networks, OpenAI asks for a HAR file and browser console errors with timestamps, the model you used, and the conversation URL or ID. Its <a href=\"https://help.openai.com/en/articles/6614161-how-can-i-contact-support\" target=\"_blank\" rel=\"noopener\">support article</a> explains the HAR steps: open developer tools (Ctrl+Shift+I, or Cmd+Option+I on a Mac), go to the Network tab, tick Preserve log, reproduce the error and export the sanitized HAR.</p>\n<p>Two cautions from the same page. HAR files can contain personal data, and the desktop app has no developer tools, so record the HAR in a browser. Files over the 25 MB attachment limit can be shared as a view-only cloud link. Start a chat from the bubble at the bottom right of help.openai.com, and never share a password or one-time code.</p>\n<h2 id=\"api-stream-errors\">Stream errors in the OpenAI API: retries and timeouts</h2>\n<p>In the API, the same kind of failure can show up as a dropped stream, a timeout or a server error.</p>\n<ul>\n<li><strong>Listen for the error event.</strong> With stream=true, the Responses API sends typed events over server-sent events. The <a href=\"https://developers.openai.com/api/docs/guides/streaming-responses\" target=\"_blank\" rel=\"noopener\">streaming guide</a> lists response.created, response.output_text.delta, response.completed and error as the common ones. We treat a stream that ends without response.completed as failed.</li>\n<li><strong>Retry the right errors only.</strong> The <a href=\"https://developers.openai.com/api/docs/guides/error-codes\" target=\"_blank\" rel=\"noopener\">error codes guide</a> says a 500 is an issue on OpenAI's servers (retry after a brief wait) and a 503 with code server_is_overloaded means the model is temporarily overloaded (follow Retry-After, then retry). Retrying billing, spend or quota errors will not restore access.</li>\n<li><strong>Back off with jitter.</strong> The <a href=\"https://developers.openai.com/api/docs/guides/rate-limits\" target=\"_blank\" rel=\"noopener\">rate limits guide</a> says to treat Retry-After as a minimum plus a small random delay, use exponential backoff with jitter when the header is missing, cap attempts and total retry time, and defer the request if the server asks for a longer wait than you allow. Failed requests count toward your per-minute limit, so nonstop resending makes things worse.</li>\n<li><strong>Know your SDK defaults.</strong> The official <a href=\"https://github.com/openai/openai-python\" target=\"_blank\" rel=\"noopener\">Python SDK</a> retries connection errors, 408, 409, 429 and 500-level errors 2 times by default with a short exponential backoff, and times out requests after 10 minutes; timed-out requests are also retried twice. If you write your own retry loop, OpenAI says to turn SDK retries off, so nested loops do not multiply requests.</li>\n<li><strong>Use background mode for long jobs.</strong> OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/background\" target=\"_blank\" rel=\"noopener\">background mode guide</a> says reasoning models can take several minutes and that background=true runs long tasks without timeout or connection worries. Set background and stream together, save each event's sequence_number as a cursor, and resume with starting_after if the stream drops. OpenAI notes the trade-off: a slower time to first token.</li>\n<li><strong>WebSocket mode has a clock.</strong> In the Responses API WebSocket mode, a connection that hits the 60-minute limit returns websocket_connection_limit_reached; open a new connection and continue.</li>\n</ul>\n<p>When an error persists, OpenAI support wants the model, the error message and code, the request data and headers, and the timestamp with time zone. Log request IDs too; the <a href=\"https://help.openai.com/en/articles/6614161-how-can-i-contact-support\" target=\"_blank\" rel=\"noopener\">support article</a> asks for them on API issues.</p>\n<h2 id=\"business-fallbacks\">How a business avoids being stuck when ChatGPT fails</h2>\n<p>If your team runs daily work through ChatGPT, a 52-minute incident in a US workday, like the one on 9 November, can stop work. Our suggestions, built on the OpenAI facts above:</p>\n<ul>\n<li><strong>Name who watches status.</strong> Subscribe one person or a team channel to status.openai.com updates, so staff stop troubleshooting laptops during a real incident.</li>\n<li><strong>Keep a second way in.</strong> OpenAI itself points macOS app users to the web version when the app is blocked. Make sure people can use both, plus a second network such as a phone hotspot.</li>\n<li><strong>Keep prompts and drafts outside the chat.</strong> Saved prompts in a shared doc turn step 3 (new chat, resend) into a few seconds of work.</li>\n<li><strong>Break up long jobs.</strong> If a task runs for minutes before it fails, split it into smaller requests or use a lower reasoning setting, since users report that long, high-reasoning runs fail more.</li>\n<li><strong>Apply OpenAI's network list once.</strong> Have IT allow the domains and WebSocket traffic before the next error, not during it.</li>\n<li><strong>Move repeat work to automations.</strong> Daily tasks that run through the API can retry, back off, run in background mode, switch to another model or provider when one fails, and alert a person.</li>\n<li><strong>Write a manual fallback.</strong> For the few tasks that cannot wait, write down what the team does by hand during an outage.</li>\n</ul>\n<h2 id=\"how-imisofts-can-help\">How imisofts can help</h2>\n<p>imisofts builds AI automations and agents for businesses, including n8n workflows and CRM integrations; see our <a href=\"/ai-automation\">AI automation services</a>. If your product or workflows call the OpenAI API and you want retries, timeouts, background mode and a fallback path added, you can <a href=\"/hire-ai-engineer\">hire an AI engineer</a> from our team. We do not run ChatGPT and cannot fix incidents on OpenAI's side.</p>\n<h2 id=\"this-week\">What to do this week</h2>\n<ol>\n<li>Bookmark status.openai.com and subscribe to updates.</li>\n<li>Next time the error appears, run the 10 steps in order and note which one worked.</li>\n<li>Test your office network against a phone hotspot. If only the office fails, send IT OpenAI's network page.</li>\n<li>Save your most used prompts outside ChatGPT.</li>\n<li>If you use the API, check your SDK's retry and timeout settings, and move any job that runs for minutes to background mode.</li>\n</ol>\n<p><strong>Sources</strong> (all read 16 November 2026): OpenAI Help Center articles on <a href=\"https://help.openai.com/en/articles/7996703-troubleshooting-chatgpt-error-messages\" target=\"_blank\" rel=\"noopener\">error messages</a>, <a href=\"https://help.openai.com/en/articles/9247338-network-recommendations-for-chatgpt-errors-on-web-and-apps\" target=\"_blank\" rel=\"noopener\">network setup</a>, <a href=\"https://help.openai.com/en/articles/9047779-why-is-my-chatgpt-taking-so-long-to-respond\" target=\"_blank\" rel=\"noopener\">slow responses</a> and <a href=\"https://help.openai.com/en/articles/6614161-how-can-i-contact-support\" target=\"_blank\" rel=\"noopener\">support</a>; the <a href=\"https://help.openai.com/en/articles/6825453-chatgpt-release-notes\" target=\"_blank\" rel=\"noopener\">ChatGPT release notes</a>; <a href=\"https://status.openai.com/\" target=\"_blank\" rel=\"noopener\">OpenAI Status</a> and the incident pages linked above; OpenAI API docs on <a href=\"https://developers.openai.com/api/docs/guides/error-codes\" target=\"_blank\" rel=\"noopener\">error codes</a>, <a href=\"https://developers.openai.com/api/docs/guides/rate-limits\" target=\"_blank\" rel=\"noopener\">rate limits</a>, <a href=\"https://developers.openai.com/api/docs/guides/streaming-responses\" target=\"_blank\" rel=\"noopener\">streaming</a> and <a href=\"https://developers.openai.com/api/docs/guides/background\" target=\"_blank\" rel=\"noopener\">background mode</a>; the <a href=\"https://github.com/openai/openai-python\" target=\"_blank\" rel=\"noopener\">openai-python README</a>. Forum posts are user reports, used as context only.</p>",
+  "faqs": [
+    [
+      "What does \"Error in message stream\" mean in ChatGPT?",
+      "It means the reply ChatGPT was streaming to you stopped before it finished. OpenAI's help pages do not define the exact message, but OpenAI used the name for a status incident on 11 June 2025 that a rollback fixed in 25 minutes, and its 27 February 2026 release notes list a fix for increased message streaming errors in GPT-5.2 Thinking."
+    ],
+    [
+      "Is ChatGPT down when it says \"Error in message stream\"?",
+      "Not always. Check status.openai.com first. On 16 November 2026 it read fully operational, but it had listed a rise in ChatGPT conversation errors for 52 minutes on 9 November. OpenAI notes its availability figures are aggregate, so one model or plan can have problems while the page looks green."
+    ],
+    [
+      "Why does ChatGPT keep saying \"Error in message stream\"?",
+      "If it repeats in one chat, OpenAI suggests starting a new chat, especially when the conversation is long, and trying another model to see whether the problem is tied to one model. If it repeats everywhere, test another browser, device and network, since VPNs, proxies and security filters can interrupt the connection. Users on OpenAI's forum also report it on long, high-reasoning requests, which is a likely cause rather than a confirmed one."
+    ],
+    [
+      "How do I fix \"Error in message stream\" on my phone?",
+      "OpenAI's steps for stuck or failed replies apply to the app too: wait 30 to 60 seconds, regenerate, start a new chat, restart the app, sign out and back in, and try a different network or device. For the Android app, OpenAI points to reinstalling if tools keep freezing or returning errors."
+    ],
+    [
+      "What should I send OpenAI support about this error?",
+      "A HAR file and browser console errors with timestamps, the model you used, and the conversation URL or ID. Record the HAR in a browser, because the desktop app has no developer tools, and share a view-only cloud link if the file is over the 25 MB attachment limit. Never share passwords or one-time codes."
+    ],
+    [
+      "How do I handle stream errors in the OpenAI API?",
+      "Listen for the error event when streaming, retry 500 and 503 errors with exponential backoff and jitter while respecting Retry-After, and do not retry billing or quota errors. The Python SDK retries 2 times by default and times out after 10 minutes. For jobs that run for minutes, OpenAI's background mode avoids timeouts and lets you resume a dropped stream with starting_after."
+    ]
+  ],
+  "image": {
+    "cluster": "ChatGPT errors",
+    "takeaway": "The reply broke off before it finished; wait 30 to 60 seconds, then click Regenerate.",
+    "alt": "ChatGPT Error in message stream: what it means, 10 fixes in order, and how to tell an OpenAI outage from a local problem",
+    "chart": {
+      "title": "Days with degraded performance on OpenAI's status page",
+      "subtitle": "18 August to 16 November 2026, as shown on 16 November 2026.",
+      "type": "hbar",
+      "rows": [
+        [
+          "ChatGPT Login",
+          8
+        ],
+        [
+          "OpenAI APIs",
+          19
+        ],
+        [
+          "ChatGPT Conversations",
+          20
+        ],
+        [
+          "ChatGPT, all parts",
+          46
+        ]
+      ],
+      "prefix": "",
+      "suffix": " days",
+      "highlight": 3,
+      "note": [
+        "any of 16 ChatGPT components",
+        "uptime 99.26% in the window"
+      ],
+      "source": "Degraded days per component as listed on the status page. Source: status.openai.com, November 2026",
+      "alt": "Bar chart of days with degraded performance on OpenAI's status page from 18 August to 16 November 2026: ChatGPT Login 8 days, OpenAI APIs 19 days, ChatGPT Conversations 20 days, and ChatGPT as a whole, counting any of its 16 components, 46 days",
+      "after_heading": "Outage or your setup: how to tell"
+    }
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Wait before regenerating a stuck reply",
+        "value": "30 to 60 seconds",
+        "note": "OpenAI Help Center troubleshooting sequence"
+      },
+      {
+        "label": "ChatGPT conversation errors on 9 Nov 2026",
+        "value": "52 minutes",
+        "note": "10:16 to 11:08 a.m. PT, OpenAI status page"
+      },
+      {
+        "label": "ChatGPT uptime, 18 Aug to 16 Nov 2026",
+        "value": "99.26%",
+        "note": "16 components; aggregate across tiers and models"
+      },
+      {
+        "label": "Days with degraded ChatGPT performance",
+        "value": "46",
+        "note": "same window; partial outage on 10 days"
+      },
+      {
+        "label": "June 2025 Error in message stream incident",
+        "value": "25 minutes",
+        "note": "11:50 a.m. to 12:15 p.m. PDT, fixed by a rollback"
+      },
+      {
+        "label": "Python SDK automatic retries",
+        "value": "2",
+        "note": "connection errors, 408, 409, 429 and 500-level errors"
+      },
+      {
+        "label": "Python SDK default request timeout",
+        "value": "10 minutes",
+        "note": "timed-out requests are also retried twice"
+      },
+      {
+        "label": "Responses API WebSocket connection limit",
+        "value": "60 minutes",
+        "note": "then open a new connection"
+      },
+      {
+        "label": "HAR file attachment limit for support",
+        "value": "25 MB",
+        "note": "share a view-only cloud link above that"
+      },
+      {
+        "label": "Port for ChatGPT WebSocket traffic",
+        "value": "TCP 443",
+        "note": "wss://ws.chatgpt.com, per OpenAI's network guide"
+      }
+    ],
+    "source": "OpenAI Help Center, status.openai.com, OpenAI API docs and the openai-python README, all read on 16 November 2026."
+  }
+}

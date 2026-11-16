@@ -1,0 +1,131 @@
+{
+  "slug": "openai-daybreak",
+  "title": "OpenAI Daybreak: 2 Access Tiers, How to Apply and What It Costs",
+  "desc": "OpenAI Daybreak is approval-only cyber access in 2 tiers, Blue and Red. We found no published access fee; usage bills by token, GPT-6 Cyber at $20 per 1M input.",
+  "date": "2026-11-16",
+  "keywords": "openai daybreak, daybreak openai, openai daybreak security platform, daybreak blue, daybreak red, daybreak red team, daybreak defense factory, codex security, gpt-6 cyber, trusted access for cyber, openai daybreak pricing, how to get daybreak access",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "What is OpenAI Daybreak, and how does a company get access and pay for it?",
+  "qtype": "howto",
+  "cta": "Want help running a first security scan on code you own?",
+  "word_count": 2191,
+  "read_time": 10,
+  "body": "<p><strong>Short answer.</strong> OpenAI Daybreak is OpenAI's cybersecurity program: approved defenders get 2 tiers of model access, Daybreak Blue for defensive work and Daybreak Red for authorized offensive testing, plus agent tools that find vulnerabilities, write patches and check fixes. Access is by application and review, and we found no published fee for access itself; you pay for usage by the token, for example $20 per 1 million input tokens for GPT-6 Cyber on the API. The newest pieces, Daybreak Red Team and Daybreak Defense Factory, were shown at OpenAI's Cyber at the Frontier event on 12 November 2026.</p>\n<p>On 16 November 2026 we read OpenAI's Daybreak pages, its Help Center articles, the Codex Security documentation and both OpenAI pricing pages, plus one independent report, from SecurityWeek, for the event date. imisofts sells cybersecurity services, so we have an interest in the subject.</p>\n<h2 id=\"what-it-is\">What OpenAI Daybreak is</h2>\n<p>OpenAI describes <a href=\"https://openai.com/daybreak/\" target=\"_blank\" rel=\"noopener\">Daybreak</a> as a program that brings together AI models, security products, partners and support for defenders. It has five parts:</p>\n<ul><li><strong>Daybreak Access.</strong> The Help Center calls this OpenAI's Trusted Access for Cyber program. Approved users get fewer refusals on cyber tasks (Blue) or specialized cyber models (Red).</li><li><strong>Products.</strong> The Codex Security plugin, CLI and SDK, plus Daybreak Defense Factory for connected code repositories and Daybreak Red Team for authorized testing of web applications.</li><li><strong>Daybreak Defense Network.</strong> Partners that build OpenAI's cyber models into their own security products and managed services.</li><li><strong>Daybreak for Frontline Defenders.</strong> A $1 billion pledge of subsidized access, training and support, starting with the US, announced on 3 September 2026.</li><li><strong>Patch the Planet.</strong> A project with Trail of Bits, Calif and HackerOne that helps open-source maintainers validate findings and land patches.</li></ul>\n<p>It is not one app you buy: it combines approval-based model access with tools reached through Codex, ChatGPT or the API.</p>\n<h2 id=\"this-week\">What changed this week</h2>\n<p>According to <a href=\"https://www.securityweek.com/openai-unveils-daybreak-red-team-defense-factory-security-tools/\" target=\"_blank\" rel=\"noopener\">SecurityWeek's report</a> of 13 November, OpenAI showed two agent products at its Cyber at the Frontier event on 12 November. OpenAI's own product pages describe them:</p>\n<ul><li><a href=\"https://openai.com/daybreak/red-team/\" target=\"_blank\" rel=\"noopener\">Daybreak Red Team</a> is in early access. A coordinated team of agents tests web applications using source code and app context, checks reports from scanners and bug bounty programs, and tests whether a patch stops the exploit. OpenAI says agents run in isolated environments with Guardian review, and you control which apps and endpoints they reach. <a href=\"https://openai.com/form/daybreak-red-team/\" target=\"_blank\" rel=\"noopener\">Registering interest</a> does not mean you will get access.</li><li><a href=\"https://openai.com/daybreak/defense-factory/\" target=\"_blank\" rel=\"noopener\">Daybreak Defense Factory</a> takes findings from your security tools and from Red Team, has agents trace each issue through your code and prepare a patch, and leaves engineers to review and test it before merge. The <a href=\"https://learn.chatgpt.com/docs/security/setup\" target=\"_blank\" rel=\"noopener\">setup guide</a> says it runs as the \"Daybreak Defense Factory (Preview)\" plugin in a ChatGPT workspace that has Daybreak access, scans a connected GitHub repository, and can import findings from Snyk, Endor Labs and Wiz.</li></ul>\n<p>A week before the event, on 5 November, OpenAI <a href=\"https://openai.com/index/introducing-gpt-6-cyber/\" target=\"_blank\" rel=\"noopener\">released GPT-6 Cyber</a> to a select group of approved Red customers. OpenAI reports 81 previously unknown Firefox vulnerabilities that Mozilla classified as high severity.</p>\n<h2 id=\"blue-and-red\">Daybreak Blue and Daybreak Red compared</h2>\n<table><thead><tr><th></th><th>Daybreak Blue</th><th>Daybreak Red</th></tr></thead><tbody><tr><td>Work it is for</td><td>Secure code review, vulnerability triage, malware analysis, detection engineering, incident response, patch validation</td><td>Authorized penetration testing, red teaming, exploit validation or development, controlled vulnerability research</td></tr><tr><td>Models</td><td>Fewer refusals on mainline models such as GPT-6 Sol, GPT-6 Luna and GPT-5.6 Sol; no cyber-specialized models</td><td>GPT-5.6 Cyber for every Red organization; GPT-6 Cyber with a separate approval; fewer refusals on mainline models including Astra</td></tr><tr><td>Who can apply</td><td>Organizations and individuals</td><td>For now, approved business and enterprise organizations only</td></tr><tr><td>Extra checks</td><td>Review of identity, use case and setup</td><td>Separate Red approval and stronger verification; IP allowlisting for API access by default</td></tr></tbody></table>\n<p>OpenAI's <a href=\"https://help.openai.com/en/articles/20001258-openai-daybreak-trusted-access-for-cyber-overview\" target=\"_blank\" rel=\"noopener\">access guide</a> calls Blue the recommended starting point for security teams. Approval switches nothing on by itself: Daybreak ships turned off until an admin enables it for a user, role or API project. Astra keeps standard safeguards under Blue. The IP allowlisting rule comes from OpenAI's <a href=\"https://openai.com/index/introducing-gpt-6-cyber/\" target=\"_blank\" rel=\"noopener\">GPT-6 Cyber announcement</a>.</p>\n<h2 id=\"what-it-does\">What Daybreak does: find, validate, patch, verify</h2>\n<p>OpenAI's <a href=\"https://openai.com/business/solutions/cybersecurity/\" target=\"_blank\" rel=\"noopener\">cybersecurity page</a> lays out the loop its agents run: discovery of likely flaws from code context, validation of whether a finding is reachable and exploitable, prioritization by severity, assignment to the team that owns the code, remediation with a proposed patch and tests, and verification that the fix closes the demonstrated attack path.</p>\n<p>The <a href=\"https://learn.chatgpt.com/docs/security\" target=\"_blank\" rel=\"noopener\">Codex Security docs</a> list four ways to run that loop:</p>\n<ul><li><strong>Codex Security plugin</strong> in the ChatGPT desktop app or Codex CLI. It scans a local repository, leaves your source unchanged and keeps findings on your machine. OpenAI suggests gpt-5.6-sol with xhigh reasoning for the best scan quality, per the <a href=\"https://learn.chatgpt.com/docs/security/plugin\" target=\"_blank\" rel=\"noopener\">plugin quickstart</a>.</li><li><strong>Codex Security CLI</strong>, the npm package @openai/codex-security, for terminal and CI scans. The <a href=\"https://learn.chatgpt.com/docs/security/cli\" target=\"_blank\" rel=\"noopener\">CLI quickstart</a> lists Node.js 24 or 26 (or 22.13.0 and later) and Python 3.10 or later.</li><li><strong>Codex Security SDK</strong> for scans inside TypeScript applications.</li><li><strong>Daybreak Defense Factory</strong> for cloud scans of a connected GitHub repository: one-off, continuous on new commits, or scheduled, plus pull request reviews.</li></ul>\n<p>Findings export as JSON, CSV or SARIF. A verify step returns fixed, still_vulnerable or inconclusive for each finding, according to the <a href=\"https://learn.chatgpt.com/docs/security/plugin/changelog\" target=\"_blank\" rel=\"noopener\">plugin changelog</a>. Defense Factory does not deploy patches automatically: it saves a proposed patch, and its Create PR option opens a draft pull request on GitHub.</p>\n<h2 id=\"how-to-apply\">How to get OpenAI Daybreak access</h2>\n<p>The <a href=\"https://help.openai.com/en/articles/20001258-openai-daybreak-trusted-access-for-cyber-overview\" target=\"_blank\" rel=\"noopener\">Help Center overview</a> gives two application paths:</p>\n<ol><li><strong>Organizations</strong> use OpenAI's <a href=\"https://openai.com/form/enterprise-trusted-access-for-cyber/\" target=\"_blank\" rel=\"noopener\">organization request form</a>. Expect questions about your company and its security capability, the defensive workflows you want, the OpenAI organization or workspace you will use, and verification details.</li><li><strong>Individuals</strong> start at chatgpt.com/cyber. The checklist asks for an eligible paid plan, Advanced Account Security and at least 1 physical FIDO2 security key; a passkey saved on a phone, a computer or in a password manager does not count. You then verify your identity, and you must be at least 18.</li></ol>\n<p>Read the account-security part before you enroll. Turning on Advanced Account Security signs you out of every device and switches off password sign-in, email and SMS codes, and standard email recovery. The <a href=\"https://help.openai.com/en/articles/20001259-troubleshooting-openai-daybreak\" target=\"_blank\" rel=\"noopener\">troubleshooting guide</a> warns that if you lose every key and recovery key you may lose the account for good, and recovering with a recovery key involves a 48-hour waiting period. Being in a ChatGPT Business or Team workspace does not exempt an individual from these rules.</p>\n<p>After approval, an admin turns Daybreak on. In the API that means a named project other than the default one, which is not eligible, and changes take up to about 15 minutes. In Codex it means a role setting, then the Codex app's Daybreak toggle, off by default. OpenAI also says approval is not automatic, support cannot override a verification decision, Daybreak is not available in every region, and a purchase or contract alone does not secure access.</p>\n<h2 id=\"cost\">What OpenAI Daybreak costs</h2>\n<p>Daybreak access is by approval only, and we found no published access fee; you pay for usage by the token. Red Team takes interest registrations and Defense Factory lists Contact sales; neither has a public price. The usage rates OpenAI publishes:</p>\n<table><thead><tr><th>Where and which model</th><th>Per 1M input tokens</th><th>Per 1M output tokens</th><th>Our example: 1M in, 200K out</th></tr></thead><tbody><tr><td>ChatGPT or Codex credits, Daybreak Blue</td><td>100 credits</td><td>500 credits</td><td>200 credits</td></tr><tr><td>ChatGPT or Codex credits, Daybreak Red</td><td>312.5 credits</td><td>1,875 credits</td><td>687.5 credits</td></tr><tr><td>API, gpt-6-luna (standard rate)</td><td>$0.10</td><td>$0.50</td><td>$0.20</td></tr><tr><td>API, gpt-6-sol (standard rate)</td><td>$2.00</td><td>$10.00</td><td>$4.00</td></tr><tr><td>API, gpt-5.6-cyber (Red)</td><td>$12.50</td><td>$75.00</td><td>$27.50</td></tr><tr><td>API, gpt-6-cyber (Red, separate approval)</td><td>$20.00</td><td>$100.00</td><td>$40.00</td></tr></tbody></table>\n<p>OpenAI lists no Blue API rate; in credits, Blue bills at GPT-5.6 Sol rates. The API rates are Standard, short-context prices from the <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener\">API pricing page</a>, which lists GPT-6 Cyber and GPT-5.6 Cyber under a Daybreak category and no separate Blue rate. The credit rates come from the <a href=\"https://learn.chatgpt.com/docs/pricing\" target=\"_blank\" rel=\"noopener\">ChatGPT Learn pricing page</a>, which says Blue is billed at GPT-5.6 Sol credit rates and gives no dollar price per credit; that depends on your plan or agreement. The last column is our arithmetic for a hypothetical job, not a measured scan; OpenAI does not say how many tokens a scan uses. The same job costs 10 times as much on GPT-6 Cyber as on GPT-6 Sol.</p>\n<p>Three billing rules are easy to miss. First, Defense Factory repository scans and continuous monitoring are billed by token usage at your plan's rates and are not covered by the plan's included allowance, per the <a href=\"https://learn.chatgpt.com/docs/security/faq\" target=\"_blank\" rel=\"noopener\">Defense Factory FAQ</a>; it mentions free scanning credits that do not expire but not how many. Second, the plan table on that ChatGPT Learn pricing page lists Codex Security for connected GitHub repositories under Enterprise and Education only, not Plus, Pro or Business. Third, the CLI's cost limit flag is an estimate, not a hard cap, per the <a href=\"https://learn.chatgpt.com/docs/security/cli/faq\" target=\"_blank\" rel=\"noopener\">CLI FAQ</a>.</p>\n<p>If you protect essential services, there may be a subsidized route. The <a href=\"https://openai.com/index/daybreak-for-frontline-defenders/\" target=\"_blank\" rel=\"noopener\">Frontline Defenders</a> pledge of $1 billion, starting with the US, covers subsidized Daybreak access, training and support for utilities, state and local governments, community and regional banks, nonprofits and open-source maintainers, and OpenAI said in September it was targeting the money to be used over six months. You <a href=\"https://openai.com/collective-cyberdefense/application/\" target=\"_blank\" rel=\"noopener\">register interest in access credits</a> with a short form; OpenAI says that does not promise eligibility, funding or a timeline.</p>\n<h2 id=\"no-security-team\">What it means for a company without a security team</h2>\n<p>Daybreak is built for people who already do security work. The help pages assume an admin who can configure API projects and workspace roles, and code you own in a repository. If your business runs on a hosted store or site builder with no code of its own, the scanning tools have little to work on.</p>\n<p>For a small or mid-size company with its own software, the realistic options are:</p>\n<ul><li><strong>Start without Daybreak.</strong> The Codex Security plugin and CLI run on code you own with standard safeguards. The CLI docs say some cybersecurity requests and protected findings need Trusted Access, and the plugin shows an advisory when access is not granted but still runs the scan.</li><li><strong>Use a partner.</strong> OpenAI's <a href=\"https://openai.com/business/partners/locator/\" target=\"_blank\" rel=\"noopener\">partner locator</a> listed 10 Daybreak partners when we checked, among them large consultancies such as Accenture, EY, IBM Consulting and PwC, and security firms Bishop Fox and SpecterOps.</li><li><strong>Apply for the subsidy</strong> if you are a community bank, nonprofit, utility, local government body or open-source project.</li><li><strong>Apply for Blue yourself</strong> only if one person will own the process, keep the hardware keys safe and review every patch.</li></ul>\n<p>The rules also limit what an agency or software vendor can do. Daybreak is for systems you own or are explicitly authorized to test, and it may not be shared, resold or embedded for clients, external users or customer-facing traffic; for customer-facing work OpenAI points to its partner program. For a sense of what these models find, one of the PHP flaws in our <a href=\"/blog/php2shell-vulnerability/\">PHP2Shell guide</a> was found with GPT-5.6 Sol.</p>\n<h2 id=\"limits\">Limits and the human review it still needs</h2>\n<ul><li><strong>Not every refusal goes away.</strong> Daybreak reduces some refusals; model-level refusals, usage policies and other safeguards still apply, even on Red.</li><li><strong>Scans vary and can miss things.</strong> OpenAI says AI-assisted scans can return different findings with the same settings, and a scan with no findings can still miss vulnerabilities.</li><li><strong>A patch is not a fix until someone checks it.</strong> OpenAI's FAQ says a proposed patch, draft pull request or status change alone does not verify a fix.</li><li><strong>Your code goes to the model.</strong> A local scan can send relevant code and prompts to the configured model provider, and Daybreak approval does not include Zero Data Retention by default.</li><li><strong>The CLI acts with your permissions.</strong> It runs with your operating-system permissions, does not pause for approval, and its logs can contain source code or credentials.</li></ul>\n<p>OpenAI's own figures make the case for review. Describing the internal sprint behind its <a href=\"https://openai.com/the-defense-factory/\" target=\"_blank\" rel=\"noopener\">Defense Factory approach</a>, OpenAI reports that 37% of findings were duplicates, 19.5% were reproduced at runtime, the false-positive rate after dynamic validation was 0.81%, and the rolled-back fix rate was 0.53%. It says people review consequential changes and independently verify deployed fixes. In its GPT-6 Cyber post, OpenAI recommends sandboxing, action review and human oversight for high-risk work.</p>\n<h2 id=\"this-week-list\">What to do this week</h2>\n<ol><li>List the code you own, where it lives and who approves merges.</li><li>Run one Codex Security scan on one repository or folder, and read the coverage notes before the findings.</li><li>Decide whether you need Blue. If so, get two FIDO2 keys first and store recovery keys offline.</li><li>If you run essential services, a nonprofit or an open-source project, register interest in the subsidy.</li><li>Set a token budget, since Defense Factory scans bill outside included allowances.</li><li>Name the person who reviews each patch before merge.</li></ol>\n<p>imisofts is a Dubai-based agency. Our <a href=\"/cybersecurity-services\">cybersecurity services</a> cover risk assessments, vulnerability assessment and patching, and monitoring; for a team looking at Daybreak, we can help scope a first scan of code you own and set up a review step before patches merge. If you want someone to build tooling on the OpenAI API around your own systems, you can <a href=\"/hire-ai-engineer\">hire an AI engineer</a>. Daybreak approval is OpenAI's decision, not ours.</p>",
+  "faqs": [
+    [
+      "What is OpenAI Daybreak?",
+      "Daybreak is OpenAI's cybersecurity program. It combines approval-based access to OpenAI models for security work (Daybreak Blue for defense, Daybreak Red for authorized offensive testing), the Codex Security plugin, CLI and SDK, the Daybreak Defense Factory and Daybreak Red Team agent products, a partner network, and a $1 billion subsidy for frontline defenders."
+    ],
+    [
+      "How do I get access to OpenAI Daybreak?",
+      "Organizations apply through OpenAI's organization request form; individuals start at chatgpt.com/cyber. Individuals need an eligible paid plan, Advanced Account Security, at least one physical FIDO2 security key and identity verification, and must be at least 18. OpenAI reviews every request, approval is not automatic, and after approval an admin still has to switch Daybreak on."
+    ],
+    [
+      "Can an individual get Daybreak Red?",
+      "Not through an application. OpenAI's Help Center says Daybreak Red is currently available only to approved business and enterprise organizations. Individuals can apply for Daybreak Blue, and Blue approval does not include Red. GPT-6 Cyber needs a further, separate approval on top of Red."
+    ],
+    [
+      "How much does OpenAI Daybreak cost?",
+      "We found no published fee for Daybreak access. Usage is billed by the token: on the API, GPT-6 Cyber lists at $20 per 1 million input tokens and $100 per 1 million output tokens, and GPT-6 Sol at $2 and $10. In ChatGPT and Codex credits, Blue is 100 credits per 1 million input tokens and Red is 312.5. Red Team and Defense Factory have no public price."
+    ],
+    [
+      "What are Daybreak Red Team and Daybreak Defense Factory?",
+      "Both were shown at OpenAI's Cyber at the Frontier event on 12 November 2026. Red Team, in early access, uses a team of agents to test web applications, validate reported vulnerabilities and check that patches stop the exploit. Defense Factory scans a connected GitHub repository, imports findings from tools such as Snyk, Endor Labs and Wiz, and prepares patches that engineers review before merge."
+    ],
+    [
+      "Can an agency use Daybreak on client systems?",
+      "Only on systems it is explicitly authorized to test, and it cannot pass Daybreak access on. OpenAI's rules bar sharing, reselling or embedding Daybreak for third-party customers, external users or customer-facing traffic, and point companies that want to offer Daybreak-powered products or services to the Daybreak partner program."
+    ]
+  ],
+  "image": {
+    "cluster": "AI security",
+    "takeaway": "Daybreak access is by approval only, and we found no published access fee; you pay for usage by the token.",
+    "alt": "OpenAI Daybreak explained: two access tiers, Blue and Red, approval required, and token-based pricing",
+    "chart": {
+      "title": "API cost of 1M input plus 200K output tokens",
+      "subtitle": "US dollars; hypothetical job; Standard short-context API rates.",
+      "type": "hbar",
+      "rows": [
+        [
+          "GPT-6 Luna (standard)",
+          0.2
+        ],
+        [
+          "GPT-6 Sol (standard)",
+          4
+        ],
+        [
+          "GPT-5.6 Cyber (Red)",
+          27.5
+        ],
+        [
+          "GPT-6 Cyber (Red)",
+          40
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 3,
+      "source": "Our arithmetic on OpenAI's API pricing page, read 16 November 2026. Source: OpenAI API pricing, November 2026",
+      "alt": "Bar chart of the API cost of a hypothetical job of 1 million input and 200,000 output tokens: GPT-6 Luna $0.20, GPT-6 Sol $4, GPT-5.6 Cyber $27.50, GPT-6 Cyber $40",
+      "after_heading": "What OpenAI Daybreak costs"
+    }
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Daybreak access tiers",
+        "value": "2",
+        "note": "Daybreak Blue and Daybreak Red"
+      },
+      {
+        "label": "Published fee for Daybreak access",
+        "value": "None found",
+        "note": "usage is billed by the token"
+      },
+      {
+        "label": "GPT-6 Cyber API rate per 1M tokens",
+        "value": "$20 input, $100 output",
+        "note": "Red only, separate approval; API pricing page"
+      },
+      {
+        "label": "GPT-6 Sol API rate per 1M tokens",
+        "value": "$2 input, $10 output",
+        "note": "standard API rate; OpenAI lists no Blue API rate"
+      },
+      {
+        "label": "Daybreak Blue, credits per 1M tokens",
+        "value": "100 input, 500 output",
+        "note": "GPT-5.6 Sol credit rates; ChatGPT Learn pricing"
+      },
+      {
+        "label": "Daybreak Red, credits per 1M tokens",
+        "value": "312.5 input, 1,875 output",
+        "note": "ChatGPT Learn pricing"
+      },
+      {
+        "label": "Hardware keys for individual Blue access",
+        "value": "At least 1 FIDO2 key",
+        "note": "synced passkeys do not count; Help Center"
+      },
+      {
+        "label": "Subsidy pledged for frontline defenders",
+        "value": "$1 billion",
+        "note": "announced 3 September 2026"
+      },
+      {
+        "label": "Red Team and Defense Factory shown",
+        "value": "12 November 2026",
+        "note": "Cyber at the Frontier event, per SecurityWeek"
+      },
+      {
+        "label": "API project setting change takes effect",
+        "value": "Up to about 15 minutes",
+        "note": "default API projects are not eligible"
+      }
+    ],
+    "source": "Read on 16 November 2026 from OpenAI's Daybreak pages, Help Center, ChatGPT Learn and API pricing pages, with the event date from SecurityWeek."
+  }
+}

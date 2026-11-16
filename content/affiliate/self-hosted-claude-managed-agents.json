@@ -1,0 +1,131 @@
+{
+  "slug": "self-hosted-claude-managed-agents",
+  "title": "Self-Hosted Claude Managed Agents: The 8-Hour Safety Rule",
+  "desc": "Self-hosted Claude Managed Agents puts the agent server in your cloud, but the license gives you 8 hours to roll back a version Anthropic flags as a risk.",
+  "date": "2026-11-16",
+  "keywords": "self-hosted claude managed agents, claude managed agents self-hosted, anthropic claude managed agents safety catch, claude managed agents 8 hours, claude managed agents license, claude managed agents on-premise, self-hosted sandboxes, claude managed agents security, claude managed agents data retention, anthropic private beta",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "What does self-hosting Claude Managed Agents change, and what is the 8-hour safety rule in its license?",
+  "qtype": "limit",
+  "cta": "Weighing self-hosted Claude agents for regulated client work?",
+  "word_count": 2180,
+  "read_time": 10,
+  "body": "<p><strong>Short answer.</strong> Since 12 November 2026, companies in Anthropic's private beta can run the whole Claude Managed Agents service, including the agent server, its database, credentials and sandboxes, in their own cloud or data center, while Claude itself still runs at Anthropic or at a cloud provider they pick. The catch is in the license: if Anthropic tells you in writing that a feature or version is a safety, security or misuse risk, you must disable it or roll it back in every deployment within 8 hours. Anthropic has not published a price for self-hosting; its pricing page says to ask your account team.</p>\n<p>On 16 November 2026 we read Anthropic's <a href=\"https://claude.com/resources/articles/self-hosted-claude-managed-agents\" target=\"_blank\" rel=\"noopener\">announcement</a>, its <a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted\" target=\"_blank\" rel=\"noopener\">self-hosted documentation</a>, the <a href=\"https://www.anthropic.com/legal/self-hosted-managed-agents-license\" target=\"_blank\" rel=\"noopener\">Software License Agreement: Claude Managed Agents Server</a> (effective 12 November 2026) and the <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener\">pricing page</a>. This guide summarizes what those pages say. It is not legal advice, and your counsel should read the license itself.</p>\n<h2 id=\"what-runs-where\">What self-hosting changes: what runs where</h2>\n<p>Managed Agents has two parts you can host, according to <a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted\" target=\"_blank\" rel=\"noopener\">Anthropic's docs</a>: the sandboxes, where an agent's tools run commands and edit files, and the service, which is the API, the agent loop and the storage for agents, sessions and session history. The model is a third piece, run at Anthropic or a provider you choose. Self-hosted sandboxes already existed; the new option moves the service to you as well.</p>\n<table>\n<thead><tr><th>Option</th><th>Sandboxes</th><th>Service and session history</th><th>Model</th></tr></thead>\n<tbody>\n<tr><td>Cloud sandboxes (default)</td><td>Anthropic</td><td>Anthropic</td><td>Anthropic</td></tr>\n<tr><td>Self-hosted sandboxes</td><td>You</td><td>Anthropic</td><td>Anthropic</td></tr>\n<tr><td>Self-hosted Managed Agents</td><td>You</td><td>You</td><td>Anthropic, or a provider you choose</td></tr>\n</tbody>\n</table>\n<p>In a self-hosted deployment you run a server called cma-server, which serves the API, runs the agent loop and stores agents, sessions and history; a PostgreSQL 16 or later database; and workers that run the agent's shell and file tools inside your sandboxes. The server never runs those tools itself. Without a database the server keeps everything in memory, and a restart erases it. People use a console on your own server and sign in through your identity provider. Your developers keep the same API as the hosted service, so the SDK and Anthropic's ant command line tool work against your server.</p>\n<p>Model calls can go to the Claude API (the default), Amazon Bedrock, Claude Models on Google Cloud, Microsoft Foundry or a model gateway you run, per the <a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted/inference-provider\" target=\"_blank\" rel=\"noopener\">inference provider page</a>. Under every choice except the Claude API, the server needs no Claude API key.</p>\n<h2 id=\"what-leaves-your-network\">What data still leaves your network</h2>\n<p>Self-hosting keeps the record of what agents did inside your perimeter. It does not keep the conversation there. For every model call, the server sends the conversation so far, including prompts, tool inputs and tool results, to your inference provider, the <a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted-data-and-access\" target=\"_blank\" rel=\"noopener\">data and access page</a> says. If an agent reads a client file, the parts it reads travel to the model.</p>\n<ul>\n<li><strong>No remote access for Anthropic.</strong> Anthropic cannot reach your server or its log, and it issues and holds none of the credentials the server accepts.</li>\n<li><strong>Anthropic is contacted only if the Claude API is your provider.</strong> In that case each model call carries three ID headers, for the session, the agent and the environment. The IDs hold no names or content but do encode when they were created, and no setting turns them off. The server also checks its API key every 60 seconds by default.</li>\n<li><strong>Session history stays in your database</strong> until you delete it. Deleting a session does not reach backups, exported logs or memory stores.</li>\n<li><strong>Zero data retention.</strong> Anthropic lists hosted Managed Agents as not covered by zero data retention (ZDR), because Anthropic stores session transcripts when it runs the service. When you self-host, you store them, and a ZDR arrangement you already have covers the model calls like any other Messages API call.</li>\n</ul>\n<p>One clause pulls the other way. Section 5.9 of the <a href=\"https://www.anthropic.com/legal/self-hosted-managed-agents-license\" target=\"_blank\" rel=\"noopener\">license</a> says the software may send \"usage signals\" to Anthropic, and you may not remove, block, alter or falsify them, or route model requests in a way that hides that they come from this software. Ask your account team exactly what those signals contain before your security review signs off.</p>\n<h2 id=\"the-8-hour-rule\">The 8-hour rule, in Anthropic's own words</h2>\n<p>Coverage boiled the catch down to 8 hours to act when Anthropic flags a safety risk; <a href=\"https://thenewstack.io/self-hosted-claude-managed-agents/\" target=\"_blank\" rel=\"noopener\">The New Stack</a> put it in its headline. The license is more specific. Section 5.3, Safety Rollback, says that if Anthropic notifies you in writing that a feature or version of the software presents a safety, security or misuse risk, you will disable that feature or roll back that version in each deployment within 8 hours after the notice. The section says hours, not business hours, so plan for a notice that lands at night or on a weekend.</p>\n<p>It is one of several clocks in sections 5 and 7 of the <a href=\"https://www.anthropic.com/legal/self-hosted-managed-agents-license\" target=\"_blank\" rel=\"noopener\">license</a>:</p>\n<table>\n<thead><tr><th>Trigger</th><th>What you must do</th><th>Deadline</th><th>Section</th></tr></thead>\n<tbody>\n<tr><td>Written notice that a feature or version is a risk</td><td>Disable the feature or roll back the version, in every deployment</td><td>8 hours</td><td>5.3</td></tr>\n<tr><td>Anthropic delivers a Safety Update</td><td>Deploy it in every deployment</td><td>1 business day</td><td>5.2</td></tr>\n<tr><td>You confirm an Agent Incident</td><td>Notify Anthropic, investigate, report what you did</td><td>48 hours</td><td>5.7</td></tr>\n<tr><td>You learn of unauthorized access to the software</td><td>Notify Anthropic in writing</td><td>72 hours</td><td>7.5</td></tr>\n<tr><td>Any other update</td><td>Commercially reasonable efforts to deploy it</td><td>30 days</td><td>5.4</td></tr>\n<tr><td>Anthropic withdraws a version</td><td>Stop using it and delete copies</td><td>30 days, or the 5.2 or 5.3 deadline</td><td>5.5</td></tr>\n</tbody>\n</table>\n<p>An Agent Incident means a safety feature of the software is triggered, or other unusual agent behavior is detected, against thresholds you and Anthropic agree in writing; email counts. Your report does not have to include customer or user data. Section 5.8 adds Custom Safeguards: you must run the safeguards Anthropic specifies, including ones specific to your deployment, and not switch them off without its written consent.</p>\n<p>How fast you can roll back depends on the release. The <a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted/upgrade\" target=\"_blank\" rel=\"noopener\">upgrade guide</a> says a patch rollback is a redeploy of the old release. After a minor or major upgrade you may need to restore the backup, and a restore loses everything written after the backup began. A Docker Compose stack is down while it restarts, for every kind of upgrade.</p>\n<h2 id=\"other-license-terms\">Other license terms regulated buyers should read</h2>\n<ul>\n<li><strong>Royalty-free.</strong> Section 2.1 grants a royalty-free license to run the server software. Section 2.4 says your use of Claude models through it stays under your existing model agreement, and the license does not change that agreement's pricing, usage policies or data terms.</li>\n<li><strong>You own the operation.</strong> You are solely responsible for hosting, security, availability and support (4.1), and for all data the deployment processes; Anthropic does not receive or process that data under this license (4.2).</li>\n<li><strong>No code for auditors.</strong> You may not modify, reverse engineer or share the software, including with a customer for an audit or assessment (section 3).</li>\n<li><strong>Model access can narrow.</strong> Anthropic may decide for safety reasons that some customers should reach certain models only through its hosted service (5.6).</li>\n<li><strong>Liability.</strong> Anthropic's total liability under the license is capped at $100,000 (8.2), and you defend Anthropic against third-party claims arising from your deployment, unless a claim comes solely from the software as Anthropic delivered it (8.3).</li>\n<li><strong>Exit.</strong> Either side can end the license on 90 days' notice. Unless Anthropic ends it for your breach, you then get up to 90 days to wind down, and section 9.4 requires deleting copies within 30 days after termination (9.2 to 9.4).</li>\n</ul>\n<h2 id=\"requirements-and-setup\">Requirements and setup steps</h2>\n<p>Access comes first. The beta is private: you ask your Anthropic account team, which also controls the download of the release archive, the <a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted\" target=\"_blank\" rel=\"noopener\">docs</a> say. Help Net Security's <a href=\"https://www.helpnetsecurity.com/2026/11/12/anthropic-self-hosted-claude-managed-agents/\" target=\"_blank\" rel=\"noopener\">report</a> describes the same route. Then:</p>\n<ol>\n<li><strong>Try it on one machine.</strong> The <a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted/quickstart\" target=\"_blank\" rel=\"noopener\">quickstart</a> runs the server, PostgreSQL and workers with Docker Compose on a host with at least two CPUs, the current Docker Engine with the Compose plugin, openssl, the ant tool and a Claude API key. Anthropic says this stack is for development, not production, and it serves plain HTTP. The data and access page asks for Docker Engine 28.3.3 or later.</li>\n<li><strong>Create the secrets file.</strong> It holds a database password, your Claude API key, a server API key for your applications and an encryption key for stored secrets.</li>\n<li><strong>Start the stack and check it.</strong> Start the containers, wait for the server to report ready, create an agent and ask it to run a command. A hostname starting with cma-sandbox- shows the tool ran in a sandbox container, not on your machine.</li>\n<li><strong>Move to Kubernetes for production.</strong> Anthropic recommends the release's two Helm charts. The <a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted/kubernetes\" target=\"_blank\" rel=\"noopener\">Kubernetes guide</a> asks for Kubernetes 1.30 or later with the Agent Sandbox controller, gVisor nodes and a network plugin that enforces NetworkPolicy, plus PostgreSQL 16 or later, a registry for images you build yourself, and cluster-admin rights.</li>\n<li><strong>Close the doors you want closed.</strong> MCP servers and Git hosts work only once you list them, web tools are off by default, and each tenant or trust level needs its own deployment with its own database, key and workers.</li>\n</ol>\n<h2 id=\"what-you-give-up\">What you give up compared with the hosted service</h2>\n<p>The <a href=\"https://platform.claude.com/docs/en/managed-agents/self-hosted/differences\" target=\"_blank\" rel=\"noopener\">differences page</a> lists the gaps. Nothing is copied from the hosted service, session history included. Cloud environments, the Files API, webhooks, scheduled deployments and Anthropic's prebuilt Word, PDF, PowerPoint and Excel skills are missing, and your server does not serve the rest of the Claude API, such as the Messages API. One default matters for regulated work: with the Claude API as provider, when a safety classifier declines a request, another Claude model, possibly a less capable one, can answer it. A server setting turns that fallback off.</p>\n<h2 id=\"what-it-costs\">What it costs</h2>\n<p>Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener\">pricing page</a> bills hosted Managed Agents on tokens and session runtime, and says that for self-hosted pricing you contact your Anthropic account team. We cover the hosted rates in our <a href=\"/blog/claude-managed-agents-pricing/\">Claude Managed Agents pricing guide</a> and do not repeat them here. What is public: the server license is royalty-free, and model use stays under your existing agreement's pricing. What is not public: the self-hosted price itself, and whether a runtime fee applies when you run the server. Your own bill adds the servers, the database, the Kubernetes cluster and the people on call for the 8-hour window.</p>\n<h2 id=\"who-it-suits\">Who it suits in law, healthcare and finance</h2>\n<p>Anthropic's docs give two reasons to choose it: you must store agents, sessions and history yourself, or your model calls must go to Bedrock, Google Cloud, Foundry or your own gateway. If you only need tools to run on your own machines, the docs point to self-hosted sandboxes instead, where Anthropic still runs the service.</p>\n<p>That fits a bank, insurer, hospital group or law firm with an operations team that can respond at any hour. For a firm that keeps client data in-house, self-hosting moves the session record into its own database, but each document an agent reads still goes to the model provider. A firm that mainly wants new case enquiries answered and qualified may not need an agent platform at all; that narrower job is what our <a href=\"/ai-intake-law-firms\">AI client intake for law firms</a> covers. The Anthropic pages we read do not mention HIPAA, business associate agreements or attorney-client privilege, so those questions go to your counsel and your account team.</p>\n<h2 id=\"risks\">Risks to weigh</h2>\n<ul>\n<li><strong>The clock.</strong> An 8-hour window needs an on-call owner, a tested rollback and a way to receive Anthropic's notice at any hour.</li>\n<li><strong>A real shell.</strong> The agent's bash tool runs with the worker's permissions and network access, and the worker does not isolate it; isolation comes from the container or VM around it.</li>\n<li><strong>Shared keys.</strong> The server API key reaches every environment in a deployment, which is why Anthropic says each tenant needs its own deployment. An agency serving several clients would run several.</li>\n<li><strong>Agencies hosting for clients.</strong> Offering the software to your own customers on a hosted basis falls under the license's Managed Service terms, and Anthropic may limit you to one purpose by written notice.</li>\n<li><strong>Beta software.</strong> Features are missing, and Anthropic is not obliged to support any version (5.1).</li>\n</ul>\n<h2 id=\"this-week\">What to do this week</h2>\n<ul>\n<li>Decide whether you need the service inside your perimeter or only the sandboxes.</li>\n<li>Ask your account team for access, the price, the Agent Incident thresholds, any Custom Safeguards and what the usage signals contain.</li>\n<li>Have counsel read sections 3, 5, 8 and 9 of the license.</li>\n<li>Write a rollback runbook: who receives the notice, where the previous release image lives, and an encrypted database backup before every minor upgrade.</li>\n<li>Run the quickstart on a spare machine and time a rollback.</li>\n</ul>\n<h2 id=\"how-imisofts-helps\">How imisofts can help</h2>\n<p>imisofts builds AI agents and automations and offers cybersecurity services. Once your organization has beta access, our engineers can help you choose between self-hosted sandboxes and the full self-hosted service, set up the server in your cloud, configure allowlists and single sign-on, and write the rollback runbook your on-call team will follow. If you want a dedicated engineer for that work, see <a href=\"/hire-ai-engineer\">hire an AI engineer</a>.</p>",
+  "faqs": [
+    [
+      "Can Claude Managed Agents be self-hosted?",
+      "Yes, in a private beta that Anthropic opened on 12 November 2026. You run the server, its PostgreSQL database, credentials and sandboxes in your own cloud or on-premise, and Claude runs at Anthropic or at a provider you choose. Access goes through your Anthropic account team."
+    ],
+    [
+      "What is the 8-hour rule for self-hosted Claude Managed Agents?",
+      "Section 5.3 of the license says that if Anthropic notifies you in writing that a feature or version of the software presents a safety, security or misuse risk, you must disable that feature or roll back that version in each deployment within 8 hours after the notice. Separately, a designated Safety Update must be deployed within 1 business day (section 5.2)."
+    ],
+    [
+      "Can you self-host Claude models?",
+      "Not with this offering. Self-hosting covers the Managed Agents service and the sandboxes, not the model. Model calls go to the Claude API, Amazon Bedrock, Claude Models on Google Cloud, Microsoft Foundry or a model gateway you run."
+    ],
+    [
+      "Does any data leave my network when I self-host?",
+      "Yes. Every model call sends the conversation so far, including prompts, tool inputs and tool results, to your inference provider. With the Claude API as provider, calls also carry session, agent and environment IDs. Anthropic has no remote access to your server or its log, and the license bars you from blocking its usage signals."
+    ],
+    [
+      "How much does self-hosted Claude Managed Agents cost?",
+      "Anthropic has not published a price; its pricing page says to contact your account team. The server license is royalty-free, and model use stays under your existing agreement's pricing. You also pay for your own servers, database and on-call staff."
+    ],
+    [
+      "How do I get access to self-hosted Claude Managed Agents?",
+      "Contact your Anthropic account team, which controls the private beta and the download of the release archive."
+    ]
+  ],
+  "image": {
+    "cluster": "Claude agents",
+    "takeaway": "If Anthropic flags a version as a safety risk in writing, self-hosters must roll it back within 8 hours.",
+    "alt": "Self-hosted Claude Managed Agents: what runs in your environment, what still leaves it, and the license deadlines from 8 hours to 30 days",
+    "chart": {
+      "title": "Self-hosted license deadlines, in hours",
+      "subtitle": "From Anthropic's written notice, a confirmed agent incident, or learning of unauthorized access.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Roll back or disable",
+          8
+        ],
+        [
+          "Report agent incident",
+          48
+        ],
+        [
+          "Report code access",
+          72
+        ]
+      ],
+      "prefix": "",
+      "suffix": " h",
+      "highlight": 0,
+      "note": [
+        "Also: Safety Updates within 1 business day,",
+        "other updates within 30 days."
+      ],
+      "source": "License sections 5.3, 5.7 and 7.5, effective 12 November 2026, read 16 November 2026. Source: anthropic.com, November 2026",
+      "alt": "Bar chart: 8 hours to disable or roll back a feature or version Anthropic flags in writing, 48 hours to report a confirmed agent incident, 72 hours to report unauthorized access to the software",
+      "after_heading": "The 8-hour rule, in Anthropic's own words"
+    }
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Hours to roll back a version Anthropic flags in writing",
+        "value": "8",
+        "note": "or disable the feature, in every deployment; license 5.3"
+      },
+      {
+        "label": "Deadline to deploy a designated Safety Update",
+        "value": "1 business day",
+        "note": "license 5.2"
+      },
+      {
+        "label": "Hours to report a confirmed Agent Incident",
+        "value": "48",
+        "note": "license 5.7"
+      },
+      {
+        "label": "Hours to report unauthorized access to the software",
+        "value": "72",
+        "note": "license 7.5"
+      },
+      {
+        "label": "Days to deploy other updates",
+        "value": "30",
+        "note": "commercially reasonable efforts; license 5.4"
+      },
+      {
+        "label": "Anthropic's liability cap under the license",
+        "value": "$100,000",
+        "note": "license 8.2"
+      },
+      {
+        "label": "Minimum PostgreSQL version for the server",
+        "value": "16",
+        "note": "self-hosted docs"
+      },
+      {
+        "label": "Minimum Kubernetes version for production",
+        "value": "1.30",
+        "note": "with gVisor nodes and the Agent Sandbox controller"
+      },
+      {
+        "label": "Self-hosted price",
+        "value": "Not public",
+        "note": "Anthropic's pricing page says contact your account team"
+      },
+      {
+        "label": "Private beta opened",
+        "value": "12 November 2026",
+        "note": "Anthropic announcement; license effective the same day"
+      }
+    ],
+    "source": "Anthropic's announcement, its self-hosted Managed Agents documentation, its pricing page and the Claude Managed Agents Server license, all read on 16 November 2026."
+  }
+}

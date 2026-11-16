@@ -1,0 +1,139 @@
+{
+  "slug": "nod-by-n8n",
+  "title": "Nod by n8n: Free Personal Agent, You Pay the AI, $200 Limit",
+  "desc": "Nod by n8n is a free, open source personal agent that runs on your own computer. You pay your AI provider; it sets a default $200 monthly limit and asks past $5 a task.",
+  "date": "2026-11-16",
+  "keywords": "nod by n8n, nod n8n, what is nod n8n, nod ai, nod ai agent, n8n labs nod, nod personal agent, is nod free, nod vs n8n, what is n8n and how does it work",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "What is Nod by n8n, what does it cost, and when should a business use n8n workflows instead?",
+  "qtype": "cost",
+  "cta": "Deciding between a personal agent and an n8n workflow?",
+  "word_count": 2182,
+  "read_time": 10,
+  "body": "<p><strong>Short answer.</strong> Nod is a free, open source personal agent that n8n Labs released as a research preview on 10 November 2026. It is a separate app, not part of n8n: it runs on your Mac, Windows PC or own server, works in your apps and on websites from its own sandboxed computer, and asks before sending, paying or deleting anything you did not request. The app costs nothing; you pay your AI model provider, and Nod sets a $200 monthly spending limit at setup and checks in with you when a task passes $5.</p>\n<p>On 16 November 2026 we read n8n's <a href=\"https://blog.n8n.io/meet-nod/\" target=\"_blank\" rel=\"noopener\">launch post</a>, the <a href=\"https://nod.n8n.io/\" target=\"_blank\" rel=\"noopener\">Nod website</a> and docs, the Nod Terms of Use, the <a href=\"https://github.com/n8n-io/nod/releases\" target=\"_blank\" rel=\"noopener\">GitHub releases</a> (the latest that day was v0.8.2) and n8n's pricing page. This guide rests on those documents, not on our own testing. We build n8n workflows for clients, so we have a stake in the Nod versus n8n question.</p>\n<h2 id=\"what-is-nod\">What Nod is</h2>\n<p>Nod comes from n8n Labs, a small team inside n8n that tries ideas outside the core product. The launch post describes it as a personal agent with its own computer and browser: you say what you need, and it works in your connected apps and on websites until the job is done. That computer is a sandbox running locally, which lets Nod handle websites that have no integration at all.</p>\n<p>It is open source under the Apache 2.0 licence, with the code on <a href=\"https://github.com/n8n-io/nod\" target=\"_blank\" rel=\"noopener\">GitHub</a> under n8n GmbH's copyright. You talk to it in the app or on Telegram or WhatsApp while it runs jobs in the background, some on a schedule. The homepage calls it a research preview and notes that most n8n Labs ideas get shelved, so treat it as an experiment.</p>\n<h2 id=\"nod-vs-n8n\">How Nod differs from n8n</h2>\n<p>n8n itself, per its <a href=\"https://docs.n8n.io/\" target=\"_blank\" rel=\"noopener\">documentation</a>, is a workflow automation tool under a fair-code licence that mixes business process automation with AI features. You design workflows, n8n runs them as executions, and its cloud plans are priced by how many executions you run each month. The launch post calls that kind of work multiplayer: processes a team or business shares on one n8n instance. Nod is for a single player: one person, their own accounts and the jobs that are theirs alone.</p>\n<p>Three points settle most confusion. You do not need n8n or an n8n account to use Nod. Nod is not the n8n AI Assistant. And the launch post says work on n8n and the n8n agent continues as planned.</p>\n<p>The two can still work together. Connect your n8n instance and you can ask Nod to build an n8n workflow; per the <a href=\"https://nod.n8n.io/docs/use/n8n/\" target=\"_blank\" rel=\"noopener\">Build with n8n</a> docs, it builds the workflow in your n8n, tests it with sample data and leaves it as a draft until you tell it to publish. Nod never creates or reads n8n credentials; n8n asks you for those.</p>\n<table><thead><tr><th></th><th>Nod</th><th>n8n</th></tr></thead><tbody>\n<tr><td>Built for</td><td>One person and their own jobs</td><td>Processes a team or business shares</td></tr>\n<tr><td>Where it runs</td><td>Your Mac, Windows PC, Linux PC or your own server</td><td>n8n's cloud or your own server</td></tr>\n<tr><td>Who plans each step</td><td>A model plans; a separate check approves actions</td><td>The workflow you design, which can include AI agent nodes</td></tr>\n<tr><td>People per install</td><td>One owner</td><td>Unlimited users on every plan</td></tr>\n<tr><td>Software price</td><td>Free; you pay your model provider</td><td>From $20 a month billed annually on n8n's cloud</td></tr>\n</tbody></table>\n<h2 id=\"what-it-costs\">What Nod costs, and what n8n costs</h2>\n<p>The <a href=\"https://nod.n8n.io/docs/use/spending/\" target=\"_blank\" rel=\"noopener\">spending docs</a> are plain: Nod itself does not charge you, and your model provider bills you for the requests Nod makes. You have three ways to pay for the model.</p>\n<ul><li><strong>An API key</strong> from OpenAI, Anthropic, Google, OpenRouter, Amazon Bedrock or one of the 30+ providers the homepage lists. Nod estimates each request's cost from the model's API price and counts it toward your monthly limit. Free models and OpenAI-compatible servers show no price. Your provider's bill is the final word.</li><li><strong>A ChatGPT Plus or Pro plan</strong>, by signing in. That usage comes out of your plan and does not count toward Nod's monthly limit.</li><li><strong>A local model</strong> through Ollama, LM Studio, vLLM or llama.cpp, which costs nothing per request. The homepage says it needs tool calling and a 64,000-token context, and that small models are less reliable at the safety check.</li></ul>\n<p>For scale, an example in Nod's <a href=\"https://nod.n8n.io/docs/trust/privacy/\" target=\"_blank\" rel=\"noopener\">privacy docs</a> shows one Gmail reply using Claude Sonnet 5.5 with 5,210 input tokens and 180 output tokens, logged at $0.02. That is one illustrative request, not a monthly figure. Every scheduled check calls your model again, and the launch post admits some early testers found tasks cost more than they expected before a later release brought costs down.</p>\n<p>Nod ships with four spending controls:</p>\n<ul><li>A <strong>$200 monthly limit</strong>, set at the end of setup and changeable to any amount from $1 up. At the limit, schedules, tasks and background work stop until you raise or remove it.</li><li>A <strong>$5 task check-in</strong>: once a task's spending since your last message passes $5, Nod stops before its next step and asks whether to continue.</li><li>A separate <strong>$5 monthly allowance</strong> for automatic preparation, the work Nod starts on its own, which is off by default for new profiles.</li><li>A <strong>Usage page</strong> logging every model call with its estimated cost, and every app action.</li></ul>\n<p>For a shared business process, compare n8n's <a href=\"https://n8n.io/pricing/\" target=\"_blank\" rel=\"noopener\">pricing page</a>: it charges by monthly workflow executions, with unlimited users and workflows on every plan, and lists a self-hosted Community Edition on GitHub.</p>\n<table><thead><tr><th>Option</th><th>Monthly fee</th><th>What you get</th></tr></thead><tbody>\n<tr><td>Nod app</td><td>$0</td><td>One owner; model costs billed by your provider</td></tr>\n<tr><td>n8n Starter, billed annually</td><td>$20</td><td>2,500 workflow executions, hosted by n8n</td></tr>\n<tr><td>n8n Starter, billed monthly</td><td>$24</td><td>The same plan</td></tr>\n<tr><td>n8n Pro, billed annually</td><td>$50</td><td>10,000 workflow executions, hosted by n8n</td></tr>\n<tr><td>n8n Pro, billed monthly</td><td>$60</td><td>The same plan</td></tr>\n</tbody></table>\n<p>Over a year, Starter costs $240 billed annually or $288 billed monthly, a gap of about 17%, the saving n8n shows for annual billing.</p>\n<h2 id=\"install\">What Nod runs on and how to install it</h2>\n<p>The <a href=\"https://nod.n8n.io/docs/get-started/install-desktop/\" target=\"_blank\" rel=\"noopener\">install guide</a> lists these requirements:</p>\n<ul><li><strong>Mac:</strong> macOS 14 or later, on Apple silicon or Intel. The app and its runtime are about a 1.8 GB download.</li><li><strong>Windows:</strong> Windows 11 x64, in preview. A local assistant needs WSL 2 with hardware virtualization and at least 20 GB of free disk; the download is about 2.1 GB, and SmartScreen can still warn about a new release.</li><li><strong>Linux:</strong> x64 only, as a Flatpak preview, with a desktop secret store such as GNOME Keyring or KWallet.</li><li><strong>Your own server:</strong> Linux, or a Mac with Docker Desktop. The <a href=\"https://nod.n8n.io/docs/deploy/self-host/\" target=\"_blank\" rel=\"noopener\">self-hosting guide</a> suggests starting with 2 CPU cores, 8 GB of memory and 50 GB of disk, and says one server belongs to one person.</li></ul>\n<p>The homepage puts setup at about ten minutes:</p>\n<ol><li>Download the installer from Nod's GitHub releases, open it and approve it.</li><li>Choose Get started for a local setup.</li><li>Connect a model: an API key, your ChatGPT plan or a local model server.</li><li>Connect apps such as Gmail, Calendar, Drive, Slack and Notion, reviewing each permission screen, and save any website logins Nod may use.</li><li>Ask for something in the app or on Telegram.</li></ol>\n<h2 id=\"jobs\">The jobs Nod is built to do</h2>\n<p>n8n's examples are errands that eat an afternoon of tabs, logins and forms:</p>\n<ul><li>A morning call brief.</li><li>A draft reply to a question you left unanswered.</li><li>Friendly reminders on an unpaid invoice, asking you before a second nudge.</li><li>Cancelling a subscription, turning down the offers to stay and asking for a refund.</li><li>Signing in to supplier portals each month to download invoices and file them for your accountant.</li><li>Pulling weekly numbers from a dashboard with no export into your report.</li><li>Watching a client's pricing page or a product price and speaking up only when it changes.</li></ul>\n<p>It also keeps notes you can see, edit or forget, and once you connect Gmail it checks how you write so drafts sound like you.</p>\n<h2 id=\"permissions\">How Nod decides what it may do</h2>\n<p>The model plans the work but does not have the final say. The <a href=\"https://nod.n8n.io/docs/trust/\" target=\"_blank\" rel=\"noopener\">Trust and Vault docs</a> describe a separate check that sees your words and the proposed action, never the pages or emails Nod read. Reads and drafts run. Sending an email, adding an event or deleting files runs only if it matches your request; otherwise Nod asks. Every payment waits for you to approve it with your card's security code, which Nod never saves.</p>\n<p>Saved logins and cards sit in an encrypted Vault on your machine, and Nod enters them on websites through private forms the model cannot read. Provider API keys never enter the sandbox, the browser or the model's context, per the <a href=\"https://nod.n8n.io/docs/connect/models/\" target=\"_blank\" rel=\"noopener\">models docs</a>.</p>\n<p>n8n published its own results on an <a href=\"https://nod.n8n.io/docs/how-it-works/benchmarks/\" target=\"_blank\" rel=\"noopener\">evaluation page</a>, run with GPT-6.1 Sol on simulated accounts and websites in October 2026. Nod finished 98% of 226 errands, each tried three times (678 runs). In 0 of those 678 runs did it take an action beyond the simulated user's permission. It scored 93.2% on 500 LongMemEval-S memory questions, and 0 of 216 attempts to plant false memories through attack emails worked. The page itself warns that a zero in a test sample is not proof of zero risk in real use.</p>\n<h2 id=\"limits-risks\">Limits and security risks to weigh</h2>\n<p>An agent that reads your inbox and signs in to your accounts carries more risk than a chat window. n8n's pages list the main limits:</p>\n<ul><li><strong>The permission check is a model.</strong> The <a href=\"https://nod.n8n.io/docs/trust/security-model/\" target=\"_blank\" rel=\"noopener\">security model page</a> says the checker can be wrong in every mode and no checker is immune to prompt injection. The <a href=\"https://n8n.io/legal/nod-terms-of-use/\" target=\"_blank\" rel=\"noopener\">Terms of Use</a>, updated 11 November 2026, add that Nod is provided as is, that its approval decision may not always be correct, and that you are responsible for your instructions and for reviewing what it does.</li><li><strong>A signed-in Nod can act anywhere on that site.</strong> Vault does not review each click, and a deceptive site can mislabel a button.</li><li><strong>Secrets are not sealed off.</strong> The model can type any value it knows into a page, including a password you pasted into chat, and there is no hardware-backed key service.</li><li><strong>Some data leaves your machine.</strong> Your model provider receives the conversation, what Nod reads and screenshots. By default, app requests and results pass through n8n's hosted connection service and Composio, whose default project for Nod has Zero Data Retention turned on. Basic usage data goes to n8n by default; you can switch it off. The <a href=\"https://nod.n8n.io/docs/connect/apps/\" target=\"_blank\" rel=\"noopener\">apps docs</a> add that some app grants cover a whole mailbox.</li><li><strong>Uninstalling keeps your data.</strong> Use Remove all data in Settings first if you want it gone.</li><li><strong>Practical limits.</strong> Nod stops when your laptop sleeps, each install has one owner, and it cannot make phone calls yet; hosting, calls and a team version are listed as coming next.</li></ul>\n<p>For IT teams, n8n publishes a <a href=\"https://nod.n8n.io/docs/trust/security-review/\" target=\"_blank\" rel=\"noopener\">security review guide</a> and aims to acknowledge a reported vulnerability within three business days.</p>\n<h2 id=\"use-n8n-instead\">When a business should use n8n workflows instead</h2>\n<p>Nod has one owner, needs your computer awake or a dedicated server, and plans its steps with a model. That suits one person's errands. It is a poor fit when:</p>\n<ul><li>Several people depend on the same process, such as lead routing or order sync.</li><li>The job must run around the clock, whether or not anyone's laptop is open.</li><li>You need the same steps every time, written down, so a colleague can check and change them.</li><li>The process handles customer records in volume, where a model's judgement on each action adds risk and model spend.</li></ul>\n<p>For those, an n8n workflow is the better tool: it runs on n8n's cloud or your own server, any number of users can work on it, and cloud plans charge by executions, not seats. A sensible split for a small firm is Nod for the owner's personal admin and n8n for the processes the business runs on. If you want those workflows built for you, you can <a href=\"/hire-n8n-developer\">hire an n8n developer</a> from our team.</p>\n<h2 id=\"this-week\">What to do this week</h2>\n<ol><li>Sort your list: personal errands are Nod candidates; anything others rely on is an n8n candidate.</li><li>If you try Nod, start with read and draft jobs, such as a call brief, before letting it send or pay.</li><li>Lower the $200 monthly limit to a test budget and keep the $5 check-in.</li><li>Connect the fewest apps you can, and never paste passwords or card numbers into chat.</li><li>Check Usage after each job for what Nod did and what it cost.</li><li>Have whoever handles IT read the security review guide before you connect work accounts.</li></ol>\n<h2 id=\"imisofts\">How imisofts can help</h2>\n<p>imisofts is a Dubai agency that builds AI automation and n8n workflows for businesses. We can help you sort which jobs belong with a personal agent like Nod and which belong in a shared n8n workflow, then build, test and document the workflows. Our <a href=\"/ai-automation\">AI automation services</a> page lists what we cover.</p>",
+  "faqs": [
+    [
+      "What is Nod by n8n?",
+      "Nod is a free, open source personal agent from n8n Labs, released as a research preview on 10 November 2026. It runs on your Mac, Windows PC or own server, works in your apps and on websites from its own sandboxed computer and browser, and asks before actions your request does not cover."
+    ],
+    [
+      "Is Nod free?",
+      "The app is free under the Apache 2.0 licence. You pay your model provider for the requests Nod makes, use your ChatGPT Plus or Pro plan, or run a local model, which costs nothing per request. Nod sets a $200 monthly limit at setup and checks in when a task passes $5."
+    ],
+    [
+      "Do I need n8n to use Nod?",
+      "No. Nod is its own app and does not need an n8n account, and it is not the n8n AI Assistant. If you do use n8n, you can connect your instance and ask Nod to build and test workflows, which stay drafts until you tell it to publish them."
+    ],
+    [
+      "Is Nod safe to use?",
+      "It has safeguards: a separate check approves actions, saved logins and cards stay in an encrypted Vault the model cannot read, and every payment needs your approval. n8n also says the checker is a model that can be wrong and that no checker is immune to prompt injection, so start with read and draft jobs and limited app access."
+    ],
+    [
+      "Does Nod work when my laptop is closed?",
+      "No. On a laptop, Nod stops when the computer sleeps. To keep schedules running, n8n suggests an always-on Mac mini or your own server, and a managed hosted version is on its roadmap."
+    ],
+    [
+      "Is n8n becoming obsolete because of Nod?",
+      "n8n says Nod does not change its direction and that work on n8n and the n8n agent continues as planned. Nod is built for one person's own jobs, while n8n runs processes a team or business shares."
+    ]
+  ],
+  "image": {
+    "cluster": "Personal AI agent",
+    "takeaway": "Nod is free; you pay your model provider, and Nod sets a $200 monthly limit and checks in past $5 a task.",
+    "alt": "Nod by n8n: a free personal agent that runs on your computer, its model costs and spending limits, and n8n plan prices",
+    "chart": {
+      "title": "Monthly software fee before AI model costs",
+      "subtitle": "US dollars a month. Nod app versus n8n cloud plans by billing period.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Nod app",
+          0
+        ],
+        [
+          "n8n Starter, annual",
+          20
+        ],
+        [
+          "n8n Starter, monthly",
+          24
+        ],
+        [
+          "n8n Pro, annual",
+          50
+        ],
+        [
+          "n8n Pro, monthly",
+          60
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 0,
+      "note": [
+        "Nod app: $0,",
+        "you pay your model provider"
+      ],
+      "source": "Nod spending docs and n8n pricing page, read 16 November 2026. Source: nod.n8n.io and n8n.io, November 2026",
+      "alt": "Bar chart of monthly software fees: Nod app $0, n8n Starter $20 billed annually or $24 billed monthly, n8n Pro $50 billed annually or $60 billed monthly",
+      "after_heading": "What Nod costs, and what n8n costs"
+    }
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Price of the Nod app",
+        "value": "$0",
+        "note": "open source under Apache 2.0; model fees billed by your provider"
+      },
+      {
+        "label": "Default monthly spending limit",
+        "value": "$200",
+        "note": "set at the end of setup; any amount from $1 up"
+      },
+      {
+        "label": "Task check-in amount",
+        "value": "$5",
+        "note": "Nod stops before its next step and asks"
+      },
+      {
+        "label": "Example single request in Nod's docs",
+        "value": "$0.02",
+        "note": "5,210 input and 180 output tokens, Claude Sonnet 5.5"
+      },
+      {
+        "label": "Context a local model needs",
+        "value": "64,000 tokens",
+        "note": "plus tool calling"
+      },
+      {
+        "label": "Errands finished in n8n's tests",
+        "value": "98%",
+        "note": "226 errands, three attempts each, simulated, GPT-6.1 Sol"
+      },
+      {
+        "label": "Test runs with an action beyond permission",
+        "value": "0 of 678",
+        "note": "October 2026 task suite, simulated accounts"
+      },
+      {
+        "label": "Mac download, app and runtime",
+        "value": "About 1.8 GB",
+        "note": "macOS 14 or later"
+      },
+      {
+        "label": "Free disk for a Windows local assistant",
+        "value": "20 GB",
+        "note": "plus WSL 2; Windows 11 in preview"
+      },
+      {
+        "label": "n8n Starter, billed annually",
+        "value": "$20 a month",
+        "note": "2,500 workflow executions; $24 billed monthly"
+      }
+    ],
+    "source": "Nod's website, launch post, docs and GitHub releases, and n8n's pricing page, all read on 16 November 2026."
+  }
+}
