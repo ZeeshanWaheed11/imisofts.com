@@ -36,7 +36,7 @@
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Structured Data for Shopify App Development Service -->
   <script type="application/ld+json">
@@ -99,16 +99,6 @@
   "audience": {
     "@type": "BusinessAudience",
     "audienceType": "Shopify store owners needing custom functionality"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "description": "Custom Shopify app development from concept to App Store approval",
-    "lowPrice": "9999",
-    "highPrice": "29999",
-    "offerCount": "3",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/InStock",
-    "deliveryLeadTime": "P35D"
   }
 }
 </script>
@@ -168,6 +158,22 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Absolutely. We help optimize existing Shopify apps for performance, improve UX using Polaris, fix App Store compliance issues, add new features, and improve install and retention rates. We also offer our Shopify App Reviews service to boost your app visibility."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you build custom apps for a single store, or only public App Store apps?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both. A public app is listed on the Shopify App Store for any merchant to install; a custom app is built for one store or one brand and never listed. If you are not sure which you need, our guide Do you need a custom Shopify app? walks through it, and the call is free."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do we get started?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Book a 30-minute call or send the form at the bottom of this page with your app idea. We come back with questions, a suggested scope and the package that fits."
         }
       }
     ]
@@ -316,7 +322,7 @@
       transform: translateY(0);
     }
 
-    /* Industries dropdown — narrow, centered on trigger */
+    /* Industries dropdown: narrow, centered on trigger */
     .nav-dropdown-menu--narrow {
       left: 50% !important;
       right: auto !important;
@@ -328,7 +334,7 @@
       transform: translateX(-50%) translateY(0) !important;
     }
 
-    /* ── Mega-menu tabbed layout (InvoZone style) ── */
+    /* -- Mega-menu tabbed layout (InvoZone style) -- */
     .mega-menu {
       display: flex;
       min-height: 380px;
@@ -840,94 +846,6 @@
       .nav-logo .char-8 { animation-delay: 0.65s; }
     }
     
-    /* ============= MAIN CONTENT STYLES (SHOPIFY PAGE SPECIFIC) ============= */
-    
-    /* Adjust for fixed navbar */
-    .section-padding:first-of-type {
-      padding-top: 120px;
-    }
-    
-    /* Section Padding */
-    .section-padding {
-      padding: 80px 0;
-    }
-    
-    /* Grid Classes */
-    .grid {
-      display: grid;
-    }
-    
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .grid-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    
-    /* Cards */
-    .app-type-card {
-      background: white;
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid #e5e5e5;
-      transition: all 0.3s ease;
-    }
-    
-    .app-type-card:hover {
-      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-      transform: translateY(-4px);
-      border-color: #F45407;
-    }
-    
-    .phase-card {
-      background: white;
-      padding: 24px;
-      border-radius: 12px;
-      border: 1px solid #e5e5e5;
-      margin-bottom: 20px;
-      transition: all 0.3s ease;
-    }
-    
-    .phase-card:hover {
-      border-color: #F45407;
-      box-shadow: 0 8px 24px rgba(244, 84, 7, 0.1);
-    }
-    
-    .metric-card {
-      background: linear-gradient(135deg, #fff, #f9fafb);
-      padding: 24px;
-      border-radius: 12px;
-      text-align: center;
-      border: 1px solid #e5e5e5;
-      transition: all 0.3s ease;
-    }
-    
-    .metric-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-    
-    .tech-badge {
-      display: inline-block;
-      padding: 6px 12px;
-      background: #f5f5f5;
-      border-radius: 6px;
-      font-size: 13px;
-      color: #666;
-      margin: 4px;
-      transition: all 0.2s ease;
-    }
-    
-    .tech-badge:hover {
-      background: rgba(244, 84, 7, 0.1);
-      color: #F45407;
-    }
-    
     /* ============= FOOTER STYLES (FROM HOMEPAGE) ============= */
     .footer {
       background: #0a0a0a;
@@ -1233,6 +1151,413 @@
         font-size: 28px;
       }
     }
+  </style>
+  <style id="service-v1">
+.hx{--ink:#0F172A;--ink2:#1E293B;--text:#334155;--muted:#64748B;--line:#E2E8F0;--line2:#EEF0EB;--bg:#FCFCFA;--bg2:#F6F7F4;--brand:#F45407;--brand-d:#C2410C;--brand-soft:#FFF4EE;--brand-line:#FFD8C4;--r:16px;--sh:0 1px 2px rgba(15,23,42,.04),0 12px 32px -16px rgba(15,23,42,.12);--sh-lg:0 2px 6px rgba(15,23,42,.04),0 28px 56px -24px rgba(15,23,42,.22);color:var(--text);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.hx *{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.hx-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.hx-sec{padding:104px 0;border-top:1px solid var(--line2);background:#fff}
+.hx-sec--alt{background:var(--bg)}
+.hx-sec--tint{background:var(--bg2)}
+.hx-sec--band{padding:72px 0}
+:where(.hx) :is(h1,h2,h3){color:var(--ink);font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+:where(.hx) h2{font-size:clamp(28px,3.1vw,40px);line-height:1.15;margin:0 0 16px}
+:where(.hx) h3{font-size:19px;line-height:1.35;margin:0 0 8px;letter-spacing:-.012em}
+:where(.hx) p{margin:0}
+:where(.hx) a{color:inherit}
+.hx .hx-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--brand-d);margin-bottom:18px}
+.hx .hx-eyebrow::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--brand)}
+.hx-head{max-width:780px;margin:0 0 56px}
+.hx-head--c{margin-left:auto;margin-right:auto;text-align:center}
+.hx-head--c .hx-eyebrow::after{content:"";width:18px;height:2px;border-radius:2px;background:var(--brand)}
+.hx-head>p{font-size:18px;line-height:1.6;color:var(--muted)}
+.hx-ico{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:var(--brand-soft);border:1px solid var(--brand-line);display:grid;place-items:center;color:var(--brand)}
+.hx-ico svg{width:22px;height:22px}
+.hx svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hx svg.hx-fill{fill:currentColor;stroke:none}
+.hx-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:10px;font-size:15.5px;font-weight:600;line-height:1.2;text-decoration:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease,border-color .15s ease}
+.hx-btn svg{width:17px;height:17px}
+.hx-btn--primary{background:var(--brand);color:#fff;border:1px solid var(--brand);box-shadow:0 10px 22px -10px rgba(244,84,7,.6)}
+.hx-btn--primary:hover{background:#E04B05;transform:translateY(-1px);box-shadow:0 14px 26px -12px rgba(244,84,7,.65)}
+.hx-btn--ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+.hx-btn--ghost:hover{border-color:#CBD5E1;transform:translateY(-1px)}
+.hx-btn--dark{background:var(--ink);color:#fff;border:1px solid var(--ink)}
+.hx-btn--dark:hover{background:#1E293B;transform:translateY(-1px)}
+.hx-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;font-size:15px;color:var(--ink);text-decoration:none}
+.hx-link svg{width:16px;height:16px;transition:transform .15s ease}
+.hx-link:hover{color:var(--brand-d)}
+.hx-link:hover svg{transform:translateX(3px)}
+.hx a:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:8px}
+.hx-hero{position:relative;padding:150px 0 84px;background:#fff;overflow:hidden}
+.hx-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#EEF0EB 1px,transparent 1px),linear-gradient(90deg,#EEF0EB 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 78% 38%,#000 20%,transparent 72%);mask-image:radial-gradient(ellipse 60% 70% at 78% 38%,#000 20%,transparent 72%);pointer-events:none}
+.hx-hero::after{content:"";position:absolute;width:720px;height:720px;right:-220px;top:-260px;background:radial-gradient(circle,rgba(244,84,7,.09),rgba(244,84,7,0) 62%);pointer-events:none}
+.hx-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:64px;align-items:center}
+.hx-crumbs{display:flex;flex-wrap:wrap;align-items:center;list-style:none;margin:0 0 18px;padding:0;font-size:13.5px;color:var(--muted)}
+.hx-crumbs li{display:inline-flex;align-items:center}
+.hx-crumbs li+li::before{content:"";width:5px;height:5px;margin:0 12px;border-top:1.5px solid #CBD5E1;border-right:1.5px solid #CBD5E1;transform:rotate(45deg)}
+.hx-crumbs a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;text-decoration:none;color:var(--muted)}
+.hx-crumbs a:hover{color:var(--ink)}
+.hx-crumbs [aria-current]{color:var(--ink);font-weight:500}
+.hx-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 10px;background:var(--brand-soft);border:1px solid var(--brand-line);border-radius:999px;color:var(--brand-d);font-size:13.5px;font-weight:600;margin-bottom:22px}
+.hx-badge i{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(244,84,7,.14)}
+.hx-hero h1{text-wrap:pretty;font-size:clamp(38px,4.2vw,54px);line-height:1.05;font-weight:700;letter-spacing:-.034em;margin:0 0 24px}
+.hx-hero h1 span{color:var(--brand)}
+.hx-lead{font-size:19px;line-height:1.62;color:var(--muted);max-width:590px;margin-bottom:34px}
+.hx-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hx-stats{display:flex;margin:40px 0 0;padding:28px 0 0;border-top:1px solid var(--line);list-style:none}
+.hx-stats li{padding-right:32px;margin-right:32px;border-right:1px solid var(--line)}
+.hx-stats li:last-child{border:0;margin:0;padding:0}
+.hx-stats b{display:block;font-size:30px;line-height:1.1;font-weight:600;letter-spacing:-.025em;color:var(--ink)}
+.hx-stats span{display:block;margin-top:6px;font-size:14px;color:var(--muted)}
+.hx-ui-dots{display:flex;gap:6px}
+.hx-ui-dots i{width:10px;height:10px;border-radius:50%;background:#E2E8F0}
+.hx-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:#ECFDF3;color:#067647;border:1px solid #ABEFC6;white-space:nowrap}
+.hx-pill i{width:6px;height:6px;border-radius:50%;background:#17B26A}
+.hx-ui-label{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:20px 0 10px}
+.hx-chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.hx-chips li{font-size:13px;font-weight:500;color:var(--ink2);background:var(--bg2);border:1px solid var(--line);padding:6px 11px;border-radius:8px;line-height:1.3}
+.hx-logos{padding:34px 0;background:#fff;border-top:1px solid var(--line2)}
+.hx-logos-label{font-size:13.5px;line-height:1.45;color:var(--muted)}
+.hx-logos-label strong{display:block;color:var(--ink);font-weight:600}
+.hx-logos-head{display:flex;align-items:center;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;margin-bottom:22px}
+.hx-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.hx-mq-track{display:flex;width:max-content;animation:hx-scroll 70s linear infinite}
+.hx-marquee:hover .hx-mq-track{animation-play-state:paused}
+.hx-logo-row{display:flex;align-items:center;gap:56px;list-style:none;margin:0;padding:0 28px}
+.hx-logo-row li{flex:none;display:flex;align-items:center;height:44px}
+.hx-logo-row img{max-height:30px;max-width:150px;width:auto;height:auto;filter:grayscale(1) contrast(1.05);opacity:.6;mix-blend-mode:multiply;transition:opacity .2s ease,filter .2s ease}
+.hx-logo-row li:hover img{opacity:1;filter:none}
+.hx-logo-row li.sq img{max-height:46px}
+@keyframes hx-scroll{to{transform:translateX(-50%)}}
+@media (max-width:640px){.hx-logo-row{gap:36px;padding:0 18px}
+.hx-logo-row img{max-height:24px;max-width:120px}
+.hx-logo-row li.sq img{max-height:36px}
+.hx-mq-track{animation-duration:55s}}
+@media (prefers-reduced-motion:reduce){.hx-mq-track{animation:none}
+.hx-marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+.hx-logo-row[aria-hidden="true"]{display:none}}
+.hx-num{width:38px;height:38px;border-radius:11px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:15px;font-weight:600}
+.hx-time{font-size:12.5px;font-weight:600;color:var(--brand-d);background:var(--brand-soft);border:1px solid var(--brand-line);padding:4px 10px;border-radius:999px;white-space:nowrap}
+.hx-split{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:72px;align-items:start}
+.hx-split .hx-head{position:sticky;top:112px;margin:0}
+.hx-feat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;box-shadow:var(--sh)}
+.hx-feat-top{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.hx-feat-top h3{margin:0}
+.hx-feat>p{font-size:15.5px;line-height:1.65;color:var(--muted);margin-bottom:20px}
+.hx-checks{list-style:none;margin:0;padding:18px 0 0;border-top:1px solid var(--line);display:grid;gap:11px}
+.hx-checks li{position:relative;padding-left:30px;font-size:15px;line-height:1.5;color:var(--text)}
+.hx-checks li::before{content:"";position:absolute;left:0;top:1px;width:19px;height:19px;border-radius:50%;background:var(--brand-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C2410C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/11px no-repeat;border:1px solid var(--brand-line)}
+.hx-band{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:40px 48px;border-radius:24px;background:linear-gradient(120deg,#FFF3EC 0%,#FFFBF8 55%,#FFFFFF 100%);border:1px solid var(--brand-line)}
+.hx .hx-band-t{font-size:clamp(22px,2.2vw,28px);line-height:1.25;font-weight:600;color:var(--ink);letter-spacing:-.02em;margin-bottom:8px}
+.hx-band p{color:var(--muted);font-size:16px;max-width:620px}
+.hx-band .hx-ctas{flex:0 0 auto}
+.hx-plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.hx-plan{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:var(--sh)}
+.hx-plan-tag{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hx-plan h3{font-size:22px;margin:10px 0 18px}
+.hx-price{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hx-price small{display:block;font-size:13px;color:var(--muted);margin-bottom:2px}
+.hx-price b{display:inline-block;font-size:38px;line-height:44px;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.hx-price b.q{font-size:30px}
+.hx-price span{font-size:15px;color:var(--muted);margin-left:4px}
+.hx-plan>p{font-size:15px;color:var(--muted);margin:18px 0 0}
+.hx-plan .hx-checks{border-top:0;padding-top:18px;margin-bottom:28px;flex:1;align-content:start}
+.hx-plan .hx-btn{width:100%}
+.hx-fine{margin-top:22px;font-size:14px;color:var(--muted);text-align:center}
+.hx-fine a,.hx-qs details a,.hx-feat>p a{display:inline-block;padding:12px 0;margin:-12px 0}
+.hx-fine a{font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:#CBD5E1;text-underline-offset:3px}
+.hx-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.hx-case{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:var(--sh)}
+.hx-case-tag{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-d)}
+.hx-case-tag span{color:var(--muted);letter-spacing:.02em;text-transform:none;font-weight:500;font-size:13px}
+.hx-case h3{font-size:22px;margin:14px 0 10px}
+.hx-case>p{font-size:15.5px;line-height:1.65;color:var(--muted)}
+.hx-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:24px 0;padding:0;list-style:none;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg)}
+.hx-metrics li{padding:16px 18px;border-left:1px solid var(--line)}
+.hx-metrics li:first-child{border-left:0}
+.hx-metrics b{display:block;font-size:26px;line-height:1.15;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.hx-metrics span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.hx-case .hx-chips{margin-bottom:18px}
+.hx-case .hx-link{margin-top:auto}
+.hx-cases--one{grid-template-columns:1fr}
+.hx-cases--one .hx-case{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:12px 48px;align-items:start}
+.hx-cases--one .hx-case>*{grid-column:1}
+.hx-cases--one .hx-metrics{grid-column:2;grid-row:1/span 5;margin:0;grid-template-columns:1fr}
+.hx-cases--one .hx-metrics li{border-left:0;border-top:1px solid var(--line);padding:20px 24px}
+.hx-cases--one .hx-metrics li:first-child{border-top:0}
+.hx-cases--one .hx-metrics b{font-size:34px}
+.hx-builds{margin-top:56px}
+.hx-builds h3{font-size:21px;margin-bottom:6px}
+.hx-builds>p{color:var(--muted);font-size:15.5px;margin-bottom:22px}
+.hx-build-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.hx-build-row li{padding:22px 24px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.hx-build-row strong{display:block;color:var(--ink);font-size:16px;font-weight:600;margin-bottom:6px}
+.hx-build-row p{font-size:14.5px;line-height:1.6;color:var(--muted)}
+.hx-founder{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:36px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px 40px;box-shadow:var(--sh)}
+.hx-founder img{width:120px;height:120px;border-radius:22px;object-fit:cover;background:var(--bg2)}
+.hx-founder h2{font-size:clamp(24px,2.3vw,30px);margin-bottom:10px}
+.hx-founder p{font-size:16px;color:var(--muted);max-width:640px}
+.hx-facts{display:flex;flex-wrap:wrap;gap:10px 22px;list-style:none;margin:16px 0 0;padding:0;font-size:14px;color:var(--text)}
+.hx-facts li{display:inline-flex;align-items:center;gap:8px}
+.hx-facts svg{width:16px;height:16px;color:var(--brand)}
+.hx-founder-cta{display:grid;gap:4px;justify-items:start}
+.hx-roles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.hx-role{display:flex;flex-direction:column;height:100%;padding:24px;background:#fff;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+.hx-role:hover{border-color:var(--brand-line);box-shadow:var(--sh);transform:translateY(-2px)}
+.hx-role .hx-ico{margin-bottom:18px}
+.hx-role strong{display:block;color:var(--ink);font-size:16.5px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+.hx-role-d{font-size:14.5px;line-height:1.55;color:var(--muted);margin-bottom:14px}
+.hx-role em{margin-top:auto;font-style:normal;font-size:14px;font-weight:600;color:var(--brand-d)}
+.hx-related{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:28px;list-style:none;padding:0}
+.hx-related li:first-child{font-size:14px;color:var(--muted);margin-right:4px}
+.hx-related a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
+.hx-related a:hover{border-color:var(--brand-line);color:var(--brand-d)}
+.hx-faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;align-items:start}
+.hx-faq .hx-head{position:sticky;top:112px;margin:0}
+.hx-faq .hx-head .hx-btn{margin-top:28px}
+.hx-qs{border-top:1px solid var(--line)}
+.hx-qs details{border-bottom:1px solid var(--line)}
+.hx-qs summary{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:44px;padding:22px 0;cursor:pointer;list-style:none}
+.hx-qs summary::-webkit-details-marker{display:none}
+.hx-qs summary h3{margin:0;font-size:17.5px;line-height:1.4}
+.hx-qs summary i{position:relative;flex:0 0 32px;height:32px;border-radius:50%;border:1px solid var(--line);background:#fff;transition:transform .2s ease,background-color .2s ease}
+.hx-qs summary i::before,.hx-qs summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.6px;background:var(--ink);transform:translate(-50%,-50%)}
+.hx-qs summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.hx-qs details[open] summary i{transform:rotate(45deg);background:var(--brand-soft);border-color:var(--brand-line)}
+.hx-qs details p{padding:0 56px 24px 0;font-size:16px;line-height:1.7;color:var(--muted)}
+.hx-qs details a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:#CBD5E1;text-underline-offset:3px}
+.hx-wa{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:10px;font-size:14.5px;font-weight:600;color:#128C7E;text-decoration:none}
+.hx-wa svg{width:18px;height:18px}
+@media (max-width:1100px){.hx-hero-grid{grid-template-columns:1fr;gap:48px}
+.hx-split,.hx-faq{grid-template-columns:1fr;gap:40px}
+.hx-split .hx-head,.hx-faq .hx-head{position:static}
+.hx-plans{grid-template-columns:1fr;max-width:640px}
+.hx-roles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hx-founder{grid-template-columns:auto minmax(0,1fr)}
+.hx-founder-cta{grid-column:1/-1}}
+@media (max-width:760px){.hx{font-size:16px}
+.hx-wrap{padding:0 20px}
+.hx-sec{padding:72px 0}
+.hx-head{margin-bottom:36px}
+.hx-head>p{font-size:16.5px}
+.hx-hero{padding:112px 0 56px}
+.hx-hero h1{font-size:clamp(32px,8.6vw,40px);letter-spacing:-.03em}
+.hx-lead{font-size:17px;margin-bottom:28px}
+.hx-ctas{flex-direction:column}
+.hx-ctas .hx-btn{width:100%}
+.hx-stats li{flex:1;padding-right:14px;margin-right:14px}
+.hx-stats b{font-size:23px}
+.hx-stats span{font-size:12.5px}
+.hx-cases,.hx-build-row,.hx-roles{grid-template-columns:1fr}
+.hx-role{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:16px;align-items:start;padding:20px}
+.hx-role .hx-ico{grid-row:1/span 3;margin:0}
+.hx-role-d{margin-bottom:6px}
+.hx-feat,.hx-case,.hx-plan{padding:26px 22px}
+.hx-band{flex-direction:column;align-items:stretch;padding:30px 22px}
+.hx-band .hx-ctas{width:100%}
+.hx-ui-dots{display:none}
+.hx-cases--one .hx-case{display:flex}
+.hx-cases--one .hx-metrics{grid-template-columns:repeat(3,minmax(0,1fr));margin:20px 0}
+.hx-cases--one .hx-metrics li{border-top:0;border-left:1px solid var(--line);padding:14px}
+.hx-cases--one .hx-metrics li:first-child{border-left:0}
+.hx-metrics li{padding:14px 12px}
+.hx-metrics b,.hx-cases--one .hx-metrics b{font-size:21px}
+.hx-metrics span{font-size:12px}
+.hx-founder{grid-template-columns:1fr;padding:28px 22px;gap:20px}
+.hx-founder img{width:88px;height:88px;border-radius:18px}
+.hx-founder-cta .hx-btn{width:100%}
+.hx-founder-cta{justify-items:stretch}
+.hx-qs details p{padding-right:0}
+.hx-qs summary h3{font-size:16.5px}}
+@media (max-width:380px){.hx-wrap{padding:0 16px}
+.hx-stats li{padding-right:10px;margin-right:10px}
+.hx-stats b{font-size:21px}}
+@media (prefers-reduced-motion:reduce){.hx *{transition:none!important}}
+html{scroll-padding-top:88px}
+.hx-hero--ind .hx-hero-grid{grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:56px}
+.hx-hero--ind h1{font-size:clamp(38px,3.9vw,52px)}
+.hx .hx-band-t{text-wrap:balance}
+.hx-app-wrap{position:relative;margin:0}
+.hx-app-stage{position:relative}
+.hx-app-stage::before{content:"";position:absolute;inset:28px -18px -18px 28px;border-radius:26px;background:linear-gradient(140deg,#FFF1E8,#FFF9F5 60%,rgba(255,255,255,0));border:1px solid #FFE6D7;z-index:0}
+.hx-app{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh-lg);overflow:hidden;font-size:14px;line-height:1.4}
+.hx-app-top{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line);background:var(--bg)}
+.hx-app-top b{min-width:0;font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hx-app-top .hx-pill{margin-left:auto}
+.hx-app-foot{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:0;padding:13px 18px;border-top:1px solid var(--line);background:var(--bg);font-size:12.5px;color:var(--text)}
+.hx-app-foot li{display:inline-flex;align-items:center;gap:6px}
+.hx-app-foot svg{width:14px;height:14px;color:#16A34A}
+.hx-app-wrap figcaption{position:relative;z-index:1;margin-top:30px;font-size:12.5px;color:var(--muted);text-align:center}
+.hx-app strong{display:block;color:var(--ink);font-weight:600;font-size:13.5px;letter-spacing:-.005em}
+.hx-app small{display:block;color:var(--muted);font-size:12px}
+.hx-co{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff}
+.hx-co .hx-ui-label{margin:0 0 12px}
+.hx-answer{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr);gap:72px;align-items:start}
+.hx-answer-main h2{margin-bottom:28px}
+.hx-answer-main>p{font-size:17px;line-height:1.78;color:var(--text);margin-bottom:22px}
+.hx-answer-main h2+p{font-size:19px;line-height:1.65;color:var(--ink2)}
+.hx-answer-main a{display:inline-block;padding:11px 0;margin:-11px 0;color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:#FDBA8C;text-underline-offset:4px}
+.hx-answer-main a:hover{color:var(--brand-d)}
+.hx-answer-main strong{color:var(--ink);font-weight:600}
+.hx-answer-side{position:sticky;top:112px}
+.hx-facts-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh-lg);padding:28px 28px 24px}
+.hx-facts-card .hx-ui-label{margin:0 0 4px}
+.hx-grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.hx-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.hx-fs{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;box-shadow:var(--sh)}
+.hx-fs:not(:last-child)::after{content:"";position:absolute;z-index:1;top:43px;right:-17px;width:18px;border-top:1.5px dashed #CBD5E1}
+.hx-fs-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:20px;min-height:38px}
+.hx-fs h3{font-size:17px;line-height:1.35}
+.hx-fs p{font-size:14.5px;line-height:1.6;color:var(--muted)}
+.hx-plan{position:relative}
+.hx-plan--hot{border:1.5px solid var(--brand);box-shadow:0 2px 6px rgba(244,84,7,.06),0 30px 60px -28px rgba(244,84,7,.4)}
+.hx-plan-hot{position:absolute;top:-13px;right:28px;background:var(--brand);color:#fff;font-size:11px;font-weight:700;letter-spacing:.09em;line-height:1;padding:7px 12px;border-radius:999px;box-shadow:0 8px 18px -8px rgba(244,84,7,.7)}
+.hx-plan h3{font-size:24px}
+.hx-case .hx-metrics{align-self:stretch}
+.hx-price b.q{font-size:34px}
+.hx-price--q span{display:block;margin:2px 0 0}
+.hx-fine+.hx-fine{margin-top:8px}
+.hx-audit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:56px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:28px;padding:56px;box-shadow:var(--sh-lg)}
+.hx-audit-copy{position:sticky;top:112px}
+.hx-audit h2{margin-bottom:16px}
+.hx-audit-copy>p:not(.hx-badge){font-size:17px;line-height:1.65;color:var(--muted);margin-bottom:26px}
+.hx-audit .hx-checks{border-top:0;padding-top:0}
+.hx-stats--sm{margin-top:32px}
+.hx-stats--sm b{font-size:28px}
+.hx-form{background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:24px}
+.hx-form h3{font-size:22px;text-align:center;margin-bottom:4px}
+.hx-form>p{font-size:14px;color:var(--muted);text-align:center;margin-bottom:14px}
+.hx-form-frame{overflow:hidden;height:800px;border-radius:14px;background:#fff;border:1px solid var(--line)}
+.hx-form-frame iframe{display:block;max-width:100%}
+.hx-form-chat{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);text-align:center}
+.hx-form-chat p{font-size:13px;color:var(--muted)}
+.hx-form-chat .hx-wa{margin-top:2px}
+@media (max-width:1100px){.hx-hero--ind .hx-hero-grid{grid-template-columns:minmax(0,1fr);gap:56px}
+.hx-hero--ind .hx-app-wrap{max-width:640px}
+.hx-answer{grid-template-columns:1fr;gap:40px}
+.hx-answer-side{position:static}
+.hx-grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hx-flow{grid-template-columns:1fr;gap:12px}
+.hx-fs{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:20px;align-items:start;padding:22px}
+.hx-fs-top{grid-row:1/span 2;flex-direction:column;align-items:flex-start;margin:0}
+.hx-fs h3{margin-bottom:4px}
+.hx-fs:not(:last-child)::after{top:auto;bottom:-13px;right:auto;left:40px;width:0;height:14px;border-top:0;border-left:1.5px dashed #CBD5E1}
+.hx-audit{grid-template-columns:1fr;padding:40px}
+.hx-audit-copy{position:static}
+.hx-band{flex-direction:column;align-items:flex-start;gap:24px}}
+@media (max-width:760px){.hx-hero--ind h1{font-size:clamp(32px,8.6vw,40px)}
+.hx-app-stage::before{inset:18px -8px -10px 14px}
+.hx-app-top{padding:12px 14px}
+.hx-app-foot{padding:12px 14px}
+.hx-answer-main h2+p{font-size:17.5px}
+.hx-answer-main>p{font-size:16px}
+.hx-facts-card{padding:22px}
+.hx-grid3{grid-template-columns:1fr}
+.hx-fs{grid-template-columns:1fr;row-gap:0}
+.hx-fs-top{grid-row:auto;flex-direction:row;align-items:center;margin-bottom:14px}
+.hx-fs:not(:last-child)::after{left:38px}
+.hx-plan-hot{right:22px}
+.hx-audit{padding:28px 20px;border-radius:22px;gap:32px}
+.hx-form{padding:18px 14px}
+.hx-stats--sm b{font-size:23px}}
+@media (max-width:380px){.hx-app-top .hx-pill{display:none}}
+@media (min-width:761px){.hx-hero--ind .hx-stats li{flex:0 0 auto}
+.hx-hero--ind .hx-stats li:last-child{flex:1 1 0;min-width:0}}
+@keyframes hx-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+.hx-hero--svc h1{font-size:clamp(36px,3.4vw,48px)}
+@media (min-width:1101px){.hx-hero--svc .hx-hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}}
+.hx-crumbs a.hx-crumb{color:var(--muted)}
+.hx-signs{list-style:none;margin:6px 0 0;padding:0}
+.hx-signs li{position:relative;padding:14px 0 14px 32px;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5;color:var(--ink2)}
+.hx-signs li:last-child{border-bottom:0}
+.hx-signs li::before{content:"";position:absolute;left:0;top:15px;width:20px;height:20px;border-radius:6px;background:var(--brand-soft);border:1px solid var(--brand-line)}
+.hx-signs li::after{content:"";position:absolute;left:7px;top:19px;width:5px;height:9px;border-right:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(45deg)}
+.hx-signs-cta{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.hx-signs-cta .hx-btn{width:100%}
+.hx-flow--svc .hx-fs{padding:24px 22px 20px}
+.hx-flow--svc .hx-fs-top{margin-bottom:18px}
+.hx-flow--shop .hx-checks{margin-top:16px;padding-top:14px}
+.hx-flow--shop .hx-checks li{font-size:14px}
+.hx-split--tools{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.hx-tgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.hx-tg{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 24px;box-shadow:var(--sh)}
+.hx-tg .hx-ui-label{margin:0 0 14px;color:var(--brand-d)}
+.hx-tg .hx-chips li{background:#fff}
+.hx-bfs-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.hx-bfs-col{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;box-shadow:var(--sh)}
+.hx-bfs-col h3{margin-bottom:16px}
+.hx-models{margin:0 0 40px}
+.hx .hx-models-h{text-align:center;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.hx-models>ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.hx-models>ul>li{display:flex;gap:16px;align-items:flex-start;padding:22px;background:#fff;border:1px dashed #CBD5E1;border-radius:var(--r)}
+.hx-models h3{font-size:16.5px;margin:0 0 4px}
+.hx-models h3 em{font-style:normal;font-size:12.5px;font-weight:600;color:var(--brand-d);margin-left:6px}
+.hx-models p{font-size:14.5px;line-height:1.55;color:var(--muted)}
+.hx-models .hx-checks{margin-top:10px;padding-top:10px;gap:7px;border-top:1px solid var(--line)}
+.hx-models .hx-checks li{font-size:14px}
+.hx-models .hx-link{margin-top:2px;min-height:44px;font-size:14px}
+.hx-models .hx-best{margin-top:8px}
+.hx .hx-inc{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:22px 0 0}
+.hx-plan .hx-inc+.hx-checks{border-top:0;padding-top:12px}
+.hx-plan>p:not(.hx-inc):not(.hx-best){margin-top:18px}
+.hx .hx-best{font-size:14px;line-height:1.55;color:var(--muted);margin-top:16px}
+.hx-best strong{color:var(--ink);font-weight:600}
+.hx-plan .hx-btn{margin-top:auto}
+.hx-plan .hx-checks{margin-bottom:24px}
+.hx-roles--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hx-build-row--links a{color:var(--ink);text-decoration:none}
+.hx-build-row--links a:hover{color:var(--brand-d)}
+.hx-build-row--links strong a{display:inline-flex;align-items:center;min-height:44px}
+.hx-mets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;list-style:none;margin:0;padding:0;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--sh)}
+.hx-mets li{padding:26px 24px;border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.hx-mets li:nth-child(4n+1){border-left:0}
+.hx-mets li:nth-child(-n+4){border-top:0}
+.hx-mets span{display:block;font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.hx-mets b{display:block;margin:8px 0 2px;font-size:32px;line-height:1.1;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.hx-mets p{font-size:14px;color:var(--muted)}
+.hx-stats--4 li{padding-right:24px;margin-right:24px}
+.hx-shop{display:grid;grid-template-columns:118px minmax(0,1fr);min-height:300px}
+.hx-shop-nav{background:#F1F2EE;border-right:1px solid var(--line);padding:12px 8px}
+.hx-shop-nav ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.hx-shop-nav li{font-size:12px;color:var(--ink2);padding:6px 9px;border-radius:8px}
+.hx-shop-nav li:nth-child(6){margin-top:10px;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);padding-bottom:2px}
+.hx-shop-nav li.on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(15,23,42,.08)}
+.hx-shop-m{padding:16px;display:grid;gap:14px;align-content:start;background:linear-gradient(180deg,#fff,#FCFCFA)}
+.hx-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;margin:0;padding:0}
+.hx-kpis li{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+.hx-kpis span{display:block;font-size:11.5px;color:var(--muted)}
+.hx-kpis b{display:block;margin:4px 0;font-size:22px;line-height:1.1;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.hx-kpis em{font-style:normal;font-size:11.5px;font-weight:600;color:var(--ink2)}
+.hx-kpis em.up{color:#067647}
+.hx-bfs{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+.hx-bfs li{display:flex;gap:8px;font-size:12.5px;color:var(--ink2)}
+.hx-bfs svg{width:15px;height:15px;flex:none;color:#16A34A;margin-top:1px}
+@media (max-width:1100px){.hx-split--tools{grid-template-columns:1fr;gap:32px}
+.hx-split--tools .hx-head{position:static}
+.hx-models>ul{grid-template-columns:1fr}
+.hx-roles--3{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hx-mets{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hx-mets li:nth-child(4n+1){border-left:1px solid var(--line)}
+.hx-mets li:nth-child(2n+1){border-left:0}
+.hx-mets li:nth-child(-n+4){border-top:1px solid var(--line)}
+.hx-mets li:nth-child(-n+2){border-top:0}}
+@media (max-width:760px){.hx-hero--svc h1{font-size:clamp(31px,8.4vw,40px)}
+.hx-tgs,.hx-bfs-cols{grid-template-columns:1fr}
+.hx-roles--3{grid-template-columns:1fr}
+.hx-models>ul>li{padding:18px}
+.hx-stats--4{flex-wrap:wrap;gap:18px 0}
+.hx-stats--4 li{flex:0 0 50%;margin:0;padding:0 12px 0 0;border:0}
+.hx-mets b{font-size:26px}
+.hx-mets li{padding:20px 16px}
+.hx-shop-m{padding:12px}
+.hx-shop{grid-template-columns:1fr}
+.hx-shop-nav{display:none}
+.hx-kpis{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.hx-kpis li{padding:9px}
+.hx-kpis b{font-size:17px}
+.hx-kpis span,.hx-kpis em{font-size:10.5px}}
+@media (max-width:380px){.hx-kpis{grid-template-columns:1fr 1fr}
+.hx-kpis li:last-child{grid-column:1/-1}}
   </style>
 <style id="nav-cat-fix-3">
 /* space between the category list and the Contact Us card */
@@ -1651,691 +1976,24 @@
     </div>
   </nav>
   </header>
-  
-  <main>
-  <!-- ============= MAIN CONTENT (SHOPIFY APPS PAGE) ============= -->
-  
-  <!-- Hero Section -->
-  <section class="section-padding" style="background: linear-gradient(to bottom, #ffffff, #f9fafb);">
-    <div class="container">
-      <div class="grid grid-2" style="gap: 48px; align-items: center;">
-        <div>
-          <div style="display: inline-flex; align-items: center; padding: 6px 12px; background: #fff5f3; border-radius: 50px; margin-bottom: 24px;">
-            <span style="width: 8px; height: 8px; background: #F45407; border-radius: 50%; margin-right: 8px; animation: pulse 2s infinite;"></span>
-            <span style="color: #F45407; font-size: 14px; font-weight: 500;">Built for Shopify Certified</span>
-          </div>
-          
-          <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 24px;">
-            Ship Shopify Apps That
-            <span style="color: #F45407;">Merchants Actually Install</span>
-          </h1>
-          
-          <p style="font-size: 20px; color: #333; margin-bottom: 16px; font-weight: 500;">
-            From conversion boosters to inventory management. Built for Shopify certified development that passes review on first submission.
-          </p>
-          
-          <p style="font-size: 18px; color: #666; margin-bottom: 32px;">
-            We build revenue-generating Shopify apps that solve real merchant problems. Ship to App Store in 4-6 weeks with guaranteed approval.
-          </p>
-          
-          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px;">
-            <a href="#contact" style="padding: 14px 28px; background: linear-gradient(135deg, #F45407, #ff6b28); color: white; border-radius: 10px; font-weight: 500; text-decoration: none; font-size: 16px;">
-              Get App Estimate →
-            </a>
-            <a href="#packages" style="padding: 14px 28px; background: white; color: #333; border: 1px solid #e5e5e5; border-radius: 10px; font-weight: 500; text-decoration: none; font-size: 16px;">
-              View Packages
-            </a>
-          </div>
-          
-          <div class="grid grid-4" style="gap: 24px;">
-            <div>
-              <div style="font-size: 24px; font-weight: 500; color: #F45407;">500+</div>
-              <div style="font-size: 14px; color: #666;">Apps Built</div>
-            </div>
-            <div>
-              <div style="font-size: 24px; font-weight: 500; color: #F45407;">87%</div>
-              <div style="font-size: 14px; color: #666;">Install Rate</div>
-            </div>
-            <div>
-              <div style="font-size: 24px; font-weight: 500; color: #F45407;">4.2x</div>
-              <div style="font-size: 14px; color: #666;">Avg ROAS</div>
-            </div>
-            <div>
-              <div style="font-size: 24px; font-weight: 500; color: #F45407;">4 Weeks</div>
-              <div style="font-size: 14px; color: #666;">To Launch</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="hide-mobile">
-          <div style="background: white; border: 1px solid #e5e5e5; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-            <div style="text-align: center; margin-bottom: 32px;">
-              <div style="font-size: 14px; color: #F45407; font-weight: 500; margin-bottom: 8px;">SHOPIFY APP METRICS</div>
-              <div style="font-size: 28px; font-weight: 500;">Live Performance</div>
-            </div>
-            
-            <div style="display: flex; flex-direction: column; gap: 16px;">
-              <div style="background: #f0fdf4; border-radius: 12px; padding: 16px;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <div style="font-size: 12px; color: #666;">Monthly Installs</div>
-                    <div style="font-size: 20px; font-weight: 500;">1,247</div>
-                  </div>
-                  <div style="color: #10b981;">↑ 23%</div>
-                </div>
-              </div>
-              
-              <div style="background: #fff5f3; border-radius: 12px; padding: 16px;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <div style="font-size: 12px; color: #666;">Active Merchants</div>
-                    <div style="font-size: 20px; font-weight: 500;">8,942</div>
-                  </div>
-                  <div style="color: #F45407;">Growing</div>
-                </div>
-              </div>
-              
-              <div style="background: #f0f9ff; border-radius: 12px; padding: 16px;">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                  <div>
-                    <div style="font-size: 12px; color: #666;">MRR</div>
-                    <div style="font-size: 20px; font-weight: 500;">$124K</div>
-                  </div>
-                  <div style="color: #3b82f6;">↑ 31%</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- App Types Section -->
-  <section class="section-padding" style="background: white;">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 16px;">Shopify Apps That Drive Revenue</h2>
-        <p style="font-size: 18px; color: #666;">
-          From conversion optimization to operations automation. Every app built to scale.
-        </p>
-      </div>
-      
-      <div class="grid grid-3" style="gap: 32px;">
-        <div class="app-type-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <path d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 12px;">Conversion Boosters</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
-            Apps that increase AOV and conversion rates through smart upsells and cross-sells.
-          </p>
-          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 8px;">✓ Post-purchase upsells</li>
-            <li style="margin-bottom: 8px;">✓ Bundle builders</li>
-            <li style="margin-bottom: 8px;">✓ Cart drawer optimization</li>
-            <li style="margin-bottom: 8px;">✓ Urgency & social proof</li>
-          </ul>
-        </div>
-        
-        <div class="app-type-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <path d="M4 4.5A2.5 2.5 0 016.5 2H20a2 2 0 012 2v16a2 2 0 01-2 2H6.5A2.5 2.5 0 014 19.5v-15zM8 6h8m-8 4h8m-8 4h6"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 12px;">Subscription Management</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
-            Complete subscription solutions for recurring revenue businesses.
-          </p>
-          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 8px;">✓ Flexible billing cycles</li>
-            <li style="margin-bottom: 8px;">✓ Customer portals</li>
-            <li style="margin-bottom: 8px;">✓ Dunning management</li>
-            <li style="margin-bottom: 8px;">✓ Analytics & retention</li>
-          </ul>
-        </div>
-        
-        <div class="app-type-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <path d="M20 7h-9l-1 1H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 12px;">Inventory & Operations</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
-            Sync inventory across channels and automate fulfillment workflows.
-          </p>
-          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 8px;">✓ Multi-channel sync</li>
-            <li style="margin-bottom: 8px;">✓ Warehouse management</li>
-            <li style="margin-bottom: 8px;">✓ Purchase orders</li>
-            <li style="margin-bottom: 8px;">✓ Low stock alerts</li>
-          </ul>
-        </div>
-        
-        <div class="app-type-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 12px;">Reviews & UGC</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
-            Collect and display social proof to build trust and drive conversions.
-          </p>
-          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 8px;">✓ Review collection</li>
-            <li style="margin-bottom: 8px;">✓ Photo & video reviews</li>
-            <li style="margin-bottom: 8px;">✓ Widget customization</li>
-            <li style="margin-bottom: 8px;">✓ Google Shopping integration</li>
-          </ul>
-        </div>
-        
-        <div class="app-type-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <circle cx="11" cy="11" r="8"/>
-              <path d="M21 21l-4.35-4.35"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 12px;">Search & Merchandising</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
-            AI-powered search and product discovery to help customers find what they need.
-          </p>
-          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 8px;">✓ Instant search</li>
-            <li style="margin-bottom: 8px;">✓ AI recommendations</li>
-            <li style="margin-bottom: 8px;">✓ Visual merchandising</li>
-            <li style="margin-bottom: 8px;">✓ Collection sorting</li>
-          </ul>
-        </div>
-        
-        <div class="app-type-card">
-          <div style="width: 48px; height: 48px; background: rgba(244, 84, 7, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
-            <svg width="24" height="24" fill="none" stroke="#F45407" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
-            </svg>
-          </div>
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 12px;">Analytics & Reporting</h3>
-          <p style="font-size: 14px; color: #666; margin-bottom: 16px;">
-            Deep insights into store performance with actionable recommendations.
-          </p>
-          <ul style="font-size: 13px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 8px;">✓ Profit dashboards</li>
-            <li style="margin-bottom: 8px;">✓ Customer LTV tracking</li>
-            <li style="margin-bottom: 8px;">✓ Attribution modeling</li>
-            <li style="margin-bottom: 8px;">✓ Automated reports</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Development Process -->
-  <section class="section-padding" style="background: #f9fafb;">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 16px;">From Idea to App Store in 5 Phases</h2>
-        <p style="font-size: 18px; color: #666;">
-          Proven development process with guaranteed App Store approval.
-        </p>
-      </div>
-      
-      <div style="max-width: 800px; margin: 0 auto;">
-        <div class="phase-card">
-          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
-            <div>
-              <h3 style="font-size: 20px; font-weight: 500; color: #F45407;">Phase 1: Strategy & Planning</h3>
-              <span style="font-size: 14px; color: #666;">Week 1</span>
-            </div>
-            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 500;">1</div>
-          </div>
-          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
-            Identify merchant problems, define target categories, and plan monetization.
-          </p>
-          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 6px;">✓ Competitive scan & pricing model</li>
-            <li style="margin-bottom: 6px;">✓ Technical feasibility assessment</li>
-            <li style="margin-bottom: 6px;">✓ Milestone roadmap creation</li>
-          </ul>
-        </div>
-        
-        <div class="phase-card">
-          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
-            <div>
-              <h3 style="font-size: 20px; font-weight: 500; color: #F45407;">Phase 2: UX & Design</h3>
-              <span style="font-size: 14px; color: #666;">Week 1-2</span>
-            </div>
-            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 500;">2</div>
-          </div>
-          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
-            Design merchant-friendly interfaces using Polaris design system.
-          </p>
-          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 6px;">✓ Zero-config defaults</li>
-            <li style="margin-bottom: 6px;">✓ 5-minute onboarding flow</li>
-            <li style="margin-bottom: 6px;">✓ Accessibility compliance</li>
-          </ul>
-        </div>
-        
-        <div class="phase-card">
-          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
-            <div>
-              <h3 style="font-size: 20px; font-weight: 500; color: #F45407;">Phase 3: Development Sprint</h3>
-              <span style="font-size: 14px; color: #666;">Weeks 2-4</span>
-            </div>
-            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 500;">3</div>
-          </div>
-          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
-            Build app with Remix template, Shopify APIs, and modern infrastructure.
-          </p>
-          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 6px;">✓ Admin extensions & UI components</li>
-            <li style="margin-bottom: 6px;">✓ Webhook reliability & rate limiting</li>
-            <li style="margin-bottom: 6px;">✓ Performance optimization</li>
-          </ul>
-        </div>
-        
-        <div class="phase-card">
-          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
-            <div>
-              <h3 style="font-size: 20px; font-weight: 500; color: #F45407;">Phase 4: QA & Security</h3>
-              <span style="font-size: 14px; color: #666;">Week 5</span>
-            </div>
-            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 500;">4</div>
-          </div>
-          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
-            Comprehensive testing and security hardening before submission.
-          </p>
-          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 6px;">✓ End-to-end testing</li>
-            <li style="margin-bottom: 6px;">✓ Security & compliance check</li>
-            <li style="margin-bottom: 6px;">✓ Load testing & optimization</li>
-          </ul>
-        </div>
-        
-        <div class="phase-card">
-          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
-            <div>
-              <h3 style="font-size: 20px; font-weight: 500; color: #F45407;">Phase 5: Launch & Growth</h3>
-              <span style="font-size: 14px; color: #666;">Week 6+</span>
-            </div>
-            <div style="width: 40px; height: 40px; background: #F45407; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 500;">5</div>
-          </div>
-          <p style="font-size: 15px; color: #666; margin-bottom: 12px;">
-            App Store submission, launch strategy, and ongoing optimization.
-          </p>
-          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 6px;">✓ App listing optimization</li>
-            <li style="margin-bottom: 6px;">✓ Launch campaign execution</li>
-            <li style="margin-bottom: 6px;">✓ Growth & retention tracking</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Tech Stack -->
-  <section class="section-padding" style="background: white;">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 16px;">Built for Scale & Reliability</h2>
-        <p style="font-size: 18px; color: #666;">
-          Modern tech stack optimized for Shopify's ecosystem.
-        </p>
-      </div>
-      
-      <div style="max-width: 900px; margin: 0 auto;">
-        <div style="margin-bottom: 32px;">
-          <span style="font-size: 16px; font-weight: 500; color: #999; margin-bottom: 12px;">BACKEND & FRAMEWORK</span>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="tech-badge">TypeScript</span>
-            <span class="tech-badge">Node.js</span>
-            <span class="tech-badge">Remix App Template</span>
-            <span class="tech-badge">NestJS</span>
-            <span class="tech-badge">Express</span>
-          </div>
-        </div>
-        
-        <div style="margin-bottom: 32px;">
-          <span style="font-size: 16px; font-weight: 500; color: #999; margin-bottom: 12px;">SHOPIFY APIS & SDKS</span>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="tech-badge">Admin GraphQL</span>
-            <span class="tech-badge">Admin REST</span>
-            <span class="tech-badge">App Bridge</span>
-            <span class="tech-badge">OAuth</span>
-            <span class="tech-badge">Webhooks</span>
-            <span class="tech-badge">App Proxy</span>
-            <span class="tech-badge">Shopify Functions</span>
-          </div>
-        </div>
-        
-        <div style="margin-bottom: 32px;">
-          <span style="font-size: 16px; font-weight: 500; color: #999; margin-bottom: 12px;">UI EXTENSIONS</span>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="tech-badge">Admin UI Extensions</span>
-            <span class="tech-badge">Checkout UI</span>
-            <span class="tech-badge">POS Extensions</span>
-            <span class="tech-badge">Theme App Embeds</span>
-            <span class="tech-badge">Polaris Components</span>
-          </div>
-        </div>
-        
-        <div style="margin-bottom: 32px;">
-          <span style="font-size: 16px; font-weight: 500; color: #999; margin-bottom: 12px;">DATA & INFRASTRUCTURE</span>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="tech-badge">PostgreSQL</span>
-            <span class="tech-badge">Redis</span>
-            <span class="tech-badge">BullMQ</span>
-            <span class="tech-badge">Vercel</span>
-            <span class="tech-badge">Fly.io</span>
-            <span class="tech-badge">Cloudflare Queues</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Built for Shopify Section -->
-  <section class="section-padding" style="background: linear-gradient(135deg, #f9fafb, #ffffff);">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 16px;">Built for Shopify Certified Development</h2>
-        <p style="font-size: 18px; color: #666;">
-          We follow Shopify's strict guidelines to ensure your app qualifies for the Built for Shopify badge.
-        </p>
-      </div>
-      
-      <div class="grid grid-2" style="gap: 48px; align-items: center;">
-        <div>
-          <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 24px;">What Shopify Expects</h3>
-          <ul style="font-size: 15px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
-              Merchant-centric UX following Polaris guidelines
-            </li>
-            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
-              Performance targets for admin and storefront
-            </li>
-            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
-              Secure OAuth and reliable webhooks
-            </li>
-            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-              <span style="position: absolute; left: 0; color: #10b981;">✓</span>
-              High-quality listing and merchant support
-            </li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 style="font-size: 24px; font-weight: 500; margin-bottom: 24px;">Our Approach</h3>
-          <ul style="font-size: 15px; color: #666; list-style: none; padding: 0;">
-            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-              <span style="position: absolute; left: 0; color: #F45407;">→</span>
-              Design review against Polaris patterns
-            </li>
-            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-              <span style="position: absolute; left: 0; color: #F45407;">→</span>
-              Load testing and performance profiling
-            </li>
-            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-              <span style="position: absolute; left: 0; color: #F45407;">→</span>
-              Security checklist and compliance
-            </li>
-            <li style="margin-bottom: 16px; padding-left: 28px; position: relative;">
-              <span style="position: absolute; left: 0; color: #F45407;">→</span>
-              Support readiness with SLAs
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Success Metrics -->
-  <section class="section-padding" style="background: white;">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 16px;">Success Metrics We Track</h2>
-        <p style="font-size: 18px; color: #666;">
-          Every metric optimized for growth and profitability.
-        </p>
-      </div>
-      
-      <div class="grid grid-4" style="gap: 24px;">
-        <div class="metric-card">
-          <span style="font-size: 16px; font-weight: 500; color: #666; margin-bottom: 8px;">Listing Conversion</span>
-          <div style="font-size: 28px; font-weight: 500; color: #F45407; margin-bottom: 8px;">31%</div>
-          <p style="font-size: 14px; color: #999;">Install rate</p>
-        </div>
-        
-        <div class="metric-card">
-          <span style="font-size: 16px; font-weight: 500; color: #666; margin-bottom: 8px;">Trial to Paid</span>
-          <div style="font-size: 28px; font-weight: 500; color: #F45407; margin-bottom: 8px;">67%</div>
-          <p style="font-size: 14px; color: #999;">Conversion rate</p>
-        </div>
-        
-        <div class="metric-card">
-          <span style="font-size: 16px; font-weight: 500; color: #666; margin-bottom: 8px;">Avg Revenue</span>
-          <div style="font-size: 28px; font-weight: 500; color: #F45407; margin-bottom: 8px;">$89</div>
-          <p style="font-size: 14px; color: #999;">Per merchant/month</p>
-        </div>
-        
-        <div class="metric-card">
-          <span style="font-size: 16px; font-weight: 500; color: #666; margin-bottom: 8px;">Uninstall Rate</span>
-          <div style="font-size: 28px; font-weight: 500; color: #F45407; margin-bottom: 8px;"><3%</div>
-          <p style="font-size: 14px; color: #999;">After trial</p>
-        </div>
-        
-        <div class="metric-card">
-          <span style="font-size: 16px; font-weight: 500; color: #666; margin-bottom: 8px;">Support Response</span>
-          <div style="font-size: 28px; font-weight: 500; color: #F45407; margin-bottom: 8px;"><2hr</div>
-          <p style="font-size: 14px; color: #999;">Response time</p>
-        </div>
-        
-        <div class="metric-card">
-          <span style="font-size: 16px; font-weight: 500; color: #666; margin-bottom: 8px;">Crash-Free</span>
-          <div style="font-size: 28px; font-weight: 500; color: #F45407; margin-bottom: 8px;">99.9%</div>
-          <p style="font-size: 14px; color: #999;">Sessions</p>
-        </div>
-        
-        <div class="metric-card">
-          <span style="font-size: 16px; font-weight: 500; color: #666; margin-bottom: 8px;">Webhook Success</span>
-          <div style="font-size: 28px; font-weight: 500; color: #F45407; margin-bottom: 8px;">99.7%</div>
-          <p style="font-size: 14px; color: #999;">Delivery rate</p>
-        </div>
-        
-        <div class="metric-card">
-          <span style="font-size: 16px; font-weight: 500; color: #666; margin-bottom: 8px;">Cloud Cost</span>
-          <div style="font-size: 28px; font-weight: 500; color: #F45407; margin-bottom: 8px;">$0.47</div>
-          <p style="font-size: 14px; color: #999;">Per active merchant</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Pricing Section -->
-  <section id="packages" class="section-padding" style="background: #f9fafb;">
-    <div class="container">
-      <div style="text-align: center; margin-bottom: 48px;">
-        <h2 style="font-size: 36px; font-weight: 500; margin-bottom: 16px;">Shopify App Development Packages</h2>
-        <p style="font-size: 18px; color: #666;">
-          From MVP to enterprise apps. Fixed prices, guaranteed delivery.
-        </p>
-      </div>
-      
-      <div class="grid grid-4" style="gap: 24px;">
-        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 8px;">App MVP</h3>
-          <div style="margin: 16px 0;">
-            <span style="font-size: 32px; font-weight: 500;">$14,999</span>
-          </div>
-          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 500;">4-6 weeks</p>
-          
-          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0; margin-bottom: 24px;">
-            <li style="margin-bottom: 10px;">✓ Core feature set</li>
-            <li style="margin-bottom: 10px;">✓ Admin & UI Extensions</li>
-            <li style="margin-bottom: 10px;">✓ OAuth & webhooks</li>
-            <li style="margin-bottom: 10px;">✓ Basic billing</li>
-            <li style="margin-bottom: 10px;">✓ App listing & launch</li>
-          </ul>
-          
-          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
-            <strong>Perfect for:</strong> Testing app ideas
-          </p>
-          
-          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 500; text-decoration: none;">
-            Get Started
-          </a>
-        </div>
-        
-        <div style="background: white; padding: 32px; border-radius: 16px; border: 2px solid #F45407; position: relative;">
-          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #F45407; color: white; padding: 4px 12px; border-radius: 50px; font-size: 12px;">
-            MOST POPULAR
-          </div>
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 8px;">Built for Shopify</h3>
-          <div style="margin: 16px 0;">
-            <span style="font-size: 32px; font-weight: 500;">$29,999</span>
-          </div>
-          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 500;">6-8 weeks</p>
-          
-          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0; margin-bottom: 24px;">
-            <li style="margin-bottom: 10px;">✓ Performance optimization</li>
-            <li style="margin-bottom: 10px;">✓ Security hardening</li>
-            <li style="margin-bottom: 10px;">✓ Accessibility compliance</li>
-            <li style="margin-bottom: 10px;">✓ Advanced billing</li>
-            <li style="margin-bottom: 10px;">✓ Built for Shopify ready</li>
-          </ul>
-          
-          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
-            <strong>Perfect for:</strong> Serious app businesses
-          </p>
-          
-          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #F45407; color: white; border-radius: 8px; font-weight: 500; text-decoration: none;">
-            Get Started Today
-          </a>
-        </div>
-        
-        <div style="background: white; padding: 32px; border-radius: 16px; border: 1px solid #e5e5e5;">
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 8px;">Growth Sprint</h3>
-          <div style="margin: 16px 0;">
-            <span style="font-size: 32px; font-weight: 500;">$9,999</span>
-          </div>
-          <p style="font-size: 14px; color: #666; margin-bottom: 24px; font-weight: 500;">2-3 weeks</p>
-          
-          <ul style="font-size: 14px; color: #666; list-style: none; padding: 0; margin-bottom: 24px;">
-            <li style="margin-bottom: 10px;">✓ ASO & listing optimization</li>
-            <li style="margin-bottom: 10px;">✓ Conversion testing</li>
-            <li style="margin-bottom: 10px;">✓ Onboarding improvements</li>
-            <li style="margin-bottom: 10px;">✓ Review collection</li>
-            <li style="margin-bottom: 10px;">✓ Partner outreach</li>
-          </ul>
-          
-          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #f0f0f0;">
-            <strong>Perfect for:</strong> Existing apps
-          </p>
-          
-          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: #f5f5f5; color: #666; border-radius: 8px; font-weight: 500; text-decoration: none;">
-            Get Started
-          </a>
-        </div>
-        
-        <div style="background: #1a1a1a; color: white; padding: 32px; border-radius: 16px;">
-          <h3 style="font-size: 20px; font-weight: 500; margin-bottom: 8px;">Scale & Support</h3>
-          <div style="margin: 16px 0;">
-            <span style="font-size: 32px; font-weight: 500;">$4,999</span>
-            <span style="color: #999;">/mo</span>
-          </div>
-          <p style="font-size: 14px; color: #ccc; margin-bottom: 24px; font-weight: 500;">Ongoing</p>
-          
-          <ul style="font-size: 14px; color: #ccc; list-style: none; padding: 0; margin-bottom: 24px;">
-            <li style="margin-bottom: 10px;">✓ Observability & SLOs</li>
-            <li style="margin-bottom: 10px;">✓ Infrastructure tuning</li>
-            <li style="margin-bottom: 10px;">✓ Feature development</li>
-            <li style="margin-bottom: 10px;">✓ Cost optimization</li>
-            <li style="margin-bottom: 10px;">✓ Priority support</li>
-          </ul>
-          
-          <p style="font-size: 13px; color: #999; margin-bottom: 20px; padding-top: 16px; border-top: 1px solid #333;">
-            <strong>Perfect for:</strong> Growing apps
-          </p>
-          
-          <a href="#contact" style="display: block; text-align: center; padding: 12px; background: white; color: #1a1a1a; border-radius: 8px; font-weight: 500; text-decoration: none;">
-            Schedule Call
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- CTA Section -->
-  <section id="contact" class="section-padding" style="background: linear-gradient(135deg, #F45407, #e14a06);">
-    <div class="container" style="max-width: 800px;">
-      <div style="text-align: center;">
-        <h2 style="font-size: 36px; font-weight: 500; color: white; margin-bottom: 16px;">Ready to Build Your Shopify App?</h2>
-        <p style="font-size: 18px; color: rgba(255,255,255,0.9); margin-bottom: 48px;">
-          Get a detailed estimate and roadmap for your app idea. 
-          We'll show you exactly how to reach 10,000+ merchants.
-        </p>
-      </div>
-      
-      <div style="max-width: 600px; margin: 0 auto;">
-        <div style="overflow: hidden; height: 800px; border-radius: 12px;">
-          <iframe class="clickup-embed" src="https://forms.clickup.com/90182475304/p/f/2kzmpqh8-778/LRSQ2Q9CSVZE21JQM2/contact-us-form-all-pages" onwheel="" loading="lazy" width="100%" height="950px" style="background: transparent; border: none; margin-top: -120px;" scrolling="no"></iframe>
-        </div>
-        <script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
-      </div>
-      
-      <div style="margin-top: 32px; text-align: center; color: rgba(255,255,255,0.9);">
-        <p style="font-size: 16px;">Questions? WhatsApp us: <a href="https://wa.me/971524320369" style="color: white; font-weight: 500;" target="_blank" rel="noopener noreferrer">+971 52 432 0369</a></p>
-        <p style="font-size: 14px; margin-top: 16px; opacity: 0.8;">Free consultation includes competitive analysis and monetization strategy</p>
-      </div>
-    </div>
-  </section>
-  </main>
-
-    <!-- FAQ Section -->
-    <section style="padding: 80px 0; background: #fafafa;">
-      <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
-        <div style="text-align: center; margin-bottom: 48px;">
-          <h2 style="font-size: 36px; font-weight: 800; margin-bottom: 16px;">Frequently Asked Questions</h2>
-          <p style="color: #666; font-size: 18px;">Common questions about our Shopify app development services</p>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 16px;">
-          <details style="background: white; border-radius: 12px; padding: 24px; border: 1px solid #e5e5e5; cursor: pointer;">
-            <summary style="font-weight: 600; font-size: 17px; list-style: none; display: flex; justify-content: space-between; align-items: center;">How much does custom Shopify app development cost? <span style="font-size: 20px; color: #F45407;">+</span></summary>
-            <p style="margin-top: 16px; color: #555; line-height: 1.7;">Custom Shopify app development ranges from $10,000 to $45,000 depending on complexity and features. This includes design, development, testing, and guaranteed Shopify App Store approval. We have built 500+ apps with an 87% install rate.</p>
-          </details>
-          <details style="background: white; border-radius: 12px; padding: 24px; border: 1px solid #e5e5e5; cursor: pointer;">
-            <summary style="font-weight: 600; font-size: 17px; list-style: none; display: flex; justify-content: space-between; align-items: center;">How long does it take to build a Shopify app? <span style="font-size: 20px; color: #F45407;">+</span></summary>
-            <p style="margin-top: 16px; color: #555; line-height: 1.7;">Most Shopify apps are built and approved within 4-6 weeks. We use Remix and Shopify's Polaris design system for rapid development. Our standard delivery is 35 days from kickoff to App Store listing.</p>
-          </details>
-          <details style="background: white; border-radius: 12px; padding: 24px; border: 1px solid #e5e5e5; cursor: pointer;">
-            <summary style="font-weight: 600; font-size: 17px; list-style: none; display: flex; justify-content: space-between; align-items: center;">Do you guarantee Shopify App Store approval? <span style="font-size: 20px; color: #F45407;">+</span></summary>
-            <p style="margin-top: 16px; color: #555; line-height: 1.7;">Yes, we guarantee App Store approval. We are Built for Shopify certified and follow all Shopify API best practices, Polaris design guidelines, and performance standards. If your app is not approved, we will rework it at no additional cost.</p>
-          </details>
-          <details style="background: white; border-radius: 12px; padding: 24px; border: 1px solid #e5e5e5; cursor: pointer;">
-            <summary style="font-weight: 600; font-size: 17px; list-style: none; display: flex; justify-content: space-between; align-items: center;">What types of Shopify apps do you build? <span style="font-size: 20px; color: #F45407;">+</span></summary>
-            <p style="margin-top: 16px; color: #555; line-height: 1.7;">We build conversion boosters, subscription management apps, inventory and operations tools, reviews and UGC platforms, search and merchandising solutions, and analytics and reporting dashboards. We use React, Node.js, Remix, and Shopify APIs.</p>
-          </details>
-          <details style="background: white; border-radius: 12px; padding: 24px; border: 1px solid #e5e5e5; cursor: pointer;">
-            <summary style="font-weight: 600; font-size: 17px; list-style: none; display: flex; justify-content: space-between; align-items: center;">Can you help with an existing Shopify app that needs improvement? <span style="font-size: 20px; color: #F45407;">+</span></summary>
-            <p style="margin-top: 16px; color: #555; line-height: 1.7;">Absolutely. We help optimize existing Shopify apps for performance, improve UX using Polaris, fix App Store compliance issues, add new features, and improve install and retention rates. We also offer our Shopify App Reviews service to boost your app visibility.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-  <!-- ============= FOOTER (FROM HOMEPAGE) ============= -->
-    <footer class="footer" role="contentinfo" aria-label="Site footer">
+<main class="hx">
+<section class="hx-hero hx-hero--ind hx-hero--svc hx-hero--shop"><div class="hx-wrap hx-hero-grid"><div><nav aria-label="Breadcrumb"><ol class="hx-crumbs"><li><a class="hx-crumb" href="/">Home</a></li><li><a class="hx-crumb" href="/#services">Services</a></li><li><span aria-current="page">Shopify App Development</span></li></ol></nav><p class="hx-badge"><i></i>Built for Shopify Certified</p><h1>Ship Shopify Apps That <span>Merchants Actually Install</span></h1><p class="hx-lead">From conversion boosters to inventory management. Built for Shopify certified development that passes review on first submission.</p><p class="hx-lead">We build revenue-generating Shopify apps that solve real merchant problems. Ship to App Store in 4-6 weeks with guaranteed approval.</p><div class="hx-ctas"><a class="hx-btn hx-btn--primary" href="#contact">Get App Estimate<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="hx-btn hx-btn--ghost" href="#packages">View Packages<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><ul class="hx-stats hx-stats--4" aria-label="Shopify app development in numbers"><li><b>500+</b><span>Apps Built</span></li><li><b>87%</b><span>Install Rate</span></li><li><b>4.2x</b><span>Avg ROAS</span></li><li><b>4 Weeks</b><span>To Launch</span></li></ul></div><figure class="hx-app-wrap"><div class="hx-app-stage"><div class="hx-app" role="img" aria-label="Illustration of a Shopify app admin screen with app metrics and Built for Shopify checks."><div class="hx-app-top"><span class="hx-ui-dots" aria-hidden="true"><i></i><i></i><i></i></span><b>SHOPIFY APP METRICS</b><span class="hx-pill"><i></i>Live Performance</span></div><div class="hx-shop"><aside class="hx-shop-nav" aria-hidden="true"><ul><li>Home</li><li>Orders</li><li>Products</li><li>Customers</li><li>Analytics</li><li>Apps</li><li class="on">Your app</li></ul></aside><div class="hx-shop-m"><ul class="hx-kpis"><li><span>Monthly Installs</span><b>1,247</b><em class="up">↑ 23%</em></li><li><span>Active Merchants</span><b>8,942</b><em class="n">Growing</em></li><li><span>MRR</span><b>$124K</b><em class="up">↑ 31%</em></li></ul><div class="hx-co"><p class="hx-ui-label">Built for Shopify checks</p><ul class="hx-bfs"><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.9"/></svg>Merchant-centric UX following Polaris guidelines</li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.9"/></svg>Performance targets for admin and storefront</li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.9"/></svg>Secure OAuth and reliable webhooks</li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.9"/></svg>High-quality listing and merchant support</li></ul></div></div></div><ul class="hx-app-foot"><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.9"/></svg>Polaris</li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.9"/></svg>App Bridge</li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.9"/></svg>Admin GraphQL</li></ul></div></div><figcaption>Illustrative app dashboard. Figures show what an app owner sees, not one client's data.</figcaption></figure></div></section>
+<section class="hx-logos" aria-label="Clients"><div class="hx-wrap"><div class="hx-logos-head"><p class="hx-logos-label"><strong>Trusted by founders and brands</strong>Real clients of imisofts, from our clients page</p><a class="hx-link" href="/clients">Meet all 40 clients<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="hx-marquee"><div class="hx-mq-track"><ul class="hx-logo-row"><li><img src="/assets/clients/advisorhunt.webp" alt="Advisor Hunt Global logo" width="245" height="44" loading="lazy" decoding="async"></li><li><img src="/assets/clients/alwaysconvert.webp" alt="AlwaysConvert logo" width="275" height="30" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/argentinegolf.webp" alt="Argentine Golf Agency logo" width="93" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/band.webp" alt="Band.nl logo" width="192" height="57" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/bullheaded.webp" alt="Bull Headed Security logo" width="132" height="84" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/cleaningedge.webp" alt="Cleaning Edge logo" width="129" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/clinos.webp" alt="ClinOS logo" width="217" height="51" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/clubgrub.webp" alt="ClubGrub logo" width="151" height="72" loading="lazy" decoding="async"></li><li><img src="/assets/clients/digifylocal.webp" alt="Digify Local logo" width="228" height="49" loading="lazy" decoding="async"></li><li><img src="/assets/clients/discovermybusiness.webp" alt="DiscoverMyBusiness logo" width="190" height="57" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/emagro.webp" alt="Emagro Group logo" width="100" height="100" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/justshania.webp" alt="Just Shania logo" width="105" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/leadingstars.webp" alt="Leading Stars logo" width="184" height="60" loading="lazy" decoding="async"></li><li><img src="/assets/clients/milsteel.webp" alt="Milsteel Doors logo" width="197" height="56" loading="lazy" decoding="async"></li><li><img src="/assets/clients/montblack.webp" alt="MontBlack logo" width="223" height="50" loading="lazy" decoding="async"></li><li><img src="/assets/clients/nealteam.webp" alt="The Neal &amp; Neal Team logo" width="207" height="54" loading="lazy" decoding="async"></li><li><img src="/assets/clients/patientwin.webp" alt="PatientWin logo" width="267" height="40" loading="lazy" decoding="async"></li><li><img src="/assets/clients/phoenix.webp" alt="Phoenix BioLabs logo" width="270" height="34" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/plj.webp" alt="PLJ Services logo" width="114" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/pplied.webp" alt="PPLIED logo" width="171" height="65" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/rainier.webp" alt="Rainier Cleaning Solutions logo" width="144" height="77" loading="lazy" decoding="async"></li><li><img src="/assets/clients/reeply.webp" alt="Reeply AI logo" width="241" height="45" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/roivideo.webp" alt="ROI Video Productions logo" width="148" height="74" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/seoconsentido.webp" alt="SEO con Sentido logo" width="136" height="81" loading="lazy" decoding="async"></li><li><img src="/assets/clients/silverlight.webp" alt="Silverlight Research logo" width="197" height="55" loading="lazy" decoding="async"></li><li><img src="/assets/clients/simpliifunded.webp" alt="SimpliiFunded logo" width="204" height="53" loading="lazy" decoding="async"></li><li><img src="/assets/clients/skyward.webp" alt="Skyward Xperia logo" width="156" height="70" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/smartfunding.webp" alt="Smart Funding Solutions logo" width="140" height="79" loading="lazy" decoding="async"></li><li><img src="/assets/clients/smartstoragebox.webp" alt="SmartStorageBox logo" width="270" height="23" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/socialalignment.webp" alt="Social Alignment logo" width="120" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/socialtrust.webp" alt="SocialTrust360 logo" width="245" height="45" loading="lazy" decoding="async"></li><li><img src="/assets/clients/soleapp.webp" alt="Sole logo" width="168" height="65" loading="lazy" decoding="async"></li><li><img src="/assets/clients/sourcesystems.webp" alt="Source Systems logo" width="266" height="32" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/uranus24.webp" alt="Uranus24 logo" width="71" height="84" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/vortex.webp" alt="Vortex Capital logo" width="156" height="71" loading="lazy" decoding="async"></li><li><img src="/assets/clients/woodblock.webp" alt="Woodblock logo" width="270" height="20" loading="lazy" decoding="async"></li><li><img src="/assets/clients/xtreme.webp" alt="Xtreme eDeals logo" width="189" height="59" loading="lazy" decoding="async"></li></ul><ul class="hx-logo-row" aria-hidden="true"><li><img src="/assets/clients/advisorhunt.webp" alt="" width="245" height="44" loading="lazy" decoding="async"></li><li><img src="/assets/clients/alwaysconvert.webp" alt="" width="275" height="30" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/argentinegolf.webp" alt="" width="93" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/band.webp" alt="" width="192" height="57" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/bullheaded.webp" alt="" width="132" height="84" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/cleaningedge.webp" alt="" width="129" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/clinos.webp" alt="" width="217" height="51" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/clubgrub.webp" alt="" width="151" height="72" loading="lazy" decoding="async"></li><li><img src="/assets/clients/digifylocal.webp" alt="" width="228" height="49" loading="lazy" decoding="async"></li><li><img src="/assets/clients/discovermybusiness.webp" alt="" width="190" height="57" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/emagro.webp" alt="" width="100" height="100" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/justshania.webp" alt="" width="105" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/leadingstars.webp" alt="" width="184" height="60" loading="lazy" decoding="async"></li><li><img src="/assets/clients/milsteel.webp" alt="" width="197" height="56" loading="lazy" decoding="async"></li><li><img src="/assets/clients/montblack.webp" alt="" width="223" height="50" loading="lazy" decoding="async"></li><li><img src="/assets/clients/nealteam.webp" alt="" width="207" height="54" loading="lazy" decoding="async"></li><li><img src="/assets/clients/patientwin.webp" alt="" width="267" height="40" loading="lazy" decoding="async"></li><li><img src="/assets/clients/phoenix.webp" alt="" width="270" height="34" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/plj.webp" alt="" width="114" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/pplied.webp" alt="" width="171" height="65" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/rainier.webp" alt="" width="144" height="77" loading="lazy" decoding="async"></li><li><img src="/assets/clients/reeply.webp" alt="" width="241" height="45" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/roivideo.webp" alt="" width="148" height="74" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/seoconsentido.webp" alt="" width="136" height="81" loading="lazy" decoding="async"></li><li><img src="/assets/clients/silverlight.webp" alt="" width="197" height="55" loading="lazy" decoding="async"></li><li><img src="/assets/clients/simpliifunded.webp" alt="" width="204" height="53" loading="lazy" decoding="async"></li><li><img src="/assets/clients/skyward.webp" alt="" width="156" height="70" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/smartfunding.webp" alt="" width="140" height="79" loading="lazy" decoding="async"></li><li><img src="/assets/clients/smartstoragebox.webp" alt="" width="270" height="23" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/socialalignment.webp" alt="" width="120" height="84" loading="lazy" decoding="async"></li><li><img src="/assets/clients/socialtrust.webp" alt="" width="245" height="45" loading="lazy" decoding="async"></li><li><img src="/assets/clients/soleapp.webp" alt="" width="168" height="65" loading="lazy" decoding="async"></li><li><img src="/assets/clients/sourcesystems.webp" alt="" width="266" height="32" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/uranus24.webp" alt="" width="71" height="84" loading="lazy" decoding="async"></li><li class="sq"><img src="/assets/clients/vortex.webp" alt="" width="156" height="71" loading="lazy" decoding="async"></li><li><img src="/assets/clients/woodblock.webp" alt="" width="270" height="20" loading="lazy" decoding="async"></li><li><img src="/assets/clients/xtreme.webp" alt="" width="189" height="59" loading="lazy" decoding="async"></li></ul></div></div></div></section>
+<section class="hx-sec hx-sec--alt" id="problem"><div class="hx-wrap hx-answer"><div class="hx-answer-main"><p class="hx-eyebrow">The problem</p><h2>What makes a Shopify app worth installing?</h2><p>Merchants install an app to fix one problem, and they decide within minutes whether it was worth it. An app that is slow in the admin, asks for too much setup or breaks the theme gets uninstalled, however good the idea was.</p><p>That is why we build every app around one merchant problem, Shopify's own design system and its performance rules, then test it on real stores before it goes to review. If you want to know what an app costs to build and run, our <a href="/blog/shopify-app-development-cost-2026/">Shopify app development cost guide</a> breaks it down.</p></div><aside class="hx-answer-side" aria-label="What we check before we build"><div class="hx-facts-card"><p class="hx-ui-label">What we check before we build</p><ul class="hx-signs"><li>Merchant-centric UX following Polaris guidelines</li><li>Performance targets for admin and storefront</li><li>Secure OAuth and reliable webhooks</li><li>High-quality listing and merchant support</li></ul><div class="hx-signs-cta"><a class="hx-btn hx-btn--ghost" href="https://cal.com/zeeshanwaheed/30min" data-cal-link="zeeshanwaheed/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Talk it through on a call</a></div></div></aside></div></section>
+<section class="hx-sec" id="what-we-deliver"><div class="hx-wrap"><div class="hx-head hx-head--c"><p class="hx-eyebrow">What we deliver</p><h2>Shopify Apps That Drive Revenue</h2><p>From conversion optimization to operations automation. Every app built to scale.</p></div><ul class="hx-grid3 hx-grid3--feat"><li class="hx-feat"><div class="hx-feat-top"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19.5h16"/><rect x="5.5" y="12" width="3" height="5.5" rx=".8"/><rect x="10.5" y="8" width="3" height="9.5" rx=".8"/><rect x="15.5" y="4.5" width="3" height="13" rx=".8"/></svg></span><h3>Conversion Boosters</h3></div><p>Apps that increase AOV and conversion rates through smart upsells and cross-sells.</p><ul class="hx-checks"><li>Post-purchase upsells</li><li>Bundle builders</li><li>Cart drawer optimization</li><li>Urgency & social proof</li></ul></li><li class="hx-feat"><div class="hx-feat-top"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 3.5l3 3-3 3"/><path d="M4 11.5v-1a4 4 0 014-4h12M7 20.5l-3-3 3-3"/><path d="M20 12.5v1a4 4 0 01-4 4H4"/></svg></span><h3>Subscription Management</h3></div><p>Complete subscription solutions for recurring revenue businesses.</p><ul class="hx-checks"><li>Flexible billing cycles</li><li>Customer portals</li><li>Dunning management</li><li>Analytics & retention</li></ul></li><li class="hx-feat"><div class="hx-feat-top"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg></span><h3>Inventory & Operations</h3></div><p>Sync inventory across channels and automate fulfillment workflows.</p><ul class="hx-checks"><li>Multi-channel sync</li><li>Warehouse management</li><li>Purchase orders</li><li>Low stock alerts</li></ul></li><li class="hx-feat"><div class="hx-feat-top"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span><h3>Reviews & UGC</h3></div><p>Collect and display social proof to build trust and drive conversions.</p><ul class="hx-checks"><li>Review collection</li><li>Photo & video reviews</li><li>Widget customization</li><li>Google Shopping integration</li></ul></li><li class="hx-feat"><div class="hx-feat-top"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></span><h3>Search & Merchandising</h3></div><p>AI-powered search and product discovery to help customers find what they need.</p><ul class="hx-checks"><li>Instant search</li><li>AI recommendations</li><li>Visual merchandising</li><li>Collection sorting</li></ul></li><li class="hx-feat"><div class="hx-feat-top"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 19.5h16M7 16.5v-5M12 16.5V7M17 16.5v-8"/></svg></span><h3>Analytics & Reporting</h3></div><p>Deep insights into store performance with actionable recommendations.</p><ul class="hx-checks"><li>Profit dashboards</li><li>Customer LTV tracking</li><li>Attribution modeling</li><li>Automated reports</li></ul></li></ul></div></section>
+<section class="hx-sec hx-sec--tint" id="how-it-works"><div class="hx-wrap"><div class="hx-head"><p class="hx-eyebrow">How it runs</p><h2>From Idea to App Store in 5 Phases</h2><p>Proven development process with guaranteed App Store approval.</p></div><ol class="hx-flow hx-flow--svc hx-flow--shop"><li class="hx-fs"><div class="hx-fs-top"><span class="hx-num">1</span><span class="hx-time">Week 1</span></div><h3>Phase 1: Strategy & Planning</h3><p>Identify merchant problems, define target categories, and plan monetization.</p><ul class="hx-checks"><li>Competitive scan & pricing model</li><li>Technical feasibility assessment</li><li>Milestone roadmap creation</li></ul></li><li class="hx-fs"><div class="hx-fs-top"><span class="hx-num">2</span><span class="hx-time">Week 1-2</span></div><h3>Phase 2: UX & Design</h3><p>Design merchant-friendly interfaces using Polaris design system.</p><ul class="hx-checks"><li>Zero-config defaults</li><li>5-minute onboarding flow</li><li>Accessibility compliance</li></ul></li><li class="hx-fs"><div class="hx-fs-top"><span class="hx-num">3</span><span class="hx-time">Weeks 2-4</span></div><h3>Phase 3: Development Sprint</h3><p>Build app with Remix template, Shopify APIs, and modern infrastructure.</p><ul class="hx-checks"><li>Admin extensions & UI components</li><li>Webhook reliability & rate limiting</li><li>Performance optimization</li></ul></li><li class="hx-fs"><div class="hx-fs-top"><span class="hx-num">4</span><span class="hx-time">Week 5</span></div><h3>Phase 4: QA & Security</h3><p>Comprehensive testing and security hardening before submission.</p><ul class="hx-checks"><li>End-to-end testing</li><li>Security & compliance check</li><li>Load testing & optimization</li></ul></li><li class="hx-fs"><div class="hx-fs-top"><span class="hx-num">5</span><span class="hx-time">Week 6+</span></div><h3>Phase 5: Launch & Growth</h3><p>App Store submission, launch strategy, and ongoing optimization.</p><ul class="hx-checks"><li>App listing optimization</li><li>Launch campaign execution</li><li>Growth & retention tracking</li></ul></li></ol></div></section>
+<section class="hx-sec" id="built-for-shopify"><div class="hx-wrap hx-split hx-split--tools"><div class="hx-head"><p class="hx-eyebrow">Standards</p><h2>Built for Shopify Certified Development</h2><p>We follow Shopify's strict guidelines to ensure your app qualifies for the Built for Shopify badge.</p></div><ul class="hx-bfs-cols"><li class="hx-bfs-col"><h3>What Shopify Expects</h3><ul class="hx-checks"><li>Merchant-centric UX following Polaris guidelines</li><li>Performance targets for admin and storefront</li><li>Secure OAuth and reliable webhooks</li><li>High-quality listing and merchant support</li></ul></li><li class="hx-bfs-col"><h3>Our Approach</h3><ul class="hx-checks"><li>Design review against Polaris patterns</li><li>Load testing and performance profiling</li><li>Security checklist and compliance</li><li>Support readiness with SLAs</li></ul></li></ul></div></section>
+<section class="hx-sec hx-sec--alt" id="tools"><div class="hx-wrap hx-split hx-split--tools"><div class="hx-head"><p class="hx-eyebrow">Tools and platforms</p><h2>Built for Scale & Reliability</h2><p>Modern tech stack optimized for Shopify's ecosystem.</p></div><ul class="hx-tgs"><li class="hx-tg"><p class="hx-ui-label">BACKEND & FRAMEWORK</p><ul class="hx-chips"><li>TypeScript</li><li>Node.js</li><li>Remix App Template</li><li>NestJS</li><li>Express</li></ul></li><li class="hx-tg"><p class="hx-ui-label">SHOPIFY APIS & SDKS</p><ul class="hx-chips"><li>Admin GraphQL</li><li>Admin REST</li><li>App Bridge</li><li>OAuth</li><li>Webhooks</li><li>App Proxy</li><li>Shopify Functions</li></ul></li><li class="hx-tg"><p class="hx-ui-label">UI EXTENSIONS</p><ul class="hx-chips"><li>Admin UI Extensions</li><li>Checkout UI</li><li>POS Extensions</li><li>Theme App Embeds</li><li>Polaris Components</li></ul></li><li class="hx-tg"><p class="hx-ui-label">DATA & INFRASTRUCTURE</p><ul class="hx-chips"><li>PostgreSQL</li><li>Redis</li><li>BullMQ</li><li>Vercel</li><li>Fly.io</li><li>Cloudflare Queues</li></ul></li></ul></div></section>
+<section class="hx-sec" id="metrics"><div class="hx-wrap"><div class="hx-head hx-head--c"><p class="hx-eyebrow">Metrics</p><h2>Success Metrics We Track</h2><p>Every metric optimized for growth and profitability.</p></div><ul class="hx-mets"><li><span>Listing Conversion</span><b>31%</b><p>Install rate</p></li><li><span>Trial to Paid</span><b>67%</b><p>Conversion rate</p></li><li><span>Avg Revenue</span><b>$89</b><p>Per merchant/month</p></li><li><span>Uninstall Rate</span><b><3%</b><p>After trial</p></li><li><span>Support Response</span><b><2hr</b><p>Response time</p></li><li><span>Crash-Free</span><b>99.9%</b><p>Sessions</p></li><li><span>Webhook Success</span><b>99.7%</b><p>Delivery rate</p></li><li><span>Cloud Cost</span><b>$0.47</b><p>Per active merchant</p></li></ul></div></section>
+<section class="hx-sec hx-sec--alt" id="packages"><div class="hx-wrap"><div class="hx-head hx-head--c"><p class="hx-eyebrow">Engagement models and packages</p><h2>Shopify App Development Packages</h2><p>From MVP to enterprise apps. Fixed prices, guaranteed delivery.</p></div><div class="hx-models hx-models--shop"><p class="hx-models-h">Engagement models</p><ul><li><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><path d="M16.75 13.5v6.5M13.5 16.75H20"/></svg></span><div><h3>New app build</h3><p>App MVP, Built for Shopify and Scale &amp; Support below are billed monthly while we build and run your app.</p></div></li><li class="hx-model-gs"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 17l5.5-5.5 4 4 7.5-7.5M15 8h5.5v5.5"/></svg></span><div><h3>Growth Sprint <em>2-3 weeks</em></h3><ul class="hx-checks"><li>ASO & listing optimization</li><li>Conversion testing</li><li>Onboarding improvements</li><li>Review collection</li><li>Partner outreach</li></ul><p class="hx-best"><strong>Perfect for:</strong> Existing apps</p><a class="hx-link" href="#contact">Get Started<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></li><li><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span><div><h3>Shopify App Reviews</h3><p>Already live? Our Shopify App Reviews service helps you collect reviews for your listing.</p><a class="hx-link" href="/shopify-app-reviews">See Shopify App Reviews<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></li></ul></div><ul class="hx-plans"><li class="hx-plan"><span class="hx-plan-tag">4-6 weeks</span><h3>App MVP</h3><div class="hx-price hx-price--q"><small>Pricing</small><b class="q">Custom quote</b><span>billed monthly</span></div><p class="hx-inc">What is included</p><ul class="hx-checks"><li>Core feature set</li><li>Admin & UI Extensions</li><li>OAuth & webhooks</li><li>Basic billing</li><li>App listing & launch</li></ul><p class="hx-best"><strong>Perfect for:</strong> Testing app ideas</p><a class="hx-btn hx-btn--ghost" href="#contact">Get Started<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li class="hx-plan hx-plan--hot"><span class="hx-plan-hot">MOST POPULAR</span><span class="hx-plan-tag">6-8 weeks</span><h3>Built for Shopify</h3><div class="hx-price hx-price--q"><small>Pricing</small><b class="q">Custom quote</b><span>billed monthly</span></div><p class="hx-inc">What is included</p><ul class="hx-checks"><li>Performance optimization</li><li>Security hardening</li><li>Accessibility compliance</li><li>Advanced billing</li><li>Built for Shopify ready</li></ul><p class="hx-best"><strong>Perfect for:</strong> Serious app businesses</p><a class="hx-btn hx-btn--primary" href="#contact">Get Started Today<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li><li class="hx-plan"><span class="hx-plan-tag">Ongoing</span><h3>Scale &amp; Support</h3><div class="hx-price hx-price--q"><small>Pricing</small><b class="q">Custom quote</b><span>billed monthly</span></div><p class="hx-inc">What is included</p><ul class="hx-checks"><li>Observability & SLOs</li><li>Infrastructure tuning</li><li>Feature development</li><li>Cost optimization</li><li>Priority support</li></ul><p class="hx-best"><strong>Perfect for:</strong> Growing apps</p><a class="hx-btn hx-btn--ghost" href="#contact">Schedule Call<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li></ul><p class="hx-fine">Every package is quoted to your app and billed monthly. What each package includes is agreed with you before work starts.</p></div></section>
+<section class="hx-sec hx-sec--band"><div class="hx-wrap"><div class="hx-band"><div><p class="hx-band-t">Have an app idea or an app that needs work?</p><p>Book a 30-minute call, or send the form below for an estimate.</p></div><div class="hx-ctas"><a class="hx-btn hx-btn--primary" href="https://cal.com/zeeshanwaheed/30min" data-cal-link="zeeshanwaheed/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Book a 30-Minute Call</a><a class="hx-btn hx-btn--ghost" href="#contact">Get App Estimate<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div></section>
+<section class="hx-sec hx-sec--tint" id="results"><div class="hx-wrap"><div class="hx-head"><p class="hx-eyebrow">Case studies</p><h2>Shopify work from our case studies</h2><p>Real projects from our case studies page, with the figures exactly as published there.</p></div><ul class="hx-cases hx-cases--one"><li class="hx-case"><div class="hx-case-tag">E-commerce<span>Fashion &amp; Retail</span></div><h3>LuxuryFashion.ae Shopify Store</h3><p>Built a high-converting Shopify Plus store with AI-powered product recommendations, resulting in 250% increase in online sales within 6 months.</p><ul class="hx-metrics"><li><b>250%</b><span>Sales growth</span></li><li><b>3.2x</b><span>Conv. rate</span></li><li><b>45%</b><span>Cart value</span></li></ul><ul class="hx-chips"><li>Shopify Plus</li><li>AI Recommendations</li><li>Arabic Support</li></ul><a class="hx-link" href="/case-studies">See it on our case studies page<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li></ul><div class="hx-builds"><h3>Related reading</h3><p>Guides from our blog for founders planning a Shopify app.</p><ul class="hx-build-row hx-build-row--links"><li><strong><a href="/blog/shopify-app-development-cost-2026/">Shopify app development cost</a></strong><p>What it costs to build, list and run a Shopify app.</p></li><li><strong><a href="/blog/do-you-need-a-custom-shopify-app/">Do you need a custom Shopify app?</a></strong><p>When a custom app makes sense, and when an existing app will do.</p></li><li><strong><a href="/shopify-app-reviews">Shopify App Reviews</a></strong><p>Our service for collecting reviews on your app listing.</p></li></ul></div></div></section>
+<section class="hx-sec"><div class="hx-wrap"><div class="hx-founder"><img src="https://cdn.shopify.com/s/files/1/0780/0376/5469/files/zeeshan-waheed.jpg?v=1757588956" alt="Zeeshan Waheed, founder and CEO of imisofts" width="120" height="120" loading="lazy" decoding="async"><div><p class="hx-eyebrow">Who you work with</p><h2>Led by Zeeshan Waheed, founder of imisofts</h2><p>Zeeshan is the Founder and CEO of imisofts. He builds email infrastructure, cold email systems, AI automation and B2B outbound engines, and his team ships solutions in 30 to 90 days.</p><ul class="hx-facts"><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5a7.5 7.5 0 0115 0"/></svg>Founder and CEO, imisofts</li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg>Fiverr Level 2 Seller, 550+ five-star reviews</li><li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="5.5"/><path d="M8.7 13.4L7.5 21l4.5-2.5 4.5 2.5-1.2-7.6"/></svg>Top Rated on Upwork, 100% Job Success Score</li></ul></div><div class="hx-founder-cta"><a class="hx-btn hx-btn--dark" href="https://cal.com/zeeshanwaheed/30min" data-cal-link="zeeshanwaheed/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Book on Zeeshan's calendar</a><a class="hx-link" href="/author/zeeshan-waheed/">Read Zeeshan's profile<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="hx-link" href="https://www.linkedin.com/in/izeeshanwaheed/" rel="noopener" target="_blank">LinkedIn<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div></div></section>
+<section class="hx-sec hx-sec--alt" id="related"><div class="hx-wrap"><div class="hx-head"><p class="hx-eyebrow">Related services</p><h2>Services that work well alongside an app build</h2><p>Services that often run alongside a Shopify app build, delivered by the same team.</p></div><ul class="hx-roles hx-roles--3"><li><a class="hx-role" href="/hire-shopify-expert"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 4h2.2l2 11h10.8l2-8H7"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg></span><strong>Hire a Shopify Expert</strong><span class="hx-role-d">Theme, CRO and store specialists</span><em>View service</em></a></li><li><a class="hx-role" href="/ecommerce"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 4h2.2l2 11h10.8l2-8H7"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg></span><strong>E-commerce</strong><span class="hx-role-d">Shopify stores built to convert</span><em>View service</em></a></li><li><a class="hx-role" href="/ai-automation-ecommerce"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3.5 4h2.2l2 11h10.8l2-8H7"/><circle cx="9.5" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></svg></span><strong>AI for E-commerce</strong><span class="hx-role-d">Automation for online stores</span><em>View service</em></a></li><li><a class="hx-role" href="/ui-ux-design"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 20h4L19 9a2.8 2.8 0 00-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg></span><strong>UI/UX Design</strong><span class="hx-role-d">Research, Figma and design systems</span><em>View service</em></a></li><li><a class="hx-role" href="/web-development"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.5 8L4.5 12l4 4M15.5 8l4 4-4 4M13.5 5l-3 14"/></svg></span><strong>Web Development</strong><span class="hx-role-d">Fast websites and web apps</span><em>View service</em></a></li><li><a class="hx-role" href="/shopify-app-reviews"><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3.8l2.5 5.2 5.7.8-4.1 4 1 5.6-5.1-2.7-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></svg></span><strong>Shopify App Reviews</strong><span class="hx-role-d">Reviews for your Shopify app listing</span><em>View service</em></a></li></ul><ul class="hx-related"><li>More from imisofts</li><li><a class="hx-rel" href="/case-studies">Case studies</a></li><li><a class="hx-rel" href="/clients">Our clients</a></li><li><a class="hx-rel" href="/free-audit">Free audit</a></li><li><a class="hx-rel" href="/contact">Contact</a></li></ul></div></section>
+<section class="hx-sec" id="faq"><div class="hx-wrap hx-faq"><div class="hx-head"><p class="hx-eyebrow">FAQ</p><h2>Frequently Asked Questions</h2><p>Common questions about our Shopify app development services</p><a class="hx-btn hx-btn--ghost" href="https://cal.com/zeeshanwaheed/30min" data-cal-link="zeeshanwaheed/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Ask us on a call</a></div><div class="hx-qs"><details open><summary><h3>How much does custom Shopify app development cost?</h3><i aria-hidden="true"></i></summary><p>Custom Shopify app development ranges from $10,000 to $45,000 depending on complexity and features. This includes design, development, testing, and guaranteed Shopify App Store approval. We have built 500+ apps with an 87% install rate.</p></details><details><summary><h3>How long does it take to build a Shopify app?</h3><i aria-hidden="true"></i></summary><p>Most Shopify apps are built and approved within 4-6 weeks. We use Remix and Shopify's Polaris design system for rapid development. Our standard delivery is 35 days from kickoff to App Store listing.</p></details><details><summary><h3>Do you guarantee Shopify App Store approval?</h3><i aria-hidden="true"></i></summary><p>Yes, we guarantee App Store approval. We are Built for Shopify certified and follow all Shopify API best practices, Polaris design guidelines, and performance standards. If your app is not approved, we will rework it at no additional cost.</p></details><details><summary><h3>What types of Shopify apps do you build?</h3><i aria-hidden="true"></i></summary><p>We build conversion boosters, subscription management apps, inventory and operations tools, reviews and UGC platforms, search and merchandising solutions, and analytics and reporting dashboards. We use React, Node.js, Remix, and Shopify APIs.</p></details><details><summary><h3>Can you help with an existing Shopify app that needs improvement?</h3><i aria-hidden="true"></i></summary><p>Absolutely. We help optimize existing Shopify apps for performance, improve UX using Polaris, fix App Store compliance issues, add new features, and improve install and retention rates. We also offer our Shopify App Reviews service to boost your app visibility.</p></details><details><summary><h3>Do you build custom apps for a single store, or only public App Store apps?</h3><i aria-hidden="true"></i></summary><p>Both. A public app is listed on the Shopify App Store for any merchant to install; a custom app is built for one store or one brand and never listed. If you are not sure which you need, our guide <a href="/blog/do-you-need-a-custom-shopify-app/">Do you need a custom Shopify app?</a> walks through it, and the call is free.</p></details><details><summary><h3>How do we get started?</h3><i aria-hidden="true"></i></summary><p>Book a 30-minute call or send the form at the bottom of this page with your app idea. We come back with questions, a suggested scope and the package that fits.</p></details></div></div></section>
+<section id="contact" class="hx-sec hx-sec--tint"><div class="hx-wrap"><div class="hx-audit"><div class="hx-audit-copy"><p class="hx-badge"><i></i>Free estimate</p><h2>Ready to Build Your Shopify App?</h2><p>Get a detailed estimate and roadmap for your app idea. We'll show you exactly how to reach 10,000+ merchants.</p><ul class="hx-checks"><li>Detailed estimate and roadmap</li><li>Competitive analysis</li><li>Monetization strategy</li></ul><ul class="hx-stats hx-stats--sm" aria-label="imisofts in numbers"><li><b>500+</b><span>Projects delivered</span></li><li><b>200+</b><span>Clients served</span></li><li><b>$2M+</b><span>Pipeline generated</span></li></ul></div><div class="hx-form"><h3>Get App Estimate</h3><p>Free consultation includes competitive analysis and monetization strategy</p><div class="hx-form-frame"><iframe class="clickup-embed" src="https://forms.clickup.com/90182475304/p/f/2kzmpqh8-778/LRSQ2Q9CSVZE21JQM2/contact-us-form-all-pages" onwheel="" loading="lazy" width="100%" height="950px" style="background: transparent; border: none; margin-top: -120px;" scrolling="no"></iframe></div><script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script><div class="hx-form-chat"><p>Questions? WhatsApp us:</p><a class="hx-wa" href="https://wa.me/971524320369" target="_blank" rel="noopener noreferrer"><svg class="hx-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+971 52 432 0369</a></div></div></div></div></section>
+</main>
+<footer class="footer" role="contentinfo" aria-label="Site footer">
     <!-- CTA Banner -->
     <div class="footer-cta-banner">
       <div class="container">
