@@ -50,7 +50,10 @@ SERVICE_GROUPS = [
     ('Web, e-commerce and product', [
         '/web-development', '/ecommerce', '/shopify-apps', '/hire-shopify-expert',
         '/ai-mobile-apps', '/launch-your-saas', '/digital-marketing', '/shopify-app-reviews',
-        '/products',
+        '/products', '/ui-ux-design', '/blockchain-development',
+    ]),
+    ('Cloud, security and CRM platforms', [
+        '/aws-cloud-migration', '/cybersecurity-services', '/salesforce-implementation', '/hubspot-implementation',
     ]),
     ('Free tools', [
         '/dns-propagation-checker', '/spf-dkim-dmarc-checker', '/send-to-webhook',
@@ -118,7 +121,7 @@ SERVICE_GROUPS = [
         '/website-copy-generator',
     ]),
 ]
-COMPANY_PAGES = ['/pricing', '/about', '/case-studies', '/clients', '/contact', '/free-audit', '/faq',
+COMPANY_PAGES = ['/pricing', '/about', '/case-studies', '/clients', '/industries', '/contact', '/free-audit', '/faq',
                  '/support', '/careers', '/api-docs',
                  '/newsdesk/', '/newsdesk/outbound-compliance/', '/newsdesk/outbound-tools/',
                  '/newsdesk/how-we-report/', '/newsdesk/editorial-standards/', '/newsdesk/corrections/',
