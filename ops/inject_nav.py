@@ -45,9 +45,45 @@ NEW = [
      "Domains, authentication and warm-up",
      "Email Infrastructure",
      "M3 7l9 6 9-6M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z"),
+    ("/ui-ux-design", "UI/UX Design",
+     "Research, Figma and design systems",
+     "UI/UX Design",
+     "M4 20h4L19 9a2.8 2.8 0 00-4-4L4 16zM13.5 6.5l4 4"),
+    ("/blockchain-development", "Blockchain Development",
+     "Smart contracts and Web3 apps",
+     "Blockchain Development",
+     "M12 3l8 4.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9"),
+    ("/aws-cloud-migration", "AWS Cloud Migration",
+     "Move to AWS with a tested cutover",
+     "AWS Cloud Migration",
+     "M7 18.5h10.5a4 4 0 00.6-7.95A5.5 5.5 0 007.4 9.1 4.75 4.75 0 007 18.5z"),
+    ("/cybersecurity-services", "Cybersecurity Services",
+     "Assessments, hardening, monitoring",
+     "Cybersecurity Services",
+     "M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3zM9 12l2 2 4-4"),
+    ("/salesforce-implementation", "Salesforce Implementation",
+     "Sales Cloud setup, data and Flow",
+     "Salesforce Implementation",
+     "M4 5h16l-6 7.5V19l-4 1.5v-8z"),
+    ("/hubspot-implementation", "HubSpot Implementation",
+     "Onboarding, migration, workflows",
+     "HubSpot Implementation",
+     "M6 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM18 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM12 15.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM8.5 6h7M7.3 8.2l3.5 7.6M16.7 8.2l-3.5 7.6"),
 ]
 
 ANCHOR = "/ai-automation"   # clone the entry for this page, insert directly after it
+
+# Entries that do not belong after /ai-automation name the link they follow (added 2026-11-16 for the six
+# Development services; each one follows the previous one, so the menu keeps this order). Entries that are not
+# listed here keep the default ANCHOR, exactly as before.
+AFTER = {
+    "/ui-ux-design": "/launch-your-saas",
+    "/blockchain-development": "/ui-ux-design",
+    "/aws-cloud-migration": "/blockchain-development",
+    "/cybersecurity-services": "/aws-cloud-migration",
+    "/salesforce-implementation": "/cybersecurity-services",
+    "/hubspot-implementation": "/salesforce-implementation",
+}
 
 # Top-level pages that are not services: (slug, menu label, footer label, slug of the link it follows)
 TOP = [
@@ -67,12 +103,18 @@ FOOT = [
     ("/newsdesk/", "News", ('<li><a href="/blog">Blog</a></li>', '<li><a href="/blog/">Blog</a></li>')),
 ]
 
+# The Industries hub (proposed 2026-11-16): one "All Industries" link at the top of the Industries
+# dropdown, the Industries group of the mobile menu and the Industries column of the footer.
+# (href, label, dropdown description, svg path d)
+HUB = ("/industries", "All Industries", "Every industry we build for",
+       "M4 4h6.5v6.5H4zM13.5 4H20v6.5h-6.5zM4 13.5h6.5V20H4zM13.5 13.5H20V20h-6.5z")
+
 SKIP_DIRS = {".git", ".github", "node_modules", "ops", "content", "assets", "data"}
 
 
-def mega_block(html, slug, title, desc, dpath):
+def mega_block(html, slug, title, desc, dpath, anchor=ANCHOR):
     """Clone the anchor's mega-item block and retarget it."""
-    i = html.find('<a href="%s" class="mega-item">' % ANCHOR)
+    i = html.find('<a href="%s" class="mega-item">' % anchor)
     if i == -1:
         return None, None
     j = html.find("</a>", i)
@@ -80,7 +122,7 @@ def mega_block(html, slug, title, desc, dpath):
         return None, None
     j += 4
     block = html[i:j]
-    new = block.replace('href="%s"' % ANCHOR, 'href="%s"' % slug, 1)
+    new = block.replace('href="%s"' % anchor, 'href="%s"' % slug, 1)
     new = re.sub(r'(<div class="mega-item-title">)[^<]*(</div>)',
                  lambda m: m.group(1) + title + m.group(2), new, count=1)
     new = re.sub(r'(<div class="mega-item-desc">)[^<]*(</div>)',
@@ -109,16 +151,17 @@ def process(path, report):
         in_footer = '<li><a href="%s">' % slug in html
         if in_mega and in_mobile and in_footer:
             continue  # fully wired
+        anchor = AFTER.get(slug, ANCHOR)
 
         # 1. desktop mega-menu
-        pos, blk = (None, None) if in_mega else mega_block(html, slug, title, desc, dpath)
+        pos, blk = (None, None) if in_mega else mega_block(html, slug, title, desc, dpath, anchor)
         if pos:
             sep = "\n" + " " * 22
             html = html[:pos] + sep + blk + html[pos:]
             report["mega"] += 1
 
         # 2. mobile menu
-        mob = '<a href="%s" class="mobile-service-link">' % ANCHOR
+        mob = '<a href="%s" class="mobile-service-link">' % anchor
         k = -1 if in_mobile else html.find(mob)
         if k != -1:
             end = html.find("</a>", k) + 4
@@ -131,7 +174,7 @@ def process(path, report):
             report["mobile"] += 1
 
         # 3. footer
-        foot_anchor = '<li><a href="%s">' % ANCHOR
+        foot_anchor = '<li><a href="%s">' % anchor
         f = -1 if in_footer else html.find(foot_anchor)
         if f != -1:
             fend = html.find("</li>", f) + 5
@@ -201,6 +244,47 @@ def process(path, report):
             if done:
                 break
 
+    # ---- Industries hub link (desktop dropdown, mobile group, footer column) ----
+    href, label, desc, dpath = HUB
+    # 1. desktop: clone the first item of the Industries dropdown and put the copy in front of it
+    if '<a href="%s" class="dropdown-link">' % href not in html:
+        d = html.find('<div class="nav-dropdown" id="industriesDropdown">')
+        s = html.find('<div class="dropdown-simple">', d) if d != -1 else -1
+        k = html.find('<a href="', s) if s != -1 else -1
+        if k != -1 and html[k:html.find('>', k)].endswith('class="dropdown-link"'):
+            end = html.find("</a>", k) + 4
+            blk = html[k:end]
+            blk = re.sub(r'<a href="[^"]*"', '<a href="%s"' % href, blk, count=1)
+            blk = re.sub(r'(<div class="dropdown-link-title">)[^<]*(</div>)', lambda m: m.group(1) + label + m.group(2), blk, count=1)
+            blk = re.sub(r'(<div class="dropdown-link-desc">)[^<]*(</div>)', lambda m: m.group(1) + desc + m.group(2), blk, count=1)
+            blk = re.sub(r'(<path stroke-linecap="round" stroke-linejoin="round" stroke-width="[^"]*" d=")[^"]*(")',
+                         lambda m: m.group(1) + dpath + m.group(2), blk, count=1)
+            ls = html.rfind("\n", 0, k)
+            indent = "" if ls == -1 else "\n" + re.match(r"[ \t]*", html[ls + 1:k]).group(0)
+            html = html[:k] + blk + indent + html[k:]
+            report["hub"] += 1
+    # 2. mobile: first link of the Industries group
+    if '<a href="%s" class="mobile-service-link">' % href not in html:
+        m = re.search(r'<div class="mobile-services-title"[^>]*>\s*Industries\s*<svg', html)
+        c = html.find('<div class="mobile-section-content">', m.end()) if m else -1
+        k = html.find('<a href="', c) if c != -1 else -1
+        if k != -1 and html[k:html.find('>', k)].endswith('class="mobile-service-link"'):
+            ls = html.rfind("\n", 0, k)
+            indent = "" if ls == -1 else "\n" + re.match(r"[ \t]*", html[ls + 1:k]).group(0)
+            html = html[:k] + '<a href="%s" class="mobile-service-link">%s</a>' % (href, label) + indent + html[k:]
+            report["hub"] += 1
+    # 3. footer: first item of the Industries column (only inside <footer>)
+    fi = html.find("<footer")
+    if fi != -1 and '<li><a href="%s">' % href not in html[fi:]:
+        h = html.find('<span class="footer-heading">Industries</span>', fi)
+        u = html.find('<ul class="footer-links">', h) if h != -1 else -1
+        k = html.find('<li>', u) if u != -1 else -1
+        if k != -1 and k < html.find('</ul>', u):
+            ls = html.rfind("\n", 0, k)
+            indent = "" if ls == -1 else "\n" + re.match(r"[ \t]*", html[ls + 1:k]).group(0)
+            html = html[:k] + '<li><a href="%s">%s</a></li>' % (href, label) + indent + html[k:]
+            report["hub"] += 1
+
     if html != orig:
         open(path, "w", encoding="utf-8").write(html)
         return True
@@ -208,7 +292,7 @@ def process(path, report):
 
 
 def main():
-    report = {"mega": 0, "mobile": 0, "footer": 0, "top": 0, "foot": 0}
+    report = {"mega": 0, "mobile": 0, "footer": 0, "top": 0, "foot": 0, "hub": 0}
     changed = scanned = 0
     for dirpath, dirnames, filenames in os.walk(ROOT):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
@@ -223,6 +307,7 @@ def main():
           % (report["mega"], report["mobile"], report["footer"]))
     print("top-level links added -> %d" % report["top"])
     print("footer-only links added -> %d" % report["foot"])
+    print("industries hub links added -> %d" % report["hub"])
     if changed == 0:
         print("nothing to do (already wired)")
     return 0
