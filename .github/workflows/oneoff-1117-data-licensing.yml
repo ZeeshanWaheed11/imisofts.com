@@ -1,0 +1,73 @@
+# One-off, 2026-11-17 (owner: "Publish. Make it fully SEO optimized and phone responsive."): wire in /ai-data-licensing.
+# The page and its share image are uploaded before this runs; the menu, mobile menu and footer links come from
+# ops/inject_nav.py (Update nav workflow). This adds the URL to sitemap.xml and to the "AI automation and AI search"
+# group in ops/build_llms.py, regenerates llms.txt and llms-full.txt, then pings IndexNow once the page is live.
+# Only adds; idempotent.
+name: One-off 2026-11-17 AI data licensing page
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1117-data-licensing.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      INDEXNOW_QUEUE: /tmp/indexnow_queue.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Sitemap and llms list
+        run: |
+          python3 - <<'PY2'
+          import os, json
+          TODAY = '2026-11-17'
+          NEW = ['/ai-data-licensing']
+          missing = [u for u in NEW if not os.path.exists(u.lstrip('/') + '.html')]
+          if missing:
+              raise SystemExit('pages not in the repo yet: %s' % missing)
+          p = 'sitemap.xml'
+          x = open(p, encoding='utf-8').read(); x0 = x
+          for u in NEW:
+              loc = 'https://imisofts.com' + u
+              if '<loc>%s</loc>' % loc in x:
+                  continue
+              x = x.replace('</urlset>', '<url>\n<loc>%s</loc>\n<lastmod>%s</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n</urlset>' % (loc, TODAY), 1)
+          if x != x0:
+              open(p, 'w', encoding='utf-8').write(x)
+          print('sitemap:', 'updated' if x != x0 else 'unchanged')
+          p = 'ops/build_llms.py'
+          s = open(p, encoding='utf-8').read()
+          if "'/ai-data-licensing'" not in s:
+              anchor = "        '/crm-development',\n    ]),\n"
+              if s.count(anchor) != 1:
+                  raise SystemExit('build_llms anchor not found')
+              s = s.replace(anchor, "        '/crm-development', '/ai-data-licensing',\n    ]),\n", 1)
+              open(p, 'w', encoding='utf-8').write(s)
+              print('build_llms: added /ai-data-licensing to AI automation and AI search')
+          json.dump(['https://imisofts.com' + u for u in NEW], open(os.environ.get('INDEXNOW_QUEUE', '/tmp/indexnow_queue.json'), 'w'))
+          PY2
+      - name: Regenerate llms.txt and llms-full.txt
+        run: python3 ops/build_llms.py
+        continue-on-error: true
+      - name: Commit
+        run: |
+          git config user.name "imisofts-pages-bot"
+          git config user.email "pages-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "pages: /ai-data-licensing in sitemap.xml and llms.txt (owner request 2026-11-17)"
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Ping IndexNow once the page is live
+        run: python3 ops/indexnow_after_deploy.py
+        continue-on-error: true
+        timeout-minutes: 20
