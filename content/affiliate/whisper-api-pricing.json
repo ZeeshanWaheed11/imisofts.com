@@ -1,0 +1,130 @@
+{
+  "slug": "whisper-api-pricing",
+  "title": "Whisper API Pricing: $0.006 a Minute Until the Feb 2027 Shutdown",
+  "desc": "Whisper API pricing: OpenAI lists Whisper (whisper-1) at $0.006 a minute, $0.36 an hour. It shuts down Feb 26, 2027; gpt-transcribe lists $0.0045, 25% less.",
+  "date": "2026-11-17",
+  "time": "13:40",
+  "keywords": "whisper api pricing, openai whisper pricing, whisper api cost, whisper-1 deprecation, gpt-transcribe pricing, openai transcription pricing, whisper api free, groq whisper pricing, speech to text api pricing",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "What does the Whisper API cost per minute, and what replaces it after February 26, 2027?",
+  "qtype": "cost",
+  "cta": "Planning a call transcription workflow? Talk to us",
+  "image": {
+    "cluster": "AI cost and limits",
+    "takeaway": "OpenAI lists Whisper at an estimated $0.006 a minute and shuts it down on Feb 26, 2027; gpt-transcribe lists $0.0045.",
+    "alt": "Whisper API pricing: our arithmetic on OpenAI estimated costs and Groq listed prices for 3,000 minutes of audio",
+    "chart": {
+      "title": "Cost of 3,000 minutes of audio by model",
+      "subtitle": "Our arithmetic: a hypothetical 500 calls of 6 minutes; OpenAI estimated costs and Groq listed prices, 17 Nov 2026.",
+      "type": "hbar",
+      "rows": [
+        [
+          "whisper-1",
+          18.0
+        ],
+        [
+          "gpt-transcribe",
+          13.5
+        ],
+        [
+          "gpt-4o-mini-transcribe",
+          9.0
+        ],
+        [
+          "Groq whisper-large-v3",
+          5.55
+        ],
+        [
+          "Groq large-v3-turbo",
+          2.0
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 0,
+      "after_heading": "What a month of call transcripts costs",
+      "source": "Our arithmetic on OpenAI estimated costs and Groq listed prices. Source: developers.openai.com and console.groq.com, November 2026"
+    }
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Whisper (whisper-1)",
+        "value": "$0.006 a minute",
+        "note": "OpenAI's estimated cost; $0.36 an hour"
+      },
+      {
+        "label": "Whisper shutdown",
+        "value": "Feb 26, 2027",
+        "note": "announced Aug 26, 2026"
+      },
+      {
+        "label": "gpt-transcribe",
+        "value": "$0.0045 a minute",
+        "note": "25% less than Whisper"
+      },
+      {
+        "label": "gpt-4o-mini-transcribe",
+        "value": "$0.003 a minute",
+        "note": "also deprecated; gpt-transcribe is 50% more"
+      },
+      {
+        "label": "gpt-live-transcribe",
+        "value": "$0.017 a minute",
+        "note": "streaming audio"
+      },
+      {
+        "label": "File size limit",
+        "value": "25 MB",
+        "note": "OpenAI file transcription"
+      },
+      {
+        "label": "Groq whisper-large-v3",
+        "value": "$0.111 an hour",
+        "note": "10 second minimum per request"
+      },
+      {
+        "label": "Groq whisper-large-v3-turbo",
+        "value": "$0.04 an hour",
+        "note": "no translation support"
+      },
+      {
+        "label": "3,000 minutes on Whisper",
+        "value": "$18.00",
+        "note": "our arithmetic, hypothetical volume"
+      }
+    ],
+    "source": "Source: OpenAI API pricing, deprecations, changelog and file transcription guide; Groq speech to text docs; read November 17, 2026."
+  },
+  "body": "<p><strong>Short answer.</strong> The OpenAI Whisper API (model <code>whisper-1</code>) is listed at <a href=\"https://developers.openai.com/api/docs/pricing\">$0.006 per minute of audio</a>, about $0.36 an hour, in the estimated cost column of OpenAI's pricing page. It is already marked deprecated: OpenAI's <a href=\"https://developers.openai.com/api/docs/deprecations\">deprecations page</a> says whisper-1 shuts down on February 26, 2027, with gpt-transcribe or gpt-live-transcribe as the replacement. gpt-transcribe is listed at $0.0045 a minute, 25% less than Whisper.</p>\n<p>This guide is for founders, developers and small teams that run Whisper on recorded sales calls, voicemails, meetings or support calls. It covers every transcription price on OpenAI's pricing page as read on November 17, 2026, what the February 2027 shutdown changes, what a typical monthly volume costs on each model, and what Groq charges to run the open Whisper model. Worked examples are our own arithmetic on published prices.</p>\n<h2 id=\"price-per-minute\">Whisper API price per minute and per hour</h2>\n<p>OpenAI's <a href=\"https://developers.openai.com/api/docs/pricing\">pricing page</a> lists eight transcription and translation models. Whisper and the gpt-4o models are flagged \"Deprecated\". The per hour column is our arithmetic (per minute times 60).</p>\n<table>\n<thead><tr><th>Model</th><th>Use</th><th>Listed cost per minute</th><th>Per hour</th><th>Status</th></tr></thead>\n<tbody>\n<tr><td>whisper-1 (Whisper)</td><td>Transcription</td><td>$0.006</td><td>$0.36</td><td>Deprecated, shuts down Feb 26, 2027</td></tr>\n<tr><td>gpt-transcribe</td><td>Transcription</td><td>$0.0045</td><td>$0.27</td><td>Not deprecated; recommended</td></tr>\n<tr><td>gpt-4o-transcribe</td><td>Transcription</td><td>$0.006</td><td>$0.36</td><td>Deprecated, shuts down Feb 26, 2027</td></tr>\n<tr><td>gpt-4o-mini-transcribe</td><td>Transcription</td><td>$0.003</td><td>$0.18</td><td>Deprecated, shuts down Feb 26, 2027</td></tr>\n<tr><td>gpt-4o-transcribe-diarize</td><td>Transcription with speaker labels</td><td>$0.006</td><td>$0.36</td><td>Deprecated, shuts down Feb 26, 2027</td></tr>\n<tr><td>gpt-live-transcribe</td><td>Live (streaming) transcription</td><td>$0.017</td><td>$1.02</td><td>Not deprecated</td></tr>\n<tr><td>gpt-realtime-whisper</td><td>Live (streaming) transcription</td><td>$0.017</td><td>$1.02</td><td>Not deprecated</td></tr>\n<tr><td>gpt-realtime-translate</td><td>Live translation</td><td>$0.034</td><td>$2.04</td><td>Not deprecated</td></tr>\n</tbody>\n</table>\n<p>Two details matter when you read that table. First, OpenAI labels the per minute figures \"Estimated cost\". For Whisper and gpt-transcribe the page shows no token rates, only the per minute estimate. Second, the three deprecated gpt-4o models also carry token rates: $2.50 input and $10.00 output per million tokens for gpt-4o-transcribe and the diarize model, and $1.25 and $5.00 for gpt-4o-mini-transcribe. Those token rates sit alongside the per minute estimate.</p>\n<h2 id=\"shutdown\">The February 26, 2027 shutdown</h2>\n<p>OpenAI <a href=\"https://developers.openai.com/api/docs/changelog\">announced on August 26, 2026</a> \"the deprecation of whisper-1, gpt-4o-transcribe, gpt-4o-mini-transcribe, and gpt-4o-transcribe-diarize. These models will shut down on February 26, 2027.\" The same date applies to the <code>/v1/audio/translations</code> endpoint, according to OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/speech-to-text\">file transcription guide</a>.</p>\n<p>Counting from November 17, 2026, that leaves 101 days. On OpenAI's <a href=\"https://developers.openai.com/api/docs/deprecations\">deprecations page</a>, \"Deprecated\" means \"You can still use it until its shutdown date\", and \"Shutdown\" means \"The model no longer accepts requests through the standard API.\" So a Whisper integration keeps working until February 26, 2027 (listed today at $0.006 a minute), and then its requests stop being accepted. The page also says \"Impacted customers will always be notified by email and in our documentation.\"</p>\n<p>The deprecations page names gpt-live-transcribe or gpt-transcribe as the replacement. The <a href=\"https://developers.openai.com/api/docs/changelog\">changelog of July 28, 2026</a>, when both were released, describes gpt-transcribe for \"accurate file transcription\" and gpt-live-transcribe for \"low-latency streaming transcription\". OpenAI says both \"support free-form transcription context, keyword hints, and multiple expected input languages.\"</p>\n<h2 id=\"what-moving-costs\">What moving off Whisper costs you</h2>\n<p>The price effect depends on which deprecated model you run today. Our arithmetic on the listed estimates:</p>\n<ul>\n<li><strong>From whisper-1 to gpt-transcribe:</strong> $0.006 to $0.0045 a minute, 25% lower.</li>\n<li><strong>From gpt-4o-transcribe or gpt-4o-transcribe-diarize to gpt-transcribe:</strong> the same 25% drop, since both deprecated models list $0.006.</li>\n<li><strong>From gpt-4o-mini-transcribe to gpt-transcribe:</strong> $0.003 to $0.0045 a minute, 50% higher. Among the deprecated file models, this is the one move that raises the bill.</li>\n<li><strong>From any file model to gpt-live-transcribe:</strong> $0.017 a minute, about 3.8 times gpt-transcribe. Use it only when you need text while the audio is still arriving.</li>\n</ul>\n<p>For recorded calls, OpenAI's guide recommends gpt-transcribe; check the features below before you switch. Live transcription is a different job, and the guide sends audio \"still arriving from a microphone, call, or media stream\" to Realtime transcription.</p>\n<h2 id=\"worked-cost\">What a month of call transcripts costs</h2>\n<p>A hypothetical sales team records 500 calls a month that average 6 minutes each: 3,000 minutes of audio. At the listed estimates, that month costs:</p>\n<table>\n<thead><tr><th>Model</th><th>3,000 minutes</th><th>1,000 hours</th></tr></thead>\n<tbody>\n<tr><td>whisper-1</td><td>$18.00</td><td>$360</td></tr>\n<tr><td>gpt-4o-transcribe</td><td>$18.00</td><td>$360</td></tr>\n<tr><td>gpt-transcribe</td><td>$13.50</td><td>$270</td></tr>\n<tr><td>gpt-4o-mini-transcribe</td><td>$9.00</td><td>$180</td></tr>\n<tr><td>gpt-live-transcribe</td><td>$51.00</td><td>$1,020</td></tr>\n</tbody>\n</table>\n<p>At this volume the switch from Whisper to gpt-transcribe saves $4.50 a month, so price is not the reason to plan the move: the shutdown date is. At 1,000 hours a month the gap is $90. If you also run a model over each transcript to score a call, write CRM notes or draft a follow-up, that is billed separately in tokens. If transcripts feed your CRM and follow-ups, our guide to <a href=\"/blog/sales-automation-software/\">sales automation software</a> covers the tools that pick them up.</p>\n<h2 id=\"features\">What gpt-transcribe does and what the guide still shows on Whisper</h2>\n<p>OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/speech-to-text\">file transcription guide</a> says: \"Start with gpt-transcribe. This is the recommended model for transcribing recorded speech in its original language.\" It returns the transcript and the detected languages as JSON, and accepts a prompt, keywords and expected languages \"to improve transcription of domain terms and multilingual audio\".</p>\n<p>The same guide adds: \"The specialized examples for speaker labels, word timestamps, and subtitle formats below use deprecated models.\" Specifically:</p>\n<ul>\n<li><strong>Word or segment timestamps:</strong> the guide's example uses whisper-1, available \"until February 26, 2027\".</li>\n<li><strong>Speaker labels:</strong> the guide points existing integrations to gpt-4o-transcribe-diarize, also until February 26, 2027.</li>\n<li><strong>Translation to English:</strong> the <code>/v1/audio/translations</code> endpoint uses whisper-1 and shuts down the same day. The guide says to \"Migrate to Realtime translation with gpt-realtime-translate\", a streaming session listed at $0.034 a minute.</li>\n</ul>\n<p>If your workflow depends on timestamps for captions, speaker labels for call coaching, or translation of recorded files, test what gpt-transcribe returns before February. We did not find a statement on that page that gpt-transcribe offers those outputs.</p>\n<h2 id=\"limits\">File size and format limits</h2>\n<p>The guide sets the same limits for file transcription: \"Files can be up to 25 MB. Supported input formats include flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, and webm.\" For longer recordings it says to \"use a compressed audio format or split the file into chunks of 25 MB or less\", and to avoid splitting in the middle of a sentence.</p>\n<h2 id=\"open-whisper\">Is Whisper free? The open model and hosted options</h2>\n<p>The Whisper API is not free: OpenAI's pricing page lists an estimated $0.006 per minute. Our guide to the <a href=\"/blog/openai-api-free-tier/\">OpenAI API free tier</a> covers what a new account gets. The Whisper model itself is open: on <a href=\"https://github.com/openai/whisper\">GitHub</a>, OpenAI says \"Whisper's code and model weights are released under the MIT License.\" That repository lists six model sizes, from tiny (39 million parameters, about 1 GB of VRAM) to large (1,550 million parameters, about 10 GB), and turbo (809 million, about 6 GB). Running it yourself means paying for the hardware instead of a per minute fee, and the February 2027 shutdown applies to OpenAI's API, not to those published weights.</p>\n<p>Groq, for example, hosts the open model. Its <a href=\"https://console.groq.com/docs/speech-to-text\">speech to text docs</a> list whisper-large-v3 at $0.111 an hour and whisper-large-v3-turbo at $0.04 an hour. Per minute, that is about $0.00185 and $0.00067, roughly a third and a ninth of OpenAI's Whisper estimate. Groq lists translation support for large-v3 but not for turbo, and bills a minimum of 10 seconds per request: \"If you submit a request less than this, you will still be billed for 10 seconds.\" For a wider price comparison across transcription vendors, read our page on <a href=\"/blog/ai-transcription-cost-per-hour/\">AI transcription cost per hour</a>.</p>\n<h2 id=\"checklist\">A short migration checklist</h2>\n<ol>\n<li>Search your code for <code>whisper-1</code>, the three gpt-4o transcribe models and <code>/v1/audio/translations</code>.</li>\n<li>Run a sample of real recordings through gpt-transcribe with your product names in <code>keywords</code>, and compare the output with your Whisper transcripts.</li>\n<li>Check any step that reads timestamps, speaker labels or subtitle formats, since the guide's examples for those use deprecated models.</li>\n<li>Recompute your monthly cost at $0.0045 a minute, or at $0.017 if you move to live transcription.</li>\n<li>Ship the switch well before February 26, 2027. Our page on the <a href=\"/blog/gpt-4o-api-shutdown/\">GPT-4o API shutdown</a> lists the other OpenAI models retiring in the same window.</li>\n</ol>\n<p>If you record calls to transcribe them, the consent rules for recording come first; our state by state guide to <a href=\"/blog/call-recording-laws-by-state/\">call recording laws</a> covers them. This is general information, not legal advice.</p>\n<h2 id=\"imisofts\">How imisofts can help</h2>\n<p>imisofts builds AI voice agents, call workflows and automation; see our pages on <a href=\"/ai-calling-home-services\">AI calling for home services</a> and our <a href=\"/ai-automation-agency\">AI automation agency</a>. If you are planning a transcription workflow, we can talk it through with you. For the agents that answer calls themselves, see our comparison of the <a href=\"/blog/best-ai-voice-agents-2026/\">best AI voice agents</a>.</p>\n<h2 id=\"not-verified\">What we could not verify</h2>\n<ul>\n<li>Whether OpenAI bills Whisper to the second or rounds to the minute. The pricing page shows only an estimated cost per minute.</li>\n<li>Whether gpt-transcribe returns word timestamps, speaker labels or subtitle formats. The guide shows those only on deprecated models.</li>\n<li>Groq's main pricing page, which redirected to its home page when we checked; Groq figures above come from its speech to text docs.</li>\n</ul>",
+  "faqs": [
+    [
+      "How much does the Whisper API cost?",
+      "OpenAI's pricing page lists Whisper (whisper-1) at an estimated $0.006 per minute of audio, which is $0.36 an hour, as read on November 17, 2026. A hypothetical 3,000 minutes of call recordings a month comes to $18.00."
+    ],
+    [
+      "Is the OpenAI Whisper API being shut down?",
+      "Yes. OpenAI announced on August 26, 2026 that whisper-1, gpt-4o-transcribe, gpt-4o-mini-transcribe and gpt-4o-transcribe-diarize shut down on February 26, 2027. Its file transcription guide says the /v1/audio/translations endpoint shuts down the same day. The deprecations page names gpt-transcribe or gpt-live-transcribe as the replacement."
+    ],
+    [
+      "What replaces Whisper in the OpenAI API?",
+      "For recorded files, gpt-transcribe, listed at an estimated $0.0045 a minute, 25% less than Whisper. For streaming audio, gpt-live-transcribe at $0.017 a minute. Both were released on July 28, 2026."
+    ],
+    [
+      "Is the Whisper API free?",
+      "No. The API is billed per minute. The Whisper model itself is open: OpenAI released its code and weights under the MIT License on GitHub, so you can run it on your own hardware and pay for compute instead of a per minute fee."
+    ],
+    [
+      "Is Whisper cheaper on Groq than on OpenAI?",
+      "Groq's docs list whisper-large-v3 at $0.111 an hour and whisper-large-v3-turbo at $0.04 an hour, about $0.00185 and $0.00067 a minute. OpenAI lists Whisper at $0.006 a minute. Groq bills at least 10 seconds per request."
+    ],
+    [
+      "What is the file size limit for the Whisper API?",
+      "OpenAI's file transcription guide says files can be up to 25 MB, in flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav or webm. Longer recordings need compression or chunks of 25 MB or less."
+    ]
+  ],
+  "word_count": 1751,
+  "read_time": 8
+}
