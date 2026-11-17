@@ -38,6 +38,14 @@ def _fit(im, w, h, fit):
     cover = big.crop((x, y, x + w, y + h))
     if fit == 'cover':
         return cover
+    if fit == 'flat':
+        # 2026-11-18, image system 2 covers only: the whole cover on its own flat background colour (no blur)
+        px = sorted(im.getpixel((2, y0)) for y0 in range(sh // 4, sh * 3 // 4, max(1, sh // 40)))
+        back = Image.new('RGB', (w, h), px[len(px) // 2])
+        k = min(w / sw, h / sh)
+        fore = im.resize((max(1, round(sw * k)), max(1, round(sh * k))), Image.LANCZOS)
+        back.paste(fore, ((w - fore.width) // 2, (h - fore.height) // 2))
+        return back
     # contain: the whole picture, on a soft backdrop made from the picture itself
     back = Image.blend(cover.filter(ImageFilter.GaussianBlur(30)), Image.new('RGB', (w, h), (248, 249, 251)), 0.6)
     k = min(w / sw, h / sh)
@@ -53,6 +61,17 @@ def ensure(meta, root, html='', folder='news'):
     spec = meta.get('lead') if isinstance(meta.get('lead'), dict) else {}
     src = source_file(slug, root, folder)
     kind, alt, caption, credit, fit = 'file', spec.get('alt') or meta.get('title', ''), spec.get('caption', ''), spec.get('credit', ''), spec.get('fit', 'contain')
+    im2 = meta.get('image') if isinstance(meta.get('image'), dict) else {}
+    if not src and im2.get('style') == 'v2':
+        # 2026-11-18, image system 2: the three shapes for Google come from the preview cover; the explainer stays
+        # the visible top picture (news_template keeps it). Only specs with image.style v2 reach this branch.
+        m = re.search(r'<meta property="og:image" content="https://imisofts\.com(/assets/blog/[^"]+/cover-[0-9a-f]+)\.jpg"', html or '')
+        if not m:
+            return None
+        src = os.path.join(root, m.group(1).lstrip('/') + '.jpg')
+        if not os.path.exists(src):
+            return None
+        kind, alt, caption, credit, fit = 'v2', im2.get('alt') or meta.get('title', ''), '', '', 'flat'
     if not src:
         m = _CHART_RX.search(html or '')
         if not m:
@@ -62,7 +81,8 @@ def ensure(meta, root, html='', folder='news'):
             return None
         ch = (meta.get('image') or {}).get('chart') or {}
         kind, alt, caption, credit, fit = 'chart', ch.get('alt') or ch.get('title') or meta.get('title', ''), ch.get('source', ''), '', 'contain'
-    fit = 'cover' if fit == 'cover' else 'contain'
+    if kind != 'v2':
+        fit = 'cover' if fit == 'cover' else 'contain'
     data = open(src, 'rb').read()
     hh = hashlib.sha1((VERSION + '|' + fit + '|').encode() + data).hexdigest()[:10]
     out_dir = os.path.join(root, 'assets', 'blog', slug)

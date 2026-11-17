@@ -181,7 +181,8 @@ def _markup(html, meta, lead=None):
         o['articleSection'] = bname or 'News'
         if lead:
             old = o.get('image') if isinstance(o.get('image'), list) else []
-            keep_chart = [u for u in old if '/chart-' in str(u)] if lead['kind'] == 'file' else []
+            keep_chart = ([u for u in old if '/chart-' in str(u)] if lead['kind'] == 'file' else
+                          [u for u in old if '/chart-' in str(u) or '/explain-' in str(u)] if lead['kind'] == 'v2' else [])
             o['image'] = [SITE + lead['jpg16'], SITE + lead['jpg43'], SITE + lead['jpg11']] + keep_chart
         if meta.get('_upd'):
             o['dateModified'] = max(t for t, _, _ in meta['_upd'])
@@ -240,6 +241,13 @@ def _lead_html(html, meta):
         return html, None
     if not lead:
         return html, None
+    if lead['kind'] == 'v2':
+        # image system 2 (2026-11-18): the explainer stays the visible top picture; the cover shapes feed the share tags and schema
+        url = SITE + lead['jpg16']
+        for rx in (r'(<meta property="og:image" content=")[^"]*(")', r'(<meta name="twitter:image" content=")[^"]*(")'):
+            html = re.sub(rx, lambda m: m.group(1) + url + m.group(2), html, count=1)
+        print('lead image: %s (v2 cover shapes)' % lead['jpg16'])
+        return html, lead
     cap = ' '.join(x for x in (lead['caption'].strip(), ('Credit: ' + lead['credit'].strip()) if lead['credit'].strip() else '') if x)
     fig = ('<figure class="post-hero post-lead" style="margin:0 0 8px">'
            '<img src="%s" width="%d" height="%d" alt="%s" loading="eager" fetchpriority="high" decoding="async">%s</figure>'
