@@ -1,0 +1,130 @@
+{
+  "slug": "grok-api-pricing",
+  "title": "Grok API Pricing: Grok 4.7 at $2 In, $6 Out Per 1M Tokens",
+  "desc": "Grok API pricing: Grok 4.7 costs $2 in and $6 out per 1M tokens, double at 200K or more. Batch is 20% off; a retired image model costs $0.01 less since Nov 2.",
+  "date": "2026-11-17",
+  "time": "11:40",
+  "keywords": "grok api pricing, xai api pricing, grok 4.7 pricing, grok api cost, grok api free tier, xai api free credits, grok batch api, grok web search cost, grok imagine api pricing, grok rate limits",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "What does the Grok API cost per million tokens, and what changed in November 2026?",
+  "qtype": "cost",
+  "cta": "Planning an AI agent? Talk to us",
+  "image": {
+    "cluster": "AI cost and limits",
+    "takeaway": "Grok 4.7 costs $2 input and $6 output per 1M tokens; a prompt of 200K tokens or more doubles every token.",
+    "alt": "Grok API pricing: our arithmetic on xAI list prices for five Grok models",
+    "chart": {
+      "title": "Cost of 1,000 short requests by Grok model",
+      "subtitle": "Our arithmetic: 1,000 input and 500 output tokens each, no cache, xAI list prices on 17 Nov 2026.",
+      "type": "hbar",
+      "rows": [
+        [
+          "grok-4.7",
+          5.0
+        ],
+        [
+          "grok-4.5",
+          5.0
+        ],
+        [
+          "grok-4.3",
+          2.5
+        ],
+        [
+          "grok-4.20",
+          2.5
+        ],
+        [
+          "grok-build-0.1",
+          2.0
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 0,
+      "after_heading": "What a small agent costs a month",
+      "source": "Our arithmetic on xAI list prices. Source: docs.x.ai, November 2026"
+    }
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Grok 4.7 input / output",
+        "value": "$2.00 / $6.00 per 1M tokens",
+        "note": "prompts under 200K tokens"
+      },
+      {
+        "label": "Grok 4.7 cached input",
+        "value": "$0.50 per 1M tokens",
+        "note": "a quarter of the input price"
+      },
+      {
+        "label": "Long-context rates (200K+)",
+        "value": "$4.00 / $12.00 per 1M",
+        "note": "applied to every token in the request"
+      },
+      {
+        "label": "Batch API discount",
+        "value": "20%",
+        "note": "most requests complete within 24 hours"
+      },
+      {
+        "label": "Priority Processing",
+        "value": "2x standard rates",
+        "note": "not for image, video or Batch"
+      },
+      {
+        "label": "US regional endpoint",
+        "value": "1.1x",
+        "note": "currently Grok 4.7 and 4.6 only"
+      },
+      {
+        "label": "Web Search tool",
+        "value": "$5 per 1,000 calls",
+        "note": "token costs billed separately"
+      },
+      {
+        "label": "Image 2.0, 1K low",
+        "value": "$0.04 per image",
+        "note": "$0.01 below the model retired Nov 2, 2026"
+      },
+      {
+        "label": "Voice, speech to speech",
+        "value": "$0.08 a minute",
+        "note": "grok-voice-3.0"
+      }
+    ],
+    "source": "Source: xAI developer docs (pricing, Grok 4.7 model page, rate limits, release notes, image migration guide), read November 17, 2026."
+  },
+  "body": "<p><strong>Short answer.</strong> Grok 4.7, xAI's flagship API model, costs <a href=\"https://docs.x.ai/developers/pricing\">$2.00 per million input tokens, $0.50 per million cached input tokens and $6.00 per million output tokens</a>, and those rates double to $4.00, $1.00 and $12.00 once a prompt reaches 200,000 tokens. The latest dated price change came on November 2, 2026: xAI <a href=\"https://docs.x.ai/developers/migration/imagine-image-quality-nov-2\">retired the grok-imagine-image-quality model</a> and now serves those requests with Grok Imagine Image 2.0 at low quality, which xAI says is \"$0.01 per image cheaper\" at every resolution. Batch text requests are 20% off, priority requests cost 2x, and the US regional endpoint adds 10%.</p>\n<p>This guide is for founders, developers and small teams pricing an app or AI agent on the Grok API. It covers the main meters on xAI's pricing page as read on November 17, 2026: text tokens, the long-context rule, batch, priority, the US endpoint, server-side tools, image, video and voice, plus rate-limit tiers and worked monthly costs. xAI's developer docs now carry the name SpaceXSI; the API is served at api.x.ai. Worked examples are our own arithmetic.</p>\n<h2 id=\"token-prices\">Grok API token prices per model</h2>\n<p>xAI's <a href=\"https://docs.x.ai/developers/pricing\">pricing page</a> lists eight text models. All prices are in USD per million tokens. \"Long\" means a request whose prompt reaches the model's long-context threshold of 200,000 tokens.</p>\n<table>\n<thead><tr><th>Model</th><th>Context</th><th>Input</th><th>Cached input</th><th>Output</th><th>Long: input / cached / output</th></tr></thead>\n<tbody>\n<tr><td>grok-4.7</td><td>500k</td><td>$2.00</td><td>$0.50</td><td>$6.00</td><td>$4.00 / $1.00 / $12.00</td></tr>\n<tr><td>grok-4.6</td><td>500k</td><td>$2.00</td><td>$0.50</td><td>$6.00</td><td>$4.00 / $1.00 / $12.00</td></tr>\n<tr><td>grok-4.5</td><td>500k</td><td>$2.00</td><td>$0.30</td><td>$6.00</td><td>$4.00 / $0.60 / $12.00</td></tr>\n<tr><td>grok-4.3</td><td>1M</td><td>$1.25</td><td>$0.20</td><td>$2.50</td><td>$2.50 / $0.40 / $5.00</td></tr>\n<tr><td>grok-4.20 (reasoning, non-reasoning, multi-agent)</td><td>1M</td><td>$1.25</td><td>$0.20</td><td>$2.50</td><td>$2.50 / $0.40 / $5.00</td></tr>\n<tr><td>grok-build-0.1</td><td>256k</td><td>$1.00</td><td>$0.20</td><td>$2.00</td><td>$2.00 / $0.40 / $4.00</td></tr>\n</tbody>\n</table>\n<p>Grok 4.7 arrived on September 21, 2026 with text and image inputs, according to xAI's <a href=\"https://docs.x.ai/developers/release-notes\">release notes</a>, at the same input and output price as Grok 4.6 and Grok 4.5 (Grok 4.5's cached input is lower, at $0.30). Its <a href=\"https://docs.x.ai/developers/models/grok-4.7\">model page</a> lists a 500,000-token context window and reasoning effort from low to xhigh, with high as the default. xAI's <a href=\"https://docs.x.ai/developers/models\">models page</a> gives Grok 4.7 a knowledge cut-off of May 2026.</p>\n<h2 id=\"long-context\">The 200,000-token rule doubles the whole request</h2>\n<p>The long-context rate is not charged only on the tokens above 200,000. xAI's pricing page says models with long-context pricing \"bill the long context rates for all tokens in a request once its prompt reaches the model's long context threshold.\"</p>\n<p>In our arithmetic on Grok 4.7, a 250,000-token prompt with a 1,000-token answer costs about $1.01, while a 199,000-token prompt with the same answer costs about $0.40. If your agent loads whole documents, trimming the prompt under the threshold cuts that request's cost by more than half in this example.</p>\n<h2 id=\"batch-priority\">Batch, priority and the US endpoint</h2>\n<p>Three switches change the token price of the same model:</p>\n<ul>\n<li><strong>Batch API: 20% off.</strong> The pricing page lists a 20% batch discount for Grok 4.7, 4.6, 4.5, 4.3 and the 4.20 models, applied to \"all token types\". Batch requests are queued, with \"most completing within 24 hours\", and they do not count toward rate limits. The Grok 4.7 model page shows batch rates of $1.60, $0.40 and $4.80 per million tokens. Image and video requests in a batch are billed at standard rates.</li>\n<li><strong>Priority Processing: 2x.</strong> \"Priority requests are billed at a 2x premium over standard rates.\" xAI says Priority Processing is available for the Chat Completions and Responses endpoints only, not for image, video or Batch requests. You pay the priority rate only when the response confirms the priority service tier.</li>\n<li><strong>US regional endpoint: 1.1x.</strong> Requests to us.api.x.ai run inference in the United States and are billed at 1.1x, which xAI states as $2.20, $0.55 and $6.60 per million tokens for Grok 4.7 below 200,000 prompt tokens. Currently only Grok 4.7 and Grok 4.6 are on that endpoint.</li>\n</ul>\n<p>Grok 4.7 Fast, which costs 2x the standard token rates (1.5x for long-context requests), is not on the public API. xAI says it is available only in Cursor and Grok Build and is billed through those plans.</p>\n<h2 id=\"tools\">What server-side tools cost</h2>\n<p>When Grok uses xAI's server-side tools, you pay for tokens, plus a per-call or per-item tool fee where one is listed. The <a href=\"https://docs.x.ai/developers/pricing\">pricing page</a> lists, per 1,000 calls:</p>\n<table>\n<thead><tr><th>Tool</th><th>Price</th></tr></thead>\n<tbody>\n<tr><td>Web Search (image search included)</td><td>$5 per 1,000 calls</td></tr>\n<tr><td>X Search</td><td>$5 per 1,000 posts, $10 per 1,000 profiles</td></tr>\n<tr><td>Code Execution</td><td>$5 per 1,000 calls</td></tr>\n<tr><td>File Attachments</td><td>$5 per 1,000 calls</td></tr>\n<tr><td>Collections Search</td><td>$2.50 per 1,000 calls</td></tr>\n<tr><td>Image and X video understanding, remote MCP tools</td><td>Tokens only</td></tr>\n</tbody>\n</table>\n<p>X Search is billed \"per item fetched rather than per call\", so, for example, a search that fetches 40 posts counts as 40 posts. Because the model decides how many tools to call, xAI notes that \"costs scale with query complexity.\" Grok has no live data unless a search tool is on: the models page says Grok \"has no knowledge of current events\" beyond its training data.</p>\n<p>Storage is metered too: files at $0.025 per GiB a day, collections at $0.10 per GiB a day, and downloads at $0.20 per GiB.</p>\n<h2 id=\"image-video\">Image and video prices, and the November 2 change</h2>\n<p>Grok Imagine Image 2.0 is priced by size and quality: $0.04 (1K), $0.05 (1.5K) and $0.06 (2K) at low quality, and $0.06, $0.07 and $0.08 at medium, plus $0.01 per input image. The older grok-imagine-image costs $0.02 per image at 1K or 2K.</p>\n<p>On November 2, 2026, after a 60-day notice that began September 2, xAI retired grok-imagine-image-quality. The <a href=\"https://docs.x.ai/developers/release-notes\">release notes</a> say requests to that slug and to grok-imagine-image-pro are now served by Image 2.0 at low quality, and \"No request changes are needed.\" The <a href=\"https://docs.x.ai/developers/migration/imagine-image-quality-nov-2\">migration guide</a> says Image 2.0 at low quality is \"$0.01 per image cheaper\" than the retired model at every resolution. By that statement, a 1K image that cost $0.05 now costs $0.04, and a 2K image $0.06 instead of $0.07. xAI recommended switching to grok-imagine-image-2.0 explicitly, which lets you choose the quality you pay for.</p>\n<p>Video is billed per second of output: Grok Imagine Video 1.5 costs $0.08 (480p), $0.14 (720p) and $0.25 (1080p) a second; the 1.5 lite model costs $0.02, $0.03 and $0.14.</p>\n<h2 id=\"voice\">Voice API prices</h2>\n<p>Speech to Speech on grok-voice-3.0 costs $0.08 a minute ($4.80 an hour), the same as Grok Voice 2.0, which xAI deprecated on October 14, 2026. Speech to Text costs $0.10 an hour over REST and $0.20 an hour streaming, and Text to Speech costs $15.00 per million characters. At $0.08 a minute, 1,000 minutes of speech-to-speech calls come to $80 before any telephony. If you run phone agents for a trade business, see <a href=\"/ai-calling-home-services\">AI calling for home services</a>. For a full voice agent breakdown, see our page on <a href=\"/blog/grok-voice-api-pricing/\">Grok Voice 3.0 pricing</a>.</p>\n<h2 id=\"worked-cost\">What a small agent costs a month</h2>\n<p>A hypothetical support agent on Grok 4.7 sends 3,000 prompt tokens per request (2,000 of them a cached system prompt and knowledge snippet) and gets 500 output tokens back. Our arithmetic at the published rates:</p>\n<table>\n<thead><tr><th>10,000 requests a month on Grok 4.7</th><th>Monthly token cost</th></tr></thead>\n<tbody>\n<tr><td>Standard (global endpoint)</td><td>$60.00</td></tr>\n<tr><td>Batch API (20% off)</td><td>$48.00</td></tr>\n<tr><td>US regional endpoint (1.1x)</td><td>$66.00</td></tr>\n<tr><td>Priority Processing (2x)</td><td>$120.00</td></tr>\n</tbody>\n</table>\n<p>Each request costs $0.006: $0.002 for 1,000 uncached input tokens, $0.001 for 2,000 cached tokens and $0.003 for 500 output tokens. If 1,000 of those requests also run one web search each, add $5. Every API response reports its exact cost in a <code>cost_in_usd_ticks</code> field, which xAI added on April 30, 2026, so you can check this math against real traffic.</p>\n<p>For short requests of 1,000 input and 500 output tokens without caching, 1,000 requests cost $5.00 on Grok 4.7, 4.6 or 4.5, $2.50 on Grok 4.3 or 4.20, and $2.00 on Grok Build 0.1.</p>\n<h2 id=\"rate-limits\">Rate limits and spend tiers</h2>\n<p>xAI sets limits per model in requests per second and tokens per minute, and they rise with your team's tier. The <a href=\"https://docs.x.ai/developers/rate-limits\">rate limits page</a> bases the tier on \"cumulative spend on the xAI API since January 1, 2026\":</p>\n<table>\n<thead><tr><th>Tier</th><th>Cumulative spend</th><th>Grok 4.7 requests per second</th><th>Grok 4.7 tokens per minute</th></tr></thead>\n<tbody>\n<tr><td>Tier 0</td><td>$0 (default)</td><td>150</td><td>50M</td></tr>\n<tr><td>Tier 1</td><td>$50</td><td>172</td><td>53M</td></tr>\n<tr><td>Tier 2</td><td>$250</td><td>208</td><td>60M</td></tr>\n<tr><td>Tier 3</td><td>$1,000</td><td>312</td><td>74M</td></tr>\n<tr><td>Tier 4</td><td>$5,000</td><td>500</td><td>100M</td></tr>\n</tbody>\n</table>\n<p>\"Once you qualify for a tier, you stay there permanently; tiers never downgrade,\" xAI says. Going over a limit returns a 429 error. The tiers cover text, embedding and voice models; image and video limit increases go through xAI sales.</p>\n<h2 id=\"free-credits\">Is there a free tier or free credit?</h2>\n<p>The pages we read list none. xAI's <a href=\"https://docs.x.ai/developers/quickstart\">quickstart</a> says to sign up at console.x.ai, \"then load it with credits to start using the API,\" and the rate limits page describes tiers earned through \"prepaid credit purchases or successfully fulfilled invoices.\" We found no published free credit amount and no published minimum purchase. If you want a free starting point, compare our guides to the <a href=\"/blog/gemini-api-free-tier-limits/\">Gemini API free tier</a>, the <a href=\"/blog/openai-api-free-tier/\">OpenAI API free tier</a> and the <a href=\"/blog/claude-api-free-tier/\">Claude API free tier</a>.</p>\n<p>Two charges are easy to miss: xAI still charges for a generation its system flags as a usage-guideline violation, and a violation caught before generation in the Responses API costs a $0.05 fee per request.</p>\n<h2 id=\"small-teams\">What this means for a small team</h2>\n<p>In our hypothetical example the token bill is $60 for 10,000 requests a month. The levers that move it are caching your system prompt (a quarter of the input price on Grok 4.7), keeping prompts under 200,000 tokens, sending non-urgent jobs through the Batch API, and watching per-item X Search charges. To see where model costs sit inside a whole project, read our guide to <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot for business cost</a>.</p>\n<h2 id=\"imisofts\">How imisofts can help</h2>\n<p>imisofts builds AI agents, chatbots and voice agents on model APIs for small businesses; our <a href=\"/ai-automation-agency\">AI automation agency</a> page describes that work. We can help you choose a model and estimate token costs for your build.</p>\n<h2 id=\"not-verified\">What we could not verify</h2>\n<ul>\n<li>Any free API credit for new xAI accounts, or a minimum credit purchase. The pages we read state neither.</li>\n<li>A published table of the retired grok-imagine-image-quality prices; the $0.05 and $0.07 figures above follow from xAI's \"$0.01 per image cheaper\" statement.</li>\n<li>Why xAI's developer docs now use the SpaceXSI name; we read no announcement about it.</li>\n</ul>",
+  "faqs": [
+    [
+      "How much does the Grok API cost?",
+      "Grok 4.7, xAI's flagship API model, costs $2.00 per million input tokens, $0.50 per million cached input tokens and $6.00 per million output tokens for prompts under 200,000 tokens, per xAI's pricing page on November 17, 2026. Prompts of 200,000 tokens or more are billed at $4.00, $1.00 and $12.00 for every token in the request."
+    ],
+    [
+      "What is the cheapest Grok model on the API?",
+      "Among text models, Grok Build 0.1 has the lowest list price at $1.00 input and $2.00 output per million tokens, followed by Grok 4.3 and the Grok 4.20 models at $1.25 and $2.50. In our example of 1,000 input and 500 output tokens, 1,000 requests cost $2.00 on Grok Build 0.1 and $5.00 on Grok 4.7."
+    ],
+    [
+      "Does the Grok API have a free tier?",
+      "We found none on xAI's pages. The quickstart says to create an account at console.x.ai and load it with credits before using the API. Tier 0 is the default rate-limit tier; the quickstart still says to load credits."
+    ],
+    [
+      "What changed in Grok API pricing in November 2026?",
+      "On November 2, 2026, xAI retired the grok-imagine-image-quality model. Its requests are now served by Grok Imagine Image 2.0 at low quality, which xAI says is $0.01 per image cheaper at every resolution: $0.04 for a 1K image and $0.06 for a 2K image."
+    ],
+    [
+      "How much does Grok web search cost through the API?",
+      "Web Search costs $5 per 1,000 calls on top of token costs. X Search is billed per item fetched: $5 per 1,000 posts and $10 per 1,000 profiles. Collections Search costs $2.50 per 1,000 calls."
+    ],
+    [
+      "Is the Grok Batch API cheaper?",
+      "Yes. xAI lists a 20% batch discount on Grok 4.7, 4.6, 4.5, 4.3 and the 4.20 models, on all token types. Grok 4.7 batch rates are $1.60 input, $0.40 cached and $4.80 output per million tokens. xAI says most batch requests complete within 24 hours."
+    ]
+  ],
+  "word_count": 2036,
+  "read_time": 9
+}
