@@ -33,13 +33,20 @@ def card(p):
     keywords = (kw + (', '+sk if sk else '')).strip(', ')
     date = p.get('date','')
     rt   = p.get('read_time') or p.get('readingTime') or 5
+    thumb = p.get('thumb')   # 2026-11-18: image system 2 posts carry their preview cover; every other card is unchanged
+    if thumb:
+        th = (f'<div class="card-thumbnail" style="background:#f3efe7;padding:0;overflow:hidden">'
+              f'<img src="{esc(thumb)}" alt="{esc(title)}" width="1200" height="675" loading="lazy" decoding="async" '
+              f'style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div>\n')
+    else:
+        th = (f'<div class="card-thumbnail" style="background: {grad};">'
+              f'<span class="card-thumb-cat">{esc(tab)}</span>'
+              f'<span class="card-thumb-title">{esc(title)}</span>'
+              f'<span class="card-thumb-brand">imisofts.com</span></div>\n')
     return (
 f'<a href="/blog/{slug}/" class="post-card" data-category="{esc(tab)}" '
 f'data-title="{esc(title)}" data-keywords="{esc(keywords)}">\n'
-f'<div class="card-thumbnail" style="background: {grad};">'
-f'<span class="card-thumb-cat">{esc(tab)}</span>'
-f'<span class="card-thumb-title">{esc(title)}</span>'
-f'<span class="card-thumb-brand">imisofts.com</span></div>\n'
++ th +
 f'<div class="card-category">{esc(tab)}</div>\n'
 f'<h2>{esc(title)}</h2>\n'
 f'<p class="card-excerpt">{esc(desc)}</p>\n'

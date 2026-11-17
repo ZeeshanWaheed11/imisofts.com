@@ -122,6 +122,7 @@ def build_article(meta, tpl):
         import render_images
         _imgs=render_images.ensure_images(meta, ROOT)
         if _imgs: s=render_images.apply_images_to_html(s, meta, _imgs); print('images: %s'%_imgs['hero_webp'])
+        if _imgs and _imgs.get('style')=='v2': meta['_imgs']=_imgs   # 2026-11-18: blog card picture for image system 2
     except Exception as _ie:
         print('images skipped for %s: %s'%(slug,_ie))
     # ---- key numbers (2026-09-26): only specs that carry a "key_numbers" block get the dated table.
@@ -198,7 +199,7 @@ def main():
                 break
             continue
         kw=meta.get('keywords',''); CAT=meta.get('category','Reviews')
-        posts.insert(0,{"number":0,"filename":f"000-{meta['slug']}.txt","title":meta['title'],"meta_description":meta['desc'],"url_slug":f"/blog/{meta['slug']}","primary_keyword":kw.split(',')[0].strip(),"secondary_keywords":", ".join(k.strip() for k in kw.split(',')[1:]),"category":CAT,"word_count_target":meta.get('word_count',1500),"schema_type":"Article","author":"Zeeshan Waheed","date":meta['date'],"slug":meta['slug'],"word_count":meta.get('word_count',1500),"read_time":meta.get('read_time',8),"has_faq":True,"category_normalized":CAT.lower().replace(' ','-')})
+        posts.insert(0,{"number":0,"filename":f"000-{meta['slug']}.txt","title":meta['title'],"meta_description":meta['desc'],"url_slug":f"/blog/{meta['slug']}","primary_keyword":kw.split(',')[0].strip(),"secondary_keywords":", ".join(k.strip() for k in kw.split(',')[1:]),"category":CAT,"word_count_target":meta.get('word_count',1500),"schema_type":"Article","author":"Zeeshan Waheed","date":meta['date'],"slug":meta['slug'],"word_count":meta.get('word_count',1500),"read_time":meta.get('read_time',8),"has_faq":True,"category_normalized":CAT.lower().replace(' ','-'),**({"thumb":meta['_imgs']['cover_webp']} if (meta.get('_imgs') or {}).get('cover_webp') else {})})
     json.dump(posts if isinstance(d,list) else {**d,'posts':posts},open(pj,'w',encoding='utf-8'),indent=2,ensure_ascii=False)
     sm=open(os.path.join(ROOT,'sitemap.xml')).read(); add=''
     for meta in metas:

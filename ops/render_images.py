@@ -219,6 +219,8 @@ def ensure_images(meta, root):
     im = meta.get('image')
     if not isinstance(im, dict):
         return None
+    if im.get('style') == 'v2':          # 2026-11-18: image system 2, opt-in per spec; older specs never reach this line
+        return _ensure_v2(meta, root)
     slug = meta['slug']
     title = meta.get('title', '')
     out_dir = os.path.join(root, 'assets', 'blog', slug)
@@ -252,6 +254,62 @@ def ensure_images(meta, root):
                 'chart_after': clean(ch.get('after_heading', '')),
             })
     return res
+
+V2_VERSION = 'v2-2026-11-18.1'
+
+def _short_title(t):
+    t = clean(t)
+    m = re.match(r'^(.{8,70}?)[:?]\s', t)
+    return m.group(1) if m else t
+
+def _ensure_v2(meta, root):
+    """Image system 2 (Zeeshan, 17 to 18 Nov 2026: "these look great and premium").
+    Top of the article: an explainer picture (image.explain) or, without one, the dark data cover.
+    Preview picture (og:image, twitter:image, schema, blog card): the preview cover.
+    Chart: the clean v2 chart. File names carry a hash of the inputs and the version, so a rebuild writes nothing new."""
+    sys.path.insert(0, HERE)
+    import img_v2_data as D, img_v2_explain as E
+    im = meta['image']; slug = meta['slug']; title = meta.get('title', '')
+    out_dir = os.path.join(root, 'assets', 'blog', slug)
+    os.makedirs(out_dir, exist_ok=True)
+    rel = lambda name: '/assets/blog/%s/%s' % (slug, name)
+    have = lambda base: os.path.exists(base + '.webp') and os.path.exists(base + '.jpg')
+    res = {'slug': slug, 'hero_w': W, 'hero_h': H, 'style': 'v2'}
+    ex = im.get('explain')
+    cov = im.get('cover') or {}
+    if isinstance(ex, dict) and ex.get('items'):
+        he = _hash({'v': V2_VERSION, 'k': 'explain', 'e': ex})
+        base = os.path.join(out_dir, 'explain-' + he)
+        if not have(base): E.render_explain(base, slug, ex)
+        hc = _hash({'v': V2_VERSION, 'k': 'cover', 'e': ex, 'c': cov, 't': title})
+        cbase = os.path.join(out_dir, 'cover-' + hc)
+        if not have(cbase):
+            e2 = dict(ex); e2['cover_number'] = cov.get('number')
+            if cov.get('kicker'): e2['kicker'] = cov['kicker']
+            E.render_cover(cbase, slug, e2, clean(cov.get('headline') or _short_title(title)))
+        res.update({'hero_webp': rel('explain-%s.webp' % he), 'explain_jpg': rel('explain-%s.jpg' % he),
+                    'hero_jpg': rel('cover-%s.jpg' % hc), 'cover_webp': rel('cover-%s.webp' % hc),
+                    'hero_alt': clean(im.get('alt') or ex.get('headline') or title)})
+    else:
+        hd = _hash({'v': V2_VERSION, 'k': 'data', 't': title, 'i': im, 'n': meta.get('key_numbers'), 'q': meta.get('qtype')})
+        base = os.path.join(out_dir, 'cover-' + hd)
+        if not have(base): D.render_cover(base, meta)
+        res.update({'hero_webp': rel('cover-%s.webp' % hd), 'hero_jpg': rel('cover-%s.jpg' % hd),
+                    'cover_webp': rel('cover-%s.webp' % hd), 'hero_alt': clean(im.get('alt') or title)})
+    ch = im.get('chart')
+    if isinstance(ch, dict) and ch.get('rows'):
+        chh = _hash({'v': V2_VERSION, 'c': {k: v for k, v in ch.items() if k not in ('after_heading', 'alt')}, 'q': meta.get('qtype')})
+        chart_base = os.path.join(out_dir, 'chart-' + chh)
+        ok = have(chart_base) or (D.render_chart(chart_base, ch, meta.get('qtype') or 'howto') is not None)
+        if ok:
+            res.update({'chart_webp': rel('chart-%s.webp' % chh), 'chart_jpg': rel('chart-%s.jpg' % chh),
+                        'chart_alt': clean(ch.get('alt') or ch.get('title') or 'Chart'),
+                        'chart_caption': clean(ch.get('source', '')), 'chart_after': clean(ch.get('after_heading', ''))})
+    return res
+
+def card_thumb(meta):
+    """Blog card picture for a v2 spec (the preview cover), else None. Call after ensure_images."""
+    return (meta.get('_imgs') or {}).get('cover_webp')
 
 def _attr(t):
     return (t or '').replace('&', '&amp;').replace('"', '&quot;').replace('<', '&lt;').replace('>', '&gt;')
@@ -292,6 +350,7 @@ def apply_images_to_html(html, meta, imgs):
         for node in objs:
             if isinstance(node, dict) and node.get('@type') in ('NewsArticle', 'Article', 'BlogPosting'):
                 imgs_list = [hero_abs]
+                if imgs.get('explain_jpg'): imgs_list.append(SITE + imgs['explain_jpg'])   # v2 only
                 if imgs.get('chart_jpg'): imgs_list.append(SITE + imgs['chart_jpg'])
                 node['image'] = imgs_list
                 touched = True
