@@ -296,6 +296,17 @@ def _ensure_v2(meta, root):
         if not have(base): D.render_cover(base, meta)
         res.update({'hero_webp': rel('cover-%s.webp' % hd), 'hero_jpg': rel('cover-%s.jpg' % hd),
                     'cover_webp': rel('cover-%s.webp' % hd), 'hero_alt': clean(im.get('alt') or title)})
+    figs = []
+    for k, fg in enumerate(im.get('figures') or []):   # in-body explainer pictures, each placed under a named heading
+        if not (isinstance(fg, dict) and isinstance(fg.get('explain'), dict) and fg.get('under')):
+            continue
+        hf = _hash({'v': V2_VERSION, 'k': 'figure', 'e': fg['explain']})
+        fbase = os.path.join(out_dir, 'figure-' + hf)
+        if not have(fbase): E.render_explain(fbase, slug + ':fig%d' % k, fg['explain'])
+        figs.append({'webp': rel('figure-%s.webp' % hf), 'jpg': rel('figure-%s.jpg' % hf), 'under': fg['under'],
+                     'alt': clean(fg.get('alt') or fg['explain'].get('headline') or ''), 'caption': clean(fg.get('caption', ''))})
+    if figs:
+        res['figures'] = figs
     ch = im.get('chart')
     if isinstance(ch, dict) and ch.get('rows'):
         chh = _hash({'v': V2_VERSION, 'c': {k: v for k, v in ch.items() if k not in ('after_heading', 'alt')}, 'q': meta.get('qtype')})
@@ -395,6 +406,15 @@ def apply_images_to_html(html, meta, imgs):
             target = c if c >= 0 else -1
         if target >= 0:
             html = html[:a + target] + chart_figure(imgs) + '\n' + html[a + target:]
+    # 5) v2 only: in-body explainer pictures, each right under its heading (<h2 id="...">)
+    for fg in imgs.get('figures') or []:
+        m = re.search(r'<h2 id="%s"[^>]*>.*?</h2>' % re.escape(fg['under']), html, re.S)
+        if not m:
+            continue
+        cap = ('<figcaption style="font-size:13px;line-height:1.5;color:#64748b;margin:-12px 0 24px">%s</figcaption>' % _attr(fg['caption'])) if fg.get('caption') else ''
+        tag = ('\n<figure class="post-chart post-figure" style="margin:0">'
+               '<img src="%s" width="%d" height="%d" alt="%s" loading="lazy" decoding="async">%s</figure>') % (fg['webp'], W, H, _attr(fg['alt']), cap)
+        html = html[:m.end()] + tag + html[m.end():]
     return html
 
 if __name__ == '__main__':

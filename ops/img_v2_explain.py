@@ -402,15 +402,20 @@ def lay_timeline(d, P, rnd, ex):
 
 
 def lay_rules(d, P, rnd, ex):
+    global S
     pen = Pen(d, rnd, P['ink'], 3.4)
     cx, cy = 250, 375
     disc(d, cx, cy, 128, P['discs'][0], rnd)
     ic = ICONS.get(ex.get('subject_icon', 'envelope'), ic_envelope)
     # draw the subject icon at twice the size on its own layer
-    lay = Image.new('RGBA', (240 * S, 240 * S), (0, 0, 0, 0))
+    S0 = S
+    S = S0 * 1.9          # draw the subject icon natively at 1.9x (clean edges)
+    _F.clear()
+    lay = Image.new('RGBA', (int(240 * S), int(240 * S)), (0, 0, 0, 0))
     ld = ImageDraw.Draw(lay)
     ic(Pen(ld, rnd, P['ink'], 2.0), ld, 120, 120, P['accent'])
-    lay = lay.resize((int(240 * S * 1.9), int(240 * S * 1.9)), Image.LANCZOS)
+    S = S0
+    _F.clear()
     IMG_CUR[0].alpha_composite(lay, (int((cx - 228) * S), int((cy - 228) * S)))
     if ex.get('subject'):
         fill_rect(d, cx - 70, cy + 104, cx + 70, cy + 140, 18, P['ink'])
@@ -427,7 +432,67 @@ def lay_rules(d, P, rnd, ex):
             d.text((548 * S, (y + 48) * S), r['note'], font=F(500, 17), fill=P['muted'])
 
 
-LAYOUTS = {'flow': lay_flow, 'compare': lay_compare, 'timeline': lay_timeline, 'rules': lay_rules}
+def lay_cards(d, P, rnd, ex):
+    """3 to 6 cards (one row up to 4, two rows of 3 for 5 or 6), each with an icon, a label and a note.
+    "numbered": true adds a step number to every card."""
+    items = ex['items'][:6]
+    n = len(items)
+    per_row = n if n <= 4 else 3
+    rows = 1 if n <= 4 else 2
+    gap = 24
+    cw = (1056 - gap * (per_row - 1)) / per_row
+    top = 168 if rows == 2 else 200
+    ch = 200 if rows == 2 else 330
+    pen = Pen(d, rnd, P['ink'], 3.0)
+    for i, it in enumerate(items):
+        r, c = divmod(i, per_row)
+        x = 72 + c * (cw + gap)
+        y = top + r * (ch + gap)
+        fill_rect(d, x, y, x + cw, y + ch, 20, P['paper'])
+        hot = it.get('hot')
+        pen.rect(x, y, x + cw, y + ch, r=20, width=2.4, color=P['accent'] if hot else P['ink'])
+        if rows == 2:
+            icx, icy, rr = x + 62, y + ch / 2, 44
+            disc(d, icx, icy, rr, P['discs'][i % len(P['discs'])], rnd)
+            lay = Image.new('RGBA', (int(240 * S), int(240 * S)), (0, 0, 0, 0))
+            ld = ImageDraw.Draw(lay)
+            ICONS.get(it.get('icon', 'document'), ic_document)(Pen(ld, rnd, P['ink'], 3.4), ld, 120, 120, P['accent'])
+            lay = lay.resize((int(240 * S * 0.62), int(240 * S * 0.62)), Image.LANCZOS)
+            IMG_CUR[0].alpha_composite(lay, (int((icx - 120 * 0.62) * S), int((icy - 120 * 0.62) * S)))
+            tx = x + 124
+            if ex.get('numbered'):
+                d.text((tx * S, (y + 40) * S), 'STEP %d' % (i + 1), font=F(800, 14), fill=P['accent'])
+            ty = y + (62 if ex.get('numbered') else 52)
+            lines = _wrap_lines(d, it.get('label', ''), F(800, 21), cw - 140)
+            for k, ln in enumerate(lines[:2]):
+                d.text((tx * S, (ty + k * 26) * S), ln, font=F(800, 21), fill=P['ink'])
+            ty += 26 * min(2, len(lines)) + 8
+            for k, ln in enumerate(_wrap_lines(d, it.get('note', ''), F(500, 16), cw - 140)[:3]):
+                d.text((tx * S, (ty + k * 21) * S), ln, font=F(500, 16), fill=P['muted'])
+        else:
+            cx = x + cw / 2
+            disc(d, cx, y + 92, 58, P['discs'][i % len(P['discs'])], rnd)
+            ICONS.get(it.get('icon', 'document'), ic_document)(pen, d, cx, y + 92, P['accent'])
+            if ex.get('numbered'):
+                d.text((cx * S, (y + 176) * S), 'STEP %d' % (i + 1), font=F(800, 14), fill=P['accent'], anchor='ma')
+            nl = text_center(d, cx, y + (200 if ex.get('numbered') else 186), it.get('label', ''), F(800, 22), P['ink'], cw - 36)
+            text_center(d, cx, y + (200 if ex.get('numbered') else 186) + nl * 28 + 8, it.get('note', ''), F(500, 16), P['muted'], cw - 40)
+
+
+def _wrap_lines(d, text, font, maxw):
+    words, lines, cur = (text or '').split(), [], ''
+    for w in words:
+        c = (cur + ' ' + w).strip()
+        if d.textlength(c, font=font) <= maxw * S:
+            cur = c
+        else:
+            if cur: lines.append(cur)
+            cur = w
+    if cur: lines.append(cur)
+    return lines
+
+
+LAYOUTS = {'flow': lay_flow, 'compare': lay_compare, 'timeline': lay_timeline, 'rules': lay_rules, 'cards': lay_cards}
 IMG_CUR = [None]
 
 
