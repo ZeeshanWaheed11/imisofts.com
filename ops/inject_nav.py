@@ -76,6 +76,10 @@ NEW = [
      "Onboarding, migration, workflows",
      "HubSpot Implementation",
      "M6 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM18 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM12 15.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM8.5 6h7M7.3 8.2l3.5 7.6M16.7 8.2l-3.5 7.6"),
+    ("/ai-data-licensing", "AI Data Licensing",
+     "Get paid to license your company data",
+     "AI Data Licensing",
+     "M12 3c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3zM4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"),
 ]
 
 ANCHOR = "/ai-automation"   # clone the entry for this page, insert directly after it
@@ -90,6 +94,7 @@ AFTER = {
     "/cybersecurity-services": "/aws-cloud-migration",
     "/salesforce-implementation": "/cybersecurity-services",
     "/hubspot-implementation": "/salesforce-implementation",
+    "/ai-data-licensing": "/openclaw-setup",   # 2026-11-17: last item of the AI panel, the mobile AI group and the footer services list
 }
 
 # Top-level pages that are not services: (slug, menu label, footer label, slug of the link it follows)
