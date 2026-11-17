@@ -1,0 +1,129 @@
+{
+ "slug": "ai-implementation",
+ "title": "AI Implementation: A 4-Step Plan and What a Pilot Costs",
+ "desc": "About 1 in 5 US firms used AI in the two weeks to May 3, 2026 (Census). A four-step AI implementation plan built on NIST's AI RMF, with a worked pilot cost.",
+ "date": "2026-11-17",
+ "keywords": "ai implementation, ai implementation strategy, ai implementation plan, artificial intelligence implementation, implementing ai in business, cost of ai implementation, ai implementation roadmap, nist ai rmf, ai adoption small business",
+ "category": "Guides",
+ "affiliate_url": "",
+ "question": "How should a small business implement AI, and what does a first pilot cost?",
+ "qtype": "howto",
+ "cta": "Planning your first AI pilot? Talk to us",
+ "image": {
+  "cluster": "AI automation",
+  "takeaway": "In our hypothetical pilot, 40 build hours cost $2,577.60 while a year of Sonnet 5.5 tokens costs $192.",
+  "alt": "AI implementation for small businesses: four steps from NIST's AI RMF and a worked cost for a small email triage pilot",
+  "chart": {
+   "title": "Hypothetical AI pilot: tokens vs build time, first year",
+   "subtitle": "2,000 emails a month at 2,000 tokens in and 400 out; build time at the BLS median of $64.44 an hour.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Haiku 5.5 API, 1 year",
+     9.6
+    ],
+    [
+     "Sonnet 5.5 API, 1 year",
+     192
+    ],
+    [
+     "Opus 5.5 API, 1 year",
+     384
+    ],
+    [
+     "40 build hours",
+     2577.6
+    ],
+    [
+     "80 build hours",
+     5155.2
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 3,
+   "note": [
+    "40 build hours cost more",
+    "than 6 years of Opus tokens"
+   ],
+   "source": "Claude API prices and BLS OOH median pay; imisofts arithmetic. Source: platform.claude.com, bls.gov, November 2026",
+   "alt": "Bar chart of first-year costs in a hypothetical AI pilot: Haiku 5.5 tokens $9.60, Sonnet 5.5 $192, Opus 5.5 $384, 40 build hours $2,577.60 and 80 build hours $5,155.20.",
+   "after_heading": "What an AI pilot costs: a worked example"
+  }
+ },
+ "key_numbers": {
+  "title": "Key numbers",
+  "rows": [
+   {
+    "label": "US businesses using AI, BTOS",
+    "value": "19.8%",
+    "note": "as of May 3, 2026"
+   },
+   {
+    "label": "Range, December 2025 to May 2026",
+    "value": "17% to 20%",
+    "note": "overall AI use"
+   },
+   {
+    "label": "Firms with 250+ employees using AI",
+    "value": "37%",
+    "note": "Census Bureau"
+   },
+   {
+    "label": "NIST AI RMF released",
+    "value": "January 26, 2023",
+    "note": "voluntary"
+   },
+   {
+    "label": "AI RMF core functions",
+    "value": "4",
+    "note": "govern, map, measure, manage"
+   },
+   {
+    "label": "BLS 2025 median pay, developers, QA and testers",
+    "value": "$64.44",
+    "note": "an hour"
+   },
+   {
+    "label": "Hypothetical pilot tokens, Sonnet 5.5",
+    "value": "$16",
+    "note": "a month, 2,000 emails"
+   },
+   {
+    "label": "Hypothetical build, 40 hours",
+    "value": "$2,577.60",
+    "note": "at the BLS median"
+   }
+  ],
+  "source": "Read on 17 November 2026: Census Bureau BTOS story of May 26, 2026, NIST AI RMF pages, BLS Occupational Outlook Handbook and Anthropic's pricing page; pilot costs are imisofts arithmetic."
+ },
+ "word_count": 1454,
+ "read_time": 6,
+ "body": "<p><strong>Short answer.</strong> In this guide, AI implementation means picking one business task, testing a model on it against how the task is done today, and then rolling it out with a named owner and ongoing checks. As of May 3, 2026, 19.8% of US businesses told the <a href=\"https://www.census.gov/library/stories/2026/05/ai-use-businesses.html\" target=\"_blank\" rel=\"noopener\">Census Bureau</a> they used AI, and use among firms with fewer than 20 employees had not changed significantly since December 2025. For a hypothetical small pilot, our arithmetic puts the model cost at $0.80 to $32 a month and the build at $2,577.60 to $7,732.80 of developer time, so in this example people cost more than tokens.</p>\n<p>This guide is for owners and managers of small and mid-sized businesses who want an AI implementation strategy that holds up. It maps the work onto the four functions of NIST's AI Risk Management Framework (AI RMF), a voluntary US framework, and prices a pilot from published numbers. We read every source on 17 November 2026; the costs are hypothetical worked examples, labelled as ours.</p>\n<h2 id=\"adoption\">Where small businesses stand on AI use</h2>\n<p>The Census Bureau describes its Business Trends and Outlook Survey (BTOS) as a \"biweekly, nationally representative view of AI implementation\" among US businesses. Its May 26, 2026 <a href=\"https://www.census.gov/library/stories/2026/05/ai-use-businesses.html\" target=\"_blank\" rel=\"noopener\">review of six months of data</a> (December 14, 2025 to May 3, 2026) found:</p>\n<ul>\n<li>\"overall AI usage hovered between 17% and 20%,\" and between 20% and 23% of businesses expected to use AI in the next six months;</li>\n<li>a national rate of 19.8% as of May 3, 2026, with Information at 39.7% and Finance and Insurance at 33.9%; about 42% of Information businesses and roughly 39% in Finance and Insurance expected to use AI in the next six months;</li>\n<li>37% of firms with at least 250 employees reporting AI use in their operations; and, in the period ending May 3, 2026, 32% of firms with 100 to 249 employees;</li>\n<li>\"Less than 20% of firms with four or fewer employees reported using AI,\" and no significant change among firms under 20 employees.</li>\n</ul>\n<p>One caution when comparing years: the Census Bureau changed the question in November 2025 from AI use \"in producing goods or services\" to use \"in any business function,\" so on our reading rates before and after November 2025 are not directly comparable. This May review is the latest Census Bureau story we read; BTOS is collected every two weeks, so newer rates may be out.</p>\n<h2 id=\"nist\">The NIST AI RMF in plain terms</h2>\n<p>NIST released the <a href=\"https://www.nist.gov/itl/ai-risk-management-framework\" target=\"_blank\" rel=\"noopener\">AI Risk Management Framework</a> on January 26, 2023, and says it \"is intended for voluntary use.\" NIST has also published a companion AI RMF Playbook, and a Generative AI Profile (NIST-AI-600-1) followed on July 26, 2024. NIST also says the AI RMF 1.0 \"is being revised as part of the White House AI Action Plan.\"</p>\n<p>The <a href=\"https://airc.nist.gov/airmf-resources/airmf/5-sec-core/\" target=\"_blank\" rel=\"noopener\">Core</a> has \"four functions: govern, map, measure, and manage.\" NIST describes them this way:</p>\n<table>\n<thead><tr><th>Function</th><th>NIST's description</th><th>What it means for a small team</th></tr></thead>\n<tbody>\n<tr><td>Govern</td><td>\"cultivates and implements a culture of risk management\"</td><td>An owner, written rules for use, and who signs off</td></tr>\n<tr><td>Map</td><td>\"establishes the context to frame risks related to an AI system\"</td><td>Which task, which data, who is affected if it goes wrong</td></tr>\n<tr><td>Measure</td><td>analyzes, assesses, benchmarks and monitors \"AI risk and related impacts\"</td><td>Test the model against today's results before launch</td></tr>\n<tr><td>Manage</td><td>\"allocating risk resources to mapped and measured risks on a regular basis\"</td><td>Roll out, watch, fix or switch off</td></tr>\n</tbody>\n</table>\n<p>NIST adds that its actions \"do not constitute a checklist, nor are they necessarily an ordered set of steps,\" and that govern is \"a cross-cutting function.\" The four steps below follow the order NIST says most users take: govern first, then map, then measure or manage. The small-team column and the steps are our reading.</p>\n<h2 id=\"step-1-govern\">Step 1: Govern, with one owner and written rules</h2>\n<p>We suggest naming one person who owns the AI project and can stop it. Write one page of rules: which tools staff may use, what data may never go into them (customer financial data, health data, anything under a confidentiality agreement), and who approves anything that talks to customers. Check each vendor's data terms before the pilot, not after.</p>\n<h2 id=\"step-2-map\">Step 2: Map, one task and its risks</h2>\n<p>Pick a task that is frequent, rule-bound and easy to check: sorting inbound email, drafting first replies, summarizing calls, qualifying web leads. Write down how it is done today, how long it takes, and its error rate if you track one. Then list who is affected if the AI gets it wrong, and whether the output reaches a customer without a human check. Our guide to <a href=\"/blog/business-process-automation/\">business process automation</a> covers how to pick the first process.</p>\n<h2 id=\"step-3-measure\">Step 3: Measure against a baseline</h2>\n<p>Run the model on real past examples before it touches live work. Score its output against what your team actually did, using a sample large enough to include the awkward cases. Decide in advance what pass looks like, for example the share of drafts a manager would send unedited, and keep the test set so you can re-run it when you change the prompt or the model. Measure cost per task as well as quality: count the tokens each test run uses, so the monthly bill in the next section is a forecast from your own data rather than a guess.</p>\n<h2 id=\"step-4-manage\">Step 4: Manage the rollout</h2>\n<p>Start with a human approving every output, then loosen that only where the measured error rate allows. Set a spending limit at the provider, log what the system did and why, and agree who gets told when it fails. NIST frames this as allocating resources to risks \"on a regular basis,\" which we would turn into a short monthly review of errors, cost and whether the task still needs AI at all.</p>\n<h2 id=\"cost\">What an AI pilot costs: a worked example</h2>\n<p>A hypothetical pilot: an assistant that triages 2,000 inbound emails a month, reading about 2,000 tokens and writing about 400 tokens per email. We priced it at Anthropic's published <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener\">API prices</a> on 17 November 2026, and priced build time at the <a href=\"https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm\" target=\"_blank\" rel=\"noopener\">BLS</a> 2025 median pay for software developers, quality assurance analysts and testers of $64.44 an hour.</p>\n<table>\n<thead><tr><th>Cost line</th><th>Basis</th><th>Monthly</th><th>First year</th></tr></thead>\n<tbody>\n<tr><td>Claude Haiku 5.5 tokens</td><td>$0.10 in, $0.50 out per million</td><td>$0.80</td><td>$9.60</td></tr>\n<tr><td>Claude Sonnet 5.5 tokens</td><td>$2 in, $10 out per million</td><td>$16</td><td>$192</td></tr>\n<tr><td>Claude Opus 5.5 tokens</td><td>$4 in, $20 out per million</td><td>$32</td><td>$384</td></tr>\n<tr><td>Build, 40 hours</td><td>$64.44 an hour</td><td>one-off</td><td>$2,577.60</td></tr>\n<tr><td>Build, 80 hours</td><td>$64.44 an hour</td><td>one-off</td><td>$5,155.20</td></tr>\n<tr><td>Build, 120 hours</td><td>$64.44 an hour</td><td>one-off</td><td>$7,732.80</td></tr>\n</tbody>\n</table>\n<p>Work that can wait, such as overnight summaries, can go through Anthropic's Batch API, which the pricing page describes as \"a 50 percent discount on both input and output tokens.\" That halves every token line in the table, but not the build hours.</p>\n<p>Two points follow from the arithmetic. First, in this example the model is the small line; the hours to connect it to your inbox or CRM, test it and maintain it are. Second, the model choice still matters at scale: Opus 5.5 costs 40 times Haiku 5.5 per email in this example. The BLS figure is a median wage, not an agency rate, and it leaves out benefits, overhead and your own staff's review time. For running costs of agents in production, see <a href=\"/blog/what-does-it-cost-to-run-an-ai-agent/\">what it costs to run an AI agent</a> and <a href=\"/blog/ai-agent-pricing/\">AI agent pricing</a>.</p>\n<h2 id=\"timeline\">A sample 90-day timeline</h2>\n<p>This is our suggestion for one task in a small firm, not a benchmark from any source:</p>\n<ol>\n<li><strong>Weeks 1 to 2:</strong> owner named, one-page rules, task chosen and baseline recorded.</li>\n<li><strong>Weeks 3 to 6:</strong> build the connection, write the prompts, run the test set.</li>\n<li><strong>Weeks 7 to 10:</strong> live with a human approving every output; log errors and cost.</li>\n<li><strong>Weeks 11 to 13:</strong> review against the baseline, then expand, change or stop.</li>\n</ol>\n<h2 id=\"strategy\">AI implementation strategy: questions to answer first</h2>\n<ul>\n<li>Which single task, and what does it cost today in hours or errors?</li>\n<li>What data does it need, and is any of it off limits?</li>\n<li>Who checks the output, and when does that check end?</li>\n<li>What is the monthly spending limit at the provider?</li>\n<li>What result after 90 days would make you stop?</li>\n</ul>\n<p>If your first task is a customer-facing one, such as answering calls, we would apply the same steps with a tighter human check. Our guide to <a href=\"/blog/sales-automation-software/\">sales automation software</a> covers the sales side, and <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot for business cost</a> prices a website assistant.</p>\n<h2 id=\"help\">How imisofts can help</h2>\n<p>We scope, build and maintain AI automations for small and mid-sized teams, including <a href=\"/ai-calling-home-services\">AI phone agents for home service businesses</a>. If you want a pilot priced against your own volumes, our <a href=\"/ai-automation-agency\">AI automation agency</a> page explains how we work.</p>",
+ "faqs": [
+  [
+   "What is AI implementation?",
+   "In this guide, putting an AI model to work on a real business task: choosing the task, testing the model against how the task is done today, then rolling it out with an owner, rules and ongoing checks. We use NIST's AI Risk Management Framework as the frame; its Core has four functions: govern, map, measure and manage."
+  ],
+  [
+   "How many businesses use AI in 2026?",
+   "The Census Bureau's BTOS put the US rate at 19.8% as of May 3, 2026, after hovering between 17% and 20% from December 2025. Less than 20% of firms with four or fewer employees reported using AI."
+  ],
+  [
+   "How much does it cost to implement AI in a small business?",
+   "It depends on the task and volume. In our hypothetical email triage pilot of 2,000 emails a month, Claude API tokens cost $0.80 to $32 a month, while 40 to 120 build hours at the BLS 2025 median of $64.44 an hour come to $2,577.60 to $7,732.80."
+  ],
+  [
+   "What are the steps of an AI implementation plan?",
+   "Using NIST's AI RMF as the frame, in our reading: govern (owner and rules), map (one task, its data and risks), measure (test against a baseline) and manage (roll out with human checks, logging and a spending limit). NIST says these are not a fixed checklist."
+  ],
+  [
+   "How long does AI implementation take?",
+   "No source we read publishes a standard timeline. As our own suggestion, a single-task pilot in a small firm can be run in about 90 days: two weeks to set rules and a baseline, four to build and test, four live with approvals, then a review."
+  ],
+  [
+   "Is the NIST AI RMF mandatory?",
+   "No. NIST says the AI Risk Management Framework is intended for voluntary use. It was released on January 26, 2023, and NIST says version 1.0 is being revised under the White House AI Action Plan."
+  ]
+ ]
+}
