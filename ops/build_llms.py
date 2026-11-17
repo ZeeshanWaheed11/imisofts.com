@@ -39,7 +39,7 @@ SERVICE_GROUPS = [
     ('AI automation and AI search', [
         '/ai-automation-agency', '/ai-automation', '/ai-search-optimization',
         '/hire-ai-engineer', '/hire-n8n-developer', '/openclaw-setup', '/ai-automation-ecommerce',
-        '/crm-development',
+        '/crm-development', '/ai-data-licensing',
     ]),
     ('SEO and AI citations', [
         '/seo-services', '/ai-citation-services',
