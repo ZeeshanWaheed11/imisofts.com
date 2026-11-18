@@ -1,0 +1,315 @@
+{
+ "slug": "gpt-6-2-pricing",
+ "title": "GPT-6.2 Pricing: Astra $8 In, $40 Out; Sol $2 In, $10 Out",
+ "desc": "GPT-6.2 Astra costs $8 per 1M input and $40 per 1M output tokens, Sol $2 and $10. Batch, Fast and long-context rates, limits, and 10,000 emails worked out.",
+ "date": "2026-11-18",
+ "keywords": "gpt-6.2 pricing, gpt 6.2 api pricing, gpt-6.2 astra pricing, gpt-6.2 sol pricing, openai api pricing, gpt api pricing, gpt-6.2 rate limits, gpt-6.2 batch pricing",
+ "category": "Guides",
+ "affiliate_url": "",
+ "question": "What does GPT-6.2 cost per million tokens, for Astra and for Sol?",
+ "qtype": "cost",
+ "cta": "Want help choosing the right OpenAI model for each step?",
+ "image": {
+  "style": "v2",
+  "cluster": "OpenAI API pricing",
+  "alt": "GPT-6.2 prices per 1M tokens: Astra $8 input and $40 output, Sol $2 and $10, against GPT-6 Astra at $10 and $50 and GPT-6.1 Terra at $1 and $5",
+  "explain": {
+   "layout": "compare",
+   "palette": "ember",
+   "kicker": "OpenAI API, Standard rates",
+   "headline": "GPT-6.2 prices per 1M tokens",
+   "items": [
+    {
+     "icon": "chip",
+     "label": "GPT-6.2 Astra",
+     "value": "$8 / $40",
+     "unit": "in / out per 1M",
+     "note": "20% below GPT-6 Astra",
+     "num": 40
+    },
+    {
+     "icon": "chip",
+     "label": "GPT-6.2 Sol",
+     "value": "$2 / $10",
+     "unit": "in / out per 1M",
+     "note": "same as GPT-6.1 Sol",
+     "num": 10,
+     "hot": true
+    },
+    {
+     "icon": "chip",
+     "label": "GPT-6 Astra",
+     "value": "$10 / $50",
+     "unit": "in / out per 1M",
+     "note": "previous Astra version",
+     "num": 50
+    },
+    {
+     "icon": "chip",
+     "label": "GPT-6.1 Terra",
+     "value": "$1 / $5",
+     "unit": "in / out per 1M",
+     "note": "half of Sol",
+     "num": 5
+    }
+   ],
+   "footnote": "OpenAI pricing page, read 18 Nov 2026. Short context. Notes under the prices are our arithmetic."
+  },
+  "cover": {
+   "headline": "GPT-6.2 pricing: Astra vs Sol",
+   "number": "Sol $2 / $10",
+   "kicker": "OpenAI API pricing"
+  },
+  "figures": [
+   {
+    "under": "tiers",
+    "alt": "How GPT-6.2 rates change by processing option: Batch 50% of Standard, background windows 30% and 40% off, Fast 2 times, Ultrafast 3 then 6 times, and over 272K input tokens input 2 times and output 1.5 times",
+    "explain": {
+     "layout": "cards",
+     "palette": "sage",
+     "kicker": "Multipliers on Standard",
+     "headline": "How the rate changes by option",
+     "items": [
+      {
+       "icon": "database",
+       "label": "Batch",
+       "note": "50% of Standard rates"
+      },
+      {
+       "icon": "calendar",
+       "label": "2-hour window",
+       "note": "30% below Standard, Responses API"
+      },
+      {
+       "icon": "calendar",
+       "label": "8-hour window",
+       "note": "40% below Standard, Responses API",
+       "hot": true
+      },
+      {
+       "icon": "wave",
+       "label": "Fast",
+       "note": "twice the Standard rate"
+      },
+      {
+       "icon": "warning",
+       "label": "Ultrafast",
+       "note": "3 times, then 6 times from 1 March 2027"
+      },
+      {
+       "icon": "document",
+       "label": "Over 272K input",
+       "note": "input and cache 2x, output 1.5x"
+      }
+     ],
+     "footnote": "From OpenAI's GPT-6.2 model pages and API changelog, read 18 Nov 2026."
+    }
+   },
+   {
+    "under": "worked-cost",
+    "alt": "Hypothetical monthly cost of 10,000 personalized emails: $55.00 on GPT-6.2 Sol, $27.50 on Sol with Batch, $220.00 on GPT-6.2 Astra and $110.00 on Astra with Batch",
+    "explain": {
+     "layout": "compare",
+     "palette": "tide",
+     "kicker": "Hypothetical, before reasoning",
+     "headline": "10,000 emails a month",
+     "items": [
+      {
+       "icon": "envelope",
+       "label": "GPT-6.2 Sol",
+       "value": "$55.00",
+       "unit": "a month, Standard",
+       "note": "15M in, 2.5M out",
+       "num": 55.0,
+       "hot": true
+      },
+      {
+       "icon": "database",
+       "label": "GPT-6.2 Sol, Batch",
+       "value": "$27.50",
+       "unit": "a month",
+       "note": "50% of Standard",
+       "num": 27.5
+      },
+      {
+       "icon": "envelope",
+       "label": "GPT-6.2 Astra",
+       "value": "$220.00",
+       "unit": "a month, Standard",
+       "note": "four times Sol",
+       "num": 220.0
+      },
+      {
+       "icon": "database",
+       "label": "GPT-6.2 Astra, Batch",
+       "value": "$110.00",
+       "unit": "a month",
+       "note": "50% of Standard",
+       "num": 110.0
+      }
+     ],
+     "footnote": "Our assumptions: 1,500 input and 250 output tokens an email. Reasoning tokens add to output."
+    }
+   },
+   {
+    "under": "rate-limits",
+    "alt": "GPT-6.2 tokens per minute by usage tier: 1,000,000 at Build, 4,000,000 at Launch and 40,000,000 at Grow",
+    "explain": {
+     "layout": "compare",
+     "palette": "ember",
+     "kicker": "Astra and Sol, same limits",
+     "headline": "Tokens per minute by tier",
+     "items": [
+      {
+       "icon": "person",
+       "label": "Build",
+       "value": "1M",
+       "unit": "tokens a minute",
+       "note": "5,000 requests a minute",
+       "num": 1.0
+      },
+      {
+       "icon": "building",
+       "label": "Launch",
+       "value": "4M",
+       "unit": "tokens a minute",
+       "note": "10,000 requests a minute",
+       "num": 4.0
+      },
+      {
+       "icon": "globe",
+       "label": "Grow",
+       "value": "40M",
+       "unit": "tokens a minute",
+       "note": "15,000 requests a minute",
+       "num": 40.0,
+       "hot": true
+      }
+     ],
+     "footnote": "From the GPT-6.2 Astra and Sol model pages, read 18 Nov 2026."
+    }
+   },
+   {
+    "under": "migration",
+    "alt": "What changes when switching to GPT-6.2: editing earlier messages drops reasoning, reusable instructions go in a developer message, tool calls need the Responses API, temperature and top_p are not supported",
+    "explain": {
+     "layout": "rules",
+     "palette": "sage",
+     "kicker": "Before you switch",
+     "headline": "Four changes to plan for",
+     "subject_icon": "chip",
+     "subject": "GPT-6.2",
+     "items": [
+      {
+       "mark": "warn",
+       "label": "Editing earlier messages",
+       "note": "drops reasoning; may use more tokens"
+      },
+      {
+       "mark": "yes",
+       "label": "Instructions in a developer message",
+       "note": "first item in input keeps them cacheable"
+      },
+      {
+       "mark": "yes",
+       "label": "Tool calls through Responses",
+       "note": "Chat Completions works, but not for tools"
+      },
+      {
+       "mark": "no",
+       "label": "temperature and top_p",
+       "note": "omit them in GPT-6.2 requests"
+      }
+     ],
+     "footnote": "From OpenAI's guide Using GPT-6.2, read 18 Nov 2026."
+    }
+   }
+  ]
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "GPT-6.2 Astra input, per 1M tokens",
+    "value": "$8.00"
+   },
+   {
+    "label": "GPT-6.2 Astra output, per 1M tokens",
+    "value": "$40.00"
+   },
+   {
+    "label": "GPT-6.2 Sol input, per 1M tokens",
+    "value": "$2.00"
+   },
+   {
+    "label": "GPT-6.2 Sol output, per 1M tokens",
+    "value": "$10.00"
+   },
+   {
+    "label": "Cached input, Astra and Sol",
+    "value": "$0.40 and $0.10"
+   },
+   {
+    "label": "GPT-6.2 Astra against GPT-6 Astra",
+    "value": "20% lower",
+    "note": "input and output, our arithmetic"
+   },
+   {
+    "label": "Batch",
+    "value": "50% of Standard"
+   },
+   {
+    "label": "Fast",
+    "value": "2 times Standard"
+   },
+   {
+    "label": "Over 272K input tokens",
+    "value": "input and cache 2x, output 1.5x",
+    "note": "for the full request"
+   },
+   {
+    "label": "Context window",
+    "value": "1,050,000 tokens",
+    "note": "128,000 max output"
+   },
+   {
+    "label": "Worked example, 10,000 emails on Sol",
+    "value": "$55.00 a month",
+    "note": "hypothetical, before reasoning tokens"
+   },
+   {
+    "label": "Changelog entry dated",
+    "value": "November 17, 2026"
+   }
+  ],
+  "source": "Prices read on 18 November 2026 from OpenAI's pricing page, the GPT-6.2 Astra and Sol model pages and the API changelog; comparisons and the worked example are our arithmetic."
+ },
+ "body": "<p><strong>Short answer.</strong> GPT-6.2 Astra costs $8.00 per 1M input tokens and $40.00 per 1M output tokens, and GPT-6.2 Sol costs $2.00 and $10.00, at Standard rates on OpenAI's <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener\">pricing page</a> read on November 18, 2026. OpenAI's <a href=\"https://developers.openai.com/api/docs/changelog\" target=\"_blank\" rel=\"noopener\">API changelog</a> lists both models in an entry dated November 17, 2026. By our arithmetic, Astra lists 20% below GPT-6 Astra on input and output, and Sol carries the same Standard rates as GPT-6.1 Sol. In our hypothetical example, 10,000 personalized emails a month cost $55.00 on Sol and $220.00 on Astra before reasoning tokens.</p>\n<p>This guide lists the main published GPT-6.2 rates: cached input and cache writes, Batch, Fast and Ultrafast, the long-context surcharge, the new background windows, rate limits by tier, the migration changes that affect cost, and a worked monthly bill. Prices are per 1M tokens in US dollars at short context unless a line says otherwise.</p>\n<h2 id=\"prices\">GPT-6.2 prices per 1M tokens</h2>\n<table>\n<thead><tr><th>Rate</th><th>GPT-6.2 Astra</th><th>GPT-6.2 Sol</th><th>GPT-6 Astra</th><th>GPT-6.1 Sol</th></tr></thead>\n<tbody>\n<tr><td>Input</td><td>$8.00</td><td>$2.00</td><td>$10.00</td><td>$2.00</td></tr>\n<tr><td>Cached input</td><td>$0.40</td><td>$0.10</td><td>$1.00</td><td>$0.10</td></tr>\n<tr><td>Cache write, 30 minutes</td><td>$10.00</td><td>$2.50</td><td>$12.50</td><td>$2.50</td></tr>\n<tr><td>Cache write, 12 hours</td><td>$20.00</td><td>$5.00</td><td>$25.00</td><td>$5.00</td></tr>\n<tr><td>Output</td><td>$40.00</td><td>$10.00</td><td>$50.00</td><td>$10.00</td></tr>\n</tbody>\n</table>\n<p>Sources: OpenAI's pricing page and the <a href=\"https://developers.openai.com/api/docs/models/gpt-6.2-astra\" target=\"_blank\" rel=\"noopener\">GPT-6.2 Astra</a> and <a href=\"https://developers.openai.com/api/docs/models/gpt-6.2-sol\" target=\"_blank\" rel=\"noopener\">GPT-6.2 Sol</a> model pages. By our arithmetic, GPT-6.2 Astra is 20% below GPT-6 Astra on input, output and both cache writes, and 60% below it on cached input ($0.40 against $1.00). GPT-6.2 Sol matches GPT-6.1 Sol on all five Standard rates, so a team that moves from 6.1 Sol keeps the same list prices; the caching and reasoning changes further down can still move the bill. Sol costs one quarter of Astra on input and on output.</p>\n<p>OpenAI calls Astra \"Our most capable model for your hardest projects, from start to finish\" and Sol \"Our go-to model for everyday work, from coding to powering agents at scale.\" Both list a 1,050,000-token context window, up to 922,000 input tokens and 128,000 output tokens. Astra's knowledge cutoff is May 18, 2026 and Sol's is June 1, 2026. Both model pages list text and image input, text output, and audio and video as not supported.</p>\n<h2 id=\"tiers\">Batch, Fast, Ultrafast and long-context rates</h2>\n<p>Each model page states the multipliers in the same words:</p>\n<ul>\n<li>\"Batch costs 50% of Standard rates.\"</li>\n<li>\"Fast mode costs twice the Standard rate for the same context length.\"</li>\n<li>\"Ultrafast costs 3 times the Standard rate through February 28, 2027, and 6 times the Standard rate starting March 1, 2027 (Pacific time).\"</li>\n<li>\"For requests with more than 272K input tokens, input and cache rates double and output costs 1.5 times the short-context rate for the full request.\"</li>\n</ul>\n<p>A second changelog entry the same day adds two background completion windows \"in the Responses API public beta\", with model token rates \"30% lower than Standard for the two-hour window and 40% lower for the eight-hour window\". The pricing page names four models for them: GPT-6.2 Astra, GPT-6.2 Sol, GPT-6.1 Terra and GPT-6 Luna. Our <a href=\"/blog/openai-background-completion-window/\">story on the background windows</a> covers how a request qualifies.</p>\n<table>\n<thead><tr><th>Option, GPT-6.2 Sol</th><th>Input</th><th>Output</th></tr></thead>\n<tbody>\n<tr><td>Standard</td><td>$2.00</td><td>$10.00</td></tr>\n<tr><td>Batch</td><td>$1.00</td><td>$5.00</td></tr>\n<tr><td>Two-hour background window</td><td>$1.40</td><td>$7.00</td></tr>\n<tr><td>Eight-hour background window</td><td>$1.20</td><td>$6.00</td></tr>\n<tr><td>Fast</td><td>$4.00</td><td>$20.00</td></tr>\n<tr><td>Ultrafast, to February 28, 2027 (Pacific time)</td><td>$6.00</td><td>$30.00</td></tr>\n<tr><td>Ultrafast, from March 1, 2027 (Pacific time)</td><td>$12.00</td><td>$60.00</td></tr>\n<tr><td>Over 272K input tokens, Standard</td><td>$4.00</td><td>$15.00</td></tr>\n</tbody>\n</table>\n<p>The Batch and Fast rows are on the pricing page; the other rows are our arithmetic on OpenAI's multipliers. Every row for Astra is four times Sol's. Two more costs sit outside this table. The pricing page says regional processing (data residency) endpoints \"are charged a 10% uplift for models released on or after March 5, 2026\". And OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/reasoning\" target=\"_blank\" rel=\"noopener\">reasoning guide</a> says reasoning tokens \"are billed as output tokens\". The <a href=\"https://developers.openai.com/api/docs/guides/latest-model\" target=\"_blank\" rel=\"noopener\">migration guide</a> adds that both models support US and EU data residency with Standard, Fast and Batch processing, and that \"Ultrafast supports US data residency only.\" For the long-context rule in detail, see our page on <a href=\"/blog/openai-long-context-pricing-272k/\">OpenAI's 272K long-context pricing</a>.</p>\n<h2 id=\"worked-cost\">What GPT-6.2 costs an outbound team</h2>\n<p>A hypothetical example with our own assumptions. A team writes 10,000 personalized cold emails a month. Each email takes 1,500 input tokens (instructions, the prospect record and a few lines of research) and 250 visible output tokens. That is 15 million input and 2.5 million output tokens a month.</p>\n<table>\n<thead><tr><th>Model</th><th>Standard</th><th>Batch</th><th>Eight-hour window</th></tr></thead>\n<tbody>\n<tr><td>GPT-6.2 Sol</td><td>$55.00</td><td>$27.50</td><td>$33.00</td></tr>\n<tr><td>GPT-6.2 Astra</td><td>$220.00</td><td>$110.00</td><td>$132.00</td></tr>\n<tr><td>GPT-6 Astra</td><td>$275.00</td><td>$137.50</td><td>not on the list</td></tr>\n<tr><td>GPT-6.1 Terra</td><td>$27.50</td><td>$13.75</td><td>$16.50</td></tr>\n</tbody>\n</table>\n<p>Reasoning tokens change the bill. If each email also uses 500 reasoning tokens, billed as output, the Standard total rises to $105.00 on Sol and $420.00 on Astra; at 1,000 reasoning tokens it is $155.00 and $620.00. We found no published figure for typical GPT-6.2 reasoning counts, so check the usage report after a test run. The migration guide suggests starting a new integration at medium reasoning effort, and both model pages say the API rejects requests that set reasoning effort to none.</p>\n<p>For high-volume writing, we would test Sol first and keep Astra for the steps where Sol falls short, such as a hard research question. For simple sorting, our suggestion is to test GPT-6.1 Terra too: at $1.00 and $5.00 it costs half of Sol per token; our <a href=\"/blog/gpt-6-1-terra-pricing/\">GPT-6.1 Terra pricing</a> page works through its numbers. For a full chatbot budget beyond tokens, see <a href=\"/blog/ai-chatbot-for-business-cost/\">what an AI chatbot costs a business</a>.</p>\n<h2 id=\"rate-limits\">GPT-6.2 rate limits by usage tier</h2>\n<table>\n<thead><tr><th>Tier</th><th>Requests per minute</th><th>Tokens per minute</th></tr></thead>\n<tbody>\n<tr><td>Build</td><td>5,000</td><td>1,000,000</td></tr>\n<tr><td>Launch</td><td>10,000</td><td>4,000,000</td></tr>\n<tr><td>Grow</td><td>15,000</td><td>40,000,000</td></tr>\n</tbody>\n</table>\n<p>Both model pages list the same numbers. OpenAI says your usage tier \"automatically increases as you send more requests and spend more on the API\"; what each tier takes is on our <a href=\"/blog/openai-api-usage-tiers/\">OpenAI API usage tiers</a> page. Requests on the two-hour and eight-hour background windows count against a separate limit: OpenAI says they \"share the Batch/Background Rate Limit with Batch API jobs.\"</p>\n<h2 id=\"migration\">What changes when you switch to GPT-6.2</h2>\n<p>OpenAI's migration guide, \"Using GPT-6.2\", lists changes that can raise a bill or break a request:</p>\n<ol>\n<li><strong>Editing earlier messages drops reasoning.</strong> \"Starting with GPT-6.2, the Responses API drops reasoning items after mid-conversation edits to the conversation history (prefix edits), certain model changes (including downgrades), or changes to the end user or organization.\" OpenAI adds that \"the model may use more tokens to repeat earlier work.\"</li>\n<li><strong>Instructions sit after input.</strong> GPT-6.2 appends top-level instructions after input in the Responses API. To keep reusable instructions eligible for caching, OpenAI says to \"put them in a developer message as the first item in input.\"</li>\n<li><strong>Tool calls need the Responses API.</strong> Both models support Chat Completions, \"but tool calling requires Responses.\"</li>\n<li><strong>Some parameters are gone.</strong> Omit temperature, top_p and top_logprobs (plus logprobs in Chat Completions), and in Responses requests remove message.output_text.logprobs from include.</li>\n<li><strong>Reasoning effort.</strong> \"If you currently use none or minimal, use low instead.\"</li>\n</ol>\n<p>The first two matter most for cost. OpenAI's advice is to keep the prefix unchanged \"To preserve reasoning and keep earlier input eligible for prompt caching\". On Sol, cached input costs $0.10 per 1M tokens against $2.00 uncached. Cache pricing in detail is on our page on <a href=\"/blog/openai-prompt-caching-pricing/\">OpenAI prompt caching pricing</a>.</p>\n<h2 id=\"estimate\">How to estimate your own GPT-6.2 bill</h2>\n<ol>\n<li><strong>Measure one job.</strong> Run a sample of real requests on Sol and record the input, cached input and output tokens of each. Output includes reasoning tokens.</li>\n<li><strong>Multiply by volume.</strong> Tokens per request times requests per month, in millions.</li>\n<li><strong>Price each part.</strong> On Sol, input times $2.00, cached input times $0.10, output times $10.00, and cache writes at $2.50 (30 minutes) or $5.00 (12 hours). On Astra, four times those rates.</li>\n<li><strong>Apply the option.</strong> Halve the total for Batch, take 30% or 40% off for a background window, double it for Fast.</li>\n<li><strong>Check the 272K line.</strong> A request above 272K input tokens is billed at the long-context rates for the whole request: input and cache rates double, output 1.5 times.</li>\n<li><strong>Add the uplift if it applies.</strong> 10% for regional processing endpoints.</li>\n</ol>\n<p>Example, again hypothetical: a job that averages 3,000 input and 400 output tokens with no caching, run 20,000 times a month on Sol at Standard, is 60 million input and 8 million output tokens. That is $120.00 plus $80.00, or $200.00 a month, and $100.00 on Batch. The same job on Astra is $800.00 at Standard.</p>\n<h2 id=\"which-model\">Which GPT-6.2 model fits outbound work</h2>\n<p>Our suggestions, not OpenAI's. Sol fits the jobs that run thousands of times a month: first lines, prospect research, reply sorting and CRM notes. Astra fits the few steps where quality pays for a fourfold price, such as a hard research question. Anything that can wait hours belongs in Batch or, through the Responses API, a background window. If you run <a href=\"/ai-calling-home-services\">AI calling for home services</a>, note that both GPT-6.2 model pages list audio as not supported, so it fits the text steps around a call, such as summaries and follow-up messages, rather than the call itself.</p>\n<p>If you want a second opinion on which steps of your stack should move to GPT-6.2 and which should stay on a cheaper model, talk to our <a href=\"/ai-automation-agency\">AI automation agency</a> team.</p>",
+ "faqs": [
+  [
+   "How much does GPT-6.2 cost?",
+   "At Standard rates, GPT-6.2 Astra costs $8.00 per 1M input tokens and $40.00 per 1M output tokens, and GPT-6.2 Sol costs $2.00 and $10.00. Cached input is $0.40 on Astra and $0.10 on Sol. Prices are from OpenAI's pricing page, read on November 18, 2026."
+  ],
+  [
+   "Is GPT-6.2 cheaper than GPT-6?",
+   "GPT-6.2 Astra is. By our arithmetic it lists 20% below GPT-6 Astra on input and output ($8.00 and $40.00 against $10.00 and $50.00) and 60% below it on cached input. GPT-6.2 Sol costs the same as GPT-6.1 Sol on every Standard rate."
+  ],
+  [
+   "Does GPT-6.2 have a Batch discount?",
+   "Yes. The model pages say Batch costs 50% of Standard rates: $1.00 and $5.00 per 1M tokens on Sol, $4.00 and $20.00 on Astra. OpenAI's pricing page also names both models for the two-hour and eight-hour background windows, at 30% and 40% below Standard, in public beta."
+  ],
+  [
+   "What does GPT-6.2 charge above 272K input tokens?",
+   "OpenAI says that for requests with more than 272K input tokens, input and cache rates double and output costs 1.5 times the short-context rate for the full request. By our arithmetic that is $4.00 and $15.00 per 1M tokens on Sol and $16.00 and $60.00 on Astra."
+  ],
+  [
+   "Are reasoning tokens billed on GPT-6.2?",
+   "Yes. OpenAI's reasoning guide says reasoning tokens are billed as output tokens. In our hypothetical 10,000-email example, adding 500 reasoning tokens per email raises the monthly Standard cost from $55.00 to $105.00 on Sol and from $220.00 to $420.00 on Astra."
+  ],
+  [
+   "What are the GPT-6.2 rate limits?",
+   "Both model pages list the same limits: 5,000 requests and 1,000,000 tokens per minute at the Build tier, 10,000 and 4,000,000 at Launch, and 15,000 and 40,000,000 at Grow. Background-window requests share a separate Batch/Background limit with Batch jobs."
+  ]
+ ],
+ "word_count": 1519,
+ "read_time": 7
+}
