@@ -1,0 +1,2646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Stream Clipper: Turn GTA 6 Streams Into Clips | imisofts</title>
+
+  <!-- Visitor Tracking -->
+  <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="Sfy91D1xWAFhfQuk" data-version="062024"></script>
+  <meta name="description" content="Free Claude Code skill that finds the best moments in a long stream, cuts 9:16 clips with word-by-word captions and writes the post. Runs on your computer.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://imisofts.com/stream-clipper">
+  <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Free AI Stream Clipper: Turn GTA 6 Streams Into Clips | imisofts">
+  <meta property="og:description" content="Free Claude Code skill that finds the best moments in a long stream, cuts 9:16 clips with word-by-word captions and writes the post. Runs on your computer.">
+  <meta property="og:url" content="https://imisofts.com/stream-clipper">
+  <meta property="og:image" content="https://imisofts.com/assets/og/stream-clipper.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Free AI clipper for GTA 6 streams: vertical clips with auto captions, by imisofts">
+  <meta property="og:site_name" content="imisofts">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free AI Stream Clipper: Turn GTA 6 Streams Into Clips | imisofts">
+  <meta name="twitter:description" content="Free Claude Code skill that finds the best moments in a long stream, cuts 9:16 clips with word-by-word captions and writes the post. Runs on your computer.">
+  <meta name="twitter:image" content="https://imisofts.com/assets/og/stream-clipper.jpg">
+  <meta name="twitter:image:alt" content="Free AI clipper for GTA 6 streams: vertical clips with auto captions, by imisofts">
+  <meta name="twitter:site" content="@imisofts">
+  <meta name="twitter:creator" content="@imisofts">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Stream Clipper",
+  "alternateName": "imisofts Stream Clipper",
+  "description": "A free Claude Code skill that turns a long stream or video into vertical 9:16 clips: it finds the loud moments, writes down the words with Whisper on your computer, cuts clips with the facecam on top, word-by-word captions and a title, and writes the post text.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "macOS, Windows, Linux",
+  "softwareVersion": "1.0",
+  "license": "https://opensource.org/licenses/MIT",
+  "url": "https://imisofts.com/stream-clipper",
+  "downloadUrl": "https://imisofts.com/assets/downloads/imisofts-stream-clipper-1.0.zip",
+  "image": "https://imisofts.com/assets/og/stream-clipper.jpg",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://imisofts.com/#organization",
+    "name": "imisofts",
+    "url": "https://imisofts.com"
+  },
+  "author": {
+    "@type": "Organization",
+    "@id": "https://imisofts.com/#organization",
+    "name": "imisofts",
+    "url": "https://imisofts.com"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://imisofts.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": "https://imisofts.com/products"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Stream Clipper",
+      "item": "https://imisofts.com/stream-clipper"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Stream Clipper really free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The skill is free under the MIT license. You run it with Claude Code, which comes with Claude's paid plans, like Pro. FFmpeg, Whisper and the other tools it uses are free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need API keys?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Whisper runs on your own computer, and the tool does not upload your video anywhere."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which sites does it work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "YouTube, Twitch, Kick and most other sites that the free yt-dlp tool supports, plus any video file on your computer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In our latest test on a basic cloud computer with 2 cores and no graphics card, finding the moments in our 6 minute film and writing down the words took 149 seconds, and cutting 3 clips with captions took 157 seconds. An earlier run on a faster computer took 101 and 119 seconds, so times change with the computer. A long stream takes longer to download, but Whisper still only writes down about one minute around each loud moment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I make money clipping GTA 6 streams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Many streamers and brands pay clippers for views through programs like Whop Content Rewards, where Whop says clippers are paid about $1 per 1,000 views on average. For GTA footage, read Rockstar's policy first: it says making money from the footage counts as commercial use, and that videos can be taken down at any time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if it cannot find the facecam?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It saves a check image for every clip with a box where it thinks the webcam is. If the box is wrong or missing, Claude asks you where the webcam is and cuts the clip again, or uses the full picture with a blurred background."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work on Windows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Install Python 3.9 or newer and FFmpeg (winget install Gyan.FFmpeg), then let Claude run the setup step. The same goes for Mac (brew install ffmpeg) and Linux."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Free AI Tool to Clip GTA 6 Streams (Step by Step + the Money Rules)",
+  "description": "A free Claude Code skill that finds the loud moments in a long stream, writes down the words with Whisper on your computer and cuts vertical clips with captions and post text. Real test run on our own film, plus the rules for making money with GTA clips.",
+  "thumbnailUrl": [
+    "https://imisofts.com/assets/og/stream-clipper-video.jpg",
+    "https://i.ytimg.com/vi/3SX5PDTvKcE/maxresdefault.jpg"
+  ],
+  "uploadDate": "2026-11-19T03:25:00+05:00",
+  "duration": "PT7M28S",
+  "embedUrl": "https://www.youtube-nocookie.com/embed/3SX5PDTvKcE",
+  "contentUrl": "https://www.youtube.com/watch?v=3SX5PDTvKcE",
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://imisofts.com/#organization",
+    "name": "imisofts",
+    "url": "https://imisofts.com"
+  }
+}
+  </script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: white;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ============= NAVBAR STYLES ============= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .navbar.scrolled .nav-link {
+      color: #333;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+      position: relative;
+    }
+
+    .nav-logo-wrapper {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      height: 58px;
+      width: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-link {
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: #F45407;
+    }
+
+    /* Services Dropdown */
+    .nav-dropdown {
+      position: static;
+    }
+
+    #industriesDropdown {
+      position: relative;
+    }
+
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .nav-dropdown-toggle svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-toggle svg {
+      transform: rotate(180deg);
+    }
+
+    /* Mega-menu panel */
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
+      padding: 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+      z-index: 1000;
+      margin-top: 0;
+    }
+
+    .nav-dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+    }
+
+    .nav-dropdown:hover .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* Industries dropdown: narrow, centered on trigger */
+    .nav-dropdown-menu--narrow {
+      left: 50% !important;
+      right: auto !important;
+      min-width: 420px !important;
+      transform: translateX(-50%) translateY(-8px) !important;
+    }
+
+    #industriesDropdown:hover .nav-dropdown-menu--narrow {
+      transform: translateX(-50%) translateY(0) !important;
+    }
+
+    /* -- Mega-menu tabbed layout (InvoZone style) -- */
+    .mega-menu {
+      display: flex;
+      min-height: 380px;
+    }
+
+    .mega-sidebar {
+      width: 280px;
+      min-width: 280px;
+      border-right: 1px solid #f0f0f0;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      background: #fefcfb;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mega-tab {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      color: #4b5563;
+      font-weight: 500;
+      font-size: 15px;
+      border-left: 3px solid transparent;
+      text-decoration: none;
+    }
+
+    .mega-tab:hover,
+    .mega-tab.active {
+      background: linear-gradient(135deg, #fff7f3 0%, #fff0ea 100%);
+      color: #1a1a1a;
+      border-left-color: #F45407;
+    }
+
+    .mega-tab-icon {
+      width: 22px;
+      height: 22px;
+      color: #c9a08a;
+      flex-shrink: 0;
+      transition: color 0.2s ease;
+    }
+
+    .mega-tab:hover .mega-tab-icon,
+    .mega-tab.active .mega-tab-icon {
+      color: #F45407;
+    }
+
+    .mega-tab-arrow {
+      margin-left: auto;
+      width: 16px;
+      height: 16px;
+      color: #94a3b8;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .mega-tab.active .mega-tab-arrow {
+      opacity: 1;
+      color: #F45407;
+    }
+
+    /* CTA card in sidebar */
+    .mega-cta-card {
+      margin: auto 16px 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #FFF5F0 0%, #FFEDE5 100%);
+      border: 1px solid #ffd9c7;
+      border-radius: 12px;
+    }
+
+    .mega-cta-card .mega-cta-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .mega-cta-card p {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+
+    .mega-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407 0%, #ff6b28 100%);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(244, 84, 7, 0.25);
+    }
+
+    .mega-cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(244, 84, 7, 0.35);
+    }
+
+    .mega-cta-btn svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Content panels */
+    .mega-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mega-panel {
+      display: none;
+      padding: 28px 32px;
+      flex: 1;
+    }
+
+    .mega-panel.active {
+      display: block;
+    }
+
+    .mega-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .mega-item {
+      padding: 14px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .mega-item:hover {
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
+    }
+
+    .mega-item-icon {
+      width: 20px;
+      height: 20px;
+      padding: 8px;
+      box-sizing: content-box;
+      background: linear-gradient(135deg, #fff4ef 0%, #ffe8dd 100%);
+      border-radius: 10px;
+      color: #F45407;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .mega-item:hover .mega-item-icon {
+      background: #F45407;
+      color: white;
+    }
+
+    .mega-item-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .mega-item:hover .mega-item-title {
+      color: #F45407;
+    }
+
+    .mega-item-desc {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    /* Bottom bar */
+    .mega-bottom {
+      margin-top: auto;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #fff9f6 0%, #fff4ef 100%);
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .mega-bottom a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #4b5563;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .mega-bottom a:hover {
+      color: #F45407;
+    }
+
+    .mega-bottom a svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Industries dropdown items */
+    .dropdown-simple {
+      padding: 16px 12px;
+    }
+
+    .dropdown-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-link:hover {
+      background: #f9fafb;
+    }
+
+    .dropdown-link svg {
+      width: 18px;
+      height: 18px;
+      padding: 7px;
+      box-sizing: content-box;
+      background: #f3f4f6;
+      border-radius: 10px;
+      color: #6b7280;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-link:hover svg {
+      background: #F45407;
+      color: white;
+    }
+
+    .dropdown-link-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 2px;
+      transition: color 0.2s ease;
+    }
+
+    .dropdown-link:hover .dropdown-link-title {
+      color: #F45407;
+    }
+
+    .dropdown-link-desc {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* Mobile section toggle (styles moved to mobile menu block) */
+
+    /* Mega-menu responsive */
+    @media (max-width: 1100px) {
+      .mega-sidebar { width: 240px; min-width: 240px; }
+      .mega-panel { padding: 24px 20px; }
+      .mega-grid { gap: 2px; }
+      .mega-item { padding: 12px 14px; }
+    }
+
+    /* CTA Button */
+    .nav-cta {
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      border-radius: 10px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(244, 84, 7, 0.3);
+    }
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+      position: relative;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #333;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: calc(100vh - 72px);
+      background: #ffffff;
+      padding: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      z-index: 999;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      visibility: hidden;
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    .mobile-menu-inner {
+      padding: 8px 16px 100px;
+    }
+
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 10px;
+      transition: background 0.2s ease;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mobile-nav-link:hover, .mobile-nav-link:active {
+      background: #fff5f0;
+    }
+
+    .mobile-services {
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mobile-services-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      font-size: 16px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: background 0.2s ease;
+      border-radius: 10px;
+    }
+
+    .mobile-services-title:active {
+      background: #fff5f0;
+    }
+
+    .mobile-services-title .accordion-icon {
+      width: 20px;
+      height: 20px;
+      color: #999;
+      transition: transform 0.3s ease, color 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .mobile-services-title.active .accordion-icon {
+      transform: rotate(180deg);
+      color: #F45407;
+    }
+
+    .mobile-section-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      padding-left: 8px;
+    }
+
+    .mobile-section-content.active {
+      max-height: 800px;
+    }
+
+    .mobile-section-group {
+      padding: 8px 0 4px 16px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #F45407;
+      font-weight: 600;
+    }
+
+    .mobile-service-link {
+      display: block;
+      padding: 11px 16px 11px 28px;
+      color: #4b5563;
+      text-decoration: none;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      border-radius: 8px;
+    }
+
+    .mobile-service-link:hover, .mobile-service-link:active {
+      background: #fff5f0;
+      color: #F45407;
+    }
+
+    .mobile-cta {
+      display: block;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+      margin: 24px 16px 0;
+      box-shadow: 0 4px 15px rgba(244, 84, 7, 0.3);
+    }
+
+    .mobile-cta:active {
+      transform: scale(0.98);
+    }
+
+    body.mobile-menu-open {
+      overflow: hidden;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ============= FOOTER ============= */
+    .footer {
+      background: #0a0a0a;
+      color: #aaa;
+      padding: 0;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #F45407, #ff6b28, transparent);
+    }
+
+    .footer-cta-banner {
+      padding: 72px 0;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(244,84,7,0.08) 0%, transparent 70%);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-cta-banner h3 {
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-cta-banner p {
+      font-size: 16px;
+      color: #888;
+      margin-bottom: 32px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .footer-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 24px rgba(244,84,7,0.25);
+    }
+
+    .footer-cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(244,84,7,0.4);
+    }
+
+    .footer-cta-btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-cta-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    .footer-main {
+      padding: 64px 0 0;
+    }
+
+    .footer-links-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 32px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 48px;
+    }
+
+    .footer-column .footer-heading {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .footer-column .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 20px;
+      height: 2px;
+      background: linear-gradient(90deg, #F45407, #ff6b28);
+      border-radius: 1px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #777;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      transform: translateX(4px);
+    }
+
+    .footer-top {
+      padding-bottom: 48px;
+    }
+
+    .footer-brand {
+      max-width: 520px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      color: #777;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .footer-social a:hover {
+      background: linear-gradient(135deg, #F45407, #ff6b28);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 16px rgba(244,84,7,0.3);
+    }
+
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
+      color: #888;
+      transition: color 0.3s ease;
+    }
+
+    .footer-social a:hover svg {
+      color: white;
+    }
+
+    .footer-contact-row {
+      display: flex;
+      gap: 24px;
+      margin-top: 16px;
+    }
+
+    .footer-contact-row a,
+    .footer-contact-row span {
+      color: #666;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-contact-row a:hover {
+      color: #F45407;
+    }
+
+    .footer-bottom {
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: #555;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: #F45407;
+    }
+
+    /* ============= RESPONSIVE ============= */
+    @media (max-width: 1024px) {
+      .solution-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+      }
+
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        padding: 100px 0 48px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .section-header h2 {
+        font-size: 28px !important;
+      }
+
+      .problem-grid,
+      .solution-grid,
+      .results-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .cta-trust {
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+.footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .problem-section,
+      .solution-section,
+      .results-section,
+      .process-section,
+      .faq-section,
+      .final-cta {
+        padding: 48px 0;
+      }
+
+
+      .footer-brand {
+        max-width: 100%;
+      }
+
+      .footer-links-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px !important;
+      }
+
+      .footer-contact-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .result-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ====== PRICING PAGE STYLES ====== */
+    .pricing-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 48px;
+    }
+    .pricing-tab {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid #e5e5e5;
+      background: white;
+      color: #666;
+      transition: all 0.2s;
+    }
+    .pricing-tab.active {
+      background: #F45407;
+      border-color: #F45407;
+      color: white;
+    }
+    .pricing-tab:hover:not(.active) {
+      border-color: #F45407;
+      color: #F45407;
+    }
+    .pricing-category {
+      display: none;
+    }
+    .pricing-category.active {
+      display: block;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .pricing-card {
+      background: white;
+      border: 2px solid #e5e5e5;
+      border-radius: 12px;
+      padding: 36px 28px;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .pricing-card:hover {
+      border-color: #F45407;
+      box-shadow: 0 8px 30px rgba(244, 84, 7, 0.08);
+    }
+    .pricing-card.featured {
+      border-color: #F45407;
+      box-shadow: 0 8px 30px rgba(244, 84, 7, 0.12);
+    }
+    .pricing-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #F45407;
+      color: white;
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .pricing-card-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0a0a0a;
+      margin-bottom: 8px;
+    }
+    .pricing-card-desc {
+      font-size: 0.88rem;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .pricing-card-price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+    .pricing-amount {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #0a0a0a;
+    }
+    .pricing-period {
+      font-size: 0.9rem;
+      color: #999;
+    }
+    .pricing-note {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 24px;
+    }
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px 0;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: #333;
+      padding: 8px 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .pricing-features li:last-child {
+      border-bottom: none;
+    }
+    .pricing-features li svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      color: #F45407;
+      margin-top: 1px;
+    }
+    .pricing-card .btn-primary,
+    .pricing-card .btn-secondary-outline {
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-secondary-outline {
+      background: white;
+      color: #F45407;
+      border: 2px solid #F45407;
+    }
+    .btn-secondary-outline:hover {
+      background: #FFF5F0;
+    }
+    .enterprise-card {
+      background: #0f172a;
+      border-color: #0f172a;
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 48px 40px;
+      border-radius: 12px;
+      margin-top: 8px;
+    }
+    .enterprise-card .pricing-card-name,
+    .enterprise-card .pricing-amount {
+      color: white;
+    }
+    .enterprise-card .pricing-card-desc {
+      color: rgba(255,255,255,0.7);
+    }
+    .enterprise-card .pricing-features li {
+      color: rgba(255,255,255,0.85);
+      border-bottom-color: rgba(255,255,255,0.1);
+    }
+    .pricing-guarantee {
+      text-align: center;
+      margin-top: 48px;
+      padding: 32px;
+      background: #FFF5F0;
+      border-radius: 12px;
+    }
+    .pricing-guarantee h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #0a0a0a;
+    }
+    .pricing-guarantee p {
+      font-size: 0.9rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+      .enterprise-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .pricing-tabs {
+        flex-wrap: wrap;
+      }
+    }
+      @media (min-width: 769px) and (max-width: 1024px) {
+      .footer-links-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 28px !important;
+      }
+
+      .footer-cta-banner h3 {
+        font-size: 28px;
+      }
+
+    }
+  </style>
+<style id="nav-cat-fix-3">
+/* space between the category list and the Contact Us card */
+.mega-sidebar .mega-cta-card{margin-top:28px}
+.mega-sidebar{display:flex;flex-direction:column}
+.mega-panel,.mega-sidebar{max-height:min(72vh,580px);overflow-y:auto}
+
+/* Industries dropdown styled to match the Services mega-menu */
+.nav-dropdown-menu--narrow{width:auto}
+.dropdown-simple{display:grid;grid-template-columns:1fr 1fr;gap:2px;min-width:660px;padding:20px}
+.dropdown-link{padding:14px 16px;border-radius:10px;gap:14px;align-items:flex-start}
+.dropdown-link:hover{background:linear-gradient(135deg,#fff9f6 0%,#fff4ef 100%)}
+.dropdown-link svg{width:20px;height:20px;padding:8px;background:linear-gradient(135deg,#fff4ef 0%,#ffe8dd 100%);
+ border-radius:10px;color:#F45407;flex-shrink:0}
+.dropdown-link:hover svg{background:#F45407;color:#fff}
+.dropdown-link-title{font-size:15px;font-weight:600;color:#1a1a1a;margin-bottom:3px}
+.dropdown-link-desc{font-size:13px;color:#6b7280;line-height:1.5}
+@media(max-width:900px){.dropdown-simple{grid-template-columns:1fr;min-width:0;padding:14px}}
+</style>
+  <script src="/js/measure.js" defer></script>
+  <style id="service-v1">
+.hx{--ink:#0F172A;--ink2:#1E293B;--text:#334155;--muted:#64748B;--line:#E2E8F0;--line2:#EEF0EB;--bg:#FCFCFA;--bg2:#F6F7F4;--brand:#F45407;--brand-d:#C2410C;--brand-soft:#FFF4EE;--brand-line:#FFD8C4;--r:16px;--sh:0 1px 2px rgba(15,23,42,.04),0 12px 32px -16px rgba(15,23,42,.12);--sh-lg:0 2px 6px rgba(15,23,42,.04),0 28px 56px -24px rgba(15,23,42,.22);color:var(--text);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.hx *{font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
+.hx-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.hx-sec{padding:104px 0;border-top:1px solid var(--line2);background:#fff}
+.hx-sec--alt{background:var(--bg)}
+.hx-sec--tint{background:var(--bg2)}
+.hx-sec--band{padding:72px 0}
+:where(.hx) :is(h1,h2,h3){color:var(--ink);font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+:where(.hx) h2{font-size:clamp(28px,3.1vw,40px);line-height:1.15;margin:0 0 16px}
+:where(.hx) h3{font-size:19px;line-height:1.35;margin:0 0 8px;letter-spacing:-.012em}
+:where(.hx) p{margin:0}
+:where(.hx) a{color:inherit}
+.hx .hx-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--brand-d);margin-bottom:18px}
+.hx .hx-eyebrow::before{content:"";width:18px;height:2px;border-radius:2px;background:var(--brand)}
+.hx-head{max-width:780px;margin:0 0 56px}
+.hx-head--c{margin-left:auto;margin-right:auto;text-align:center}
+.hx-head--c .hx-eyebrow::after{content:"";width:18px;height:2px;border-radius:2px;background:var(--brand)}
+.hx-head>p{font-size:18px;line-height:1.6;color:var(--muted)}
+.hx-ico{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:var(--brand-soft);border:1px solid var(--brand-line);display:grid;place-items:center;color:var(--brand)}
+.hx-ico svg{width:22px;height:22px}
+.hx svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hx svg.hx-fill{fill:currentColor;stroke:none}
+.hx-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:10px;font-size:15.5px;font-weight:600;line-height:1.2;text-decoration:none;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background-color .15s ease,border-color .15s ease}
+.hx-btn svg{width:17px;height:17px}
+.hx-btn--primary{background:var(--brand);color:#fff;border:1px solid var(--brand);box-shadow:0 10px 22px -10px rgba(244,84,7,.6)}
+.hx-btn--primary:hover{background:#E04B05;transform:translateY(-1px);box-shadow:0 14px 26px -12px rgba(244,84,7,.65)}
+.hx-btn--ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 1px 2px rgba(15,23,42,.05)}
+.hx-btn--ghost:hover{border-color:#CBD5E1;transform:translateY(-1px)}
+.hx-btn--dark{background:var(--ink);color:#fff;border:1px solid var(--ink)}
+.hx-btn--dark:hover{background:#1E293B;transform:translateY(-1px)}
+.hx-link{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;font-size:15px;color:var(--ink);text-decoration:none}
+.hx-link svg{width:16px;height:16px;transition:transform .15s ease}
+.hx-link:hover{color:var(--brand-d)}
+.hx-link:hover svg{transform:translateX(3px)}
+.hx a:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:8px}
+.hx-hero{position:relative;padding:150px 0 84px;background:#fff;overflow:hidden}
+.hx-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#EEF0EB 1px,transparent 1px),linear-gradient(90deg,#EEF0EB 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 78% 38%,#000 20%,transparent 72%);mask-image:radial-gradient(ellipse 60% 70% at 78% 38%,#000 20%,transparent 72%);pointer-events:none}
+.hx-hero::after{content:"";position:absolute;width:720px;height:720px;right:-220px;top:-260px;background:radial-gradient(circle,rgba(244,84,7,.09),rgba(244,84,7,0) 62%);pointer-events:none}
+.hx-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:64px;align-items:center}
+.hx-crumbs{display:flex;flex-wrap:wrap;align-items:center;list-style:none;margin:0 0 18px;padding:0;font-size:13.5px;color:var(--muted)}
+.hx-crumbs li{display:inline-flex;align-items:center}
+.hx-crumbs li+li::before{content:"";width:5px;height:5px;margin:0 12px;border-top:1.5px solid #CBD5E1;border-right:1.5px solid #CBD5E1;transform:rotate(45deg)}
+.hx-crumbs a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;text-decoration:none;color:var(--muted)}
+.hx-crumbs a:hover{color:var(--ink)}
+.hx-crumbs [aria-current]{color:var(--ink);font-weight:500}
+.hx-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 10px;background:var(--brand-soft);border:1px solid var(--brand-line);border-radius:999px;color:var(--brand-d);font-size:13.5px;font-weight:600;margin-bottom:22px}
+.hx-badge i{width:7px;height:7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(244,84,7,.14)}
+.hx-hero h1{text-wrap:pretty;font-size:clamp(38px,4.2vw,54px);line-height:1.05;font-weight:700;letter-spacing:-.034em;margin:0 0 24px}
+.hx-hero h1 span{color:var(--brand)}
+.hx-lead{font-size:19px;line-height:1.62;color:var(--muted);max-width:590px;margin-bottom:34px}
+.hx-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hx-assure{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;margin:20px 0 0;padding:0;font-size:14px;color:var(--muted)}
+.hx-assure li{display:inline-flex;align-items:center;gap:8px}
+.hx-assure svg{width:16px;height:16px;color:#16A34A}
+.hx-stats{display:flex;margin:40px 0 0;padding:28px 0 0;border-top:1px solid var(--line);list-style:none}
+.hx-stats li{padding-right:32px;margin-right:32px;border-right:1px solid var(--line)}
+.hx-stats li:last-child{border:0;margin:0;padding:0}
+.hx-stats b{display:block;font-size:30px;line-height:1.1;font-weight:600;letter-spacing:-.025em;color:var(--ink)}
+.hx-stats span{display:block;margin-top:6px;font-size:14px;color:var(--muted)}
+.hx-ui-dots{display:flex;gap:6px}
+.hx-ui-dots i{width:10px;height:10px;border-radius:50%;background:#E2E8F0}
+.hx-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:#ECFDF3;color:#067647;border:1px solid #ABEFC6;white-space:nowrap}
+.hx-pill i{width:6px;height:6px;border-radius:50%;background:#17B26A}
+.hx-ui-label{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:20px 0 10px}
+.hx-chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.hx-chips li{font-size:13px;font-weight:500;color:var(--ink2);background:var(--bg2);border:1px solid var(--line);padding:6px 11px;border-radius:8px;line-height:1.3}
+.hx-logos{padding:34px 0;background:#fff;border-top:1px solid var(--line2)}
+.hx-logos-label{font-size:13.5px;line-height:1.45;color:var(--muted)}
+.hx-logos-label strong{display:block;color:var(--ink);font-weight:600}
+.hx-logos-head{display:flex;align-items:center;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;margin-bottom:22px}
+.hx-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.hx-mq-track{display:flex;width:max-content;animation:hx-scroll 70s linear infinite}
+.hx-marquee:hover .hx-mq-track{animation-play-state:paused}
+.hx-logo-row{display:flex;align-items:center;gap:56px;list-style:none;margin:0;padding:0 28px}
+.hx-logo-row li{flex:none;display:flex;align-items:center;height:44px}
+.hx-logo-row img{max-height:30px;max-width:150px;width:auto;height:auto;filter:grayscale(1) contrast(1.05);opacity:.6;mix-blend-mode:multiply;transition:opacity .2s ease,filter .2s ease}
+.hx-logo-row li:hover img{opacity:1;filter:none}
+.hx-logo-row li.sq img{max-height:46px}
+@keyframes hx-scroll{to{transform:translateX(-50%)}}
+@media (max-width:640px){.hx-logo-row{gap:36px;padding:0 18px}
+.hx-logo-row img{max-height:24px;max-width:120px}
+.hx-logo-row li.sq img{max-height:36px}
+.hx-mq-track{animation-duration:55s}}
+@media (prefers-reduced-motion:reduce){.hx-mq-track{animation:none}
+.hx-marquee{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+.hx-logo-row[aria-hidden="true"]{display:none}}
+.hx-num{width:38px;height:38px;border-radius:11px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:15px;font-weight:600}
+.hx-split{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:72px;align-items:start}
+.hx-split .hx-head{position:sticky;top:112px;margin:0}
+.hx-checks{list-style:none;margin:0;padding:18px 0 0;border-top:1px solid var(--line);display:grid;gap:11px}
+.hx-checks li{position:relative;padding-left:30px;font-size:15px;line-height:1.5;color:var(--text)}
+.hx-checks li::before{content:"";position:absolute;left:0;top:1px;width:19px;height:19px;border-radius:50%;background:var(--brand-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C2410C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/11px no-repeat;border:1px solid var(--brand-line)}
+.hx-band{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:40px 48px;border-radius:24px;background:linear-gradient(120deg,#FFF3EC 0%,#FFFBF8 55%,#FFFFFF 100%);border:1px solid var(--brand-line)}
+.hx .hx-band-t{font-size:clamp(22px,2.2vw,28px);line-height:1.25;font-weight:600;color:var(--ink);letter-spacing:-.02em;margin-bottom:8px}
+.hx-band p{color:var(--muted);font-size:16px;max-width:620px}
+.hx-band .hx-ctas{flex:0 0 auto}
+.hx-plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.hx-plan{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:var(--sh)}
+.hx-plan-tag{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hx-plan h3{font-size:22px;margin:10px 0 18px}
+.hx-price{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hx-price small{display:block;font-size:13px;color:var(--muted);margin-bottom:2px}
+.hx-price b{display:inline-block;font-size:38px;line-height:44px;font-weight:600;letter-spacing:-.03em;color:var(--ink)}
+.hx-price b.q{font-size:30px}
+.hx-price span{font-size:15px;color:var(--muted);margin-left:4px}
+.hx-plan>p{font-size:15px;color:var(--muted);margin:18px 0 0}
+.hx-plan .hx-checks{border-top:0;padding-top:18px;margin-bottom:28px;flex:1;align-content:start}
+.hx-plan .hx-btn{width:100%}
+.hx-fine{margin-top:22px;font-size:14px;color:var(--muted);text-align:center}
+.hx-fine a,.hx-qs details a{display:inline-block;padding:12px 0;margin:-12px 0}
+.hx-fine a{font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-color:#CBD5E1;text-underline-offset:3px}
+.hx-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.hx-case{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;padding:32px;box-shadow:var(--sh)}
+.hx-case-tag{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-d)}
+.hx-case-tag span{color:var(--muted);letter-spacing:.02em;text-transform:none;font-weight:500;font-size:13px}
+.hx-case h3{font-size:22px;margin:14px 0 10px}
+.hx-case>p{font-size:15.5px;line-height:1.65;color:var(--muted)}
+.hx-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:24px 0;padding:0;list-style:none;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg)}
+.hx-metrics li{padding:16px 18px;border-left:1px solid var(--line)}
+.hx-metrics li:first-child{border-left:0}
+.hx-metrics b{display:block;font-size:26px;line-height:1.15;font-weight:600;letter-spacing:-.02em;color:var(--ink)}
+.hx-metrics span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.hx-case .hx-chips{margin-bottom:18px}
+.hx-case .hx-link{margin-top:auto}
+.hx-cases--one{grid-template-columns:1fr}
+.hx-cases--one .hx-case{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:12px 48px;align-items:start}
+.hx-cases--one .hx-case>*{grid-column:1}
+.hx-cases--one .hx-metrics{grid-column:2;grid-row:1/span 5;margin:0;grid-template-columns:1fr}
+.hx-cases--one .hx-metrics li{border-left:0;border-top:1px solid var(--line);padding:20px 24px}
+.hx-cases--one .hx-metrics li:first-child{border-top:0}
+.hx-cases--one .hx-metrics b{font-size:34px}
+.hx-builds{margin-top:56px}
+.hx-builds h3{font-size:21px;margin-bottom:6px}
+.hx-builds>p{color:var(--muted);font-size:15.5px;margin-bottom:22px}
+.hx-build-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.hx-build-row li{padding:22px 24px;border:1px solid var(--line);border-radius:14px;background:#fff}
+.hx-build-row strong{display:block;color:var(--ink);font-size:16px;font-weight:600;margin-bottom:6px}
+.hx-build-row p{font-size:14.5px;line-height:1.6;color:var(--muted)}
+.hx-founder{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:36px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px 40px;box-shadow:var(--sh)}
+.hx-founder img{width:120px;height:120px;border-radius:22px;object-fit:cover;background:var(--bg2)}
+.hx-founder h2{font-size:clamp(24px,2.3vw,30px);margin-bottom:10px}
+.hx-founder p{font-size:16px;color:var(--muted);max-width:640px}
+.hx-facts{display:flex;flex-wrap:wrap;gap:10px 22px;list-style:none;margin:16px 0 0;padding:0;font-size:14px;color:var(--text)}
+.hx-facts li{display:inline-flex;align-items:center;gap:8px}
+.hx-facts svg{width:16px;height:16px;color:var(--brand)}
+.hx-founder-cta{display:grid;gap:4px;justify-items:start}
+.hx-roles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.hx-role{display:flex;flex-direction:column;height:100%;padding:24px;background:#fff;border:1px solid var(--line);border-radius:var(--r);text-decoration:none;transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+.hx-role:hover{border-color:var(--brand-line);box-shadow:var(--sh);transform:translateY(-2px)}
+.hx-role .hx-ico{margin-bottom:18px}
+.hx-role strong{display:block;color:var(--ink);font-size:16.5px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+.hx-role-d{font-size:14.5px;line-height:1.55;color:var(--muted);margin-bottom:14px}
+.hx-role em{margin-top:auto;font-style:normal;font-size:14px;font-weight:600;color:var(--brand-d)}
+.hx-related{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:28px;list-style:none;padding:0}
+.hx-related li:first-child{font-size:14px;color:var(--muted);margin-right:4px}
+.hx-related a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:14px;font-weight:500;color:var(--ink);text-decoration:none}
+.hx-related a:hover{border-color:var(--brand-line);color:var(--brand-d)}
+.hx-faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:72px;align-items:start}
+.hx-faq .hx-head{position:sticky;top:112px;margin:0}
+.hx-faq .hx-head .hx-btn{margin-top:28px}
+.hx-qs{border-top:1px solid var(--line)}
+.hx-qs details{border-bottom:1px solid var(--line)}
+.hx-qs summary{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:44px;padding:22px 0;cursor:pointer;list-style:none}
+.hx-qs summary::-webkit-details-marker{display:none}
+.hx-qs summary h3{margin:0;font-size:17.5px;line-height:1.4}
+.hx-qs summary i{position:relative;flex:0 0 32px;height:32px;border-radius:50%;border:1px solid var(--line);background:#fff;transition:transform .2s ease,background-color .2s ease}
+.hx-qs summary i::before,.hx-qs summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.6px;background:var(--ink);transform:translate(-50%,-50%)}
+.hx-qs summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.hx-qs details[open] summary i{transform:rotate(45deg);background:var(--brand-soft);border-color:var(--brand-line)}
+.hx-qs details p{padding:0 56px 24px 0;font-size:16px;line-height:1.7;color:var(--muted)}
+.hx-qs details a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:#CBD5E1;text-underline-offset:3px}
+.hx-final{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:28px;padding:56px;box-shadow:var(--sh-lg)}
+.hx-final h2{margin-bottom:14px}
+.hx-final-copy>p{font-size:17px;color:var(--muted);margin-bottom:24px}
+.hx-final .hx-checks{border-top:0;padding-top:0}
+.hx-action{background:var(--bg2);border:1px solid var(--line);border-radius:20px;padding:32px}
+.hx-action h3{font-size:22px;margin-bottom:10px}
+.hx-action>p{font-size:15.5px;color:var(--muted);margin-bottom:24px}
+.hx-action .hx-btn{width:100%;margin-bottom:12px}
+.hx-action small{display:block;margin-top:6px;font-size:13.5px;color:var(--muted);text-align:center}
+.hx-wa{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:10px;font-size:14.5px;font-weight:600;color:#128C7E;text-decoration:none}
+.hx-wa svg{width:18px;height:18px}
+@media (max-width:1100px){.hx-hero-grid{grid-template-columns:1fr;gap:48px}
+.hx-split,.hx-faq{grid-template-columns:1fr;gap:40px}
+.hx-split .hx-head,.hx-faq .hx-head{position:static}
+.hx-plans{grid-template-columns:1fr;max-width:640px}
+.hx-roles{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hx-founder{grid-template-columns:auto minmax(0,1fr)}
+.hx-founder-cta{grid-column:1/-1}
+.hx-final{grid-template-columns:1fr;padding:40px}}
+@media (max-width:760px){.hx{font-size:16px}
+.hx-wrap{padding:0 20px}
+.hx-sec{padding:72px 0}
+.hx-head{margin-bottom:36px}
+.hx-head>p{font-size:16.5px}
+.hx-hero{padding:112px 0 56px}
+.hx-hero h1{font-size:clamp(32px,8.6vw,40px);letter-spacing:-.03em}
+.hx-lead{font-size:17px;margin-bottom:28px}
+.hx-ctas{flex-direction:column}
+.hx-ctas .hx-btn{width:100%}
+.hx-stats li{flex:1;padding-right:14px;margin-right:14px}
+.hx-stats b{font-size:23px}
+.hx-stats span{font-size:12.5px}
+.hx-cases,.hx-build-row,.hx-roles{grid-template-columns:1fr}
+.hx-role{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:16px;align-items:start;padding:20px}
+.hx-role .hx-ico{grid-row:1/span 3;margin:0}
+.hx-role-d{margin-bottom:6px}
+.hx-case,.hx-plan{padding:26px 22px}
+.hx-band{flex-direction:column;align-items:stretch;padding:30px 22px}
+.hx-band .hx-ctas{width:100%}
+.hx-ui-dots{display:none}
+.hx-cases--one .hx-case{display:flex}
+.hx-cases--one .hx-metrics{grid-template-columns:repeat(3,minmax(0,1fr));margin:20px 0}
+.hx-cases--one .hx-metrics li{border-top:0;border-left:1px solid var(--line);padding:14px}
+.hx-cases--one .hx-metrics li:first-child{border-left:0}
+.hx-metrics li{padding:14px 12px}
+.hx-metrics b,.hx-cases--one .hx-metrics b{font-size:21px}
+.hx-metrics span{font-size:12px}
+.hx-founder{grid-template-columns:1fr;padding:28px 22px;gap:20px}
+.hx-founder img{width:88px;height:88px;border-radius:18px}
+.hx-founder-cta .hx-btn{width:100%}
+.hx-founder-cta{justify-items:stretch}
+.hx-qs details p{padding-right:0}
+.hx-qs summary h3{font-size:16.5px}
+.hx-final{padding:28px 20px;border-radius:22px;gap:32px}
+.hx-action{padding:24px 20px}}
+@media (max-width:380px){.hx-wrap{padding:0 16px}
+.hx-stats li{padding-right:10px;margin-right:10px}
+.hx-stats b{font-size:21px}}
+@media (prefers-reduced-motion:reduce){.hx *{transition:none!important}}
+html{scroll-padding-top:88px}
+.hx-hero--ind .hx-hero-grid{grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:56px}
+.hx-hero--ind h1{font-size:clamp(38px,3.9vw,52px)}
+.hx .hx-band-t{text-wrap:balance}
+.hx-pill--n{background:#fff;color:var(--ink2);border-color:var(--line)}
+.hx-pill--n i{background:var(--brand)}
+.hx-app-wrap{position:relative;margin:0}
+.hx-app-stage{position:relative}
+.hx-app-stage::before{content:"";position:absolute;inset:28px -18px -18px 28px;border-radius:26px;background:linear-gradient(140deg,#FFF1E8,#FFF9F5 60%,rgba(255,255,255,0));border:1px solid #FFE6D7;z-index:0}
+.hx-app{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh-lg);overflow:hidden;font-size:14px;line-height:1.4}
+.hx-app-top{display:flex;align-items:center;gap:12px;padding:13px 18px;border-bottom:1px solid var(--line);background:var(--bg)}
+.hx-app-top b{min-width:0;font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hx-app-top .hx-pill{margin-left:auto}
+.hx-app-foot{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:0;padding:13px 18px;border-top:1px solid var(--line);background:var(--bg);font-size:12.5px;color:var(--text)}
+.hx-app-foot li{display:inline-flex;align-items:center;gap:6px}
+.hx-app-foot svg{width:14px;height:14px;color:#16A34A}
+.hx-app-wrap figcaption{position:relative;z-index:1;margin-top:30px;font-size:12.5px;color:var(--muted);text-align:center}
+.hx-app strong{display:block;color:var(--ink);font-weight:600;font-size:13.5px;letter-spacing:-.005em}
+.hx-app small{display:block;color:var(--muted);font-size:12px}
+.hx-av{width:32px;height:32px;flex:0 0 32px;border-radius:10px;background:var(--bg2);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink2)}
+.hx-av svg{width:16px;height:16px}
+.hx-st{flex:none;display:inline-flex;align-items:center;font-size:11.5px;font-weight:600;line-height:1;padding:5px 9px;border-radius:999px;background:var(--bg2);color:var(--ink2);border:1px solid var(--line);white-space:nowrap}
+.hx-st--go{background:#ECFDF3;color:#067647;border-color:#ABEFC6}
+.hx-st--q{background:#EFF8FF;color:#175CD3;border-color:#B2DDFF}
+.hx-st--w{background:#FFF6ED;color:#C4320A;border-color:#FDDCAB}
+.hx-feed{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.hx-feed li{display:flex;align-items:center;gap:11px;padding:10px 12px;border-top:1px solid var(--line)}
+.hx-feed li:first-child{border-top:0}
+.hx-feed li>div{flex:1;min-width:0}
+.hx-feed small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hx-answer{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.8fr);gap:72px;align-items:start}
+.hx-answer-main h2{margin-bottom:28px}
+.hx-answer-main>p{font-size:17px;line-height:1.78;color:var(--text);margin-bottom:22px}
+.hx-answer-main h2+p{font-size:19px;line-height:1.65;color:var(--ink2)}
+.hx-answer-main a,.hx-callout a{display:inline-block;padding:11px 0;margin:-11px 0;color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:#FDBA8C;text-underline-offset:4px}
+.hx-answer-main a:hover{color:var(--brand-d)}
+.hx-answer-main strong{color:var(--ink);font-weight:600}
+.hx-callout{position:relative;margin:30px 0;padding:26px 28px 26px 30px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh)}
+.hx-callout::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:3px;border-radius:0 3px 3px 0;background:var(--brand)}
+.hx-callout p{font-size:16px;line-height:1.72;color:var(--text)}
+.hx-callout strong{display:block;font-size:17px;color:var(--ink);font-weight:600;margin-bottom:6px}
+.hx-answer-side{position:sticky;top:112px}
+.hx-facts-card{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh-lg);padding:28px 28px 24px}
+.hx-facts-card .hx-ui-label{margin:0 0 4px}
+.hx-grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.hx-cap{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 28px 26px;box-shadow:var(--sh);transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
+.hx-cap:hover{border-color:var(--brand-line);transform:translateY(-2px);box-shadow:var(--sh-lg)}
+.hx-cap .hx-ico{margin-bottom:22px}
+.hx-cap>p{font-size:15.5px;line-height:1.65;color:var(--muted);margin-bottom:22px}
+.hx .hx-tagline{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:13.5px;font-weight:600;color:var(--brand-d)}
+.hx-tagline svg{width:16px;height:16px}
+.hx-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.hx-fs{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;box-shadow:var(--sh)}
+.hx-fs:not(:last-child)::after{content:"";position:absolute;z-index:1;top:43px;right:-17px;width:18px;border-top:1.5px dashed #CBD5E1}
+.hx-fs-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:20px;min-height:38px}
+.hx-fs h3{font-size:17px;line-height:1.35}
+.hx-fs p{font-size:14.5px;line-height:1.6;color:var(--muted)}
+.hx-plan{position:relative}
+.hx-plan--hot{border:1.5px solid var(--brand);box-shadow:0 2px 6px rgba(244,84,7,.06),0 30px 60px -28px rgba(244,84,7,.4)}
+.hx-plan h3{font-size:24px}
+.hx-case .hx-metrics{align-self:stretch}
+.hx-price b.q{font-size:34px}
+.hx-price--q span{display:block;margin:2px 0 0}
+.hx-fine+.hx-fine{margin-top:8px}
+@media (max-width:1100px){.hx-hero--ind .hx-hero-grid{grid-template-columns:minmax(0,1fr);gap:56px}
+.hx-hero--ind .hx-app-wrap{max-width:640px}
+.hx-answer{grid-template-columns:1fr;gap:40px}
+.hx-answer-side{position:static}
+.hx-grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hx-flow{grid-template-columns:1fr;gap:12px}
+.hx-fs{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:20px;align-items:start;padding:22px}
+.hx-fs-top{grid-row:1/span 2;flex-direction:column;align-items:flex-start;margin:0}
+.hx-fs h3{margin-bottom:4px}
+.hx-fs:not(:last-child)::after{top:auto;bottom:-13px;right:auto;left:40px;width:0;height:14px;border-top:0;border-left:1.5px dashed #CBD5E1}
+.hx-band{flex-direction:column;align-items:flex-start;gap:24px}}
+@media (max-width:760px){.hx-hero--ind h1{font-size:clamp(32px,8.6vw,40px)}
+.hx-app-stage::before{inset:18px -8px -10px 14px}
+.hx-app-top{padding:12px 14px}
+.hx-app-foot{padding:12px 14px}
+.hx-feed li:nth-child(n+4){display:none}
+.hx-answer-main h2+p{font-size:17.5px}
+.hx-answer-main>p{font-size:16px}
+.hx-callout{padding:22px 20px 22px 24px}
+.hx-facts-card{padding:22px}
+.hx-grid3{grid-template-columns:1fr}
+.hx-cap{padding:24px 22px}
+.hx-fs{grid-template-columns:1fr;row-gap:0}
+.hx-fs-top{grid-row:auto;flex-direction:row;align-items:center;margin-bottom:14px}
+.hx-fs:not(:last-child)::after{left:38px}}
+@media (max-width:380px){.hx-app-top .hx-pill{display:none}}
+@media (min-width:761px){.hx-hero--ind .hx-stats li{flex:0 0 auto}
+.hx-hero--ind .hx-stats li:last-child{flex:1 1 0;min-width:0}}
+@keyframes hx-nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+.hx-hero--svc h1{font-size:clamp(36px,3.4vw,48px)}
+@media (min-width:1101px){.hx-hero--svc .hx-hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}}
+.hx-crumbs a.hx-crumb{color:var(--muted)}
+.hx-signs{list-style:none;margin:6px 0 0;padding:0}
+.hx-signs li{position:relative;padding:14px 0 14px 32px;border-bottom:1px solid var(--line);font-size:15px;line-height:1.5;color:var(--ink2)}
+.hx-signs li:last-child{border-bottom:0}
+.hx-signs li::before{content:"";position:absolute;left:0;top:15px;width:20px;height:20px;border-radius:6px;background:var(--brand-soft);border:1px solid var(--brand-line)}
+.hx-signs li::after{content:"";position:absolute;left:7px;top:19px;width:5px;height:9px;border-right:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(45deg)}
+.hx-signs-cta{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.hx-signs-cta .hx-btn{width:100%}
+.hx-flow--svc .hx-fs{padding:24px 22px 20px}
+.hx-flow--svc .hx-fs-top{margin-bottom:18px}
+.hx-fs-k{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.hx-flow--svc .hx-fs>p:not(.hx-out){margin-bottom:18px}
+.hx .hx-out{display:block;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.hx-out-k{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.hx-out svg{width:15px;height:15px;color:var(--brand)}
+.hx-out b{display:block;margin-top:5px;font-size:14px;font-weight:600;line-height:1.35;color:var(--ink)}
+.hx-split--tools{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr)}
+.hx-tgs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.hx-tg{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 24px;box-shadow:var(--sh)}
+.hx-tg .hx-ui-label{margin:0 0 14px;color:var(--brand-d)}
+.hx-tg .hx-chips li{background:#fff}
+.hx-models{margin:0 0 40px}
+.hx .hx-models-h{text-align:center;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.hx-models>ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.hx-models>ul>li{display:flex;gap:16px;align-items:flex-start;padding:22px;background:#fff;border:1px dashed #CBD5E1;border-radius:var(--r)}
+.hx-models h3{font-size:16.5px;margin:0 0 4px}
+.hx-models h3 em{font-style:normal;font-size:12.5px;font-weight:600;color:var(--brand-d);margin-left:6px}
+.hx-models p{font-size:14.5px;line-height:1.55;color:var(--muted)}
+.hx-models .hx-checks{margin-top:10px;padding-top:10px;gap:7px;border-top:1px solid var(--line)}
+.hx-models .hx-checks li{font-size:14px}
+.hx-models .hx-link{margin-top:2px;min-height:44px;font-size:14px}
+.hx .hx-inc{font-size:12px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:22px 0 0}
+.hx-plan .hx-inc+.hx-checks{border-top:0;padding-top:12px}
+.hx-plan .hx-btn{margin-top:auto}
+.hx-plan .hx-checks{margin-bottom:24px}
+.hx-roles--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hx-secg{padding:16px;display:grid;gap:12px;background:linear-gradient(180deg,#fff,#FCFCFA)}
+.hx-dms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.hx-dm{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.hx-dm span{display:block;font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+.hx-dm b{display:flex;align-items:center;gap:6px;margin-top:3px;font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap}
+.hx-dm i{width:7px;height:7px;border-radius:50%;background:#17B26A;flex:none}
+.hx-dm i.q{background:#2E90FA}
+.hx-secg-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.hx-secg-h .hx-ui-label{margin:4px 0 0}
+.hx-secg-n{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.hx-secg .hx-feed li{border-left:3px solid transparent}
+.hx-secg .hx-feed li.sev-h{border-left-color:#F04438}
+.hx-secg .hx-feed li.sev-m{border-left-color:#FDB022}
+.hx-secg .hx-feed li.sev-l{border-left-color:#53B1FD}
+.hx-secg .hx-feed small em{font-style:normal;font-weight:600;color:var(--ink2)}
+@media (max-width:1100px){.hx-split--tools{grid-template-columns:1fr;gap:32px}
+.hx-split--tools .hx-head{position:static}
+.hx-models>ul{grid-template-columns:1fr}
+.hx-roles--3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.hx-hero--svc h1{font-size:clamp(31px,8.4vw,40px)}
+.hx-tgs{grid-template-columns:1fr}
+.hx-roles--3{grid-template-columns:1fr}
+.hx-models>ul>li{padding:18px}
+.hx-secg{padding:12px}
+.hx-secg .hx-feed li:nth-child(n+4){display:none}
+.hx-secg-n{display:none}}
+@media (max-width:380px){.hx-dms{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hx-dm:last-child{grid-column:1/-1}}
+</style>
+<style id="sc-v1">.sc-hero h1 .sc-h1-k{display:flex;width:fit-content;font-size:13.5px;line-height:1.4;letter-spacing:0;font-weight:600;color:var(--brand-d);margin:0 0 22px}
+.sc-hero h1 .sc-h1-t{display:block;color:var(--ink)}
+.sc-hero h1 .sc-h1-t span{color:var(--brand)}
+.sc-trust{margin-top:22px;font-size:14.5px;line-height:1.55;color:var(--muted);max-width:560px}
+.sc-chips{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:18px 0 0;padding:0}
+.sc-chips li{display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:13.5px;font-weight:600;color:var(--ink2);box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.sc-phones{position:relative;margin:0;min-height:520px;display:flex;align-items:center;justify-content:center}
+.sc-phones::before{content:"";position:absolute;inset:8% 6%;border-radius:40px;background:radial-gradient(60% 60% at 30% 30%,rgba(244,84,7,.22),rgba(244,84,7,0) 70%),radial-gradient(60% 60% at 75% 70%,rgba(255,46,136,.18),rgba(255,46,136,0) 70%);filter:blur(6px)}
+.sc-ph{position:relative;width:236px;height:auto;aspect-ratio:9/16;border-radius:30px;border:7px solid #111520;box-shadow:0 24px 56px -18px rgba(15,23,42,.55),0 0 0 1px rgba(15,23,42,.08);background:#000;object-fit:cover}
+.sc-ph--b{transform:rotate(-5deg) translate(26px,-10px)}
+.sc-ph--f{transform:rotate(5deg) translate(-26px,18px)}
+.sc-phones figcaption{position:absolute;bottom:-6px;left:0;right:0;text-align:center;font-size:13px;color:var(--muted)}
+.sc-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.sc-steps li{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 26px 26px;box-shadow:var(--sh)}
+.sc-n{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--ink);color:#fff;font-size:14.5px;font-weight:600;margin-bottom:18px}
+.sc-steps li:nth-child(3n+1) .sc-n{background:var(--brand)}
+.sc-steps h3{font-size:18px}
+.sc-steps p{font-size:15px;line-height:1.65;color:var(--muted)}
+.sc-ask{display:flex;align-items:center;justify-content:center;max-width:860px;margin:32px auto 0;padding:18px 24px;border-radius:14px;background:var(--brand-soft);border:1px solid var(--brand-line);color:var(--ink2);font-weight:500;text-align:center;font-size:16px;line-height:1.55}
+.sc-run{padding:24px 0;background:#fff}
+.sc-run-in{position:relative;overflow:hidden;border-radius:32px;padding:68px 60px 56px;background:radial-gradient(900px 420px at 85% -10%,rgba(244,84,7,.28),rgba(244,84,7,0) 60%),radial-gradient(700px 380px at 0% 110%,rgba(255,46,136,.16),rgba(255,46,136,0) 60%),linear-gradient(180deg,#0F172A,#111C33);color:#CBD5E1}
+.sc-run-in h2{color:#fff;max-width:820px}
+.hx .sc-eyebrow-l{color:#FDBA8C}
+.sc-run-lead{font-size:17px;line-height:1.65;color:#94A3B8;max-width:760px}
+.sc-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;list-style:none;margin:34px 0 0;padding:0}
+.sc-stats li{padding:24px 22px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1)}
+.sc-stats b{display:block;font-size:clamp(30px,3.6vw,46px);line-height:1.05;font-weight:700;letter-spacing:-.03em;color:#fff}
+.sc-stats span{display:block;margin-top:8px;font-size:14.5px;line-height:1.5;color:#94A3B8}
+.sc-run-notes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.sc-run-notes p{padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.16);font-size:15px;line-height:1.6;color:#CBD5E1}
+.sc-run-notes strong{color:#FDBA8C;font-weight:600}
+.sc-video{position:relative;max-width:960px;margin:0 auto;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#0F172A;box-shadow:var(--sh-lg);border:1px solid var(--line)}
+.sc-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.sc-vcap{margin-top:16px!important;text-align:center;font-size:15px;color:var(--muted)}
+.sc-vcap a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:#FDBA8C;text-underline-offset:3px}
+.sc-need{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;list-style:none;margin:0;padding:0}
+.sc-need li{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;box-shadow:var(--sh)}
+.sc-need .hx-ico{margin-bottom:18px}
+.sc-need p{font-size:15.5px;line-height:1.65;color:var(--muted)}
+.sc-under{max-width:820px;margin:32px auto 0!important;text-align:center;font-size:16px;line-height:1.65;color:var(--muted)}
+.sc-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.sc-list{margin:8px 0 18px;padding-left:22px;font-size:17px;line-height:1.9;color:var(--ink2)}
+.sc-list a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:#FDBA8C;text-underline-offset:3px}
+.sc-p{font-size:16px;line-height:1.7;color:var(--muted);margin-top:12px!important}
+.sc code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:var(--bg2);border:1px solid var(--line);border-radius:7px;padding:2px 7px;color:var(--ink)}
+.sc-term{background:#0B0F17;border:1px solid #1F2937;border-radius:18px;overflow:hidden;box-shadow:var(--sh-lg)}
+.sc-term-top{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#121826;border-bottom:1px solid rgba(255,255,255,.07)}
+.sc-term-top i{width:11px;height:11px;border-radius:50%;background:#FF5F57}
+.sc-term-top i:nth-child(2){background:#FEBC2E}.sc-term-top i:nth-child(3){background:#28C840}
+.sc-term-top b{margin-left:8px;font-size:13px;font-weight:600;color:#8B95A7}
+.sc-term pre{margin:0;padding:20px 22px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.75;color:#C9D1D9;white-space:pre-wrap;overflow-x:auto}
+.sc-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.sc-rule{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 26px 24px;box-shadow:var(--sh)}
+.sc-rule--warn{border-color:#FDE68A;background:linear-gradient(160deg,#FFFBEB,#fff 60%)}
+.sc-rule p{font-size:15.5px;line-height:1.65;color:var(--muted)}
+.sc-rule a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-color:#FDBA8C;text-underline-offset:3px}
+.sc-cta{display:flex;align-items:center;justify-content:space-between;gap:40px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:48px 52px;box-shadow:var(--sh-lg)}
+.sc-cta p{font-size:17px;line-height:1.65;color:var(--muted);max-width:620px}
+.sc-cta-b{display:grid;gap:12px;flex:none}
+@media (max-width:1100px){.sc-steps,.sc-need{grid-template-columns:repeat(2,minmax(0,1fr))}.sc-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.sc-two{grid-template-columns:1fr;gap:36px}.sc-cta{flex-direction:column;align-items:flex-start}.sc-run-in{padding:56px 40px 44px}}
+@media (max-width:760px){.sc-phones{min-height:420px}.sc-ph{width:170px;border-width:5px;border-radius:24px}.sc-steps,.sc-need,.sc-rules,.sc-run-notes{grid-template-columns:1fr}.sc-run{padding:16px 0}.sc-run-in{border-radius:22px;padding:48px 20px 40px}.sc-stats{gap:10px}.sc-stats li{padding:18px 16px}.sc-cta{padding:30px 22px;border-radius:22px}.sc-cta-b{width:100%}.sc-cta-b .hx-btn{width:100%}.sc-chips li{font-size:13px;padding:7px 11px}.sc-ask{text-align:left}}</style>
+  <script>document.documentElement.classList.add('js');</script>
+  <style id="nav-fit-1108">.mobile-section-content.active{max-height:2400px}.mega-panel,.mega-sidebar{max-height:min(80vh,620px)}@media (max-width:1260px){.nav-menu{gap:20px}}@media (max-width:1100px){.nav-menu{gap:12px}}@media (max-width:1024px){.nav-menu{display:none}.mobile-menu-toggle{display:block}}</style>
+<style id="footer-partners-css">.footer-partners{display:grid;grid-template-columns:minmax(220px,280px) 1fr;gap:24px 48px;align-items:start;padding-bottom:48px;margin-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08)}.fp-title{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,0.95);text-transform:uppercase;letter-spacing:1.2px;position:relative;padding-bottom:14px;margin:0 0 16px}.fp-title::after{content:'';position:absolute;bottom:0;left:0;width:20px;height:2px;background:linear-gradient(90deg,#F45407,#ff6b28);border-radius:1px}.fp-note{margin:0;font-size:13px;line-height:1.65;color:#8a8a8a}.fp-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}.fp-grid li{margin:0;padding:0;min-width:0}.fp-tile{display:flex;align-items:center;justify-content:center;height:72px;padding:0 16px;background:#f4f4f5;border:1px solid rgba(255,255,255,0.12);border-radius:12px;box-sizing:border-box;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}a.fp-tile:hover,a.fp-tile:focus-visible{transform:translateY(-2px);background:#fff;box-shadow:0 12px 28px rgba(0,0,0,0.45),0 0 0 1px rgba(244,84,7,0.6)}a.fp-tile:focus-visible{outline:2px solid #F45407;outline-offset:3px}.fp-tile img{display:block;max-width:100%;height:auto}@media (max-width:1024px){.footer-partners{grid-template-columns:1fr;gap:20px}}@media (max-width:768px){.fp-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.fp-tile{height:60px;padding:0 12px}.fp-tile img{max-width:84%;transform:scale(.9)}}@media (prefers-reduced-motion:reduce){.fp-tile{transition:none}a.fp-tile:hover,a.fp-tile:focus-visible{transform:none}}</style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <div class="nav-container">
+        <a href="/" class="nav-logo-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" class="nav-logo" role="img" aria-label="imisofts logo">
+            <g fill="#F45407">
+              <circle cx="48" cy="170" r="18"/>
+              <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+              <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+            </g>
+            <g transform="translate(200,188)">
+              <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#0F172A">
+                <tspan class="char char-1">i</tspan><tspan class="char char-2">m</tspan><tspan class="char char-3">i</tspan><tspan class="char char-4">s</tspan><tspan class="char char-5">o</tspan><tspan class="char char-6">f</tspan><tspan class="char char-7">t</tspan><tspan class="char char-8">s</tspan>
+              </text>
+            </g>
+          </svg>
+        </a>
+
+        <div class="nav-menu">
+          <!-- Services Mega Dropdown -->
+          <div class="nav-dropdown" id="servicesDropdown">
+            <div class="nav-link nav-dropdown-toggle">
+              Services
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand services menu"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="nav-dropdown-menu">
+              <div class="mega-menu">
+                <div class="mega-sidebar">
+                  <div class="mega-tab active" data-tab="growth">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <span>Growth</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="ai">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2M3 15h2m14-6h2m-2 6h2M7 7h10v10H7zM10.5 10.5h3v3h-3z"></path></svg>
+                    <span>AI &amp; Automation</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="content">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.5-2.5v9L15 14M3 7h12v10H3z"></path></svg>
+                    <span>AI Content</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="development">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <span>Development</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-tab" data-tab="specialist">
+                    <svg class="mega-tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    <span>Hire a Specialist</span>
+                    <svg class="mega-tab-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                  </div>
+                  <div class="mega-cta-card">
+                    <span class="mega-cta-title">Contact Us</span>
+                    <p>Actionable insights for your digital growth in 24 hours.</p>
+                    <a href="/contact" class="mega-cta-btn">
+                      Contact Us
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                  </div>
+                </div>
+                <div class="mega-content">
+                  <div class="mega-panel active" id="panel-growth">
+                    <div class="mega-grid">
+                      <a href="/cold-email-marketing" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Marketing</div>
+                        <div class="mega-item-desc">Infrastructure &amp; campaigns that land in inbox</div></div>
+                      </a>
+                      <a href="/lead-generation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <div><div class="mega-item-title">Lead Generation</div>
+                        <div class="mega-item-desc">40-100+ qualified B2B appointments monthly</div></div>
+                      </a>
+                      <a href="/digital-marketing" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">Digital Marketing</div>
+                        <div class="mega-item-desc">Performance marketing that drives ROI</div></div>
+                      </a>
+                      <a href="/email-infrastructure" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7l9 6 9-6M4 5h16a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1z"></path></svg>
+                        <div><div class="mega-item-title">Email Infrastructure</div>
+                        <div class="mega-item-desc">Domains, authentication and warm-up</div></div>
+                      </a>
+                      <a href="/gohighlevel-services" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Services</div>
+                        <div class="mega-item-desc">GHL automation &amp; AI voice agents</div></div>
+                      </a>
+                      <a href="/gohighlevel-white-label-saas" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h10M18 15l3 3-3 3"></path></svg>
+                        <div><div class="mega-item-title">White-Label SaaS</div>
+                        <div class="mega-item-desc">Resell GoHighLevel as your own software</div></div>
+                      </a>
+                      <a href="/seo-services" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3v18h18M7 15l4-4 3 3 6-7"></path></svg>
+                        <div><div class="mega-item-title">SEO Services</div>
+                        <div class="mega-item-desc">Rankings that bring in leads</div></div>
+                      </a>
+                      <a href="/ai-citation-services" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h8M8 14h5M21 12c0 4.4-4 8-9 8-1.5 0-3-.3-4.2-.9L3 20l1.3-3.9C3.5 14.9 3 13.5 3 12c0-4.4 4-8 9-8s9 3.6 9 8z"></path></svg>
+                        <div><div class="mega-item-title">AI Citation Services</div>
+                        <div class="mega-item-desc">Get cited by ChatGPT and Perplexity</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-ai">
+                    <div class="mega-grid">
+                      <a href="/ai-automation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Automation</div>
+                        <div class="mega-item-desc">Intelligent workflows that work 24/7</div></div>
+                      </a>
+                      <a href="/ai-voice-agents" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15a3 3 0 003-3V6a3 3 0 00-6 0v6a3 3 0 003 3zM19 10v2a7 7 0 01-14 0v-2M12 19v4M8 23h8"></path></svg>
+                        <div><div class="mega-item-title">AI Voice Agents</div>
+                        <div class="mega-item-desc">Compliant AI calling that books meetings</div></div>
+                      </a>
+                      <a href="/tcpa-compliant-ai-calling" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3zM9 12l2 2 4-4"></path></svg>
+                        <div><div class="mega-item-title">TCPA-Compliant Calling</div>
+                        <div class="mega-item-desc">Consent, DNC and opt-out infrastructure</div></div>
+                      </a>
+                      <a href="/ai-search-optimization" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM15.8 15.8L21 21"></path></svg>
+                        <div><div class="mega-item-title">AI Search Optimization</div>
+                        <div class="mega-item-desc">Get named by ChatGPT and AI Overviews</div></div>
+                      </a>
+                      <a href="/openclaw-setup" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                        <div><div class="mega-item-title">OpenClaw Setup</div>
+                        <div class="mega-item-desc">AI agent on your Mac Studio</div></div>
+                      </a>
+                      <a href="/ai-data-licensing" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3c4.4 0 8 1.3 8 3s-3.6 3-8 3-8-1.3-8-3 3.6-3 8-3zM4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path></svg>
+                        <div><div class="mega-item-title">AI Data Licensing</div>
+                        <div class="mega-item-desc">Get paid to license your company data</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-content">
+                    <div class="mega-grid">
+                      <a href="/youtube-automation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 7a3 3 0 013-3h12a3 3 0 013 3v10a3 3 0 01-3 3H6a3 3 0 01-3-3V7zM10 9l5 3-5 3V9z"></path></svg>
+                        <div><div class="mega-item-title">YouTube Automation</div>
+                        <div class="mega-item-desc">Faceless channels, done for you</div></div>
+                      </a>
+                      <a href="/ai-filmmaking" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16v12H4zM4 10h16M8 6l2 4M13 6l2 4"></path></svg>
+                        <div><div class="mega-item-title">AI Filmmaking</div>
+                        <div class="mega-item-desc">AI commercials and brand films</div></div>
+                      </a>
+                      <a href="/ai-ugc-ads" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1zM15 9a3 3 0 010 6M18 6a7 7 0 010 12"></path></svg>
+                        <div><div class="mega-item-title">AI Reels &amp; Ads</div>
+                        <div class="mega-item-desc">AI UGC ads and reels that sell</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-development">
+                    <div class="mega-grid">
+                      <a href="/web-development" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        <div><div class="mega-item-title">Web Development</div>
+                        <div class="mega-item-desc">Fast, modern websites &amp; web apps</div></div>
+                      </a>
+                      <a href="/ecommerce" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <div><div class="mega-item-title">E-commerce</div>
+                        <div class="mega-item-desc">Shopify stores that convert at 4.2%</div></div>
+                      </a>
+                      <a href="/crm-development" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                        <div><div class="mega-item-title">CRM Development</div>
+                        <div class="mega-item-desc">HubSpot, Salesforce &amp; custom CRM</div></div>
+                      </a>
+                      <a href="/shopify-apps" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        <div><div class="mega-item-title">Shopify Apps</div>
+                        <div class="mega-item-desc">Certified Shopify app development</div></div>
+                      </a>
+                      <a href="/ai-mobile-apps" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <div><div class="mega-item-title">AI Mobile Apps</div>
+                        <div class="mega-item-desc">Intelligent mobile apps in 3-10 weeks</div></div>
+                      </a>
+                      <a href="/launch-your-saas" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                        <div><div class="mega-item-title">Launch Your SaaS</div>
+                        <div class="mega-item-desc">Idea to first customer in 30 days</div></div>
+                      </a>
+                      <a href="/ui-ux-design" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 20h4L19 9a2.8 2.8 0 00-4-4L4 16zM13.5 6.5l4 4"></path></svg>
+                        <div><div class="mega-item-title">UI/UX Design</div>
+                        <div class="mega-item-desc">Research, Figma and design systems</div></div>
+                      </a>
+                      <a href="/blockchain-development" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3l8 4.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9"></path></svg>
+                        <div><div class="mega-item-title">Blockchain Development</div>
+                        <div class="mega-item-desc">Smart contracts and Web3 apps</div></div>
+                      </a>
+                      <a href="/aws-cloud-migration" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 18.5h10.5a4 4 0 00.6-7.95A5.5 5.5 0 007.4 9.1 4.75 4.75 0 007 18.5z"></path></svg>
+                        <div><div class="mega-item-title">AWS Cloud Migration</div>
+                        <div class="mega-item-desc">Move to AWS with a tested cutover</div></div>
+                      </a>
+                      <a href="/cybersecurity-services" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3zM9 12l2 2 4-4"></path></svg>
+                        <div><div class="mega-item-title">Cybersecurity Services</div>
+                        <div class="mega-item-desc">Assessments, hardening, monitoring</div></div>
+                      </a>
+                      <a href="/salesforce-implementation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 5h16l-6 7.5V19l-4 1.5v-8z"></path></svg>
+                        <div><div class="mega-item-title">Salesforce Implementation</div>
+                        <div class="mega-item-desc">Sales Cloud setup, data and Flow</div></div>
+                      </a>
+                      <a href="/hubspot-implementation" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM18 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM12 15.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM8.5 6h7M7.3 8.2l3.5 7.6M16.7 8.2l-3.5 7.6"></path></svg>
+                        <div><div class="mega-item-title">HubSpot Implementation</div>
+                        <div class="mega-item-desc">Onboarding, migration, workflows</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="mega-panel" id="panel-specialist">
+                    <div class="mega-grid">
+                      <a href="/hire-cold-email-expert" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path></svg>
+                        <div><div class="mega-item-title">Cold Email Expert</div>
+                        <div class="mega-item-desc">Deliverability &amp; campaign specialists</div></div>
+                      </a>
+                      <a href="/hire-gohighlevel-developer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <div><div class="mega-item-title">GoHighLevel Developer</div>
+                        <div class="mega-item-desc">Certified GHL automation experts</div></div>
+                      </a>
+                      <a href="/hire-n8n-developer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                        <div><div class="mega-item-title">n8n Developer</div>
+                        <div class="mega-item-desc">Workflow automation engineers</div></div>
+                      </a>
+                      <a href="/hire-ai-engineer" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        <div><div class="mega-item-title">AI Engineer</div>
+                        <div class="mega-item-desc">LLM &amp; machine learning specialists</div></div>
+                      </a>
+                      <a href="/hire-shopify-expert" class="mega-item">
+                        <svg class="mega-item-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        <div><div class="mega-item-title">Shopify Expert</div>
+                        <div class="mega-item-desc">Store &amp; app development pros</div></div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="/products" class="nav-link">Products</a>
+          <!-- Industries Dropdown -->
+          <div class="nav-dropdown" id="industriesDropdown">
+            <div class="nav-link nav-dropdown-toggle">
+              Industries
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" role="img" aria-label="Expand industries menu"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+            <div class="nav-dropdown-menu nav-dropdown-menu--narrow">
+              <div class="dropdown-simple">
+                <a href="/industries" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h6.5v6.5H4zM13.5 4H20v6.5h-6.5zM4 13.5h6.5V20H4zM13.5 13.5H20V20h-6.5z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">All Industries</div>
+                    <div class="dropdown-link-desc">Every industry we build for</div>
+                  </div>
+                </a>
+                <a href="/cold-email-saas" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Cold Email for SaaS</div>
+                    <div class="dropdown-link-desc">Book demos with decision-makers</div>
+                  </div>
+                </a>
+                <a href="/lead-generation-agencies" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Lead Gen for Agencies</div>
+                    <div class="dropdown-link-desc">Scale your agency's client acquisition</div>
+                  </div>
+                </a>
+                <a href="/ai-automation-ecommerce" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">AI for E-commerce</div>
+                    <div class="dropdown-link-desc">Automate operations & boost revenue</div>
+                  </div>
+                </a>
+                <a href="/cold-email-recruiters" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">Email for Recruiters</div>
+                    <div class="dropdown-link-desc">Fill roles faster with outbound</div>
+                  </div>
+                </a>
+                <a href="/gohighlevel-real-estate" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">GHL for Real Estate</div>
+                    <div class="dropdown-link-desc">Automate leads & follow-ups</div>
+                  </div>
+                </a>
+                <a href="/ai-calling-home-services" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 11l9-8 9 8M5 10v10h14V10"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">AI Calling for Home Services</div>
+                    <div class="dropdown-link-desc">Answer every call, book every job</div>
+                  </div>
+                </a>
+                <a href="/ai-receptionist-healthcare" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7v10M7 12h10M4.5 4.5h15v15h-15z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">AI Receptionist for Clinics</div>
+                    <div class="dropdown-link-desc">Fewer no-shows, filled cancellations</div>
+                  </div>
+                </a>
+                <a href="/ai-calling-mortgage-lending" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-6 9 6v10H3V10zM9 20v-6h6v6"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">AI Calling for Mortgage</div>
+                    <div class="dropdown-link-desc">Contact every lead in under a minute</div>
+                  </div>
+                </a>
+                <a href="/ai-calling-insurance" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l7.5 3v5.5c0 4.6-3.2 8.4-7.5 9.5-4.3-1.1-7.5-4.9-7.5-9.5V6L12 3z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">AI Calling for Insurance</div>
+                    <div class="dropdown-link-desc">Reach the leads you paid for</div>
+                  </div>
+                </a>
+                <a href="/ai-intake-law-firms" class="dropdown-link">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18M5 7h14M7 7l-3 7h6l-3-7zM17 7l-3 7h6l-3-7z"></path></svg>
+                  <div>
+                    <div class="dropdown-link-title">AI Intake for Law Firms</div>
+                    <div class="dropdown-link-desc">Screen and book every case enquiry</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/case-studies" class="nav-link">Case Studies</a>
+          <a href="/clients" class="nav-link">Clients</a>
+          <a href="/pricing" class="nav-link">Pricing</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/blog" class="nav-link">Blog</a>
+          <a href="/contact" class="nav-cta">Contact Us &rarr;</a>
+        </div>
+
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-inner">
+        <a href="/" class="mobile-nav-link">Home</a>
+
+        <div class="mobile-services">
+          <div class="mobile-services-title" onclick="toggleMobileSection(this)">
+            Services
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+          <div class="mobile-section-content">
+            <div class="mobile-section-group">Growth</div>
+              <a href="/cold-email-marketing" class="mobile-service-link">Cold Email Marketing</a>
+              <a href="/lead-generation" class="mobile-service-link">Lead Generation</a>
+              <a href="/digital-marketing" class="mobile-service-link">Digital Marketing</a>
+              <a href="/email-infrastructure" class="mobile-service-link">Email Infrastructure</a>
+              <a href="/gohighlevel-services" class="mobile-service-link">GoHighLevel Services</a>
+              <a href="/gohighlevel-white-label-saas" class="mobile-service-link">White-Label SaaS</a>
+              <a href="/seo-services" class="mobile-service-link">SEO Services</a>
+              <a href="/ai-citation-services" class="mobile-service-link">AI Citation Services</a>
+              <div class="mobile-section-group">AI and Automation</div>
+              <a href="/ai-automation" class="mobile-service-link">AI Automation</a>
+              <a href="/ai-voice-agents" class="mobile-service-link">AI Voice Agents</a>
+              <a href="/tcpa-compliant-ai-calling" class="mobile-service-link">TCPA-Compliant Calling</a>
+              <a href="/ai-search-optimization" class="mobile-service-link">AI Search Optimization</a>
+              <a href="/openclaw-setup" class="mobile-service-link">OpenClaw Setup</a>
+              <a href="/ai-data-licensing" class="mobile-service-link">AI Data Licensing</a>
+              <div class="mobile-section-group">AI Content</div>
+              <a href="/youtube-automation" class="mobile-service-link">YouTube Automation</a>
+              <a href="/ai-filmmaking" class="mobile-service-link">AI Filmmaking</a>
+              <a href="/ai-ugc-ads" class="mobile-service-link">AI Reels &amp; Ads</a>
+              <div class="mobile-section-group">Development</div>
+              <a href="/web-development" class="mobile-service-link">Web Development</a>
+              <a href="/ecommerce" class="mobile-service-link">E-commerce</a>
+              <a href="/crm-development" class="mobile-service-link">CRM Development</a>
+              <a href="/shopify-apps" class="mobile-service-link">Shopify Apps</a>
+              <a href="/ai-mobile-apps" class="mobile-service-link">AI Mobile Apps</a>
+              <a href="/launch-your-saas" class="mobile-service-link">Launch Your SaaS</a>
+              <a href="/ui-ux-design" class="mobile-service-link">UI/UX Design</a>
+              <a href="/blockchain-development" class="mobile-service-link">Blockchain Development</a>
+              <a href="/aws-cloud-migration" class="mobile-service-link">AWS Cloud Migration</a>
+              <a href="/cybersecurity-services" class="mobile-service-link">Cybersecurity Services</a>
+              <a href="/salesforce-implementation" class="mobile-service-link">Salesforce Implementation</a>
+              <a href="/hubspot-implementation" class="mobile-service-link">HubSpot Implementation</a>
+              <div class="mobile-section-group">Hire a Specialist</div>
+              <a href="/hire-cold-email-expert" class="mobile-service-link">Cold Email Expert</a>
+              <a href="/hire-gohighlevel-developer" class="mobile-service-link">GoHighLevel Developer</a>
+              <a href="/hire-n8n-developer" class="mobile-service-link">n8n Developer</a>
+              <a href="/hire-ai-engineer" class="mobile-service-link">AI Engineer</a>
+              <a href="/hire-shopify-expert" class="mobile-service-link">Shopify Expert</a>
+          </div>
+        </div>
+
+        <a href="/products" class="mobile-nav-link">Products</a>
+        <div class="mobile-services">
+          <div class="mobile-services-title" onclick="toggleMobileSection(this)">
+            Industries
+            <svg class="accordion-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </div>
+          <div class="mobile-section-content">
+            <a href="/industries" class="mobile-service-link">All Industries</a>
+            <a href="/cold-email-saas" class="mobile-service-link">Cold Email for SaaS</a>
+            <a href="/lead-generation-agencies" class="mobile-service-link">Lead Gen for Agencies</a>
+            <a href="/ai-automation-ecommerce" class="mobile-service-link">AI for E-commerce</a>
+            <a href="/cold-email-recruiters" class="mobile-service-link">Email for Recruiters</a>
+            <a href="/gohighlevel-real-estate" class="mobile-service-link">GHL for Real Estate</a>
+          </div>
+        </div>
+
+        <a href="/case-studies" class="mobile-nav-link">Case Studies</a>
+        <a href="/clients" class="mobile-nav-link">Clients</a>
+        <a href="/pricing" class="mobile-nav-link">Pricing</a>
+        <a href="/about" class="mobile-nav-link">About</a>
+        <a href="/blog" class="mobile-nav-link">Blog</a>
+        <a href="/contact" class="mobile-cta">Contact Us &rarr;</a>
+      </div>
+    </div>
+  </nav>
+  </header>
+<main class="hx sc">
+<section class="hx-hero hx-hero--ind sc-hero"><div class="hx-wrap hx-hero-grid"><div><nav aria-label="Breadcrumb"><ol class="hx-crumbs"><li><a class="hx-crumb" href="/">Home</a></li><li><a class="hx-crumb" href="/products">Products</a></li><li><span aria-current="page">Stream Clipper</span></li></ol></nav><h1><span class="hx-badge sc-h1-k"><i></i>Free skill for Claude Code</span><span class="sc-h1-t">Turn long streams into ready-to-post <span>vertical clips.</span></span></h1><p class="hx-lead">Stream Clipper finds the loud moments in a long stream, like a GTA 6 stream, writes down what was said with Whisper on your computer, and cuts 9:16 clips with the facecam on top, word-by-word captions, a title and the post text.</p><div class="hx-ctas"><a class="hx-btn hx-btn--primary" href="/assets/downloads/imisofts-stream-clipper-1.0.zip" download data-sc-download>Download free (zip, 82 KB)<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a><a class="hx-btn hx-btn--ghost" href="#video">Watch the 7 minute guide</a></div><p class="sc-trust">MIT license. Runs on your computer. No API keys and no sign-up.</p><ul class="sc-chips" aria-label="Key facts"><li>macOS, Windows, Linux</li><li>YouTube, Twitch, Kick</li><li>Facecam layout</li></ul></div><figure class="sc-phones" aria-label="Two clips made by Stream Clipper in our test run on our own film"><img class="sc-ph sc-ph--b" src="/assets/tools/stream-clipper/clip-1.webp" width="540" height="960" alt="A vertical clip with the title If a world war began tonight, made from our own film" fetchpriority="high"><img class="sc-ph sc-ph--f" src="/assets/tools/stream-clipper/clip-2.webp" width="540" height="960" alt="A vertical clip with the title Cables break 200 times a year and word-by-word captions" loading="eager"><figcaption>Real clips from our test run on our own film.</figcaption></figure></div></section>
+
+<section class="hx-sec hx-sec--alt" id="how-it-works"><div class="hx-wrap"><div class="hx-head hx-head--c"><p class="hx-eyebrow">How it works</p><h2>You type one sentence. It does the boring part.</h2><p>Ask Claude Code something like "make five clips from this stream" and paste the link. Here is what happens next, step by step.</p></div><ol class="sc-steps">
+<li><span class="sc-n">1</span><h3>Grabs only the sound</h3><p>It downloads the sound, not the video. Sound files are much smaller, so this part is quick.</p></li>
+<li><span class="sc-n">2</span><h3>Listens for the loud parts</h3><p>Screams, laughs and big reactions make the volume jump. When the stream has a chat replay, it also checks where the chat went crazy.</p></li>
+<li><span class="sc-n">3</span><h3>Writes down the words, only there</h3><p>Whisper runs on your computer for about one minute around each loud moment, not the whole stream.</p></li>
+<li><span class="sc-n">4</span><h3>Claude picks the best ones</h3><p>Claude reads the moments like an editor would and picks the ones worth posting, with a reason for each.</p></li>
+<li><span class="sc-n">5</span><h3>Cuts vertical clips</h3><p>1080 by 1920 clips with the facecam on top, the gameplay below, big word-by-word captions and a short title. No facecam found? It asks you where it is.</p></li>
+<li><span class="sc-n">6</span><h3>Writes the post</h3><p>A caption, hashtags and a credit line for every clip, saved in posts.md, so you can copy, paste and post.</p></li>
+</ol><p class="sc-ask">Before it cuts anything, Claude asks one question: are you allowed to clip this streamer? If the answer is no, it stops.</p></div></section>
+
+<section class="sc-run" id="test-run"><div class="hx-wrap"><div class="sc-run-in"><p class="hx-eyebrow sc-eyebrow-l">Real test run</p><h2>We tested it on our own film, not someone else's stream.</h2><p class="sc-run-lead">Our 6 minute film about the internet, on GitHub's free Linux runner: an AMD EPYC 7763 with 2 processor cores, 7.7 GB of memory and no graphics card. Times change with the computer: an earlier run on a faster one took 101 s and 119 s.</p><ul class="sc-stats"><li><b>6:00</b><span>length of our film</span></li><li><b>8</b><span>loud moments found</span></li><li><b>149 s</b><span>to find the moments and write down the words</span></li><li><b>157 s</b><span>to cut 3 clips with captions</span></li></ul><div class="sc-run-notes"><p><strong>First run only:</strong> the Whisper model downloads once. A long stream takes longer to download, but Whisper still only writes down about one minute around each loud moment.</p><p><strong>Honest note:</strong> Whisper can get names wrong. In our test it wrote Paul Baran as "Paul Barron". Watch every clip once before you post.</p></div></div></div></section>
+
+<section class="hx-sec" id="video"><div class="hx-wrap"><div class="hx-head hx-head--c"><p class="hx-eyebrow">Video guide</p><h2>Watch the full walkthrough</h2><p>Seven minutes: what you need, how to install it, every step explained and the real test run.</p></div><div class="sc-video"><iframe src="https://www.youtube-nocookie.com/embed/3SX5PDTvKcE?rel=0" title="Free AI Tool to Clip GTA 6 Streams (Step by Step + the Money Rules)" loading="lazy" allow="clipboard-write; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><p class="sc-vcap">Prefer YouTube? <a href="https://www.youtube.com/watch?v=3SX5PDTvKcE" rel="noopener">Watch it on our channel</a>.</p></div></section>
+
+<section class="hx-sec hx-sec--tint" id="what-you-need"><div class="hx-wrap"><div class="hx-head"><p class="hx-eyebrow">What you need</p><h2>Three things. Two of them are free.</h2></div><ul class="sc-need">
+<li><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M1 20h22"/></svg></span><h3>A computer</h3><p>Mac, Windows or Linux with Python 3.9 or newer. No graphics card needed.</p></li>
+<li><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="4" width="19" height="16" rx="2.5"/><path d="M7 9l3 3-3 3M12.5 15h4.5"/></svg></span><h3>Claude Code</h3><p>The AI assistant that runs the tool for you. It comes with Claude's paid plans, like Pro.</p></li>
+<li><span class="hx-ico"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><h3>The free skill</h3><p>A folder of instructions that teaches Claude a new job, plus the script that does the heavy work.</p></li>
+</ul><p class="sc-under">The skill uses two free tools: FFmpeg, which cuts the video, and Whisper, which turns speech into text. Both run on your computer. If FFmpeg is missing, the setup step tells you how to install it, and it installs the Python parts for you.</p></div></section>
+
+<section class="hx-sec" id="install"><div class="hx-wrap sc-two"><div><p class="hx-eyebrow">Install</p><h2>Installing takes about a minute.</h2><ol class="sc-list"><li><a href="/assets/downloads/imisofts-stream-clipper-1.0.zip" download data-sc-download>Download the zip</a>.</li><li>Open Claude Code and drag the zip in.</li><li>Type: <code>install this skill</code></li></ol><p class="sc-p">Prefer to do it yourself? Unzip it so the folder sits at <code>~/.claude/skills/stream-clipper/</code>, with <code>SKILL.md</code> directly inside it.</p><p class="sc-p">Then ask Claude something like <code>make five clips from this stream: &lt;link&gt;</code> or <code>find this week's biggest GTA 6 streams</code>.</p></div><div class="sc-term" role="img" aria-label="The commands the skill runs, shown in a terminal"><div class="sc-term-top"><i></i><i></i><i></i><b>Run the steps yourself</b></div><pre>python3 scripts/clipper.py setup
+python3 scripts/clipper.py find "gta 6 stream"
+python3 scripts/clipper.py analyze "&lt;link or file&gt;" \
+  --work clipper-work/test
+# Claude writes clipper-work/test/picks.json
+python3 scripts/clipper.py render \
+  --work clipper-work/test \
+  --picks clipper-work/test/picks.json</pre></div></div></section>
+
+<section class="hx-sec hx-sec--alt" id="rules"><div class="hx-wrap"><div class="hx-head"><p class="hx-eyebrow">Clip fairly</p><h2>The honest rules about money from clips</h2><p>Clipping can pay, but the footage is not yours. Here is what to know before you post.</p></div><div class="sc-rules">
+<div class="sc-rule"><h3>Clipping programs pay per view</h3><p>Many streamers and brands run clipping programs. Whop says clippers in its Content Rewards campaigns are paid about $1 per 1,000 views on average, and each campaign sets its own rate. <a href="https://whop.com/blog/content-rewards/" rel="noopener">Source: Whop</a>.</p></div>
+<div class="sc-rule sc-rule--warn"><h3>GTA 6 footage belongs to Rockstar</h3><p>Rockstar's policy page says Take-Two generally doesn't object to fans using game footage for non-commercial use, that making money from the footage counts as commercial, and that videos can be taken down at any time. <a href="https://support.rockstargames.com/articles/7bNaeoMFTV0iUDGhStTXvz/policy-on-posting-copyrighted-rockstar-games-material" rel="noopener">Read the policy</a>.</p></div>
+<div class="sc-rule"><h3>Only clip streamers who allow it</h3><p>Join their program first, follow their rules for tags, links and credit, and never repost the same clip again and again.</p></div>
+<div class="sc-rule"><h3>No story spoilers</h3><p>Rockstar takes down videos that show the ending and cutscenes posted on their own. Clip the funny gameplay, not the story.</p></div>
+</div><p class="sc-under">The good news: the tool works on any long video. Podcasts, talk shows, IRL streams and games that allow money from videos.</p></div></section>
+
+<section class="hx-sec" id="faq"><div class="hx-wrap hx-faq"><div class="hx-head"><p class="hx-eyebrow">FAQ</p><h2>Stream Clipper, answered</h2><p>Quick answers to the questions people ask first.</p></div><div class="hx-qs"><details open><summary><h3>Is Stream Clipper really free?</h3><i aria-hidden="true"></i></summary><p>Yes. The skill is free under the MIT license. You run it with Claude Code, which comes with Claude&#x27;s paid plans, like Pro. FFmpeg, Whisper and the other tools it uses are free.</p></details><details><summary><h3>Do I need API keys?</h3><i aria-hidden="true"></i></summary><p>No. Whisper runs on your own computer, and the tool does not upload your video anywhere.</p></details><details><summary><h3>Which sites does it work with?</h3><i aria-hidden="true"></i></summary><p>YouTube, Twitch, Kick and most other sites that the free yt-dlp tool supports, plus any video file on your computer.</p></details><details><summary><h3>How long does it take?</h3><i aria-hidden="true"></i></summary><p>In our latest test on a basic cloud computer with 2 cores and no graphics card, finding the moments in our 6 minute film and writing down the words took 149 seconds, and cutting 3 clips with captions took 157 seconds. An earlier run on a faster computer took 101 and 119 seconds, so times change with the computer. A long stream takes longer to download, but Whisper still only writes down about one minute around each loud moment.</p></details><details><summary><h3>Can I make money clipping GTA 6 streams?</h3><i aria-hidden="true"></i></summary><p>Many streamers and brands pay clippers for views through programs like Whop Content Rewards, where Whop says clippers are paid about $1 per 1,000 views on average. For GTA footage, read Rockstar&#x27;s policy first: it says making money from the footage counts as commercial use, and that videos can be taken down at any time.</p></details><details><summary><h3>What if it cannot find the facecam?</h3><i aria-hidden="true"></i></summary><p>It saves a check image for every clip with a box where it thinks the webcam is. If the box is wrong or missing, Claude asks you where the webcam is and cuts the clip again, or uses the full picture with a blurred background.</p></details><details><summary><h3>Does it work on Windows?</h3><i aria-hidden="true"></i></summary><p>Yes. Install Python 3.9 or newer and FFmpeg (winget install Gyan.FFmpeg), then let Claude run the setup step. The same goes for Mac (brew install ffmpeg) and Linux.</p></details></div></div></section>
+
+<section class="hx-sec hx-sec--tint" id="custom"><div class="hx-wrap"><div class="sc-cta"><div><p class="hx-eyebrow">Built by imisofts</p><h2>Want clips posted for you, automatically?</h2><p>For channels, agencies and streamer managers, we build versions that cut and post to TikTok, YouTube and Instagram on their own.</p></div><div class="sc-cta-b"><a class="hx-btn hx-btn--primary" href="/ai-automation-agency">See our AI automation work<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="hx-btn hx-btn--ghost" href="https://cal.com/zeeshanwaheed/30min" data-cal-link="zeeshanwaheed/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view"}' rel="noopener">Book a 30 minute call</a></div></div></div></section>
+</main>
+<script>(function(){document.querySelectorAll('[data-sc-download]').forEach(function(a){a.addEventListener('click',function(){try{if(window.gtag)gtag('event','file_download',{file_name:'imisofts-stream-clipper-1.0.zip',page:location.pathname});}catch(x){}});});})();</script>
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+    <!-- CTA Banner -->
+    <div class="footer-cta-banner">
+      <div class="container">
+        <h3>Ready to accelerate your growth?</h3>
+        <p>Get a free audit with actionable insights for your business — delivered within 24 hours.</p>
+        <a href="/free-audit" class="footer-cta-btn">
+          Get Your Free Audit
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="18" height="18"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer Main -->
+    <div class="footer-main">
+      <div class="container">
+
+        <!-- Footer Links -->
+        <div class="footer-links-grid">
+          <div class="footer-column">
+            <span class="footer-heading">Growth</span>
+            <ul class="footer-links">
+              <li><a href="/ai-automation-agency">AI Automation Agency</a></li>
+              <li><a href="/cold-email-marketing">Cold Email Marketing</a></li>
+              <li><a href="/lead-generation">Lead Generation</a></li>
+              <li><a href="/digital-marketing">Digital Marketing</a></li>
+              <li><a href="/ai-automation">AI Automation</a></li>
+              <li><a href="/ai-intake-law-firms">AI Intake: Law Firms</a></li>
+              <li><a href="/ai-calling-insurance">AI Calling: Insurance</a></li>
+              <li><a href="/ai-calling-mortgage-lending">AI Calling: Mortgage</a></li>
+              <li><a href="/ai-receptionist-healthcare">AI Receptionist: Clinics</a></li>
+              <li><a href="/ai-calling-home-services">AI Calling: Home Services</a></li>
+              <li><a href="/email-infrastructure">Email Infrastructure</a></li>
+              <li><a href="/ai-search-optimization">AI Search Optimization</a></li>
+              <li><a href="/seo-services">SEO Services</a></li>
+              <li><a href="/ai-citation-services">AI Citation Services</a></li>
+              <li><a href="/youtube-automation">YouTube Automation</a></li>
+              <li><a href="/ai-filmmaking">AI Filmmaking</a></li>
+              <li><a href="/ai-ugc-ads">AI Reels &amp; Ads</a></li>
+              <li><a href="/tcpa-compliant-ai-calling">TCPA-Compliant Calling</a></li>
+              <li><a href="/gohighlevel-white-label-saas">White-Label SaaS</a></li>
+              <li><a href="/ai-voice-agents">AI Voice Agents</a></li>
+              <li><a href="/gohighlevel-services">GoHighLevel Services</a></li>
+              <li><a href="/openclaw-setup">OpenClaw Setup</a></li>
+              <li><a href="/ai-data-licensing">AI Data Licensing</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <span class="footer-heading">Development</span>
+            <ul class="footer-links">
+              <li><a href="/web-development">Web Development</a></li>
+              <li><a href="/ecommerce">E-commerce</a></li>
+              <li><a href="/crm-development">CRM Development</a></li>
+              <li><a href="/shopify-apps">Shopify Apps</a></li>
+              <li><a href="/ai-mobile-apps">AI Mobile Apps</a></li>
+              <li><a href="/launch-your-saas">Launch Your SaaS</a></li>
+              <li><a href="/ui-ux-design">UI/UX Design</a></li>
+              <li><a href="/blockchain-development">Blockchain Development</a></li>
+              <li><a href="/aws-cloud-migration">AWS Cloud Migration</a></li>
+              <li><a href="/cybersecurity-services">Cybersecurity Services</a></li>
+              <li><a href="/salesforce-implementation">Salesforce Implementation</a></li>
+              <li><a href="/hubspot-implementation">HubSpot Implementation</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <span class="footer-heading">Hire a Specialist</span>
+            <ul class="footer-links">
+              <li><a href="/hire-cold-email-expert">Cold Email Expert</a></li>
+              <li><a href="/hire-gohighlevel-developer">GoHighLevel Developer</a></li>
+              <li><a href="/hire-n8n-developer">n8n Developer</a></li>
+              <li><a href="/hire-ai-engineer">AI Engineer</a></li>
+              <li><a href="/hire-shopify-expert">Shopify Expert</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <span class="footer-heading">Industries</span>
+            <ul class="footer-links">
+              <li><a href="/industries">All Industries</a></li>
+              <li><a href="/cold-email-saas">Cold Email for SaaS</a></li>
+              <li><a href="/lead-generation-agencies">Lead Gen for Agencies</a></li>
+              <li><a href="/ai-automation-ecommerce">AI for E-commerce</a></li>
+              <li><a href="/cold-email-recruiters">Email for Recruiters</a></li>
+              <li><a href="/gohighlevel-real-estate">GHL for Real Estate</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <span class="footer-heading">Company</span>
+            <ul class="footer-links">
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/case-studies">Case Studies</a></li>
+              <li><a href="/clients">Our Clients</a></li>
+              <li><a href="/careers">Careers</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/newsdesk/">News</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="https://app.imisofts.com/login">Sign In</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <span class="footer-heading">Resources</span>
+            <ul class="footer-links">
+              <li><a href="/free-audit">Free Audit</a></li>
+              <li><a href="/dns-propagation-checker">DNS Propagation Checker</a></li>
+              <li><a href="/spf-dkim-dmarc-checker">SPF, DKIM &amp; DMARC Checker</a></li>
+              <li><a href="/send-to-webhook">Send to Webhook</a></li>
+              <li><a href="/free-seo-tools">Free SEO Tools</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/support">Support</a></li>
+              <li><a href="/api-docs">API Docs</a></li>
+              <li><a href="/products">Products</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- footer-partners:start -->
+        <div class="footer-partners" id="footer-partners">
+          <div class="fp-head">
+            <span class="fp-title">Partners and platforms</span>
+            <p class="fp-note">imisofts is a Shopify Partner. Some of these logos are affiliate links, so we may earn a commission if you sign up through them.</p>
+          </div>
+          <ul class="fp-grid">
+            <li><span class="fp-tile"><img src="/assets/partners/shopify-partners.svg" alt="Shopify Partners" width="139" height="23" loading="lazy" decoding="async"></span></li>
+            <li><a class="fp-tile" href="https://refer.instantly.ai/oovph6ghwnaa" target="_blank" rel="noopener noreferrer sponsored"><img src="/assets/partners/instantly.svg" alt="Instantly" width="109" height="25" loading="lazy" decoding="async"></a></li>
+            <li><a class="fp-tile" href="https://get.apollo.io/u5ocuv7me9t2" target="_blank" rel="noopener noreferrer sponsored"><img src="/assets/partners/apollo.svg" alt="Apollo.io" width="101" height="27" loading="lazy" decoding="async"></a></li>
+            <li><a class="fp-tile" href="https://www.gohighlevel.com/?fp_ref=zeeshanwaheed" target="_blank" rel="noopener noreferrer sponsored"><img src="/assets/partners/gohighlevel.svg" alt="HighLevel" width="110" height="25" loading="lazy" decoding="async"></a></li>
+            <li><a class="fp-tile" href="https://try.monday.com/sy4a049vhjoj" target="_blank" rel="noopener noreferrer sponsored"><img src="/assets/partners/monday.png" alt="monday.com" width="131" height="20" loading="lazy" decoding="async"></a></li>
+            <li><a class="fp-tile" href="https://get.reply.io/yuhjgazbu7ca" target="_blank" rel="noopener noreferrer sponsored"><img src="/assets/partners/replyio.svg" alt="Reply.io" width="93" height="29" loading="lazy" decoding="async"></a></li>
+            <li><a class="fp-tile" href="https://refer.close.com/nkoci03o4zz4-fetl0j" target="_blank" rel="noopener noreferrer sponsored"><img src="/assets/partners/close.svg" alt="Close" width="100" height="27" loading="lazy" decoding="async"></a></li>
+            <li><a class="fp-tile" href="https://partners.kit.com/080zlzt6wbb0" target="_blank" rel="noopener noreferrer sponsored"><img src="/assets/partners/kit.svg" alt="Kit" width="62" height="28" loading="lazy" decoding="async"></a></li>
+            <li><a class="fp-tile" href="https://www.apify.com?fpr=rc63q" target="_blank" rel="noopener noreferrer sponsored"><img src="/assets/partners/apify.svg" alt="Apify" width="99" height="27" loading="lazy" decoding="async"></a></li>
+            <li><a class="fp-tile" href="https://get.brightdata.com/gf73pymzr2rh" target="_blank" rel="noopener noreferrer sponsored"><img src="/assets/partners/brightdata.svg" alt="Bright Data" width="110" height="25" loading="lazy" decoding="async"></a></li>
+          </ul>
+        </div>
+        <!-- footer-partners:end -->
+
+        <!-- Footer Brand + Newsletter -->
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div style="margin-bottom: 24px;">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 256" width="220" height="62" role="img" aria-label="imisofts logo">
+                <g fill="#F45407">
+                  <circle cx="48" cy="170" r="18"/>
+                  <path d="M84,84 L136,84 L118,188 L66,188 Z"/>
+                  <path d="M146,84 L198,84 L180,188 L128,188 Z"/>
+                </g>
+                <g transform="translate(200,188)">
+                  <text x="0" y="0" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-weight="700" font-size="96" letter-spacing="-0.5" fill="#FFFFFF">imisofts</text>
+                </g>
+              </svg>
+            </div>
+            <p>From idea to revenue in 30 days. We ship AI automation, performance marketing, and web development that actually works.</p>
+            <div class="footer-social">
+              <a href="https://linkedin.com/company/imisofts" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="https://x.com/izeeshanwaheed1" aria-label="X" target="_blank" rel="noopener noreferrer">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+              </a>
+              <a href="https://instagram.com/imisofts" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"/></svg>
+              </a>
+              <a href="https://github.com/ZeeshanWaheed11" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <svg fill="currentColor" viewBox="0 0 24 24" role="img"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+            </div>
+            <div class="footer-contact-row">
+              <a href="mailto:growth@imisofts.com">growth@imisofts.com</a>
+              <span>+971 52 432 0369</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <div class="footer-copyright">
+            &copy; 2026 imisofts. All rights reserved.
+          </div>
+          <div class="footer-bottom-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/terms-of-service">Terms of Service</a>
+            <a href="/cookie-policy">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form tracking meta injection
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      var btn = document.querySelector('.mobile-menu-toggle');
+      var menu = document.getElementById('mobileMenu');
+      var isOpen = menu.classList.contains('active');
+      if (isOpen) {
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      } else {
+        menu.classList.add('active');
+        btn.classList.add('active');
+        document.body.classList.add('mobile-menu-open');
+      }
+    }
+
+    // Mobile section accordion
+    function toggleMobileSection(el) {
+      var content = el.nextElementSibling;
+      var isActive = content.classList.contains('active');
+      // Close all sections first
+      document.querySelectorAll('.mobile-section-content').forEach(function(s) { s.classList.remove('active'); });
+      document.querySelectorAll('.mobile-services-title').forEach(function(t) { t.classList.remove('active'); });
+      // Open clicked section if it was closed
+      if (!isActive) {
+        content.classList.add('active');
+        el.classList.add('active');
+      }
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-nav-link, .mobile-service-link, .mobile-cta').forEach(function(link) {
+      link.addEventListener('click', function() {
+        var menu = document.getElementById('mobileMenu');
+        var btn = document.querySelector('.mobile-menu-toggle');
+        menu.classList.remove('active');
+        btn.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+      });
+    });
+
+    // Mega-menu tab switching on hover + click
+    function megaTabSwitch(tab) {
+      var tabId = tab.getAttribute('data-tab');
+      if (!tabId) return;
+      document.querySelectorAll('.mega-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.mega-panel').forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      var panel = document.getElementById('panel-' + tabId);
+      if (panel) panel.classList.add('active');
+    }
+    // Event delegation on sidebar — handles hover
+    document.querySelectorAll('.mega-sidebar').forEach(function(sidebar) {
+      sidebar.addEventListener('mouseover', function(e) {
+        var tab = e.target.closest('.mega-tab');
+        if (tab) megaTabSwitch(tab);
+      });
+    });
+    // Direct click on each tab — handles click
+    document.querySelectorAll('.mega-tab').forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        megaTabSwitch(this);
+      });
+    });
+
+    // Mobile section toggle (collapsible)
+    function toggleMobileSection(el) {
+      const content = el.nextElementSibling;
+      const span = el.querySelector('span');
+      content.classList.toggle('active');
+      span.textContent = content.classList.contains('active') ? '\u2212' : '+';
+    }
+
+  </script>
+
+  <!-- Pricing Tab Switcher -->
+  <script>
+  (function () {
+    [].slice.call(document.querySelectorAll('[data-px-cal], .p2-cta')).forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (window.gtag) { try { gtag('event', 'service_cta', { plan: a.getAttribute('data-plan') || '', page: location.pathname }); } catch (x) {} }
+        if (!a.hasAttribute('data-px-cal')) return;
+        try {
+          if (window.Cal && Cal.ns && Cal.ns['30min']) {
+            e.preventDefault();
+            Cal.ns['30min']('modal', { calLink: 'zeeshanwaheed/30min', config: { layout: 'month_view' } });
+          }
+        } catch (x) {}
+      });
+    });
+  })();
+  </script>
+
+  <!-- Cal floating-popup embed code begins -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "30min", {origin:"https://app.cal.com"});
+
+  Cal.ns["30min"]("floatingButton", {"calLink":"zeeshanwaheed/30min","config":{"layout":"month_view","theme":"auto"},"buttonText":"Book Growth Call","hideButtonIcon":false});
+  Cal.ns["30min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
+  <!-- Cal floating-popup embed code ends -->
+
+</body>
+</html>

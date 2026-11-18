@@ -72,6 +72,7 @@ SERVICE_GROUPS = [
         '/ai-mode-tracker',
         '/ai-visibility-checker',
         '/plagiarism-checker',
+        '/stream-clipper',
     ]),
     ('AI writing tools', [
         '/ai-writing-tools',
