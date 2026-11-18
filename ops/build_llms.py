@@ -49,7 +49,7 @@ SERVICE_GROUPS = [
     ]),
     ('Web, e-commerce and product', [
         '/web-development', '/ecommerce', '/shopify-apps', '/hire-shopify-expert',
-        '/ai-mobile-apps', '/launch-your-saas', '/digital-marketing', '/shopify-app-reviews',
+        '/ai-mobile-apps', '/launch-your-saas', '/digital-marketing',
         '/products', '/ui-ux-design', '/blockchain-development',
     ]),
     ('Cloud, security and CRM platforms', [
