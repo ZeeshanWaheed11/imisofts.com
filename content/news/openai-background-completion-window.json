@@ -1,0 +1,303 @@
+{
+ "slug": "openai-background-completion-window",
+ "title": "OpenAI Adds 2h and 8h Background Windows at 30% and 40% Off",
+ "desc": "OpenAI added 2-hour and 8-hour background windows in public beta on four models, at 30% and 40% below Standard token rates. What qualifies and what agents save.",
+ "keywords": "openai background completion window, openai background mode pricing, openai completion window discount, gpt-6.2 sol pricing, openai batch api vs background mode, openai responses api background",
+ "date": "2026-11-18",
+ "read_time": 6,
+ "word_count": 1264,
+ "cta": "Want help deciding which AI jobs can wait?",
+ "beat": "outbound-tools",
+ "question": "How much do OpenAI's 2-hour and 8-hour background completion windows cut token rates?",
+ "qtype": "cost",
+ "news_test": {
+  "source_published": "2026-11-17",
+  "source_url": "https://developers.openai.com/api/docs/changelog",
+  "edge_type": "worked cost",
+  "edge": "A monthly cost table for a hypothetical overnight prospect research agent on four OpenAI models at Standard, 2-hour and 8-hour rates, which OpenAI does not publish."
+ },
+ "body": "<p><strong>November 18, 2026.</strong> OpenAI's API changelog entry dated November 17 adds two optional background completion windows to the Responses API, in public beta: a two-hour window at 30% below Standard model token rates and an eight-hour window at 40% below. They apply to GPT-6.2 Astra, GPT-6.2 Sol, GPT-6.1 Terra and GPT-6 Luna. In our worked example, a hypothetical overnight prospect research agent on GPT-6.2 Sol falls from $594.00 to $356.40 a month on the eight-hour window.</p>\n<h2 id=\"what-changed\">What OpenAI changed</h2>\n<p>The <a href=\"https://developers.openai.com/api/docs/changelog\" target=\"_blank\" rel=\"noopener\">changelog entry</a> reads: \"Model token rates are 30% lower than Standard for the two-hour window and 40% lower for the eight-hour window.\" OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/background\" target=\"_blank\" rel=\"noopener\">background mode guide</a> and its <a href=\"https://developers.openai.com/api/docs/pricing\" target=\"_blank\" rel=\"noopener\">pricing page</a> give the same two numbers and name the same four models.</p>\n<ol>\n<li><strong>Two new windows.</strong> The setting <code>background_options.completion_window</code> now takes <code>2h</code> or <code>8h</code>. The default, <code>soonest</code>, carries no discount.</li>\n<li><strong>Follow-ups keep the rate.</strong> The guide says: \"The discount applies to model token rates on each eligible request, including follow-ups.\" Its own example: \"If the first response asks your application to look up a document, run the tool and send its result in a follow-up request.\" By our reading, an agent that calls a tool pays the lower rate on both requests, provided the follow-up is also sent as an eligible 2h or 8h background request.</li>\n<li><strong>The window is a target.</strong> In OpenAI's words, \"the API targets completion within the selected window after it accepts the request.\"</li>\n<li><strong>A shared rate limit.</strong> Requests with 2h or 8h windows \"share the Batch/Background Rate Limit with Batch API jobs\", and \"The API counts input tokens at submission.\"</li>\n<li><strong>GPT-6.2 the same day.</strong> A second November 17 entry covers GPT-6.2 Astra and GPT-6.2 Sol. GPT-6.2 Astra lists at $8.00 input and $40.00 output per 1M tokens, which by our arithmetic is 20% below GPT-6 Astra's $10.00 and $50.00.</li>\n</ol>\n<h2 id=\"rates-before-after\">Price per 1M tokens by window</h2>\n<p>Standard and Batch rates come from OpenAI's pricing page (short context, uncached input). The 2h and 8h columns are our arithmetic on OpenAI's 30% and 40%.</p>\n<table>\n<thead><tr><th>Model</th><th>Standard (in / out)</th><th>2h window</th><th>8h window</th><th>Batch API</th></tr></thead>\n<tbody>\n<tr><td>GPT-6.2 Astra</td><td>$8.00 / $40.00</td><td>$5.60 / $28.00</td><td>$4.80 / $24.00</td><td>$4.00 / $20.00</td></tr>\n<tr><td>GPT-6.2 Sol</td><td>$2.00 / $10.00</td><td>$1.40 / $7.00</td><td>$1.20 / $6.00</td><td>$1.00 / $5.00</td></tr>\n<tr><td>GPT-6.1 Terra</td><td>$1.00 / $5.00</td><td>$0.70 / $3.50</td><td>$0.60 / $3.00</td><td>$0.50 / $2.50</td></tr>\n<tr><td>GPT-6 Luna</td><td>$0.10 / $0.50</td><td>$0.07 / $0.35</td><td>$0.06 / $0.30</td><td>$0.05 / $0.25</td></tr>\n</tbody>\n</table>\n<p>OpenAI's wording is \"model token rates\". The pages we read do not say whether the window discount also applies to cached input, so every figure here uses uncached input. For cache prices on their own, see our page on <a href=\"/blog/openai-prompt-caching-pricing/\">OpenAI prompt caching pricing</a>.</p>\n<h2 id=\"worked-cost\">What it saves an outbound team</h2>\n<p>OpenAI publishes rates, not workloads, so the table below is our own arithmetic for a hypothetical team. Each night it runs a research agent on 1,000 new prospects, 22 weekday nights a month. Each prospect is one agent run of two requests. The first sends instructions and the prospect record (2,500 input tokens) and gets back a tool call to fetch the company's website (200 output tokens). The follow-up sends the conversation plus about 5,000 tokens of site text (8,000 input tokens) and gets back research notes and a first line (400 output tokens). That is 10,500 input and 600 output tokens a run, or 231 million input and 13.2 million output tokens a month, with no caching.</p>\n<table>\n<thead><tr><th>Model</th><th>Standard (soonest)</th><th>2h window</th><th>8h window</th><th>Saved a month at 8h</th><th>Batch API rates</th></tr></thead>\n<tbody>\n<tr><td>GPT-6.2 Sol</td><td>$594.00</td><td>$415.80</td><td>$356.40</td><td>$237.60</td><td>$297.00</td></tr>\n<tr><td>GPT-6.1 Terra</td><td>$297.00</td><td>$207.90</td><td>$178.20</td><td>$118.80</td><td>$148.50</td></tr>\n<tr><td>GPT-6.2 Astra</td><td>$2,376.00</td><td>$1,663.20</td><td>$1,425.60</td><td>$950.40</td><td>$1,188.00</td></tr>\n<tr><td>GPT-6 Luna</td><td>$29.70</td><td>$20.79</td><td>$17.82</td><td>$11.88</td><td>$14.85</td></tr>\n</tbody>\n</table>\n<p>On GPT-6.2 Sol that is $27.00 a night at Standard and $16.20 on the eight-hour window. The Batch column is cheaper still, but a two-step run would need two batches in a row, each with a window of up to 24 hours. Timing matters too: OpenAI says the target \"applies to that response\", so by our reading each request carries its own window, and a two-step run on the eight-hour window could take about 16 hours if both steps use the full time. That is longer than a 6 p.m. to 8 a.m. gap. Start such a job early, or use the two-hour window when the results are needed the same morning. We found no published figure on how often requests miss their window, so test one night before you move the whole job.</p>\n<h2 id=\"how-to-qualify\">How a request qualifies</h2>\n<p>From OpenAI's background mode guide:</p>\n<ul>\n<li>Set <code>background</code> to true and <code>background_options.completion_window</code> to <code>2h</code> or <code>8h</code>.</li>\n<li>Leave <code>stream</code> unset or set it to false.</li>\n<li>Use Standard processing. OpenAI: \"Set service_tier to default to select Standard. With auto, the request qualifies only if the API selects Standard.\"</li>\n<li>Use one of the four models above. The feature is a public beta.</li>\n</ul>\n<p>Optional, for queue priority on follow-ups: \"Reuse the window, continuation ID, model, and project to qualify for higher queue priority.\"</p>\n<p>Two further details. First, for teams that send prospect data: \"Background mode temporarily stores response data even when you set store to false or use Zero Data Retention.\" Second, Standard requests outside the windows \"can't reuse prompt cache entries created by 2h or 8h background requests, even when the prompt is identical\", so live Standard requests cannot reuse cache entries that your overnight 2h or 8h jobs create.</p>\n<h2 id=\"batch-or-background\">Batch API or a background window?</h2>\n<p>Per token, the Batch API is still cheaper. OpenAI's <a href=\"https://developers.openai.com/api/docs/guides/batch\" target=\"_blank\" rel=\"noopener\">Batch guide</a> lists \"50% lower costs\" and \"a clear 24-hour turnaround time\", and says \"the completion window can only be set to 24h.\" The background guide itself sends \"independent requests you can submit together up front\" to Batch. The difference is the second step. A background run can call a tool and send the result back at the same discounted rate. With Batch, a second step can only be submitted after the first batch returns, and each batch can take up to 24 hours.</p>\n<p>Our suggested split:</p>\n<ul>\n<li><strong>One-shot jobs</strong> such as sorting a day's replies, summarizing call transcripts, scoring a list or writing first lines from data you already hold: Batch, 50% off.</li>\n<li><strong>Overnight agent runs with tool calls</strong> such as fetching a site or looking up the CRM before writing: the eight-hour window, 40% off.</li>\n<li><strong>Same-day jobs</strong> such as triaging the morning's inbound leads before an afternoon call block: the two-hour window, 30% off.</li>\n<li><strong>Anything a person waits on</strong>, such as a chat reply: a normal request at Standard rates.</li>\n</ul>\n<h2 id=\"what-it-means\">What it means for operators</h2>\n<p>The change rewards teams that separate live work from work that can wait, and agent steps that call a tool from steps that do not. We would look first at overnight jobs that fetch something before they write: prospect research that reads a website, or a follow-up note that pulls a CRM record first. If you run <a href=\"/ai-calling-home-services\">AI calling for home services</a>, for example, a nightly job that looks up each caller's record and drafts the next-day follow-up fits the eight-hour window, while a plain transcript summary fits Batch. The same split applies to the steps inside <a href=\"/blog/sales-automation-software/\">sales automation software</a> that nobody reads until the next morning.</p>\n<p>To estimate your own saving, take the uncached input and output tokens of the jobs you would move and multiply by the rates in the first table. For a single model's prices, see our <a href=\"/blog/gpt-6-1-terra-pricing/\">GPT-6.1 Terra pricing</a> page; for OpenAI's rate limits by tier, see <a href=\"/blog/openai-api-usage-tiers/\">OpenAI API usage tiers</a>. If you want help sorting which jobs can wait, talk to our <a href=\"/ai-automation-agency\">AI automation agency</a> team.</p>",
+ "faqs": [
+  [
+   "What are OpenAI's background completion windows?",
+   "They are two settings for background requests in the Responses API, added in public beta on November 17, 2026. A two-hour window bills model tokens at 30% below Standard and an eight-hour window at 40% below. OpenAI says the API targets completion within the chosen window after it accepts the request."
+  ],
+  [
+   "Which OpenAI models get the 30% and 40% discount?",
+   "GPT-6.2 Astra, GPT-6.2 Sol, GPT-6.1 Terra and GPT-6 Luna, according to OpenAI's pricing page and background mode guide. By our arithmetic on OpenAI's 40%, GPT-6.2 Sol on the eight-hour window works out to $1.20 input and $6.00 output per 1M tokens, against $2.00 and $10.00 at Standard."
+  ],
+  [
+   "Is the Batch API cheaper than the eight-hour window?",
+   "Per token, yes. OpenAI lists the Batch API at 50% lower costs with a 24-hour window, against 40% for the eight-hour background window. OpenAI points independent requests submitted up front to Batch. The background window suits agent runs that call a tool and send a follow-up, because the discount applies to eligible follow-ups too."
+  ],
+  [
+   "Does the discount apply to tool-call follow-ups?",
+   "Yes, when the follow-up is itself an eligible background request with a 2h or 8h window. OpenAI's background mode guide says the discount applies to model token rates on each eligible request, including follow-ups, and its example sends a tool result back in a follow-up request."
+  ],
+  [
+   "Can I stream or use another service tier with a discounted window?",
+   "No. OpenAI says to leave stream unset or false, and that discounted windows require Standard processing: set service_tier to default. With auto, the request qualifies only if the API selects Standard."
+  ],
+  [
+   "How much does the eight-hour window save an outbound team?",
+   "It depends on volume. In our hypothetical example of 22,000 two-step agent runs a month (231 million input and 13.2 million output tokens), GPT-6.2 Sol costs $594.00 at Standard and $356.40 on the eight-hour window, a saving of $237.60 a month."
+  ]
+ ],
+ "image": {
+  "style": "v2",
+  "cluster": "OpenAI API pricing",
+  "alt": "How an OpenAI Responses API request gets the background window discount: an eligible model, background set to true, a 2h or 8h window and Standard processing give 30% or 40% off model token rates",
+  "explain": {
+   "layout": "flow",
+   "palette": "ember",
+   "kicker": "OpenAI Responses API",
+   "headline": "How a request gets the window discount",
+   "items": [
+    {
+     "icon": "chip",
+     "label": "Eligible model",
+     "note": "4 models, see the rates table"
+    },
+    {
+     "icon": "document",
+     "label": "background: true",
+     "note": "stream unset or false"
+    },
+    {
+     "icon": "calendar",
+     "label": "Window 2h or 8h",
+     "note": "a target, set per request"
+    },
+    {
+     "icon": "shield",
+     "label": "Standard tier",
+     "note": "service_tier default"
+    },
+    {
+     "icon": "coin",
+     "label": "30% or 40% off",
+     "note": "model token rates",
+     "badge": "Beta"
+    }
+   ],
+   "footnote": "From OpenAI's background mode guide and pricing page, read 18 Nov 2026. Public beta."
+  },
+  "cover": {
+   "headline": "OpenAI background windows: up to 40% off",
+   "number": "40% off",
+   "kicker": "OpenAI API pricing"
+  },
+  "figures": [
+   {
+    "under": "rates-before-after",
+    "alt": "GPT-6.2 Sol input price per 1M tokens: $2.00 at Standard, $1.40 on the 2-hour window, $1.20 on the 8-hour window and $1.00 on the Batch API",
+    "explain": {
+     "layout": "compare",
+     "palette": "sage",
+     "kicker": "GPT-6.2 Sol, input per 1M",
+     "headline": "Same tokens, four prices",
+     "items": [
+      {
+       "icon": "chip",
+       "label": "Standard (soonest)",
+       "value": "$2.00",
+       "unit": "per 1M input",
+       "note": "no discount",
+       "num": 2.0
+      },
+      {
+       "icon": "calendar",
+       "label": "2-hour window",
+       "value": "$1.40",
+       "unit": "per 1M input",
+       "note": "30% below Standard",
+       "num": 1.4
+      },
+      {
+       "icon": "calendar",
+       "label": "8-hour window",
+       "value": "$1.20",
+       "unit": "per 1M input",
+       "note": "40% below Standard",
+       "num": 1.2,
+       "hot": true
+      },
+      {
+       "icon": "database",
+       "label": "Batch API (24h)",
+       "value": "$1.00",
+       "unit": "per 1M input",
+       "note": "50% off, 24h window",
+       "num": 1.0
+      }
+     ],
+     "footnote": "OpenAI pricing page, 18 Nov 2026. The 2h and 8h rates are our arithmetic on OpenAI's 30% and 40%."
+    }
+   },
+   {
+    "under": "worked-cost",
+    "alt": "Hypothetical monthly cost of 22,000 two-step prospect research agent runs on GPT-6.2 Sol: $594.00 at Standard, $415.80 on the 2-hour window and $356.40 on the 8-hour window",
+    "explain": {
+     "layout": "compare",
+     "palette": "tide",
+     "kicker": "Hypothetical: 22,000 agent runs",
+     "headline": "GPT-6.2 Sol, one month",
+     "items": [
+      {
+       "icon": "chip",
+       "label": "Standard (soonest)",
+       "value": "$594.00",
+       "unit": "a month",
+       "note": "no discount",
+       "num": 594.0
+      },
+      {
+       "icon": "calendar",
+       "label": "2-hour window",
+       "value": "$415.80",
+       "unit": "a month",
+       "note": "saves $178.20",
+       "num": 415.8
+      },
+      {
+       "icon": "calendar",
+       "label": "8-hour window",
+       "value": "$356.40",
+       "unit": "a month",
+       "note": "saves $237.60",
+       "num": 356.4,
+       "hot": true
+      }
+     ],
+     "footnote": "Our assumptions: 10,500 input and 600 output tokens a run, no caching. Not an OpenAI figure."
+    }
+   },
+   {
+    "under": "how-to-qualify",
+    "alt": "Checklist for a discounted OpenAI background request: background true with a 2h or 8h window, Standard processing, no streaming, and response data is stored for a while",
+    "explain": {
+     "layout": "rules",
+     "palette": "ember",
+     "kicker": "Checklist",
+     "headline": "What makes a request qualify",
+     "subject_icon": "document",
+     "subject": "Your request",
+     "items": [
+      {
+       "mark": "yes",
+       "label": "background true, window 2h or 8h",
+       "note": "set in background_options.completion_window"
+      },
+      {
+       "mark": "yes",
+       "label": "Standard processing",
+       "note": "service_tier default; auto only if Standard"
+      },
+      {
+       "mark": "no",
+       "label": "Streaming",
+       "note": "leave stream unset or false"
+      },
+      {
+       "mark": "warn",
+       "label": "Response data is stored a while",
+       "note": "even with store false or Zero Data Retention"
+      }
+     ],
+     "footnote": "From OpenAI's background mode guide. Public beta on four models."
+    }
+   },
+   {
+    "under": "batch-or-background",
+    "alt": "Which OpenAI option fits which job: Batch API for one-shot jobs, the 8-hour window for agent runs with tool calls, the 2-hour window for same-day jobs and a normal request when someone is waiting",
+    "explain": {
+     "layout": "cards",
+     "palette": "sage",
+     "kicker": "Pick by job",
+     "headline": "Which window fits which job",
+     "items": [
+      {
+       "icon": "database",
+       "label": "One-shot jobs",
+       "note": "Batch API, 50% off, up to 24 hours"
+      },
+      {
+       "icon": "chip",
+       "label": "Agents with tool calls",
+       "note": "8h window, 40% off, eligible follow-ups too",
+       "hot": true
+      },
+      {
+       "icon": "calendar",
+       "label": "Same-day jobs",
+       "note": "2h window, 30% off"
+      },
+      {
+       "icon": "person",
+       "label": "Someone is waiting",
+       "note": "normal request, Standard rates"
+      }
+     ],
+     "footnote": "Our suggested split, based on OpenAI's background mode and Batch guides."
+    }
+   }
+  ]
+ },
+ "about": [
+  {
+   "@type": "Organization",
+   "name": "OpenAI"
+  },
+  {
+   "name": "OpenAI Responses API"
+  }
+ ],
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Two-hour window discount",
+    "value": "30%",
+    "note": "below Standard model token rates"
+   },
+   {
+    "label": "Eight-hour window discount",
+    "value": "40%",
+    "note": "below Standard model token rates"
+   },
+   {
+    "label": "Batch API discount",
+    "value": "50%",
+    "note": "24-hour window"
+   },
+   {
+    "label": "Models with the discounted windows",
+    "value": "4",
+    "note": "GPT-6.2 Astra, GPT-6.2 Sol, GPT-6.1 Terra, GPT-6 Luna"
+   },
+   {
+    "label": "GPT-6.2 Sol, Standard, per 1M tokens",
+    "value": "$2.00 in, $10.00 out"
+   },
+   {
+    "label": "GPT-6.2 Sol, eight-hour window, per 1M tokens",
+    "value": "$1.20 in, $6.00 out",
+    "note": "our arithmetic on OpenAI's 40%"
+   },
+   {
+    "label": "GPT-6.2 Astra, Standard, per 1M tokens",
+    "value": "$8.00 in, $40.00 out",
+    "note": "20% below GPT-6 Astra, our arithmetic"
+   },
+   {
+    "label": "Worked example, GPT-6.2 Sol per month",
+    "value": "$594.00 to $356.40",
+    "note": "hypothetical, 22,000 two-step agent runs"
+   },
+   {
+    "label": "Changelog entry dated",
+    "value": "November 17, 2026"
+   }
+  ],
+  "source": "Rates read on 18 November 2026 from OpenAI's pricing page, background mode guide, Batch guide and API changelog; window rates and the worked example are our arithmetic."
+ }
+}
