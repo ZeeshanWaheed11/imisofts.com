@@ -1,0 +1,287 @@
+{
+  "slug": "deepseek-api-pricing",
+  "title": "DeepSeek API Pricing: Flash $0.15 In, $0.60 Out Per 1M Off-Peak",
+  "desc": "DeepSeek API pricing: deepseek-flash costs $0.15 in and $0.60 out per 1M tokens off-peak, v4-pro $0.66 and $1.98. Peak hours double it. Full rate card.",
+  "date": "2026-11-18",
+  "keywords": "deepseek api pricing, deepseek api cost, deepseek pricing, deepseek api price, deepseek v4 pro pricing, deepseek flash pricing, deepseek peak hours, deepseek search api pricing",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "How much does the DeepSeek API cost per 1M tokens?",
+  "qtype": "cost",
+  "cta": "Plan an AI agent on the right model",
+  "image": {
+    "style": "v2",
+    "cluster": "AI cost and limits",
+    "alt": "DeepSeek API output prices per 1M tokens: deepseek-flash $0.60 off-peak and $1.20 peak, deepseek-v4-pro $1.98 off-peak and $3.96 peak",
+    "explain": {
+      "layout": "compare",
+      "palette": "ember",
+      "kicker": "DeepSeek API, Nov 2026",
+      "headline": "Output price per 1M tokens",
+      "items": [
+        {
+          "icon": "chip",
+          "label": "Flash, off-peak",
+          "value": "$0.60",
+          "unit": "per 1M output",
+          "note": "input $0.15",
+          "num": 0.6,
+          "hot": true
+        },
+        {
+          "icon": "chip",
+          "label": "Flash, peak",
+          "value": "$1.20",
+          "unit": "per 1M output",
+          "note": "input $0.30",
+          "num": 1.2
+        },
+        {
+          "icon": "chip",
+          "label": "V4 Pro, off-peak",
+          "value": "$1.98",
+          "unit": "per 1M output",
+          "note": "input $0.66",
+          "num": 1.98
+        },
+        {
+          "icon": "chip",
+          "label": "V4 Pro, peak",
+          "value": "$3.96",
+          "unit": "per 1M output",
+          "note": "input $1.32",
+          "num": 3.96
+        }
+      ],
+      "footnote": "Source: DeepSeek Models and Pricing page, read November 18, 2026."
+    },
+    "cover": {
+      "headline": "DeepSeek API price per 1M tokens",
+      "number": "$0.15 / 1M",
+      "kicker": "AI cost and limits"
+    },
+    "figures": [
+      {
+        "under": "peak-hours",
+        "alt": "DeepSeek peak and off-peak hours: peak 01:00 to 04:00 UTC and 06:00 to 10:00 UTC on weekdays, off-peak at all other times including weekends and Chinese public holidays",
+        "explain": {
+          "layout": "cards",
+          "palette": "sage",
+          "kicker": "Peak hours",
+          "headline": "When DeepSeek prices double",
+          "items": [
+            {
+              "icon": "calendar",
+              "label": "Peak 01:00 to 04:00",
+              "note": "UTC, Monday to Friday",
+              "hot": true
+            },
+            {
+              "icon": "calendar",
+              "label": "Peak 06:00 to 10:00",
+              "note": "UTC, Monday to Friday",
+              "hot": true
+            },
+            {
+              "icon": "coin",
+              "label": "Off-peak: half price",
+              "note": "all other hours, weekends and holidays"
+            }
+          ],
+          "footnote": "Chinese public holidays are off-peak in full. Source: DeepSeek pricing page."
+        }
+      },
+      {
+        "under": "cache-hits",
+        "alt": "deepseek-flash input price off-peak: $0.003 per 1M tokens on a cache hit against $0.15 on a cache miss, 98% lower",
+        "explain": {
+          "layout": "compare",
+          "palette": "tide",
+          "kicker": "Context caching",
+          "headline": "Cache hits cost 98% less",
+          "items": [
+            {
+              "icon": "database",
+              "label": "Cache miss",
+              "value": "$0.15",
+              "unit": "per 1M input",
+              "note": "Flash, off-peak",
+              "num": 0.15
+            },
+            {
+              "icon": "database",
+              "label": "Cache hit",
+              "value": "$0.003",
+              "unit": "per 1M input",
+              "note": "Flash, off-peak",
+              "num": 0.003,
+              "hot": true
+            }
+          ],
+          "footnote": "Caching is on by default and works on a best-effort basis."
+        }
+      },
+      {
+        "under": "tools-pricing",
+        "alt": "What DeepSeek bills for search: server-side web tools not billed from November 18 2026, standalone Search and Fetch APIs $0.75 per 1,000 successful requests, failed and empty requests free",
+        "explain": {
+          "layout": "rules",
+          "palette": "ember",
+          "kicker": "Search and Fetch",
+          "headline": "What a search costs now",
+          "subject_icon": "globe",
+          "subject": "Web search",
+          "items": [
+            {
+              "mark": "yes",
+              "label": "Search by the model",
+              "note": "server-side web tools not billed from Nov 18"
+            },
+            {
+              "mark": "warn",
+              "label": "Search API from your code",
+              "note": "$0.75 per 1,000 successful requests"
+            },
+            {
+              "mark": "warn",
+              "label": "Fetch API from your code",
+              "note": "$0.75 per 1,000 successful requests"
+            },
+            {
+              "mark": "yes",
+              "label": "Failed or empty requests",
+              "note": "not billed"
+            }
+          ],
+          "footnote": "Source: DeepSeek pricing page and Search and Fetch guide, November 18, 2026."
+        }
+      },
+      {
+        "under": "worked-cost",
+        "alt": "Monthly cost of a hypothetical agent with 10,000 runs: deepseek-flash off-peak $16.95, deepseek-v4-pro off-peak $66.00, deepseek-v4-pro peak $132.00, OpenAI gpt-6.2-sol $265.00",
+        "explain": {
+          "layout": "compare",
+          "palette": "sage",
+          "kicker": "10,000 agent runs a month",
+          "headline": "Monthly token bill",
+          "items": [
+            {
+              "icon": "chip",
+              "label": "Flash, off-peak",
+              "value": "$16.95",
+              "unit": "a month",
+              "note": "cheapest option",
+              "num": 16.95,
+              "hot": true
+            },
+            {
+              "icon": "chip",
+              "label": "V4 Pro, off-peak",
+              "value": "$66.00",
+              "unit": "a month",
+              "note": "about 3.9x the Flash bill",
+              "num": 66.0
+            },
+            {
+              "icon": "chip",
+              "label": "V4 Pro, peak",
+              "value": "$132.00",
+              "unit": "a month",
+              "note": "double off-peak",
+              "num": 132.0
+            },
+            {
+              "icon": "chip",
+              "label": "GPT-6.2 Sol",
+              "value": "$265.00",
+              "unit": "a month",
+              "note": "Standard, no cache writes",
+              "num": 265.0
+            }
+          ],
+          "footnote": "Hypothetical: 20,000 input tokens (15,000 cached) and 1,500 output tokens per run."
+        }
+      }
+    ]
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "deepseek-flash input, off-peak",
+        "value": "$0.15 per 1M",
+        "note": "cache miss; $0.003 on a cache hit"
+      },
+      {
+        "label": "deepseek-flash output, off-peak",
+        "value": "$0.60 per 1M",
+        "note": "$1.20 at peak"
+      },
+      {
+        "label": "deepseek-v4-pro input, off-peak",
+        "value": "$0.66 per 1M",
+        "note": "cache miss; $0.022 on a cache hit"
+      },
+      {
+        "label": "deepseek-v4-pro output, off-peak",
+        "value": "$1.98 per 1M",
+        "note": "$3.96 at peak"
+      },
+      {
+        "label": "Peak hours",
+        "value": "01:00 to 04:00 and 06:00 to 10:00 UTC",
+        "note": "Monday to Friday; off-peak is half price"
+      },
+      {
+        "label": "Search and Fetch APIs",
+        "value": "$0.75 per 1,000",
+        "note": "successful requests, called from your code"
+      },
+      {
+        "label": "Server-side web tools",
+        "value": "Not billed",
+        "note": "from November 18, 2026, 04:00 UTC"
+      },
+      {
+        "label": "Concurrency limit",
+        "value": "2,500 / 500",
+        "note": "deepseek-flash / deepseek-v4-pro, per account"
+      },
+      {
+        "label": "Context window",
+        "value": "1M tokens",
+        "note": "maximum output 384K"
+      }
+    ],
+    "source": "DeepSeek API Docs: Models and Pricing, Change Log, Search and Fetch, Rate Limit and Isolation, Context Caching. Read November 18, 2026."
+  },
+  "body": "<p><strong>Short answer.</strong> The DeepSeek API charges per 1 million tokens, and the price depends on the hour. Off-peak, deepseek-flash costs $0.15 per 1M input tokens, $0.003 when the input is a cache hit, and $0.60 per 1M output tokens; deepseek-v4-pro costs $0.66 in and $1.98 out. During peak hours (01:00 to 04:00 and 06:00 to 10:00 UTC, Monday to Friday) every rate doubles, according to DeepSeek's <a href=\"https://api-docs.deepseek.com/quick_start/pricing/\">Models and Pricing page</a>.</p>\n<p>One change is dated today. From 12:00 Beijing time on November 18, 2026 (04:00 UTC), searches and page fetches that the model runs through DeepSeek's server-side web tools are no longer billed; you pay only for tokens. Calling the standalone Search or Fetch API from your own code still costs $0.75 per 1,000 successful requests.</p>\n<p>Below are the full rate card, the peak hours in US and Dubai time, a worked monthly cost for one agent, and the limits that come with each model. If you want an agent built on the cheapest model that does the job, our <a href=\"/ai-automation-agency\">AI automation team</a> scopes that with you. Prices were read on November 18, 2026.</p>\n\n<h2 id=\"prices\">DeepSeek API prices per 1M tokens</h2>\n<p>DeepSeek sells two models through the API. The table shows every token rate on its pricing page, in US dollars per 1 million tokens.</p>\n<table>\n<thead><tr><th>Rate per 1M tokens</th><th>deepseek-flash off-peak</th><th>deepseek-flash peak</th><th>deepseek-v4-pro off-peak</th><th>deepseek-v4-pro peak</th></tr></thead>\n<tbody>\n<tr><td>Input, cache hit</td><td>$0.003</td><td>$0.006</td><td>$0.022</td><td>$0.044</td></tr>\n<tr><td>Input, cache miss</td><td>$0.15</td><td>$0.30</td><td>$0.66</td><td>$1.32</td></tr>\n<tr><td>Output</td><td>$0.60</td><td>$1.20</td><td>$1.98</td><td>$3.96</td></tr>\n</tbody>\n</table>\n<p>Both models have a 1M token context window and a maximum output of 384K tokens. deepseek-flash runs the DeepSeek-V4.1-Flash-1017 version and accepts images; deepseek-v4-pro runs DeepSeek-V4-Pro-0813 and does not support vision. Pro costs 4.4 times as much as Flash for uncached input and 3.3 times as much for output.</p>\n<p>Thinking counts as output. DeepSeek's web tools guide counts thinking tokens within output_tokens, and the pricing page bills output tokens, so reasoning is billed at the output rate.</p>\n\n<h2 id=\"peak-hours\">Peak and off-peak hours in your time zone</h2>\n<p>DeepSeek moved to peak and off-peak pricing on August 16, 2026, at 16:00 UTC, its change log says. Off-peak rates are half of peak. The pricing page defines the windows this way: \"Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC, Monday through Friday, excluding Chinese public holidays.\" Weekends and Chinese public holidays are off-peak in full.</p>\n<table>\n<thead><tr><th>Peak window (UTC)</th><th>US Eastern (standard time)</th><th>US Pacific (standard time)</th><th>Dubai (UTC+4)</th></tr></thead>\n<tbody>\n<tr><td>01:00 to 04:00, Mon to Fri</td><td>8 pm to 11 pm, Sun to Thu</td><td>5 pm to 8 pm, Sun to Thu</td><td>5 am to 8 am, Mon to Fri</td></tr>\n<tr><td>06:00 to 10:00, Mon to Fri</td><td>1 am to 5 am, Mon to Fri</td><td>10 pm to 2 am, Sun to Thu night</td><td>10 am to 2 pm, Mon to Fri</td></tr>\n</tbody>\n</table>\n<p>For a US team the peak windows fall mostly in the evening and overnight, so daytime work runs at the off-peak rate. In the UAE the second window covers late morning and early afternoon on weekdays. We suggest moving batch jobs, such as enriching a lead list or summarizing call recordings, to the weekend or to hours outside both windows.</p>\n\n<h2 id=\"cache-hits\">Cache hits: the cheapest tokens you can buy</h2>\n<p>Context caching is on by default for every account, according to DeepSeek's <a href=\"https://api-docs.deepseek.com/guides/kv_cache/\">context caching guide</a>. When a new request starts with the same prefix as an earlier one, that part can be served from the cache and billed at the cache hit rate: $0.003 per 1M tokens on Flash off-peak, 98% below the $0.15 cache miss rate. On Pro the cache hit rate of $0.022 is about 96.7% below $0.66.</p>\n<p>Three details decide how often you get the lower rate:</p>\n<ul>\n<li><strong>Keep the start of the prompt identical.</strong> Put the fixed system prompt and instructions first and the changing part (the lead, the email, the transcript) last, so repeated input can be served from the cache.</li>\n<li><strong>Check the usage fields.</strong> Each response reports prompt_cache_hit_tokens and prompt_cache_miss_tokens.</li>\n<li><strong>Do not budget on 100%.</strong> DeepSeek says the cache works on a \"best-effort\" basis, takes seconds to build and is cleared automatically, \"usually within a few hours to a few days\".</li>\n</ul>\n\n<h2 id=\"tools-pricing\">Search, Fetch, OCR and speech prices</h2>\n<p>Beyond tokens, DeepSeek sells tools by the request, the page, the hour or the character. The <a href=\"https://api-docs.deepseek.com/news/news261113\">November 13 release</a> added web search, file input and URL reading, plus standalone Search and Fetch, OCR, speech to text and text to speech APIs.</p>\n<table>\n<thead><tr><th>Item</th><th>Unit</th><th>Price</th></tr></thead>\n<tbody>\n<tr><td>Search API (text)</td><td>1,000 successful requests</td><td>$0.75</td></tr>\n<tr><td>Fetch API</td><td>1,000 successful requests</td><td>$0.75</td></tr>\n<tr><td>Server-side web tools (search, image search, page fetch by the model)</td><td>per call</td><td>Not billed from November 18, 2026; tokens only</td></tr>\n<tr><td>File parsing and OCR API</td><td>1,000 pages</td><td>$0.225</td></tr>\n<tr><td>Speech to text (ASR)</td><td>1 hour of audio</td><td>$0.058 limited-time (list $0.116)</td></tr>\n<tr><td>Text to speech (TTS)</td><td>10,000 characters</td><td>$0.225 limited-time (list $0.45)</td></tr>\n</tbody>\n</table>\n<p>The speech rates matter most for phone agents, which turn a caller's audio into text and the reply back into speech, such as <a href=\"/ai-calling-home-services\">AI calling for home service businesses</a>. At the limited-time rates, 100 hours of transcription cost $5.80 and 1 million characters of speech cost $22.50.</p>\n<p>The difference between the first two rows and the third matters. The <a href=\"https://api-docs.deepseek.com/guides/search/\">Search and Fetch guide</a> says searches the model runs through server-side tools are not billed, and names the web tools, the web_search tool in the Responses API, Web Search in Claude Code, and search in DeepSeek Harness when its provider is set to \"DeepSeek (Legacy)\". Calls your own client makes to the Search and Fetch APIs are billed, including search in DeepSeek Harness when its provider is \"DeepSeek Search API\".</p>\n<p>For the standalone APIs you pay only for a request that returns HTTP 200 with a result. Failed requests, empty results and timeouts are free, and asking for 50 results costs the same as asking for one. Our news story on the <a href=\"/blog/deepseek-search-api-pricing/\">DeepSeek Search API launch</a> covers the October terms in detail.</p>\n\n<h2 id=\"worked-cost\">What one agent costs a month on each model</h2>\n<p>Here is a hypothetical workload: a lead research agent that runs 10,000 times a month. Each run sends 20,000 input tokens, of which 15,000 are a fixed prompt that hits the cache and 5,000 are new, and gets 1,500 output tokens back. That is 150M cache hit tokens, 50M cache miss tokens and 15M output tokens a month.</p>\n<table>\n<thead><tr><th>Model and hours</th><th>Cache hit</th><th>Cache miss</th><th>Output</th><th>Monthly total</th></tr></thead>\n<tbody>\n<tr><td>deepseek-flash, off-peak</td><td>$0.45</td><td>$7.50</td><td>$9.00</td><td>$16.95</td></tr>\n<tr><td>deepseek-flash, peak</td><td>$0.90</td><td>$15.00</td><td>$18.00</td><td>$33.90</td></tr>\n<tr><td>deepseek-v4-pro, off-peak</td><td>$3.30</td><td>$33.00</td><td>$29.70</td><td>$66.00</td></tr>\n<tr><td>deepseek-v4-pro, peak</td><td>$6.60</td><td>$66.00</td><td>$59.40</td><td>$132.00</td></tr>\n<tr><td>OpenAI gpt-6.2-sol, Standard</td><td>$15.00</td><td>$100.00</td><td>$150.00</td><td>$265.00</td></tr>\n</tbody>\n</table>\n<p>The OpenAI row uses the Standard rates on OpenAI's <a href=\"https://developers.openai.com/api/docs/pricing\">API pricing page</a>: $2.00 input, $0.10 cached input and $10.00 output per 1M tokens for gpt-6.2-sol. It leaves out OpenAI's cache write charges, so the real gap is wider. The table compares price only, not answer quality, which you should test on your own prompts. Our <a href=\"/blog/gpt-6-2-pricing/\">GPT-6.2 pricing guide</a> and the <a href=\"/blog/ai-model-api-pricing-comparison/\">AI model API price comparison</a> cover the other vendors.</p>\n<p>If the same agent also called the standalone Search API twice per run, that would add 20,000 requests, or $15.00 a month. Letting the model search through the server-side web tools instead (on deepseek-flash) costs nothing extra from today, apart from the tokens the results add to the context.</p>\n\n<h2 id=\"limits\">Concurrency and rate limits</h2>\n<p>DeepSeek limits how many requests run at once. Its <a href=\"https://api-docs.deepseek.com/quick_start/rate_limit/\">rate limit page</a> and the Search and Fetch guide set these account-level limits:</p>\n<ul>\n<li><strong>deepseek-flash:</strong> 2,500 concurrent requests.</li>\n<li><strong>deepseek-v4-pro:</strong> 500 concurrent requests.</li>\n<li><strong>Search API:</strong> 100 requests a second. <strong>Fetch API:</strong> 25 requests a second, plus a per-domain limit.</li>\n</ul>\n<p>Requests above a limit get HTTP 429. On raising the concurrency limit, DeepSeek says \"There is no additional cost for capacity expansion.\" A request that has not started inference after 10 minutes is closed by the server.</p>\n\n<h2 id=\"old-prices\">Why other pages show different DeepSeek prices</h2>\n<p>You will find older numbers, including on DeepSeek's own site. On November 18, 2026, the <a href=\"https://www.deepseek.com/en/platform/\">API platform page</a> at deepseek.com still listed \"DeepSeek-V4-Flash\" at $0.14 per 1M input tokens and $0.28 per 1M output tokens, with a note that \"Prices may change\" and a pointer to the API docs. DeepSeek's change log says V4 Flash was retired on September 10, 2026, when V4.1 Flash launched, and the pricing page bills the old model names at the Flash price. We treat the API docs as the rate card.</p>\n<p>Old model names cause the same confusion. deepseek-chat and deepseek-reasoner were set to be discontinued on July 24, 2026, according to the April 24 change log entry. Today the Flash model name is deepseek-flash; deepseek-v4-flash and deepseek-v4-flash-vision-exp are still accepted and billed at the Flash price.</p>\n<p>The pricing page says fees are deducted from a topped-up balance or a granted balance, granted first, and it does not describe a free tier. US companies should also read our guide on <a href=\"/blog/is-deepseek-banned-in-the-us/\">whether DeepSeek is banned in the US</a> before routing customer data to it.</p>\n\n<h2 id=\"how-imisofts-helps\">How imisofts can help</h2>\n<p>imisofts is a Dubai-based agency that builds AI automation and AI voice agents. We can estimate token use for your workflow, compare DeepSeek, OpenAI and other models on your own prompts, and schedule batch jobs into off-peak hours where the data rules allow it. If you are also pricing a customer-facing assistant, our guide to <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot costs for a business</a> shows the other line items. To talk it through, contact our <a href=\"/ai-automation-agency\">AI automation agency</a> team.</p>\n",
+  "faqs": [
+    [
+      "How much does the DeepSeek API cost?",
+      "Off-peak, deepseek-flash costs $0.15 per 1M input tokens ($0.003 on a cache hit) and $0.60 per 1M output tokens. deepseek-v4-pro costs $0.66 in and $1.98 out. Peak-hour rates are double."
+    ],
+    [
+      "Is the DeepSeek API free?",
+      "DeepSeek's pricing page does not describe a free tier; it bills tokens and deducts fees from a topped-up or granted balance. Searches the model runs through its server-side web tools are not billed from November 18, 2026."
+    ],
+    [
+      "What are DeepSeek's peak hours?",
+      "01:00 to 04:00 and 06:00 to 10:00 UTC, Monday to Friday, excluding Chinese public holidays. All other hours are off-peak at half price. In US Eastern standard time the windows are 8 pm to 11 pm (Sunday to Thursday) and 1 am to 5 am (Monday to Friday)."
+    ],
+    [
+      "Is the DeepSeek API cheaper than OpenAI's GPT-6.2?",
+      "Than gpt-6.2-sol on list price, yes. For a hypothetical agent with 10,000 runs a month, deepseek-flash off-peak comes to $16.95 against $265.00 for OpenAI's gpt-6.2-sol at Standard rates, before OpenAI's cache write charges. Test quality on your own prompts."
+    ],
+    [
+      "How much is 1 million tokens on DeepSeek?",
+      "On deepseek-flash off-peak, 1M input tokens cost $0.15 (or $0.003 if served from the cache) and 1M output tokens cost $0.60. On deepseek-v4-pro off-peak they cost $0.66 and $1.98."
+    ],
+    [
+      "How much does the DeepSeek Search API cost?",
+      "$0.75 per 1,000 successful requests, and the same for the Fetch API, when your own code calls them. Failed requests, empty results and timeouts are not billed. Searches the model runs through server-side web tools are free from November 18, 2026."
+    ]
+  ],
+  "word_count": 1564,
+  "read_time": 7
+}
