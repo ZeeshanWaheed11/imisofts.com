@@ -1,0 +1,99 @@
+# One-off, 2026-11-18 (owner: "Just remove this page."): take the Shopify app reviews service page off the site.
+# Deletes shopify-app-reviews.html, removes its footer link from every page, its two cards on /shopify-apps and
+# /hire-shopify-expert, its sitemap entry and its llms entry, and sends /shopify-app-reviews (with or without the
+# trailing slash) to /shopify-apps with a 301. Exact string removals only; idempotent; stops on anything unexpected.
+name: One-off 2026-11-18 remove Shopify app reviews page
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1118-remove-app-reviews.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  remove:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Remove the page and every link to it
+        run: |
+          cat > /tmp/remove_app_reviews.py <<'PY'
+          # One-off, 2026-11-18 (owner: "Just remove this page."): take /shopify-app-reviews off the site.
+          # Deletes the page, its footer link on every page, its two cards on /shopify-apps and /hire-shopify-expert,
+          # its sitemap entry and its llms entry, and sends the old address to /shopify-apps with a 301.
+          # Exact string removals only; it stops if anything looks different from what was checked on 18 Nov.
+          import os, re, sys, glob
+          ROOT = sys.argv[1] if len(sys.argv) > 1 else '.'
+          os.chdir(ROOT)
+          PAGE = 'shopify-app-reviews.html'
+          FOOT = re.compile(r'\n[ \t]*<li><a href="/shopify-app-reviews">App Reviews</a></li>[ \t]*(?=\n)')
+          CARDS = {
+              'shopify-apps.html': '<li><strong><a href="/shopify-app-reviews">Shopify App Reviews</a></strong><p>Our service for collecting reviews on your app listing.</p></li>',
+              'hire-shopify-expert.html': '<li><a class="hx-rel" href="/shopify-app-reviews">Shopify App Reviews</a></li>',
+          }
+          stats = {'footer': 0, 'cards': 0}
+          for p in glob.glob('**/*.html', recursive=True):
+              if p == PAGE:
+                  continue
+              s = open(p, encoding='utf-8').read()
+              t, n = FOOT.subn('', s)
+              if n > 1:
+                  raise SystemExit('more than one footer link in %s' % p)
+              stats['footer'] += n
+              if p in CARDS:
+                  k = t.count(CARDS[p])
+                  if k > 1:
+                      raise SystemExit('card found %d times in %s' % (k, p))
+                  if k == 1:
+                      t = t.replace(CARDS[p], '', 1); stats['cards'] += 1
+              if t != s:
+                  open(p, 'w', encoding='utf-8').write(t)
+          if os.path.exists(PAGE):
+              os.remove(PAGE); print('deleted', PAGE)
+          # sitemap
+          p = 'sitemap.xml'; s = open(p, encoding='utf-8').read()
+          t, n = re.subn(r'<url>\s*<loc>https://imisofts\.com/shopify-app-reviews</loc>.*?</url>\s*', '', s, flags=re.S)
+          if n > 1: raise SystemExit('sitemap: %d entries' % n)
+          if n: open(p, 'w', encoding='utf-8').write(t)
+          print('sitemap entries removed:', n)
+          # llms list
+          p = 'ops/build_llms.py'; s = open(p, encoding='utf-8').read()
+          old = "'/digital-marketing', '/shopify-app-reviews',"
+          if old in s:
+              s = s.replace(old, "'/digital-marketing',", 1); open(p, 'w', encoding='utf-8').write(s); print('build_llms: removed')
+          elif '/shopify-app-reviews' in s:
+              raise SystemExit('build_llms: unexpected form')
+          # redirect: the old trailing-slash rule pointed at the page itself; both forms now go to /shopify-apps
+          p = '_redirects'; s = open(p, encoding='utf-8').read()
+          OLD = re.compile(r'^/shopify-app-reviews/[ \t]+/shopify-app-reviews[ \t]+301[ \t]*$', re.M)
+          if OLD.search(s):
+              s = OLD.sub('/shopify-app-reviews/          /shopify-apps          301\n/shopify-app-reviews           /shopify-apps          301', s, count=1)
+              open(p, 'w', encoding='utf-8').write(s); print('redirect: /shopify-app-reviews and /shopify-app-reviews/ -> /shopify-apps')
+          elif not re.search(r'^/shopify-app-reviews[ \t]+/shopify-apps[ \t]+301', s, re.M):
+              raise SystemExit('_redirects: unexpected form')
+          print('footer links removed:', stats['footer'], '| cards removed:', stats['cards'])
+          PY
+          python3 /tmp/remove_app_reviews.py .
+      - name: Regenerate llms.txt and llms-full.txt
+        run: python3 ops/build_llms.py
+      - name: Check nothing still links to the page
+        run: |
+          if grep -rl --include=*.html 'href="/shopify-app-reviews">App Reviews</a></li>' . ; then echo "footer link left"; exit 1; fi
+          test ! -f shopify-app-reviews.html
+          if grep -q 'imisofts.com/shopify-app-reviews' sitemap.xml llms.txt; then echo "still listed"; exit 1; fi
+      - name: Commit
+        run: |
+          git config user.name "imisofts-pages-bot"
+          git config user.email "pages-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "pages: remove /shopify-app-reviews, its footer link and cards, 301 to /shopify-apps (owner request 2026-11-18)"
+            git pull --rebase origin main
+            git push
+          fi
