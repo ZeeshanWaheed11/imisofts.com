@@ -1,0 +1,154 @@
+# One-off, 2026-11-19 (owner: "We need to publish as soon as it is completed."): wire in /stream-clipper,
+# the free Stream Clipper skill page with the YouTube guide. GitHub's web file upload was failing (503 from the
+# upload storage), so the page, the zip and the images arrive as one base64 bundle made with the web editor:
+# ops/staging-1119/stream-clipper-bundle.b64. This unpacks it (new files only, every file checked against its
+# SHA-256, nothing existing is overwritten) and removes the bundle. It adds the URL to sitemap.xml and to the "Free tools" group in ops/build_llms.py,
+# adds a "Claude Code Skills" group with one card on /products (after Free Tools), allows the privacy-enhanced
+# YouTube player (www.youtube-nocookie.com) in the CSP frame-src in _headers, regenerates llms.txt and
+# llms-full.txt, then pings IndexNow once the page is live. Only adds; idempotent; stops on anything unexpected.
+name: One-off 2026-11-19 Stream Clipper page
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/oneoff-1119-stream-clipper.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      INDEXNOW_QUEUE: /tmp/indexnow_queue.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unpack the page bundle (new files only, checksums verified)
+        run: |
+          python3 - <<'PY1'
+          import base64, hashlib, io, os, tarfile
+          B = 'ops/staging-1119/stream-clipper-bundle.b64'
+          EXPECT = {
+              'stream-clipper.html': '41ebc533b0075f760094be734658c4a426ed53fa0d7bde49814207b24e236320',
+              'assets/downloads/imisofts-stream-clipper-1.0.zip': '8749f6dd2caa4a4746bf116802061eaee434df4b9229d5a2ea0bfe4cf935faf0',
+              'assets/tools/stream-clipper/clip-1.webp': 'afa77234f323245b96415883c3c21828ee49feb206a11bfc88d63de00009cd16',
+              'assets/tools/stream-clipper/clip-2.webp': '5a0850f7f32c8e57053f4e1280b3727bd87b01b9c47c1a9145f2c27f89ff9fec',
+              'assets/og/stream-clipper.jpg': '351f9b8b3982989762e4546b244ea94babc6becec23f9bffc321eb685a6b5d5f',
+              'assets/og/stream-clipper-video.jpg': '0da23a71805cd04d7f21bee272d2294b6bdfca7f4d00bc7499c5ede33bd29101',
+          }
+          if not os.path.exists(B):
+              print('no bundle: nothing to unpack')
+          else:
+              raw = base64.b64decode(open(B, encoding='ascii').read())
+              out = {}
+              with tarfile.open(fileobj=io.BytesIO(raw), mode='r:gz') as t:
+                  for m in t.getmembers():
+                      if not m.isfile() or m.name not in EXPECT:
+                          raise SystemExit('unexpected item in the bundle: %s' % m.name)
+                      data = t.extractfile(m).read()
+                      if hashlib.sha256(data).hexdigest() != EXPECT[m.name]:
+                          raise SystemExit('checksum mismatch: %s' % m.name)
+                      out[m.name] = data
+              if sorted(out) != sorted(EXPECT):
+                  raise SystemExit('bundle is missing: %s' % sorted(set(EXPECT) - set(out)))
+              for name, data in out.items():
+                  if os.path.exists(name):
+                      if hashlib.sha256(open(name, 'rb').read()).hexdigest() == EXPECT[name]:
+                          continue
+                      raise SystemExit('refusing to overwrite an existing file: %s' % name)
+                  os.makedirs(os.path.dirname(name) or '.', exist_ok=True)
+                  open(name, 'wb').write(data)
+                  print('unpacked', name, len(data), 'bytes')
+              os.remove(B)
+              if not os.listdir('ops/staging-1119'):
+                  os.rmdir('ops/staging-1119')
+              print('bundle removed')
+          PY1
+      - name: Sitemap, llms list, products card and frame-src
+        run: |
+          python3 - <<'PY2'
+          import os, json
+          TODAY = '2026-11-19'
+          NEED = ['stream-clipper.html', 'assets/downloads/imisofts-stream-clipper-1.0.zip',
+                  'assets/tools/stream-clipper/clip-1.webp', 'assets/tools/stream-clipper/clip-2.webp',
+                  'assets/og/stream-clipper.jpg', 'assets/og/stream-clipper-video.jpg']
+          missing = [p for p in NEED if not os.path.exists(p)]
+          if missing:
+              raise SystemExit('not in the repo yet: %s' % missing)
+
+          # sitemap.xml: one new <url> before </urlset>
+          p = 'sitemap.xml'
+          x = open(p, encoding='utf-8').read(); x0 = x
+          loc = 'https://imisofts.com/stream-clipper'
+          if '<loc>%s</loc>' % loc not in x:
+              if x.count('</urlset>') != 1:
+                  raise SystemExit('sitemap: unexpected form')
+              x = x.replace('</urlset>', '<url>\n<loc>%s</loc>\n<lastmod>%s</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n</urlset>' % (loc, TODAY), 1)
+              open(p, 'w', encoding='utf-8').write(x)
+          print('sitemap:', 'updated' if x != x0 else 'unchanged')
+
+          # ops/build_llms.py: add the page to the "Free tools" group
+          p = 'ops/build_llms.py'
+          s = open(p, encoding='utf-8').read()
+          if "'/stream-clipper'" not in s:
+              anchor = "        '/plagiarism-checker',\n    ]),\n    ('AI writing tools', ["
+              if s.count(anchor) != 1:
+                  raise SystemExit('build_llms anchor not found')
+              s = s.replace(anchor, "        '/plagiarism-checker',\n        '/stream-clipper',\n    ]),\n    ('AI writing tools', [", 1)
+              open(p, 'w', encoding='utf-8').write(s)
+              print('build_llms: added /stream-clipper to Free tools')
+
+          # products.html: a "Claude Code Skills" group with one card, right after the Free Tools group
+          p = 'products.html'
+          s = open(p, encoding='utf-8').read()
+          if 'href="/stream-clipper"' not in s:
+              anchor = '<a class="a1" href="/dns-propagation-checker">Open the checker</a></div></article></div></div>'
+              if s.count(anchor) != 1:
+                  raise SystemExit('products anchor not found')
+              card = ('<div class="pr-cat"><h2>Claude Code Skills</h2><p>Free skills that teach Claude Code a new job. Download one, install it in about a minute and ask.</p>'
+                      '<div class="pr-grid"><article class="pr-card"><div class="pr-top"><div class="pr-logo" style="background:#7c3aed">S</div><div><h3>Stream Clipper</h3>'
+                      '<span class="pr-pill g">Claude Code skill &bull; Free</span></div></div>'
+                      '<p>Turns a long stream, like a GTA 6 stream, into vertical clips with the facecam on top, word-by-word captions, a title and the post text. It runs on your computer.</p>'
+                      '<ul><li>Finds the loud moments for you</li><li>YouTube, Twitch, Kick or a video file</li><li>No API keys and no sign-up</li></ul>'
+                      '<div class="pr-act"><a class="a2" href="/stream-clipper">Learn more</a><a class="a1" href="/assets/downloads/imisofts-stream-clipper-1.0.zip" download>Download free</a></div>'
+                      '</article></div></div>')
+              s = s.replace(anchor, anchor + card, 1)
+              open(p, 'w', encoding='utf-8').write(s)
+              print('products: added the Stream Clipper card')
+
+          # _headers: let pages embed the privacy-enhanced YouTube player
+          p = '_headers'
+          s = open(p, encoding='utf-8').read()
+          old = "frame-src 'self' https://cal.com https://app.cal.com https://forms.clickup.com;"
+          new = "frame-src 'self' https://cal.com https://app.cal.com https://forms.clickup.com https://www.youtube-nocookie.com;"
+          if new not in s:
+              if s.count(old) != 1:
+                  raise SystemExit('_headers: frame-src not in the expected form')
+              s = s.replace(old, new, 1)
+              open(p, 'w', encoding='utf-8').write(s)
+              print('_headers: frame-src now allows https://www.youtube-nocookie.com')
+
+          json.dump(['https://imisofts.com/stream-clipper', 'https://imisofts.com/products'],
+                    open(os.environ.get('INDEXNOW_QUEUE', '/tmp/indexnow_queue.json'), 'w'))
+          PY2
+      - name: Regenerate llms.txt and llms-full.txt
+        run: python3 ops/build_llms.py
+        continue-on-error: true
+      - name: Commit
+        run: |
+          git config user.name "imisofts-pages-bot"
+          git config user.email "pages-bot@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes."
+          else
+            git commit -m "pages: publish /stream-clipper (page, zip, images) and add it to sitemap.xml, llms.txt and /products; YouTube player allowed in frame-src (owner request 2026-11-19)"
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Ping IndexNow once the page is live
+        run: python3 ops/indexnow_after_deploy.py
+        continue-on-error: true
+        timeout-minutes: 20
