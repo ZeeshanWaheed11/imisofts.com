@@ -1517,7 +1517,7 @@
 
     <section class="policy-content">
       <div class="container">
-        <p><strong>Last Updated:</strong> October 22, 2026</p>
+        <p><strong>Last Updated:</strong> November 22, 2026</p>
 
         <h2>1. Scope</h2>
         <p>This policy covers the free browser extensions that imisofts publishes in the Chrome Web Store. Our website is covered by our main <a href="/privacy-policy">Privacy Policy</a>.</p>
@@ -1567,13 +1567,37 @@
         <h3>Links to imisofts.com</h3>
         <p>The "Get it built by imisofts" button and the other imisofts.com links open in a new tab, only when you click them. These links carry UTM tags that tell us a visit came from the extension. They do not identify you. Once you are on imisofts.com, our main <a href="/privacy-policy">Privacy Policy</a> applies.</p>
 
-        <h2>4. Chrome Web Store User Data Policy</h2>
+        <h2>4. Email Extractor with MX Check by imisofts</h2>
+        <p>The extension finds the email addresses published on the website you are viewing, labels them, checks whether each address's domain can receive mail, and lets you keep a list of the addresses you choose.</p>
+
+        <h3>What it handles</h3>
+        <ul>
+          <li><strong>The website you scan.</strong> It reads the page only when you click the extension's icon, and only in that tab. If "Also check contact and about pages" is ticked, it also loads up to six pages of the same website, such as its contact or about page. It never follows links to other websites, and it never opens links that could change anything, such as sign-out, cart or delete links.</li>
+          <li><strong>Domain names, for the mail check.</strong> For each domain it finds, it asks Google Public DNS (dns.google), or Cloudflare (cloudflare-dns.com) if Google does not answer, whether that domain has a mail server. Only the domain name is sent, never the address or the page. These are public DNS services with their own privacy policies.</li>
+          <li><strong>Your list and settings.</strong> The addresses you add to "My list", your "contact pages" setting and an optional webhook URL are saved in the extension's local storage on your device. They are never sent to us. Clearing the list or removing the extension deletes them.</li>
+          <li><strong>Your own webhook, only when you click Send.</strong> If you add a webhook URL (for example from n8n, Make or Zapier) and click "Send to webhook", your list is posted to that URL and nowhere else. Chrome asks you to allow that website first.</li>
+        </ul>
+
+        <h3>What it does not do</h3>
+        <ul>
+          <li>imisofts does not receive, collect, store, sell or share any data from the extension. There is no imisofts server involved.</li>
+          <li>The extension has no analytics, no cookies, no accounts and no remotely hosted code.</li>
+          <li>It does not run in the background, does not read other tabs or your browsing history, and sends nothing to your webhook unless you click Send.</li>
+        </ul>
+
+        <h3>Your responsibility</h3>
+        <p>The addresses you collect belong to other people and organisations. Follow the email and privacy laws that apply to you, such as CAN-SPAM, GDPR and PECR, when you contact anyone.</p>
+
+        <h3>Links to imisofts.com</h3>
+        <p>The "Get leads from imisofts" button opens imisofts.com in a new tab, only when you click it. The link carries UTM tags that tell us a visit came from the extension. They do not identify you. Once you are on imisofts.com, our main <a href="/privacy-policy">Privacy Policy</a> applies.</p>
+
+        <h2>5. Chrome Web Store User Data Policy</h2>
         <p>The use of information received by imisofts browser extensions adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
 
-        <h2>5. Changes to This Policy</h2>
+        <h2>6. Changes to This Policy</h2>
         <p>If an extension starts handling data in a different way, we will update this page before that version is released and change the date at the top.</p>
 
-        <h2>6. Contact Us</h2>
+        <h2>7. Contact Us</h2>
         <p>Questions about this policy or our extensions:</p>
         <ul>
           <li>Email: growth@imisofts.com</li>
