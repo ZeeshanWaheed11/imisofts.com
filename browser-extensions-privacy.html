@@ -7,14 +7,14 @@
   
   <!-- Visitor Tracking -->
   <script id="vtag-ai-js" async src="https://r2.leadsy.ai/tag.js" data-pid="Sfy91D1xWAFhfQuk" data-version="062024"></script>
-  <meta name="description" content="How the free imisofts browser extensions handle data. The SPF, DKIM &amp; DMARC Checker sends DNS lookups only, Send to Webhook sends pages only to webhooks you add, and imisofts receives nothing.">
+  <meta name="description" content="How the free imisofts browser extensions handle data: the SPF checker and Email Extractor look up public DNS, pages go only to webhooks you add, and imisofts receives nothing.">
   <link rel="canonical" href="https://imisofts.com/browser-extensions-privacy">
   <meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 
   <!-- Open Graph Tags -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Browser Extension Privacy Policy - imisofts">
-  <meta property="og:description" content="How the free imisofts browser extensions handle data. The SPF, DKIM &amp; DMARC Checker sends DNS lookups only, Send to Webhook sends pages only to webhooks you add, and imisofts receives nothing.">
+  <meta property="og:description" content="How the free imisofts browser extensions handle data: the SPF checker and Email Extractor look up public DNS, pages go only to webhooks you add, and imisofts receives nothing.">
   <meta property="og:url" content="https://imisofts.com/browser-extensions-privacy">
   <meta property="og:site_name" content="imisofts">
   <meta property="og:locale" content="en_US">
@@ -22,7 +22,7 @@
   <!-- Twitter Card Tags -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Browser Extension Privacy Policy - imisofts">
-  <meta name="twitter:description" content="How the free imisofts browser extensions handle data. The SPF, DKIM &amp; DMARC Checker sends DNS lookups only, Send to Webhook sends pages only to webhooks you add, and imisofts receives nothing.">
+  <meta name="twitter:description" content="How the free imisofts browser extensions handle data: the SPF checker and Email Extractor look up public DNS, pages go only to webhooks you add, and imisofts receives nothing.">
 
   <!-- Favicon using inline SVG data URL -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='%23F45407'%3E%3Ccircle cx='48' cy='170' r='18'/%3E%3Cpath d='M84,84 L136,84 L118,188 L66,188 Z'/%3E%3Cpath d='M146,84 L198,84 L180,188 L128,188 Z'/%3E%3C/g%3E%3C/svg%3E">
@@ -1575,6 +1575,8 @@
           <li><strong>The website you scan.</strong> It reads the page only when you click the extension's icon, and only in that tab. If "Also check contact and about pages" is ticked, it also loads up to six pages of the same website, such as its contact or about page. It never follows links to other websites, and it never opens links that could change anything, such as sign-out, cart or delete links.</li>
           <li><strong>Domain names, for the mail check.</strong> For each domain it finds, it asks Google Public DNS (dns.google), or Cloudflare (cloudflare-dns.com) if Google does not answer, whether that domain has a mail server. Only the domain name is sent, never the address or the page. These are public DNS services with their own privacy policies.</li>
           <li><strong>Your list and settings.</strong> The addresses you add to "My list", your "contact pages" setting and an optional webhook URL are saved in the extension's local storage on your device. They are never sent to us. Clearing the list or removing the extension deletes them.</li>
+          <li><strong>Problem reports, only if you send one.</strong> If something goes wrong, the message includes a "Report this problem" link. It opens your own email app with the error, the website's domain and the extension and Chrome versions filled in. Nothing is sent unless you press Send there, and you can edit or delete anything first.</li>
+          <li><strong>When you remove the extension.</strong> Chrome opens a short feedback page on imisofts.com. Its address carries only the extension's version number, nothing about you or the sites you scanned.</li>
           <li><strong>Your own webhook, only when you click Send.</strong> If you add a webhook URL (for example from n8n, Make or Zapier) and click "Send to webhook", your list is posted to that URL and nowhere else. Chrome asks you to allow that website first.</li>
         </ul>
 
