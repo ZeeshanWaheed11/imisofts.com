@@ -1,0 +1,317 @@
+{
+ "slug": "tripadvisor-api-pricing",
+ "title": "Tripadvisor API Pricing: Terra Ends the 5,000 Free Calls",
+ "desc": "Tripadvisor's Terra API bills $0.015 to $0.009 per location ID after a one-time 1,000 free. Tiers, limits, the Content API shutdown and the license terms.",
+ "date": "2026-11-23",
+ "time": "16:21",
+ "keywords": "tripadvisor api pricing, tripadvisor api, tripadvisor api free, tripadvisor terra api pricing, tripadvisor content api pricing, tripadvisor api key free, tripadvisor api rate limit, tripadvisor api reviews, tripadvisor discover api, tripadvisor scraper, apify tripadvisor scraper",
+ "category": "Guides",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "question": "What does the Tripadvisor API cost now that Terra has replaced the Content API, and what are the limits?",
+ "qtype": "cost",
+ "cta": "Need review or listing data wired into your product or AI agent?",
+ "image": {
+  "style": "v2",
+  "cluster": "Scraping and data APIs",
+  "alt": "Tripadvisor Terra Discover price per 1,000 location entities, from $15 for the first 1,000 to a $9 floor from 5,001 up",
+  "explain": {
+   "layout": "compare",
+   "palette": "ember",
+   "kicker": "Price per 1,000 entities",
+   "headline": "Tripadvisor Terra Discover list prices",
+   "items": [
+    {
+     "icon": "coin",
+     "label": "First 1,000 in a cycle",
+     "value": "$15.00",
+     "unit": "per 1,000",
+     "note": "$0.015 each",
+     "num": 15
+    },
+    {
+     "icon": "coin",
+     "label": "4,001 to 5,000",
+     "value": "$9.84",
+     "unit": "per 1,000",
+     "note": "$0.00984 each",
+     "num": 9.84
+    },
+    {
+     "icon": "coin",
+     "label": "5,001 and up",
+     "value": "$9.00",
+     "unit": "per 1,000",
+     "note": "advertised floor",
+     "num": 9,
+     "hot": true
+    }
+   ],
+   "footnote": "One entity = one location ID returned. Free allowance: 1,000 entities once per account."
+  },
+  "cover": {
+   "headline": "Tripadvisor API pricing on Terra",
+   "number": "$9 to $15 / 1K",
+   "kicker": "Scraping and data APIs"
+  },
+  "figures": [
+   {
+    "under": "content-api-shutdown",
+    "alt": "Timeline of the Tripadvisor API change: legacy Content API with 5,000 free calls a month, Content API sunset date of August 31, 2026, Terra Discover with a one-time 1,000-entity allowance",
+    "explain": {
+     "layout": "timeline",
+     "palette": "sage",
+     "kicker": "From Content API to Terra",
+     "headline": "What happened to the free tier",
+     "items": [
+      {
+       "icon": "calendar",
+       "date": "Legacy",
+       "label": "5,000 free calls every month"
+      },
+      {
+       "icon": "warning",
+       "date": "Aug 31, 2026",
+       "label": "Content API sunset date",
+       "hot": true
+      },
+      {
+       "icon": "key",
+       "date": "Terra",
+       "label": "1,000 free entities, once only"
+      }
+     ],
+     "footnote": "Sources: Tripadvisor Content API FAQ, Terra migration FAQ and Terra pricing page."
+    }
+   },
+   {
+    "under": "limits-and-packages",
+    "alt": "Tripadvisor Terra package limits compared: Discover 10,000 calls a day, Growth 50,000, Scale 200,000",
+    "explain": {
+     "layout": "compare",
+     "palette": "tide",
+     "kicker": "Daily call limit",
+     "headline": "Terra packages side by side",
+     "items": [
+      {
+       "icon": "chart",
+       "label": "Discover",
+       "value": "10K",
+       "unit": "calls a day",
+       "note": "10 QPS, priced per entity",
+       "num": 10000,
+       "hot": true
+      },
+      {
+       "icon": "chart",
+       "label": "Growth",
+       "value": "50K",
+       "unit": "calls a day",
+       "note": "25 QPS, custom price",
+       "num": 50000
+      },
+      {
+       "icon": "chart",
+       "label": "Scale",
+       "value": "200K",
+       "unit": "calls a day",
+       "note": "50 QPS, custom price",
+       "num": 200000
+      }
+     ],
+     "footnote": "Innovate: 200K+ a day, 100 QPS, custom price. Source: tripadvisor.com/developers."
+    }
+   },
+   {
+    "under": "terms-that-matter",
+    "alt": "What the Tripadvisor Terra license allows and bars: display to your users is allowed, caching except location IDs is barred, search-engine indexing is barred, AI training is barred",
+    "explain": {
+     "layout": "rules",
+     "palette": "ember",
+     "kicker": "The license in four lines",
+     "headline": "What Terra's terms allow",
+     "subject_icon": "scale",
+     "subject": "The terms",
+     "items": [
+      {
+       "mark": "yes",
+       "label": "Show content to your users",
+       "note": "to end users of your own application"
+      },
+      {
+       "mark": "no",
+       "label": "Cache or store content",
+       "note": "location IDs are the only exception"
+      },
+      {
+       "mark": "no",
+       "label": "Let search engines index it",
+       "note": "displays must be non-indexable"
+      },
+      {
+       "mark": "no",
+       "label": "AI or machine-learning use",
+       "note": "training included; needs a signed agreement"
+      }
+     ],
+     "footnote": "Summary of Terra's API Master Terms and caching policy. Not legal advice."
+    }
+   },
+   {
+    "under": "scrapers-vs-api",
+    "alt": "Cost per 1,000 Tripadvisor items: Terra Discover at the $9 floor per 1,000 locations and about $3 per 1,000 reviews, against Apify's listing scraper at $2.90 and reviews scraper at $1.90 on Starter",
+    "explain": {
+     "layout": "compare",
+     "palette": "sage",
+     "kicker": "Per 1,000 items, list price",
+     "headline": "Terra API vs Apify scrapers",
+     "items": [
+      {
+       "icon": "key",
+       "label": "Terra, locations",
+       "value": "$9.00",
+       "unit": "per 1,000",
+       "note": "floor rate, licensed",
+       "num": 9
+      },
+      {
+       "icon": "database",
+       "label": "Apify, listings",
+       "value": "$2.90",
+       "unit": "per 1,000",
+       "note": "Starter, no license",
+       "num": 2.9
+      },
+      {
+       "icon": "key",
+       "label": "Terra, reviews",
+       "value": "$3.00",
+       "unit": "per 1,000",
+       "note": "3 reviews per entity",
+       "num": 3
+      },
+      {
+       "icon": "database",
+       "label": "Apify, reviews",
+       "value": "$1.90",
+       "unit": "per 1,000",
+       "note": "Starter, no license",
+       "num": 1.9
+      }
+     ],
+     "footnote": "Terra reviews: our arithmetic at the floor. Tripadvisor's Terms of Use bar scrapers without permission."
+    }
+   }
+  ],
+  "chart": {
+   "title": "Terra Discover bill per invoice cycle (graduated reading)",
+   "subtitle": "After the one-time allowance, each tier at its own rate; whole-volume reading: $49.20, $90, $225, $900.",
+   "type": "hbar",
+   "rows": [
+    [
+     "5,000 entities",
+     61.43
+    ],
+    [
+     "10,000 entities",
+     106.43
+    ],
+    [
+     "25,000 entities",
+     241.43
+    ],
+    [
+     "100,000 entities",
+     916.43
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "source": "Our arithmetic on the Discover tier table; whole-volume reading is lower. Source: Tripadvisor Terra pricing page, November 2026.",
+   "alt": "Bar chart of the Tripadvisor Terra Discover bill per invoice cycle on the graduated reading: $61.43 at 5,000 entities, $106.43 at 10,000, $241.43 at 25,000 and $916.43 at 100,000.",
+   "after_heading": "Rate limits and what each package includes"
+  }
+ },
+ "key_numbers": {
+  "title": "Key numbers",
+  "rows": [
+   {
+    "label": "Terra Discover, first 1,000 entities per cycle",
+    "value": "$0.015 per entity",
+    "note": "$15 per 1,000"
+   },
+   {
+    "label": "Terra Discover, 5,001 entities and up",
+    "value": "$0.009 per entity",
+    "note": "the advertised floor, $9 per 1,000"
+   },
+   {
+    "label": "Terra free allowance",
+    "value": "1,000 entities",
+    "note": "once per account lifetime"
+   },
+   {
+    "label": "Legacy Content API free tier",
+    "value": "5,000 calls a month",
+    "note": "keys deprecated August 31, 2026"
+   },
+   {
+    "label": "Discover daily call limit",
+    "value": "10,000 calls",
+    "note": "per API"
+   },
+   {
+    "label": "Discover queries per second",
+    "value": "10",
+    "note": "legacy Content API listed 50"
+   },
+   {
+    "label": "Latest reviews per location on Discover",
+    "value": "3"
+   },
+   {
+    "label": "10,000 entities a month on Discover",
+    "value": "$90.00 to $106.43",
+    "note": "our arithmetic, two tier readings"
+   },
+   {
+    "label": "Apify Tripadvisor Scraper, Starter",
+    "value": "$2.90 per 1,000 results",
+    "note": "$19 a month plan"
+   },
+   {
+    "label": "Apify Tripadvisor Reviews Scraper, Starter",
+    "value": "$1.90 per 1,000 reviews"
+   }
+  ],
+  "source": "Read on 23 November 2026 from Tripadvisor's developers page, Terra docs (usage-based pricing, API access and limits, migration FAQ), legacy Content API docs and Apify's Store pricing pages."
+ },
+ "body": "<p><strong>Short answer.</strong> Tripadvisor's API is now Terra, and its self-serve Discover package bills per \"billable entity\": each location ID a successful call returns. List prices run from $0.015 per entity for the first 1,000 in a billing cycle down to a floor of $0.009 from 5,001 up. The old Content API gave 5,000 free calls every month; Tripadvisor's migration FAQ set August 31, 2026 as the date its keys would be sunset, and Terra's free allowance is 1,000 entities once per account lifetime, not per month. Discover also caps you at 10 queries per second and 10,000 calls per day per API, shows the 3 most recent reviews per location, and its terms bar caching (except location IDs), search-engine indexing of the content, and AI or machine-learning use, training included, apart from internal RAG testing. Growth, Scale and Innovate are quote-only. We earn a commission if you buy Apify through our links; Tripadvisor pays us nothing.</p>\n<p>Everything below was read on 23 November 2026 on Tripadvisor's developer pages, its Terra docs, its Terms of Use and Apify's Store pages. Monthly totals are our arithmetic, before tax. We ran no billed calls and no scraper jobs.</p>\n\n<h2 id=\"terra-discover-pricing\">What Terra Discover costs per location</h2>\n<p>Tripadvisor's usage-based pricing page sets the unit: \"each location ID returned in a successful response counts as one billable entity.\" It adds that this holds \"whether you request one location per HTTP call or use multi-get\". Reviews and photos bill one entity per location per call, search and nearby search bill one per location ID returned, and the Geos endpoint bills one per geo ID. Calls that end in a 4xx or 5xx error are not counted.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Tier (entities per invoice cycle)</th><th>Price per entity</th><th>Per 1,000 entities</th></tr></thead><tbody>\n<tr><td>1 to 1,000</td><td>$0.01500</td><td>$15.00</td></tr>\n<tr><td>1,001 to 2,000</td><td>$0.01350</td><td>$13.50</td></tr>\n<tr><td>2,001 to 3,000</td><td>$0.01215</td><td>$12.15</td></tr>\n<tr><td>3,001 to 4,000</td><td>$0.01094</td><td>$10.94</td></tr>\n<tr><td>4,001 to 5,000</td><td>$0.00984</td><td>$9.84</td></tr>\n<tr><td>5,001 and up</td><td>$0.00900</td><td>$9.00</td></tr>\n</tbody></table></div>\n<p>The developers page headlines Discover as \"Free to start\" and \"From $0.009/entity\". That is the floor rate. The first 1,000 billed entities in a cycle list at $0.015, which is 67% more than the headline figure.</p>\n<p>One point the page leaves open: it does not say whether the tiers are graduated (each band priced at its own rate) or whether a month's whole volume takes the rate of the band it lands in. It says only that \"exact totals for a billing cycle are computed by our billing system\". So the table below shows both readings once the free allowance is used up.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Entities in a month</th><th>Graduated reading</th><th>Whole-volume reading</th></tr></thead><tbody>\n<tr><td>5,000</td><td>$61.43</td><td>$49.20</td></tr>\n<tr><td>10,000</td><td>$106.43</td><td>$90.00</td></tr>\n<tr><td>25,000</td><td>$241.43</td><td>$225.00</td></tr>\n<tr><td>100,000</td><td>$916.43</td><td>$900.00</td></tr>\n</tbody></table></div>\n<p>The 5,000 row is a rough stand-in for the old free month: the Content API gave 5,000 free calls, and a call can return more than one location, so the same work may be more entities. On Discover 5,000 entities list at $49.20 to $61.43 once the one-time allowance is gone.</p>\n\n<h2 id=\"content-api-shutdown\">What changed: the Content API's 5,000 free calls are gone</h2>\n<p>The legacy Content API docs still carry its FAQ, which says Tripadvisor offered \"the first 5000 API calls for free every month after you sign up\", with a card on file for overage. The same site's overview page now opens with \"This API is deprecated\" and points to Terra.</p>\n<p>Terra's migration FAQ gives the date: \"The legacy Content API will be sunset and API keys deprecated on August 31, 2026.\" That date has now passed; we did not test whether old keys still answer. On the free tier it says \"The previous 5,000-call free tier was a legacy Content API offering\" and that Discover offers \"a complimentary tier of up to 1000 calls to support initial testing and evaluation.\" The pricing page, which in our reading is the text that sets the bill, is stricter than that FAQ: the 1,000 are entities, and \"the free allowance is granted once per account lifetime and does not repeat monthly.\"</p>\n<p>Migration is not a key swap. The FAQ says to treat Terra \"as a new product\": a new account at tripadvisor.com/developers, a new package and a new key, with Terra usage invoiced separately from any Content API invoice. It also flags that Terra returns review usernames and avatars, which the legacy API did not, so your privacy policy needs to cover them.</p>\n<p>What you get in return, per the same FAQ: the same core endpoints (location details, photos, reviews, search, nearby search), richer location fields such as coordinates, phone, opening hours and price level, multi-get batch requests, a Geos endpoint and versioned paths with a public changelog.</p>\n\n<h2 id=\"limits-and-packages\">Rate limits and what each package includes</h2>\n<p>The packages table on tripadvisor.com/developers lists four tiers. Only Discover has a public price.</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Package</th><th>Price</th><th>Daily calls</th><th>Queries per second</th><th>Latest reviews per location</th><th>Photos per location</th></tr></thead><tbody>\n<tr><td>Discover</td><td>From $0.009 per entity</td><td>10,000</td><td>10</td><td>3</td><td>5</td></tr>\n<tr><td>Growth</td><td>Custom</td><td>50,000</td><td>25</td><td>5</td><td>10</td></tr>\n<tr><td>Scale</td><td>Custom</td><td>200,000</td><td>50</td><td>10</td><td>15</td></tr>\n<tr><td>Innovate</td><td>Custom</td><td>200,000+</td><td>100</td><td>10+</td><td>25</td></tr>\n</tbody></table></div>\n<p>One of those numbers is tighter than the legacy API's: its rate-limit page listed 50 queries per second, and Discover allows 10. Discover includes ratings, review summaries and full review text for its 3 reviews; awards and POI rankings start on Growth, owner responses on Scale, and AI-generated content such as AI summaries on Scale. The migration FAQ suggests Growth's \"flat per-POI pricing\" if you \"regularly exceed 25,000 calls/month\", but gives no Growth price, so the break-even point cannot be checked from public pages.</p>\n<p>Each key only reaches the endpoints its package covers; anything else returns 403 with \"API Key does not have access to endpoint.\" When you exceed a limit, Terra's limits page says the API returns 429 and asks for exponential backoff with jitter. The daily quota can also be capped in the dashboard, which is the simplest spend control.</p>\n\n<h2 id=\"terms-that-matter\">The terms that matter more than the price</h2>\n<p>The Terra API Master Terms license the content \"solely to\" display it to end users in your application, use factual content to call third-party APIs, and \"internally analyze\" reviews of an \"Active Property\" solely to improve it, or the location of Active Properties. Four limits shape most projects:</p>\n<ul>\n<li><strong>No caching.</strong> The caching policy says that, except as your contract provides, caching, copying, downloading, storing or indexing \"is not permitted for any content, except that the Location ID attribute can be cached solely to improve the speed of your application\". Terra's own limits page still advises \"Cache responses\" to save quota. We read that as a gap in the docs and treat the caching policy and the Master Terms as the governing text, so plan on a fresh call each time you show the content.</li>\n<li><strong>Not for search engines.</strong> Section 3.4.3(c) requires displays to be \"non-indexable by search engines\". Our inference: a Tripadvisor review block will not help a page rank.</li>\n<li><strong>No AI use without a deal.</strong> Section 3.1.2 grants no license to use the content \"in connection with any use of artificial intelligence or machine learning\", naming \"model training, model fine-tuning\" as examples. RAG grounding is allowed only for internal, non-commercial testing; any other AI use \"shall require a separate signed agreement with Tripadvisor.\"</li>\n<li><strong>No review-collection competitor.</strong> Section 3.4.4(e) bars using the content to build a product that competes with Tripadvisor, including \"collecting user reviews\" unless Tripadvisor explicitly approves it.</li>\n</ul>\n<p>The no-caching rule is also why the price adds up fast. A hotel page that loads details, reviews and photos for one location bills 3 entities each time it is viewed; 10,000 views a month is 30,000 entities, about $270 to $286 at list price on our arithmetic.</p>\n\n<h2 id=\"scrapers-vs-api\">Tripadvisor scrapers: cheaper per item, against the terms</h2>\n<p>Scrapers on Apify's Store price Tripadvisor data per item. Two of them, both from developer maxcopell and listed as maintained by Apify:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Apify plan (monthly fee)</th><th>Tripadvisor Scraper, per 1,000 results</th><th>Tripadvisor Reviews Scraper, per 1,000 reviews</th></tr></thead><tbody>\n<tr><td>Free ($0, $5 credit)</td><td>$5.00</td><td>$5.00</td></tr>\n<tr><td>Starter ($19)</td><td>$2.90</td><td>$1.90</td></tr>\n<tr><td>Scale ($199)</td><td>$2.50</td><td>$1.50</td></tr>\n<tr><td>Business ($999)</td><td>$2.00</td><td>$0.90</td></tr>\n</tbody></table></div>\n<p>The listing scraper adds paid add-ons for photos ($1.00 per 1,000 on Starter), business leads enrichment ($5.00) and email verification ($4.00). Apify shows 16K total users and 488 monthly active users for the listing scraper, and 11K and 953 for the reviews scraper. At Starter, a listing result costs $0.0029, against Terra's $0.009 floor per entity: Terra is about 3.1 times the price. Reviews narrow the gap: a Discover reviews call bills one entity and returns up to the 3 most recent reviews, so at the floor that is about $3.00 per 1,000 reviews, against $1.90 on Apify Starter.</p>\n<p>The number that cuts against our own affiliate is not a price. Tripadvisor's Terms of Use (effective July 15, 2025) say users agree not to copy or exploit content \"using any robot, spider, scraper or other automated means\" without its express written permission. Scraped Tripadvisor data comes with no license, while the API comes with a narrow one. Our view: if you need to show Tripadvisor ratings in a live product, the API is the route that carries permission; scrapers suit one-off research where you have taken legal advice. Read <a href=\"/blog/is-web-scraping-legal/\">is web scraping legal</a> before you start, and <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">compare Apify's Tripadvisor actors</a> if you go that way.</p>\n\n<h2 id=\"which-to-choose\">Which route fits which job</h2>\n<ul>\n<li><strong>A travel site or app that shows ratings next to listings:</strong> Terra Discover. Budget per page view, not per month, because nothing can be cached.</li>\n<li><strong>Over about 25,000 calls a month:</strong> ask Tripadvisor for a Growth quote, as its own FAQ suggests, before you scale on Discover.</li>\n<li><strong>An AI assistant that answers travel questions:</strong> Discover's license does not cover a customer-facing model; you need a separate signed agreement.</li>\n<li><strong>Market research on reviews across many hotels:</strong> in our reading the license's analysis clause is tied to improving an \"Active Property\", so it may not cover broad market research; ask Tripadvisor. A scraper is cheaper but sits outside Tripadvisor's terms, so get legal advice first.</li>\n</ul>\n<p>For the same question on other platforms, see <a href=\"/blog/yelp-api-pricing/\">Yelp API pricing</a> and <a href=\"/blog/google-places-api-pricing/\">Google Places API pricing</a>, which licenses differently. If you are wiring review or listing data into a booking flow or an AI agent, our <a href=\"/ai-automation-agency\">AI automation team</a> builds those integrations, and our <a href=\"/ai-search-optimization\">AI search optimization</a> work covers how travel brands show up in AI answers. Planning an assistant on top of it? Our <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot cost breakdown</a> prices the rest of the build. To test a scraper on a small batch first, <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">start on Apify's free plan</a>, which includes $5 to spend in Apify Store.</p>",
+ "faqs": [
+  [
+   "Is the Tripadvisor API free?",
+   "Not on an ongoing basis. Terra Discover gives a one-time allowance of 1,000 billable entities per account lifetime, then bills from $0.015 down to $0.009 per entity. The legacy Content API's 5,000 free calls a month belonged to that API, which Tripadvisor's migration FAQ said would be sunset on August 31, 2026."
+  ],
+  [
+   "How much does the Tripadvisor API cost?",
+   "Terra Discover lists $0.01500 per entity for the first 1,000 in a billing cycle, falling by tier to $0.00900 from 5,001 up. On our arithmetic 10,000 entities a month cost $90.00 to $106.43, depending on whether the tiers are graduated, which Tripadvisor does not state. Growth, Scale and Innovate are custom-priced."
+  ],
+  [
+   "What is a billable entity on Tripadvisor Terra?",
+   "One location ID returned in a successful response. A search that returns 10 locations bills 10 entities, and a multi-get call bills each location it returns. Reviews and photos bill one entity per location per call. Error responses are not billed."
+  ],
+  [
+   "Can I cache Tripadvisor API data?",
+   "Only location IDs, unless your contract says otherwise. Terra's caching policy says caching, copying, downloading, storing or indexing is not permitted for any other content unless your contract says otherwise, and the Master Terms require displays to be non-indexable by search engines."
+  ],
+  [
+   "What are the Tripadvisor API rate limits?",
+   "Discover allows 10 queries per second and 10,000 calls per day per API; the developers page lists Growth at 25 and 50,000, Scale at 50 and 200,000, Innovate at 100 and 200,000 or more. Terra returns 429 when you exceed a limit."
+  ],
+  [
+   "Can I scrape Tripadvisor instead of using the API?",
+   "Scrapers exist and cost less per item (Apify's listing scraper is $2.90 per 1,000 results on Starter), but Tripadvisor's Terms of Use bar copying its content with any robot, spider or scraper without written permission. Take legal advice before scraping it."
+  ]
+ ],
+ "word_count": 2064,
+ "read_time": 9
+}
