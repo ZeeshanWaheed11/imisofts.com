@@ -1,0 +1,264 @@
+{
+  "slug": "rcs-business-messaging",
+  "title": "RCS Business Messaging: What It Is, $0.0128 a Text on Twilio",
+  "desc": "RCS business messaging sends branded texts and rich cards. On Twilio US, an RCS text costs $0.0128 to $0.0145 with carrier fees; a rich card $0.029 to $0.0355.",
+  "date": "2026-11-24",
+  "time": "15:30",
+  "keywords": "rcs business messaging, rcs messaging for business, rcs pricing, rcs vs sms, rich communication services, twilio rcs pricing, rcs business messaging cost",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "What is RCS business messaging and what does it cost per message?",
+  "qtype": "cost",
+  "cta": "Plan your business messaging",
+  "image": {
+    "style": "v2",
+    "cluster": "RCS business messaging",
+    "alt": "RCS text and rich media prices to AT&T on Twilio compared with SMS and MMS: SMS $0.0118, RCS text $0.0128, MMS $0.031, RCS rich card $0.032",
+    "explain": {
+      "layout": "compare",
+      "palette": "ember",
+      "kicker": "Twilio US, to AT&T, Nov 2026",
+      "headline": "RCS vs SMS, cost per message",
+      "items": [
+        {
+          "icon": "envelope",
+          "label": "SMS, one segment",
+          "value": "$0.0118",
+          "unit": "per message",
+          "note": "$0.0083 + $0.0035 carrier",
+          "num": 0.0118
+        },
+        {
+          "icon": "envelope",
+          "label": "RCS text, one segment",
+          "value": "$0.0128",
+          "unit": "per message",
+          "note": "$0.0083 + $0.0045 carrier",
+          "num": 0.0128,
+          "hot": true
+        },
+        {
+          "icon": "document",
+          "label": "MMS",
+          "value": "$0.031",
+          "unit": "per message",
+          "note": "$0.022 + $0.009 carrier",
+          "num": 0.031
+        },
+        {
+          "icon": "card",
+          "label": "RCS rich card",
+          "value": "$0.032",
+          "unit": "per message",
+          "note": "$0.022 + $0.01, any size",
+          "num": 0.032
+        }
+      ],
+      "footnote": "Source: Twilio US SMS and RCS pricing, November 2026. Outbound, list prices plus carrier fees."
+    },
+    "cover": {
+      "headline": "RCS business messaging cost",
+      "number": "$0.0128 / msg",
+      "kicker": "RCS text to AT&T, Twilio"
+    },
+    "figures": [
+      {
+        "under": "what-is-rcs",
+        "alt": "What an RCS business message can carry: a branded sender with logo, media files up to 100 MB, up to 11 suggested replies and actions, rich cards and carousels, and read receipts",
+        "explain": {
+          "layout": "cards",
+          "palette": "sage",
+          "kicker": "Per Twilio RCS docs",
+          "headline": "What an RCS message can carry",
+          "items": [
+            {
+              "icon": "building",
+              "label": "Branded sender",
+              "note": "name and logo instead of a phone number",
+              "hot": true
+            },
+            {
+              "icon": "document",
+              "label": "Media files",
+              "note": "images, video, audio, files to 100 MB"
+            },
+            {
+              "icon": "person",
+              "label": "Suggested replies",
+              "note": "up to 11 per message"
+            },
+            {
+              "icon": "globe",
+              "label": "Suggested actions",
+              "note": "open URL, dial, map, calendar, up to 11"
+            },
+            {
+              "icon": "card",
+              "label": "Rich cards",
+              "note": "text, media and buttons; carousels"
+            },
+            {
+              "icon": "chart",
+              "label": "Read receipts",
+              "note": "plus typing indicators and delivery receipts"
+            }
+          ],
+          "footnote": "Source: Twilio RCS Business Messaging documentation, read November 24, 2026."
+        }
+      },
+      {
+        "under": "how-billing-works",
+        "alt": "How RCS messages are billed in the US: text per 160 byte segment, rich media as one flat event, each suggested action tap as an event, and conversational agents per 24 hour session",
+        "explain": {
+          "layout": "rules",
+          "palette": "tide",
+          "kicker": "Google US billing FAQ",
+          "headline": "What counts as a billable event",
+          "subject_icon": "coin",
+          "subject": "RCS billing",
+          "items": [
+            {
+              "mark": "warn",
+              "label": "Text message",
+              "note": "billed per segment of 160 bytes of UTF-8 text"
+            },
+            {
+              "mark": "yes",
+              "label": "Rich card, carousel or file",
+              "note": "one flat event, regardless of content size"
+            },
+            {
+              "mark": "warn",
+              "label": "Tap on a suggested action",
+              "note": "each tap is one billable event"
+            },
+            {
+              "mark": "yes",
+              "label": "Conversational session",
+              "note": "flat rate for 24 hours once 4 messages trigger it"
+            }
+          ],
+          "footnote": "Source: Google RCS for Business US billing FAQ. Carriers decide whether and how events are charged."
+        }
+      },
+      {
+        "under": "how-to-start",
+        "alt": "The five steps to start sending RCS business messages on Twilio: create the sender profile, test it, register with Google, register for the US, and wait for carrier approval; Twilio says to allow four to six weeks or longer for the whole setup",
+        "explain": {
+          "layout": "flow",
+          "palette": "ember",
+          "kicker": "Twilio onboarding guide",
+          "headline": "From sender profile to launch",
+          "items": [
+            {
+              "icon": "building",
+              "label": "Sender profile",
+              "note": "name, logo, banner, URLs"
+            },
+            {
+              "icon": "person",
+              "label": "Test devices",
+              "note": "invite your own phones"
+            },
+            {
+              "icon": "shield",
+              "label": "Google registration",
+              "note": "opt-in, use case, video"
+            },
+            {
+              "icon": "document",
+              "label": "US registration",
+              "note": "EIN, volumes, HELP, STOP"
+            },
+            {
+              "icon": "calendar",
+              "label": "Carrier approval",
+              "note": "timing varies by carrier"
+            }
+          ],
+          "footnote": "Source: Twilio onboarding guide: allow 4 to 6 weeks or longer for the whole setup."
+        }
+      }
+    ]
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Twilio RCS text, US list price",
+        "value": "$0.0083",
+        "note": "per segment, before carrier fee"
+      },
+      {
+        "label": "Twilio RCS rich media, US list price",
+        "value": "$0.022",
+        "note": "per message, any size"
+      },
+      {
+        "label": "RCS text carrier fees",
+        "value": "$0.0045 to $0.0062",
+        "note": "AT&T and all others $0.0045, Verizon $0.005, T-Mobile $0.0062"
+      },
+      {
+        "label": "RCS text to AT&T, all in",
+        "value": "$0.0128",
+        "note": "vs $0.0118 for SMS from a local number"
+      },
+      {
+        "label": "RCS rich card to AT&T, all in",
+        "value": "$0.032",
+        "note": "vs $0.031 for MMS"
+      },
+      {
+        "label": "Failed message fee",
+        "value": "$0.001",
+        "note": "only messages that end as Failed"
+      },
+      {
+        "label": "Text segment size",
+        "value": "160 bytes",
+        "note": "of UTF-8 encoded text, per Google"
+      },
+      {
+        "label": "Suggested replies or actions",
+        "value": "up to 11",
+        "note": "each, per message"
+      },
+      {
+        "label": "Setup time on Twilio",
+        "value": "4 to 6 weeks",
+        "note": "or longer for several regions"
+      }
+    ],
+    "source": "Twilio US SMS and RCS pricing (current as of November 2026) and RCS docs; Google RCS for Business US billing FAQ; Apple Support. Read November 24, 2026."
+  },
+  "faqs": [
+    [
+      "How much does RCS business messaging cost?",
+      "On Twilio's US price list for November 2026, an RCS text costs $0.0083 per segment plus a carrier fee of $0.0045 to $0.0062, so $0.0128 to $0.0145. A rich media message, such as a card with an image and buttons, costs $0.022 plus $0.007 to $0.0125, so $0.029 to $0.0355, billed once regardless of size. US carrier onboarding fees, and annual and submission fees for brand verification, come on top."
+    ],
+    [
+      "Is RCS cheaper than SMS?",
+      "Not for short texts. On Twilio's US list the RCS text price and the SMS price are both $0.0083 per segment, but RCS carrier fees are higher at AT&T and T-Mobile, the two networks we could compare: to AT&T an RCS text costs $0.0128 against $0.0118 for SMS. A long message can be cheaper as one rich card ($0.032 to AT&T) than as three text segments ($0.0384)."
+    ],
+    [
+      "Does RCS work on iPhone?",
+      "Yes, from iOS 18, if the user's carrier supports RCS on iPhone. Apple's support page says RCS messages appear in green bubbles, and users can turn RCS business messages off in Settings, Apps, Messages, RCS Messaging."
+    ],
+    [
+      "What happens if the phone cannot receive RCS?",
+      "With Twilio, a Messaging Service that holds both your RCS sender and a phone number sends the message as SMS or MMS instead. Twilio says not all phone numbers can receive RCS messages, so keep an SMS number in the service."
+    ],
+    [
+      "How long does RCS approval take?",
+      "Twilio tells you to allow four to six weeks, or longer for several regions. Your brand is verified, then Google, the carriers or both approve the launch; approval times vary by carrier, and you can send to a carrier's users as soon as that carrier approves."
+    ],
+    [
+      "Is a segment in RCS the same as in SMS?",
+      "Google's US billing FAQ defines an RCS text segment as 160 bytes of UTF-8 encoded text. In UTF-8, plain English letters take one byte each, so about 160 characters; emoji and many accented letters take several bytes. Rich media messages are not split into segments."
+    ]
+  ],
+  "body": "<p><strong>Short answer.</strong> RCS business messaging is a richer, branded form of business texting that enhances SMS and MMS: a business sends texts, images, rich cards and buttons from a sender profile that shows its name and logo instead of a phone number. On Twilio's US price list for November 2026, an RCS text costs <strong>$0.0083 per segment plus a carrier fee of $0.0045 to $0.0062</strong>, so <strong>$0.0128 to $0.0145</strong> in total, against $0.0118 to $0.0128 for a plain SMS from a local number.</p>\n<p>A rich media message, such as a card with a picture and buttons, is billed as one flat message: $0.022 plus a carrier fee of $0.007 to $0.0135, so $0.029 to $0.0355. That is close to what an MMS costs. If your CRM or <a href=\"/gohighlevel-white-label-saas\">white label GoHighLevel SaaS</a> sends through Twilio, RCS sits on the same Twilio price list as your SMS, and a Twilio Messaging Service can fall back to SMS or MMS when the phone or the carrier cannot receive RCS.</p>\n<p>This guide explains what RCS business messaging is, who can receive it, how it is billed, what 10,000 messages cost, and how a business gets approved. Prices come from <a href=\"https://www.twilio.com/en-us/sms/pricing/us\">Twilio's US SMS and RCS pricing page</a>, billing rules from <a href=\"https://developers.google.com/business-communications/rcs-business-messaging/carriers/billing/us-billing-faq\">Google's RCS for Business US billing FAQ</a>, read on November 24, 2026.</p>\n<h2 id=\"what-is-rcs\">What RCS business messaging is</h2>\n<p>RCS stands for Rich Communication Services. Twilio describes it as \"a modern messaging protocol that enhances traditional SMS and MMS by enabling branded, interactive messages.\" Google calls its platform RCS for Business; its documentation and web addresses also use RCS Business Messaging, or RBM.</p>\n<p>The biggest practical difference from SMS is the sender. According to <a href=\"https://www.twilio.com/docs/rcs\">Twilio's RCS documentation</a>, RCS business messaging \"uses a branded sender profile rather than a traditional phone number to send messages.\" The person sees your display name and logo instead of a 10 digit number, with a banner on Android and your brand color. Google says brands can \"build trust with a 'Verified' icon\".</p>\n<p>What a business can put in a message, per Twilio's documentation:</p>\n<ul>\n<li>Images, video, audio and files up to 100 MB.</li>\n<li>Up to 11 suggested replies, and up to 11 suggested actions: open a web page, dial a number, open a map, share a location, create a calendar event or launch an app.</li>\n<li>Rich cards (text, media and buttons in one message) and carousels of several cards.</li>\n<li>Typing indicators, delivery receipts and read receipts.</li>\n</ul>\n<h2 id=\"rcs-vs-sms\">RCS vs SMS for business</h2>\n<table>\n<thead><tr><th>Feature</th><th>SMS</th><th>RCS business messaging</th></tr></thead>\n<tbody>\n<tr><td>Sender shown</td><td>Phone number</td><td>Brand name, logo, verified badge</td></tr>\n<tr><td>Media</td><td>None (MMS for pictures)</td><td>Images, video, audio, files up to 100 MB</td></tr>\n<tr><td>Buttons</td><td>No (standard SMS)</td><td>Up to 11 suggested replies and 11 actions</td></tr>\n<tr><td>Read receipts</td><td>No (standard SMS)</td><td>Yes</td></tr>\n<tr><td>Who can receive</td><td>Any phone that receives texts</td><td>Android and iPhone on iOS 18, where the carrier supports it</td></tr>\n<tr><td>Twilio US price, text</td><td>$0.0083 per segment + carrier fee</td><td>$0.0083 per segment + carrier fee</td></tr>\n<tr><td>Twilio US price, media</td><td>MMS $0.022 + carrier fee</td><td>Rich media $0.022 + carrier fee</td></tr>\n</tbody>\n</table>\n<p>Twilio's list price is the same for an RCS text and an SMS ($0.0083) and the same for a rich media message and an MMS ($0.022). The difference in your bill comes from the carrier fees, which are a little higher for RCS at AT&amp;T and T-Mobile, the two networks where we could compare both.</p>\n<h2 id=\"cost-per-message\">What RCS costs per message in the US</h2>\n<p>Twilio bills two kinds of RCS message. In its words, \"RCS Rich text messages are charged per segment and RCS Rich Media is charged per message.\" On top of Twilio's own price comes a carrier fee that depends on the recipient's network. These are the outbound prices on <a href=\"https://www.twilio.com/en-us/sms/pricing/us\">Twilio's US page</a>, current as of November 2026:</p>\n<table>\n<thead><tr><th>Recipient carrier</th><th>RCS text (Twilio + carrier)</th><th>RCS rich media (Twilio + carrier)</th><th>SMS, local number (Twilio + carrier)</th></tr></thead>\n<tbody>\n<tr><td>AT&amp;T</td><td>$0.0083 + $0.0045 = $0.0128</td><td>$0.022 + $0.01 = $0.032</td><td>$0.0083 + $0.0035 = $0.0118</td></tr>\n<tr><td>T-Mobile</td><td>$0.0083 + $0.0062 = $0.0145</td><td>$0.022 + $0.0125 = $0.0345</td><td>$0.0083 + $0.0045 = $0.0128</td></tr>\n<tr><td>Verizon</td><td>$0.0083 + $0.005 = $0.0133</td><td>$0.022 + $0.007 = $0.029</td><td>not used here</td></tr>\n<tr><td>US Cellular</td><td>$0.0083 + $0.0062 = $0.0145</td><td>$0.022 + $0.0135 = $0.0355</td><td>not used here</td></tr>\n<tr><td>All other carriers</td><td>$0.0083 + $0.0045 = $0.0128</td><td>$0.022 + $0.01 = $0.032</td><td>not used here</td></tr>\n</tbody>\n</table>\n<p>Three more charges to know about. Inbound RCS also costs money: $0.0083 for a rich text and $0.0165 for a rich media message, plus inbound carrier fees ($0 at Verizon). A message that ends in a \"Failed\" status costs $0.001. And, as the page says, \"RCS senders launching on US carriers are subject to carrier onboarding fees\". Twilio's onboarding guide adds that a US sender also pays annual and submission fees to the companies that verify the brand and submit the registration; Twilio does not charge them. The amounts of both are shown only inside the Twilio Console, so we could not read them.</p>\n<p>Prices from other providers differ. Telnyx, for example, says its RCS uses \"usage-based pricing with no platform fees\", but its messaging price page did not show a per message RCS price when we checked.</p>\n<h2 id=\"how-billing-works\">How RCS billing works: segments, media and sessions</h2>\n<p>Google tracks the billable events and carriers decide the price. Its <a href=\"https://developers.google.com/business-communications/rcs-business-messaging/carriers/billing/us-billing-faq\">US billing FAQ</a> says: \"Billable simply means that an event is eligible for a charge. Carriers determine whether and how billable events are charged.\" The rules that shape your bill:</p>\n<ul>\n<li><strong>A text is billed per segment.</strong> One segment \"is equal to 160 bytes of UTF-8 encoded text\". In UTF-8, plain English letters take one byte each, so about 160 characters; emoji and many accented letters take more bytes, so fewer characters fit. We assume Twilio counts RCS segments as Google defines them.</li>\n<li><strong>Rich media is one flat charge.</strong> A rich card, a carousel or a file attachment is \"billable as a single, flat-rate event, regardless of content size\".</li>\n<li><strong>Button taps can count.</strong> \"Each tap on a suggested action generates one billable event.\"</li>\n<li><strong>You pick a billing category when you create the sender.</strong> A non conversational agent is billed for each message it delivers. A conversational agent can be billed a flat rate per 24 hour session, which in the US starts when the business and the user exchange 4 rich or rich media messages, with at least one from the business and at least two replies from the user. The category \"can't be changed later\" without going through Google's live agent update process.</li>\n</ul>\n<p>Outside the US, Google uses a <a href=\"https://developers.google.com/business-communications/rcs-business-messaging/carriers/billing/rbm-billing-faq\">standard billing model</a> with the same two categories: non conversational agents, for which Google lists one time passcodes, alerts and promotional offers as examples, are \"billed per message\" and conversational agents a flat rate for conversations covering 24 hours. Twilio's US page lists per message prices; ask your provider how it prices sessions before you choose the conversational category.</p>\n<h2 id=\"worked-cost\">Worked cost: 10,000 messages to AT&amp;T customers</h2>\n<p>A hypothetical example using Twilio's November 2026 list prices for recipients on AT&amp;T, before onboarding fees and failed message fees:</p>\n<table>\n<thead><tr><th>What you send</th><th>Cost per message</th><th>10,000 messages</th></tr></thead>\n<tbody>\n<tr><td>SMS, one segment, local number</td><td>$0.0118</td><td>$118.00</td></tr>\n<tr><td>RCS text, one segment</td><td>$0.0128</td><td>$128.00</td></tr>\n<tr><td>MMS, local number</td><td>$0.031</td><td>$310.00</td></tr>\n<tr><td>RCS rich card</td><td>$0.032</td><td>$320.00</td></tr>\n<tr><td>SMS, three segments</td><td>$0.0354</td><td>$354.00</td></tr>\n<tr><td>RCS text, three segments</td><td>$0.0384</td><td>$384.00</td></tr>\n</tbody>\n</table>\n<p>Two things follow from the arithmetic. A short RCS text costs about $10 more per 10,000 than the same SMS to AT&amp;T numbers. And a long message is cheaper as one rich card ($0.032, flat) than as three text segments ($0.0384), so if your reminders run past 320 bytes, a card with a button may cost less than plain text, before any billable taps on its buttons. Note that SMS counts segments differently from RCS, so the same text can split into a different number of segments on each channel.</p>\n<h2 id=\"who-can-receive\">Who can receive RCS messages</h2>\n<p>Twilio says RCS \"is compatible with Android and iOS 18 devices.\" Apple's <a href=\"https://support.apple.com/en-us/122195\">support page</a> adds the conditions on the iPhone side: \"To use RCS, you need iOS 18 and a cellular plan from a carrier that supports RCS messaging on iPhone.\" It also calls RCS \"a carrier-provided service\" and says \"Availability varies by region and carrier.\"</p>\n<p>Three limits to plan around:</p>\n<ul>\n<li><strong>Not every number can receive RCS.</strong> Twilio says \"Not all phone numbers can receive RCS messages\", and that Messaging Services \"send messages using SMS or MMS when RCS messages fail or carriers don't support them.\" You need a phone number for that fallback.</li>\n<li><strong>Users can switch business messages off.</strong> On an iPhone, Settings, Apps, Messages, RCS Messaging has a separate switch for RCS business messages, and users can report a message as junk.</li>\n<li><strong>Your sender reaches only approved networks.</strong> Google says an approved agent can \"reach RBM-capable users on the approved carrier networks.\"</li>\n</ul>\n<h2 id=\"how-to-start\">How to start sending RCS business messages</h2>\n<p>Twilio's <a href=\"https://www.twilio.com/docs/rcs/onboarding\">onboarding guide</a> tells you to \"allow four to six weeks or longer if you plan to launch in multiple regions.\" The steps:</p>\n<ol>\n<li><strong>Create the sender profile.</strong> Display name, description, a 224 x 224 pixel logo (50 kB at most), a 1440 x 448 pixel banner, brand color, contact details, privacy policy and terms URLs. Twilio notes that carriers \"typically don't approve RCS Senders with the same display name and logo\".</li>\n<li><strong>Test it.</strong> Add your own phones as test devices and send test messages before approval.</li>\n<li><strong>Register with Google.</strong> An authorized representative, your opt-in and opt-out descriptions, a screenshot or page that shows the opt-in, a use case description and a short video of the sender in action.</li>\n<li><strong>Register for the US.</strong> Legal business name as on your IRS EIN letter, EIN, address, website traffic, expected RCS volume, a campaign description, and HELP and STOP sample replies, plus an acknowledgement of the CTIA messaging guidelines.</li>\n<li><strong>Wait for carriers.</strong> \"Approval timelines vary by carrier.\" Once one carrier approves in a country, you can send to that carrier's users.</li>\n</ol>\n<p>Google's <a href=\"https://developers.google.com/business-communications/rcs-business-messaging/guides/launch\">launch guide</a> explains why this takes time: some launches are approved by Google on a carrier's behalf and others by the carrier itself, a Google managed carrier needs a launch on at least one carrier managed network in the same country first, and \"Certain carriers will reject your launch if they have no contract in place with you\". If you already went through <a href=\"/blog/10dlc-registration-cost/\">10DLC registration</a> for SMS, much of the business information will be familiar.</p>\n<h2 id=\"consent-rules\">Consent rules still apply</h2>\n<p>In the US, RCS registration still asks how people opt in, what your opt-out message says and what your STOP reply says, and Twilio's guide tells you to set up Advanced Opt-Out handling for the RCS sender. For the wording of an opt-in, see our guide to <a href=\"/blog/sms-opt-in-language/\">SMS opt-in language</a>, and for US law on marketing texts, <a href=\"/blog/tcpa-text-messages/\">how the TCPA applies to text messages</a>. This is general information, not legal advice.</p>\n<h2 id=\"other-channels\">How RCS compares with WhatsApp and toll free SMS</h2>\n<p>RCS is one of several branded channels. For WhatsApp's per message prices, see <a href=\"/blog/whatsapp-business-api-pricing/\">WhatsApp Business API pricing</a>. If you mainly need a trusted number for SMS, compare <a href=\"/blog/toll-free-number-cost/\">what a toll free number costs</a>. On Twilio, the RCS sender and an SMS number sit in the same Messaging Service, so a message goes as RCS where it can and as SMS or MMS where it cannot.</p>\n<p>If you plan to use RCS buttons and replies to run a chat flow, for booking or order updates, our guide to <a href=\"/blog/ai-chatbot-for-business-cost/\">what an AI chatbot for business costs</a> covers the cost of the bot behind the messages.</p>\n<h2 id=\"how-imisofts-helps\">How imisofts can help</h2>\n<p>imisofts is a Dubai based agency that builds AI voice agents, chatbots, n8n workflows and CRM automation, including SMS and messaging flows in GoHighLevel. If you are weighing RCS against SMS, MMS or WhatsApp, we can work through which of your messages would go as text, as rich cards or as fallback SMS, and what Twilio's current price list means for your volumes. See our <a href=\"/ai-automation-agency\">AI automation agency</a> page for what we build. We do not set carrier or provider prices, and carriers decide whether your sender is approved.</p>\n<h2 id=\"could-not-verify\">What we could not verify</h2>\n<ul>\n<li>The amount of the US RCS onboarding fees (brand verification and submission): Twilio shows them only inside its Console.</li>\n<li>Per message RCS prices at Telnyx and other providers.</li>\n<li>A list of which US carriers currently accept RCS business messages, and the approval time of each.</li>\n</ul>\n",
+  "word_count": 2060,
+  "read_time": 9
+}
