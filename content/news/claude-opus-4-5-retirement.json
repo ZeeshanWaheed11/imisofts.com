@@ -1,0 +1,250 @@
+{
+  "slug": "claude-opus-4-5-retirement",
+  "title": "Claude Opus 4.5 Retirement: API Calls Fail From January 22, 2027",
+  "desc": "Anthropic retires Claude Opus 4.5 on the Claude API on Jan 22, 2027. Opus 5.5 is 20% cheaper per token but may count up to 35% more tokens. What breaks.",
+  "keywords": "claude opus 4.5 retirement, claude opus 4.5 deprecation, claude opus 4.5, claude opus 5.5 pricing, claude-opus-4-5-20251101, claude opus 5.5 migration",
+  "date": "2026-11-24",
+  "read_time": 4,
+  "word_count": 869,
+  "cta": "Need an AI agent moved to Claude Opus 5.5?",
+  "beat": "outbound-tools",
+  "question": "When does Claude Opus 4.5 stop working, and what does moving to Opus 5.5 cost?",
+  "qtype": "change",
+  "news_test": {
+    "source_published": "2026-11-23",
+    "source_url": "https://platform.claude.com/docs/en/release-notes/overview",
+    "edge_type": "worked cost",
+    "edge": "A monthly cost for a hypothetical AI SDR agent on Opus 4.5 and on Opus 5.5 that applies Anthropic's 1x to 1.35x tokenizer range to the new prices, which Anthropic does not publish."
+  },
+  "body": "<p><strong>November 24, 2026.</strong> Anthropic will retire Claude Opus 4.5 on the Claude API on January 22, 2027, 60 days after it announced the deprecation on November 23. From that date, requests to <code>claude-opus-4-5-20251101</code> and <code>claude-opus-4-5</code> fail. The named replacement, Claude Opus 5.5, lists 20% lower token prices, $4 input and $20 output per 1M tokens against $5 and $25, but it may count up to about 35% more tokens for the same text. In our worked example the monthly bill for an AI SDR agent lands anywhere from 20% lower to 8% higher.</p>\n<h2 id=\"what-changed\">What Anthropic announced</h2>\n<p>The <a href=\"https://platform.claude.com/docs/en/release-notes/overview\" target=\"_blank\" rel=\"noopener\">Claude Platform release notes</a> entry dated November 23, 2026 reads: \"We announced the deprecation of the Claude Opus 4.5 model (claude-opus-4-5-20251101 and claude-opus-4-5), with retirement on the Claude API scheduled for January 22, 2027. We recommend migrating to Claude Opus 5.5.\" The <a href=\"https://platform.claude.com/docs/en/about-claude/model-deprecations\" target=\"_blank\" rel=\"noopener\">model deprecations page</a> lists the same dates and the replacement <code>claude-opus-5-5</code>.</p>\n<ol>\n<li><strong>Deprecated now.</strong> Anthropic's own definition: \"The model is still functional but no longer recommended.\"</li>\n<li><strong>Retired January 22, 2027.</strong> \"The model is no longer available for use. Requests to retired models fail.\"</li>\n<li><strong>Both model IDs.</strong> The retirement \"includes claude-opus-4-5, the same model's ID without a date.\"</li>\n<li><strong>Other clouds differ.</strong> The dates apply to Anthropic-operated platforms, including the Claude API and Claude Platform on AWS. For Amazon Bedrock, Claude Models on Google Cloud (Google managed) and Microsoft Foundry, the page points to its overview for the dates that apply.</li>\n<li><strong>The minimum notice.</strong> Anthropic promises \"at least 60 days' notice before model retirement for publicly released models.\" November 23 to January 22 is exactly 60 days.</li>\n</ol>\n<h2 id=\"prices-before-after\">Opus 4.5 and Opus 5.5 prices, per 1M tokens</h2>\n<p>From Anthropic's <a href=\"https://platform.claude.com/docs/en/about-claude/pricing\" target=\"_blank\" rel=\"noopener\">pricing page</a>, read on November 24, 2026:</p>\n<table>\n<thead><tr><th>Item</th><th>Claude Opus 4.5</th><th>Claude Opus 5.5</th><th>Change</th></tr></thead>\n<tbody>\n<tr><td>Input</td><td>$5</td><td>$4</td><td>20% lower</td></tr>\n<tr><td>Output</td><td>$25</td><td>$20</td><td>20% lower</td></tr>\n<tr><td>Cache write, 5 minutes</td><td>$6.25</td><td>$5</td><td>20% lower</td></tr>\n<tr><td>Cache write, 1 hour</td><td>$10</td><td>$8</td><td>20% lower</td></tr>\n<tr><td>Cache hits and refreshes</td><td>$0.50</td><td>$0.20</td><td>60% lower</td></tr>\n</tbody>\n</table>\n<p>The catch is in the <a href=\"https://platform.claude.com/docs/en/models/opus-5-5/migration-guide\" target=\"_blank\" rel=\"noopener\">Opus 5.5 migration guide</a>. Opus 5.5 uses the tokenizer that arrived with Opus 4.7, which \"might use roughly 1x to 1.35x as many tokens when processing text compared to models before Claude Opus 4.7\". Opus 4.5 is one of those earlier models, so the same prompt can count up to about 35% more tokens.</p>\n<h2 id=\"worked-cost\">Worked cost: an AI SDR agent on each model</h2>\n<p>Our hypothetical: an outbound team's agent drafts 10,000 personalised emails a month. Each draft sends 3,000 input tokens (prospect research plus instructions) and returns 400 output tokens, counted on Opus 4.5, with no caching.</p>\n<ul>\n<li><strong>Opus 4.5 today:</strong> 30M input tokens at $5 plus 4M output tokens at $25 is $250.00 a month.</li>\n<li><strong>Opus 5.5, same token count:</strong> 30M at $4 plus 4M at $20 is $200.00, 20% less.</li>\n<li><strong>Opus 5.5 at 1.35x tokens:</strong> 40.5M at $4 plus 5.4M at $20 is $270.00, 8% more: 80% of the old price on 1.35 times the tokens gives 1.08.</li>\n</ul>\n<p>Two things move the real number. On Opus 5.5 adaptive thinking is always on (more below), and this example leaves thinking out. Caching helps: cache hits fall 60%, so an agent that reuses one long system prompt across drafts can save more on that part of the bill. The guide notes that <code>/v1/messages/count_tokens</code> returns a different number for Opus 5.5, so count your own prompts on both models before you budget. For a broader view of what agents cost to run, see our guide to <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot costs for a business</a>.</p>\n<h2 id=\"migration\">What breaks when you switch the model ID</h2>\n<p>The migration guide lists request settings that Opus 5.5 rejects; where a setting is rejected, it says, the API returns a 400 error. The ones that hit agent code most often:</p>\n<ul>\n<li><strong>Thinking cannot be turned off.</strong> <code>thinking: {\"type\": \"disabled\"}</code> and manual <code>budget_tokens</code> are rejected. Use the <code>effort</code> parameter (low, medium, high, xhigh, max; default medium) instead.</li>\n<li><strong>No forced tool calls.</strong> <code>tool_choice</code> of <code>any</code> or a named <code>tool</code> is rejected; use <code>auto</code> with strict tool use or structured outputs.</li>\n<li><strong>No sampling settings.</strong> Omit <code>temperature</code>, <code>top_p</code> and <code>top_k</code>.</li>\n<li><strong>No prefill.</strong> A message that ends with a prefilled assistant turn is rejected.</li>\n<li><strong>Old beta headers go.</strong> For code written for Opus 4.5 the guide says to remove the <code>effort-2025-11-24</code> and <code>interleaved-thinking-2025-05-14</code> beta headers and move <code>output_format</code> to <code>output_config.format</code>.</li>\n</ul>\n<p>Voice agents feel the change too: a phone agent that relied on a forced tool call to book a meeting needs its prompt and tool setup rewritten. The phone agents on our <a href=\"/ai-calling-home-services\">AI calling for home services</a> page and the email and CRM agents on our <a href=\"/ai-automation-agency\">AI automation agency</a> page are the kind of build to check. We covered an earlier retirement in our <a href=\"/blog/claude-sonnet-4-5-retirement/\">Claude Sonnet 4.5 retirement</a> guide.</p>\n<h2 id=\"what-to-do\">What to do before January 22, 2027</h2>\n<ol>\n<li>Export usage by API key and model from the Usage page in Claude Console, as the deprecations page describes, to find every caller of Opus 4.5.</li>\n<li>Count tokens for your main prompts on Opus 5.5 and give <code>max_tokens</code> more headroom, as the migration guide advises.</li>\n<li>Remove the rejected settings above, then test tool calls and output parsing on real traffic.</li>\n<li>Switch the model ID everywhere, including subagent definitions, before the date. From it, calls fail.</li>\n</ol>",
+  "faqs": [
+    [
+      "When is Claude Opus 4.5 retired?",
+      "On January 22, 2027 on the Claude API, per Anthropic's model deprecations page. Anthropic announced the deprecation on November 23, 2026. After retirement, requests to claude-opus-4-5-20251101 and claude-opus-4-5 fail."
+    ],
+    [
+      "What replaces Claude Opus 4.5?",
+      "Anthropic recommends Claude Opus 5.5, model ID claude-opus-5-5. It lists at $4 input and $20 output per 1M tokens, against $5 and $25 for Opus 4.5."
+    ],
+    [
+      "Is Claude Opus 5.5 cheaper than Opus 4.5?",
+      "Per token, yes: input and output are 20% lower and cache hits 60% lower. But Opus 5.5 uses a newer tokenizer that may count roughly 1x to 1.35x as many tokens for the same text, so before caching and thinking a bill can fall by up to 20% or rise. In our worked example it ranged from $200 to $270 against $250 on Opus 4.5."
+    ],
+    [
+      "Will my Opus 4.5 code work on Opus 5.5 unchanged?",
+      "Not always. The migration guide says Opus 5.5 rejects disabled thinking, manual thinking budgets, forced tool choice, temperature, top_p, top_k and assistant prefill, and a rejected setting returns a 400 error. Change the model ID and remove those settings."
+    ],
+    [
+      "Does the January 22 date apply on Amazon Bedrock and Google Cloud?",
+      "The date applies to Anthropic-operated platforms: the Claude API, Claude Platform on AWS and Claude Models on Google Cloud (Anthropic managed). For Amazon Bedrock, Google-managed Claude models on Google Cloud and Microsoft Foundry, Anthropic's deprecations page sends you to its overview, so check the date for your platform."
+    ]
+  ],
+  "image": {
+    "style": "v2",
+    "cluster": "Claude API changes",
+    "alt": "Claude Opus 4.5 retirement timeline: deprecated on November 23, 2026, retired on the Claude API on January 22, 2027, after which requests fail",
+    "explain": {
+      "layout": "timeline",
+      "palette": "ember",
+      "kicker": "Claude Opus 4.5",
+      "headline": "60 days from notice to shutdown",
+      "items": [
+        {
+          "icon": "document",
+          "date": "Nov 23, 2026",
+          "label": "Deprecation announced"
+        },
+        {
+          "icon": "calendar",
+          "date": "Now",
+          "label": "Still works, not recommended"
+        },
+        {
+          "icon": "warning",
+          "date": "Jan 22, 2027",
+          "label": "Retired, requests fail",
+          "hot": true
+        }
+      ],
+      "footnote": "Anthropic model deprecations page, read 24 Nov 2026. Claude API dates."
+    },
+    "cover": {
+      "headline": "Claude Opus 4.5 shuts off Jan 22",
+      "number": "60 days",
+      "kicker": "Claude API changes"
+    },
+    "figures": [
+      {
+        "under": "prices-before-after",
+        "alt": "Price per 1M input tokens: Claude Opus 4.5 $5, Claude Opus 5.5 $4; cache hits $0.50 against $0.20",
+        "explain": {
+          "layout": "compare",
+          "palette": "sage",
+          "kicker": "Per 1M tokens, Nov 24, 2026",
+          "headline": "Opus 4.5 against Opus 5.5",
+          "items": [
+            {
+              "icon": "chip",
+              "label": "Opus 4.5 input",
+              "value": "$5",
+              "unit": "per 1M tokens",
+              "note": "retires Jan 22",
+              "num": 5
+            },
+            {
+              "icon": "chip",
+              "label": "Opus 5.5 input",
+              "value": "$4",
+              "unit": "per 1M tokens",
+              "note": "20% lower",
+              "num": 4,
+              "hot": true
+            },
+            {
+              "icon": "database",
+              "label": "Opus 4.5 cache hit",
+              "value": "$0.50",
+              "unit": "per 1M tokens",
+              "note": "",
+              "num": 0.5
+            },
+            {
+              "icon": "database",
+              "label": "Opus 5.5 cache hit",
+              "value": "$0.20",
+              "unit": "per 1M tokens",
+              "note": "60% lower",
+              "num": 0.2
+            }
+          ],
+          "footnote": "Anthropic pricing page, read 24 Nov 2026."
+        }
+      },
+      {
+        "under": "worked-cost",
+        "alt": "Hypothetical AI SDR agent, 10,000 drafts a month: $250 on Opus 4.5, $200 on Opus 5.5 at the same token count, $270 on Opus 5.5 at 1.35 times the tokens",
+        "explain": {
+          "layout": "compare",
+          "palette": "tide",
+          "kicker": "Hypothetical: 10,000 drafts",
+          "headline": "One month of an AI SDR agent",
+          "items": [
+            {
+              "icon": "chip",
+              "label": "Opus 4.5 today",
+              "value": "$250",
+              "unit": "a month",
+              "note": "30M in, 4M out",
+              "num": 250
+            },
+            {
+              "icon": "chip",
+              "label": "Opus 5.5, same tokens",
+              "value": "$200",
+              "unit": "a month",
+              "note": "20% less",
+              "num": 200,
+              "hot": true
+            },
+            {
+              "icon": "warning",
+              "label": "Opus 5.5, 1.35x tokens",
+              "value": "$270",
+              "unit": "a month",
+              "note": "8% more",
+              "num": 270
+            }
+          ],
+          "footnote": "Our assumptions: 3,000 in and 400 out per draft, no caching, thinking tokens excluded."
+        }
+      },
+      {
+        "under": "migration",
+        "alt": "Settings Claude Opus 5.5 rejects with a 400 error: disabled thinking, forced tool choice, temperature and top_p, and assistant prefill; effort is the setting to use",
+        "explain": {
+          "layout": "rules",
+          "palette": "ember",
+          "kicker": "Opus 5.5 migration guide",
+          "headline": "What Opus 5.5 rejects",
+          "subject_icon": "chip",
+          "subject": "API call",
+          "items": [
+            {
+              "mark": "no",
+              "label": "thinking disabled or budget_tokens",
+              "note": "use effort: low to max"
+            },
+            {
+              "mark": "no",
+              "label": "tool_choice any or a named tool",
+              "note": "use auto with strict tool use"
+            },
+            {
+              "mark": "no",
+              "label": "temperature, top_p, top_k",
+              "note": "omit them"
+            },
+            {
+              "mark": "no",
+              "label": "Assistant prefill",
+              "note": "use structured outputs"
+            }
+          ],
+          "footnote": "Each returns a 400 error, per Anthropic's Opus 5.5 migration guide."
+        }
+      }
+    ]
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Deprecation announced",
+        "value": "November 23, 2026"
+      },
+      {
+        "label": "Retirement on the Claude API",
+        "value": "January 22, 2027",
+        "note": "requests fail after it"
+      },
+      {
+        "label": "Notice period",
+        "value": "60 days",
+        "note": "Anthropic's stated minimum"
+      },
+      {
+        "label": "Opus 4.5 price per 1M tokens",
+        "value": "$5 in, $25 out"
+      },
+      {
+        "label": "Opus 5.5 price per 1M tokens",
+        "value": "$4 in, $20 out",
+        "note": "20% lower"
+      },
+      {
+        "label": "Cache hits per 1M tokens",
+        "value": "$0.50 to $0.20",
+        "note": "60% lower"
+      },
+      {
+        "label": "Token count on Opus 5.5 vs Opus 4.5",
+        "value": "1x to 1.35x",
+        "note": "newer tokenizer, varies by content"
+      },
+      {
+        "label": "Worked example, AI SDR agent per month",
+        "value": "$250 to $200 or $270",
+        "note": "hypothetical, our arithmetic"
+      }
+    ],
+    "source": "Read on 24 November 2026 from Anthropic's release notes, model deprecations page, pricing page and Claude Opus 5.5 migration guide; the worked example is our arithmetic."
+  },
+  "about": [
+    {
+      "@type": "Organization",
+      "name": "Anthropic"
+    },
+    {
+      "name": "Claude Opus 4.5"
+    }
+  ]
+}

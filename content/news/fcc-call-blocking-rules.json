@@ -1,0 +1,208 @@
+{
+  "slug": "fcc-call-blocking-rules",
+  "title": "FCC Call Blocking Proposal: Many Carriers Would Have to Block",
+  "desc": "FCC Chairman Carr proposed on Nov 23 that many carriers be required to block calls highly likely to be illegal. Today's rule only allows it. Vote on Dec 17.",
+  "keywords": "fcc call blocking rules, fcc robocall blocking proposal, call blocking, robocall blocking, 47 cfr 64.1200(k), carrier call blocking, fcc december 2026 open meeting",
+  "date": "2026-11-24",
+  "read_time": 4,
+  "word_count": 791,
+  "cta": "Worried carriers will block your sales calls?",
+  "beat": "outbound-compliance",
+  "question": "What does the FCC's November 2026 call blocking proposal change for carriers and callers?",
+  "qtype": "change",
+  "news_test": {
+    "source_published": "2026-11-23",
+    "source_url": "https://www.fcc.gov/document/carr-proposes-robocall-rules-prevent-scams-reaching-consumers",
+    "edge_type": "before and after table",
+    "edge": "A table that sets each point of the November 23 proposal against the text of 47 CFR 64.1200(k) as it stands, which the FCC release does not do."
+  },
+  "body": "<p><strong>November 24, 2026.</strong> FCC Chairman Brendan Carr proposed on November 23 that many terminating voice providers be required to block calls that are highly likely to be illegal, based on reasonable analytics. Today the rule only lets them block those calls. The Commission votes on the proposal, a Notice of Proposed Rulemaking, at its December 17 open meeting. By our reading, for a business that makes lawful sales calls, a block that carriers must apply raises the cost of being misread by their analytics.</p>\n<h2 id=\"what-changed\">What the FCC proposed on November 23</h2>\n<p>The FCC's <a href=\"https://www.fcc.gov/document/carr-proposes-robocall-rules-prevent-scams-reaching-consumers\" target=\"_blank\" rel=\"noopener\">news release</a> says the Commission \"would propose to require providers to block calls that are likely illegal before they reach consumers.\" Carr's <a href=\"https://www.fcc.gov/news-events/blog/2026/11/23/good-and-bad\" target=\"_blank\" rel=\"noopener\">blog post</a> of the same day says the proposal \"would require some terminating voice providers to block calls that are highly likely to be illegal.\"</p>\n<ol>\n<li><strong>Required blocking.</strong> The NPRM \"would propose to require many terminating providers to block calls that are highly likely to be illegal based on reasonable analytics.\"</li>\n<li><strong>Upstream bad actors.</strong> Terminating providers \"would also be required to consider in their blocking decisions whether an upstream provider is a bad actor.\"</li>\n<li><strong>More tools for consumers.</strong> Rules so that people on landlines and basic mobile phones get \"improved call screening and blocking options without additional line-item charges.\"</li>\n<li><strong>A vote, not a rule.</strong> The Commission votes on the item on <a href=\"https://www.fcc.gov/December2026\" target=\"_blank\" rel=\"noopener\">December 17, 2026</a>. An NPRM proposes rules and seeks comment; it does not change the rules for callers on that day.</li>\n</ol>\n<p>The draft text was not posted on the FCC's December meeting page when we checked on November 24, so neither the release nor the blog post says which providers count as \"many\" or \"some\", or what the comment dates are.</p>\n<h2 id=\"before-after\">Today's rule and the proposal, side by side</h2>\n<p>The current text is <a href=\"https://www.ecfr.gov/current/title-47/chapter-I/subchapter-B/part-64/subpart-L/section-64.1200\" target=\"_blank\" rel=\"noopener\">47 CFR 64.1200(k)</a>, read on eCFR (up to date as of November 20, 2026). It opens: \"Voice service providers may block calls\". The table sets each point of the proposal next to it.</p>\n<table>\n<thead><tr><th>Point</th><th>Today, 47 CFR 64.1200(k)</th><th>Proposed, release of Nov 23</th></tr></thead>\n<tbody>\n<tr><td>Calls highly likely to be illegal</td><td>A terminating provider <em>may</em> block them without an opt-out, under (k)(11)</td><td>Many terminating providers <em>required</em> to block them</td></tr>\n<tr><td>Bad actor upstream providers</td><td>A provider <em>may</em> block or stop taking traffic when a provider the FCC notified fails to mitigate within 48 hours, under (k)(4)</td><td>Terminating providers <em>required</em> to consider whether an upstream provider is a bad actor</td></tr>\n<tr><td>Charges to consumers</td><td>Analytics blocking already carries \"no additional line-item charge\", (k)(3)(v) and (k)(11)(vi)</td><td>Better screening and blocking for landline and basic mobile users, without line-item charges</td></tr>\n<tr><td>Redress for callers</td><td>Single point of contact, status update within 24 hours, SIP 603+ code, (k)(8) and (k)(9)</td><td>Not mentioned in the release</td></tr>\n</tbody>\n</table>\n<h2 id=\"what-it-means\">What it means for businesses that make sales calls</h2>\n<p>Our reading: the proposal targets calls that are \"highly likely to be illegal\", not lawful outbound calling. The risk for a sales team is the false positive. Today a carrier that blocks your calls chooses to. Under a duty to block, carriers have a reason to block more, and the tools a wrongly blocked caller has are the ones in (k)(8) and (k)(9), which the release does not mention. Under (k)(10) the called party, not the caller, can ask for a list of calls blocked in the last 28 days, due within 3 business days. Under (k)(8) the carrier must keep a public contact point for blocking error complaints, give \"a status update within 24 hours\", and, when a caller makes a credible claim of erroneous blocking and the carrier finds the calls should not have been blocked, \"promptly cease the call treatment for that number\". Under (k)(9) a carrier that blocks on analytics must return SIP code 603+ on an IP network.</p>\n<p>If your numbers already show \"spam likely\", start with our guide to <a href=\"/blog/why-is-my-business-number-showing-as-spam/\">why a business number shows as spam</a>. The basics are worth checking now: signed calls (see <a href=\"/blog/stir-shaken-attestation/\">STIR/SHAKEN attestation</a>) and consent records. If you use one local number per area code, check <a href=\"/blog/is-local-presence-dialing-legal/\">whether local presence dialing is legal</a>.</p>\n<h2 id=\"what-to-do\">What to do before December 17</h2>\n<ul>\n<li>Log the SIP response codes your dialer or voice AI platform receives, so a jump in 603+ shows up in a report, not in a lost week.</li>\n<li>Keep the blocking-error contact pages of the large carriers on file, and record the date of each complaint, since (k)(8) sets a 24-hour status clock.</li>\n<li>Read the draft NPRM once the FCC posts it, and comment if it would cover your carrier's analytics.</li>\n</ul>\n<p>For how we approach consent and call records, see our <a href=\"/tcpa-compliant-ai-calling\">TCPA-compliant AI calling</a> service. For the wider law behind blocking, our <a href=\"/blog/traced-act/\">TRACED Act guide</a> covers the sections that set the safe harbor and redress rules.</p>",
+  "faqs": [
+    [
+      "Is the FCC making call blocking mandatory?",
+      "It has proposed to. On November 23, 2026 Chairman Carr proposed that many terminating providers be required to block calls highly likely to be illegal, based on reasonable analytics. The Commission votes on the proposal, a Notice of Proposed Rulemaking, on December 17, 2026, and an NPRM seeks public comment before any final rule."
+    ],
+    [
+      "What do the FCC call blocking rules say today?",
+      "Under 47 CFR 64.1200(k) carriers may block calls. A terminating provider may block calls that are highly likely to be illegal without an opt-out under (k)(11), and may block or stop taking traffic from a provider that fails to mitigate within 48 hours of an FCC notice under (k)(4)."
+    ],
+    [
+      "What can a business do if a carrier wrongly blocks its calls?",
+      "Under 64.1200(k)(8) the terminating carrier must keep a public point of contact for blocking error complaints, give a status update within 24 hours and promptly stop blocking the number when a credible claim shows the calls should not have been blocked. Under (k)(9) a blocked call returns SIP code 603+ on IP networks."
+    ],
+    [
+      "When would the new blocking rules take effect?",
+      "No date is set. The December 17, 2026 vote is on a Notice of Proposed Rulemaking, which proposes rules and seeks comment. The FCC release gives no date for final rules."
+    ]
+  ],
+  "image": {
+    "style": "v2",
+    "cluster": "Call blocking rules",
+    "alt": "How the FCC call blocking proposal moves: proposed on November 23, 2026, a Commission vote on December 17, then public comment, with no date set for final rules",
+    "explain": {
+      "layout": "timeline",
+      "palette": "ember",
+      "kicker": "FCC call blocking proposal",
+      "headline": "From proposal to a rule",
+      "items": [
+        {
+          "icon": "document",
+          "date": "Nov 23, 2026",
+          "label": "Carr proposes the NPRM"
+        },
+        {
+          "icon": "scale",
+          "date": "Dec 17, 2026",
+          "label": "Commission vote on the NPRM",
+          "hot": true
+        },
+        {
+          "icon": "person",
+          "date": "After the vote",
+          "label": "FCC seeks public comment"
+        },
+        {
+          "icon": "shield",
+          "date": "Not set",
+          "label": "No date for final rules"
+        }
+      ],
+      "footnote": "From the FCC release and meeting page, read 24 Nov 2026."
+    },
+    "cover": {
+      "headline": "FCC wants carriers to block, not just allow",
+      "number": "Dec 17 vote",
+      "kicker": "Call blocking rules"
+    },
+    "figures": [
+      {
+        "under": "what-changed",
+        "alt": "Three parts of the FCC proposal: required blocking of calls highly likely to be illegal, a duty to weigh upstream bad actors, and screening tools without line-item charges",
+        "explain": {
+          "layout": "cards",
+          "palette": "sage",
+          "kicker": "Release of Nov 23, 2026",
+          "headline": "Three parts of the proposal",
+          "items": [
+            {
+              "icon": "shield",
+              "label": "Required blocking",
+              "note": "calls highly likely to be illegal",
+              "hot": true
+            },
+            {
+              "icon": "building",
+              "label": "Upstream bad actors",
+              "note": "considered in blocking decisions"
+            },
+            {
+              "icon": "person",
+              "label": "Consumer tools",
+              "note": "no line-item charge, landlines too"
+            }
+          ],
+          "footnote": "FCC news release DOC-427493A1, November 23, 2026."
+        }
+      },
+      {
+        "under": "before-after",
+        "alt": "Today carriers may block calls highly likely to be illegal under 47 CFR 64.1200(k)(11); the proposal would require many terminating providers to block them",
+        "explain": {
+          "layout": "rules",
+          "palette": "tide",
+          "kicker": "47 CFR 64.1200(k)",
+          "headline": "May block today, must block next",
+          "subject_icon": "scale",
+          "subject": "Carriers",
+          "items": [
+            {
+              "mark": "yes",
+              "label": "Today: may block them",
+              "note": "(k)(11), no opt-out needed"
+            },
+            {
+              "mark": "warn",
+              "label": "Proposed: must block them",
+              "note": "calls highly likely to be illegal"
+            },
+            {
+              "mark": "warn",
+              "label": "Proposed: weigh upstream bad actors",
+              "note": "considered in blocking decisions"
+            }
+          ],
+          "footnote": "eCFR up to date as of Nov 20, 2026, and the FCC release of Nov 23."
+        }
+      },
+      {
+        "under": "what-to-do",
+        "alt": "Three steps for outbound callers before December 17: log SIP 603 plus codes, keep carrier complaint contacts and date each complaint, and read the draft rule",
+        "explain": {
+          "layout": "flow",
+          "palette": "ember",
+          "kicker": "Before December 17",
+          "headline": "Three steps for outbound teams",
+          "items": [
+            {
+              "icon": "chart",
+              "label": "Log SIP codes",
+              "note": "watch for 603+ blocks"
+            },
+            {
+              "icon": "envelope",
+              "label": "Carrier contacts",
+              "note": "24-hour status clock"
+            },
+            {
+              "icon": "document",
+              "label": "Read the draft",
+              "note": "comment if it hits you"
+            }
+          ],
+          "footnote": "Our suggested steps, based on 47 CFR 64.1200(k)(8) and (k)(9)."
+        }
+      }
+    ]
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Proposal announced",
+        "value": "November 23, 2026",
+        "note": "FCC news release"
+      },
+      {
+        "label": "Commission vote",
+        "value": "December 17, 2026",
+        "note": "December open meeting"
+      },
+      {
+        "label": "FCC notice to mitigate before a provider may block, today",
+        "value": "48 hours",
+        "note": "47 CFR 64.1200(k)(4)"
+      },
+      {
+        "label": "Status update on a blocking error complaint",
+        "value": "Within 24 hours",
+        "note": "64.1200(k)(8)"
+      },
+      {
+        "label": "Response code for a blocked call on IP networks",
+        "value": "SIP 603+",
+        "note": "64.1200(k)(9)"
+      },
+      {
+        "label": "Blocked-call list for the called party",
+        "value": "Last 28 days",
+        "note": "within 3 business days of a request, (k)(10)"
+      }
+    ],
+    "source": "Read on 24 November 2026 from the FCC news release of 23 November 2026 and 47 CFR 64.1200 on eCFR (up to date as of 20 November 2026)."
+  },
+  "about": [
+    {
+      "@type": "Organization",
+      "name": "Federal Communications Commission"
+    }
+  ]
+}
