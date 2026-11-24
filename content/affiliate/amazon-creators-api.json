@@ -1,0 +1,314 @@
+{
+  "slug": "amazon-creators-api",
+  "title": "Amazon Creators API: No Listed Fee, but 10 Sales to Get In",
+  "desc": "Amazon's Creators API replaced PA-API 5, which now returns 403. No listed fee, but you need 10 sales in 30 days. Rate limits, license rules and scraper costs.",
+  "date": "2026-11-24",
+  "time": "16:45",
+  "keywords": "amazon creators api, amazon pa api, amazon product advertising api, pa-api 5 deprecated, creators api rate limits, amazon product api pricing, amazon api 10 sales, amazon product scraper, apify amazon scraper",
+  "category": "Guides",
+  "affiliate_url": "https://www.apify.com?fpr=rc63q",
+  "question": "What does the Amazon Creators API cost, who can use it, and what are its limits?",
+  "qtype": "cost",
+  "cta": "Need Amazon product data wired into your site or app?",
+  "image": {
+    "style": "v2",
+    "cluster": "Scraping and data APIs",
+    "alt": "Who can use the Amazon Creators API: an Associates account and 10 qualifying sales in 30 days are required, old PA-API keys do not work, and new accounts start at 8,640 calls a day",
+    "explain": {
+      "layout": "rules",
+      "palette": "ember",
+      "kicker": "Creators API access",
+      "headline": "Who gets into Amazon's Creators API",
+      "subject_icon": "key",
+      "subject": "Access",
+      "items": [
+        {
+          "mark": "yes",
+          "label": "Amazon Associates account",
+          "note": "free to join, per marketplace"
+        },
+        {
+          "mark": "warn",
+          "label": "10 qualifying sales in 30 days",
+          "note": "Amazon's stated prerequisite"
+        },
+        {
+          "mark": "no",
+          "label": "Old PA-API keys",
+          "note": "new OAuth 2.0 credentials needed"
+        },
+        {
+          "mark": "yes",
+          "label": "8,640 calls a day to start",
+          "note": "1 per second, first 30 days"
+        }
+      ],
+      "footnote": "Source: Amazon Creators API introduction, migration guide and API rates pages, November 2026."
+    },
+    "cover": {
+      "headline": "Amazon Creators API: cost and limits",
+      "number": "10 sales / 30d",
+      "kicker": "Scraping and data APIs"
+    },
+    "figures": [
+      {
+        "under": "what-changed",
+        "alt": "What changed between PA-API 5 and the Creators API: AWS signature keys replaced by OAuth 2.0, the paapi5 endpoint replaced by creatorsapi.amazon, PascalCase replaced by lowerCamelCase, and PA-API calls now returning 403",
+        "explain": {
+          "layout": "cards",
+          "palette": "sage",
+          "kicker": "PA-API 5 to Creators API",
+          "headline": "What changed for developers",
+          "items": [
+            {
+              "icon": "key",
+              "label": "OAuth 2.0 tokens",
+              "note": "replace AWS Signature Version 4 keys"
+            },
+            {
+              "icon": "globe",
+              "label": "New endpoint",
+              "note": "creatorsapi.amazon/catalog/v1"
+            },
+            {
+              "icon": "document",
+              "label": "lowerCamelCase",
+              "note": "ItemIds becomes itemIds"
+            },
+            {
+              "icon": "warning",
+              "label": "PA-API returns 403",
+              "note": "AccessDeniedException, per Amazon",
+              "hot": true
+            }
+          ],
+          "footnote": "Source: Amazon's PA-API 5 deprecation notice and Creators API migration guide."
+        }
+      },
+      {
+        "under": "rate-limits",
+        "alt": "How Creators API rate limits work: 1 call a day per 5 cents of shipped revenue, 1 call a second per 4,320 dollars up to 10, 10 ASINs per GetItems call count as one, and access is lost after 30 days without sales",
+        "explain": {
+          "layout": "cards",
+          "palette": "tide",
+          "kicker": "Rate limit rules",
+          "headline": "How revenue buys API calls",
+          "items": [
+            {
+              "icon": "coin",
+              "label": "1 a day per 5 cents",
+              "note": "of shipped revenue via the API, 30 days"
+            },
+            {
+              "icon": "chart",
+              "label": "1 a second per $4,320",
+              "note": "capped at 10 calls a second"
+            },
+            {
+              "icon": "database",
+              "label": "10 ASINs, one call",
+              "note": "GetItems counts as one transaction"
+            },
+            {
+              "icon": "warning",
+              "label": "30 days, no sales",
+              "note": "access is lost until sales ship",
+              "hot": true
+            }
+          ],
+          "footnote": "Source: Amazon Creators API rates page, November 2026."
+        }
+      },
+      {
+        "under": "license-rules",
+        "alt": "What the Amazon Associates IP License allows for Creators API data: showing products to your audience is allowed, seller tools and AI training are barred, images may not be stored and other content only for 24 hours, ASINs indefinitely",
+        "explain": {
+          "layout": "rules",
+          "palette": "ember",
+          "kicker": "US IP License",
+          "headline": "What you may do with the data",
+          "subject_icon": "scale",
+          "subject": "License",
+          "items": [
+            {
+              "mark": "yes",
+              "label": "Show products to your audience",
+              "note": "our reading of the program's purpose"
+            },
+            {
+              "mark": "warn",
+              "label": "Store content",
+              "note": "24h then refresh; no images; ASINs kept"
+            },
+            {
+              "mark": "no",
+              "label": "Tools for Amazon sellers",
+              "note": "needs Amazon's written approval"
+            },
+            {
+              "mark": "no",
+              "label": "AI training or fine-tuning",
+              "note": "one clause has no approval route"
+            }
+          ],
+          "footnote": "Summary of the US Associates Program IP License, updated April 14, 2026. Not legal advice."
+        }
+      },
+      {
+        "under": "scrapers-vs-api",
+        "alt": "Amazon product data compared: the Creators API with no listed fee but a 10-sale requirement, against Apify's Amazon Product Scraper at 4 dollars per 1,000 results on Starter and 3 dollars on Business",
+        "explain": {
+          "layout": "compare",
+          "palette": "sage",
+          "kicker": "Per 1,000 product results",
+          "headline": "Amazon data: API vs a scraper",
+          "items": [
+            {
+              "icon": "key",
+              "label": "Creators API",
+              "value": "None",
+              "unit": "no fee listed",
+              "note": "needs 10 sales in 30 days",
+              "num": 0.1,
+              "hot": true
+            },
+            {
+              "icon": "coin",
+              "label": "Apify Starter",
+              "value": "$4.00",
+              "unit": "per 1,000",
+              "note": "$19 a month plan",
+              "num": 4
+            },
+            {
+              "icon": "coin",
+              "label": "Apify Business",
+              "value": "$3.00",
+              "unit": "per 1,000",
+              "note": "$999 a month plan",
+              "num": 3
+            }
+          ],
+          "footnote": "The API is not priced per result. Apify Amazon Product Scraper. Scraping is outside Amazon's terms."
+        }
+      }
+    ],
+    "chart": {
+      "title": "Creators API calls a day earned by shipped revenue",
+      "subtitle": "One call a day per 5 cents of shipped revenue from API links in the last 30 days.",
+      "type": "hbar",
+      "rows": [
+        [
+          "$432 revenue",
+          8640
+        ],
+        [
+          "$1,000 revenue",
+          20000
+        ],
+        [
+          "$4,320 revenue",
+          86400
+        ],
+        [
+          "$10,000 revenue",
+          200000
+        ],
+        [
+          "$43,200 revenue",
+          864000
+        ]
+      ],
+      "prefix": "",
+      "suffix": " calls",
+      "source": "Our arithmetic on Amazon's stated rule. Source: Amazon Creators API rates page, November 2026.",
+      "alt": "Bar chart of Creators API calls a day earned by 30-day shipped revenue: 8,640 at $432, 20,000 at $1,000, 86,400 at $4,320, 200,000 at $10,000 and 864,000 at $43,200.",
+      "after_heading": "Rate limits: how shipped revenue buys calls"
+    }
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Creators API fee listed by Amazon",
+        "value": "None",
+        "note": "Associates Program is free to join"
+      },
+      {
+        "label": "Sales needed for access",
+        "value": "10 qualifying sales",
+        "note": "in the past 30 days"
+      },
+      {
+        "label": "Starting limit, first 30 days",
+        "value": "8,640 calls a day",
+        "note": "and 1 call a second"
+      },
+      {
+        "label": "Calls a day earned",
+        "value": "1 per 5 cents",
+        "note": "of shipped revenue via the API, last 30 days"
+      },
+      {
+        "label": "Calls a second earned",
+        "value": "1 per $4,320",
+        "note": "up to 10 a second"
+      },
+      {
+        "label": "Revenue for the 10 per second cap",
+        "value": "$43,200",
+        "note": "our arithmetic, 30 days"
+      },
+      {
+        "label": "IDs per GetItems call",
+        "value": "10",
+        "note": "counts as one transaction"
+      },
+      {
+        "label": "Access token lifetime",
+        "value": "3,600 seconds",
+        "note": "1 hour, cacheable"
+      },
+      {
+        "label": "Storage limit for API content",
+        "value": "24 hours",
+        "note": "images may not be stored; ASINs indefinitely"
+      },
+      {
+        "label": "Apify Amazon Product Scraper, Starter",
+        "value": "$4.00 per 1,000",
+        "note": "$5.00 on Free, $3.00 on Business"
+      }
+    ],
+    "source": "Read on 24 November 2026 from Amazon's Creators API docs, the US Associates Program Policies and Apify's Store pricing page."
+  },
+  "body": "<p><strong>Short answer.</strong> The Amazon Creators API is the replacement for the Product Advertising API 5.0 (PA-API 5), and Amazon lists no fee for it. What it costs you is sales. Amazon's own docs say you need an Amazon Associates account, \"at least 10 qualifying sales within the past 30 days\", and new OAuth 2.0 credentials, because your old PA-API keys \"will not work\". New credentials start at 1 request per second and 8,640 requests a day for the first 30 days; after that you earn 1 request a day per 5 cents of shipped revenue and 1 request per second per $4,320, up to 10. Amazon says calls to PA-API 5 now return HTTP 403. Without Amazon's written approval, the license also bars using the data in tools for Amazon sellers or in AI model training, and it limits storage to 24 hours (no stored images at all). If you do not qualify, scrapers are the other route, at about $3 to $5 per 1,000 products on Apify, but Amazon's Conditions of Use exclude robots and data gathering tools. We earn a commission if you buy Apify through our links.</p>\n<p>Everything below was read on 24 November 2026 on Amazon's Creators API documentation, the US Associates Program Policies (updated April 14, 2026), Amazon.com's Conditions of Use (updated August 14, 2026) and Apify's Store. The revenue and limit figures in the tables are our arithmetic on Amazon's stated rules. We made no API calls and ran no scraper jobs.</p>\n\n<h2 id=\"what-changed\">What changed: PA-API 5 now returns 403</h2>\n<p>Amazon's deprecation notice says PA-API 5 \"has been deprecated and is being replaced by the Creators API\", and that the Creators API \"receives all new features and ongoing improvements\". The old PA-API documentation address now shows that same notice. An application that still calls PA-API 5 gets an HTTP 403 Forbidden response with the message \"Product Advertising API is deprecated. Please migrate to Creators API ...\".</p>\n<p>Amazon's current pages give no shutdown date. Developer forums cite dates in spring 2026, but we could not find them on an Amazon page, so we do not repeat them. Amazon's notice says the old endpoint now answers with that error, so the date is past either way.</p>\n<p>The four operations carry over: SearchItems, GetItems, GetVariations and GetBrowseNodes. Amazon describes the new API as \"the same functionality as PA-API 5.0 with enhanced authentication using OAuth 2.0\". One gap to plan for: the old Offers resources (Offers.Listings, Offers.Summaries) are marked \"Not Available\" in the migration table, with OffersV2 as the replacement.</p>\n\n<h2 id=\"what-it-costs\">What the Creators API costs: no fee, a sales test</h2>\n<p>None of the Creators API pages we read lists a price, and Amazon's onboarding page says the Associates Program \"is free to join\". The real price of entry is in the prerequisites: enrollment in the Associates program for your target marketplace and at least 10 qualifying sales in the past 30 days. A new site with no sales cannot get in, however much it is willing to pay.</p>\n<p>Keeping access has its own test. The API rates page says your account \"will lose access to Creators API if it has not generated qualified referring sales for a consecutive 30-day period\", and that access returns \"within two days after your referred sales are shipped\". Note that the two pages word the test differently: the introduction asks for 10 qualifying sales, the rates page speaks of any qualified referring sales. Plan for the stricter one.</p>\n<p>Credentials work across marketplaces, per the FAQ, but you need a valid Partner Tag for each marketplace and \"Creators API access approved in that region\".</p>\n\n<h2 id=\"rate-limits\">Rate limits: how shipped revenue buys calls</h2>\n<p>Amazon counts transactions, not products. A GetItems call with 10 ASINs is one transaction, and GetItems and GetBrowseNodes each take up to 10 IDs per call. The starting allowance is \"one request per second (one TPS) and a cumulative daily maximum of 8640 requests per day (8640 TPD) for the first 30-day period\". That averages to one call every 10 seconds, or up to 86,400 ASIN lookups a day if every call carries 10 ASINs.</p>\n<p>After that, limits follow revenue: \"one TPD for every five cents or one TPS (up to a maximum of ten TPS) for every $4320 of shipped item revenue generated via the use of Creators API for shipments in the previous 30-day period\", updated daily. Our arithmetic on that rule:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Shipped revenue via the API, last 30 days</th><th>Calls a day earned</th><th>Calls a second earned</th></tr></thead><tbody>\n<tr><td>$432</td><td>8,640 (same as the starting allowance)</td><td>not stated below $4,320</td></tr>\n<tr><td>$1,000</td><td>20,000</td><td>not stated below $4,320</td></tr>\n<tr><td>$4,320</td><td>86,400</td><td>1</td></tr>\n<tr><td>$10,000</td><td>200,000</td><td>2</td></tr>\n<tr><td>$43,200</td><td>864,000</td><td>10 (the cap)</td></tr>\n</tbody></table></div>\n<p>The per-second column for $10,000 rounds down, which is our reading; Amazon does not say how it rounds. Two cautions. Amazon's page does not say what per-second limit applies after day 30 to an account under $4,320, so ask Amazon before you design around it. And revenue only counts when attributed: use the links exactly as the API returns them, call with your primary account, and pass your Partner Tag on every request, because Amazon says it \"cannot retroactively apply any sales credit\". Over the limit, the API returns 429 TooManyRequests.</p>\n\n<h2 id=\"license-rules\">What the license lets you do with the data</h2>\n<p>The API is governed by each marketplace's Associates Program IP License. In the US version (updated April 14, 2026), four rules shape what you can build:</p>\n<ul>\n<li><strong>No tools for Amazon sellers.</strong> Without \"express prior written approval\" you may not use the API \"in connection with any software or other application intended for use by persons or entities that offer products on an Amazon Site\". In our reading, that rules out a repricer or a seller research tool.</li>\n<li><strong>No aggregation or AI training.</strong> The same clause, again without written approval, bars \"aggregating, analyzing, extracting, or repurposing\" the content and \"the direct training or fine-tuning of a machine learning and/or foundational model\". A separate clause says you will not use Program Content to \"develop or improve large language or multimodal models, machine learning models or related technology\", and that clause names no approval route.</li>\n<li><strong>24 hours of storage.</strong> You \"will not store or cache\" images, though you may store an image link for up to 24 hours. Other content may be kept for up to 24 hours, after which you \"must immediately thereafter refresh and re-display\" it. ASINs may be stored indefinitely.</li>\n<li><strong>No marketing lists.</strong> You may not \"compile or use Product Advertising Content for the purpose of direct marketing, spamming, unsolicited contacting of sellers or customers\".</li>\n</ul>\n<p>Our reading: the Creators API fits one job well: showing current Amazon products, with your affiliate links, to your own audience. It is not a data feed for analysis.</p>\n\n<h2 id=\"migration-steps\">How to move a PA-API integration</h2>\n<p>Here is our summary of Amazon's migration guide. The biggest change is authentication.</p>\n<ol>\n<li><strong>Register.</strong> In Associates Central, open the CreatorsAPI tab under Tools, create an application, then create a credential. You get a Credential ID, a Credential Secret and a Version. The secret \"will only be displayed once during creation\".</li>\n<li><strong>Pick a path.</strong> Amazon recommends its SDKs for Node.js, Python, PHP and Java, which \"automatically handle OAuth 2.0 authentication and token management\". Direct callers remove AWS Signature Version 4 signing and fetch OAuth 2.0 tokens instead.</li>\n<li><strong>Update calls.</strong> Move from webservices.amazon.com/paapi5 to creatorsapi.amazon/catalog/v1, add the x-marketplace header, and switch parameters from PascalCase to lowerCamelCase (ItemIds becomes itemIds).</li>\n<li><strong>Test.</strong> The guide says to start with a simple GetItems or SearchItems request and monitor rate limits. Cache the bearer token (it is valid for 3,600 seconds) and share it across processes.</li>\n</ol>\n<p>If you run a site on WordPress or a custom stack and would rather not touch the auth layer, this is the kind of work our <a href=\"/ai-automation-agency\">AI automation team</a> takes on. For a rough budget on a fuller product build around it, see our <a href=\"/blog/app-development-cost/\">app development cost guide</a>.</p>\n\n<h2 id=\"scrapers-vs-api\">When a scraper is the other route, and its cost</h2>\n<p>If you have no qualifying sales, the Creators API is closed to you until you do. If your use is analysis or a seller tool, it needs Amazon's written approval first (we read price tracking as analysis). That is why some teams turn to scrapers. On Apify, the Amazon Product Scraper (junglee/amazon-crawler) lists these prices per 1,000 results:</p>\n<div class=\"table-wrapper\"><table style=\"font-size:14px\"><thead><tr><th>Apify plan (monthly fee)</th><th>Product result</th><th>Offer or seller result</th><th>Delivery location result</th></tr></thead><tbody>\n<tr><td>Free ($0, $5 credit)</td><td>$5.00</td><td>$2.50</td><td>$60.00</td></tr>\n<tr><td>Starter ($19)</td><td>$4.00</td><td>$2.00</td><td>$50.00</td></tr>\n<tr><td>Scale ($199)</td><td>$3.50</td><td>$1.70</td><td>$40.00</td></tr>\n<tr><td>Business ($999)</td><td>$3.00</td><td>$1.50</td><td>$35.00</td></tr>\n</tbody></table></div>\n<p>Platform costs are included in those prices. Each paid plan's monthly fee comes back as the same amount of credit to spend (Starter: $19 a month, \"$19 to spend\"). On Starter, 10,000 products use $40 of usage, and 86,400 rows (the most a new Creators API account could look up in a day, at 10 ASINs per call) would use $345.60. Delivery location results cost about 11 to 12.5 times the product rate, so leave them off unless you need them. You can <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">check the Amazon scraper's current prices on Apify</a> before you budget.</p>\n<p>The number that matters against our own affiliate: for a qualifying Associate, the Creators API has no listed fee, and a scraper bills per result. The second point matters more. Amazon.com's Conditions of Use say its license does not include \"any collection and use of any product listings, descriptions, or prices\" or \"any use of data mining, robots, or similar data gathering and extraction tools\". A scraper sits outside those terms. Whether a given scrape is also unlawful is a separate question. Read our guide on <a href=\"/blog/is-web-scraping-legal/\">whether web scraping is legal</a> and get legal advice before you scrape Amazon for a business. For a wider view of the tools, see our <a href=\"/blog/best-ecommerce-scrapers-2026/\">e-commerce scraper comparison</a>.</p>\n\n<h2 id=\"which-route\">Which route fits your use</h2>\n<ul>\n<li><strong>Affiliate content site with sales:</strong> the Creators API. It has no listed fee, and every sale through its links earns commission and more call quota.</li>\n<li><strong>New affiliate site, under 10 sales:</strong> use SiteStripe links by hand until you qualify, then register.</li>\n<li><strong>Price tracking, market research or a seller tool:</strong> in our reading the license bars it without Amazon's written approval. Ask Amazon first; a scraper is faster to start, but it bills per result and sits outside Amazon's terms.</li>\n<li><strong>Training or fine-tuning an AI model on Amazon data:</strong> barred; one clause allows written approval, another names no exception.</li>\n</ul>\n<p>For the same question on other platforms, see <a href=\"/blog/google-places-api-pricing/\">Google Places API pricing</a> and <a href=\"/blog/tripadvisor-api-pricing/\">Tripadvisor API pricing</a>. If you want buyers to find your product pages in AI answers rather than through Amazon, our <a href=\"/ai-search-optimization\">AI search optimization</a> service covers that. To test a scraper on a small batch first, <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">start on Apify's free plan</a>, which includes $5 to spend in Apify Store.</p>",
+  "faqs": [
+    [
+      "Is the Amazon Creators API free?",
+      "None of Amazon's Creators API pages we read lists a fee, and the Associates Program is free to join. The cost is a sales test: Amazon's docs require at least 10 qualifying sales in the past 30 days, and an account loses access after 30 consecutive days without qualified referring sales."
+    ],
+    [
+      "Does PA-API 5 still work?",
+      "No. Amazon's deprecation notice says PA-API 5 has been deprecated and is being replaced by the Creators API, and that calls to it return HTTP 403 Forbidden with the message that the Product Advertising API is deprecated."
+    ],
+    [
+      "Can I use my old PA-API keys with the Creators API?",
+      "No. Amazon's migration guide says your AWS Access Key and Secret Key will not work. You create a new application and credential in Associates Central and get a Credential ID, a Credential Secret and a Version."
+    ],
+    [
+      "What are the Creators API rate limits?",
+      "New credentials get 1 request per second and 8,640 requests a day for the first 30 days. After that you earn 1 request a day per 5 cents and 1 request per second per $4,320 of shipped revenue from the API in the previous 30 days, up to 10 per second."
+    ],
+    [
+      "Can I use the Creators API for price tracking or a seller tool?",
+      "Not without Amazon's express prior written approval, in our reading. Without that approval, the US Associates IP License bars aggregating or analyzing the content and software for people who sell on Amazon. We read price tracking as analysis. AI training is barred too, and one clause on it names no approval route."
+    ],
+    [
+      "How much does scraping Amazon cost instead?",
+      "Apify's Amazon Product Scraper lists $5.00 per 1,000 product results on the Free plan down to $3.00 on Business. Amazon.com's Conditions of Use exclude data mining, robots and similar data gathering tools, so get legal advice first."
+    ]
+  ],
+  "word_count": 1790,
+  "read_time": 8
+}
