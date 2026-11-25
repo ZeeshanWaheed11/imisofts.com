@@ -1,0 +1,278 @@
+{
+  "slug": "cheapest-sms-api",
+  "title": "Cheapest SMS API: Telnyx at $0.0075 to $0.0085 a US Text",
+  "desc": "The cheapest US SMS API on published prices is Telnyx: $0.004 a part plus carrier fees, $0.0075 to $0.0085 a text. Plivo and Twilio cost $0.0112 to $0.0133.",
+  "date": "2026-11-25",
+  "keywords": "cheapest sms api, sms api pricing, telnyx sms pricing, twilio sms pricing, plivo sms pricing, sms carrier fees, twilio api cost, sms cost per message",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "Which SMS API is cheapest in the US, and what does a text cost with carrier fees?",
+  "qtype": "cost",
+  "cta": "Compare SMS costs before you choose a provider",
+  "image": {
+    "style": "v2",
+    "cluster": "SMS API pricing",
+    "alt": "All-in price of one outbound SMS to T-Mobile from a US local number: Telnyx $0.0085, Plivo $0.0122, Twilio $0.0128",
+    "explain": {
+      "layout": "compare",
+      "palette": "ember",
+      "kicker": "US local number, to T-Mobile",
+      "headline": "One outbound text, all-in price",
+      "items": [
+        {
+          "icon": "envelope",
+          "label": "Telnyx",
+          "value": "$0.0085",
+          "unit": "per segment",
+          "note": "$0.004 + $0.0045 carrier",
+          "num": 0.0085,
+          "hot": true
+        },
+        {
+          "icon": "envelope",
+          "label": "Plivo",
+          "value": "$0.0122",
+          "unit": "per segment",
+          "note": "$0.0077 + $0.0045 carrier",
+          "num": 0.0122
+        },
+        {
+          "icon": "envelope",
+          "label": "Twilio",
+          "value": "$0.0128",
+          "unit": "per segment",
+          "note": "$0.0083 + $0.0045 carrier",
+          "num": 0.0128
+        }
+      ],
+      "footnote": "Source: Telnyx, Plivo and Twilio US SMS pricing pages, read November 25, 2026. List prices."
+    },
+    "cover": {
+      "headline": "Cheapest SMS API in the US",
+      "number": "$0.0075 / text",
+      "kicker": "Telnyx to AT&T, Nov 2026"
+    },
+    "figures": [
+      {
+        "under": "carrier-fees",
+        "alt": "US carrier fees per outbound text on the Twilio, Plivo and Telnyx price lists: AT&T $0.0035, T-Mobile $0.0045, Verizon $0.0045 to $0.005",
+        "explain": {
+          "layout": "cards",
+          "palette": "sage",
+          "kicker": "Passed on by every provider",
+          "headline": "Carrier fee per outbound text",
+          "items": [
+            {
+              "icon": "building",
+              "label": "AT&T",
+              "note": "$0.0035 on all three lists"
+            },
+            {
+              "icon": "building",
+              "label": "T-Mobile",
+              "note": "$0.0045 on all three lists",
+              "hot": true
+            },
+            {
+              "icon": "building",
+              "label": "Verizon",
+              "note": "$0.005 Twilio and Plivo, $0.0045 Telnyx"
+            },
+            {
+              "icon": "building",
+              "label": "Other carriers",
+              "note": "$0.0042 Twilio, $0.0050 Plivo"
+            }
+          ],
+          "footnote": "Source: Twilio, Plivo and Telnyx US pricing pages, read November 25, 2026."
+        }
+      },
+      {
+        "under": "segments",
+        "alt": "How SMS segments are counted: plain GSM-7 text fits 160 characters in one segment and 153 per segment after that; an emoji switches to UCS-2 with 70 and 67",
+        "explain": {
+          "layout": "rules",
+          "palette": "tide",
+          "kicker": "Per Twilio documentation",
+          "headline": "When one text bills as two",
+          "subject_icon": "envelope",
+          "subject": "Segments",
+          "items": [
+            {
+              "mark": "yes",
+              "label": "140 plain characters",
+              "note": "1 segment in GSM-7, which holds 160"
+            },
+            {
+              "mark": "warn",
+              "label": "300 plain characters",
+              "note": "2 segments of up to 153 characters each"
+            },
+            {
+              "mark": "no",
+              "label": "100 characters with one emoji",
+              "note": "2 segments: UCS-2 holds 70, then 67 each"
+            }
+          ],
+          "footnote": "Source: Twilio SMS character limit documentation, read November 25, 2026."
+        }
+      },
+      {
+        "under": "worked-cost",
+        "alt": "Monthly cost of 10,000 one-segment texts split over AT&T, T-Mobile and Verizon with one local number: Telnyx $82.67, Plivo $120.83, Twilio $127.48",
+        "explain": {
+          "layout": "compare",
+          "palette": "ember",
+          "kicker": "10,000 texts, one local number",
+          "headline": "Monthly cost on list prices",
+          "items": [
+            {
+              "icon": "coin",
+              "label": "Telnyx",
+              "value": "$82.67",
+              "unit": "a month",
+              "note": "incl. $1.00 number",
+              "num": 82.67,
+              "hot": true
+            },
+            {
+              "icon": "coin",
+              "label": "Plivo",
+              "value": "$120.83",
+              "unit": "a month",
+              "note": "incl. $0.50 number",
+              "num": 120.83
+            },
+            {
+              "icon": "coin",
+              "label": "Twilio",
+              "value": "$127.48",
+              "unit": "a month",
+              "note": "incl. $1.15 number",
+              "num": 127.48
+            }
+          ],
+          "footnote": "Our arithmetic on list prices. Excludes 10DLC fees, inbound replies and taxes."
+        }
+      },
+      {
+        "under": "fixed-costs",
+        "alt": "Costs outside the per-message price: 10DLC registration, failed message fees, number rental, add-ons such as link shortening, and short code leases",
+        "explain": {
+          "layout": "cards",
+          "palette": "sage",
+          "kicker": "Add these before comparing",
+          "headline": "Costs beyond the per-text rate",
+          "items": [
+            {
+              "icon": "document",
+              "label": "10DLC registration",
+              "note": "brand and campaign fees for local numbers",
+              "hot": true
+            },
+            {
+              "icon": "warning",
+              "label": "Failed messages",
+              "note": "$0.001 each on Twilio"
+            },
+            {
+              "icon": "card",
+              "label": "Number rental",
+              "note": "$0.50 to $1.15 local, $1 to $2.15 toll-free"
+            },
+            {
+              "icon": "chip",
+              "label": "Add-ons",
+              "note": "Twilio links, $0.015 after 1,000 free"
+            },
+            {
+              "icon": "coin",
+              "label": "Short codes",
+              "note": "from $500 a month, billed quarterly"
+            }
+          ],
+          "footnote": "Source: Twilio, Plivo and Telnyx US pricing pages, read November 25, 2026."
+        }
+      }
+    ]
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Telnyx SMS outbound, per part",
+        "value": "$0.004",
+        "note": "plus carrier fee"
+      },
+      {
+        "label": "Plivo SMS outbound, long code",
+        "value": "$0.0077",
+        "note": "plus carrier surcharge"
+      },
+      {
+        "label": "Twilio SMS outbound, long code",
+        "value": "$0.0083",
+        "note": "per segment, plus carrier fee"
+      },
+      {
+        "label": "Carrier fee to AT&T, per outbound text",
+        "value": "$0.0035",
+        "note": "same on all three lists"
+      },
+      {
+        "label": "Carrier fee to T-Mobile, per outbound text",
+        "value": "$0.0045",
+        "note": "same on all three lists"
+      },
+      {
+        "label": "Local number per month",
+        "value": "$0.50 to $1.15",
+        "note": "Plivo $0.50, Telnyx from $1, Twilio $1.15"
+      },
+      {
+        "label": "Characters in one plain text segment",
+        "value": "160",
+        "note": "153 per segment in longer texts"
+      },
+      {
+        "label": "Characters in one segment with an emoji",
+        "value": "70",
+        "note": "UCS-2, 67 per segment after that"
+      },
+      {
+        "label": "10,000 texts a month, cheapest list",
+        "value": "$82.67",
+        "note": "Telnyx, one local number, our arithmetic"
+      }
+    ],
+    "source": "Prices read on 25 November 2026 from the US SMS pricing pages of Telnyx, Plivo and Twilio and from Twilio's SMS character limit documentation."
+  },
+  "faqs": [
+    [
+      "What is the cheapest SMS API in the US?",
+      "Of the published US price lists we read on November 25, 2026, Telnyx has the lowest base rate at $0.004 per message part plus the carrier fee, about $0.0075 to $0.0085 per outbound text to AT&T, T-Mobile or Verizon. Plivo comes to $0.0112 to $0.0127 and Twilio to $0.0118 to $0.0133."
+    ],
+    [
+      "How much does Twilio charge per SMS in the US?",
+      "Twilio's US list price is $0.0083 per segment, outbound and inbound, for long codes and toll-free numbers. For an outbound text from a long code it adds a carrier fee of $0.0035 for AT&T, $0.0045 for T-Mobile and $0.005 for Verizon. A local number costs $1.15 a month."
+    ],
+    [
+      "What are SMS carrier fees?",
+      "They are per-message fees that US mobile carriers charge on business texts, passed on by every provider. On the Twilio, Plivo and Telnyx lists an outbound text costs $0.0035 to AT&T and $0.0045 to T-Mobile; Verizon is $0.005 on Twilio and Plivo and $0.0045 on Telnyx."
+    ],
+    [
+      "Why was one text billed as two messages?",
+      "Prices are per segment. A plain GSM-7 text fits 160 characters in one segment and longer texts split into 153-character segments. An emoji or other special character switches the message to UCS-2, where one segment holds 70 characters and later segments 67."
+    ],
+    [
+      "What does it cost to send 10,000 texts a month?",
+      "On list prices, 10,000 one-segment texts split evenly over AT&T, T-Mobile and Verizon from one local number cost about $82.67 on Telnyx, $120.83 on Plivo and $127.48 on Twilio, before 10DLC fees, inbound replies and taxes."
+    ],
+    [
+      "Are there costs beyond the per-message price?",
+      "Yes. 10DLC brand and campaign registration fees for local numbers, monthly number rental, Twilio's $0.001 fee on failed messages, paid add-ons such as Twilio's link shortening at $0.015 after 1,000 free a month, and short code leases from $500 a month."
+    ]
+  ],
+  "body": "<p><strong>Short answer.</strong> Of the three US SMS API price lists we could read in full, Telnyx is the cheapest per text: <strong>$0.004 per message part plus the carrier fee</strong>, so <strong>$0.0075 to $0.0085</strong> for one outbound segment from a local number to AT&amp;T, T-Mobile or Verizon. Plivo comes to $0.0112 to $0.0127 and Twilio to $0.0118 to $0.0133, on prices read from each vendor's US pricing page on November 25, 2026.</p>\n<p>The gap is in the vendor's own rate. The carrier fee is almost the same everywhere, because it is a pass-through the mobile carriers set: $0.0035 a text to AT&amp;T and $0.0045 to T-Mobile on all three price lists. For 10,000 one-segment texts a month, split evenly over the three big carriers, that works out to about $83 on Telnyx, $121 on Plivo and $127 on Twilio, number rental included. If you send through a CRM or a <a href=\"/gohighlevel-white-label-saas\">white label GoHighLevel SaaS</a>, it may resell one of these providers at its own price, so check which provider and which rate your platform uses.</p>\n<p>This guide sets the three price lists side by side, explains the carrier fees and segments that change the bill, works one monthly cost, and lists what sits outside the per-message price. Sources: <a href=\"https://telnyx.com/pricing/messaging\" target=\"_blank\" rel=\"noopener\">Telnyx SMS API pricing</a>, <a href=\"https://www.plivo.com/sms/pricing/us/\" target=\"_blank\" rel=\"noopener\">Plivo US SMS pricing</a> and <a href=\"https://www.twilio.com/en-us/sms/pricing/us\" target=\"_blank\" rel=\"noopener\">Twilio US SMS pricing</a> (\"Pricing current as of November 2026\").</p>\n<h2 id=\"price-table\">SMS API prices per message, side by side</h2>\n<p>Each provider bills a base rate per outbound message part (Twilio calls it a segment), then adds the carrier fee for the network the number belongs to. The table shows the base rates from each US price list, for a local 10-digit number unless stated.</p>\n<table>\n<thead><tr><th>Item</th><th>Telnyx</th><th>Plivo</th><th>Twilio</th></tr></thead>\n<tbody>\n<tr><td>SMS outbound, local number</td><td>$0.004 per part</td><td>$0.0077</td><td>$0.0083</td></tr>\n<tr><td>SMS inbound, local number</td><td>$0.004 per part</td><td>$0.0077</td><td>$0.0083</td></tr>\n<tr><td>SMS outbound, toll-free</td><td>not read</td><td>$0.0079</td><td>$0.0083</td></tr>\n<tr><td>MMS outbound, local number</td><td>$0.015</td><td>$0.0180</td><td>$0.022</td></tr>\n<tr><td>Local number, per month</td><td>from $1</td><td>$0.50</td><td>$1.15</td></tr>\n<tr><td>Toll-free number, per month</td><td>not read</td><td>$1.00</td><td>$2.15</td></tr>\n</tbody>\n</table>\n<p>Add the carrier fee and the all-in price of one outbound segment from a local number looks like this:</p>\n<table>\n<thead><tr><th>To</th><th>Telnyx</th><th>Plivo</th><th>Twilio</th></tr></thead>\n<tbody>\n<tr><td>AT&amp;T</td><td>$0.0075</td><td>$0.0112</td><td>$0.0118</td></tr>\n<tr><td>T-Mobile</td><td>$0.0085</td><td>$0.0122</td><td>$0.0128</td></tr>\n<tr><td>Verizon</td><td>$0.0085</td><td>$0.0127</td><td>$0.0133</td></tr>\n</tbody>\n</table>\n<p>Telnyx also publishes automatic volume tiers once you send or receive more than 100 million messages a month: the next 150 million outbound parts at $0.0020, the next 250 million at $0.0015, the next 500 million at $0.0010 and the next 1 billion at $0.0005. Twilio says it offers \"discounts as you scale\" and committed-use pricing through sales, without a public tier table. Plivo lists \"volume discounts as you scale\". For a sales team sending thousands of texts, not millions, the pay-as-you-go row is the one that applies.</p>\n<h2 id=\"carrier-fees\">Carrier fees: the part every provider passes on</h2>\n<p>US mobile carriers charge a fee on application-to-person texts, and every provider passes it on. By our reading, that sets a floor: on these lists no text to AT&amp;T costs less than the $0.0035 carrier fee plus the provider's rate. The three price lists agree on most carriers and differ on Verizon:</p>\n<ul>\n<li><strong>AT&amp;T:</strong> $0.0035 per outbound SMS on all three lists.</li>\n<li><strong>T-Mobile:</strong> $0.0045 outbound on all three; Twilio and Plivo also list $0.0025 on an inbound text from a T-Mobile number.</li>\n<li><strong>Verizon:</strong> $0.005 on Twilio and Plivo, $0.0045 on Telnyx's list.</li>\n<li><strong>Smaller carriers:</strong> Twilio lists $0.0042 for \"all other carriers\", Plivo $0.0050 for \"Other Carrier Networks\". Telnyx lists each carrier by name, with \"No carrier fee\" for Carrier Group A and B and $0.20 a part for Digicel.</li>\n</ul>\n<p>Telnyx's own example prices 1,000,000 parts at $4,000 for the SMS rate plus $3,800 of blended US carrier pass-through, $7,800 a month. In that example the carrier fees are almost half of the bill. Since the big carriers' fees are nearly the same on every list, our view is that the provider's base rate is the main lever a provider choice moves. Carrier fees also change on the carriers' schedule, not the provider's: our story on <a href=\"/blog/gohighlevel-carrier-fee-increase-october-2026/\">HighLevel's October 2026 carrier fee rise</a> shows how that reaches a CRM bill.</p>\n<h2 id=\"segments\">Segments: why one text can bill as two</h2>\n<p>Every price above is per segment, not per message. Twilio's documentation sets the limits: a message in the standard GSM-7 alphabet fits 160 characters in one segment, and longer messages split into segments of 153 characters each, up to 1,600. A message with any character outside that alphabet, such as an emoji, is sent as UCS-2: 70 characters in one segment, 67 per segment after that.</p>\n<ul>\n<li>A 140-character message in plain text: 1 segment.</li>\n<li>A 300-character message in plain text: 2 segments, so twice the base rate and twice the carrier fee.</li>\n<li>A 100-character message with one emoji: 2 segments, because the emoji switches the whole message to UCS-2.</li>\n</ul>\n<p>In our view, segment count is the easiest saving for an outbound team. Keep first-touch texts under 160 plain characters, avoid emoji, and check how your platform counts segments before a campaign goes out.</p>\n<h2 id=\"worked-cost\">What 10,000 texts a month cost</h2>\n<p>Take a small outbound team sending 10,000 one-segment texts a month from one local number, split evenly across AT&amp;T, T-Mobile and Verizon. Using each vendor's list price and carrier fees:</p>\n<table>\n<thead><tr><th>Provider</th><th>Messages</th><th>Number</th><th>Total a month</th></tr></thead>\n<tbody>\n<tr><td>Telnyx</td><td>$81.67</td><td>$1.00</td><td>$82.67</td></tr>\n<tr><td>Plivo</td><td>$120.33</td><td>$0.50</td><td>$120.83</td></tr>\n<tr><td>Twilio</td><td>$126.33</td><td>$1.15</td><td>$127.48</td></tr>\n</tbody>\n</table>\n<p>Replies cost money too. If one in ten people texts back, 1,000 inbound messages a month add $4.00 on Telnyx, $7.70 on Plivo and $8.30 on Twilio at the base inbound rate, plus any inbound carrier fee: Twilio and Plivo both list $0.0025 for an inbound text from a T-Mobile number and $0.0035 from AT&amp;T. A team that runs two-way conversations, appointment reminders or an AI texting assistant should budget for both directions, not only the outbound blast.</p>\n<p>The difference between the cheapest and the most expensive list is about $45 a month at this volume, or roughly $540 a year. That is our arithmetic on published prices, before 10DLC registration and campaign fees, inbound replies, taxes and any add-ons. It moves with your carrier mix: a list that is mostly Verizon numbers costs slightly more on every provider.</p>\n<h2 id=\"fixed-costs\">What sits outside the per-message price</h2>\n<p>The per-text rate is only part of the bill. Before you compare providers on price alone, add these lines:</p>\n<ol>\n<li><strong>10DLC registration.</strong> Business texting from a local number in the US needs a registered brand and campaign. Twilio's page says \"US A2P 10DLC are subject to registration onboarding fees\". Our guide to <a href=\"/blog/10dlc-registration-cost/\">10DLC registration cost</a> lists the fees, and <a href=\"/blog/10dlc-daily-message-limit/\">the 10DLC daily message limit</a> explains how volume is capped.</li>\n<li><strong>Failed messages.</strong> Twilio charges \"a failed message processing fee of $0.001 per message\" for messages that end in a Failed status.</li>\n<li><strong>Number type.</strong> A toll-free number costs $1.00 a month on Plivo and $2.15 on Twilio, see <a href=\"/blog/toll-free-number-cost/\">toll-free number cost</a>. Short codes start at $500 a month on Plivo and $1,000 on Twilio, billed quarterly.</li>\n<li><strong>Add-ons.</strong> Twilio's link shortening and scheduling cost $0.015 each after the first 1,000 free each month. Plivo lists message queueing as included.</li>\n<li><strong>Minimums.</strong> Telnyx lists $0 platform fee on pay as you go; its Enterprise plan carries a $5,000 a month minimum spend.</li>\n</ol>\n<h2 id=\"how-to-choose\">How to pick the cheapest SMS API for your volume</h2>\n<p>Our view, from the price lists above: at small and mid volumes, the provider's base rate decides the bill and Telnyx's is the lowest of the three published lists. Price is not the only test, though.</p>\n<ul>\n<li><strong>Check what your software supports.</strong> Many CRMs and dialers connect to one provider out of the box. A cheaper API that needs custom code to plug in may cost more in build time than it saves on texts.</li>\n<li><strong>Count segments first.</strong> Cutting a 2-segment template to 1 halves the cost on any provider, which is more than switching providers saves.</li>\n<li><strong>Get consent right before you send.</strong> Price does not matter if the texts break the rules: see <a href=\"/blog/tcpa-text-messages/\">TCPA rules for text messages</a> and the <a href=\"/blog/sms-opt-in-language/\">SMS opt-in language</a> carriers expect.</li>\n<li><strong>Look at richer channels where they fit.</strong> Twilio's US page prices RCS texts next to SMS; see <a href=\"/blog/rcs-business-messaging/\">RCS business messaging</a>. For customers outside the US, compare <a href=\"/blog/whatsapp-business-api-pricing/\">WhatsApp Business API pricing</a>.</li>\n</ul>\n<p>If texting is one step in a wider follow-up flow, our guide to <a href=\"/blog/sales-automation-software/\">sales automation software</a> covers the tools that send it. Vonage and Bandwidth also sell US SMS, but we could not read a full public US per-message list for either on November 25, 2026, so they are left out of the tables.</p>",
+  "word_count": 1420,
+  "read_time": 6
+}
