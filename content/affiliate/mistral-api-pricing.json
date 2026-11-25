@@ -1,0 +1,247 @@
+{
+  "slug": "mistral-api-pricing",
+  "title": "Mistral API Pricing: Large 4 at $0.70 In, $2.10 Out per 1M Tokens",
+  "desc": "Mistral Large 4 costs $0.70 per million input tokens and $2.10 per million output; Small 4 is $0.15 and $0.60. Batch is 50% off, and free mode has low limits.",
+  "date": "2026-11-25",
+  "keywords": "mistral api pricing, mistral api cost, mistral large 4 pricing, mistral small 4 pricing, mistral api free tier, mistral rate limits, mistral batch api, voxtral pricing",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "What does the Mistral API cost per million tokens, and is there a free tier?",
+  "qtype": "cost",
+  "cta": "Get help choosing an AI model for your automation",
+  "image": {
+    "style": "v2",
+    "cluster": "AI API pricing",
+    "alt": "Mistral API list prices per million input and output tokens: Ministral 3 (3B) $0.10 and $0.10, Mistral Small 4 $0.15 and $0.60, Mistral Large 4 $0.70 and $2.10",
+    "explain": {
+      "layout": "compare",
+      "palette": "ember",
+      "kicker": "Per 1M output tokens",
+      "headline": "Mistral API output prices",
+      "items": [
+        {
+          "icon": "chip",
+          "label": "Ministral 3 (3B)",
+          "value": "$0.10",
+          "unit": "per 1M out",
+          "note": "$0.10 per 1M in",
+          "num": 0.1
+        },
+        {
+          "icon": "chip",
+          "label": "Mistral Small 4",
+          "value": "$0.60",
+          "unit": "per 1M out",
+          "note": "$0.15 per 1M in",
+          "num": 0.6
+        },
+        {
+          "icon": "chip",
+          "label": "Mistral Large 4",
+          "value": "$2.10",
+          "unit": "per 1M out",
+          "note": "$0.70 per 1M in",
+          "num": 2.1,
+          "hot": true
+        }
+      ],
+      "footnote": "Source: Mistral documentation pricing page, standard tier, read November 25, 2026."
+    },
+    "cover": {
+      "headline": "Mistral API pricing",
+      "number": "$0.70 / 1M in",
+      "kicker": "Mistral Large 4, Nov 2026"
+    },
+    "figures": [
+      {
+        "under": "discounts",
+        "alt": "How Mistral price options change the list price: batch 50% off, cached input at 10% of the input price, Priority Tier 1.75 times, regional inference 1.1 times",
+        "explain": {
+          "layout": "cards",
+          "palette": "sage",
+          "kicker": "Against standard list price",
+          "headline": "Four price modifiers",
+          "items": [
+            {
+              "icon": "coin",
+              "label": "Batch API",
+              "note": "50% off list price",
+              "hot": true
+            },
+            {
+              "icon": "database",
+              "label": "Prompt caching",
+              "note": "Cached input at 10% of input price"
+            },
+            {
+              "icon": "chart",
+              "label": "Priority Tier",
+              "note": "1.75 times list price"
+            },
+            {
+              "icon": "globe",
+              "label": "Regional inference",
+              "note": "1.1 times list price, EU or US"
+            }
+          ],
+          "footnote": "Source: Mistral batch, prompt caching, Priority Tier and regional inference docs, Nov 25, 2026."
+        }
+      },
+      {
+        "under": "worked-cost",
+        "alt": "Monthly model cost of a hypothetical 10,000 conversation chatbot on Mistral: Small 4 $6.00, Large 4 batch $12.25, Large 4 standard $24.50",
+        "explain": {
+          "layout": "compare",
+          "palette": "tide",
+          "kicker": "20M input, 5M output tokens",
+          "headline": "10,000 chats a month",
+          "items": [
+            {
+              "icon": "coin",
+              "label": "Mistral Small 4",
+              "value": "$6.00",
+              "unit": "a month",
+              "note": "standard tier",
+              "num": 6.0,
+              "hot": true
+            },
+            {
+              "icon": "coin",
+              "label": "Large 4, batch",
+              "value": "$12.25",
+              "unit": "a month",
+              "note": "50% batch discount",
+              "num": 12.25
+            },
+            {
+              "icon": "coin",
+              "label": "Large 4, standard",
+              "value": "$24.50",
+              "unit": "a month",
+              "note": "list price",
+              "num": 24.5
+            }
+          ],
+          "footnote": "Our arithmetic on Mistral list prices for a hypothetical chatbot. Model cost only."
+        }
+      },
+      {
+        "under": "free-tier",
+        "alt": "Mistral API rate limit tiers: free mode by default, Tier 1 on enabling pay-as-you-go, Tier 2 over $20 billed, Tier 3 over $100, Tier 4 over $500",
+        "explain": {
+          "layout": "flow",
+          "palette": "ember",
+          "kicker": "Cumulative billed amount",
+          "headline": "How Mistral rate limits rise",
+          "items": [
+            {
+              "icon": "key",
+              "label": "Free mode",
+              "note": "Default, lowest limits"
+            },
+            {
+              "icon": "card",
+              "label": "Tier 1",
+              "note": "Pay-as-you-go enabled"
+            },
+            {
+              "icon": "coin",
+              "label": "Tier 2",
+              "note": "Over $20 billed"
+            },
+            {
+              "icon": "coin",
+              "label": "Tier 3",
+              "note": "Over $100 billed"
+            },
+            {
+              "icon": "chart",
+              "label": "Tier 4",
+              "note": "Over $500 billed"
+            }
+          ],
+          "footnote": "Source: Mistral Help Center rate limits article, Nov 25, 2026. Its text also puts Tier 4 at $2,000."
+        }
+      }
+    ]
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "Mistral Large 4, input per 1M tokens",
+        "value": "$0.70",
+        "note": "cached input $0.07"
+      },
+      {
+        "label": "Mistral Large 4, output per 1M tokens",
+        "value": "$2.10",
+        "note": "1M token context"
+      },
+      {
+        "label": "Mistral Small 4, input and output per 1M",
+        "value": "$0.15 / $0.60",
+        "note": "256K context"
+      },
+      {
+        "label": "Ministral 3 (3B), input and output per 1M",
+        "value": "$0.10 / $0.10",
+        "note": "lowest priced chat model"
+      },
+      {
+        "label": "Batch API discount",
+        "value": "50%",
+        "note": "up to 1 million requests a batch"
+      },
+      {
+        "label": "Cached input price",
+        "value": "10%",
+        "note": "of the standard input price"
+      },
+      {
+        "label": "Priority Tier multiplier",
+        "value": "1.75x",
+        "note": "standard list price"
+      },
+      {
+        "label": "Speech to text, Voxtral Mini Transcribe 3",
+        "value": "$0.0035 / min",
+        "note": "realtime model $0.008 / min"
+      },
+      {
+        "label": "10,000 chats a month on Large 4",
+        "value": "$24.50",
+        "note": "hypothetical, our arithmetic"
+      }
+    ],
+    "source": "Prices read on 25 November 2026 from Mistral's documentation pricing page, model pages, batch, caching, Priority Tier and regional inference docs, and the Mistral Help Center rate limits article."
+  },
+  "faqs": [
+    [
+      "How much does the Mistral API cost?",
+      "Mistral Large 4 costs $0.70 per million input tokens and $2.10 per million output tokens, with cached input at $0.07. Mistral Small 4 costs $0.15 in and $0.60 out, and Ministral 3 (3B) costs $0.10 both ways, per Mistral's documentation pricing page read on November 25, 2026."
+    ],
+    [
+      "Is the Mistral API free?",
+      "Free mode is the default for new organizations and has the lowest rate limits, meant for evaluation and prototyping. Mistral does not publish the free mode numbers on a public page; they show in the Admin panel. Enabling pay-as-you-go unlocks Tier 1 and higher limits. Mistral Moderation 2 is listed as free."
+    ],
+    [
+      "How much is 1 million tokens on Mistral?",
+      "It depends on the model and on whether the tokens are input or output. One million input tokens cost $0.10 on Ministral 3 (3B), $0.15 on Mistral Small 4 and $0.70 on Mistral Large 4. One million output tokens cost $0.10, $0.60 and $2.10 on the same models."
+    ],
+    [
+      "Does Mistral offer a batch discount?",
+      "Yes. Mistral's batch API runs asynchronous jobs at a 50% discount, so Large 4 drops to $0.35 per million input tokens and $1.05 per million output tokens. A single batch can hold up to 1 million requests."
+    ],
+    [
+      "How do Mistral API rate limits increase?",
+      "With pay-as-you-go, tiers rise with your cumulative billed amount: Tier 1 on enabling pay-as-you-go, Tier 2 over $20 billed, Tier 3 over $100, Tier 4 over $500 in Mistral's table (its text also says $2,000), and over $2,000 you contact support. Prepaid credits do not raise limits."
+    ],
+    [
+      "What does Mistral's Priority Tier cost?",
+      "Priority Tier is billed at 1.75 times standard list price, a 75% premium on input, output and cached tokens. For Mistral Large 4 that is $1.225 per million input tokens and $3.675 per million output tokens."
+    ]
+  ],
+  "body": "<p><strong>Short answer.</strong> <strong>Mistral Large 4, the model Mistral's docs point new integrations to, costs $0.70 per million input tokens and $2.10 per million output tokens</strong>, with cached input at $0.07. Mistral Small 4 costs $0.15 in and $0.60 out, and the lowest priced chat model, Ministral 3 (3B), costs $0.10 both ways, per Mistral's <a href=\"https://docs.mistral.ai/inference/pricing\" target=\"_blank\" rel=\"noopener\">API pricing page</a> read on November 25, 2026.</p>\n<p>New organizations begin in a free mode with low rate limits, and pay-as-you-go raises those limits as your billed total grows. Batch jobs cost half the list price, and Mistral's Priority Tier costs 1.75 times the list price. For a hypothetical chatbot handling 10,000 conversations a month, the model bill on Large 4 comes to about $24.50. If those conversations are phone calls, an <a href=\"/ai-calling-home-services\">AI calling system for home service businesses</a> also carries telephony, voice and build costs outside the model.</p>\n<p>This guide puts Mistral's main per-token list prices in one table, explains the four price modifiers, works one monthly cost, and covers the free mode and rate limit tiers.</p>\n<h2 id=\"price-table\">Mistral API prices per million tokens</h2>\n<p>These are the standard list prices in US dollars per million tokens, as shown on the pricing page of Mistral's documentation. The same table also lists GLM 5.3 and DeepSeek V4.1 Flash models.</p>\n<table>\n<thead><tr><th>Model</th><th>Input</th><th>Cached input</th><th>Output</th></tr></thead>\n<tbody>\n<tr><td>Mistral Large 4</td><td>$0.70</td><td>$0.07</td><td>$2.10</td></tr>\n<tr><td>Mistral Small 4</td><td>$0.15</td><td>not listed</td><td>$0.60</td></tr>\n<tr><td>Ministral 3 (14B)</td><td>$0.20</td><td>not listed</td><td>$0.20</td></tr>\n<tr><td>Ministral 3 (8B)</td><td>$0.15</td><td>not listed</td><td>$0.15</td></tr>\n<tr><td>Ministral 3 (3B)</td><td>$0.10</td><td>not listed</td><td>$0.10</td></tr>\n<tr><td>Codestral</td><td>$0.30</td><td>not listed</td><td>$0.90</td></tr>\n<tr><td>GLM 5.3</td><td>$1.40</td><td>$0.14</td><td>$4.40</td></tr>\n<tr><td>GLM 5.3 Flash</td><td>$0.15</td><td>$0.03</td><td>$0.50</td></tr>\n<tr><td>DeepSeek V4.1 Flash</td><td>$0.30</td><td>$0.007</td><td>$1.20</td></tr>\n</tbody>\n</table>\n<p>The context lengths come from each model's own page: <a href=\"https://docs.mistral.ai/models/mistral-large-4-0\" target=\"_blank\" rel=\"noopener\">Mistral Large 4</a> lists a 1M token context, and <a href=\"https://docs.mistral.ai/models/mistral-small-4-0-26-03\" target=\"_blank\" rel=\"noopener\">Mistral Small 4</a> lists 256K. Mistral describes Large 4 as an open weight model with multimodal input.</p>\n<p>Two points can confuse buyers. First, the FAQ on <a href=\"https://mistral.ai/pricing/\" target=\"_blank\" rel=\"noopener\">mistral.ai/pricing</a> gives \"Mistral Large\" as $0.5 in and $1.5 out per million tokens as an example, without saying which model version or date it refers to. The documentation table and the Large 4 model page both list $0.70 and $2.10, so we use those. Second, the same FAQ recommends Mistral Medium for most tasks, while the <a href=\"https://docs.mistral.ai/models/mistral-medium-3-5-26-04\" target=\"_blank\" rel=\"noopener\">Mistral Medium 3.5 model page</a> says that model is deprecated and says to use Mistral Large 4 for new integrations. Medium 3.5 has no price on the documentation table.</p>\n<h2 id=\"other-models\">OCR, speech, embeddings and moderation prices</h2>\n<p>Not every Mistral API is priced per token. The same pricing page lists these:</p>\n<ul>\n<li><strong>OCR:</strong> OCR 4.1 costs $4 per 1,000 pages and OCR 3 costs $2 per 1,000 pages.</li>\n<li><strong>Speech to text:</strong> Voxtral Mini Transcribe 3 costs $0.0035 a minute, Voxtral Small Transcribe 3 $0.004 a minute, Voxtral Small $0.004 a minute of audio input plus $0.40 per million output tokens, and the realtime version, Voxtral Mini Transcribe Realtime 3, $0.008 a minute.</li>\n<li><strong>Text to speech:</strong> Voxtral Mini TTS 3 costs $13 per million characters.</li>\n<li><strong>Embeddings:</strong> the price table lists Mistral Embed at $0.10 and Codestral Embed at $0.15.</li>\n<li><strong>Moderation:</strong> Mistral Moderation 2 is listed as free.</li>\n</ul>\n<p>For a sense of scale: transcribing a hypothetical 1,000 minutes of recorded sales calls with Voxtral Mini Transcribe 3 comes to $3.50 at list price, and $8 with the realtime model. Compare that with OpenAI's rates in our <a href=\"/blog/whisper-api-pricing/\">Whisper API pricing</a> guide.</p>\n<h2 id=\"discounts\">Batch, caching, priority and regional pricing</h2>\n<p>Four settings change what you pay against the list price. Each comes from Mistral's own documentation.</p>\n<table>\n<thead><tr><th>Option</th><th>Effect on price</th><th>Large 4, input and output per 1M</th></tr></thead>\n<tbody>\n<tr><td>Batch API</td><td>50% off</td><td>$0.35 and $1.05</td></tr>\n<tr><td>Prompt caching</td><td>Cached input billed at 10% of input price</td><td>$0.07 cached input</td></tr>\n<tr><td>Priority Tier</td><td>1.75 times list price</td><td>$1.225 and $3.675</td></tr>\n<tr><td>Regional inference (EU or US)</td><td>1.1 times list price</td><td>$0.77 and $2.31</td></tr>\n</tbody>\n</table>\n<p><strong>Batch.</strong> The <a href=\"https://docs.mistral.ai/inference/batch-processing\" target=\"_blank\" rel=\"noopener\">batch processing docs</a> describe asynchronous jobs \"at a 50% discount\", with up to 1 million requests in a single batch and a limit of 1 million pending requests per workspace. In our view it suits work that can wait, such as tagging a lead list or summarizing old call notes.</p>\n<p><strong>Prompt caching.</strong> When requests share the same beginning of the prompt, \"Cached prompt tokens are billed at 10% of the standard input token price\", per the <a href=\"https://docs.mistral.ai/inference/conversations/advanced/prompt-caching\" target=\"_blank\" rel=\"noopener\">prompt caching docs</a>. For example, a long, fixed system prompt repeated on every request.</p>\n<p><strong>Priority Tier.</strong> The <a href=\"https://docs.mistral.ai/inference/priority-tier\" target=\"_blank\" rel=\"noopener\">Priority Tier docs</a> put it at \"1.75x standard list pricing, which is a 75% premium on input, output, and cached tokens\", applied after any cache discount. With the setting on auto, a request falls back to the standard tier when priority capacity is not available.</p>\n<p><strong>Regional inference.</strong> Requests can be processed by systems located in the European Union or the United States, billed at 1.1 times list price, per the <a href=\"https://docs.mistral.ai/inference/regional-inference\" target=\"_blank\" rel=\"noopener\">regional inference docs</a>. It can help when a client contract requires EU data processing; see our <a href=\"/blog/eu-ai-act/\">EU AI Act guide</a> for the wider rules.</p>\n<h2 id=\"worked-cost\">What 10,000 chatbot conversations cost</h2>\n<p>Take a hypothetical website or support chatbot with 10,000 conversations a month, each using about 2,000 input tokens (instructions, history and the question) and 500 output tokens. That is 20 million input tokens and 5 million output tokens a month. At Mistral's list prices:</p>\n<table>\n<thead><tr><th>Setup</th><th>Monthly model cost</th></tr></thead>\n<tbody>\n<tr><td>Ministral 3 (3B)</td><td>$2.50</td></tr>\n<tr><td>Ministral 3 (14B)</td><td>$5.00</td></tr>\n<tr><td>Mistral Small 4</td><td>$6.00</td></tr>\n<tr><td>Mistral Large 4, batch</td><td>$12.25</td></tr>\n<tr><td>Mistral Large 4, 1,500 of 2,000 input tokens cached</td><td>$15.05</td></tr>\n<tr><td>Mistral Large 4, standard</td><td>$24.50</td></tr>\n<tr><td>Mistral Large 4, Priority Tier</td><td>about $42.88</td></tr>\n</tbody>\n</table>\n<p>The arithmetic for Large 4 standard: 20 times $0.70 is $14, plus 5 times $2.10 is $10.50, so $24.50, or about a quarter of a cent per conversation. Output tokens cost three times as much as input on Large 4 and four times as much on Small 4, so long answers move the bill more than long prompts.</p>\n<p>In our view, the model is often not the biggest cost of a chatbot. Our guide to <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot costs for a business</a> covers the build, the platform and the upkeep around it.</p>\n<h2 id=\"free-tier\">Is the Mistral API free? Free mode and rate limits</h2>\n<p>Partly. Mistral's <a href=\"https://help.mistral.ai/en/articles/698531-why-am-i-hitting-api-rate-limits-and-how-do-i-increase-them\" target=\"_blank\" rel=\"noopener\">help article on rate limits</a> says new organizations start in \"Free mode (the default)\", which \"has the lowest limits, intended for evaluation and prototyping\". Mistral does not publish the free mode numbers on a public page; they show on the Limits page of the logged in Admin panel. Mistral Moderation 2 is also listed as free on the price table.</p>\n<p>The API enforces three limits at the organization level: requests per second, tokens per minute and tokens per month. A 429 error means one of them was hit. Turning on pay-as-you-go unlocks Tier 1, and higher tiers follow from your cumulative billed amount:</p>\n<table>\n<thead><tr><th>Tier</th><th>Requirement</th></tr></thead>\n<tbody>\n<tr><td>Free mode</td><td>Default for new organizations</td></tr>\n<tr><td>Tier 1</td><td>Enabling pay-as-you-go</td></tr>\n<tr><td>Tier 2</td><td>Over $20 billed</td></tr>\n<tr><td>Tier 3</td><td>Over $100 billed</td></tr>\n<tr><td>Tier 4</td><td>Over $500 billed (see note below)</td></tr>\n<tr><td>Higher limits</td><td>Over $2,000 billed, then contact support</td></tr>\n</tbody>\n</table>\n<p>One caveat: the article's table puts Tier 4 at over $500 billed, but a sentence just below it says Tier 4 starts over $2,000, so check the Limits page in your Admin panel. Prepaid credits do not count: \"Adding credits does not raise your rate limits\", the article says. Separately, the <a href=\"https://docs.mistral.ai/admin/billing-usage/usage-limits\" target=\"_blank\" rel=\"noopener\">usage and limits docs</a> warn that API access \"can be suspended until the next month begins\" if the organization reaches its monthly spending limit, so we suggest setting that limit above your busiest month.</p>\n<p>The Vibe plans on mistral.ai/pricing (Free, and Pro at $14.99 a month) are separate subscriptions; the Free plan gives limited Vibe access plus access to Mistral Studio. Mistral's rate limits article treats API free mode on its own terms. For free API quotas at other providers, see <a href=\"/blog/groq-api-free-tier/\">Groq's free tier</a> and the <a href=\"/blog/claude-api-free-tier/\">Claude API free tier</a>.</p>\n<h2 id=\"which-model\">Which Mistral model to pick for cost</h2>\n<p>Our view, from the prices above:</p>\n<ul>\n<li><strong>Start with Mistral Small 4</strong> for chat, extraction and tool calls. At $0.15 in and $0.60 out it is about a quarter of the cost of Large 4 per conversation in the example above.</li>\n<li><strong>Move to Large 4</strong> when Small 4 fails your own tests on reasoning or long documents. Large 4's 1M token context is about four times Small 4's 256K.</li>\n<li><strong>Use Ministral 3</strong> for simple, high volume tasks such as classification, where $0.10 to $0.20 per million tokens both ways kept the example above at $2.50 to $5.00 a month.</li>\n<li><strong>Batch anything that can wait</strong>, and keep a fixed prompt prefix so caching applies.</li>\n</ul>\n<p>To compare these prices with OpenAI, Anthropic, Google and others, see our <a href=\"/blog/ai-model-api-pricing-comparison/\">AI model API pricing comparison</a>, <a href=\"/blog/deepseek-api-pricing/\">DeepSeek API pricing</a> and <a href=\"/blog/openrouter-pricing/\">OpenRouter pricing</a>.</p>\n<h2 id=\"how-imisofts-can-help\">How imisofts can help</h2>\n<p>imisofts is an AI automation agency that builds AI agents, automations and AI voice agents. If you want help choosing a model and keeping the token bill in check, see our <a href=\"/ai-automation-agency\">AI automation agency</a> services. Prices on this page are Mistral's published list prices as read on November 25, 2026; check the Mistral pricing page before you commit, as model names and prices change.</p>",
+  "word_count": 1814,
+  "read_time": 8
+}
