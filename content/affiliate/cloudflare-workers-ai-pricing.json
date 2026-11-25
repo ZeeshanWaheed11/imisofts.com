@@ -1,0 +1,326 @@
+{
+ "slug": "cloudflare-workers-ai-pricing",
+ "title": "Cloudflare Workers AI Pricing: 10,000 Free Neurons a Day",
+ "desc": "Cloudflare Workers AI pricing: $0.011 per 1,000 Neurons, 10,000 free a day, a $5 Workers Paid minimum, per-model token prices, rate limits and monthly costs.",
+ "date": "2026-11-25",
+ "time": "22:30",
+ "keywords": "cloudflare workers ai pricing, workers ai pricing, workers ai, cloudflare workers ai, workers ai neurons, workers ai free tier, cloudflare ai pricing, workers ai rate limits",
+ "category": "Guides",
+ "affiliate_url": "",
+ "question": "What does Cloudflare Workers AI cost, and what does the free allocation of 10,000 Neurons a day cover?",
+ "qtype": "cost",
+ "cta": "Want an AI workflow costed model by model before you build it?",
+ "image": {
+  "style": "v2",
+  "cluster": "AI cost and limits",
+  "alt": "How Workers AI billing works: a request is metered in Neurons, the first 10,000 a day are free, then the free plan stops while the paid plan charges $0.011 per 1,000 Neurons",
+  "explain": {
+   "layout": "flow",
+   "palette": "ember",
+   "kicker": "How the bill works",
+   "headline": "How Workers AI turns calls into a bill",
+   "items": [
+    {
+     "icon": "chip",
+     "label": "You call a model",
+     "note": "text, audio or image"
+    },
+    {
+     "icon": "chart",
+     "label": "Metered in Neurons",
+     "note": "rate set per model"
+    },
+    {
+     "icon": "coin",
+     "label": "10,000 a day free",
+     "note": "resets 00:00 UTC",
+     "badge": "Free"
+    },
+    {
+     "icon": "warning",
+     "label": "Free plan stops",
+     "note": "requests fail with an error"
+    },
+    {
+     "icon": "card",
+     "label": "Paid plan bills",
+     "note": "$0.011 per 1,000 Neurons"
+    }
+   ],
+   "footnote": "Source: Cloudflare Workers AI pricing page, last updated November 18, 2026."
+  },
+  "cover": {
+   "headline": "Cloudflare Workers AI pricing",
+   "number": "$0.011 / 1K",
+   "kicker": "AI cost and limits"
+  },
+  "figures": [
+   {
+    "under": "free-allocation",
+    "alt": "Requests a day that 10,000 free Neurons cover per model, for a 1,000 input and 300 output token request: Llama 3.3 70B about 113, gpt-oss-120b about 191, gpt-oss-20b about 379, Llama 3.1 8B about 685",
+    "explain": {
+     "layout": "compare",
+     "palette": "sage",
+     "kicker": "Free requests a day",
+     "headline": "What 10,000 free Neurons buy",
+     "items": [
+      {
+       "icon": "chip",
+       "label": "Llama 3.3 70B",
+       "value": "113",
+       "unit": "requests a day",
+       "note": "88.11 Neurons each",
+       "num": 113,
+       "hot": true
+      },
+      {
+       "icon": "chip",
+       "label": "gpt-oss-120b",
+       "value": "191",
+       "unit": "requests a day",
+       "note": "52.27 Neurons each",
+       "num": 191
+      },
+      {
+       "icon": "chip",
+       "label": "gpt-oss-20b",
+       "value": "379",
+       "unit": "requests a day",
+       "note": "26.36 Neurons each",
+       "num": 379
+      },
+      {
+       "icon": "chip",
+       "label": "Llama 3.1 8B",
+       "value": "685",
+       "unit": "requests a day",
+       "note": "14.58 Neurons each",
+       "num": 685
+      }
+     ],
+     "footnote": "Our arithmetic: 1,000 input and 300 output tokens a request, Cloudflare's Neuron rates."
+    }
+   },
+   {
+    "under": "monthly-cost",
+    "alt": "Monthly cost of Llama 3.3 70B on Workers Paid including the $5 minimum: $16.24 at 500 requests a day, $59.85 at 2,000 and $292.46 at 10,000",
+    "explain": {
+     "layout": "compare",
+     "palette": "tide",
+     "kicker": "Llama 3.3 70B, 30 days",
+     "headline": "What a month costs on Workers Paid",
+     "items": [
+      {
+       "icon": "coin",
+       "label": "500 requests a day",
+       "value": "$16.24",
+       "unit": "a month",
+       "note": "$11.24 usage + $5",
+       "num": 16.24
+      },
+      {
+       "icon": "coin",
+       "label": "2,000 requests a day",
+       "value": "$59.85",
+       "unit": "a month",
+       "note": "$54.85 usage + $5",
+       "num": 59.85
+      },
+      {
+       "icon": "coin",
+       "label": "10,000 requests a day",
+       "value": "$292.46",
+       "unit": "a month",
+       "note": "$287.46 usage + $5",
+       "num": 292.46,
+       "hot": true
+      }
+     ],
+     "footnote": "Our arithmetic on Cloudflare's rates; 1,000 in and 300 out tokens a request; $5 minimum added on top."
+    }
+   },
+   {
+    "under": "limits",
+    "alt": "Workers AI rate limits: text generation 300 requests a minute, paid only models 20 a minute on standard billing or 50 with prepaid credits, and local Wrangler calls count",
+    "explain": {
+     "layout": "rules",
+     "palette": "ember",
+     "kicker": "Rate limits",
+     "headline": "The limits that apply",
+     "subject_icon": "chip",
+     "subject": "Workers AI",
+     "items": [
+      {
+       "mark": "yes",
+       "label": "Text generation: 300 a minute",
+       "note": "unless the model needs Workers Paid"
+      },
+      {
+       "mark": "warn",
+       "label": "Paid only models: 20 a minute",
+       "note": "per account, per model; 50 with prepaid credits"
+      },
+      {
+       "mark": "yes",
+       "label": "Speech, image, translation: 720",
+       "note": "requests a minute; embeddings 3,000"
+      },
+      {
+       "mark": "warn",
+       "label": "Local Wrangler calls count",
+       "note": "testing uses the same limits"
+      }
+     ],
+     "footnote": "Source: Cloudflare Workers AI limits page, last updated September 17, 2026."
+    }
+   },
+   {
+    "under": "free-or-paid",
+    "alt": "When to stay on Workers Free and when to move to Workers Paid: stay while prototyping inside 10,000 Neurons a day, move when the app must keep answering, needs a paid only model or exceeds the allocation",
+    "explain": {
+     "layout": "cards",
+     "palette": "sage",
+     "kicker": "Free or Paid",
+     "headline": "When to move to Workers Paid",
+     "items": [
+      {
+       "icon": "document",
+       "label": "Prototyping",
+       "note": "stay on Free inside 10,000 Neurons a day"
+      },
+      {
+       "icon": "warning",
+       "label": "Must keep answering",
+       "note": "Free fails after the allocation",
+       "hot": true
+      },
+      {
+       "icon": "chip",
+       "label": "Need a paid only model",
+       "note": "9 models need paid billing"
+      },
+      {
+       "icon": "coin",
+       "label": "Over about 113 a day",
+       "note": "Llama 3.3 70B requests of our sample size"
+      }
+     ],
+     "footnote": "Our reading of Cloudflare's pricing and limits pages, November 2026."
+    }
+   }
+  ],
+  "chart": {
+   "title": "Workers AI cost per 1,000 requests by model",
+   "subtitle": "Each request is 1,000 input and 300 output tokens, priced at Cloudflare's Neuron rates.",
+   "type": "hbar",
+   "rows": [
+    [
+     "DeepSeek V4 Pro (paid)",
+     2.51
+    ],
+    [
+     "Llama 3.3 70B",
+     0.97
+    ],
+    [
+     "gpt-oss-120b",
+     0.57
+    ],
+    [
+     "gpt-oss-20b",
+     0.29
+    ],
+    [
+     "Llama 3.1 8B",
+     0.16
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 1,
+   "note": "Highlighted: Llama 3.3 70B, used in our worked examples",
+   "source": "Our arithmetic. Source: Cloudflare Workers AI pricing page, November 2026",
+   "alt": "Bar chart of Workers AI cost per 1,000 requests: DeepSeek V4 Pro $2.51, Llama 3.3 70B $0.97, gpt-oss-120b $0.57, gpt-oss-20b $0.29, Llama 3.1 8B $0.16",
+   "after_heading": "Per-model prices for selected models"
+  }
+ },
+ "key_numbers": {
+  "rows": [
+   {
+    "label": "Workers AI rate",
+    "value": "$0.011 per 1,000 Neurons"
+   },
+   {
+    "label": "Free allocation, Free and Paid plans",
+    "value": "10,000 Neurons a day",
+    "note": "resets 00:00 UTC"
+   },
+   {
+    "label": "Value of the free allocation",
+    "value": "$0.11 a day",
+    "note": "$3.30 over 30 days, our arithmetic"
+   },
+   {
+    "label": "Workers Paid plan minimum",
+    "value": "$5 a month",
+    "note": "per account"
+   },
+   {
+    "label": "Llama 3.3 70B, per million tokens",
+    "value": "$0.293 in, $2.253 out"
+   },
+   {
+    "label": "gpt-oss-120b, per million tokens",
+    "value": "$0.350 in, $0.750 out"
+   },
+   {
+    "label": "Whisper transcription",
+    "value": "$0.0005 per audio minute",
+    "note": "41.14 Neurons a minute"
+   },
+   {
+    "label": "Text generation rate limit",
+    "value": "300 requests a minute"
+   },
+   {
+    "label": "Paid only models rate limit",
+    "value": "20 requests a minute",
+    "note": "50 with prepaid AI Gateway credits"
+   },
+   {
+    "label": "Models that need paid billing",
+    "value": "9"
+   }
+  ],
+  "source": "Prices and limits read on 25 November 2026 from Cloudflare's Workers AI pricing page (updated 18 November 2026), Workers pricing page and Workers AI limits page."
+ },
+ "body": "<p><strong>Short answer.</strong> Cloudflare Workers AI bills in Neurons at <strong>$0.011 per 1,000 Neurons</strong>, and every account gets <strong>10,000 Neurons a day free</strong>, which is worth $0.11 a day. On the free plan, requests fail with an error once the 10,000 are used; past that you need the Workers Paid plan, which has a <strong>$5 a month</strong> account minimum. The per-model table converts Neurons into token prices: Llama 3.3 70B costs $0.293 per million input tokens and $2.253 per million output tokens, and gpt-oss-120b costs $0.350 and $0.750. Prices were read on <a href=\"https://developers.cloudflare.com/workers-ai/platform/pricing/\" target=\"_blank\" rel=\"noopener\">Cloudflare's Workers AI pricing page</a> (last updated November 18, 2026) on November 25, 2026.</p>\n<p>This guide explains what a Neuron is, what the daily free allocation buys on a selection of models, what a month costs at three volumes, which models are paid only, and the rate limits that apply. Every figure is Cloudflare's own, and every worked number is our arithmetic on those figures, labelled as such. This page carries no affiliate link; imisofts.com itself is hosted on Cloudflare as an ordinary customer.</p>\n\n<h2 id=\"how-pricing-works\">How Workers AI pricing works</h2>\n<p>Cloudflare meters every model in one unit. In its words, Neurons are \"our way of measuring AI outputs across different models, representing the GPU compute needed to perform your request.\" The pricing page now also shows a price per million tokens, per audio minute or per image tile for each model, and it says the two columns are equivalent: pricing is \"presented\" per unit, \"but still billing in neurons in the back end.\"</p>\n<ul>\n<li><strong>Rate:</strong> $0.011 per 1,000 Neurons, listed once for the whole service.</li>\n<li><strong>Free allocation:</strong> 10,000 Neurons a day on both the Workers Free and Workers Paid plans.</li>\n<li><strong>Reset:</strong> \"All limits reset daily at 00:00 UTC.\" Unused Neurons do not carry over, so the free allocation is worth $0.11 a day, or $3.30 over a 30 day month, only if you use it every day.</li>\n<li><strong>Over the limit on Free:</strong> \"further operations will fail with an error.\" There is no overage billing on the free plan; the table lists no overage price and says to upgrade to Workers Paid.</li>\n<li><strong>Over the limit on Paid:</strong> usage above 10,000 Neurons a day is charged at $0.011 per 1,000.</li>\n</ul>\n<p>The Workers Paid plan itself has \"a minimum charge of $5 USD per month for an account\", according to <a href=\"https://developers.cloudflare.com/workers/platform/pricing/\" target=\"_blank\" rel=\"noopener\">the Workers pricing page</a>. That page does not mention Workers AI, and we found no statement on whether Workers AI charges count toward the $5. In the examples below we add the $5 on top, which is the more expensive reading.</p>\n\n<h2 id=\"free-allocation\">What 10,000 free Neurons a day buys</h2>\n<p>A Neuron count only means something per model, so we converted the free allocation into requests. Our sample request is 1,000 input tokens and 300 output tokens, a short chatbot or classification call. The Neuron rates are Cloudflare's; the request shape and the results are our arithmetic.</p>\n<ul>\n<li><strong>Llama 3.3 70B (fp8 fast):</strong> 88.11 Neurons a request, so about <strong>113 requests a day</strong> free.</li>\n<li><strong>gpt-oss-120b:</strong> 52.27 Neurons, about <strong>191 a day</strong>.</li>\n<li><strong>gpt-oss-20b:</strong> 26.36 Neurons, about <strong>379 a day</strong>.</li>\n<li><strong>Llama 3.1 8B (fp8 fast):</strong> 14.58 Neurons, about <strong>685 a day</strong>.</li>\n<li><strong>Granite 4.0 H Micro:</strong> 4.59 Neurons, about <strong>2,178 a day</strong>.</li>\n</ul>\n<p>Output tokens drive most of the cost. On Llama 3.3 70B an output token uses about 7.7 times the Neurons of an input token (204,805 against 26,668 per million), so a model that writes long answers burns the allocation far faster than one that reads long prompts and answers briefly.</p>\n<p>For audio, Whisper uses 41.14 Neurons per audio minute, so 10,000 Neurons cover about <strong>243 minutes of transcription a day</strong> (about 214 on Whisper Large v3 Turbo at 46.63). Deepgram Nova 3 uses 472.73 Neurons a minute, about 21 minutes a day. For images, one 512x512 tile on FLUX.1 schnell at 4 steps is 43.2 Neurons (4.80 per tile plus 9.60 per step), about 231 images a day; the step count is our assumption.</p>\n\n<h2 id=\"model-prices\">Per-model prices for selected models</h2>\n<p>These are the token prices Cloudflare lists, per million tokens, input then output:</p>\n<ul>\n<li>Llama 3.2 1B Instruct: $0.027 and $0.201</li>\n<li>Llama 3.1 8B Instruct (fp8 fast): $0.045 and $0.384</li>\n<li>Llama 3.3 70B Instruct (fp8 fast): $0.293 and $2.253</li>\n<li>gpt-oss-20b: $0.200 and $0.300</li>\n<li>gpt-oss-120b: $0.350 and $0.750</li>\n<li>GLM 4.7 Flash: $0.060 and $0.400</li>\n<li>DeepSeek V4 Pro: $1.320 and $3.960, with cached input at $0.044 (paid billing only)</li>\n<li>Embeddings, BGE M3: $0.012 per million input tokens</li>\n</ul>\n<p>Per 1,000 of our sample requests, that works out to about $0.97 on Llama 3.3 70B, $0.57 on gpt-oss-120b, $0.29 on gpt-oss-20b, $0.16 on Llama 3.1 8B and $2.51 on DeepSeek V4 Pro (our arithmetic). Audio is billed per minute: Whisper and Whisper Large v3 Turbo at $0.0005 a minute, Deepgram Nova 3 at $0.0052 a minute ($0.0092 over WebSocket), and Deepgram Aura 1 at $0.015 per 1,000 input characters. One small gap to know: 41.14 Neurons at $0.011 per 1,000 is $0.00045, so the listed $0.0005 per Whisper minute is rounded, and the bill follows the Neurons. If you are comparing transcription prices, our <a href=\"/blog/whisper-api-pricing/\">Whisper API pricing</a> guide covers OpenAI's own rate.</p>\n\n<h2 id=\"monthly-cost\">What a month costs: three worked examples</h2>\n<p>Here is Llama 3.3 70B on the Workers Paid plan over a 30 day month, with our sample request and the 10,000 daily Neurons subtracted each day. The $5 minimum is added on top, as explained above. All of it is our arithmetic on Cloudflare's rates.</p>\n<ul>\n<li><strong>500 requests a day:</strong> 44,055 Neurons a day, $11.24 of usage, <strong>$16.24 a month</strong> with the $5.</li>\n<li><strong>2,000 requests a day:</strong> $54.85 of usage, <strong>$59.85 a month</strong>.</li>\n<li><strong>10,000 requests a day:</strong> $287.46 of usage, <strong>$292.46 a month</strong>.</li>\n</ul>\n<p>The same 10,000 requests a day on gpt-oss-20b would use 263,600 Neurons a day, so about $84 of usage a month, roughly 3.4 times less than Llama 3.3 70B. Picking the smallest model that does the job is the biggest lever on this bill, much bigger than the free allocation. If you are deciding whether a chatbot is worth building at all, our guide to <a href=\"/blog/ai-chatbot-for-business-cost/\">what an AI chatbot for a business costs</a> puts the model bill next to the build and maintenance costs.</p>\n\n<h2 id=\"limits\">Rate limits and paid only models</h2>\n<p>Cloudflare's <a href=\"https://developers.cloudflare.com/workers-ai/platform/limits/\" target=\"_blank\" rel=\"noopener\">limits page</a> (last updated September 17, 2026) sets limits per task type:</p>\n<ul>\n<li><strong>Text generation:</strong> 300 requests a minute, \"unless the model requires the Workers Paid plan\".</li>\n<li><strong>Paid only models:</strong> 20 requests a minute per account, per model, on standard billing, or 50 a minute when you pay with prepaid AI Gateway credits.</li>\n<li><strong>Speech recognition, text to image and translation:</strong> 720 requests a minute each. Text embeddings: 3,000 a minute.</li>\n<li><strong>Local testing counts:</strong> \"model inferences in local mode using Wrangler will also count towards these limits.\"</li>\n</ul>\n<p>Nine models require a paid billing method, according to the pricing page, including Kimi K2.6, GLM 5.2 and 5.3, and the DeepSeek V4 Flash and V4 Pro releases. These nine models get the lowest rate limit. In our view, 20 requests a minute is workable for an internal coding agent and tight for a customer facing chatbot at peak hours.</p>\n\n<h2 id=\"free-or-paid\">Free or Paid: when to upgrade</h2>\n<p>Stay on Workers Free while you prototype, while your daily usage fits inside 10,000 Neurons, and while a failed request after the limit is acceptable. Move to Workers Paid when any of these is true: your app must keep answering after the daily allocation is used, you need one of the nine paid only models, or you run more than about 113 Llama 3.3 70B requests a day of our sample size.</p>\n<p>The numbers that count against Workers AI: the free allocation is small (worth $3.30 a month at most), the free plan stops rather than bills, the $5 minimum may sit on top of usage, and the nine paid only models are capped at 20 requests a minute on standard billing. The numbers in its favour: one Neuron rate for the service, a published Neuron count per model, and small models that cost cents per thousand requests. For other free tiers, see our guides to the <a href=\"/blog/groq-api-free-tier/\">Groq API free tier</a> and the <a href=\"/blog/gemini-api-free-tier-limits/\">Gemini API free tier limits</a>, or route several providers through one key with <a href=\"/blog/openrouter-pricing/\">OpenRouter</a>.</p>\n\n<h2 id=\"build-with-it\">Using Workers AI in a business workflow</h2>\n<p>For a small team, the useful pattern is a cheap model for the high volume steps (classifying an inbound email, summarising a call transcript, tagging a lead) and a larger model only where quality decides the outcome. Workers AI's per-minute Whisper and Deepgram pricing also makes it a candidate for the speech side of <a href=\"/ai-calling-home-services\">AI voice agents for home service businesses</a>, though latency and call quality need testing on your own calls before you commit; our roundup of <a href=\"/blog/best-ai-voice-agents-2026/\">the best AI voice agents</a> compares finished products. If you want the workflow designed and costed before you build it, our <a href=\"/ai-automation-agency\">AI automation agency</a> team does that.</p>",
+ "faqs": [
+  [
+   "Is Cloudflare Workers AI free?",
+   "Partly. Every account gets 10,000 Neurons a day at no charge on both the Workers Free and Workers Paid plans. On the free plan, requests fail with an error once those are used; usage beyond them needs the Workers Paid plan, billed at $0.011 per 1,000 Neurons. The allocation resets at 00:00 UTC and does not carry over."
+  ],
+  [
+   "What is a Neuron in Workers AI?",
+   "It is Cloudflare's billing unit, which it describes as representing the GPU compute needed for a request. Each model has a Neuron rate per million tokens, per audio minute or per image tile, and the pricing page shows the matching dollar price next to it. Billing is still in Neurons."
+  ],
+  [
+   "How much does Llama 3.3 70B cost on Workers AI?",
+   "$0.293 per million input tokens and $2.253 per million output tokens (26,668 and 204,805 Neurons). For a request of 1,000 input and 300 output tokens that is about 88 Neurons, so roughly $0.97 per 1,000 requests and about 113 free requests a day, by our arithmetic."
+  ],
+  [
+   "Does Workers AI need the $5 Workers Paid plan?",
+   "Only to go past 10,000 Neurons a day or to use the nine models that require paid billing (which can also be paid with prepaid AI Gateway credits). The Workers Paid plan has a $5 a month account minimum. Cloudflare's pages do not say whether Workers AI charges count toward that $5, so budget for it on top to be safe."
+  ],
+  [
+   "What are the Workers AI rate limits?",
+   "Text generation is 300 requests a minute. Models that require the Workers Paid plan are limited to 20 requests a minute per account and model on standard billing, or 50 with prepaid AI Gateway credits. Speech recognition, text to image and translation are 720 a minute, and text embeddings 3,000. Local Wrangler calls count toward the limits."
+  ],
+  [
+   "How much transcription does the free allocation cover?",
+   "Whisper uses 41.14 Neurons per audio minute, so 10,000 Neurons cover about 243 minutes a day; Whisper Large v3 Turbo covers about 214. Deepgram Nova 3, at 472.73 Neurons a minute, covers about 21 minutes a day. These are our conversions of Cloudflare's rates."
+  ]
+ ],
+ "word_count": 1481,
+ "read_time": 6
+}
