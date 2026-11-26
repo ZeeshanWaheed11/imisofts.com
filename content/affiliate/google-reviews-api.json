@@ -1,0 +1,333 @@
+{
+ "slug": "google-reviews-api",
+ "title": "Google Reviews API: Up to 5 per Call, All for Owners",
+ "desc": "Google has no single reviews API. The Business Profile API returns all your own reviews, no listed fee; Places gives up to 5 a place at $25 per 1,000 calls.",
+ "date": "2026-11-26",
+ "time": "17:30",
+ "keywords": "google reviews api, api for google reviews, google business profile api reviews, google places api reviews, google maps reviews api cost, google reviews scraper, apify google maps reviews scraper",
+ "category": "Guides",
+ "affiliate_url": "https://www.apify.com?fpr=rc63q",
+ "question": "How do I get Google reviews through an API, and what does each route cost?",
+ "qtype": "cost",
+ "cta": "Need Google reviews wired into your dashboard or CRM?",
+ "body": "<p><strong>Short answer.</strong> There is no single \"Google Reviews API\". Google offers two official routes, and which one you can use depends on whose reviews you want. For reviews of a business you own or manage, the Google Business Profile API returns every review of a verified location, 50 per page, and Google lists no fee for it; you need a profile verified and active for 60+ days, a website, and an approved access request. For any other business, the Places API returns at most five reviews per place, billed as Place Details Enterprise + Atmosphere at $25 per 1,000 calls after 1,000 free calls a month. That is $5 per 1,000 reviews in the first price tier if every place returns five, and Google's terms say you may not copy and save user reviews. Scrapers such as Apify's Google Maps Reviews Scraper, which Apify says extracts all reviews, charge $0.30 to $0.60 per 1,000 reviews plus a plan fee of $0 to $999 a month, but Google's Maps terms bar copying and bulk downloading its content. We earn a commission if you buy Apify through our links.</p>\n<p>Everything below was read on 26 November 2026 on Google's Business Profile API documentation and policies, the Places API (New) documentation and policies, the Google Maps Platform price list (last updated 17 November 2026), the Google Maps Additional Terms of Service (last modified January 27, 2026) and Apify's Store. The per-review costs are our arithmetic on those published prices. We made no API calls and ran no scraper jobs.</p>\n\n<h2 id=\"which-api\">Which Google reviews API answers which question</h2>\n<p>Google splits reviews by ownership. The Business Profile API (still called the Google My Business API in parts of its docs) is for the owner or an authorized manager of a listing. It can list, read, reply to and delete replies on reviews. The Places API is for showing information about any place inside your own app, and it returns a sample of reviews, not the full history.</p>\n<ul>\n<li><strong>Your own reviews, or a client's:</strong> Business Profile API. Full history, replies, no listed fee, approval needed.</li>\n<li><strong>A competitor's or a prospect's rating:</strong> Places API. Rating and review count on the Enterprise SKU, up to five review texts on Enterprise + Atmosphere.</li>\n<li><strong>Every review of a business you do not manage:</strong> we found no Google page offering this; <code>reviews.list</code> needs a verified location and the business.manage permission. That is the gap scrapers fill, and it is where the terms risk sits.</li>\n</ul>\n\n<h2 id=\"business-profile-api\">Business Profile API: all your reviews, no listed fee</h2>\n<p>Google's <a href=\"https://developers.google.com/my-business/reference/rest/v4/accounts.locations.reviews/list\" target=\"_blank\" rel=\"noopener\">reference for <code>accounts.locations.reviews.list</code></a> says it \"Returns the paginated list of reviews for the specified location\" and that it \"is only valid if the specified location is verified.\" Each page holds up to 50 reviews (\"The maximum pageSize is 50\"), and you can sort by rating or by update time. The response also carries the location's average rating and total review count. A separate method, <code>batchGetReviews</code>, returns reviews from several locations in one request, which suits an agency or a multi-location business.</p>\n<p>Getting in is the hard part. Google's <a href=\"https://developers.google.com/my-business/content/prereqs\" target=\"_blank\" rel=\"noopener\">prerequisites page</a> says every applicant must \"Manage a Google Business Profile that is verified and active for 60+ days\" and \"Have a website representing the business listed on the GBP.\" The profile can be your own office or one that belongs to a client you manage, and you apply with an email address listed as an owner or manager on that profile. Google's <a href=\"https://developers.google.com/my-business/content/faq\" target=\"_blank\" rel=\"noopener\">FAQ</a> says requests \"are reviewed within 14 days.\" Google's prerequisites page says you can tell from your project's quota: 0 queries per minute means not yet approved, 300 means approved.</p>\n<p>We found no fee for the Business Profile APIs on Google's review, prerequisites, quota or FAQ pages, so we describe it as no listed fee rather than free forever. At 300 requests a minute and 50 reviews a page, an approved project could in theory pull up to 15,000 reviews a minute, our arithmetic on Google's two numbers.</p>\n<p>Two lines in the <a href=\"https://developers.google.com/my-business/content/policies\" target=\"_blank\" rel=\"noopener\">Business Profile API policies</a> matter for anyone building a reviews tool. You \"must not automate or trigger review replies\" without \"the user's prior specific and express consent\", so an AI that answers reviews needs the owner's consent first. And content may not be stored \"for use outside of your Business Profile project\" except in limited amounts, kept \"for no more than 30 calendar days\", securely, and it \"cannot be manipulated or aggregated in any way.\"</p>\n\n<h2 id=\"places-api\">Places API: five reviews per place, $25 per 1,000 calls</h2>\n<p>Place Details (New) is the call that returns reviews for any business with a place ID. Google's <a href=\"https://developers.google.com/maps/documentation/places/web-service/place-details\" target=\"_blank\" rel=\"noopener\">Place Details guide</a> is precise about which fields cost what. Asking for <code>rating</code> and <code>userRatingCount</code> \"triggers the Place Details Enterprise SKU\". Asking for <code>reviews</code> and <code>reviewSummary</code> returns \"up to five user-submitted Review objects and an AI-generated summary of reviews\" and \"triggers the Place Details Enterprise + Atmosphere SKU\".</p>\n<p>From the <a href=\"https://developers.google.com/maps/billing-and-pricing/pricing\" target=\"_blank\" rel=\"noopener\">Google Maps Platform price list</a> (last updated 17 November 2026), per 1,000 billable events:</p>\n<table>\n<thead><tr><th>SKU</th><th>Free per month</th><th>Up to 100,000</th><th>100,001 to 500,000</th><th>500,001 to 1M</th><th>1M to 5M</th><th>Above 5M</th></tr></thead>\n<tbody>\n<tr><td>Place Details Enterprise (rating, review count)</td><td>1,000</td><td>$20.00</td><td>$16.00</td><td>$12.00</td><td>$6.00</td><td>$1.51</td></tr>\n<tr><td>Place Details Enterprise + Atmosphere (up to 5 reviews)</td><td>1,000</td><td>$25.00</td><td>$20.00</td><td>$15.00</td><td>$7.50</td><td>$2.28</td></tr>\n</tbody>\n</table>\n<p>So 2,000 review calls in a month cost $25 (the first 1,000 are free), and 10,000 cost $225. If every place returns all five reviews, $25 buys 5,000 reviews, or $5 per 1,000 reviews in the first tier. A place with fewer than five reviews returns fewer, which raises the cost per review. Google bills usage monthly by volume range, so the price per 1,000 calls falls with volume: $20 above 100,000 calls, $15 above 500,000, $7.50 above 1 million and $2.28 above 5 million, which is about $0.46 per 1,000 reviews on those calls, close to a scraper's rate. If you only need a star rating to qualify a lead, Google itself suggests leaving out the reviews field so the call stays on the cheaper Enterprise SKU.</p>\n<p>The Places API also comes with display duties. Google's policy page says \"You must always credit the author when displaying photos or reviews\", and users must be able to open each review on Google Maps through its <code>googleMapsUri</code>. Our <a href=\"/blog/google-places-api-pricing/\">Google Places API pricing guide</a> covers the rest of the Places price list.</p>\n\n<h2 id=\"scrapers\">Scrapers: every review, $0.30 to $0.60 per 1,000</h2>\n<p>For all reviews of a business you do not manage, the usual tool is a scraper. Apify's Google Maps Reviews Scraper, maintained by Apify, says it extracts \"all reviews of Google Maps places using place URLs\", with review text, date, owner response, review URL and reviewer details. Its <a href=\"https://apify.com/compass/google-maps-reviews-scraper/pricing\" target=\"_blank\" rel=\"noopener\">pricing tab</a>, read 26 November 2026:</p>\n<ul>\n<li><strong>Free plan, $0 a month:</strong> $0.60 per 1,000 reviews, with \"$5 to spend\", or \"up to 8,333 scraped reviews\".</li>\n<li><strong>Starter, $19 a month:</strong> $0.45 per 1,000.</li>\n<li><strong>Scale, $199 a month:</strong> $0.40 per 1,000.</li>\n<li><strong>Business, $999 a month:</strong> $0.30 per 1,000.</li>\n</ul>\n<p>Platform usage is included, plus $0.00005 per actor start. Apify's page lists each paid plan's fee as the same amount \"to spend\" (for example \"$19 to spend\" on Starter), so the plan fee is the floor of your bill: 10,000 reviews on Starter cost $19 in total ($1.90 per 1,000 effective), and 50,000 reviews come to $22.50. You can <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">try the Google Maps Reviews Scraper on Apify's free plan</a> before choosing a plan.</p>\n\n<h2 id=\"cost-compare\">Cost per 1,000 reviews, side by side</h2>\n<p>On price alone, a scraper is usually cheaper per review than the Places API at small and medium volume: $0.45 per 1,000 on Apify Starter (plus the $19 plan, so $19 for 10,000 reviews) against $5 per 1,000 reviews in Google's first tier ($25 for 10,000 reviews from 2,000 calls, if each place returns five). Above 5 million calls a month Google's rate falls to about $0.46 per 1,000 reviews. But the cheapest route of all is the one that pays us nothing. If the reviews are your own or a client's, the Business Profile API has no listed fee, returns the full history, and lets you reply. Paying a scraper to read reviews you could pull through Google's own API is money you do not need to spend.</p>\n<table>\n<thead><tr><th>Route</th><th>Whose reviews</th><th>Reviews per place</th><th>Cost</th></tr></thead>\n<tbody>\n<tr><td>Business Profile API</td><td>Locations you manage</td><td>All, 50 per page</td><td>No fee listed</td></tr>\n<tr><td>Places API, Enterprise + Atmosphere</td><td>Any place</td><td>Up to 5</td><td>$25 per 1,000 calls after 1,000 free a month ($5 per 1,000 reviews if five each), falling to $2.28 above 5M calls</td></tr>\n<tr><td>Apify reviews scraper</td><td>Any place</td><td>All, per Apify</td><td>$0.30 to $0.60 per 1,000 reviews, plus a $0 to $999 monthly plan</td></tr>\n</tbody>\n</table>\n\n<h2 id=\"rules\">What Google's terms allow you to keep</h2>\n<p>This is where the price comparison stops being the whole story. Google's <a href=\"https://developers.google.com/maps/documentation/places/web-service/policies\" target=\"_blank\" rel=\"noopener\">Places API policies</a> say \"Don't export, extract, or scrape Google Maps Content for use outside the Services\", and give as an example \"copy and save business names, addresses, or user reviews.\" Google does let you store \"exempt identifiers such as the place ID\" so you can \"fetch fresh details when a user interacts with a place.\"</p>\n<p>The <a href=\"https://www.google.com/help/terms_maps/\" target=\"_blank\" rel=\"noopener\">Google Maps Additional Terms of Service</a> say you may not \"copy the content\", \"mass download or create bulk feeds of the content (or let anyone else do so)\", or use Google Maps \"to create or augment any other mapping-related dataset (including ... business listings database, mailing list, or telemarketing list)\". In our view, a reviews scraper fits the bulk copying those terms describe. Whether that is lawful where you are is a separate question from whether it breaks Google's terms; our guide on <a href=\"/blog/is-web-scraping-legal/\">whether web scraping is legal</a> covers the legal question. This is general information, not legal advice.</p>\n<p>In our view, the low-risk uses are reading your own reviews through the Business Profile API and showing a live rating or up to five reviews with attribution through the Places API. Google's terms make no exception for scraped reviews kept for internal use.</p>\n\n<h2 id=\"which-to-pick\">Which route to pick</h2>\n<ul>\n<li><strong>A business owner or agency tracking its own reviews:</strong> Business Profile API. Apply early: you need a profile verified and active for 60+ days, and Google says requests are reviewed within 14 days.</li>\n<li><strong>A lead list scored by rating:</strong> Places API Enterprise SKU for rating and review count only, at $20 per 1,000 after 1,000 free. Our <a href=\"/blog/best-google-maps-scrapers-2026/\">Google Maps scraper comparison</a> covers the listings side.</li>\n<li><strong>Competitor review analysis at volume:</strong> we found no official route that returns every review; a scraper does, at $0.45 per 1,000 on Apify Starter plus the plan fee, with the terms risk above.</li>\n</ul>\n<p>If you want reviews wired into a dashboard, a CRM or an AI reply assistant that waits for owner approval, see our <a href=\"/ai-automation-agency\">AI automation services</a>; for how a business shows up in Google and in AI answers, see our <a href=\"/ai-search-optimization\">AI search optimization service</a>. A reply bot is only one part of the cost; our breakdown of <a href=\"/blog/ai-chatbot-for-business-cost/\">what an AI chatbot for business costs</a> shows the rest. If you go the scraper route, <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">start with Apify's Google Maps Reviews Scraper</a> on the free credit and check the output before you scale.</p>\n",
+ "faqs": [
+  [
+   "Is there an official Google Reviews API?",
+   "Not under that name. Google has two official routes: the Business Profile API, which returns all reviews for verified locations you own or manage, and the Places API, which returns up to five reviews for any place. We found no Google page offering the full review history of a business you do not manage."
+  ],
+  [
+   "Is the Google Business Profile API free?",
+   "Google lists no fee for it on its review, prerequisites, quota or FAQ pages. Access needs approval: a Business Profile verified and active for 60+ days, a website, and a request that Google says it reviews within 14 days. Google's prerequisites page says an approved project shows a quota of 300 queries per minute."
+  ],
+  [
+   "How many reviews does the Google Places API return?",
+   "Up to five per place. Requesting the reviews field triggers the Place Details Enterprise + Atmosphere SKU, at $25 per 1,000 calls after 1,000 free calls a month (price list of 17 November 2026). That is $5 per 1,000 reviews in the first tier if each place returns five; the rate falls with volume, to $2.28 per 1,000 calls above 5 million."
+  ],
+  [
+   "How do I get all Google reviews for a business I do not own?",
+   "We found no official Google API that returns them. Scrapers are the usual route: Apify's Google Maps Reviews Scraper, which Apify says extracts all reviews, costs $0.30 to $0.60 per 1,000 reviews plus a plan fee of $0 to $999 a month. Google's Maps terms bar copying and bulk downloading its content, so check the terms and your local law first."
+  ],
+  [
+   "Can I store Google reviews in my database?",
+   "Not from the Places API: Google's policy says not to copy and save user reviews, and to store the place ID instead. Business Profile API content kept for use outside your Business Profile project is limited to small amounts, for no more than 30 calendar days."
+  ],
+  [
+   "Can I auto-reply to Google reviews with AI?",
+   "Through the Business Profile API you can reply to reviews of locations you manage, but Google's policy says you must not automate review replies without the user's prior specific and express consent."
+  ]
+ ],
+ "image": {
+  "style": "v2",
+  "cluster": "Scraping and data APIs",
+  "alt": "Three ways to get Google reviews compared: the Business Profile API with no listed fee for your own locations, the Places API at 25 dollars per 1,000 calls for up to five reviews of any place, and Apify's scraper at 0.45 dollars per 1,000 reviews on Starter",
+  "explain": {
+   "layout": "compare",
+   "palette": "ember",
+   "kicker": "Google reviews, three routes",
+   "headline": "Which route gets which reviews",
+   "items": [
+    {
+     "icon": "building",
+     "label": "Business Profile API",
+     "value": "No fee",
+     "unit": "listed by Google",
+     "note": "your own locations only",
+     "num": 0
+    },
+    {
+     "icon": "globe",
+     "label": "Places API",
+     "value": "$25",
+     "unit": "per 1,000 calls",
+     "note": "up to 5 reviews a place",
+     "num": 25,
+     "hot": true
+    },
+    {
+     "icon": "database",
+     "label": "Apify reviews scraper",
+     "value": "$0.45",
+     "unit": "per 1,000 reviews",
+     "note": "Starter, plus $19 plan",
+     "num": 0.45
+    }
+   ],
+   "footnote": "Google price list of 17 Nov 2026; Apify Store, 26 Nov 2026. Scraping is outside Google's Maps terms."
+  },
+  "cover": {
+   "headline": "Google Reviews API: what each route costs",
+   "number": "5 reviews / call",
+   "kicker": "Scraping and data APIs"
+  },
+  "figures": [
+   {
+    "under": "business-profile-api",
+    "alt": "Who can use the Google Business Profile API for reviews: a profile verified and active for 60 days, a website, an owner or manager email, and approval reviewed within 14 days, after which the quota is 300 queries a minute",
+    "explain": {
+     "layout": "rules",
+     "palette": "sage",
+     "kicker": "Business Profile API access",
+     "headline": "Who gets review access",
+     "subject_icon": "key",
+     "subject": "Access",
+     "items": [
+      {
+       "mark": "yes",
+       "label": "Profile verified 60+ days",
+       "note": "your own or a client's you manage"
+      },
+      {
+       "mark": "yes",
+       "label": "A website for the business",
+       "note": "listed on the Business Profile"
+      },
+      {
+       "mark": "warn",
+       "label": "Requests reviewed in 14 days",
+       "note": "0 QPM until approved, then 300 QPM"
+      },
+      {
+       "mark": "no",
+       "label": "Businesses you do not manage",
+       "note": "reviews.list needs a verified location"
+      }
+     ],
+     "footnote": "Source: Google Business Profile API prerequisites, FAQ and reviews.list reference, Nov 2026."
+    }
+   },
+   {
+    "under": "places-api",
+    "alt": "How the Places API bills reviews: rating and review count trigger the Enterprise SKU at 20 dollars per 1,000, review text triggers Enterprise plus Atmosphere at 25 dollars, at most five reviews per place, and the first 1,000 calls each month are free",
+    "explain": {
+     "layout": "cards",
+     "palette": "tide",
+     "kicker": "Place Details (New)",
+     "headline": "What each review field costs",
+     "items": [
+      {
+       "icon": "chart",
+       "label": "Rating and count",
+       "note": "Enterprise SKU, $20 per 1,000 calls"
+      },
+      {
+       "icon": "document",
+       "label": "Review text",
+       "note": "Enterprise + Atmosphere, $25 per 1,000",
+       "hot": true
+      },
+      {
+       "icon": "warning",
+       "label": "Five reviews at most",
+       "note": "per place, per call"
+      },
+      {
+       "icon": "coin",
+       "label": "1,000 free calls",
+       "note": "per SKU, per month"
+      }
+     ],
+     "footnote": "Source: Places API Place Details guide and Google Maps Platform price list, 17 Nov 2026."
+    }
+   },
+   {
+    "under": "cost-compare",
+    "alt": "Cost per 1,000 reviews: Places API 5 dollars in its first price tier when every place returns five reviews, Apify Free plan 0.60 dollars, Apify Starter 0.45 dollars and Apify Business 0.30 dollars, before Apify plan fees",
+    "explain": {
+     "layout": "compare",
+     "palette": "ember",
+     "kicker": "Per 1,000 reviews",
+     "headline": "Price per review, side by side",
+     "items": [
+      {
+       "icon": "globe",
+       "label": "Places API",
+       "value": "$5.00",
+       "unit": "first price tier",
+       "note": "if every place has 5",
+       "num": 5
+      },
+      {
+       "icon": "coin",
+       "label": "Apify Free",
+       "value": "$0.60",
+       "unit": "per 1,000",
+       "note": "$5 to spend, $0 plan",
+       "num": 0.6
+      },
+      {
+       "icon": "coin",
+       "label": "Apify Starter",
+       "value": "$0.45",
+       "unit": "per 1,000",
+       "note": "$19 a month plan",
+       "num": 0.45,
+       "hot": true
+      },
+      {
+       "icon": "coin",
+       "label": "Apify Business",
+       "value": "$0.30",
+       "unit": "per 1,000",
+       "note": "$999 a month plan",
+       "num": 0.3
+      }
+     ],
+     "footnote": "Our arithmetic. Apify plan fees extra ($19 to $999). Google falls to $0.46 above 5M calls."
+    }
+   },
+   {
+    "under": "rules",
+    "alt": "What Google's terms allow you to keep: storing place IDs is allowed, Business Profile content only for up to 30 days, copying and saving user reviews from Places is not allowed, and mass download of Google Maps content is barred",
+    "explain": {
+     "layout": "rules",
+     "palette": "sage",
+     "kicker": "Google's terms",
+     "headline": "What you may keep",
+     "subject_icon": "scale",
+     "subject": "Storage",
+     "items": [
+      {
+       "mark": "yes",
+       "label": "Place IDs",
+       "note": "exempt identifiers; fetch fresh details"
+      },
+      {
+       "mark": "warn",
+       "label": "Business Profile content kept",
+       "note": "outside the project: small, 30 days at most"
+      },
+      {
+       "mark": "no",
+       "label": "Copy and save user reviews",
+       "note": "Places API policies"
+      },
+      {
+       "mark": "no",
+       "label": "Mass download or bulk feeds",
+       "note": "Google Maps Additional Terms"
+      }
+     ],
+     "footnote": "Summary of Google's Places and Business Profile API policies and Maps terms. Not legal advice."
+    }
+   }
+  ],
+  "chart": {
+   "title": "Cost per 1,000 Google reviews by route",
+   "subtitle": "Places API in its first tier, five reviews a call; Apify rates exclude the monthly plan fee.",
+   "type": "hbar",
+   "rows": [
+    [
+     "Places API, tier 1",
+     5.0
+    ],
+    [
+     "Apify Free",
+     0.6
+    ],
+    [
+     "Apify Starter",
+     0.45
+    ],
+    [
+     "Apify Scale",
+     0.4
+    ],
+    [
+     "Apify Business",
+     0.3
+    ]
+   ],
+   "prefix": "$",
+   "suffix": "",
+   "highlight": 0,
+   "note": "Five reviews per $0.025 call",
+   "source": "Per 1,000 reviews, usage rate only. Source: Google Maps Platform and Apify pricing pages, November 2026.",
+   "alt": "Bar chart of the cost per 1,000 Google reviews: Places API 5 dollars in its first tier, Apify Free 0.60, Starter 0.45, Scale 0.40 and Business 0.30 dollars before plan fees.",
+   "after_heading": "Cost per 1,000 reviews, side by side"
+  }
+ },
+ "key_numbers": {
+  "title": "Key numbers",
+  "rows": [
+   {
+    "label": "Business Profile API fee listed by Google",
+    "value": "None",
+    "note": "own or managed locations only"
+   },
+   {
+    "label": "Profile age needed to apply",
+    "value": "60+ days",
+    "note": "verified and active, plus a website"
+   },
+   {
+    "label": "Access requests reviewed",
+    "value": "Within 14 days",
+    "note": "per Google's FAQ"
+   },
+   {
+    "label": "Approved project quota",
+    "value": "300 queries a minute",
+    "note": "per the prerequisites page; 0 means not approved"
+   },
+   {
+    "label": "Reviews per page, reviews.list",
+    "value": "50",
+    "note": "maximum pageSize"
+   },
+   {
+    "label": "Reviews per place, Places API",
+    "value": "Up to 5",
+    "note": "Place Details reviews field"
+   },
+   {
+    "label": "Place Details Enterprise + Atmosphere",
+    "value": "$25 per 1,000 calls",
+    "note": "after 1,000 free a month; $2.28 above 5M"
+   },
+   {
+    "label": "Place Details Enterprise, rating only",
+    "value": "$20 per 1,000 calls",
+    "note": "after 1,000 free a month"
+   },
+   {
+    "label": "Places API cost per 1,000 reviews",
+    "value": "$5.00 in tier 1",
+    "note": "our arithmetic, 5 reviews a call; about $0.46 above 5M calls"
+   },
+   {
+    "label": "Apify Google Maps Reviews Scraper, Starter",
+    "value": "$0.45 per 1,000",
+    "note": "plus $19 plan; $0.60 on Free, $0.30 on $999 Business"
+   },
+   {
+    "label": "Business Profile content kept outside the project",
+    "value": "30 calendar days",
+    "note": "limited amounts only"
+   }
+  ],
+  "source": "Read on 26 November 2026 from Google's Business Profile API docs and policies, the Places API docs and policies, the Google Maps Platform price list and Apify's Store."
+ },
+ "word_count": 1856,
+ "read_time": 8
+}
