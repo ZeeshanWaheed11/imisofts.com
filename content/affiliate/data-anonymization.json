@@ -1,0 +1,271 @@
+{
+  "slug": "data-anonymization",
+  "title": "Data Anonymization: 4 Techniques and HIPAA's 18 Identifiers",
+  "desc": "Anonymized data can't be linked to a person by likely means. HIPAA Safe Harbor removes 18 identifiers, and GDPR treats pseudonymized data as personal data.",
+  "date": "2026-11-26",
+  "time": "13:00",
+  "keywords": "data anonymization, anonymize data, data anonymization techniques, pseudonymization, pseudonymization vs anonymization, data masking, de-identification, hipaa safe harbor, gdpr anonymization, data obfuscation",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "How do you anonymize company data so it is no longer personal data?",
+  "qtype": "howto",
+  "cta": "Check if your company's data qualifies",
+  "image": {
+    "style": "v2",
+    "cluster": "AI data licensing",
+    "alt": "Three legal tests for anonymized data: GDPR Recital 26 asks whether a person is identifiable by means reasonably likely to be used, HIPAA offers Expert Determination or Safe Harbor with 18 identifiers removed, and California requires reasonable measures, a public commitment and recipient contracts",
+    "explain": {
+      "layout": "cards",
+      "palette": "ember",
+      "kicker": "Three legal tests",
+      "headline": "When is data anonymous?",
+      "items": [
+        {
+          "icon": "globe",
+          "label": "GDPR, Recital 26",
+          "note": "Not identifiable by reasonably likely means",
+          "hot": true
+        },
+        {
+          "icon": "shield",
+          "label": "HIPAA, 164.514(b)",
+          "note": "Expert Determination or 18 identifiers out"
+        },
+        {
+          "icon": "scale",
+          "label": "CCPA, 1798.140(m)",
+          "note": "Reasonable steps, public pledge, contracts"
+        }
+      ],
+      "footnote": "Sources: GDPR (EUR-Lex), HHS guidance, California Civil Code. Our summary."
+    },
+    "cover": {
+      "headline": "Data anonymization, explained",
+      "number": "18 identifiers",
+      "kicker": "HIPAA Safe Harbor"
+    },
+    "figures": [
+      {
+        "under": "pseudonymization-vs-anonymization",
+        "alt": "Pseudonymization versus anonymization: pseudonymized data stays personal data under GDPR Recital 26, the FTC's 2024 post says hashing does not make data anonymous, and anonymized data cannot be linked back by reasonably likely means",
+        "explain": {
+          "layout": "rules",
+          "palette": "sage",
+          "kicker": "GDPR and FTC",
+          "headline": "Pseudonymized is not anonymous",
+          "subject_icon": "lock",
+          "subject": "Your records",
+          "items": [
+            {
+              "mark": "no",
+              "label": "Pseudonymized with a kept key",
+              "note": "Still personal data, GDPR Recital 26"
+            },
+            {
+              "mark": "no",
+              "label": "Hashed emails or phone numbers",
+              "note": "FTC, July 2024: hashing does not anonymize"
+            },
+            {
+              "mark": "yes",
+              "label": "Anonymized",
+              "note": "Not identifiable by reasonably likely means"
+            }
+          ],
+          "footnote": "Sources: GDPR Recital 26 and Article 4(5); FTC Technology blog, July 24, 2024."
+        }
+      },
+      {
+        "under": "hipaa-safe-harbor",
+        "alt": "HIPAA Safe Harbor identifier groups to remove: names, small geographic units and date elements except year, contact numbers and emails, record and account numbers, device identifiers, URLs and IP addresses, and biometrics and full-face photos, plus any other unique identifying code",
+        "explain": {
+          "layout": "cards",
+          "palette": "tide",
+          "kicker": "HIPAA 164.514(b)(2)",
+          "headline": "18 identifiers, six groups",
+          "items": [
+            {
+              "icon": "person",
+              "label": "Names",
+              "note": "Person, relatives, employers, household"
+            },
+            {
+              "icon": "globe",
+              "label": "Places and dates",
+              "note": "Below state level; dates except year"
+            },
+            {
+              "icon": "envelope",
+              "label": "Contact details",
+              "note": "Phone, fax, email"
+            },
+            {
+              "icon": "card",
+              "label": "Numbers and records",
+              "note": "SSN, record, account IDs, any unique code"
+            },
+            {
+              "icon": "chip",
+              "label": "Devices and web",
+              "note": "Vehicle and device IDs, URLs, IP addresses"
+            },
+            {
+              "icon": "key",
+              "label": "Biometrics and photos",
+              "note": "Finger and voice prints, full-face images",
+              "hot": true
+            }
+          ],
+          "footnote": "Source: HHS de-identification guidance. Grouping is ours; all 18 also cover relatives, employers, household."
+        }
+      },
+      {
+        "under": "techniques",
+        "alt": "Four data anonymization techniques: suppression removes fields, generalization makes values broader such as five digit ZIP to three digits, perturbation replaces values such as age within a 5 year window, and synthetic data generates new records from a model",
+        "explain": {
+          "layout": "cards",
+          "palette": "ember",
+          "kicker": "HHS and NIST SP 800-188",
+          "headline": "4 anonymization techniques",
+          "numbered": true,
+          "items": [
+            {
+              "icon": "document",
+              "label": "Suppression",
+              "note": "Remove a field, such as the ZIP code"
+            },
+            {
+              "icon": "chart",
+              "label": "Generalization",
+              "note": "Five digit ZIP to three digits"
+            },
+            {
+              "icon": "wave",
+              "label": "Perturbation",
+              "note": "Age as a random value in a 5 year window"
+            },
+            {
+              "icon": "chip",
+              "label": "Synthetic data",
+              "note": "New records generated by a model"
+            }
+          ],
+          "footnote": "Sources: HHS de-identification guidance; NIST SP 800-188 (September 2023)."
+        }
+      },
+      {
+        "under": "step-by-step",
+        "alt": "Five steps to anonymize company records before licensing: map the fields, decide the legal target, remove and transform identifiers, test re-identification, and lock the no re-identification duty into the buyer contract",
+        "explain": {
+          "layout": "flow",
+          "palette": "sage",
+          "kicker": "Before you license records",
+          "headline": "Anonymize in 5 steps",
+          "items": [
+            {
+              "icon": "database",
+              "label": "Map the fields",
+              "note": "Direct and quasi-identifiers"
+            },
+            {
+              "icon": "scale",
+              "label": "Decide the target",
+              "note": "GDPR, CCPA or HIPAA test"
+            },
+            {
+              "icon": "shield",
+              "label": "Remove, transform",
+              "note": "Hashing does not count"
+            },
+            {
+              "icon": "warning",
+              "label": "Try to re-identify",
+              "note": "Document method and result"
+            },
+            {
+              "icon": "document",
+              "label": "Lock the contract",
+              "note": "Buyer must not re-identify"
+            }
+          ],
+          "footnote": "Our suggested steps, based on HHS, NIST and CCPA 1798.140(m)."
+        }
+      }
+    ]
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Identifiers removed under HIPAA Safe Harbor",
+        "value": "18",
+        "note": "HIPAA Privacy Rule 164.514(b)(2)(i)"
+      },
+      {
+        "label": "Americans re-identifiable with 15 attributes",
+        "value": "99.98%",
+        "note": "Nature Communications, July 2019"
+      },
+      {
+        "label": "Populations in that study's tests",
+        "value": "210",
+        "note": "Rocher et al., 2019"
+      },
+      {
+        "label": "Population to keep a 3 digit ZIP",
+        "value": "more than 20,000",
+        "note": "Safe Harbor, else set to 000"
+      },
+      {
+        "label": "Age above which Safe Harbor groups ages",
+        "value": "89",
+        "note": "grouped as 90 or older"
+      },
+      {
+        "label": "FTC post: hashing is not anonymization",
+        "value": "July 24, 2024",
+        "note": "FTC Technology blog"
+      },
+      {
+        "label": "Duties for deidentified data in California",
+        "value": "3",
+        "note": "Civil Code 1798.140(m)"
+      },
+      {
+        "label": "Anonymization techniques compared here",
+        "value": "4",
+        "note": "HHS classes plus NIST synthetic data"
+      }
+    ],
+    "source": "GDPR (EUR-Lex); HHS de-identification guidance; California Civil Code 1798.140; FTC Technology blog; Nature Communications (Rocher et al., 2019); NIST SP 800-188. Read November 26, 2026."
+  },
+  "faqs": [
+    [
+      "What is data anonymization?",
+      "Changing records so they no longer relate to an identifiable person. Under GDPR Recital 26 that means the person cannot be identified by any means reasonably likely to be used, by you or anyone else, and then the GDPR no longer applies to the data."
+    ],
+    [
+      "What is the difference between anonymization and pseudonymization?",
+      "Pseudonymized data replaces identifiers but keeps a separate key, so it can be linked back. GDPR Recital 26 says pseudonymized data is still information on an identifiable person. Anonymized data cannot be linked back by means reasonably likely to be used."
+    ],
+    [
+      "Does hashing anonymize data?",
+      "No. The FTC wrote on July 24, 2024 that hashes are not anonymous and that companies should not claim hashing renders personal data anonymized. It says hashes of common identifiers such as emails, phone numbers or Social Security numbers can be reversed in a matter of seconds."
+    ],
+    [
+      "What are the 18 HIPAA identifiers?",
+      "Under Safe Harbor, HIPAA Privacy Rule 164.514(b)(2): names, small geographic units, date elements except year, phone and fax numbers, emails, SSNs, medical record, health plan, account and license numbers, vehicle and device identifiers, URLs, IP addresses, biometrics, full-face photos and any other unique code."
+    ],
+    [
+      "Is anonymized data still personal data under GDPR?",
+      "No. Recital 26 says the GDPR does not concern anonymous information. But the bar is high: if the person can still be singled out or identified by reasonably likely means, the data is personal data and the GDPR applies."
+    ],
+    [
+      "Can anonymized data be re-identified?",
+      "It can be. A 2019 Nature Communications study estimated that 99.98% of Americans would be correctly re-identified in any dataset using 15 demographic attributes. HIPAA Safe Harbor, for example, removes dates and small geographic units, not only names."
+    ]
+  ],
+  "word_count": 1809,
+  "read_time": 8,
+  "body": "<p><strong>Short answer.</strong> Data anonymization means changing records so that they can no longer be linked to a person by any means reasonably likely to be used. Pseudonymized or hashed data does not meet that bar: <a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679\">GDPR Recital 26</a> says pseudonymized data is still information on an identifiable person, and the FTC wrote on July 24, 2024 that <a href=\"https://www.ftc.gov/policy/advocacy-research/tech-at-ftc/2024/07/no-hashing-still-doesnt-make-your-data-anonymous\">hashing does not make data anonymous</a>. In the US, the HIPAA Safe Harbor method gives a fixed checklist of <strong>18 identifiers</strong> to remove from health records.</p>\n<p>The bar is high because re-identification is easy. A 2019 study in Nature Communications estimated that <strong>99.98%</strong> of Americans would be correctly re-identified in any dataset using 15 demographic attributes. If you plan to license company records to an AI buyer, anonymization affects which privacy laws still apply to what you hand over. Our <a href=\"/ai-data-licensing\">AI data licensing service</a> page explains how we approach this with established companies.</p>\n<p>This guide explains the legal tests in the EU, the US health sector and California, the main techniques, and a step by step process. Sources were read on November 26, 2026. This is general information, not legal advice.</p>\n<h2 id=\"what-anonymization-means\">What data anonymization means</h2>\n<p>Under the GDPR, anonymous information is information \"which does not relate to an identified or identifiable natural person\", or personal data \"rendered anonymous in such a manner that the data subject is not or no longer identifiable\". Recital 26 adds that the GDPR \"does not therefore concern the processing of such anonymous information, including for statistical or research purposes.\"</p>\n<p>In practice, the test is about likely means, not every possible one. To decide whether someone is identifiable, Recital 26 says to take account of \"all the means reasonably likely to be used, such as singling out\", by the controller \"or by another person\". The factors include \"the costs of and the amount of time required for identification\", the technology available at the time of processing, and technological developments.</p>\n<p>The FTC uses stricter wording than Recital 26: \"data is only anonymous when it can never be associated back to a person.\"</p>\n<h2 id=\"pseudonymization-vs-anonymization\">Pseudonymization vs anonymization</h2>\n<p>These two words are often mixed up, and the difference decides which law applies.</p>\n<table>\n<thead><tr><th>Question</th><th>Pseudonymized data</th><th>Anonymized data</th></tr></thead>\n<tbody>\n<tr><td>What is done</td><td>Data can no longer be attributed to a person without additional information that is kept separately (GDPR Article 4(5))</td><td>Records are changed so the person is not or no longer identifiable (GDPR Recital 26)</td></tr>\n<tr><td>Can it be linked back?</td><td>Yes, with the additional information</td><td>Not by means reasonably likely to be used</td></tr>\n<tr><td>Still personal data under the GDPR?</td><td>Yes, per Recital 26</td><td>No, the GDPR does not apply to anonymous information</td></tr>\n<tr><td>California term</td><td>\"Pseudonymize\", Civil Code 1798.140(aa)</td><td>\"Deidentified\", Civil Code 1798.140(m)</td></tr>\n</tbody>\n</table>\n<p>In our view, pseudonymization is still useful as a safeguard inside your own systems. But under Recital 26, pseudonymized records that could be attributed to a person with additional information are still treated as information on an identifiable person.</p>\n<p><strong>Hashing does not anonymize data.</strong> The FTC's July 2024 post says companies \"should not act or claim as if hashing personal information renders it anonymized.\" It notes that hashes of common identifiers such as email addresses, phone numbers, IP addresses or Social Security numbers can be reversed, now \"in a matter of seconds, not minutes.\" The post points to FTC cases against Nomi (hashed device MAC addresses, 2015) and BetterHelp (hashed email addresses shared with Facebook) as examples.</p>\n<h2 id=\"legal-tests\">The legal tests in the EU, HIPAA and California</h2>\n<p>There is no single global standard. This guide covers three tests a US or EU company is likely to meet when preparing records for a buyer.</p>\n<table>\n<thead><tr><th>Law</th><th>The test</th><th>Source</th></tr></thead>\n<tbody>\n<tr><td>GDPR (EU)</td><td>Not identifiable by any means reasonably likely to be used, by you or anyone else</td><td><a href=\"https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679\">Recital 26</a></td></tr>\n<tr><td>HIPAA (US health data)</td><td>Expert Determination (risk \"very small\") or Safe Harbor (remove 18 identifiers, no actual knowledge)</td><td><a href=\"https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html\">HIPAA Privacy Rule 164.514(b), HHS guidance</a></td></tr>\n<tr><td>CCPA (California)</td><td>Cannot reasonably be linked to a consumer, plus three duties for the business</td><td><a href=\"https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&amp;sectionNum=1798.140\">Civil Code 1798.140(m)</a></td></tr>\n</tbody>\n</table>\n<p><strong>California's three duties.</strong> Under 1798.140(m), information counts as deidentified only if the business that holds it (1) \"takes reasonable measures to ensure that the information cannot be associated with a consumer or household\", (2) \"publicly commits to maintain and use the information in deidentified form and not to attempt to reidentify the information\", and (3) \"contractually obligates any recipients of the information to comply\" with the subdivision. Point 3 matters for licensing: the buyer contract has to oblige the buyer to comply with the subdivision. Our guide to the <a href=\"/blog/ai-data-licensing-agreement/\">AI data licensing agreement</a> covers the other terms to check.</p>\n<p>This is general information, not legal advice.</p>\n<h2 id=\"hipaa-safe-harbor\">HIPAA Safe Harbor: the 18 identifiers</h2>\n<p>HHS guidance sets out two ways to de-identify protected health information. Under <strong>Expert Determination</strong>, a qualified expert \"determines that the risk is very small\" that the information could be used to identify a person, and \"documents the methods and results\". HHS adds that there is \"no explicit numerical level of identification risk\" that always meets \"very small\".</p>\n<p>Under <strong>Safe Harbor</strong>, you remove 18 identifiers of the individual and of their relatives, employers or household members, and you must not have \"actual knowledge\" that the rest could identify someone:</p>\n<ol>\n<li>Names</li>\n<li>Geographic subdivisions smaller than a state, including street address, city, county and ZIP code (the first three ZIP digits may stay if that area holds more than 20,000 people; otherwise they become 000)</li>\n<li>All elements of dates except the year directly related to a person (birth, admission, discharge, death), and all ages over 89 (which may be grouped as 90 or older)</li>\n<li>Telephone numbers</li>\n<li>Fax numbers</li>\n<li>Email addresses</li>\n<li>Social Security numbers</li>\n<li>Medical record numbers</li>\n<li>Health plan beneficiary numbers</li>\n<li>Account numbers</li>\n<li>Certificate and license numbers</li>\n<li>Vehicle identifiers and serial numbers, including license plates</li>\n<li>Device identifiers and serial numbers</li>\n<li>Web URLs</li>\n<li>IP addresses</li>\n<li>Biometric identifiers, including finger and voice prints</li>\n<li>Full-face photographs and comparable images</li>\n<li>Any other unique identifying number, characteristic or code</li>\n</ol>\n<p>HHS says de-identified health information created this way \"is no longer protected by the Privacy Rule because it does not fall within the definition of PHI.\" Safe Harbor is written for HIPAA covered entities, but in our view the list is a useful checklist for any customer record set, because it names fields that commonly identify a person.</p>\n<h2 id=\"techniques\">Data anonymization techniques</h2>\n<p>HHS describes three classes of risk mitigation, and NIST SP 800-188 (September 2023) adds synthetic data as a technique.</p>\n<table>\n<thead><tr><th>Technique</th><th>What it does</th><th>Example from the source</th></tr></thead>\n<tbody>\n<tr><td>Suppression</td><td>Removes certain features before release</td><td>Removing the ZIP code feature for risky records (HHS)</td></tr>\n<tr><td>Generalization</td><td>Turns values into broader categories</td><td>Five digit ZIP to three digits (HHS)</td></tr>\n<tr><td>Perturbation</td><td>Replaces values with different, equally specific ones</td><td>Age reported as a random value within a 5 year window (HHS)</td></tr>\n<tr><td>Synthetic data</td><td>Generates new records from a model of the real data</td><td>\"generating synthetic data using models\" (<a href=\"https://csrc.nist.gov/pubs/sp/800/188/final\">NIST SP 800-188</a>)</td></tr>\n</tbody>\n</table>\n<p>Data masking is a term you will see in database tools. In our view, judge any masking feature by the same test: if the original values can be restored with a kept mapping, treat the result as pseudonymized, not anonymized. Our guide to <a href=\"/blog/synthetic-data/\">synthetic data</a> explains why a synthetic set still starts from real records, so privacy checks still matter.</p>\n<p>NIST also lists other ways to share: a query interface that applies de-identification, or sharing data in \"non-public protected enclaves\". In our view, for an AI data deal that can mean the buyer never receives a raw copy at all.</p>\n<h2 id=\"reidentification-risk\">Why re-identification is the real risk</h2>\n<p>Removing names is not enough. In <a href=\"https://www.nature.com/articles/s41467-019-10933-3\">Rocher, Hendrickx and de Montjoye (Nature Communications, July 23, 2019)</a>, the authors built a model tested on 210 populations and found that \"99.98% of Americans would be correctly re-identified in any dataset using 15 demographic attributes.\" They concluded that even heavily sampled anonymized datasets \"are unlikely to satisfy the modern standards for anonymization set forth by GDPR\".</p>\n<p>The point is that combinations of ordinary attributes can single people out, even with names removed. HIPAA Safe Harbor, for example, covers dates and ZIP codes, not only names. NIST says agencies can create a Disclosure Review Board and \"perform re-identification studies to gauge the risk associated with de-identification.\"</p>\n<h2 id=\"step-by-step\">How to anonymize company records, step by step</h2>\n<p>This is the process we suggest for records you plan to license. It is our suggestion, not a legal standard.</p>\n<ol>\n<li><strong>Map the fields.</strong> List every column and mark direct identifiers (name, email, phone, account number) and other fields that could help identify someone in combination (dates, location, free text).</li>\n<li><strong>Decide the target.</strong> Anonymous under Recital 26, deidentified under CCPA 1798.140(m), or HIPAA de-identified if the records are protected health information held by a HIPAA covered entity. The target sets the bar for every later step.</li>\n<li><strong>Remove and transform.</strong> Suppress direct identifiers; generalize or perturb quasi-identifiers; strip names and numbers out of free-text notes. Do not count hashing as removal.</li>\n<li><strong>Test re-identification.</strong> Try to single people out with the fields that remain, or have an expert do it, and document the method and result, as HHS asks under Expert Determination.</li>\n<li><strong>Lock it in the contract.</strong> For California deidentified data, oblige the buyer to comply with 1798.140(m), including its no re-identification commitment, as (m)(3) requires. We also suggest destroying any linking key you no longer need.</li>\n</ol>\n<p>Then keep a record. HHS notes the Privacy Rule \"does not explicitly require that an expiration date be attached\" to an expert determination, yet Recital 26 points to technological developments, so in our view a review is worth repeating before each new release of the same data. For the full licensing path from inventory to payment, see <a href=\"/blog/sell-data-to-ai-companies/\">how to sell data to AI companies</a>. If you would rather keep records in house and put a model to work on them internally, see <a href=\"/blog/ai-chatbot-for-business-cost/\">what an AI chatbot for business costs</a>.</p>\n<h2 id=\"how-imisofts-helps\">How imisofts can help</h2>\n<p>imisofts is a Dubai based agency that builds automation and data work for established companies. We work with clients and their lawyers on mapping and preparing records for a data deal, and on access controls through our <a href=\"/cybersecurity-services\">cybersecurity services</a>. If you are weighing a sale or license, <a href=\"/ai-data-licensing\">see whether your company's data qualifies</a>. We are not a law firm, and we do not promise that a data set will meet a legal test or that a buyer will pay: that depends on the data, the law that applies and the buyer.</p>\n<h2 id=\"could-not-verify\">What we could not verify</h2>\n<ul>\n<li>The UK ICO's anonymisation guidance: its site showed a bot check when we tried to read it, so this guide makes no claim about UK guidance.</li>\n<li>The content of the EDPB's Guidelines 01/2025 on pseudonymisation, which were open for feedback from January 17 to March 14, 2025: we did not read the document itself.</li>\n<li>Prices of anonymization tools or services: none appeared in the sources we read.</li>\n</ul>"
+}
