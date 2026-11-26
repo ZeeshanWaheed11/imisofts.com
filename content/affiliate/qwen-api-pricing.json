@@ -1,0 +1,276 @@
+{
+  "slug": "qwen-api-pricing",
+  "title": "Qwen API Pricing: qwen4-max at $1.50 In, $4.50 Out per 1M Tokens",
+  "desc": "Qwen API pricing on Alibaba Cloud, read Nov 2026: qwen4-max $1.50 in, $4.50 out per 1M tokens, qwen3.8-flash $0.15 in, 1M free tokens per model in Singapore.",
+  "date": "2026-11-26",
+  "keywords": "qwen api pricing, qwen api cost, qwen4-max pricing, alibaba cloud model studio pricing, qwen free quota, qwen3.7-plus pricing, qwen batch pricing, qwen api free",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "How much does the Qwen API cost per million tokens, and is there a free quota?",
+  "qtype": "cost",
+  "cta": "Pick the right model before the token bill grows",
+  "image": {
+    "style": "v2",
+    "cluster": "AI API pricing",
+    "alt": "Qwen API output prices per million tokens on Alibaba Cloud Model Studio, Singapore International: qwen3.8-flash $0.47, qwen3.7-plus $1.60, qwen4-max $4.50",
+    "explain": {
+      "layout": "compare",
+      "palette": "ember",
+      "kicker": "Per 1M output tokens",
+      "headline": "Qwen API output prices",
+      "items": [
+        {
+          "icon": "chip",
+          "label": "qwen3.8-flash",
+          "value": "$0.47",
+          "unit": "per 1M out",
+          "note": "$0.15 per 1M in",
+          "num": 0.47
+        },
+        {
+          "icon": "chip",
+          "label": "qwen3.7-plus",
+          "value": "$1.60",
+          "unit": "per 1M out",
+          "note": "$0.40 per 1M in",
+          "num": 1.6
+        },
+        {
+          "icon": "chip",
+          "label": "qwen4-max",
+          "value": "$4.50",
+          "unit": "per 1M out",
+          "note": "$1.50 per 1M in",
+          "num": 4.5,
+          "hot": true
+        }
+      ],
+      "footnote": "Source: Alibaba Cloud Model Studio pricing, Singapore International, read November 26, 2026."
+    },
+    "cover": {
+      "headline": "Qwen API pricing",
+      "number": "$1.50 / 1M in",
+      "kicker": "qwen4-max, Nov 2026"
+    },
+    "figures": [
+      {
+        "under": "free-quota",
+        "alt": "Conditions of the Qwen free quota for new users: Singapore region only, International scope, 1 million tokens per listed model, valid 90 days, then billed pay as you go",
+        "explain": {
+          "layout": "rules",
+          "palette": "sage",
+          "kicker": "New Model Studio users",
+          "headline": "Qwen free quota rules",
+          "subject_icon": "key",
+          "subject": "Free quota",
+          "items": [
+            {
+              "mark": "yes",
+              "label": "1M tokens per listed model",
+              "note": "qwen4-max, qwen3.7-plus, qwen3.8-flash and others"
+            },
+            {
+              "mark": "warn",
+              "label": "Singapore, International scope only",
+              "note": "No free quota in other regions or scopes"
+            },
+            {
+              "mark": "warn",
+              "label": "Valid 90 days",
+              "note": "From activation, release or approval"
+            },
+            {
+              "mark": "no",
+              "label": "No stop by default",
+              "note": "Billed pay as you go unless Free Quota Only is on"
+            }
+          ],
+          "footnote": "Source: Alibaba Cloud Model Studio free quota and pricing pages, November 2026."
+        }
+      },
+      {
+        "under": "discounts",
+        "alt": "Ways to pay less than the Qwen list price: batch calls at 50 percent, cache hits at 10 percent of input, explicit cache creation at 125 percent, a 20 percent limited promotion on qwen3.7-plus",
+        "explain": {
+          "layout": "cards",
+          "palette": "tide",
+          "kicker": "Against the list price",
+          "headline": "Qwen price modifiers",
+          "items": [
+            {
+              "icon": "coin",
+              "label": "Batch calls",
+              "note": "50% of real-time price, in and out",
+              "hot": true
+            },
+            {
+              "icon": "database",
+              "label": "Cache hits",
+              "note": "10% of the input price"
+            },
+            {
+              "icon": "database",
+              "label": "Explicit cache write",
+              "note": "125% of the input price"
+            },
+            {
+              "icon": "calendar",
+              "label": "qwen3.7-plus promotion",
+              "note": "20% off for a limited time"
+            }
+          ],
+          "footnote": "Batch and caching cannot apply at the same time. Source: Model Studio pricing, Nov 26, 2026."
+        }
+      },
+      {
+        "under": "tier-cliff",
+        "alt": "Input cost of one qwen3.7-plus request: 250,000 tokens cost $0.10 at $0.40 per million, 260,000 tokens cost about $0.31 at $1.20 per million",
+        "explain": {
+          "layout": "compare",
+          "palette": "ember",
+          "kicker": "qwen3.7-plus, one request",
+          "headline": "The 256K tier cliff",
+          "items": [
+            {
+              "icon": "document",
+              "label": "250,000 tokens",
+              "value": "$0.10",
+              "unit": "input cost",
+              "note": "at $0.40 per 1M",
+              "num": 0.1
+            },
+            {
+              "icon": "document",
+              "label": "260,000 tokens",
+              "value": "$0.31",
+              "unit": "input cost",
+              "note": "at $1.20 per 1M",
+              "num": 0.312,
+              "hot": true
+            }
+          ],
+          "footnote": "Our arithmetic on Model Studio's tier rule: the whole request is billed at its tier's price."
+        }
+      },
+      {
+        "under": "worked-cost",
+        "alt": "Monthly model cost of a hypothetical 10,000 conversation chatbot on Qwen: qwen3.8-flash $5.35, qwen3.7-plus $16.00, qwen4-max $52.50",
+        "explain": {
+          "layout": "compare",
+          "palette": "sage",
+          "kicker": "20M input, 5M output tokens",
+          "headline": "10,000 chats a month",
+          "items": [
+            {
+              "icon": "coin",
+              "label": "qwen3.8-flash",
+              "value": "$5.35",
+              "unit": "a month",
+              "note": "list price",
+              "num": 5.35,
+              "hot": true
+            },
+            {
+              "icon": "coin",
+              "label": "qwen3.7-plus",
+              "value": "$16.00",
+              "unit": "a month",
+              "note": "list price",
+              "num": 16.0
+            },
+            {
+              "icon": "coin",
+              "label": "qwen4-max",
+              "value": "$52.50",
+              "unit": "a month",
+              "note": "list price",
+              "num": 52.5
+            }
+          ],
+          "footnote": "Our arithmetic on Singapore International list prices for a hypothetical chatbot. Model cost only."
+        }
+      }
+    ]
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "qwen4-max, per 1M input tokens",
+        "value": "$1.50",
+        "note": "Singapore, International scope"
+      },
+      {
+        "label": "qwen4-max, per 1M output tokens",
+        "value": "$4.50"
+      },
+      {
+        "label": "qwen3.7-plus, per 1M input / output tokens",
+        "value": "$0.40 / $1.60",
+        "note": "requests up to 256K tokens"
+      },
+      {
+        "label": "qwen3.7-plus above 256K tokens",
+        "value": "$1.20 / $4.80",
+        "note": "whole request at this rate"
+      },
+      {
+        "label": "qwen3.8-flash, per 1M input / output tokens",
+        "value": "$0.15 / $0.47"
+      },
+      {
+        "label": "qwen3.7-flash up to 32K, per 1M input / output",
+        "value": "$0.03 / $0.13"
+      },
+      {
+        "label": "Free quota for new users",
+        "value": "1M tokens",
+        "note": "per listed model, 90 days, Singapore only"
+      },
+      {
+        "label": "Batch calls",
+        "value": "50%",
+        "note": "of the real-time price, on models marked for batch"
+      },
+      {
+        "label": "Cache hits",
+        "value": "10%",
+        "note": "of the input price"
+      },
+      {
+        "label": "10,000 chats a month on qwen4-max",
+        "value": "$52.50",
+        "note": "hypothetical, our arithmetic"
+      }
+    ],
+    "source": "Prices read on 26 November 2026 from Alibaba Cloud Model Studio's model pricing and free quota pages (Singapore region, International scope)."
+  },
+  "faqs": [
+    [
+      "How much does the Qwen API cost?",
+      "On Alibaba Cloud Model Studio's Singapore International list, read November 26, 2026, qwen4-max costs $1.50 per million input tokens and $4.50 per million output tokens. qwen3.7-plus costs $0.40 and $1.60 for requests up to 256K tokens, and qwen3.8-flash $0.15 and $0.47."
+    ],
+    [
+      "Is the Qwen API free?",
+      "New Model Studio accounts in the Singapore region get a free quota of 1 million tokens on several models, including qwen4-max, qwen3.7-plus and qwen3.8-flash. It is valid for 90 days and only for the International deployment scope. After it runs out, usage is billed pay as you go unless Free Quota Only is turned on."
+    ],
+    [
+      "What is the cheapest Qwen model?",
+      "Of the models in our table, qwen3.7-flash is cheapest at $0.03 per million input tokens and $0.13 per million output tokens for requests up to 32K tokens. Longer requests cost $0.10 and $0.40 up to 256K, and $0.20 and $0.80 up to 1M."
+    ],
+    [
+      "Does Qwen have a batch discount?",
+      "Yes. Model Studio bills batch calls at 50% of the real-time price for both input and output tokens on models that support batch. In the Singapore International table qwen3.7-flash carries the batch mark; qwen4-max and qwen3.8-max carry it in the Global scope tables. Batch and context caching cannot be combined on the same request."
+    ],
+    [
+      "Why did one long Qwen request cost so much?",
+      "Some Qwen models use tiered pricing by request size, and the whole request is billed at the tier it falls in. On qwen3.7-plus a 250,000-token input costs $0.10, while a 260,000-token input costs about $0.31 at the $1.20 rate, on our arithmetic."
+    ],
+    [
+      "Is Qwen cheaper on Together AI?",
+      "For Qwen4 Max and Qwen3.8 Flash, no: Together AI lists them at $1.50 and $4.50 and at $0.15 and $0.47, the same as Alibaba's Singapore list on November 26, 2026. Together's Qwen3.7-Plus at $0.32 and $1.28 is 20% below Alibaba's original list price of $0.40 and $1.60."
+    ]
+  ],
+  "body": "<p><strong>Short answer.</strong> On Alibaba Cloud Model Studio's international (Singapore) price list, the flagship <strong>qwen4-max costs $1.50 per million input tokens and $4.50 per million output tokens</strong>. qwen3.7-plus costs $0.40 and $1.60, and qwen3.8-flash $0.15 and $0.47. New Singapore accounts get a free quota of 1 million tokens on several of these models, valid for 90 days. Prices were read from the <a href=\"https://www.alibabacloud.com/help/en/model-studio/model-pricing\" target=\"_blank\" rel=\"noopener\">Model Studio pricing page</a> on November 26, 2026; that page was last updated November 25, 2026.</p>\n<p>Two rules change the bill more than the headline price. Batch calls cost 50% of the real-time price, and some models use tiered prices where one long request is billed entirely at the higher tier's rate. For a hypothetical chatbot handling 10,000 conversations a month, the model bill runs from about $1.25 on qwen3.7-flash (about $0.63 in batch) to $52.50 on qwen4-max. If you plan to run Qwen behind an AI agent or a <a href=\"/ai-calling-home-services\">voice AI receptionist</a>, the model price is one of the variable costs to plan for, next to telephony.</p>\n<p>This guide lists the Qwen API prices per model, explains the free quota, batch and caching rules and the tier cliff, works one monthly cost and compares Qwen on Alibaba with the same models on Together AI.</p>\n<h2 id=\"price-table\">Qwen API prices per million tokens</h2>\n<p>Model Studio bills pay as you go by input and output tokens. The table shows the Singapore region with the \"International\" deployment scope. The page says it \"shows only the Original prices\" and that promotional offers appear in the console.</p>\n<table>\n<thead><tr><th>Model</th><th>Input per 1M tokens</th><th>Output per 1M tokens</th><th>Free quota (new users)</th></tr></thead>\n<tbody>\n<tr><td>qwen4-max</td><td>$1.50</td><td>$4.50</td><td>1M tokens</td></tr>\n<tr><td>qwen3.8-max</td><td>$2.00</td><td>$6.00</td><td>1M tokens</td></tr>\n<tr><td>qwen3.7-max</td><td>$2.50</td><td>$7.50</td><td>1M tokens</td></tr>\n<tr><td>qwen-max (older)</td><td>$1.60</td><td>$6.40</td><td>none</td></tr>\n<tr><td>qwen3.7-plus, up to 256K input</td><td>$0.40</td><td>$1.60</td><td>1M tokens</td></tr>\n<tr><td>qwen3.6-plus, up to 256K input</td><td>$0.50</td><td>$3.00</td><td>none</td></tr>\n<tr><td>qwen3.8-flash</td><td>$0.15</td><td>$0.47</td><td>1M tokens</td></tr>\n<tr><td>qwen3.7-flash, up to 32K input</td><td>$0.03</td><td>$0.13</td><td>1M tokens</td></tr>\n<tr><td>qwen3-coder-flash, up to 32K input</td><td>$0.30</td><td>$1.50</td><td>none</td></tr>\n</tbody>\n</table>\n<p>The newest model is not the most expensive. qwen4-max lists at $1.50 and $4.50, below qwen3.8-max at $2.00 and $6.00 and qwen3.7-max at $2.50 and $7.50. If you still call an older Max model, moving to qwen4-max lowers the list price per token.</p>\n<p>The same page shows a second scope, \"Global\", with lower rates for some models: qwen4-max at $1.413 input and $4.24 output, and qwen3.8-max at $1.650 and $4.951. The United States (Virginia) tab lists qwen4-max at $1.50 and $4.50. Check which region and scope your account uses before you budget.</p>\n<h2 id=\"free-quota\">Is the Qwen API free? The free quota for new users</h2>\n<p>Partly. According to the <a href=\"https://www.alibabacloud.com/help/en/model-studio/new-free-quota\" target=\"_blank\" rel=\"noopener\">free quota page</a>, \"When you first activate Alibaba Cloud Model Studio (Singapore region), the platform automatically grants you a free quota for various models.\" Three conditions apply:</p>\n<ul>\n<li><strong>Singapore and International only.</strong> \"Only models in the Singapore region with the service deployment scope set to International are eligible for a free quota.\"</li>\n<li><strong>90 days.</strong> The quota is valid \"within 90 days from the date of Model Studio activation/model release/application approval (whichever is later)\".</li>\n<li><strong>Billing starts by itself.</strong> \"After the free quota is exhausted, you are automatically billed on a pay-as-you-go basis.\" The page suggests turning on Free Quota Only so the service stops when the quota runs out.</li>\n</ul>\n<p>The quota is per model: the price table lists 1 million tokens each for qwen4-max, qwen3.8-max, qwen3.7-max, qwen3.7-plus, qwen3.8-flash and qwen3.7-flash, and none for qwen-max, qwen3.6-plus or qwen3-coder-flash. You must complete your account information before you can activate Model Studio.</p>\n<h2 id=\"discounts\">Batch, context caching and promotions</h2>\n<p>Model Studio publishes three ways to pay less than the list price:</p>\n<ul>\n<li><strong>Batch calls at 50%.</strong> \"If the model supports Batch calls, the unit prices of both input and output tokens are billed at 50% of the real-time inference price.\" In the Singapore International table, qwen3.7-flash carries the \"Batch calls at half price\" mark; qwen4-max, qwen3.8-max and qwen3.8-flash carry it in the Global scope tables but not in the Singapore one, so check the mark for your region.</li>\n<li><strong>Context caching.</strong> Cache hits are billed at 10% of the input price, and creating an explicit cache costs 125% of the input price. Only input tokens get the cache discount.</li>\n<li><strong>Not both at once.</strong> The page says batch and caching \"cannot take effect at the same time\".</li>\n</ul>\n<p>There is also a time-limited promotion. The price table shows qwen3.7-plus at \"Original $0.4 (20% off for a limited time)\" for input and $1.6 for output. The page does not say when it ends. Together AI lists Qwen3.7-Plus at $0.32 input and $1.28 output, which is 80% of Alibaba's original prices.</p>\n<h2 id=\"tier-cliff\">Tiered pricing: why one long request costs three times more</h2>\n<p>Some Qwen models price by the size of each request. Model Studio's rule: \"The unit price depends on the total number of input tokens in a single request. All tokens of that request are billed at the unit price of the corresponding tier.\" It is not a marginal rate like a tax band.</p>\n<p>qwen3.7-plus has two tiers. Up to 256K input tokens per request, input costs $0.40 per million; from 256K to 1M it costs $1.20, and output rises from $1.60 to $4.80. On our arithmetic, a 250,000-token request costs $0.10 in input, while a 260,000-token request costs about $0.31, roughly three times more for 4% more text. qwen3.7-flash has three tiers ($0.03, $0.10 and $0.20 input for up to 32K, 256K and 1M), and qwen3-coder-flash four.</p>\n<p>We suggest keeping retrieval and chat history under the first tier boundary where you can. qwen4-max and qwen3.8-flash have a single tier up to 1M tokens, so the cliff does not apply to them.</p>\n<h2 id=\"worked-cost\">What 10,000 conversations a month cost on Qwen</h2>\n<p>A hypothetical example: a support or sales chatbot that handles 10,000 conversations a month, with 2,000 input tokens and 500 output tokens each. That is 20 million input and 5 million output tokens a month, every request well under 32K. Our arithmetic on the Singapore International list prices, model cost only:</p>\n<table>\n<thead><tr><th>Model</th><th>Input cost</th><th>Output cost</th><th>Monthly total</th></tr></thead>\n<tbody>\n<tr><td>qwen3.7-flash, batch</td><td>$0.30</td><td>$0.33</td><td>$0.63</td></tr>\n<tr><td>qwen3.7-flash</td><td>$0.60</td><td>$0.65</td><td>$1.25</td></tr>\n<tr><td>qwen3.8-flash</td><td>$3.00</td><td>$2.35</td><td>$5.35</td></tr>\n<tr><td>qwen3.7-plus</td><td>$8.00</td><td>$8.00</td><td>$16.00</td></tr>\n<tr><td>qwen4-max</td><td>$30.00</td><td>$22.50</td><td>$52.50</td></tr>\n</tbody>\n</table>\n<p>At the Global scope rates, qwen4-max would come to about $49.46. The batch row uses the 50% rule on qwen3.7-flash, the model marked for batch in the Singapore table; batch only fits work that can wait, such as overnight lead scoring or summarizing call transcripts, not a live chat. To see how a model bill compares with the full cost of a chatbot, see our guide to <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot costs for a business</a>.</p>\n<h2 id=\"qwen-on-together\">Qwen on Alibaba Cloud vs Together AI</h2>\n<p>Qwen models are also sold by third-party hosts. On <a href=\"https://www.together.ai/pricing\" target=\"_blank\" rel=\"noopener\">Together AI's pricing page</a>, read the same day, Qwen4 Max is $1.50 input and $4.50 output, the same as Alibaba's Singapore list, with cached input at $0.075. Qwen3.8 Flash is $0.15 and $0.47, also the same. Qwen3.7-Max is $2.50 and $7.50.</p>\n<p>The difference is the account, not the token price: Alibaba's free quota against Together's $15 minimum first credit purchase, which models carry a 50% batch discount on each platform (on Alibaba's Singapore table, qwen3.7-flash; on Together, only the models it lists), and which data centers serve the request. Our own <a href=\"/blog/together-ai-pricing/\">Together AI pricing</a> guide covers that side. For other model APIs, see our <a href=\"/blog/ai-model-api-pricing-comparison/\">AI model API pricing comparison</a>, <a href=\"/blog/deepseek-api-pricing/\">DeepSeek API pricing</a> and <a href=\"/blog/mistral-api-pricing/\">Mistral API pricing</a>.</p>\n<h2 id=\"which-model\">Which Qwen model to pick for cost</h2>\n<p>Our view, from the prices above:</p>\n<ul>\n<li><strong>Start with qwen3.8-flash</strong> for routing, extraction, short replies and tool calls. At $0.15 in and $0.47 out with one price up to 1M tokens, it cost about a tenth of qwen4-max in the example above.</li>\n<li><strong>Use qwen3.7-plus</strong> when Flash fails your own tests and requests stay under 256K tokens. Past that boundary the whole request triples in input price.</li>\n<li><strong>Use qwen4-max</strong> for the hardest reasoning steps only, for example the final answer in a multi-step agent, and let a cheaper model do the rest.</li>\n<li><strong>Move off older Max models.</strong> qwen3.7-max at $2.50 and $7.50 costs more than qwen4-max per token.</li>\n<li><strong>Use the free quota for testing.</strong> At 1 million tokens per model, it covers about 400 test conversations of the size above (our arithmetic), not production traffic.</li>\n</ul>\n<p>Whatever you pick, set a budget alert in the console. Model Studio bills automatically once the free quota is used, so a test script left running keeps adding charges.</p>\n<h2 id=\"how-imisofts-can-help\">How imisofts can help</h2>\n<p>imisofts is an AI automation agency that builds AI agents, automations and AI voice agents. If you want help choosing a model and keeping the token bill in check, see our <a href=\"/ai-automation-agency\">AI automation agency</a> services. Prices on this page are Alibaba Cloud's published original prices as read on November 26, 2026; check the Model Studio pricing page and your console before you commit, as model names, regions and prices change.</p>",
+  "word_count": 1793,
+  "read_time": 8
+}

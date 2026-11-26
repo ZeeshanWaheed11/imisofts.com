@@ -1,0 +1,312 @@
+{
+  "slug": "together-ai-pricing",
+  "title": "Together AI Pricing: From $0.15 per 1M Tokens, $15 to Start",
+  "desc": "Together AI pricing, read Nov 2026: paid serverless models from $0.15 in, $0.50 out per 1M tokens, US geo-pinned 25% more, H100 at $5.49 an hour, $15 to start.",
+  "date": "2026-11-26",
+  "keywords": "together ai pricing, together ai cost, together ai api pricing, together ai free tier, together ai h100 price, together ai batch api, together ai dedicated endpoints, together ai fine tuning pricing",
+  "category": "Guides",
+  "affiliate_url": "",
+  "question": "How much does Together AI cost per million tokens and per GPU hour, and is there a free tier?",
+  "qtype": "cost",
+  "cta": "Pick the right model host before the token bill grows",
+  "image": {
+    "style": "v2",
+    "cluster": "AI API pricing",
+    "alt": "Together AI serverless output prices per million tokens: GLM-5.3-Flash $0.50, DeepSeek V4.1 Flash 1017 $1.20, Qwen4 Max $4.50, Kimi K3.1 Pro $10.00",
+    "explain": {
+      "layout": "compare",
+      "palette": "tide",
+      "kicker": "Per 1M output tokens",
+      "headline": "Together AI output prices",
+      "items": [
+        {
+          "icon": "chip",
+          "label": "GLM-5.3-Flash",
+          "value": "$0.50",
+          "unit": "per 1M out",
+          "note": "$0.15 per 1M in",
+          "num": 0.5,
+          "hot": true
+        },
+        {
+          "icon": "chip",
+          "label": "DeepSeek V4.1 Flash",
+          "value": "$1.20",
+          "unit": "per 1M out",
+          "note": "$0.30 per 1M in",
+          "num": 1.2
+        },
+        {
+          "icon": "chip",
+          "label": "Qwen4 Max",
+          "value": "$4.50",
+          "unit": "per 1M out",
+          "note": "$1.50 per 1M in",
+          "num": 4.5
+        },
+        {
+          "icon": "chip",
+          "label": "Kimi K3.1 Pro",
+          "value": "$10.00",
+          "unit": "per 1M out",
+          "note": "$2.00 per 1M in",
+          "num": 10.0
+        }
+      ],
+      "footnote": "Source: Together AI pricing page, serverless, standard rows, read November 26, 2026."
+    },
+    "cover": {
+      "headline": "Together AI pricing",
+      "number": "$0.15 / 1M in",
+      "kicker": "GLM-5.3-Flash, Nov 2026"
+    },
+    "figures": [
+      {
+        "under": "us-geo-pinned",
+        "alt": "Together AI standard and US geo-pinned input prices per million tokens: GLM-5.3 $1.40 and $1.75, Kimi K3.1 Pro $2.00 and $2.50, Kimi K3 $3.00 and $3.75",
+        "explain": {
+          "layout": "compare",
+          "palette": "ember",
+          "kicker": "Input per 1M tokens",
+          "headline": "US geo-pinned costs 25% more",
+          "items": [
+            {
+              "icon": "globe",
+              "label": "GLM-5.3",
+              "value": "$1.40",
+              "unit": "standard",
+              "note": "$1.75 US geo-pinned",
+              "num": 1.4
+            },
+            {
+              "icon": "globe",
+              "label": "Kimi K3.1 Pro",
+              "value": "$2.00",
+              "unit": "standard",
+              "note": "$2.50 US geo-pinned",
+              "num": 2.0
+            },
+            {
+              "icon": "globe",
+              "label": "Kimi K3",
+              "value": "$3.00",
+              "unit": "standard",
+              "note": "$3.75 US geo-pinned",
+              "num": 3.0,
+              "hot": true
+            }
+          ],
+          "footnote": "Source: Together AI pricing page, Nov 26, 2026. Ratio 1.25 is our arithmetic."
+        }
+      },
+      {
+        "under": "batch-and-credits",
+        "alt": "Together AI account rules: batch 50 percent off only on listed models, no free trial and a 15 dollar first credit purchase, best-effort serverless rate limits",
+        "explain": {
+          "layout": "rules",
+          "palette": "sage",
+          "kicker": "From Together AI docs",
+          "headline": "Batch, credits and limits",
+          "subject_icon": "card",
+          "subject": "Account rules",
+          "items": [
+            {
+              "mark": "warn",
+              "label": "Batch 50% off, listed models only",
+              "note": "One listed on Nov 26: openai/whisper-large-v3"
+            },
+            {
+              "mark": "no",
+              "label": "No free trial",
+              "note": "First credit purchase at least $15"
+            },
+            {
+              "mark": "yes",
+              "label": "Top-ups from $5",
+              "note": "After the first purchase"
+            },
+            {
+              "mark": "warn",
+              "label": "Best-effort rate limits",
+              "note": "High demand can return 429 or 503"
+            }
+          ],
+          "footnote": "Source: Together AI batch, credits and rate limit docs, read November 26, 2026."
+        }
+      },
+      {
+        "under": "dedicated-gpus",
+        "alt": "Together AI H100 price per GPU hour: preemptible cluster $2.00, cluster reserved 31 to 90 days $3.45, cluster on demand $3.99, dedicated inference on demand $5.49",
+        "explain": {
+          "layout": "compare",
+          "palette": "tide",
+          "kicker": "NVIDIA HGX H100, per GPU hour",
+          "headline": "What an H100 costs",
+          "items": [
+            {
+              "icon": "chip",
+              "label": "Cluster, preemptible",
+              "value": "$2.00",
+              "unit": "per hour",
+              "note": "pay as you go",
+              "num": 2.0
+            },
+            {
+              "icon": "chip",
+              "label": "Cluster, 31 to 90 days",
+              "value": "$3.45",
+              "unit": "per hour",
+              "note": "reserved",
+              "num": 3.45
+            },
+            {
+              "icon": "chip",
+              "label": "Cluster, on demand",
+              "value": "$3.99",
+              "unit": "per hour",
+              "note": "pay as you go",
+              "num": 3.99
+            },
+            {
+              "icon": "chip",
+              "label": "Dedicated inference",
+              "value": "$5.49",
+              "unit": "per hour",
+              "note": "on demand",
+              "num": 5.49,
+              "hot": true
+            }
+          ],
+          "footnote": "Source: Together AI pricing page, Dedicated Inference and GPU Clusters, Nov 26, 2026."
+        }
+      },
+      {
+        "under": "worked-cost",
+        "alt": "Monthly model cost of a hypothetical 10,000 conversation chatbot on Together AI: GLM-5.3-Flash $5.50, DeepSeek V4.1 Flash $12.00, Qwen4 Max $52.50, Kimi K3.1 Pro $90.00",
+        "explain": {
+          "layout": "compare",
+          "palette": "ember",
+          "kicker": "20M input, 5M output tokens",
+          "headline": "10,000 chats a month",
+          "items": [
+            {
+              "icon": "coin",
+              "label": "GLM-5.3-Flash",
+              "value": "$5.50",
+              "unit": "a month",
+              "note": "standard price",
+              "num": 5.5,
+              "hot": true
+            },
+            {
+              "icon": "coin",
+              "label": "DeepSeek V4.1 Flash",
+              "value": "$12.00",
+              "unit": "a month",
+              "note": "standard price",
+              "num": 12.0
+            },
+            {
+              "icon": "coin",
+              "label": "Qwen4 Max",
+              "value": "$52.50",
+              "unit": "a month",
+              "note": "standard price",
+              "num": 52.5
+            },
+            {
+              "icon": "coin",
+              "label": "Kimi K3.1 Pro",
+              "value": "$90.00",
+              "unit": "a month",
+              "note": "standard price",
+              "num": 90.0
+            }
+          ],
+          "footnote": "Our arithmetic on Together AI list prices for a hypothetical chatbot. Model cost only, no caching."
+        }
+      }
+    ]
+  },
+  "key_numbers": {
+    "rows": [
+      {
+        "label": "GLM-5.3-Flash, per 1M input / output tokens",
+        "value": "$0.15 / $0.50",
+        "note": "cheapest paid row we list"
+      },
+      {
+        "label": "DeepSeek V4.1 Flash 1017, per 1M input / output",
+        "value": "$0.30 / $1.20"
+      },
+      {
+        "label": "Qwen4 Max, per 1M input / output tokens",
+        "value": "$1.50 / $4.50"
+      },
+      {
+        "label": "Kimi K3.1 Pro, per 1M input / output tokens",
+        "value": "$2.00 / $10.00"
+      },
+      {
+        "label": "US geo-pinned premium",
+        "value": "25%",
+        "note": "on every pair we checked, our arithmetic"
+      },
+      {
+        "label": "Batch discount",
+        "value": "50%",
+        "note": "listed models only, one on Nov 26"
+      },
+      {
+        "label": "First credit purchase",
+        "value": "$15",
+        "note": "no free trial; later top-ups $5"
+      },
+      {
+        "label": "Dedicated H100, per GPU hour",
+        "value": "$5.49",
+        "note": "on demand"
+      },
+      {
+        "label": "H100 in a GPU cluster, reserved 31 to 90 days",
+        "value": "$3.45",
+        "note": "per GPU hour"
+      },
+      {
+        "label": "10,000 chats a month on Kimi K3.1 Pro",
+        "value": "$90.00",
+        "note": "hypothetical, our arithmetic"
+      }
+    ],
+    "source": "Prices read on 26 November 2026 from Together AI's pricing page and its batch, credits and rate limit docs."
+  },
+  "faqs": [
+    [
+      "How much does Together AI cost?",
+      "Serverless models are billed per million tokens. Among the paid models we list, prices run from $0.15 input on GLM-5.3-Flash, MiniMax M3.1 Flash and Qwen3.8 Flash to $3.00 input and $15.00 output on Kimi K3, on the pricing page read November 26, 2026. Dedicated endpoints are billed per GPU hour, from $5.49 for an NVIDIA H100 on demand."
+    ],
+    [
+      "Does Together AI have a free tier?",
+      "No free trial. Together's credits docs say you must buy at least $15 of credits to use the platform, with a $5 minimum for later top-ups, and free credits do not count toward the $15. The pricing page lists one free model, Ternary Bonsai 27B."
+    ],
+    [
+      "What does US geo-pinned mean on Together AI?",
+      "It is a separate price row on Together's pricing page, which we read as requests served only from US data centers. On every model we checked, the US geo-pinned price is 25% above the standard price, for example GLM-5.3 at $1.75 input and $5.50 output against $1.40 and $4.40."
+    ],
+    [
+      "Does Together AI offer a batch discount?",
+      "Only on listed models. The batch docs say selected serverless models run at 50% off, and on November 26, 2026 the list held one model, openai/whisper-large-v3. Models not listed run at standard rates, and dedicated inference gets no batch discount."
+    ],
+    [
+      "How much is an H100 on Together AI?",
+      "A dedicated inference H100 costs $5.49 per GPU per hour on demand. In GPU clusters an H100 is $3.99 on demand, $3.69 reserved for 3 to 30 days, $3.45 for 31 to 90 days and $2.00 preemptible. A month of 730 hours on the dedicated rate is about $4,007.70."
+    ],
+    [
+      "What are Together AI's rate limits?",
+      "Together publishes no fixed per-account table for serverless. Its docs say most users will not hit rate limits, that high demand can return 429 or 503 errors, and that serverless performance is best-effort."
+    ]
+  ],
+  "body": "<p><strong>Short answer.</strong> Together AI charges per million tokens for serverless models, from <strong>$0.15 input and $0.50 output on GLM-5.3-Flash</strong> to $3.00 and $15.00 on Kimi K3 among the paid models we list, and per GPU hour for dedicated endpoints, from <strong>$5.49 an hour for an NVIDIA H100</strong>. There is no free trial: the first credit purchase is at least $15. Prices were read from the <a href=\"https://www.together.ai/pricing\" target=\"_blank\" rel=\"noopener\">Together AI pricing page</a> and Together's docs on November 26, 2026.</p>\n<p>Two details are easy to miss. Requests pinned to US data centers cost 25% more than the standard price on every model we checked, and the batch API's 50% discount applies only to the models Together lists for it, which on November 26 was one audio model. For a hypothetical chatbot handling 10,000 conversations a month, the serverless bill runs from about $5.50 to $90.00 depending on the model. If the agent answers phone calls, as a <a href=\"/ai-calling-home-services\">voice AI receptionist</a> does, the model price sits next to telephony and voice costs.</p>\n<p>This guide lists Together AI's serverless prices, the US geo-pinned premium, batch and credit rules, dedicated GPU prices and fine-tuning prices, then works one monthly cost.</p>\n<h2 id=\"serverless-prices\">Together AI serverless prices per million tokens</h2>\n<p>Serverless inference is the shared, pay-per-token service. Together's page says: \"Most teams start with serverless inference and move to dedicated endpoints at scale.\" The table shows a selection of chat models from the page, with the cached input price where one is listed.</p>\n<table>\n<thead><tr><th>Model</th><th>Input per 1M</th><th>Cached input per 1M</th><th>Output per 1M</th></tr></thead>\n<tbody>\n<tr><td>GLM-5.3-Flash</td><td>$0.15</td><td>$0.03</td><td>$0.50</td></tr>\n<tr><td>MiniMax M3.1 Flash</td><td>$0.15</td><td>$0.015</td><td>$0.60</td></tr>\n<tr><td>Qwen3.8 Flash</td><td>$0.15</td><td>not listed</td><td>$0.47</td></tr>\n<tr><td>DeepSeek V4.1 Flash 1017</td><td>$0.30</td><td>$0.006</td><td>$1.20</td></tr>\n<tr><td>DeepSeek V4 Pro 0813</td><td>$1.32</td><td>$0.13</td><td>$3.96</td></tr>\n<tr><td>GLM-5.3</td><td>$1.40</td><td>$0.26</td><td>$4.40</td></tr>\n<tr><td>Qwen4 Max</td><td>$1.50</td><td>$0.075</td><td>$4.50</td></tr>\n<tr><td>Kimi K3.1 Pro</td><td>$2.00</td><td>$0.20</td><td>$10.00</td></tr>\n<tr><td>Qwen3.7-Max</td><td>$2.50</td><td>$0.50</td><td>$7.50</td></tr>\n<tr><td>Kimi K3</td><td>$3.00</td><td>$0.30</td><td>$15.00</td></tr>\n</tbody>\n</table>\n<p>Cached input is, as is usual for model APIs, the lower price for input tokens served from a cache, such as a repeated long system prompt. On DeepSeek V4.1 Flash 1017 it is $0.006 against $0.30, 2% of the input price on our arithmetic. The page also lists a free model, Ternary Bonsai 27B, and a FAST variant of DeepSeek V4.1 Flash 1017 at $0.60 and $2.40, double the standard price.</p>\n<p>Several of these prices match the model makers' own lists. Qwen4 Max at $1.50 and $4.50 is the same as Alibaba Cloud's Singapore price, and Kimi K3.1 Pro at $2.00 and $10.00 is the same as the Kimi API platform's. See our guides to <a href=\"/blog/qwen-api-pricing/\">Qwen API pricing</a> and <a href=\"/blog/kimi-api-pricing/\">Kimi API pricing</a> for those first-party lists.</p>\n<h2 id=\"us-geo-pinned\">US geo-pinned requests cost 25% more</h2>\n<p>For some models the page lists a second row marked \"US GEO-PINNED\". Together does not define the label on the pricing page; we read it as requests served only from US data centers, which matters when a contract or a customer asks that data stays in the United States. On every pair we checked, the pinned price is 1.25 times the standard price:</p>\n<table>\n<thead><tr><th>Model</th><th>Standard input / output</th><th>US geo-pinned input / output</th></tr></thead>\n<tbody>\n<tr><td>GLM-5.3-Flash</td><td>$0.15 / $0.50</td><td>$0.1875 / $0.625</td></tr>\n<tr><td>DeepSeek V4.1 Flash 1017</td><td>$0.30 / $1.20</td><td>$0.375 / $1.50</td></tr>\n<tr><td>DeepSeek V4 Pro 0813</td><td>$1.32 / $3.96</td><td>$1.65 / $4.95</td></tr>\n<tr><td>GLM-5.3</td><td>$1.40 / $4.40</td><td>$1.75 / $5.50</td></tr>\n<tr><td>Kimi K3.1 Pro</td><td>$2.00 / $10.00</td><td>$2.50 / $12.50</td></tr>\n<tr><td>Kimi K3</td><td>$3.00 / $15.00</td><td>$3.75 / $18.75</td></tr>\n</tbody>\n</table>\n<p>The page does not say where standard requests are served. If you need US-only processing, budget for the pinned price and confirm the terms with Together.</p>\n<h2 id=\"batch-and-credits\">Batch discount, credits and rate limits</h2>\n<p>Three account rules from Together's docs change what you pay and when:</p>\n<ul>\n<li><strong>Batch is 50% off only on listed models.</strong> The <a href=\"https://docs.together.ai/docs/batch-inference\" target=\"_blank\" rel=\"noopener\">batch inference docs</a> say \"Selected serverless models run at 50% off batch rates\" and list one model, openai/whisper-large-v3, adding: \"Models not listed run at standard rates.\" The discount \"does not apply to dedicated model inference usage.\" Failed requests in the error file are not billed.</li>\n<li><strong>No free trial, $15 to start.</strong> The <a href=\"https://docs.together.ai/docs/billing-credits\" target=\"_blank\" rel=\"noopener\">credits docs</a> say \"Together AI doesn't currently offer free trials. To use the platform, you must purchase at least $15 of credits.\" Later top-ups have a $5 minimum, and free credits do not count toward the $15.</li>\n<li><strong>No fixed rate limit table.</strong> The <a href=\"https://docs.together.ai/docs/serverless/rate-limits\" target=\"_blank\" rel=\"noopener\">rate limits docs</a> say that \"In most cases, you can use Together AI serverless inference without encountering rate limits\", that busy periods can return a 429 or 503 error, and that \"Serverless performance is best-effort.\"</li>\n</ul>\n<p>We suggest building a retry with backoff into any agent that calls serverless models, so a 429 during a busy period does not drop a lead or a call.</p>\n<h2 id=\"dedicated-gpus\">Dedicated endpoints and GPU clusters per hour</h2>\n<p>Dedicated inference runs a model on \"Single-tenant GPU instances\" with no sharing. Prices are per GPU per hour, on demand:</p>\n<table>\n<thead><tr><th>GPU</th><th>Dedicated inference, on demand</th><th>GPU cluster, on demand</th><th>GPU cluster, reserved 31 to 90 days</th></tr></thead>\n<tbody>\n<tr><td>NVIDIA HGX H100</td><td>$5.49</td><td>$3.99</td><td>$3.45</td></tr>\n<tr><td>NVIDIA HGX H200</td><td>$5.99</td><td>$5.99</td><td>$4.15</td></tr>\n<tr><td>NVIDIA HGX B200</td><td>$9.29</td><td>$9.29</td><td>$7.99</td></tr>\n<tr><td>NVIDIA HGX B300</td><td>$11.49</td><td>$11.49</td><td>$9.89</td></tr>\n</tbody>\n</table>\n<p>One H100 dedicated endpoint left on for a 730-hour month comes to about $4,007.70 on our arithmetic, against about $2,518.50 for an H100 in a GPU cluster reserved for 31 to 90 days. Preemptible cluster GPUs start at $2.00 an hour for an H100. Reserved dedicated inference is \"Contact sales\". At the serverless prices above, $4,007.70 would pay for about 44 months of the hypothetical Kimi K3.1 Pro workload below, so dedicated hardware pays only at high, steady volume or for a custom model.</p>\n<h2 id=\"worked-cost\">What 10,000 conversations a month cost on Together AI</h2>\n<p>A hypothetical example: a support or sales chatbot that handles 10,000 conversations a month, with 2,000 input and 500 output tokens each, so 20 million input and 5 million output tokens. Our arithmetic on standard serverless list prices, without caching:</p>\n<table>\n<thead><tr><th>Model</th><th>Input cost</th><th>Output cost</th><th>Monthly total</th></tr></thead>\n<tbody>\n<tr><td>GLM-5.3-Flash</td><td>$3.00</td><td>$2.50</td><td>$5.50</td></tr>\n<tr><td>DeepSeek V4.1 Flash 1017</td><td>$6.00</td><td>$6.00</td><td>$12.00</td></tr>\n<tr><td>GLM-5.3</td><td>$28.00</td><td>$22.00</td><td>$50.00</td></tr>\n<tr><td>Qwen4 Max</td><td>$30.00</td><td>$22.50</td><td>$52.50</td></tr>\n<tr><td>Kimi K3.1 Pro</td><td>$40.00</td><td>$50.00</td><td>$90.00</td></tr>\n</tbody>\n</table>\n<p>For models with a US geo-pinned row, the total rises by 25%, for example GLM-5.3 from $50.00 to $62.50. A long, repeated system prompt lowers the input side through cached pricing. For how the model bill fits into the full cost of a chatbot, see our guide to <a href=\"/blog/ai-chatbot-for-business-cost/\">AI chatbot costs for a business</a>.</p>\n<h2 id=\"fine-tuning\">Fine-tuning prices</h2>\n<p>Together also sells fine-tuning per million training tokens, with a minimum charge per job. For LoRA fine-tuning on the page: Qwen3.5 0.8B costs $0.34 for supervised fine-tuning and $0.84 for direct preference optimization, with a $4.00 minimum; Qwen3.5 27B costs $1.05 and $2.62, also with a $4.00 minimum; Qwen3.5 122B A10B costs $4.20 and $10.50 with a $10.00 minimum.</p>\n<p>For most outbound and support agents we would test prompt changes and retrieval before paying for fine-tuning, since a prompt change costs nothing to try.</p>\n<h2 id=\"vs-others\">Together AI vs other model API hosts</h2>\n<p>Together resells open and partner models; for the Qwen and Kimi models we checked, its prices match the model maker's own list, with extra choices: US geo-pinning, FAST variants, dedicated GPUs and fine-tuning. The trade-offs are the $15 entry purchase, best-effort rate limits and a batch discount that, on November 26, covered only one listed model. To compare, see <a href=\"/blog/openrouter-pricing/\">OpenRouter pricing</a>, <a href=\"/blog/groq-api-free-tier/\">Groq's free tier</a>, <a href=\"/blog/deepseek-api-pricing/\">DeepSeek API pricing</a> and our <a href=\"/blog/ai-model-api-pricing-comparison/\">AI model API pricing comparison</a>.</p>\n<h2 id=\"how-imisofts-can-help\">How imisofts can help</h2>\n<p>imisofts is an AI automation agency that builds AI agents, automations and AI voice agents. If you want help choosing a model host and keeping the token bill in check, see our <a href=\"/ai-automation-agency\">AI automation agency</a> services. Prices on this page are Together AI's published prices as read on November 26, 2026; check the Together AI pricing page before you commit, as models and prices change.</p>",
+  "word_count": 1620,
+  "read_time": 7
+}
