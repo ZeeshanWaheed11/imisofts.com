@@ -19,3 +19,6 @@ Notes
 - After a change to the header or footer, run `python3 ops/inject_nav.py` first, then rebuild these pages.
 - Figures on /acquire: Domain Rating 27 (Ahrefs, checked 27 Nov 2026) and 8K to 10K monthly visitors
   (owner's figure). The article, tool and country counts are read from the site when the page is built.
+- The founder photos on /acquire are crops of `assets/people/zeeshan-waheed.jpg` centred on the face
+  (between the eyes is at about x 462, y 640 in the 960 by 1280 original): avatar crop 165,365 to 765,965;
+  card crop 132,270 to 792,1095. Use a new file name when a crop changes, so no browser shows the old one.

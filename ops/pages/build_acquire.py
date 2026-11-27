@@ -166,7 +166,7 @@ ACQ_CSS = """
 .aq-hero .gl-ctas{margin-bottom:30px}
 .aq-hero .gl-btn-primary{box-shadow:0 10px 22px -8px rgba(244,84,7,.55)}
 .aq-by{display:flex;align-items:center;gap:12px;font-size:14px;color:#667085;line-height:1.45}
-.aq-by img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 6px 14px rgba(15,23,42,.16);flex:0 0 46px}
+.aq-by img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center;border:2px solid #fff;box-shadow:0 6px 14px rgba(15,23,42,.16);flex:0 0 52px}
 .aq-by strong{display:block;color:#0F172A;font-weight:600;font-size:15px}
 .aq-visual{position:relative;padding:22px 0 40px}
 .aq-browser{background:#fff;border:1px solid #e7eaee;border-radius:14px;overflow:hidden;box-shadow:0 34px 64px -24px rgba(15,23,42,.30),0 14px 28px -14px rgba(15,23,42,.14)}
@@ -430,7 +430,7 @@ def build():
             <a href="#included" class="gl-btn gl-btn-secondary">See what is included</a>
           </div>
           <div class="aq-by">
-            <img src="/assets/acquire/founder-avatar.webp" width="96" height="96" alt="Zeeshan Waheed, founder and CEO of imisofts" decoding="async">
+            <img src="/assets/acquire/founder-avatar-v2.webp" width="96" height="96" alt="Zeeshan Waheed, founder and CEO of imisofts" decoding="async">
             <div><strong>Zeeshan Waheed</strong>Founder and CEO. You deal with him directly.</div>
           </div>
         </div>
@@ -528,7 +528,7 @@ def build():
   <section class="gl-section gl-alt">
     <div class="container">
       <div class="aq-founder">
-        <div class="aq-founder-photo"><img src="/assets/acquire/founder.webp" width="480" height="600" alt="Zeeshan Waheed, founder and CEO of imisofts" loading="lazy" decoding="async"></div>
+        <div class="aq-founder-photo"><img src="/assets/acquire/founder-v2.webp" width="480" height="600" alt="Zeeshan Waheed, founder and CEO of imisofts" loading="lazy" decoding="async"></div>
         <div>
           <span class="gl-eyebrow">Who you deal with</span>
           <h2>Sold directly by the founder</h2>
