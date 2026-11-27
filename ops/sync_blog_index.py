@@ -87,6 +87,24 @@ def main():
     if refreshed:
         open(IDX,'w',encoding='utf-8').write(s)
         print('refreshed + re-sorted %d card(s): %s' % (len(refreshed), ', '.join(refreshed)))
+    # PICTURE PASS (2026-11-27). A post that has a "thumb" in posts-index.json but whose card still shows
+    # the plain gradient (the GTA 6 desk guides published 19 to 27 Nov) gets its picture. Only the
+    # card-thumbnail div of that one card changes; cards that already show a picture are left alone.
+    pictured = []
+    for p in posts:
+        slug = p.get('slug'); thumb = p.get('thumb')
+        if not slug or not thumb: continue
+        m = re.search(r'(<a href="/blog/%s/" class="post-card".*?)(<div class="card-thumbnail" style="background: [^"]*;">.*?</div>\n?)' % re.escape(slug), s, re.S)
+        if not m or '</a>' in m.group(1): continue
+        title = p.get('title', '')
+        pic = (f'<div class="card-thumbnail" style="background:#f3efe7;padding:0;overflow:hidden">'
+               f'<img src="{esc(thumb)}" alt="{esc(title)}" width="1200" height="675" loading="lazy" decoding="async" '
+               f'style="width:100%;height:100%;object-fit:cover;object-position:center;display:block"></div>\n')
+        s = s[:m.start(2)] + pic + s[m.end(2):]
+        pictured.append(slug)
+    if pictured:
+        open(IDX,'w',encoding='utf-8').write(s)
+        print('card picture added for %d card(s): %s' % (len(pictured), ', '.join(pictured)))
     existing = set(re.findall(r'href="/blog/([a-z0-9-]+)/"', s))
     # newest first by date then by list order
     def keyf(p): return (p.get('date',''), )

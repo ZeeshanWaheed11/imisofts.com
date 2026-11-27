@@ -171,6 +171,15 @@ def build_article(meta, tpl):
         raise AssertionError("%s failed QA: %s" % (slug, "; ".join(_probs)))
     return s
 
+def _lead_thumb(meta):
+    """2026-11-27: GTA 6 desk guides use a lead picture, not the image-system-2 cover, so their /blog card
+    had no picture. Use the lead's 16x9 webp, read from the built page. None for every other guide."""
+    if not isinstance(meta.get('lead'), dict): return None
+    try: h=open(os.path.join(ROOT,'blog',meta['slug'],'index.html'),encoding='utf-8').read()
+    except Exception: return None
+    m=re.search(r'<figure class="post-hero post-lead"[^>]*><img src="(/assets/blog/[^"]+-16x9\.webp)"',h)
+    return m.group(1) if m else None
+
 def main():
     if not os.path.exists(TEMPLATE): print('ERROR: template missing'); return 1
     if not os.path.isdir(CONTENT_DIR): print('no affiliate content dir'); return 0
@@ -201,6 +210,8 @@ def main():
             # date moved forward, so a refreshed evergreen post is not stranded.
             for i,pp in enumerate(posts):
                 if pp.get('slug')!=meta['slug']: continue
+                _lt=_lead_thumb(meta)
+                if _lt and not pp.get('thumb'): pp['thumb']=_lt; print('card picture added for %s'%meta['slug'])
                 changed = (pp.get('date')!=meta['date'] or pp.get('title')!=meta['title'] or pp.get('meta_description')!=meta['desc'])
                 fwd = meta['date'] > (pp.get('date') or '')
                 if changed:
@@ -212,7 +223,7 @@ def main():
                 break
             continue
         kw=meta.get('keywords',''); CAT=meta.get('category','Reviews')
-        posts.insert(0,{"number":0,"filename":f"000-{meta['slug']}.txt","title":meta['title'],"meta_description":meta['desc'],"url_slug":f"/blog/{meta['slug']}","primary_keyword":kw.split(',')[0].strip(),"secondary_keywords":", ".join(k.strip() for k in kw.split(',')[1:]),"category":CAT,"word_count_target":meta.get('word_count',1500),"schema_type":"Article","author":"Zeeshan Waheed","date":meta['date'],"slug":meta['slug'],"word_count":meta.get('word_count',1500),"read_time":meta.get('read_time',8),"has_faq":True,"category_normalized":CAT.lower().replace(' ','-'),**({"thumb":meta['_imgs']['cover_webp']} if (meta.get('_imgs') or {}).get('cover_webp') else {})})
+        posts.insert(0,{"number":0,"filename":f"000-{meta['slug']}.txt","title":meta['title'],"meta_description":meta['desc'],"url_slug":f"/blog/{meta['slug']}","primary_keyword":kw.split(',')[0].strip(),"secondary_keywords":", ".join(k.strip() for k in kw.split(',')[1:]),"category":CAT,"word_count_target":meta.get('word_count',1500),"schema_type":"Article","author":"Zeeshan Waheed","date":meta['date'],"slug":meta['slug'],"word_count":meta.get('word_count',1500),"read_time":meta.get('read_time',8),"has_faq":True,"category_normalized":CAT.lower().replace(' ','-'),**({"thumb":meta['_imgs']['cover_webp']} if (meta.get('_imgs') or {}).get('cover_webp') else ({"thumb":_lead_thumb(meta)} if _lead_thumb(meta) else {}))})
     json.dump(posts if isinstance(d,list) else {**d,'posts':posts},open(pj,'w',encoding='utf-8'),indent=2,ensure_ascii=False)
     sm=open(os.path.join(ROOT,'sitemap.xml')).read(); add=''
     for meta in metas:
