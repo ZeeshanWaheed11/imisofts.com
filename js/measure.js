@@ -9,13 +9,20 @@
  *                       or a visit to /thank-you?src=cal after a booking made on cal.com
  *                       itself (lead_source cal_redirect); one lead per browser per 12 h
  *   book_call_click     click on a Cal.com link or the "Book Growth Call" button
- *   contact_form_start  first interaction with the ClickUp contact form
+ *   contact_form_start  first interaction with a ClickUp client form (contact / cold email)
+ *   job_application_start  first interaction with the ClickUp job application form on
+ *                       /careers (not a key event: applicants are not leads)
  *   contact_click       email / phone / WhatsApp link click (contact_method)
  *   affiliate_click     click on a rel="sponsored" link (affiliate_program)
  *
  * The random GA client ID is also passed into the ClickUp contact form's hidden
  * "GA client ID" field, so a lead's later stages (qualified, won) can be imported
  * into GA4 for that visitor. No name, email or other personal data is passed.
+ * Since 2026-11-27 every ClickUp form also gets three hidden attribution fields:
+ * "Lead source" (this session's source, e.g. google / organic), "Landing page"
+ * (first page of the session, path only) and "Form page" (path only). ClickUp
+ * cannot tell the page when an embedded form is sent, so each lead carries its own
+ * attribution and the weekly audit counts real leads from ClickUp.
  *
  * Mark a browser as internal (excluded by the GA4 internal-traffic filter):
  * open any page once with ?internal=1 . Undo with ?internal=0 .
@@ -212,42 +219,102 @@
   document.addEventListener('click', onClick, true);
   document.addEventListener('auxclick', onClick, true);
 
-  // ---- contact form: first interaction with the ClickUp iframe ----
-  var formStarted = false;
+  // ---- ClickUp forms: which embedded form is which ----
+  var JOB_FORM = /2kzmpqh8-2798/;   // "Job Application Form - Careers" (list Job Applications)
+  function isClickupFrame(el) {
+    return !!(el && el.tagName === 'IFRAME' && /forms\.clickup\.com/.test(el.getAttribute('src') || ''));
+  }
+
+  // ---- first interaction with a ClickUp form ----
+  var formStarted = false;   // any ClickUp form touched: never reload a form after this
+  var contactSent = false, jobSent = false;
   window.addEventListener('blur', function () {
-    if (formStarted) return;
     setTimeout(function () {
       var el = document.activeElement;
-      if (el && el.tagName === 'IFRAME' && /forms\.clickup\.com/.test(el.src || '')) {
-        formStarted = true;
+      if (!isClickupFrame(el)) return;
+      formStarted = true;
+      if (JOB_FORM.test(el.getAttribute('src') || '')) {
+        if (jobSent) return;
+        jobSent = true;
+        send('job_application_start', { form_id: 'clickup-job', form_name: 'Job application form' });
+      } else {
+        if (contactSent) return;
+        contactSent = true;
         send('contact_form_start', { form_id: 'clickup-contact', form_name: 'Contact form' });
       }
     }, 0);
   });
 
-  // ---- lead stages: pass the GA client ID into the ClickUp contact form ----
-  // The form has a hidden "GA client ID" field (ClickUp fills hidden fields from the
-  // form URL). A daily upload then sends qualify_lead, close_convert_lead and the other
-  // lead-stage events to GA4 for that client ID. A form is never reloaded once someone
-  // has started typing in it.
+  // ---- lead attribution: this session's source and landing page ----
+  // Kept in sessionStorage so the form page still knows how the visitor arrived.
+  // Paths only, never query strings; no personal data.
+  function clean(v) { return String(v || '').replace(/[^\w .\/:()@+-]/g, '').slice(0, 100); }
+  function decodeSafe(v) { try { return decodeURIComponent(v.replace(/\+/g, ' ')); } catch (e) { return v; } }
+  var AI_RX = /chatgpt|openai|perplexity|claude\.ai|anthropic|gemini\.google|copilot|meta\.ai|deepseek|grok|mistral|phind|you\.com|poe\.com/i;
+  function sessionSource() {
+    var m, us = '', um = '';
+    if ((m = /[?&]utm_source=([^&#]{1,80})/i.exec(search))) us = decodeSafe(m[1]).toLowerCase();
+    if ((m = /[?&]utm_medium=([^&#]{1,80})/i.exec(search))) um = decodeSafe(m[1]).toLowerCase();
+    if (us) return us + ' / ' + (um || (AI_RX.test(us) ? 'ai-assistant' : '(none)'));
+    var host = '';
+    try { host = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '').toLowerCase() : ''; }
+    catch (e) { host = ''; }
+    if (!host || /(^|\.)imisofts\.com$/.test(host)) return '(direct)';
+    if (AI_RX.test(host)) return host + ' / ai-assistant';
+    if (/^(mail|accounts|docs|drive|sites)\.google\./.test(host)) return host + ' / referral';
+    var se = /(^|\.)(google|bing|duckduckgo|yahoo|yandex|baidu|ecosia|brave|naver)\./.exec(host + '.');
+    if (se) return se[2] + ' / organic';
+    if (/(^|\.)(linkedin\.com|lnkd\.in|facebook\.com|fb\.com|instagram\.com|t\.co|x\.com|twitter\.com|reddit\.com|youtube\.com|pinterest\.com|tiktok\.com|quora\.com)$/.test(host)) return host + ' / social';
+    return host + ' / referral';
+  }
+  var leadSource = '', landingPage = '';
+  try {
+    leadSource = sessionStorage.getItem('im_src') || '';
+    landingPage = sessionStorage.getItem('im_land') || '';
+    if (!leadSource) { leadSource = clean(sessionSource()); sessionStorage.setItem('im_src', leadSource); }
+    if (!landingPage) { landingPage = clean(location.pathname); sessionStorage.setItem('im_land', landingPage); }
+  } catch (e) {
+    leadSource = leadSource || clean(sessionSource());
+    landingPage = landingPage || clean(location.pathname);
+  }
+
+  // ---- pass attribution (and the GA client ID) into the ClickUp forms ----
+  // The forms have hidden fields with these names; ClickUp fills hidden fields from
+  // the form URL. A daily upload can send later lead stages to GA4 for the client ID.
+  // A form is never reloaded once someone has started typing in it.
   function clientIdFromCookie() {
     var m = /(?:^|;\s*)_ga=GA\d\.\d\.(\d+\.\d+)/.exec(document.cookie || '');
     return m ? m[1] : '';
+  }
+  function withParams(src, params) {
+    var add = [];
+    for (var k in params) {
+      if (!Object.prototype.hasOwnProperty.call(params, k) || !params[k]) continue;
+      var key = encodeURIComponent(k);
+      if (src.indexOf(key + '=') !== -1) continue;
+      add.push(key + '=' + encodeURIComponent(params[k]));
+    }
+    if (!add.length) return src;
+    return src + (src.indexOf('?') === -1 ? '?' : '&') + add.join('&');
   }
   function tagForms(cid) {
     var frames = document.querySelectorAll('iframe');
     for (var i = 0; i < frames.length; i++) {
       var f = frames[i];
       var src = f.getAttribute('src') || '';
-      if (!/^https:\/\/forms\.clickup\.com\//.test(src) || /GA%20client%20ID=/.test(src)) continue;
+      if (!/^https:\/\/forms\.clickup\.com\//.test(src)) continue;
       if (formStarted || document.activeElement === f) continue;
-      f.setAttribute('src', src + (src.indexOf('?') === -1 ? '?' : '&') + 'GA%20client%20ID=' + cid);
+      var params = { 'Lead source': leadSource, 'Landing page': landingPage, 'Form page': clean(location.pathname) };
+      if (cid && !JOB_FORM.test(src)) params['GA client ID'] = cid;
+      var next = withParams(src, params);
+      if (next !== src) f.setAttribute('src', next);
     }
   }
+  try { tagForms(clientIdFromCookie()); } catch (e) { /* never break the page */ }
   var cidTries = 0;
   function pollClientId() {
     var cid = clientIdFromCookie();
-    if (cid) { tagForms(cid); return; }
+    if (cid) { try { tagForms(cid); } catch (e) { /* ignore */ } return; }
     if (++cidTries < 40) setTimeout(pollClientId, 500);
   }
   if (document.readyState === 'complete') pollClientId();
