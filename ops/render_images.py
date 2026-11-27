@@ -270,6 +270,11 @@ def _ensure_v2(meta, root):
     sys.path.insert(0, HERE)
     import img_v2_data as D, img_v2_explain as E
     im = meta['image']; slug = meta['slug']; title = meta.get('title', '')
+    # 2026-11-27: "theme": "deal" draws the same block in the Deal Room style (ops/img_deal.py) for the acquire
+    # desk's buyer guides. Without a theme, names and pictures are exactly as before.
+    TH = {'th': im['theme']} if im.get('theme') == 'deal' else {}
+    if TH:
+        import img_deal as E
     out_dir = os.path.join(root, 'assets', 'blog', slug)
     os.makedirs(out_dir, exist_ok=True)
     rel = lambda name: '/assets/blog/%s/%s' % (slug, name)
@@ -278,14 +283,15 @@ def _ensure_v2(meta, root):
     ex = im.get('explain')
     cov = im.get('cover') or {}
     if isinstance(ex, dict) and ex.get('items'):
-        he = _hash({'v': V2_VERSION, 'k': 'explain', 'e': ex})
+        he = _hash(dict({'v': V2_VERSION, 'k': 'explain', 'e': ex}, **TH))
         base = os.path.join(out_dir, 'explain-' + he)
         if not have(base): E.render_explain(base, slug, ex)
-        hc = _hash({'v': V2_VERSION, 'k': 'cover', 'e': ex, 'c': cov, 't': title})
+        hc = _hash(dict({'v': V2_VERSION, 'k': 'cover', 'e': ex, 'c': cov, 't': title}, **TH))
         cbase = os.path.join(out_dir, 'cover-' + hc)
         if not have(cbase):
             e2 = dict(ex); e2['cover_number'] = cov.get('number')
             if cov.get('kicker'): e2['kicker'] = cov['kicker']
+            if TH and cov.get('caption'): e2['cover_caption'] = cov['caption']
             E.render_cover(cbase, slug, e2, clean(cov.get('headline') or _short_title(title)))
         res.update({'hero_webp': rel('explain-%s.webp' % he), 'explain_jpg': rel('explain-%s.jpg' % he),
                     'hero_jpg': rel('cover-%s.jpg' % hc), 'cover_webp': rel('cover-%s.webp' % hc),
@@ -300,7 +306,7 @@ def _ensure_v2(meta, root):
     for k, fg in enumerate(im.get('figures') or []):   # in-body explainer pictures, each placed under a named heading
         if not (isinstance(fg, dict) and isinstance(fg.get('explain'), dict) and fg.get('under')):
             continue
-        hf = _hash({'v': V2_VERSION, 'k': 'figure', 'e': fg['explain']})
+        hf = _hash(dict({'v': V2_VERSION, 'k': 'figure', 'e': fg['explain']}, **TH))
         fbase = os.path.join(out_dir, 'figure-' + hf)
         if not have(fbase): E.render_explain(fbase, slug + ':fig%d' % k, fg['explain'])
         figs.append({'webp': rel('figure-%s.webp' % hf), 'jpg': rel('figure-%s.jpg' % hf), 'under': fg['under'],
