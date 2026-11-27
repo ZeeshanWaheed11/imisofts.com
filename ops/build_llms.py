@@ -364,7 +364,8 @@ def build():
     newest = max((str(p.get('date', '')) for p in posts), default='')
     laws = [p for p in posts if LAWS_RE.match(p['slug'])]
     law_slugs = {p['slug'] for p in laws}
-    country_laws = [p for p in laws if p['slug'].startswith('cold-email-laws-')]
+    # the by-country comparison table is a hub, not a country (it was counted as one until 2026-11-27)
+    country_laws = [p for p in laws if p['slug'].startswith('cold-email-laws-') and p['slug'] != 'cold-email-laws-by-country']
     news = [p for p in posts if p.get('category') == NEWS_CATEGORY and p['slug'] not in law_slugs]
     evergreen = [p for p in posts if p.get('category') != NEWS_CATEGORY and p['slug'] not in law_slugs]
 
