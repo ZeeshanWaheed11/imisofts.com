@@ -8,6 +8,10 @@ Scope set by Zeeshan: imisofts.com, the cold email infrastructure that generates
 monthly retainers (details by email). Figures: DR 27 (Ahrefs, checked 27 Nov 2026) and 8K to 10K monthly
 visitors (owner's figure). Other numbers come from the site itself (articles, service pages, tools).
 
+Version 2.2 (same day): channels and accounts added (YouTube, LinkedIn page, social profiles, Upwork agency
+profile, affiliate income), and the title, hero line and FAQ now name the searches buyers use ("lead generation
+agency for sale", "AI automation agency for sale"). See the vault note on buyer search demand.
+
 Version 2.1 (same day): the figures box under the hero became six tiles with icons, notes and a count-up,
 after Zeeshan asked to improve it. On a phone it is a 2 by 3 grid (the old band left one figure alone on a row).
 
@@ -48,6 +52,10 @@ ICON = {
     'search': '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
     'tool': '<path d="M14.5 6.5a4 4 0 0 0-5.2 5.2L3.5 17.5l3 3 5.8-5.8a4 4 0 0 0 5.2-5.2l-2.6 2.6-2.4-.6-.6-2.4z"/>',
     'calendar': '<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
+    'play': '<rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="M10 9.2v5.6l4.8-2.8z"/>',
+    'share': '<circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.2 10.8l7.6-4M8.2 13.2l7.6 4"/>',
+    'briefcase': '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8.5 7V5.5A1.5 1.5 0 0 1 10 4h4a1.5 1.5 0 0 1 1.5 1.5V7M3 12.5h18"/>',
+    'link': '<path d="M10 14a4.2 4.2 0 0 0 6 0l3-3a4.2 4.2 0 0 0-6-6l-1 1"/><path d="M14 10a4.2 4.2 0 0 0-6 0l-3 3a4.2 4.2 0 0 0 6 6l1-1"/>',
 }
 
 
@@ -98,6 +106,24 @@ ASSETS = [
              'How each relationship is handed over is agreed with you first']),
 ]
 
+# Accounts and channels that come with the business (Zeeshan, 27 Nov 2026: affiliate account, YouTube channel,
+# social media accounts, LinkedIn page and Upwork agency profile). Transfer notes follow each platform's own rules:
+# YouTube via Brand Account primary owner transfer; Upwork agency ownership only through Upwork support; Instagram,
+# TikTok and X restrict account transfers, so the wording says "where its rules allow"; affiliate accounts stay
+# personal, so the links move to the buyer's own partner accounts.
+EXTRAS = [
+    ('play', 'YouTube channel', 'The imisofts channel with its Shorts, explainer films and subscribers.',
+     'Moves to you through a Google Brand Account ownership transfer.'),
+    ('building', 'LinkedIn company page', 'The imisofts company page and its followers.',
+     'You are made super admin of the page.'),
+    ('share', 'Social profiles', 'imisofts on Instagram, Facebook, Pinterest and TikTok, plus the library of short videos.',
+     'Handed over through each platform\u2019s own admin tools, where its rules allow it.'),
+    ('briefcase', 'Upwork agency profile', 'The agency profile on Upwork, with its client history and reviews.',
+     'Ownership moves through Upwork support and needs Upwork\u2019s approval.'),
+    ('link', 'Affiliate income', 'Partner links across the articles for Instantly, Apollo, HighLevel and other tools the site reviews.',
+     'Links move to your own partner accounts. Commission history is shared by email.'),
+]
+
 SHOTS = [
     ('/blog/', 'blog', 'The imisofts blog, with search and topic filters', ARTICLES + ' articles', 'The blog',
      'Guides, comparisons and news on cold email, AI automation and outbound sales.'),
@@ -136,8 +162,17 @@ STEPS = [
 
 FAQ = [
     ('What exactly is for sale?',
-     'Three things, sold together: imisofts.com (the domain, brand and full website), the cold email infrastructure that '
-     'generates leads for the agency, and a few active monthly retainers.'),
+     'imisofts, a lead generation and AI automation agency, sold as one business: imisofts.com (the domain, brand and full '
+     'website), the cold email infrastructure that generates leads for the agency, a few active monthly retainers, and the '
+     'brand channels around them (YouTube, LinkedIn, social profiles, the Upwork agency profile and the affiliate income from the articles).'),
+    ('Is this a lead generation agency for sale with clients?',
+     'Yes. A few active monthly retainer clients come with the business, and the cold email system that wins new clients is '
+     'handed over working. Client names and monthly amounts are shared by email with serious buyers.'),
+    ('Which accounts and channels move to the buyer?',
+     'The YouTube channel moves through a Google Brand Account ownership transfer and you become super admin of the LinkedIn '
+     'company page. Other social profiles are handed over through each platform\u2019s own admin tools where its rules allow it, '
+     'and Upwork agency ownership moves through Upwork support with Upwork\u2019s approval. Affiliate accounts stay personal, so '
+     'the links in the articles move to your own partner accounts.'),
     ('What is the asking price?',
      'The price is not published. Email <a href="%s">%s</a> and we will share it with the supporting numbers.' % (MAILTO, EMAIL)),
     ('Can I check the traffic and the Domain Rating myself?',
@@ -145,8 +180,9 @@ FAQ = [
      'so every number on this page can be checked before you make an offer.'),
     ('How do the retainer clients transfer?',
      'Client names, services, monthly amounts and how each relationship is handed over are covered by email once we have spoken.'),
-    ('Is a broker or a marketplace involved?',
-     'No. imisofts is sold directly by its founder and is not listed on any marketplace. You deal with the founder from the first email to the handover.'),
+    ('Is a broker involved?',
+     'No. imisofts is sold by its founder, with no broker. Whether you find it here or on a marketplace such as Acquire.com or '
+     'Flippa, you deal with the founder from the first email to the handover.'),
     ('Who do I talk to?',
      'Zeeshan Waheed, founder and CEO of imisofts. Start with an email to <a href="%s">%s</a>.' % (MAILTO, EMAIL)),
 ]
@@ -235,6 +271,17 @@ ACQ_CSS = """
 .aq-amt span{width:64px;height:11px;border-radius:50px;background:#e9edf2;display:block}
 .aq-ledger-foot{display:flex;align-items:center;gap:10px;margin-top:6px;font-size:14px;color:#475467;line-height:1.5}
 .aq-ledger-foot svg{color:#F45407;flex:0 0 auto}
+.aq-extra{margin-top:96px}
+.aq-extra-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px 32px;flex-wrap:wrap;margin-bottom:24px}
+.aq-extra-head h3{font-size:30px;font-weight:700;color:#0F172A;line-height:1.2;letter-spacing:-.01em;margin:6px 0 0}
+.aq-extra-head p{font-size:16px;color:#555;line-height:1.6;max-width:460px;margin:0}
+.aq-extra-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.aq-ex{background:#fff;border:1px solid #eef0f3;border-radius:16px;padding:22px 20px;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.aq-ex:hover{transform:translateY(-2px);box-shadow:0 14px 26px -16px rgba(15,23,42,.25);border-color:rgba(244,84,7,.3)}
+.aq-ex .gl-icon{margin-bottom:16px}
+.aq-ex h4{font-size:17px;font-weight:600;color:#0F172A;line-height:1.3;margin:0 0 8px}
+.aq-ex p{font-size:14.5px;color:#555;line-height:1.6;margin:0 0 14px}
+.aq-ex small{display:block;margin-top:auto;padding-top:12px;border-top:1px dashed #e6e9ee;font-size:12.5px;color:#667085;line-height:1.5}
 .aq-shots{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
 .aq-shot{display:block;background:#fff;border:1px solid #eef0f3;border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .aq-shot:hover{transform:translateY(-4px);box-shadow:0 28px 50px -24px rgba(15,23,42,.26);border-color:rgba(244,84,7,.35)}
@@ -284,7 +331,7 @@ ACQ_CSS = """
 .aq-cta-card .gl-check li::before{background-color:rgba(244,84,7,.2)}
 .aq-cta-card .gl-btn{margin-top:26px;display:block;text-align:center;box-shadow:0 12px 26px -10px rgba(244,84,7,.7)}
 @media (max-width:1340px){.aq-chip-b{right:-6px}}
-@media (max-width:1240px){.aq-fig-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:1240px){.aq-fig-grid{grid-template-columns:repeat(3,1fr)}.aq-extra-grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:1100px){
   .aq-hero h1{font-size:52px}
   .aq-chip-a{left:-12px}
@@ -324,6 +371,9 @@ ACQ_CSS = """
   .aq-panel{padding:20px 16px}
   .aq-flow{grid-template-columns:repeat(2,1fr);gap:24px 8px}.aq-flow::before{display:none}
   .aq-shots{grid-template-columns:1fr;gap:20px}
+  .aq-extra{margin-top:64px}.aq-extra-head h3{font-size:25px}
+  .aq-extra-grid{grid-template-columns:1fr;gap:12px}
+  .aq-ex{padding:18px 18px 16px}
   .aq-shot-img{padding:14px 14px 0}
   .aq-why{grid-template-columns:1fr}
   .aq-suits{padding:22px}
@@ -341,7 +391,7 @@ ACQ_CSS = """
   .aq-mail{font-size:19px}
   .aq-cta-card{padding:24px}
 }
-@media (prefers-reduced-motion:reduce){.aq-shot,.aq-ft{transition:none}.aq-shot:hover,.aq-ft:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.aq-shot,.aq-ft,.aq-ex{transition:none}.aq-shot:hover,.aq-ft:hover,.aq-ex:hover{transform:none}}
 </style>
 """.replace('MARK', MARK_URI)
 
@@ -423,8 +473,8 @@ def build():
           <nav class="gl-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span>Acquire imisofts</nav>
           <div class="gl-badge">Direct sale from the founder</div>
           <h1>imisofts is <span>for sale</span></h1>
-          <p class="aq-sub">A website that ranks, a cold email engine that brings in leads, and clients who pay every month.</p>
-          <p class="aq-lead">imisofts is an AI automation and cold email agency founded in 2019. The whole business is offered in one direct deal with its founder, with no broker and no marketplace listing.</p>
+          <p class="aq-sub">A lead generation and AI automation agency for sale: a website that ranks, a cold email engine that brings in leads, and clients who pay every month.</p>
+          <p class="aq-lead">imisofts is an AI automation and cold email agency founded in 2019. The whole business is offered in one direct deal with its founder, with no broker in between.</p>
           <div class="gl-ctas">
             <a href="%(mailto)s" class="gl-btn gl-btn-primary">Email us about the sale &rarr;</a>
             <a href="#included" class="gl-btn gl-btn-secondary">See what is included</a>
@@ -463,15 +513,15 @@ def build():
     <div class="container">
       <div class="gl-head">
         <span class="gl-eyebrow">What is included</span>
-        <h2>Three assets, sold as one business</h2>
-        <p>A website with authority and traffic, a working system for getting clients, and clients who already pay every month.</p>
+        <h2>Everything that comes with the business</h2>
+        <p>A website with authority and traffic, a working system for getting clients, clients who already pay every month, and the channels around them.</p>
       </div>
       <div class="aq-rows">''')
     for i, a in enumerate(ASSETS):
         m.append('''
         <div class="aq-row%s">
           <div class="aq-row-text">
-            <div class="aq-kicker"><b>%d</b>Asset %d of 3</div>
+            <div class="aq-kicker"><b>%d</b>Core asset %d of 3</div>
             <h3>%s</h3>
             <p>%s</p>
             %s
@@ -479,6 +529,18 @@ def build():
           <div class="aq-row-visual">%s</div>
         </div>''' % (' rev' if i == 1 else '', i + 1, i + 1, esc(a['h']), esc(a['p']), checks(a['li']), visual(i)))
     m.append('''
+      </div>
+      <div class="aq-extra">
+        <div class="aq-extra-head">
+          <div><span class="gl-eyebrow">Also included</span><h3>Channels and accounts</h3></div>
+          <p>The brand channels and accounts built around the agency. Follower, subscriber and earnings figures are shared by email.</p>
+        </div>
+        <div class="aq-extra-grid">''')
+    for ic, h, d, note in EXTRAS:
+        m.append('''
+          <div class="aq-ex"><span class="gl-icon">%s</span><h4>%s</h4><p>%s</p><small>%s</small></div>''' % (icon(ic), esc(h), esc(d), esc(note)))
+    m.append('''
+        </div>
       </div>
     </div>
   </section>
@@ -600,9 +662,9 @@ def build():
 ''' % dict(mailto=MAILTO, email=EMAIL, logo=LOGO_DARK))
     main_html = ''.join(m)
 
-    title = 'Acquire imisofts | Agency Website, Outbound System and Retainers for Sale'
-    desc = ('imisofts is for sale, direct from the founder: imisofts.com (Domain Rating 27, 8K to 10K monthly visitors, '
-            '%s articles), a working cold email infrastructure and active monthly retainers.' % ARTICLES)
+    title = 'Lead Generation & AI Automation Agency for Sale | imisofts'
+    desc = ('Lead generation and AI automation agency for sale, direct from the founder: DR 27 website, %s articles, '
+            'cold email system, retainers and brand channels.' % ARTICLES)
     og = SITE + '/og-image-acquire.jpg'
     webpage = {'@context': 'https://schema.org', '@type': 'WebPage', '@id': URL + '#webpage', 'url': URL, 'name': title,
                'description': desc, 'about': {'@id': SITE + '/#organization'},
