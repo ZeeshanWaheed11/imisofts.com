@@ -272,7 +272,7 @@ def _ensure_v2(meta, root):
     im = meta['image']; slug = meta['slug']; title = meta.get('title', '')
     # 2026-11-27: "theme": "deal" draws the same block in the Deal Room style (ops/img_deal.py) for the acquire
     # desk's buyer guides. Without a theme, names and pictures are exactly as before.
-    TH = {'th': im['theme'], 'dv': 'deal-2026-11-27.2'} if im.get('theme') == 'deal' else {}   # bump dv when img_deal.py changes
+    TH = {'th': im['theme'], 'dv': 'deal-2026-11-27.3'} if im.get('theme') == 'deal' else {}   # bump dv when img_deal.py changes
     if TH:
         import img_deal as E
     out_dir = os.path.join(root, 'assets', 'blog', slug)
