@@ -1,0 +1,327 @@
+{
+  "slug": "zillow-api",
+  "title": "Zillow API: Bridge Access, 5,000 Calls an Hour, No Price List",
+  "desc": "Zillow data APIs run through Bridge: MLS feeds by invite, Zestimates and records by approval, 5,000 requests an hour. What they cost, and the scraper route.",
+  "date": "2026-11-27",
+  "time": "17:30",
+  "keywords": "zillow api, zillow api pricing, zillow api cost, bridge api zillow, zestimate api, zillow public records api, zillow scraper, apify zillow scraper",
+  "category": "Guides",
+  "affiliate_url": "https://www.apify.com?fpr=rc63q",
+  "question": "How do I get Zillow data through an API, and what does it cost?",
+  "qtype": "cost",
+  "cta": "Need property data wired into your CRM or lead flow?",
+  "body": "<p><strong>Short answer.</strong> Zillow's property data APIs are invite or approval only, and they run through Bridge Interactive, the platform Zillow Group uses to distribute its data: MLS listings (invite only, and every MLS decides who gets its feed), plus Zestimates for about 100 million US properties and public records for about 148 million properties, both of which need Zillow Group's approval. Bridge says it charges no service fee for MLS feeds, though each MLS may charge its own license fee, and we found no published price for the Zillow datasets. The default limit is 5,000 requests an hour (1,000 a day for public records). Zillow's market data, such as its home value and rent indexes, is a free CSV download. Scraping Zillow.com is another route: the Zillow Search Scraper on Apify's Store costs $2.00 per 1,000 results on the $19 Starter plan, but Zillow's Terms of Use ban automated queries and scraping. We earn a commission if you buy Apify through our links.</p>\n<p>Everything below was read on 27 November 2026 on Zillow Group's developer pages, the Bridge API documentation, Zillow's Terms of Use (updated October 28, 2025), Zillow Research's data page and Apify's Store. The daily figures and the example bill are our arithmetic on those published numbers. We made no API calls and ran no scraper jobs.</p>\n\n<h2 id=\"which-zillow-api\">Which Zillow API answers which question</h2>\n<p><a href=\"https://www.zillowgroup.com/developers/\" target=\"_blank\" rel=\"noopener\">Zillow Group's developer site</a> lists \"close to 20 APIs\" across agents, MLS and broker listings, mortgage, public data, rentals, transactions and Zestimates. Several are partner tools, such as the mortgage Lead Posting API and Rentals Feed Integrations. For someone who wants property data, four matter:</p>\n<ul>\n<li><strong>Listings for sale or rent:</strong> the <a href=\"https://www.zillowgroup.com/developers/api/mls-broker-data/mls-listings/\" target=\"_blank\" rel=\"noopener\">MLS Listings API</a> on Bridge. Zillow says \"All data access is at the discretion of our individual MLS partners in the US and Canada\" and that \"The platform is currently invite only\".</li>\n<li><strong>Home and rent estimates:</strong> the <a href=\"https://www.zillowgroup.com/developers/api/zestimate/zestimates-api/\" target=\"_blank\" rel=\"noopener\">Zestimates API</a>, which Zillow says returns property, rental and foreclosure Zestimates for \"~100 million properties in the US\". Zillow calls it a resource \"really for commercial use cases by businesses\".</li>\n<li><strong>Ownership, tax and sale history:</strong> the <a href=\"https://www.zillowgroup.com/developers/api/public-data/public-records-api/\" target=\"_blank\" rel=\"noopener\">Public Records API</a>, parcel, assessment and transaction data \"going back roughly 15 years\", also invite only.</li>\n<li><strong>Market trends:</strong> Zillow's <a href=\"https://www.zillow.com/research/data/\" target=\"_blank\" rel=\"noopener\">research data</a>, including the Zillow Home Value Index (ZHVI) and the Zillow Observed Rent Index (ZORI), free as CSV files; Bridge also offers an economic data API with the same metrics, by approval.</li>\n</ul>\n\n<h2 id=\"bridge-access\">How to get access through Bridge</h2>\n<p>Every official route runs through the <a href=\"https://bridgedataoutput.com/docs/platform/\" target=\"_blank\" rel=\"noopener\">Bridge platform</a>, which Bridge describes as a platform that lets \"MLSs and other data providers to manage licensing, billing and data access\". The path depends on the dataset:</p>\n<ul>\n<li><strong>MLS listings:</strong> the MLS starts it. Bridge's docs say \"If you are looking to access MLS data, first contact the relevant MLS to request an invite to the platform.\" Bridge says that if the data provider includes data licenses in your invitation, you execute the agreements in the dashboard. An IDX feed and a VOW feed from the same MLS need two separate applications.</li>\n<li><strong>Zillow Group datasets</strong> (Public Records, Zestimates, Economic Data, Agent Reviews): register, fill in your application profile and apply per dataset. Bridge asks whether the use is personal or business, who the audience is, how the data will be used, whether it is a paid service, whether you will store data, whether you will combine Zillow data with other data, and where you are located. It asks you to \"allow at least 10+ business days for us to determine your eligibility\".</li>\n</ul>\n<p>On price, Bridge's FAQ says it \"does not charge vendors and brokerages any additional service fees when integrating with our partner MLSs. Note that MLSs may charge their own licensing fees, at their discretion.\" We found no dollar figure for the Zillow Group datasets anywhere in the docs, so treat them as unpriced; we could not see a price without applying. Replication and metadata endpoints are not available for those datasets, and access \"requires adherence to the Zillow Data Terms of Use\".</p>\n<p>Not sure an MLS feed is worth it? For agents, the listing data is often less of a bottleneck than the follow-up: our <a href=\"/blog/real-estate-lead-generation-cost/\">real estate lead generation cost</a> guide compares Zillow leads, ads and referrals.</p>\n\n<h2 id=\"rate-limits\">Rate limits and what you can pull</h2>\n<p>Bridge says \"There is no usage cap on the total number of API requests or concurrent requests you can make against a token. However, there is a default rate limit of 5,000 requests per hour.\" A burst limit of 1/15 of that applies per minute, which Bridge rounds to 334 requests a minute. Sustained for a full day, 5,000 an hour is 120,000 requests (our arithmetic). Public records are tighter: \"By default, you are limited to 1,000 API requests per day.\" Bridge's paging example fetches 200 records at a time. High-volume apps can ask for a higher limit.</p>\n<table>\n<thead><tr><th>Dataset</th><th>Coverage (Zillow's figure)</th><th>Default limit</th><th>Price</th></tr></thead>\n<tbody>\n<tr><td>MLS listings</td><td>Per MLS, US and Canada</td><td>5,000 requests an hour</td><td>No Bridge fee; MLS may charge</td></tr>\n<tr><td>Zestimates</td><td>~100 million US properties</td><td>5,000 an hour (Bridge default)</td><td>Not published</td></tr>\n<tr><td>Public records</td><td>~148 million properties, 3,200 counties</td><td>1,000 requests a day</td><td>Not published</td></tr>\n<tr><td>Research data (ZHVI, ZORI)</td><td>Neighborhood to national</td><td>CSV download</td><td>Free, with attribution</td></tr>\n</tbody>\n</table>\n<p>Bridge's docs note that \"not all properties will have associated Zestimates\", and that most economic metrics are published monthly.</p>\n\n<h2 id=\"zillow-terms\">What Zillow's terms allow</h2>\n<p>This is where the scraping route gets risky. Section 5 of <a href=\"https://www.zillow.com/corporate/terms-of-use/\" target=\"_blank\" rel=\"noopener\">Zillow's Terms of Use</a> says that by using its services you agree not to \"conduct automated queries (including screen and database scraping, spiders, robots, crawlers, bypassing \"captcha\" or similar precautions, or any other automated activity with the purpose of obtaining information from the Services)\". The same section bars using the services \"to develop competitive products or services\".</p>\n<p>The terms do carve out aggregate data. Information from the services may be used only \"without the aid of any automated processes\" and as needed for personal or Pro Use, but the aggregate figures on Zillow's local info pages \"may be used for non-personal uses, e.g., real estate market analysis\", and derivative works such as a graph are allowed if every page cites \"Data Provided by Zillow Group\". Separately, Zillow Group's real estate metrics page says its research downloads are free for public use and \"Proper and clear attribution of all data to Zillow is required.\"</p>\n<p>Whether scraping public pages is lawful is a separate question from whether it breaks a site's terms; see our guide on <a href=\"/blog/is-web-scraping-legal/\">whether web scraping is legal</a>. This is general information, not legal advice.</p>\n\n<h2 id=\"scraper-cost\">What a Zillow scraper costs on Apify</h2>\n<p>If you still want listing pages at volume without an MLS invite, one option is a scraper from <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">Apify's Store</a>. Two popular Zillow scrapers there (8.7K and 11K total users on their pages) are built by an independent developer, not by Apify or Zillow. Apify's listing for the Zillow Search Scraper says it pulls for-sale and rental listings \"with no daily call limits\", which is the vendor's claim. Prices read on 27 November 2026:</p>\n<table>\n<thead><tr><th>Apify plan (monthly fee)</th><th>Search Scraper, per 1,000 results</th><th>Detail Scraper, per 1,000 results</th></tr></thead>\n<tbody>\n<tr><td>Free ($0, $5 credit)</td><td>$2.30 (up to 2,173 results)</td><td>Up to 1,388 results</td></tr>\n<tr><td>Starter ($19)</td><td>$2.00</td><td>$3.00</td></tr>\n<tr><td>Scale ($199)</td><td>$1.70</td><td>$2.40</td></tr>\n<tr><td>Business ($999)</td><td>$1.30</td><td>$1.70</td></tr>\n</tbody>\n</table>\n<p>Platform usage is included in those per-result prices. A hypothetical month of 10,000 search results on Starter uses $20, against the $19 the plan includes, so the bill is $20; adding full details for the same 10,000 homes adds $30, for $50 in total (our arithmetic). Against that, Zillow's own research data costs nothing, and the Bridge MLS feed has no Bridge fee if an MLS approves you, though the MLS may charge its own license fee. If you weigh the terms risk and still go ahead, <a href=\"https://www.apify.com?fpr=rc63q\" target=\"_blank\" rel=\"sponsored noopener\">Apify's free plan</a> lets you check the output before you pay.</p>\n\n<h2 id=\"which-to-pick\">Which route to pick</h2>\n<ul>\n<li><strong>A brokerage, agent site or IDX vendor:</strong> ask your MLS for a Bridge invite. It is the licensed route to listing data, with no Bridge fee, though the MLS may charge its own.</li>\n<li><strong>A business that needs valuations or ownership data:</strong> apply for Zestimates or Public Records on Bridge, and budget 10+ business days for the review.</li>\n<li><strong>Market research or a pricing chart:</strong> download Zillow's research CSVs, free with attribution.</li>\n<li><strong>Listing data at volume without a license:</strong> scraping is one option, at $1.30 to $2.30 per 1,000 search results on Apify, but it goes against Zillow's terms.</li>\n</ul>\n<p>Data is only the first step for a real estate or mortgage team. For mortgage teams, see our <a href=\"/ai-calling-mortgage-lending\">AI calling for mortgage lenders</a>. For agents working owner lists, our guides to <a href=\"/blog/real-estate-cold-calling/\">real estate cold calling</a> and <a href=\"/blog/cold-email-real-estate-investors/\">cold email for real estate investors</a> cover the outreach, and our <a href=\"/ai-automation-agency\">AI automation services</a> can wire a property feed into a CRM. For other data APIs we have priced, see the <a href=\"/blog/google-reviews-api/\">Google Reviews API</a> guide.</p>\n",
+  "faqs": [
+    [
+      "Does Zillow have a public API?",
+      "Not a self-serve one. Zillow's property data comes through Bridge Interactive: MLS listings are invite only and controlled by each MLS, and Zestimates and public records need Zillow Group's approval. Zillow's market data (ZHVI, ZORI) is a free CSV download."
+    ],
+    [
+      "How much does the Zillow API cost?",
+      "Bridge says it charges no service fee for MLS feeds, but each MLS may charge its own license fee. We found no published price for Zillow Group datasets such as Zestimates or public records. The research CSVs are free with attribution."
+    ],
+    [
+      "What is the Zillow API rate limit?",
+      "Bridge's default is 5,000 requests an hour, with a burst limit of 334 a minute. Public records are limited to 1,000 requests a day by default. High-volume apps can ask Bridge for more."
+    ],
+    [
+      "How long does Zillow API approval take?",
+      "For Zillow Group datasets, Bridge asks you to allow at least 10+ business days to determine eligibility. MLS feeds depend on the MLS, which has to invite you first."
+    ],
+    [
+      "Can I get Zestimates through an API?",
+      "Yes, through the Zestimates API on Bridge, covering about 100 million US properties, if Zillow Group approves your use case. Zillow says it is meant for commercial use by businesses, and Bridge's docs say not all properties have a Zestimate."
+    ],
+    [
+      "Is scraping Zillow allowed?",
+      "Zillow's Terms of Use (updated October 28, 2025) bar automated queries, including screen and database scraping. Scrapers sold for Zillow exist, but using them on Zillow goes against those terms. This is general information, not legal advice."
+    ]
+  ],
+  "image": {
+    "style": "v2",
+    "cluster": "Scraping and data APIs",
+    "alt": "Four ways to get Zillow data compared: the Bridge MLS feed with no Bridge fee, Zillow Group datasets with no published price, Zillow research CSVs that are free, and the Zillow Search Scraper on Apify's Store at 2 dollars per 1,000 results on Starter",
+    "explain": {
+      "layout": "compare",
+      "palette": "ember",
+      "kicker": "Zillow data, four routes",
+      "headline": "What each Zillow route costs",
+      "items": [
+        {
+          "icon": "building",
+          "label": "Bridge MLS feed",
+          "value": "No fee",
+          "unit": "from Bridge",
+          "note": "MLS may charge",
+          "num": 0
+        },
+        {
+          "icon": "key",
+          "label": "Zestimates, records",
+          "value": "Unpriced",
+          "unit": "by approval",
+          "note": "10+ business days",
+          "num": 0
+        },
+        {
+          "icon": "chart",
+          "label": "Research CSVs",
+          "value": "Free",
+          "unit": "with attribution",
+          "note": "ZHVI, ZORI",
+          "num": 0
+        },
+        {
+          "icon": "database",
+          "label": "Zillow scraper on Apify",
+          "value": "$2.00",
+          "unit": "per 1,000 results",
+          "note": "Starter; terms bar it",
+          "num": 2
+        }
+      ],
+      "footnote": "Bridge docs, Zillow Group and Apify pages, read 27 Nov 2026. Scraping is against Zillow's Terms of Use."
+    },
+    "cover": {
+      "headline": "Zillow API: access, limits and cost",
+      "number": "5,000 / hour",
+      "kicker": "Scraping and data APIs"
+    },
+    "figures": [
+      {
+        "under": "which-zillow-api",
+        "alt": "The four Zillow data sources that matter: MLS listings on Bridge by MLS invite, Zestimates for about 100 million properties, public records for about 148 million properties, and free research data such as ZHVI and ZORI",
+        "explain": {
+          "layout": "cards",
+          "palette": "sage",
+          "kicker": "Zillow Group data",
+          "headline": "Which API holds which data",
+          "items": [
+            {
+              "icon": "building",
+              "label": "MLS Listings",
+              "note": "invite only, each MLS decides"
+            },
+            {
+              "icon": "coin",
+              "label": "Zestimates",
+              "note": "~100M US properties, by approval",
+              "hot": true
+            },
+            {
+              "icon": "document",
+              "label": "Public Records",
+              "note": "~148M properties, about 15 years"
+            },
+            {
+              "icon": "chart",
+              "label": "Research data",
+              "note": "ZHVI and ZORI, free CSV"
+            }
+          ],
+          "footnote": "Source: Zillow Group developer pages and Bridge API docs, 27 Nov 2026."
+        }
+      },
+      {
+        "under": "bridge-access",
+        "alt": "How access to Zillow Group data on Bridge works: register on Bridge, complete the application profile, apply per dataset, wait at least 10 business days for an eligibility review, then access is granted per dataset depending on the use case",
+        "explain": {
+          "layout": "flow",
+          "palette": "tide",
+          "kicker": "Bridge access",
+          "headline": "How Zillow data access works",
+          "items": [
+            {
+              "icon": "person",
+              "label": "Register on Bridge",
+              "note": "MLS feeds need an invite"
+            },
+            {
+              "icon": "document",
+              "label": "Fill the profile",
+              "note": "use, audience, storage"
+            },
+            {
+              "icon": "calendar",
+              "label": "Eligibility review",
+              "note": "allow 10+ business days",
+              "badge": "10+ days"
+            },
+            {
+              "icon": "key",
+              "label": "Access by use case",
+              "note": "granted per dataset"
+            }
+          ],
+          "footnote": "Illustration of the usual steps, from Bridge's platform docs, 27 Nov 2026."
+        }
+      },
+      {
+        "under": "rate-limits",
+        "alt": "Bridge's default limits compared: 5,000 requests an hour, a burst limit of 334 a minute, and 1,000 requests a day for public records",
+        "explain": {
+          "layout": "compare",
+          "palette": "ember",
+          "kicker": "Bridge default limits",
+          "headline": "How much you can pull",
+          "items": [
+            {
+              "icon": "chart",
+              "label": "Hourly limit",
+              "value": "5,000",
+              "unit": "requests an hour",
+              "note": "no total cap",
+              "num": 5000,
+              "hot": true
+            },
+            {
+              "icon": "warning",
+              "label": "Burst limit",
+              "value": "334",
+              "unit": "requests a minute",
+              "note": "1/15 of the hourly",
+              "num": 334
+            },
+            {
+              "icon": "document",
+              "label": "Public records",
+              "value": "1,000",
+              "unit": "requests a day",
+              "note": "default limit",
+              "num": 1000
+            }
+          ],
+          "footnote": "Source: Bridge API platform docs, rate limits and public records sections, 27 Nov 2026."
+        }
+      },
+      {
+        "under": "zillow-terms",
+        "alt": "What Zillow's Terms of Use allow: aggregate data may be used for market analysis with the citation Data Provided by Zillow Group, other information only without automated processes, while scraping and automated queries and building competing products are prohibited",
+        "explain": {
+          "layout": "rules",
+          "palette": "sage",
+          "kicker": "Zillow Terms of Use",
+          "headline": "What Zillow allows and bans",
+          "items": [
+            {
+              "mark": "yes",
+              "label": "Aggregate data for analysis",
+              "note": "cite Data Provided by Zillow Group"
+            },
+            {
+              "mark": "warn",
+              "label": "Personal use of other data",
+              "note": "only without automated processes"
+            },
+            {
+              "mark": "no",
+              "label": "Scraping and automated queries",
+              "note": "banned in section 5"
+            },
+            {
+              "mark": "no",
+              "label": "Building a competing product",
+              "note": "also in section 5"
+            }
+          ],
+          "footnote": "Zillow Terms of Use, sections 4 and 5, updated Oct 28, 2025. General information, not legal advice.",
+          "subject_icon": "scale",
+          "subject": "Use"
+        }
+      }
+    ],
+    "chart": {
+      "title": "Apify Zillow Search Scraper, cost per 1,000 results",
+      "subtitle": "Per-result rate by Apify plan; the monthly plan fee is separate.",
+      "type": "hbar",
+      "rows": [
+        [
+          "Free ($0)",
+          2.3
+        ],
+        [
+          "Starter ($19)",
+          2.0
+        ],
+        [
+          "Scale ($199)",
+          1.7
+        ],
+        [
+          "Business ($999)",
+          1.3
+        ]
+      ],
+      "prefix": "$",
+      "suffix": "",
+      "highlight": 1,
+      "note": "Starter includes $19 of usage",
+      "source": "maxcopell/zillow-scraper, platform usage included. Source: Apify Store pricing page, November 2026.",
+      "alt": "Bar chart of the Apify Zillow Search Scraper cost per 1,000 results: 2.30 dollars on Free, 2.00 on Starter, 1.70 on Scale and 1.30 on Business, before plan fees.",
+      "after_heading": "What a Zillow scraper costs on Apify"
+    }
+  },
+  "key_numbers": {
+    "title": "Key numbers",
+    "rows": [
+      {
+        "label": "Bridge service fee for MLS feeds",
+        "value": "None",
+        "note": "each MLS may charge its own license fee"
+      },
+      {
+        "label": "Published price, Zillow Group datasets",
+        "value": "None found",
+        "note": "Zestimates, public records; by approval"
+      },
+      {
+        "label": "Eligibility review, Zillow Group data",
+        "value": "10+ business days",
+        "note": "per Bridge's docs"
+      },
+      {
+        "label": "Bridge default rate limit",
+        "value": "5,000 requests an hour",
+        "note": "no cap on total requests"
+      },
+      {
+        "label": "Bridge burst limit",
+        "value": "334 requests a minute",
+        "note": "1/15 of the hourly limit"
+      },
+      {
+        "label": "Public Records API default limit",
+        "value": "1,000 requests a day",
+        "note": ""
+      },
+      {
+        "label": "Zestimates coverage",
+        "value": "~100 million US properties",
+        "note": "Zillow's figure"
+      },
+      {
+        "label": "Public records coverage",
+        "value": "~148 million properties",
+        "note": "3,200 US counties"
+      },
+      {
+        "label": "Zillow research data (ZHVI, ZORI)",
+        "value": "Free",
+        "note": "CSV, attribution required"
+      },
+      {
+        "label": "Apify Zillow Search Scraper, Starter",
+        "value": "$2.00 per 1,000 results",
+        "note": "$19 plan includes $19 of usage; $1.30 on Business"
+      },
+      {
+        "label": "Zillow Terms of Use on scraping",
+        "value": "Prohibited",
+        "note": "section 5, updated October 28, 2025"
+      }
+    ],
+    "source": "Read on 27 November 2026 from Zillow Group's developer pages, the Bridge API docs, Zillow's Terms of Use, Zillow Research and Apify's Store."
+  },
+  "word_count": 1743,
+  "read_time": 8
+}
