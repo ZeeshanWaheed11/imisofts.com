@@ -75,7 +75,16 @@ OFFERS = {
     '/lead-generation-dubai': ('Selling to businesses in the UAE and the Gulf?',
         'Our Dubai team runs compliant cold email and appointment setting across the UAE and GCC and books qualified meetings for you.',
         'See UAE lead generation'),
+    # 2026-11-27: the acquire desk (Zeeshan: "Schedule one more run that publishes an article to bring traffic on
+    # this page"). Only a spec that asks for it with "offer_box": {"href": "/acquire"} gets this box; pick() never
+    # chooses it, so no other article changes.
+    '/acquire': ('Looking for a lead generation agency to buy?',
+        'imisofts, which publishes this guide, is for sale: the website, the cold email system that brings in its leads, and its monthly retainer clients, in one direct deal with the founder.',
+        'See what is for sale'),
 }
+# Boxes that are not a service offer: their own small label, and no free audit link.
+KICKERS = {'/acquire': 'For sale by its founder'}
+NO_AUDIT = {'/acquire'}
 
 NO_BOX = re.compile(r'\bgta\b|grand theft auto|rockstar games|playstation|xbox|nintendo|video game|box office|movie|celebrity')
 COUNTRY = [
@@ -143,14 +152,16 @@ def pick(meta):
 
 def box_html(href):
     head, blurb, label = OFFERS[href]
+    kicker = KICKERS.get(href, 'Done for you by imisofts')
+    audit = '' if href in NO_AUDIT else ('<a href="/free-audit" style="display:inline-block;margin:10px 0 0 16px;color:#F45407;font-weight:500;">'
+                                        'Free audit in 24 hours</a>')
     return ('<div class="offer-box" data-offer="%s" style="margin:32px 0;padding:24px 26px;border:1px solid #FDE0D3;'
             'border-left:4px solid #F45407;border-radius:14px;background:#FFF8F5;">'
-            '<p style="margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#F45407;">Done for you by imisofts</p>'
+            '<p style="margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#F45407;">' + kicker + '</p>'
             '<p style="margin:0 0 8px;font-size:19px;font-weight:600;line-height:1.4;color:#0F172A;">%s</p>'
             '<p style="margin:0 0 16px;font-size:16px;line-height:1.65;color:#475569;">%s</p>'
             '<p style="margin:0;"><a href="%s" style="display:inline-block;padding:10px 18px;background:#F45407;color:#fff;'
-            'border-radius:8px;text-decoration:none;font-weight:500;">%s &rarr;</a>'
-            '<a href="/free-audit" style="display:inline-block;margin:10px 0 0 16px;color:#F45407;font-weight:500;">Free audit in 24 hours</a></p>'
+            'border-radius:8px;text-decoration:none;font-weight:500;">%s &rarr;</a>' + audit + '</p>'
             '</div>') % (href, head, blurb, href, label)
 
 

@@ -72,10 +72,17 @@ def submit_indexnow(urls):
 def faq_items_html(faqs):
     return ''.join(f'<div class="faq-item"><button class="faq-question">{q}<span>+</span></button><div class="faq-answer"><div class="faq-answer-inner"><p>{a}</p></div></div></div>' for q,a in faqs)
 
-def cta_html(h2):
+CTA_TEXT='We design, build, and run it for you, integrated with the tools you already use. Free audit in 24 hours.'
+
+def cta_html(h2, banner=None):
+    # 2026-11-27: a spec may set "cta_banner": {"text", "href", "button"} (the acquire desk points the closing banner
+    # at /acquire). Specs without it build exactly as before.
+    b=banner if isinstance(banner,dict) else {}
+    text=b.get('text') or CTA_TEXT; href=b.get('href') or '/free-audit'; button=b.get('button') or 'Get Your Free Audit'
+    if not str(href).startswith('/'): href='/free-audit'
     return (f'<div class="blog-cta-banner"><h2>{h2}</h2>'
-            f'<p>We design, build, and run it for you, integrated with the tools you already use. Free audit in 24 hours.</p>'
-            f'<a href="/free-audit" class="cta-btn">Get Your Free Audit <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a></div>')
+            f'<p>{text}</p>'
+            f'<a href="{href}" class="cta-btn">{button} <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a></div>')
 
 def normalize_affiliate(body, aff_url):
     if not aff_url: return body
@@ -113,7 +120,7 @@ def build_article(meta, tpl):
     s=re.sub(r'<h1>[^<]*</h1>',f'<h1>{TH}</h1>',s,count=1)
     faq_section=f'<section class="faq-section" id="faq">\n<h2>Frequently Asked Questions</h2>\n{faq_items_html(faqs)}\n</section>'
     body=normalize_affiliate(meta['body'], meta.get('affiliate_url',''))
-    body=((DISCLOSURE+'\n') if meta.get('affiliate_url') else '')+body+'\n'+cta_html(meta.get('cta','Want this set up for your business?'))+'\n'+faq_section
+    body=((DISCLOSURE+'\n') if meta.get('affiliate_url') else '')+body+'\n'+cta_html(meta.get('cta','Want this set up for your business?'), meta.get('cta_banner'))+'\n'+faq_section
     i=s.find('<article class="article-content">'); j=s.find('</article>')
     s=s[:i]+'<article class="article-content">\n'+body+'\n'+s[j:]
     # ---- images (2026-09-26): only specs that carry an "image" block get a hero (+ optional chart).
