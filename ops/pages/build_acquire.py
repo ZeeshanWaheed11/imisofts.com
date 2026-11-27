@@ -8,6 +8,9 @@ Scope set by Zeeshan: imisofts.com, the cold email infrastructure that generates
 monthly retainers (details by email). Figures: DR 27 (Ahrefs, checked 27 Nov 2026) and 8K to 10K monthly
 visitors (owner's figure). Other numbers come from the site itself (articles, service pages, tools).
 
+Version 2.1 (same day): the figures box under the hero became six tiles with icons, notes and a count-up,
+after Zeeshan asked to improve it. On a phone it is a 2 by 3 grid (the old band left one figure alone on a row).
+
 Images live in /assets/acquire/ (screenshots are taken from the site itself; see the vault note).
 """
 import json, os, re, sys
@@ -42,6 +45,9 @@ ICON = {
     'building': '<path d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16"/><path d="M16 9h2a2 2 0 0 1 2 2v10"/><path d="M2.500 21h19"/><path d="M8 7.500h4M8 11.500h4M8 15.500h4"/>',
     'code': '<path d="M8.500 7l-5 5 5 5M15.500 7l5 5-5 5M13.500 4.500l-3 15"/>',
     'compass': '<circle cx="12" cy="12" r="8.500"/><path d="M15.500 8.500l-2 5-5 2 2-5z"/>',
+    'search': '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/>',
+    'tool': '<path d="M14.5 6.5a4 4 0 0 0-5.2 5.2L3.5 17.5l3 3 5.8-5.8a4 4 0 0 0 5.2-5.2l-2.6 2.6-2.4-.6-.6-2.4z"/>',
+    'calendar': '<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>',
 }
 
 
@@ -61,8 +67,17 @@ LOGO_DARK = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 256" clas
              '<text x="200" y="188" font-family="Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" '
              'font-weight="700" font-size="96" letter-spacing="-0.5" fill="#F8FAFC">imisofts</text></svg>')
 
-STATS = [('27', 'Ahrefs Domain Rating'), ('8K-10K', 'Monthly visitors'), (ARTICLES, 'Published articles'),
-         (str(FREE_TOOLS), 'Free tools'), ('2019', 'Founded')]
+# The figures box under the hero. (key tile?, icon, number, plus sign?, label, note, count up?)
+# Indexed pages: Google Search Console, Page indexing report, 963 indexed on 27 Nov 2026 (shown as 900+).
+YEARS = 2026 - 2019
+FIGURES = [
+    (True, 'ring', '27', '', 'Domain Rating', 'Ahrefs score out of 100', True),
+    (True, 'users', '8K-10K', '', 'Monthly visitors', 'Coming to imisofts.com', False),
+    (False, 'book', str(N_POSTS // 10 * 10), '+', 'Published articles', 'Guides, comparisons and news', True),
+    (False, 'search', '900', '+', 'Pages in Google', 'Indexed in Google Search', True),
+    (False, 'tool', str(FREE_TOOLS), '', 'Free tools', 'SEO and AI writing tools', True),
+    (False, 'calendar', '2019', '', 'Founded', '%d years in business' % YEARS, False),
+]
 
 ASSETS = [
     dict(h='imisofts.com',
@@ -167,11 +182,24 @@ ACQ_CSS = """
 .aq-chip-b{right:-26px;top:104px}
 .aq-ring{width:46px;height:46px;flex:0 0 46px}
 .aq-chip-ic{width:46px;height:46px;flex:0 0 46px;border-radius:12px;background:#fff5f3;color:#F45407;display:flex;align-items:center;justify-content:center}
-.aq-stats{margin-top:64px;background:#fff;border:1px solid #eef0f3;border-radius:18px;box-shadow:0 24px 48px -26px rgba(15,23,42,.22);display:grid;grid-template-columns:repeat(5,1fr);padding:30px 8px}
-.aq-stat{text-align:center;padding:0 12px;border-left:1px solid #f0f2f5}
-.aq-stat:first-child{border-left:0}
-.aq-stat b{display:block;white-space:nowrap;font-size:36px;font-weight:800;color:#F45407;line-height:1.1;letter-spacing:-.02em}
-.aq-stat span{display:block;font-size:14px;color:#667085;margin-top:6px}
+.aq-fig{margin-top:64px;background:#fff;border:1px solid #eef0f3;border-radius:22px;box-shadow:0 30px 60px -34px rgba(15,23,42,.28);padding:24px}
+.aq-fig-head{display:flex;align-items:center;justify-content:space-between;gap:8px 20px;flex-wrap:wrap;margin:2px 4px 18px}
+.aq-fig-title{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#0F172A}
+.aq-fig-title::before{content:'';width:27px;height:17px;background:url("MARK") no-repeat center/contain}
+.aq-fig-src{font-size:12.5px;color:#98a2b3;line-height:1.5}
+.aq-fig-grid{display:grid;grid-template-columns:1.22fr 1.22fr 1fr 1fr 1fr 1fr;gap:14px}
+.aq-ft{border:1px solid #eef0f3;border-radius:16px;background:#fafbfc;padding:20px 18px 18px;min-width:0;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.aq-ft:hover{transform:translateY(-2px);box-shadow:0 14px 26px -16px rgba(15,23,42,.25);border-color:rgba(244,84,7,.3)}
+.aq-ft-key{background:linear-gradient(155deg,#ffeee4 0%,#fff9f6 55%,#ffffff 100%);border-color:#ffd3c0}
+.aq-ft-ic{width:42px;height:42px;border-radius:12px;background:#fff;border:1px solid #eceff3;color:#F45407;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.aq-ft-key .aq-ft-ic{background:#F45407;border-color:#F45407;color:#fff;box-shadow:0 10px 18px -8px rgba(244,84,7,.6)}
+.aq-ft-ring{width:42px;height:42px;display:block;margin-bottom:16px}
+.aq-ft-num{display:block;font-size:34px;font-weight:800;letter-spacing:-.025em;line-height:1;color:#0F172A;white-space:nowrap}
+.aq-ft-num [data-count]{font-variant-numeric:tabular-nums}
+.aq-ft-num i{font-style:normal;color:#F45407}
+.aq-ft-key .aq-ft-num{font-size:40px;color:#F45407}
+.aq-ft-label{display:block;font-size:14.5px;font-weight:600;color:#0F172A;margin-top:10px;line-height:1.3}
+.aq-ft-sub{display:block;font-size:12.5px;color:#667085;margin-top:3px;line-height:1.4}
 .aq-rows{display:flex;flex-direction:column;gap:96px}
 .aq-row{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .aq-row.rev .aq-row-visual{order:-1}
@@ -256,6 +284,7 @@ ACQ_CSS = """
 .aq-cta-card .gl-check li::before{background-color:rgba(244,84,7,.2)}
 .aq-cta-card .gl-btn{margin-top:26px;display:block;text-align:center;box-shadow:0 12px 26px -10px rgba(244,84,7,.7)}
 @media (max-width:1340px){.aq-chip-b{right:-6px}}
+@media (max-width:1240px){.aq-fig-grid{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:1100px){
   .aq-hero h1{font-size:52px}
   .aq-chip-a{left:-12px}
@@ -269,7 +298,6 @@ ACQ_CSS = """
   .aq-visual{max-width:640px}
   .aq-chip-a{left:-8px}.aq-chip-b{right:-8px}
   .aq-hero::before{right:-260px;top:40px;opacity:.04}
-  .aq-stat b{font-size:30px;white-space:nowrap}
   .aq-rows{gap:72px}
   .aq-steps{grid-template-columns:repeat(2,1fr);gap:36px 28px}.aq-steps::before{display:none}
   .aq-founder{grid-template-columns:240px 1fr;gap:32px}
@@ -283,12 +311,14 @@ ACQ_CSS = """
   .aq-visual{padding:6px 0 0}
   .aq-chip{display:none}
   .aq-tag{font-size:10px;padding:3px 8px}
-  .aq-stats{margin-top:44px;grid-template-columns:repeat(2,1fr);padding:8px 0;gap:0}
-  .aq-stat{padding:18px 8px;border-left:0;border-top:1px solid #f0f2f5}
-  .aq-stat:nth-child(-n+2){border-top:0}
-  .aq-stat:nth-child(even){border-left:1px solid #f0f2f5}
-  .aq-stat:last-child{grid-column:1 / -1}
-  .aq-stat b{font-size:30px}
+  .aq-fig{margin-top:44px;padding:16px 14px 14px;border-radius:20px}
+  .aq-fig-head{margin:2px 2px 14px}
+  .aq-fig-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .aq-ft{padding:16px 14px 14px;border-radius:14px}
+  .aq-ft-ic,.aq-ft-ring{width:36px;height:36px;margin-bottom:12px}
+  .aq-ft-ic{border-radius:10px}
+  .aq-ft-num{font-size:28px}.aq-ft-key .aq-ft-num{font-size:31px}
+  .aq-ft-label{font-size:13.5px;margin-top:8px}.aq-ft-sub{font-size:12px}
   .aq-row h3{font-size:25px}
   .aq-rows{gap:60px}
   .aq-panel{padding:20px 16px}
@@ -311,9 +341,34 @@ ACQ_CSS = """
   .aq-mail{font-size:19px}
   .aq-cta-card{padding:24px}
 }
-@media (prefers-reduced-motion:reduce){.aq-shot{transition:none}.aq-shot:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.aq-shot,.aq-ft{transition:none}.aq-shot:hover,.aq-ft:hover{transform:none}}
 </style>
 """.replace('MARK', MARK_URI)
+
+
+COUNT_JS = """
+  <script>
+  /* /acquire: the figures count up once when the box scrolls into view. Without JavaScript, or with
+     reduced motion, the final numbers are simply shown (they are in the HTML). */
+  (function(){
+    var box=document.querySelector('.aq-fig');
+    if(!box||!('IntersectionObserver' in window)||!window.requestAnimationFrame) return;
+    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var els=box.querySelectorAll('[data-count]'); if(!els.length) return;
+    var done=false, dur=1100;
+    function set(e){for(var i=0;i<els.length;i++){els[i].textContent=Math.round(Number(els[i].getAttribute('data-count'))*e);}}
+    function run(){
+      if(done) return; done=true;
+      var t0=null;
+      function step(ts){if(t0===null)t0=ts;var p=Math.min(1,(ts-t0)/dur);set(1-Math.pow(1-p,3));if(p<1)requestAnimationFrame(step);}
+      set(0); requestAnimationFrame(step);
+      setTimeout(function(){set(1);},dur+600);
+    }
+    var io=new IntersectionObserver(function(en){for(var i=0;i<en.length;i++){if(en[i].isIntersecting){run();io.disconnect();break;}}},{threshold:0.3});
+    io.observe(box);
+  })();
+  </script>
+"""
 
 
 def strip_tags(t):
@@ -385,11 +440,21 @@ def build():
           <div class="aq-chip aq-chip-b"><span class="aq-chip-ic">%(users)s</span><div><b>8K-10K</b><small>Monthly visitors</small></div></div>
         </div>
       </div>
-      <div class="aq-stats">''' % dict(mailto=MAILTO, ring=RING, users=icon('users', 22),
+      <div class="aq-fig">
+        <div class="aq-fig-head">
+          <span class="aq-fig-title">imisofts in numbers</span>
+          <span class="aq-fig-src">Domain Rating from Ahrefs, indexed pages from Google Search Console, 27 Nov 2026.</span>
+        </div>
+        <div class="aq-fig-grid">''' % dict(mailto=MAILTO, ring=RING, users=icon('users', 22),
                                        hero=browser('home', 1280, 711, 'The imisofts.com homepage', 'imisofts.com', tag=True, eager=True)))
-    for n, l in STATS:
-        m.append('\n        <div class="aq-stat"><b>%s</b><span>%s</span></div>' % (esc(n), esc(l)))
+    for key, ic, num, plus, label, note, count in FIGURES:
+        head = RING.replace('class="aq-ring"', 'class="aq-ft-ring"') if ic == 'ring' else '<span class="aq-ft-ic">%s</span>' % icon(ic, 21)
+        n = '<span data-count="%s">%s</span>' % (num, num) if count else esc(num)
+        m.append('''
+          <div class="aq-ft%s">%s<b class="aq-ft-num">%s%s</b><span class="aq-ft-label">%s</span><span class="aq-ft-sub">%s</span></div>'''
+                 % (' aq-ft-key' if key else '', head, n, '<i>+</i>' if plus else '', esc(label), esc(note)))
     m.append('''
+        </div>
       </div>
     </div>
   </section>
@@ -551,7 +616,7 @@ def build():
     return page(title=title, description=desc, canonical=URL,
                 robots='index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
                 og_url=URL, og_image=og, schema=[webpage, crumbs, faq],
-                extra_css=GEO_CSS + ACQ_CSS, main_html=main_html)
+                extra_css=GEO_CSS + ACQ_CSS, main_html=main_html, tail_js=COUNT_JS)
 
 
 if __name__ == '__main__':
