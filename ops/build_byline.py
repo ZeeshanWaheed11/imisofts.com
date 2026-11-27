@@ -228,6 +228,34 @@ def add_key_numbers(specs):
     return done
 
 
+def add_offer_box(specs):
+    """2026-11-27: add the service offer box (ops/offer_box.py) to NEW byline pages once. Every slug that existed
+    on 2026-11-27 is in ops/offer_box_existing.txt and is skipped, so nothing published before then changes."""
+    done = []
+    try:
+        import offer_box, fix_articles
+    except Exception as e:
+        print('offer box: module unavailable (%s)' % e); return done
+    for sp in specs:
+        page = os.path.join(ROOT, 'blog', sp['slug'], 'index.html')
+        if not os.path.exists(page):
+            continue
+        html = open(page, encoding='utf-8').read()
+        if offer_box.MARK in html:
+            continue
+        try:
+            new = offer_box.apply(html, sp)
+            if new == html:
+                continue
+            probs = fix_articles.validate_article(new)
+            if probs:
+                print('offer box: QA blocked %s: %s' % (sp['slug'], '; '.join(probs))); continue
+            open(page, 'w', encoding='utf-8').write(new); done.append(sp['slug'])
+        except Exception as e:
+            print('offer box: skipped %s (%s)' % (sp['slug'], e))
+    return done
+
+
 def main():
     specs = load_specs()
     if not specs:
@@ -237,6 +265,7 @@ def main():
     pt = add_publish_time(specs)   # first, so every later step sees the real publish date
     im = add_images(specs)
     kn = add_key_numbers(specs)
+    ob = add_offer_box(specs)
     pi = wire_posts_index(specs)
     sm = wire_sitemap(specs)
     # Card them on /blog using the SAME sync the news engine uses (additive + idempotent).
@@ -245,8 +274,8 @@ def main():
     after = open(IDX, encoding='utf-8').read().count('class="post-card"')
     # SAFETY: the grid must never shrink, and our new cards must have landed.
     assert after >= before + len(pi), 'card count sanity failed: %d -> %d (added %d)' % (before, after, len(pi))
-    print('posts-index +%d %s | sitemap +%d %s | tab_added=%s | cards %d -> %d | images +%d %s | key numbers +%d %s | publish time +%d %s'
-          % (len(pi), pi, len(sm), sm, tab, before, after, len(im), im, len(kn), kn, len(pt), pt))
+    print('posts-index +%d %s | sitemap +%d %s | tab_added=%s | cards %d -> %d | images +%d %s | key numbers +%d %s | publish time +%d %s | offer box +%d %s'
+          % (len(pi), pi, len(sm), sm, tab, before, after, len(im), im, len(kn), kn, len(pt), pt, len(ob), ob))
     # ---- IndexNow auto-submit for newly wired pages only (best-effort) ----
     if pi:
         submit_indexnow(['https://imisofts.com/blog/%s/' % s for s in pi] + ['https://imisofts.com/', 'https://imisofts.com/blog/'])

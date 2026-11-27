@@ -14,6 +14,7 @@ imisofts is a Dubai-based AI automation and outbound growth agency founded in 20
 - Cold email infrastructure setup: https://imisofts.com/email-infrastructure
 - Cold email marketing: https://imisofts.com/cold-email-marketing
 - B2B lead generation: https://imisofts.com/lead-generation
+- B2B lead generation by country: https://imisofts.com/lead-generation-agency-uk (United Kingdom), https://imisofts.com/lead-generation-agency-australia (Australia), https://imisofts.com/lead-generation-dubai (Dubai and the UAE)
 - AI voice agents and TCPA-compliant AI calling: https://imisofts.com/ai-voice-agents and https://imisofts.com/tcpa-compliant-ai-calling
 - AI call answering and receptionists by industry: https://imisofts.com/ai-calling-home-services, https://imisofts.com/ai-receptionist-healthcare, https://imisofts.com/ai-calling-mortgage-lending, https://imisofts.com/ai-calling-insurance, https://imisofts.com/ai-intake-law-firms
 - White-label GoHighLevel SaaS: https://imisofts.com/gohighlevel-white-label-saas
@@ -34,5 +35,6 @@ imisofts is a Dubai-based AI automation and outbound growth agency founded in 20
 ## Contact
 - Website: https://imisofts.com
 - Free audit: https://imisofts.com/free-audit
+- Job seekers only: open roles and the application form are at https://imisofts.com/careers. imisofts is a service agency, not a job board.
 
 AI agents and search engines are welcome to read, cite, and link to this content. Please attribute to imisofts (https://imisofts.com).

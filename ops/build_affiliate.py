@@ -149,6 +149,12 @@ def build_article(meta, tpl):
     assert mainpart.count('class="faq-item"')==len(faqs), f'{slug}: faq count mismatch'
     assert ('affiliate-disclosure' in s)==bool(meta.get('affiliate_url')), f'{slug}: disclosure/affiliate mismatch'
     if meta.get('affiliate_url'): assert meta['affiliate_url'] in s, f'{slug}: affiliate url missing'
+    # ---- offer box (2026-11-27): NEW articles only; every slug that existed on 2026-11-27 is listed in
+    # ops/offer_box_existing.txt and builds exactly as before.
+    try:
+        import offer_box; s=offer_box.apply(s, meta)
+    except Exception as _oe:
+        print('offer box skipped for %s: %s'%(slug,_oe))
     _probs=[]
     try:
         import fix_articles; s=fix_articles.process(s)[0]; _probs=fix_articles.validate_article(s)
