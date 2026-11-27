@@ -2922,7 +2922,7 @@
         var f = document.querySelector('#apply iframe');
         if (!f || touched) return;
         var src = f.getAttribute('src') || '';
-        var key = encodeURIComponent('Role applied for');
+        var key = encodeURIComponent('Role you are applying for');   // the field's label in the ClickUp form
         src = src.replace(new RegExp('([?&])' + key + '=[^&]*&?'), '$1').replace(/[?&]$/, '');
         f.setAttribute('src', src + (src.indexOf('?') === -1 ? '?' : '&') + key + '=' + encodeURIComponent(l.getAttribute('data-role')));
       });
