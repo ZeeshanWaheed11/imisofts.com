@@ -5,6 +5,9 @@ One short box in the middle of a new article that names the imisofts service mat
 topic and links to it, plus the free audit. Articles that existed on 2026-11-27 are listed in
 ops/offer_box_existing.txt and are never touched, so pages that already rank do not change.
 
+Existing articles listed in ops/offer_box_approved.json (owner approval of 2026-11-27) get the box too,
+with the service named there.
+
 Used three ways:
   - ops/build_news.py and ops/build_affiliate.py call apply(html, meta) on every build;
   - a byline run adds it to its hand-built page with:  python3 ops/offer_box.py blog/<slug>/index.html
@@ -17,6 +20,9 @@ import os, re, sys, json
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 EXISTING_FILE = os.path.join(HERE, 'offer_box_existing.txt')
+# Existing articles Zeeshan approved for the box (27 Nov 2026: "adding the service box to your top 20 existing law
+# and pricing pages"), each with the service it links to. Only these older slugs ever get a box.
+APPROVED_FILE = os.path.join(HERE, 'offer_box_approved.json')
 MARK = 'class="offer-box"'
 
 # Service pages and the copy for each box. No em dashes (the article QA gate rejects them).
@@ -106,6 +112,15 @@ def existing():
         return None   # file missing: treat every article as existing, never add a box
 
 
+def approved():
+    try:
+        with open(APPROVED_FILE, encoding='utf-8') as f:
+            d = json.load(f)
+        return {k: v for k, v in d.items() if not k.startswith('_') and isinstance(v, str)}
+    except Exception:
+        return {}
+
+
 def topic_text(meta):
     parts = [meta.get('slug', ''), meta.get('title', ''), meta.get('keywords', ''), meta.get('category', '')]
     return ' '.join(str(p) for p in parts).lower().replace('-', ' ')
@@ -146,12 +161,18 @@ def apply(s, meta):
         if not slug or MARK in s:
             return s
         ex = existing()
-        if ex is None or slug in ex:
+        if ex is None:
+            return s
+        appr = approved()
+        if slug in ex and slug not in appr:
             return s
         choice = meta.get('offer_box')
         if choice is False:
             return s
-        href = choice.get('href') if isinstance(choice, dict) else pick(meta)
+        if slug in appr:
+            href = appr[slug]
+        else:
+            href = choice.get('href') if isinstance(choice, dict) else pick(meta)
         if not href or href not in OFFERS:
             return s
         a = s.find('<article')
