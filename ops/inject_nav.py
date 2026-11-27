@@ -13,6 +13,11 @@ after the link it follows. Same rules: additive, idempotent, nothing else is tou
 It also adds footer-only links (see FOOT): one link in the site footer and no menu entry.
 Used for the newsdesk, because the desktop menu is full at nine links.
 
+Since 2026-11-27 the menu has a tenth link, "Acquire Us" (/acquire, the page that offers imisofts for
+sale; Zeeshan asked for it in the header and the footer). A TOP entry may now name several links it
+can follow (the first one found wins) and may leave its footer label empty when the footer link is
+placed by FOOT instead. NAV_FIT keeps ten links on one line at every desktop width.
+
 Since 2026-11-16 it also keeps a "Partners and platforms" logo row in the footer of every
 page (see PARTNERS): one marked block before the footer brand block and one marked <style> in
 <head>. Both sit between markers and are rewritten from PARTNERS on every run, so editing the
@@ -97,9 +102,12 @@ AFTER = {
     "/ai-data-licensing": "/openclaw-setup",   # 2026-11-17: last item of the AI panel, the mobile AI group and the footer services list
 }
 
-# Top-level pages that are not services: (slug, menu label, footer label, slug of the link it follows)
+# Top-level pages that are not services: (slug, menu label, footer label, slug of the link it follows).
+# The last field may be a tuple of slugs (first one found wins). A footer label of None means the
+# footer link is placed by FOOT below, not here.
 TOP = [
     ("/clients", "Clients", "Our Clients", "/case-studies"),
+    ("/acquire", "Acquire Us", None, ("/blog", "/blog/")),   # 2026-11-27: imisofts for sale, last link before the Contact button
 ]
 
 # Spacing of the desktop menu, so nine links stay on one line at every desktop width.
@@ -107,12 +115,21 @@ TOP = [
 # Now: 20px up to 1260px, and 12px up to 1100px (the desktop menu starts at 1025px).
 NAV_FIT_OLD = "@media (max-width:1180px){.nav-menu{gap:20px}}"
 NAV_FIT_NEW = "@media (max-width:1260px){.nav-menu{gap:20px}}@media (max-width:1100px){.nav-menu{gap:12px}}"
+# Ten links since "Acquire Us" was added (2026-11-27). Measured in Chrome: the links are 736px wide in total and
+# the menu has 1044px next to the logo at most, so the 40px spacing no longer fits at any width.
+# Now: 28px above 1260px, 20px up to 1260px, 12px up to 1199px. From 1025px to 1119px there is no room for a
+# tenth link, so "Acquire Us" is hidden there (it stays in the mobile menu and the footer) and the other nine
+# keep the spacing they had before. Menu links never wrap onto a second line.
+NAV_FIT_10 = (".nav-menu{gap:28px}.nav-menu>.nav-link,.nav-cta{white-space:nowrap}"
+              "@media (max-width:1260px){.nav-menu{gap:20px}}@media (max-width:1199px){.nav-menu{gap:12px}}"
+              '@media (max-width:1119px){.nav-menu>.nav-link[href="/acquire"]{display:none}}')
 
 # Footer-only links: (href, footer label, the footer items it may follow, first one found wins).
 # The whole item is compared (href and label), and only inside <footer>, so a breadcrumb or a
 # list in the page body that links to the same address is never mistaken for it or changed.
 FOOT = [
     ("/newsdesk/", "News", ('<li><a href="/blog">Blog</a></li>', '<li><a href="/blog/">Blog</a></li>')),
+    ("/acquire", "Acquire imisofts", ('<li><a href="/careers">Careers</a></li>',)),   # 2026-11-27, Company column
 ]
 
 # The Industries hub (proposed 2026-11-16): one "All Industries" link at the top of the Industries
@@ -309,11 +326,16 @@ def process(path, report):
             report["footer"] += 1
 
     for slug, label, foot, after in TOP:
+        afters = after if isinstance(after, tuple) else (after,)
         # desktop menu, mobile menu: a plain link right after the link it follows, same indentation
         for cls in ("nav-link", "mobile-nav-link"):
             if '<a href="%s" class="%s">' % (slug, cls) in html:
                 continue
-            k = html.find('<a href="%s" class="%s">' % (after, cls))
+            k = -1
+            for a in afters:
+                k = html.find('<a href="%s" class="%s">' % (a, cls))
+                if k != -1:
+                    break
             if k == -1:
                 continue
             end = html.find("</a>", k) + 4
@@ -321,9 +343,9 @@ def process(path, report):
             indent = "" if ls == -1 else "\n" + re.match(r"[ \t]*", html[ls + 1:k]).group(0)
             html = html[:end] + indent + '<a href="%s" class="%s">%s</a>' % (slug, cls, label) + html[end:]
             report["top"] += 1
-        # footer
-        if '<li><a href="%s">' % slug not in html:
-            f = html.find('<li><a href="%s">' % after)
+        # footer (skipped when the footer label is None: FOOT places that link)
+        if foot and '<li><a href="%s">' % slug not in html:
+            f = html.find('<li><a href="%s">' % afters[0])
             if f != -1:
                 fend = html.find("</li>", f) + 5
                 ls = html.rfind("\n", 0, f)
@@ -333,6 +355,9 @@ def process(path, report):
         # keep the longer desktop menu on one line
         if '<a href="%s" class="nav-link">' % slug in html and NAV_FIT_OLD in html:
             html = html.replace(NAV_FIT_OLD, NAV_FIT_NEW)
+        if slug == "/acquire" and '<a href="/acquire" class="nav-link">' in html \
+           and NAV_FIT_10 not in html and NAV_FIT_NEW in html:
+            html = html.replace(NAV_FIT_NEW, NAV_FIT_10)
 
     for href, label, afters in FOOT:
         item = '<li><a href="%s">%s</a></li>' % (href, label)
