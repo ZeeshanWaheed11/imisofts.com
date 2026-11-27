@@ -1,53 +1,48 @@
 #!/usr/bin/env python3
-"""Deal Room pictures for the acquire desk's buyer guides (added 27 Nov 2026).
+"""Deal Room pictures for the acquire desk's buyer guides (added 27 Nov 2026, colours reworked the same day).
 
 Zeeshan, 27 Nov 2026, about the buyer guides that send readers to /acquire: "We need different kind of
-graphics and images for these articles which look professional." Opt-in with "theme": "deal" inside an
-image system 2 block; every other article keeps the warm explainer style of img_v2_explain.py.
+graphics and images for these articles which look professional", then on the first draft: "The graphics
+and colors look cheap tbh. The color should be blue or something like acquire uses."
 
-Same spec block and the same five layouts as image system 2 (flow, cards, compare, timeline, rules), drawn
-like an investment research note instead of a sketch:
-  - in-body pictures: warm white paper, navy ink, a serif headline, hairline rules, clean line icons,
-    numbered steps, horizontal bar charts, a term-sheet table for rules;
-  - the preview cover (blog card, og:image): deep navy, serif headline, the key figure in a stat panel.
-Palettes keep their names so the engines can rotate them: ember = gold accent, sage = teal, tide = blue.
+So this follows the look of the Acquire.com marketplace: deep indigo, electric blue, a pale blue page,
+white cards with soft shadows, heavy geometric sans headlines (Inter 800). Opt-in with "theme": "deal"
+inside an image system 2 block; every other article keeps the warm explainer style of img_v2_explain.py.
 
-Pillow only. Fonts: Inter (labels) and Source Serif 4 Display (headlines and figures), both SIL OFL.
+Same spec block and the same five layouts as image system 2 (flow, cards, compare, timeline, rules).
+The preview cover (blog card, og:image) is indigo with a white "listing card" that carries the key figure.
+"palette" is accepted and ignored (one blue look for the whole desk).
+
+Pillow only. Font: Inter (SIL OFL).
 """
 import math, os, random
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT_DIR = os.environ.get('IMISOFTS_FONTS', os.path.join(HERE, 'fonts'))
 W, H, S = 1200, 675, 2
 
-NAVY = (12, 27, 51)
-NAVY_2 = (21, 42, 74)
-INK = (15, 23, 42)
-SLATE = (71, 85, 105)
-MUTED = (100, 116, 139)
-LINE = (222, 226, 232)
-TRACK = (236, 239, 243)
-PAPER = (250, 249, 246)
+INDIGO = (37, 34, 74)          # Acquire.com heading and hero colour
+INDIGO_2 = (52, 46, 112)
+BLUE = (62, 80, 247)           # Acquire.com button blue
+BLUE_DEEP = (44, 58, 214)
+BLUE_SOFT = (232, 235, 255)    # rgba(78, 95, 255, 0.1) on white
+PAGE = (238, 242, 254)         # Acquire.com section background
+TRACK = (214, 223, 252)
 CARD = (255, 255, 255)
-GREEN = (15, 118, 110)
-RED = (190, 40, 40)
-AMBER = (180, 110, 20)
+SLATE = (84, 88, 122)
+MUTED = (112, 117, 150)
+LINE = (220, 226, 246)
+GREEN, GREEN_BG = (21, 128, 61), (220, 245, 230)
+RED, RED_BG = (200, 40, 50), (253, 228, 230)
+AMBER, AMBER_BG = (176, 100, 10), (254, 240, 214)
 BRAND = (244, 84, 7)
 
-ACCENTS = {            # accent on light paper, accent on navy
-    'ember': ((168, 124, 38), (214, 172, 88)),
-    'sage': ((15, 118, 110), (94, 196, 178)),
-    'tide': ((30, 78, 160), (126, 168, 236)),
-}
-
 _F = {}
-def F(kind, size):
-    """kind: 400 to 800 for Inter, 'serif' or 'serif-b' for Source Serif 4 Display."""
-    k = (kind, size)
+def F(weight, size):
+    k = (weight, size)
     if k not in _F:
-        name = {'serif': 'SourceSerif4Display-SemiBold.ttf', 'serif-b': 'SourceSerif4Display-Bold.ttf'}.get(kind, 'Inter-%s.ttf' % kind)
-        _F[k] = ImageFont.truetype(os.path.join(FONT_DIR, name), int(size * S))
+        _F[k] = ImageFont.truetype(os.path.join(FONT_DIR, 'Inter-%s.ttf' % weight), int(size * S))
     return _F[k]
 
 
@@ -58,6 +53,21 @@ def X(v):
 def rrect(d, x0, y0, x1, y1, r, fill=None, outline=None, width=1.0):
     d.rounded_rectangle([X(x0), X(y0), X(x1), X(y1)], radius=X(r), fill=fill, outline=outline,
                         width=max(1, X(width)) if outline else 0)
+
+
+def shadow(img, x0, y0, x1, y1, r, strength=34, dy=10, blur=22):
+    """Soft drop shadow under a card (drawn on the image before the card)."""
+    lay = Image.new('RGBA', img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(lay).rounded_rectangle([X(x0), X(y0 + dy), X(x1), X(y1 + dy)], radius=X(r), fill=INDIGO + (strength,))
+    lay = lay.filter(ImageFilter.GaussianBlur(X(blur)))
+    img.alpha_composite(lay)
+
+
+def card(img, x0, y0, x1, y1, r=18, fill=CARD, strength=30):
+    shadow(img, x0, y0, x1, y1, r, strength)
+    d = ImageDraw.Draw(img)
+    rrect(d, x0, y0, x1, y1, r, fill=fill)
+    return d
 
 
 def wrap(d, text, font, maxw):
@@ -76,15 +86,27 @@ def wrap(d, text, font, maxw):
 
 
 def spaced(d, xy, text, font, fill, track=1.6, anchor='l'):
-    """Letter-spaced small caps line (eyebrows and labels)."""
     x, y = xy
     total = sum(d.textlength(ch, font=font) for ch in text) / S + track * max(0, len(text) - 1)
     if anchor == 'm':
         x -= total / 2
+    elif anchor == 'r':
+        x -= total
     for ch in text:
         d.text((X(x), X(y)), ch, font=font, fill=fill)
         x += d.textlength(ch, font=font) / S + track
     return total
+
+
+def pill(d, x, y, text, fg, bg, size=13, padx=14, h=30, track=1.4, anchor='l'):
+    f = F(700, size)
+    tw = sum(d.textlength(ch, font=f) for ch in text) / S + track * max(0, len(text) - 1)
+    w = tw + 2 * padx
+    if anchor == 'm':
+        x -= w / 2
+    rrect(d, x, y, x + w, y + h, h / 2, fill=bg)
+    spaced(d, (x + padx, y + (h - size) / 2 - 2), text, f, fg, track)
+    return w
 
 
 # ------------------------------------------------------------------ clean line icons (drawn on a 64 unit grid)
@@ -213,13 +235,24 @@ ICONS = {'database': i_database, 'document': i_document, 'shield': i_shield, 'lo
          'flag': i_flag, 'handshake': i_handshake}
 
 
-def icon(d, name, cx, cy, size, color, width=2.4):
+def icon(d, name, cx, cy, size, color, width=2.6):
     ICONS.get(name, i_document)(Ic(d, cx, cy, size, color, width))
 
 
-def icon_tile(d, name, cx, cy, box, color, bg=CARD, border=LINE):
-    rrect(d, cx - box / 2, cy - box / 2, cx + box / 2, cy + box / 2, 10, fill=bg, outline=border, width=1.2)
-    icon(d, name, cx, cy, box * 0.56, color, 2.3)
+def icon_chip(d, name, cx, cy, box, hot=False, on_blue=False):
+    """Blue line icon in a pale blue rounded square (white on blue when the card is highlighted)."""
+    if on_blue:
+        rrect(d, cx - box / 2, cy - box / 2, cx + box / 2, cy + box / 2, box * 0.28, fill=(92, 108, 250))
+        icon(d, name, cx, cy, box * 0.56, CARD, 2.6)
+    else:
+        rrect(d, cx - box / 2, cy - box / 2, cx + box / 2, cy + box / 2, box * 0.28, fill=BLUE if hot else BLUE_SOFT)
+        icon(d, name, cx, cy, box * 0.56, CARD if hot else BLUE, 2.6)
+
+
+def num_badge(d, cx, cy, n, hot=False, on_blue=False, r=17):
+    fill = CARD if on_blue else (BLUE if hot else INDIGO)
+    d.ellipse([X(cx - r), X(cy - r), X(cx + r), X(cy + r)], fill=fill)
+    d.text((X(cx), X(cy + 0.5)), str(n), font=F(800, 16), fill=BLUE if on_blue else CARD, anchor='mm')
 
 
 def logo(d, x, top, s, word):
@@ -231,164 +264,164 @@ def logo(d, x, top, s, word):
     d.text(Q(200, 188), 'imisofts', font=ImageFont.truetype(os.path.join(FONT_DIR, 'Inter-700.ttf'), int(96 * s * S)), fill=word, anchor='ls')
 
 
-# ------------------------------------------------------------------ in-body pictures (light paper)
-def frame(d, A, ex):
+# ------------------------------------------------------------------ in-body pictures (pale blue page, white cards)
+def frame(d, ex):
     k = (ex.get('kicker') or '').upper()
     if k:
-        d.rectangle([X(72), X(66), X(104), X(68.5)], fill=A)
-        spaced(d, (114, 59), k, F(700, 13), A, 1.8)
+        pill(d, 72, 50, k, BLUE, CARD, size=12, padx=13, h=28, track=1.5)
     hl = ex.get('headline', '')
-    hf = F('serif', 40)
-    if d.textlength(hl, font=hf) > 900 * S:
-        hf = F('serif', 34)
-    d.text((X(72), X(84)), hl, font=hf, fill=NAVY)
-    logo(d, W - 72 - 150, 56, 0.17, NAVY)
-    d.line([X(72), X(H - 58), X(W - 72), X(H - 58)], fill=LINE, width=X(1))
+    hf = F(800, 38)
+    if d.textlength(hl, font=hf) > 880 * S:
+        hf = F(800, 32)
+    d.text((X(72), X(92)), hl, font=hf, fill=INDIGO)
+    logo(d, W - 72 - 150, 54, 0.17, INDIGO)
     if ex.get('footnote'):
-        d.text((X(72), X(H - 44)), ex['footnote'], font=F(500, 14), fill=MUTED)
-    tag = 'BUYER GUIDE'
-    tw = sum(d.textlength(c, font=F(700, 11)) for c in tag) / S + 1.6 * (len(tag) - 1)
-    spaced(d, (W - 72 - tw, H - 42), tag, F(700, 11), MUTED, 1.6)
+        d.text((X(72), X(H - 42)), ex['footnote'], font=F(500, 14), fill=MUTED)
+    spaced(d, (W - 72, H - 41), 'BUYER GUIDE', F(700, 11), MUTED, 1.6, anchor='r')
 
 
-def lay_flow(d, A, ex):
+def lay_flow(img, d, ex):
     items = ex['items'][:5]
     n = len(items)
-    gap = 1056 / n
-    ty = 262
-    d.line([X(72 + gap * 0.5), X(ty), X(72 + gap * (n - 0.5)), X(ty)], fill=LINE, width=X(2))
+    gap = 18
+    cw = (1056 - gap * (n - 1)) / n
+    top, bot = 176, 596
+    hot_any = any(x.get('hot') for x in items)
     for i, it in enumerate(items):
-        cx = 72 + gap * (i + 0.5)
-        hot = it.get('hot') or (i == n - 1 and not any(x.get('hot') for x in items))
-        d.text((X(cx), X(198)), '%02d' % (i + 1), font=F('serif', 32), fill=A if hot else SLATE, anchor='ma')
-        r = 9 if hot else 7
-        d.ellipse([X(cx - r), X(ty - r), X(cx + r), X(ty + r)], fill=A if hot else NAVY)
-        if i < n - 1:
-            ax = cx + gap / 2
-            d.line([X(ax - 6), X(ty - 6), X(ax), X(ty), X(ax - 6), X(ty + 6)], fill=MUTED, width=X(2), joint='curve')
-        icon_tile(d, it.get('icon', 'document'), cx, 354, 88, A if hot else NAVY, border=A if hot else LINE)
+        x = 72 + i * (cw + gap)
+        hot = it.get('hot') or (i == n - 1 and not hot_any)
+        d = card(img, x, top, x + cw, bot, 18, fill=BLUE if hot else CARD)
+        num_badge(d, x + 32, top + 34, i + 1, hot, on_blue=hot)
+        if i < n - 1:                                   # small connector between cards
+            cy = top + 34
+            d.line([X(x + cw + 3), X(cy), X(x + cw + gap - 3), X(cy)], fill=TRACK, width=X(2))
+        icon_chip(d, it.get('icon', 'document'), x + cw / 2, top + 140, 84, on_blue=hot)
         if it.get('badge'):
-            bf = F(700, 13)
-            bw = d.textlength(it['badge'], font=bf) / S + 18
-            rrect(d, cx + 30, 300, cx + 30 + bw, 324, 12, fill=A)
-            d.text((X(cx + 30 + bw / 2), X(312)), it['badge'], font=bf, fill=CARD, anchor='mm')
-        y = 424
-        for ln in wrap(d, it.get('label', ''), F(700, 23), gap - 28)[:2]:
-            d.text((X(cx), X(y)), ln, font=F(700, 23), fill=NAVY, anchor='ma'); y += 29
-        y += 6
-        for ln in wrap(d, it.get('note', ''), F(500, 17), gap - 34)[:3]:
-            d.text((X(cx), X(y)), ln, font=F(500, 17), fill=SLATE, anchor='ma'); y += 23
+            pill(d, x + cw / 2, top + 196, it['badge'], CARD if not hot else BLUE, BLUE if not hot else CARD, size=12, padx=10, h=24, anchor='m')
+        y = top + 236
+        for ln in wrap(d, it.get('label', ''), F(800, 22), cw - 30)[:2]:
+            d.text((X(x + cw / 2), X(y)), ln, font=F(800, 22), fill=CARD if hot else INDIGO, anchor='ma'); y += 28
+        y += 8
+        for ln in wrap(d, it.get('note', ''), F(500, 16), cw - 34)[:4]:
+            d.text((X(x + cw / 2), X(y)), ln, font=F(500, 16), fill=(222, 226, 255) if hot else SLATE, anchor='ma'); y += 22
 
 
-def lay_cards(d, A, ex):
+def lay_cards(img, d, ex):
     items = ex['items'][:6]
     n = len(items)
     per = n if n <= 3 else (2 if n == 4 else 3)
     rows = math.ceil(n / per)
     gap = 22
     cw = (1056 - gap * (per - 1)) / per
-    top = 162
-    ch = (440 - gap * (rows - 1)) / rows
+    top = 170
+    ch = (426 - gap * (rows - 1)) / rows
     for i, it in enumerate(items):
         r, c = divmod(i, per)
         x, y = 72 + c * (cw + gap), top + r * (ch + gap)
         hot = it.get('hot')
-        rrect(d, x, y, x + cw, y + ch, 12, fill=CARD, outline=A if hot else LINE, width=1.4 if hot else 1.2)
-        d.rectangle([X(x), X(y + 14), X(x + 4), X(y + ch - 14)], fill=A if hot else NAVY)
-        num = '%02d' % (i + 1)
-        d.text((X(x + 26), X(y + 18)), num, font=F('serif', 26), fill=A if (hot or ex.get('numbered')) else SLATE)
-        icon_tile(d, it.get('icon', 'document'), x + cw - 50, y + 44, 56, A if hot else NAVY)
-        ty = y + (ch * 0.42 if rows > 1 else 132)
-        for ln in wrap(d, it.get('label', ''), F(700, 23), cw - 52)[:2]:
-            d.text((X(x + 26), X(ty)), ln, font=F(700, 23), fill=NAVY); ty += 29
+        d = card(img, x, y, x + cw, y + ch, 18, fill=BLUE if hot else CARD)
+        icon_chip(d, it.get('icon', 'document'), x + 52, y + 52, 60, on_blue=hot)
+        if ex.get('numbered'):
+            pill(d, x + cw - 24 - 70, y + 38, 'STEP %d' % (i + 1), CARD if hot else BLUE, (92, 108, 250) if hot else BLUE_SOFT, size=11, padx=10, h=26)
+        ty = y + 100 if rows > 1 else y + 132
+        for ln in wrap(d, it.get('label', ''), F(800, 22), cw - 52)[:2]:
+            d.text((X(x + 26), X(ty)), ln, font=F(800, 22), fill=CARD if hot else INDIGO); ty += 28
         ty += 6
-        for ln in wrap(d, it.get('note', ''), F(500, 17), cw - 52)[:3]:
-            d.text((X(x + 26), X(ty)), ln, font=F(500, 17), fill=SLATE); ty += 23
+        for ln in wrap(d, it.get('note', ''), F(500, 16), cw - 52)[:3]:
+            d.text((X(x + 26), X(ty)), ln, font=F(500, 16), fill=(222, 226, 255) if hot else SLATE); ty += 22
 
 
-def lay_compare(d, A, ex):
+def lay_compare(img, d, ex):
     items = ex['items'][:4]
     n = len(items)
-    top, bottom = 168, 596
-    rh = (bottom - top) / n
-    bx0, bx1 = 420, 900
+    top, bot = 170, 598
+    d = card(img, 72, top, W - 72, bot, 20)
+    rh = (bot - top - 24) / n
+    bx0, bx1 = 430, 880
     vmax = max([it.get('num') or 0 for it in items] + [0]) or 1
-    for q in range(5):                              # light gridlines, like a research chart
-        gx = bx0 + (bx1 - bx0) * q / 4
-        d.line([X(gx), X(top + 4), X(gx), X(bottom - 8)], fill=TRACK, width=X(1))
     for i, it in enumerate(items):
-        y = top + i * rh
+        y = top + 12 + i * rh
         cy = y + rh / 2
         hot = it.get('hot')
-        icon_tile(d, it.get('icon', 'coin'), 104, cy, 56, A if hot else NAVY, border=A if hot else LINE)
+        icon_chip(d, it.get('icon', 'coin'), 132, cy, 56, hot)
+        lf = F(800, 22)
+        if d.textlength(it.get('label', ''), font=lf) > 250 * S:
+            lf = F(800, 18)
         ly = cy - (24 if it.get('note') else 13)
-        lf = F(700, 23)
-        if d.textlength(it.get('label', ''), font=lf) > 256 * S:
-            lf = F(700, 19)
-        d.text((X(148), X(ly)), it.get('label', ''), font=lf, fill=NAVY)
+        d.text((X(176), X(ly)), it.get('label', ''), font=lf, fill=INDIGO)
         if it.get('note'):
-            d.text((X(148), X(ly + 30)), it['note'], font=F(500, 15), fill=SLATE)
+            d.text((X(176), X(ly + 30)), it['note'], font=F(500, 15), fill=SLATE)
         if it.get('num') is not None:
-            bw = max(8, (bx1 - bx0) * float(it['num']) / vmax)
-            d.rectangle([X(bx0), X(cy - 15), X(bx1), X(cy + 15)], fill=TRACK)
-            d.rectangle([X(bx0), X(cy - 15), X(bx0 + bw), X(cy + 15)], fill=A if hot else NAVY)
+            bw = max(14, (bx1 - bx0) * float(it['num']) / vmax)
+            rrect(d, bx0, cy - 13, bx1, cy + 13, 13, fill=PAGE)
+            rrect(d, bx0, cy - 13, bx0 + bw, cy + 13, 13, fill=BLUE if hot else INDIGO)
         val = it.get('value', '')
-        vf = F('serif-b', 36 if len(val) <= 8 else 30)
-        d.text((X(924), X(cy - 6)), val, font=vf, fill=A if hot else NAVY, anchor='ls')
+        d.text((X(908), X(cy - 4)), val, font=F(800, 32 if len(val) <= 8 else 26), fill=BLUE if hot else INDIGO, anchor='ls')
         if it.get('unit'):
-            d.text((X(924), X(cy + 20)), it['unit'], font=F(500, 15), fill=SLATE, anchor='ls')
+            d.text((X(908), X(cy + 20)), it['unit'], font=F(500, 15), fill=SLATE, anchor='ls')
         if i < n - 1:
-            d.line([X(72), X(y + rh), X(W - 72), X(y + rh)], fill=LINE, width=X(1))
+            d.line([X(104), X(y + rh), X(W - 104), X(y + rh)], fill=LINE, width=X(1))
 
 
-def lay_timeline(d, A, ex):
+def lay_timeline(img, d, ex):
     items = ex['items'][:5]
     n = len(items)
-    x0, x1 = 150, 1050
-    ay = 430
-    d.line([X(96), X(ay), X(W - 96), X(ay)], fill=NAVY, width=X(2))
+    x0, x1 = 170, 1030
+    ay = 420
+    d = card(img, 72, 170, W - 72, 598, 20)
     step = (x1 - x0) / max(1, n - 1)
+    xs = [x0 + step * i if n > 1 else (x0 + x1) / 2 for i in range(n)]
+    h = next((i for i, it in enumerate(items) if it.get('hot')), n - 1)
+    rrect(d, 120, ay - 3, W - 120, ay + 3, 3, fill=TRACK)
+    rrect(d, 120, ay - 3, xs[h], ay + 3, 3, fill=BLUE)          # progress up to the highlighted step
     for i, it in enumerate(items):
-        x = x0 + step * i if n > 1 else (x0 + x1) / 2
-        hot = it.get('hot')
-        icon_tile(d, it.get('icon', 'calendar'), x, 236, 72, A if hot else NAVY, border=A if hot else LINE)
-        d.text((X(x), X(300)), it.get('date', ''), font=F('serif-b', 26), fill=A if hot else NAVY, anchor='ma')
-        d.line([X(x), X(346), X(x), X(ay - 12)], fill=LINE, width=X(1.5))
-        r = 10 if hot else 7
-        d.ellipse([X(x - r), X(ay - r), X(x + r), X(ay + r)], fill=A if hot else CARD, outline=NAVY if not hot else A, width=X(2))
-        y = ay + 30
-        for ln in wrap(d, it.get('label', ''), F(600, 17), step - 22)[:3]:
-            d.text((X(x), X(y)), ln, font=F(600, 18), fill=SLATE, anchor='ma'); y += 23
+        x = xs[i]
+        hot = i == h
+        icon_chip(d, it.get('icon', 'calendar'), x, 268, 68, hot)
+        d.text((X(x), X(334)), it.get('date', ''), font=F(800, 22), fill=BLUE if hot else INDIGO, anchor='ma')
+        r = 12 if hot else 8
+        d.ellipse([X(x - r), X(ay - r), X(x + r), X(ay + r)], fill=BLUE if i <= h else CARD, outline=BLUE, width=X(3))
+        if hot:
+            d.ellipse([X(x - 4), X(ay - 4), X(x + 4), X(ay + 4)], fill=CARD)
+        y = ay + 34
+        for ln in wrap(d, it.get('label', ''), F(600, 17), step - 24)[:3]:
+            d.text((X(x), X(y)), ln, font=F(600, 17), fill=SLATE, anchor='ma'); y += 23
 
 
-MARKS = {'yes': ('YES', GREEN), 'no': ('NO', RED), 'warn': ('CHECK', AMBER)}
+MARKS = {'yes': ('YES', GREEN, GREEN_BG), 'no': ('NO', RED, RED_BG), 'warn': ('CHECK', AMBER, AMBER_BG)}
 
-def lay_rules(d, A, ex, accent_dark=None):
-    rrect(d, 72, 162, 396, 596, 14, fill=NAVY)
-    icon(d, ex.get('subject_icon', 'document'), 234, 318, 120, accent_dark or A, 3.0)
-    sub = ex.get('subject') or ''
-    y = 430
-    for ln in wrap(d, sub, F('serif', 28), 280)[:2]:
-        d.text((X(234), X(y)), ln, font=F('serif', 28), fill=CARD, anchor='ma'); y += 36
-    spaced(d, (234, 548), 'AT A GLANCE', F(700, 11), (150, 165, 190), 1.8, anchor='m')
+def lay_rules(img, d, ex):
+    d = card(img, 72, 170, 380, 598, 20, fill=INDIGO, strength=40)
+    glow = Image.new('RGBA', img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(glow).ellipse([X(170), X(190), X(380), X(400)], fill=BLUE + (120,))
+    glow = glow.filter(ImageFilter.GaussianBlur(X(50)))
+    mask = Image.new('L', img.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle([X(72), X(170), X(380), X(598)], radius=X(20), fill=255)
+    img.paste(Image.alpha_composite(img.copy(), glow), (0, 0), mask)
+    d = ImageDraw.Draw(img)
+    rrect(d, 166, 238, 286, 358, 30, fill=BLUE)
+    icon(d, ex.get('subject_icon', 'document'), 226, 298, 70, CARD, 3.0)
+    y = 396
+    for ln in wrap(d, ex.get('subject') or '', F(800, 26), 260)[:2]:
+        d.text((X(226), X(y)), ln, font=F(800, 26), fill=CARD, anchor='ma'); y += 33
+    spaced(d, (226, 556), 'AT A GLANCE', F(700, 11), (170, 176, 230), 1.8, anchor='m')
     rows = ex['items'][:4]
     n = len(rows)
-    top, bottom = 162, 596
-    rh = (bottom - top) / n
+    top, bot = 170, 598
+    d = card(img, 404, top, W - 72, bot, 20)
+    rh = (bot - top - 20) / n
     for i, r in enumerate(rows):
-        y = top + i * rh
+        y = top + 10 + i * rh
         cy = y + rh / 2
-        label, col = MARKS.get(r.get('mark', 'yes'), MARKS['yes'])
-        pf = F(800, 12)
-        pw = 76
-        rrect(d, 428, cy - 14, 428 + pw, cy + 14, 14, fill=col)
-        spaced(d, (428 + pw / 2, cy - 8), label, pf, CARD, 1.2, anchor='m')
+        label, col, bg = MARKS.get(r.get('mark', 'yes'), MARKS['yes'])
+        rrect(d, 434, cy - 14, 434 + 82, cy + 14, 14, fill=bg)
+        spaced(d, (434 + 41, cy - 8), label, F(800, 12), col, 1.2, anchor='m')
         ty = cy - (24 if r.get('note') else 13)
-        d.text((X(528), X(ty)), r.get('label', ''), font=F(700, 23), fill=NAVY)
+        d.text((X(540), X(ty)), r.get('label', ''), font=F(800, 22), fill=INDIGO)
         if r.get('note'):
-            d.text((X(528), X(ty + 30)), r['note'], font=F(500, 17), fill=SLATE)
+            d.text((X(540), X(ty + 30)), r['note'], font=F(500, 16), fill=SLATE)
         if i < n - 1:
-            d.line([X(428), X(y + rh), X(W - 72), X(y + rh)], fill=LINE, width=X(1))
+            d.line([X(434), X(y + rh), X(W - 102), X(y + rh)], fill=LINE, width=X(1))
 
 
 LAYOUTS = {'flow': lay_flow, 'cards': lay_cards, 'compare': lay_compare, 'timeline': lay_timeline, 'rules': lay_rules}
@@ -400,106 +433,75 @@ def _save(img, path_base):
     out.save(path_base + '.jpg', 'JPEG', quality=91, optimize=True, progressive=True)
 
 
-def _pal(slug, ex, palette, salt=''):
-    rnd = random.Random(slug + salt)
-    return palette or ex.get('palette') or rnd.choice(sorted(ACCENTS))
-
-
 def render_explain(path_base, slug, ex, palette=None):
-    pal = _pal(slug, ex, palette)
-    if pal not in ACCENTS:
-        pal = 'ember'
-    A, A_dark = ACCENTS[pal]
-    img = Image.new('RGB', (W * S, H * S), PAPER)
+    img = Image.new('RGBA', (W * S, H * S), PAGE + (255,))
     d = ImageDraw.Draw(img)
-    frame(d, A, ex)
-    lay = ex.get('layout', 'flow')
-    if lay == 'rules':
-        lay_rules(d, A, ex, accent_dark=A_dark)
-    else:
-        LAYOUTS.get(lay, lay_flow)(d, A, ex)
+    frame(d, ex)
+    LAYOUTS.get(ex.get('layout', 'flow'), lay_flow)(img, d, ex)
     _save(img, path_base)
-    return pal
+    return 'deal'
 
 
 # ------------------------------------------------------------------ preview cover (blog card, og:image, schema)
 def render_cover(path_base, slug, ex, headline, palette=None):
-    pal = _pal(slug, ex, palette, ':cover')
-    if pal not in ACCENTS:
-        pal = 'ember'
-    A = ACCENTS[pal][1]
-    img = Image.new('RGB', (W * S, H * S), NAVY)
+    img = Image.new('RGBA', (W * S, H * S), INDIGO + (255,))
+    glow = Image.new('RGBA', img.size, (0, 0, 0, 0))     # soft blue light, top right and bottom left
+    g = ImageDraw.Draw(glow)
+    g.ellipse([X(720), X(-260), X(1380), X(380)], fill=BLUE + (150,))
+    g.ellipse([X(-260), X(470), X(260), X(900)], fill=(110, 90, 255, 70))
+    glow = glow.filter(ImageFilter.GaussianBlur(X(90)))
+    img = Image.alpha_composite(img, glow)
+    dots = Image.new('RGBA', img.size, (0, 0, 0, 0))     # dot grid, like a deal-room dashboard
+    dd = ImageDraw.Draw(dots)
+    for gx in range(36, W, 28):
+        for gy in range(30, H, 28):
+            dd.ellipse([X(gx - 1), X(gy - 1), X(gx + 1), X(gy + 1)], fill=(255, 255, 255, 16))
+    img = Image.alpha_composite(img, dots)
     d = ImageDraw.Draw(img)
-    for yy in range(H):                                   # gentle vertical gradient
-        t = yy / H
-        col = tuple(int(NAVY[j] + (NAVY_2[j] - NAVY[j]) * t) for j in range(3))
-        d.rectangle([0, X(yy), X(W), X(yy + 1)], fill=col)
-    over = Image.new('RGBA', img.size, (0, 0, 0, 0))
-    o = ImageDraw.Draw(over)
-    for gx in range(0, W + 1, 60):                         # faint grid
-        o.line([X(gx), 0, X(gx), X(H)], fill=(255, 255, 255, 9), width=X(1))
-    for gy in range(0, H + 1, 60):
-        o.line([0, X(gy), X(W), X(gy)], fill=(255, 255, 255, 9), width=X(1))
-    rnd = random.Random(slug + ':line')                    # a quiet rising line, bottom right
-    pts, y = [], 600
-    for k in range(13):
-        x = 620 + k * 50
-        y = max(300, y - rnd.uniform(-6, 30))
-        pts.append((X(x), X(y)))
-    o.line(pts, fill=A + (70,), width=X(3), joint='curve')
-    img = Image.alpha_composite(img.convert('RGBA'), over)
-    d = ImageDraw.Draw(img)
-    # left: eyebrow and serif headline
     k = (ex.get('kicker') or 'Buyer guide').upper()
-    d.rectangle([X(72), X(122), X(110), X(125)], fill=A)
-    spaced(d, (122, 114), k, F(700, 15), A, 2.2)
-    hf = F('serif-b', 60)
-    lines = wrap(d, headline, hf, 600)
+    pill(d, 72, 118, k, (190, 198, 255), (70, 70, 150), size=13, padx=15, h=32, track=1.8)
+    hf = F(800, 60)
+    lines = wrap(d, headline, hf, 640)
     if len(lines) > 3:
-        hf = F('serif-b', 50); lines = wrap(d, headline, hf, 600)
-    y = 170
+        hf = F(800, 50); lines = wrap(d, headline, hf, 640)
+    y = 176
     for ln in lines[:4]:
         d.text((X(72), X(y)), ln, font=hf, fill=CARD)
-        y += int(hf.size / S * 1.14)
-    # right: stat panel with the key figure and the article's icons
-    px0, py0, px1, py1 = 760, 160, 1128, 480
-    panel = Image.new('RGBA', img.size, (0, 0, 0, 0))
-    pd = ImageDraw.Draw(panel)
-    pd.rounded_rectangle([X(px0), X(py0), X(px1), X(py1)], radius=X(18), fill=(255, 255, 255, 14), outline=(255, 255, 255, 46), width=X(1.2))
-    img = Image.alpha_composite(img, panel)
+        y += int(hf.size / S * 1.16)
+    # the white "listing card" on the right
+    cx0, cy0, cx1, cy1 = 742, 150, 1128, 500
+    shadow(img, cx0, cy0, cx1, cy1, 22, strength=110, dy=18, blur=30)
     d = ImageDraw.Draw(img)
+    rrect(d, cx0, cy0, cx1, cy1, 22, fill=CARD)
+    spaced(d, (cx0 + 30, cy0 + 30), 'KEY FIGURE', F(700, 12), MUTED, 2.0)
     big = ex.get('cover_number') or ''
-    if big:
-        spaced(d, (px0 + 32, py0 + 34), 'KEY FIGURE', F(700, 12), (170, 184, 206), 2.0)
-        size = 88
-        while size > 40 and d.textlength(big, font=F('serif-b', size)) > (px1 - px0 - 64) * S:
-            size -= 4
-        d.text((X(px0 + 32), X(py0 + 66)), big, font=F('serif-b', size), fill=A)
-        d.line([X(px0 + 32), X(py0 + 92 + size), X(px1 - 32), X(py0 + 92 + size)], fill=(255, 255, 255, 40), width=X(1))
-        cap = ex.get('cover_caption') or ex.get('headline') or ''
-        cy0 = py0 + 108 + size
-        for ln in wrap(d, cap, F(500, 17), px1 - px0 - 64)[:2]:
-            d.text((X(px0 + 32), X(cy0)), ln, font=F(500, 17), fill=(196, 206, 222)); cy0 += 23
-    items = ex.get('items') or []
-    names = ([ex.get('subject_icon')] if ex.get('layout') == 'rules' else []) + [it.get('icon') for it in items if it.get('icon')]
+    size = 64
+    while size > 34 and d.textlength(big, font=F(800, size)) > (cx1 - cx0 - 60) * S:
+        size -= 4
+    d.text((X(cx0 + 30), X(cy0 + 58)), big, font=F(800, size), fill=BLUE)
+    cap = ex.get('cover_caption') or ex.get('headline') or ''
+    yy = cy0 + 74 + size
+    for ln in wrap(d, cap, F(600, 17), cx1 - cx0 - 60)[:2]:
+        d.text((X(cx0 + 30), X(yy)), ln, font=F(600, 17), fill=SLATE); yy += 23
+    d.line([X(cx0 + 30), X(cy1 - 110), X(cx1 - 30), X(cy1 - 110)], fill=LINE, width=X(1))
+    # mini bar chart inside the card (decorative rising bars)
+    bx, by = cx0 + 30, cy1 - 30
+    rnd = random.Random(slug + ':bars')
+    hts = sorted(rnd.uniform(18, 70) for _ in range(7))
+    for j, hgt in enumerate(hts):
+        rrect(d, bx + j * 22, by - hgt, bx + j * 22 + 14, by, 4, fill=BLUE if j == len(hts) - 1 else TRACK)
+    names = ([ex.get('subject_icon')] if ex.get('layout') == 'rules' else []) + [it.get('icon') for it in (ex.get('items') or []) if it.get('icon')]
     seen = []
     for nme in names:
         if nme and nme not in seen:
             seen.append(nme)
     seen = (seen or ['briefcase', 'chart', 'document'])[:3]
-    gx = px0 + 32
+    gx = cx1 - 30 - 46 * len(seen) - 8 * (len(seen) - 1)
     for nme in seen:
-        rrect(d, gx, py1 - 104, gx + 72, py1 - 32, 12, outline=(255, 255, 255), width=1.2)
-        icon(d, nme, gx + 36, py1 - 68, 40, CARD, 2.2)
-        gx += 90
-    logo(d, 72, 560, 0.24, CARD)
-    spaced(d, (W - 72 - 186, 590), 'IMISOFTS.COM/BLOG', F(600, 12), (150, 165, 190), 2.0)
+        rrect(d, gx, by - 46, gx + 46, by, 12, fill=BLUE_SOFT)
+        icon(d, nme, gx + 23, by - 23, 26, BLUE, 2.2)
+        gx += 54
+    logo(d, 72, 562, 0.24, CARD)
+    spaced(d, (W - 72, 592), 'IMISOFTS.COM/BLOG', F(600, 12), (170, 176, 230), 2.0, anchor='r')
     _save(img, path_base)
-    return pal
-
-
-if __name__ == '__main__':      # quick preview: python3 ops/img_deal.py /tmp/out
-    import sys, json
-    out = sys.argv[1] if len(sys.argv) > 1 else '/tmp/deal'
-    os.makedirs(out, exist_ok=True)
-    print('render with render_explain / render_cover from a spec block')
+    return 'deal'
