@@ -317,7 +317,8 @@ def lay_cards(img, d, ex):
     ch = (426 - gap * (rows - 1)) / rows
     for i, it in enumerate(items):
         r, c = divmod(i, per)
-        x, y = 72 + c * (cw + gap), top + r * (ch + gap)
+        in_row = min(per, n - r * per)                 # centre a short last row
+        x, y = 72 + (per - in_row) * (cw + gap) / 2 + c * (cw + gap), top + r * (ch + gap)
         hot = it.get('hot')
         d = card(img, x, y, x + cw, y + ch, 18, fill=BLUE if hot else CARD)
         icon_chip(d, it.get('icon', 'document'), x + 52, y + 52, 60, on_blue=hot)
